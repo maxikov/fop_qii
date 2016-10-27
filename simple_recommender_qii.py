@@ -13,10 +13,13 @@ from scikits.crab.recommenders.knn import UserBasedRecommender
 import numpy
 import random
 
+import sys
+
 random.seed()
 
 # Set up a recommendation system
-movies = datasets.load_sample_movies()
+#movies = datasets.load_sample_movies()
+movies = datasets.load_movielens_r100k()
 model = MatrixPreferenceDataModel(movies.data)
 similarity = UserSimilarity(model, pearson_correlation)
 recommender = UserBasedRecommender(model, similarity, with_preference=True)
@@ -28,6 +31,12 @@ average_local_inf = {}
 iters = 5  # More iterations, greater accuracy
 
 user_index = -1
+
+
+if not movies.user_ids:
+    ids= set(movies.data.keys())
+    movies.user_ids = {x:str(x) for x in ids}
+
 for id in movies.user_ids:
 	if movies.user_ids[id] == sys.argv[1]:
 		user_index = id
@@ -41,6 +50,8 @@ print "Prediction: ", prediction
 
 user_pref = model.preferences_from_user(user_index)
 print "User preferences: ", user_pref
+
+sys.exit()
 for item in user_pref:
 	local_influence = [0.0]*len(prediction)
 	item_index = item[0]
