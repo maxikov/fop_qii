@@ -18,8 +18,8 @@ import sys
 random.seed()
 
 # Set up a recommendation system
-#movies = datasets.load_sample_movies()
-movies = datasets.load_movielens_r100k()
+movies = datasets.load_sample_movies()
+#movies = datasets.load_movielens_r100k()
 model = MatrixPreferenceDataModel(movies.data)
 similarity = UserSimilarity(model, pearson_correlation)
 recommender = UserBasedRecommender(model, similarity, with_preference=True)
@@ -51,7 +51,6 @@ print "Prediction: ", prediction
 user_pref = model.preferences_from_user(user_index)
 print "User preferences: ", user_pref
 
-sys.exit()
 for item in user_pref:
 	local_influence = [0.0]*len(prediction)
 	item_index = item[0]

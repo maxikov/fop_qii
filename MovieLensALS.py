@@ -2,9 +2,12 @@
 
 import sys
 import itertools
+import copy
+import random
 from math import sqrt
 from operator import add
 from os.path import join, isfile, dirname
+from collections import defaultdict
 
 from pyspark import SparkConf, SparkContext
 from pyspark.mllib.recommendation import ALS
@@ -49,22 +52,8 @@ def computeRmse(model, data, n):
       .values()
     return sqrt(predictionsAndRatings.map(lambda x: (x[0] - x[1]) ** 2).reduce(add) / float(n))
 
-if __name__ == "__main__":
-    if (len(sys.argv) != 3):
-        print "Usage: /path/to/spark/bin/spark-submit --driver-memory 2g " + \
-          "MovieLensALS.py movieLensDataDir personalRatingsFile"
-        sys.exit(1)
 
-    # set up environment
-    conf = SparkConf() \
-      .setAppName("MovieLensALS") \
-      .set("spark.executor.memory", "2g")
-    sc = SparkContext(conf=conf)
-
-    # load personal ratings
-    myRatings = loadRatings(sys.argv[2])
-    myRatingsRDD = sc.parallelize(myRatings, 1)
-    
+def create_data_sets(sc, myRatingsRDD):
     # load ratings and movie titles
 
     movieLensHomeDir = sys.argv[1]
@@ -100,13 +89,22 @@ if __name__ == "__main__":
 
     test = ratings.filter(lambda x: x[0] >= 8).values().cache()
 
+
+
     numTraining = training.count()
     numValidation = validation.count()
     numTest = test.count()
 
     print "Training: %d, validation: %d, test: %d" % (numTraining, numValidation, numTest)
 
-    # train models and evaluate them on the validation set
+    return training, test, validation, movies
+
+
+def create_best_model(sc, training, test, validation):
+
+    numTraining = training.count()
+    numValidation = validation.count()
+    numTest = test.count()
 
     ranks = [8, 12]
     lambdas = [0.1, 10.0]
@@ -141,16 +139,97 @@ if __name__ == "__main__":
     improvement = (baselineRmse - testRmse) / baselineRmse * 100
     print "The best model improves the baseline by %.2f" % (improvement) + "%."
 
-    # make personalized recommendations
+    return bestModel
+
+def build_recommendations(sc, myRatings, bestModel):
 
     myRatedMovieIds = set([x[1] for x in myRatings])
     candidates = sc.parallelize([m for m in movies if m not in myRatedMovieIds])
     predictions = bestModel.predictAll(candidates.map(lambda x: (0, x))).collect()
-    recommendations = sorted(predictions, key=lambda x: x[2], reverse=True)[:50]
+#    recommendations = sorted(predictions, key=lambda x: x[2], reverse=True)[:50]
+    recommendations = sorted(predictions, key = lambda x: x[0])
+    return recommendations
+
+def print_top_recommendations(recommendations, movies):
+    top_recommendations = sorted(recommendations, key=lambda x: x[2],
+            reverse=True)[:50]
+    for i in xrange(len(top_recommendations)):
+        print ("%2d: %s" % (i + 1, movies[top_recommendations[i][1]])).encode('ascii', 'ignore')
+
+
+def compute_local_influence(sc, myRatings, original_recommendations,
+        bestModel, qii_iters = 5):
+    res = defaultdict(lambda: 0.0)
+    myMovies = get_users_movies(myRatings)
+    for movie in myMovies:
+        for i in xrange(qii_iters):
+            new_rating = random.random()*4.0 + 1.0
+            new_ratings = set_users_rating(myRatings, movie, new_rating)
+            new_recommendations = build_recommendations(sc, myRatings,
+                    bestModel)
+            print "New recommendations:", new_recommendations
+            for p in xrange(len(new_recommendations)):
+                #FIXME -- this is probably insane, and doesn't preserve movie
+                #ids!!!
+                res[p] += abs(new_recommendations[p][2] -
+                        original_recommendations[p][2])
+            print "Local influence:", res
+    return res
+
+
+def get_users_movies(myRatings):
+    return [x[2] for x in myRatings]
+
+def set_users_rating(myRatings, movie_id, new_rating):
+    new_ratings = copy.deepcopy(myRatings)
+    for i in xrange(len(new_ratings)):
+        if new_ratings[i][1] == movie_id:
+            new_ratings[i] = (new_ratings[i][0], movie_id, new_rating)
+            break
+    return new_ratings
+
+if __name__ == "__main__":
+    if (len(sys.argv) != 3):
+        print "Usage: /path/to/spark/bin/spark-submit --driver-memory 2g " + \
+          "MovieLensALS.py movieLensDataDir personalRatingsFile"
+        sys.exit(1)
+
+    # set up environment
+    conf = SparkConf() \
+      .setAppName("MovieLensALS") \
+      .set("spark.executor.memory", "2g")
+    sc = SparkContext(conf=conf)
+
+    myRatings = loadRatings(sys.argv[2])
+    myRatingsRDD = sc.parallelize(myRatings, 1)
+
+    training, test, validation, movies = create_data_sets(sc, myRatingsRDD)
+
+    # load personal ratings
+
+    print "My ratings:"
+    for i in xrange(len(myRatings)):
+        print movies[myRatings[i][1]], ":", myRatings[i][2]
+
+#   bestModel = create_best_model(sc, training, test, validation)
+
+    rank = 12
+    lmbda = 0.1
+    numIter = 20
+    bestModel = model = ALS.train(training, rank, numIter, lmbda)
+
+
+    # make personalized recommendations
+
+    recommendations = build_recommendations(sc, myRatings, bestModel)
 
     print "Movies recommended for you:"
-    for i in xrange(len(recommendations)):
-        print ("%2d: %s" % (i + 1, movies[recommendations[i][1]])).encode('ascii', 'ignore')
+    print_top_recommendations(recommendations, movies)
+
+    local_influence = compute_local_influence(sc, myRatings, recommendations,
+            bestModel)
+
+    print "Local influence:", local_influence
 
     # clean up
     sc.stop()
