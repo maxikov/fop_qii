@@ -142,7 +142,6 @@ def create_best_model(sc, training, test, validation):
     return bestModel
 
 def build_recommendations(sc, myRatings, bestModel):
-
     myRatedMovieIds = set([x[1] for x in myRatings])
     candidates = sc.parallelize([m for m in movies if m not in myRatedMovieIds])
     predictions = bestModel.predictAll(candidates.map(lambda x: (0, x))).collect()
@@ -181,7 +180,7 @@ def compute_local_influence(sc, myRatings, original_recommendations,
     old_recs = recommendations_to_dd(original_recommendations)
     for movie in myMovies:
         for i in xrange(qii_iters):
-            new_rating = random.random()*4.0 + 1.0
+            new_rating = random.random*4.0 + 1.0
             new_ratings = set_users_rating(myRatings, movie, new_rating)
             print "New ratings:", new_ratings
             print "Building new data set"
@@ -223,6 +222,11 @@ if __name__ == "__main__":
       .set("spark.executor.memory", "2g")
     sc = SparkContext(conf=conf)
 
+####################################### Fixes Stack Overflow issue when training ALS
+    sc.setCheckpointDir('checkpoint/')
+    ALS.checkpointInterval = 2
+#######################################
+
     myRatings = loadRatings(sys.argv[2])
     myRatingsRDD = sc.parallelize(myRatings, 1)
 
@@ -235,18 +239,17 @@ if __name__ == "__main__":
     for i in xrange(len(myRatings)):
         print movies[myRatings[i][1]], ":", myRatings[i][2]
 
-#   bestModel = create_best_model(sc, training, test, validation)
+    bestModel = create_best_model(sc, training, test, validation)
 
     rank = 12
     lmbda = 0.1
     numIter = 20
-    bestModel = model = ALS.train(training, rank, numIter, lmbda)
+#    bestModel = model = ALS.train(training, rank, numIter, lmbda)
+#    model = ALS.train(training, rank, numIter, lmbda)
 
 
     # make personalized recommendations
-
     recommendations = build_recommendations(sc, myRatings, bestModel)
-
     print "Movies recommended for you:"
     print_top_recommendations(recommendations, movies)
 
