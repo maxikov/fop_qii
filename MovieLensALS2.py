@@ -5,7 +5,7 @@ import itertools
 import copy
 import random
 from math import sqrt
-from operator import add
+from operator import add, itemgetter
 from os.path import join, isfile, dirname
 from collections import defaultdict
 
@@ -142,13 +142,26 @@ def create_best_model(sc, training, test, validation):
 
     return bestModel
 
-def build_recommendations(sc, myRatings, bestModel):
+#def build_recommendations(sc, myRatings, bestModel):
+def build_average_recommendations(sc, myRatings, bestModel, bestRank, bestNumIter, bestLambda,trial_range):
+    recdict = {}
     myRatedMovieIds = set([x[1] for x in myRatings])
     candidates = sc.parallelize([m for m in movies if m not in myRatedMovieIds])
-    predictions = bestModel.predictAll(candidates.map(lambda x: (0, x))).collect()
+#    predictions = bestModel.predictAll(candidates.map(lambda x: (0, x))).collect()
 #    recommendations = sorted(predictions, key=lambda x: x[2], reverse=True)[:50]
-    recommendations = sorted(predictions, key = lambda x: x.product)
-    return recommendations
+#   recommendations = sorted(predictions, key = lambda x: x.product)
+#    return recommendations
+
+    for trial in range(trial_range):
+    	bestModel = ALS.train(training, bestRank, bestNumIter, bestLambda)
+    	predictions = bestModel.predictAll(candidates.map(lambda x: (0, x))).collect()
+    	recommendations = sorted(predictions, key=lambda x: x[2], reverse=True)[:50]
+	for item in xrange(len(recommendations)):
+		if recommendations[item][1] not in recdict.keys():
+			recdict[ recommendations[item][1] ] = 50-(item)
+		else:
+			recdict[ recommendations[item][1] ] += 50-(item)
+    return recdict
 
 def print_top_recommendations(recommendations, movies):
     top_recommendations = sorted(recommendations, key=lambda x: x.rating,
@@ -246,21 +259,30 @@ if __name__ == "__main__":
 #    bestModel = model = ALS.train(training, rank, numIter, lmbda)
 #    model = ALS.train(training, rank, numIter, lmbda)
 
+#### Create numtrials trials of recommender system and average the top 50 ratings to get the averaged top recommendations
 
-    # make personalized recommendations
     print "build recs"
-    recommendations = build_recommendations(sc, myRatings, bestModel)
+#    recommendations = build_recommendations(sc, myRatings, bestModel)
+    recdict = build_average_recommendations(sc, myRatings, bestModel, rank,numIter,lmbda, 10)
     print "recs built no problem"
     print "Movies recommended for you:"
-    print_top_recommendations(recommendations, movies)
+#    print_top_recommendations(recommendations, movies)
 
 
-    local_influence = compute_local_influence(sc, myRatings, recommendations,
-            bestModel, training, rank, lmbda, numIter, qii_iters = 5)
+#    print "Movies recommended for you:"
+    sorted_recdict = sorted(recdict.items(), key = itemgetter(1))
+    for i, (a,b) in enumerate(sorted_recdict):
+	print movies[a].encode('ascii','ignore') + ": " + str(b)
 
-    print "Local influence:"
-    for mid, minf in sorted(local_influence.items(), key = lambda x: -x[1]):
-        print movies[mid], ":", minf
+
+
+
+#    local_influence = compute_local_influence(sc, myRatings, recommendations,
+#            bestModel, training, rank, lmbda, numIter, qii_iters = 5)
+
+#    print "Local influence:"
+#    for mid, minf in sorted(local_influence.items(), key = lambda x: -x[1]):
+#        print movies[mid], ":", minf
 
 
     # clean up
