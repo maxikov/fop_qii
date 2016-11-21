@@ -116,7 +116,7 @@ def create_best_model(sc, training, test, validation):
     bestNumIter = -1
 
     for rank, lmbda, numIter in itertools.product(ranks, lambdas, numIters):
-        model = ALS.train(training, rank, numIter, lmbda)
+        model = ALS.train(training, rank, numIter, lmbda, seed=7)
         validationRmse = computeRmse(model, validation, numValidation)
         print "RMSE (validation) = %f for the model trained with " % validationRmse + \
               "rank = %d, lambda = %.1f, and numIter = %d." % (rank, lmbda, numIter)
@@ -180,13 +180,13 @@ def compute_local_influence(sc, myRatings, original_recommendations,
     old_recs = recommendations_to_dd(original_recommendations)
     for movie in myMovies:
         for i in xrange(qii_iters):
-            new_rating = random.random*4.0 + 1.0
+            new_rating = random.random()*4.0 + 1.0
             new_ratings = set_users_rating(myRatings, movie, new_rating)
             print "New ratings:", new_ratings
             print "Building new data set"
             new_dataset = set_ratings_in_dataset(sc, training, new_ratings)
             print "Building model"
-            new_model = ALS.train(new_dataset, rank, numIter, lmbda)
+            new_model = ALS.train(new_dataset, rank, numIter, lmbda, seed=7)
             print "Built, predicting"
             new_recommendations = build_recommendations(sc, new_ratings,
                     new_model)
@@ -194,7 +194,8 @@ def compute_local_influence(sc, myRatings, original_recommendations,
             #print "New recommendations:", new_recommendations
             for mid in set(old_recs.keys()).union(set(new_recs.keys())):
                 res[movie] += abs(old_recs[mid] - new_recs[mid])
-                #print old_recs[mid], new_recs[mid]
+                if old_recs[mid] != new_recs[mid]:
+                    print "Diff: ", old_recs[mid], new_recs[mid] 
             print "Local influence:", res
     return res
 
