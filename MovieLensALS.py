@@ -179,6 +179,42 @@ def compute_local_influence(sc, myRatings, original_recommendations,
     myMovies = get_users_movies(myRatings)
     old_recs = recommendations_to_dd(original_recommendations)
     for movie in myMovies:
+        new_rating = 1
+        myRatings = set_users_rating(myRatings, movie, new_rating)
+    new_dataset = set_ratings_in_dataset(sc, training, myRatings)
+    new_model = ALS.train(new_dataset, rank, numIter, lmbda, seed=7)
+    print "Built, predicting"
+    new_recommendations = build_recommendations(sc, myRatings,
+                    new_model)
+    old_recs = recommendations_to_dd(new_recommendations)
+    for movie in myMovies:
+        for i in xrange(qii_iters):
+            new_rating = 5
+            new_ratings = set_users_rating(myRatings, movie, new_rating)
+            print "New ratings:", new_ratings
+            print "Building new data set"
+            new_dataset = set_ratings_in_dataset(sc, training, new_ratings)
+            print "Building model"
+            new_model = ALS.train(new_dataset, rank, numIter, lmbda, seed=7)
+            print "Built, predicting"
+            new_recommendations = build_recommendations(sc, new_ratings,
+                    new_model)
+            new_recs = recommendations_to_dd(new_recommendations)
+            #print "New recommendations:", new_recommendations
+            for mid in set(old_recs.keys()).union(set(new_recs.keys())):
+                res[movie] += abs(old_recs[mid] - new_recs[mid])
+                if old_recs[mid] != new_recs[mid]:
+                    print "Diff: ", old_recs[mid], new_recs[mid] 
+            print "Local influence:", res
+    return res
+
+
+def compute_local_influence_old(sc, myRatings, original_recommendations,
+        bestModel, training_set, rank, lmbda, numIter, qii_iters = 5):
+    res = defaultdict(lambda: 0.0)
+    myMovies = get_users_movies(myRatings)
+    old_recs = recommendations_to_dd(original_recommendations)
+    for movie in myMovies:
         for i in xrange(qii_iters):
             new_rating = random.random()*4.0 + 1.0
             new_ratings = set_users_rating(myRatings, movie, new_rating)
