@@ -271,6 +271,8 @@ def compute_recommendations_and_qii(sc, dataset, rank, numIter, lmbda, myRatings
 
     return recommendations, local_influence
 
+def get_uid_from_ratings(myRatings):
+    return myRatings[0][0]
 
 if __name__ == "__main__":
     if (len(sys.argv) != 3):
@@ -305,6 +307,7 @@ if __name__ == "__main__":
       .cache()
 
     # load personal ratings
+    print "My user ID:", get_uid_from_ratings(myRatings)
     print "My ratings:"
     for i in xrange(len(myRatings)):
         print movies[myRatings[i][1]], ":", myRatings[i][2]
