@@ -155,12 +155,14 @@ def build_average_recommendations(sc, myRatings, bestModel, bestRank, bestNumIte
     for trial in range(trial_range):
     	bestModel = ALS.train(training, bestRank, bestNumIter, bestLambda)
     	predictions = bestModel.predictAll(candidates.map(lambda x: (0, x))).collect()
-    	recommendations = sorted(predictions, key=lambda x: x[2], reverse=True)[:50]
+#    	recommendations = sorted(predictions, key=lambda x: x[2], reverse=True)[:50]
+        recommendations = sorted(predictions, key = lambda x: x.product)
 	for item in xrange(len(recommendations)):
+		print recommendations[item]
 		if recommendations[item][1] not in recdict.keys():
-			recdict[ recommendations[item][1] ] = 50-(item)
+			recdict[ recommendations[item][1] ] = 50-item
 		else:
-			recdict[ recommendations[item][1] ] += 50-(item)
+			recdict[ recommendations[item][1] ] += 50-item
     return recdict
 
 def print_top_recommendations(recommendations, movies):
@@ -211,6 +213,9 @@ def compute_local_influence(sc, myRatings, original_recommendations,
                 #print old_recs[mid], new_recs[mid]
             print "Local influence:", res
     return res
+
+def compute_local_sensitivity():
+    pass
 
 
 def get_users_movies(myRatings):
@@ -270,19 +275,19 @@ if __name__ == "__main__":
 
 
 #    print "Movies recommended for you:"
-    sorted_recdict = sorted(recdict.items(), key = itemgetter(1))
-    for i, (a,b) in enumerate(sorted_recdict):
+    recommendations = sorted(recdict.items(), key = itemgetter(1))
+    for i, (a,b) in enumerate(recommendations):
 	print movies[a].encode('ascii','ignore') + ": " + str(b)
 
 
 
 
-#    local_influence = compute_local_influence(sc, myRatings, recommendations,
-#            bestModel, training, rank, lmbda, numIter, qii_iters = 5)
+    local_influence = compute_local_influence(sc, myRatings, recommendations,
+            bestModel, training, rank, lmbda, numIter, qii_iters = 5)
 
-#    print "Local influence:"
-#    for mid, minf in sorted(local_influence.items(), key = lambda x: -x[1]):
-#        print movies[mid], ":", minf
+    print "Local influence:"
+    for mid, minf in sorted(local_influence.items(), key = lambda x: -x[1]):
+        print movies[mid], ":", minf
 
 
     # clean up

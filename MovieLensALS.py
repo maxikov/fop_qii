@@ -127,6 +127,7 @@ def create_best_model(sc, training, test, validation):
             bestLambda = lmbda
             bestNumIter = numIter
 
+
     testRmse = computeRmse(bestModel, test, numTest)
 
     # evaluate the best model on the test set
@@ -210,7 +211,7 @@ def compute_local_influence(sc, myRatings, original_recommendations,
 
 
 def compute_local_influence_old(sc, myRatings, original_recommendations,
-        bestModel, training_set, rank, lmbda, numIter, qii_iters = 5):
+        bestModel, training_set, rank, lmbda, numIter, qii_iters = 1):
     res = defaultdict(lambda: 0.0)
     myMovies = get_users_movies(myRatings)
     old_recs = recommendations_to_dd(original_recommendations)
@@ -226,6 +227,8 @@ def compute_local_influence_old(sc, myRatings, original_recommendations,
             print "Built, predicting"
             new_recommendations = build_recommendations(sc, new_ratings,
                     new_model)
+    	    print "Movies recommended for you:"
+    	    print_top_recommendations(new_recommendations, movies)
             new_recs = recommendations_to_dd(new_recommendations)
             #print "New recommendations:", new_recommendations
             for mid in set(old_recs.keys()).union(set(new_recs.keys())):
@@ -276,13 +279,13 @@ if __name__ == "__main__":
     for i in xrange(len(myRatings)):
         print movies[myRatings[i][1]], ":", myRatings[i][2]
 
-    bestModel = create_best_model(sc, training, test, validation)
+#    bestModel = create_best_model(sc, training, test, validation)
 
     rank = 12
     lmbda = 0.1
     numIter = 20
 #    bestModel = model = ALS.train(training, rank, numIter, lmbda)
-#    model = ALS.train(training, rank, numIter, lmbda)
+    bestModel = ALS.train(training, rank, numIter, lmbda, seed=7)
 
 
     # make personalized recommendations
@@ -290,9 +293,18 @@ if __name__ == "__main__":
     print "Movies recommended for you:"
     print_top_recommendations(recommendations, movies)
 
+    myMovies = get_users_movies(myRatings)
+    new_ratings = myRatings
+    for i in xrange(len(myRatings)):
+	    temp = list(new_ratings[i])
+	    temp[1] = random.randint(1,3076)
+       	    new_ratings[i] = tuple(temp)
+            new_rating = random.randint(1,5) #*4.0 + 1.0
+            new_ratings = set_users_rating(new_ratings, movies[new_ratings[i][1]], new_rating)
 
-    local_influence = compute_local_influence(sc, myRatings, recommendations,
-            bestModel, training, rank, lmbda, numIter, qii_iters = 5)
+
+    local_influence = compute_local_influence_old(sc, new_ratings, recommendations,
+            bestModel, training, rank, lmbda, numIter, qii_iters = 1)
 
     print "Local influence:"
     for mid, minf in sorted(local_influence.items(), key = lambda x: -x[1]):
