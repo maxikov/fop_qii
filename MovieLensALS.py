@@ -200,7 +200,7 @@ def set_ratings_in_dataset(sc, dataset, new_ratings):
     return new_dataset
 
 def compute_local_influence(sc, myRatings, original_recommendations,
-        ratings, rank, lmbda, numIter, qii_iters = 5):
+        ratings, rank, lmbda, numIter, qii_iters = 5, mode="exhaustive"):
     """
     Compute the QII metrics for each rating given by a user
     """
@@ -209,8 +209,13 @@ def compute_local_influence(sc, myRatings, original_recommendations,
     old_recs = recommendations_to_dd(original_recommendations)
     for movie in myMovies:
         for i in xrange(qii_iters):
-	    print "xrange is: "+ str(i + 1.0)
-            new_rating = i + 1.0 #random.randint(1,5) #*4.0 + 1.0
+            if mode == "exhaustive":
+	        print "xrange is: "+ str(i + 1.0)
+                new_rating = i + 1.0 #random.randint(1,5) #*4.0 + 1.0
+                if new_rating > 5:
+                    break
+            elif mode == "random":
+                new_rating = random.random()*4.0 + 1.0
             new_ratings = set_users_rating(myRatings, movie, new_rating)
             print "New ratings:", new_ratings
             newRatingsRDD = sc.parallelize(new_ratings, 1)
@@ -229,7 +234,8 @@ def compute_local_influence(sc, myRatings, original_recommendations,
             for mid in set(old_recs.keys()).union(set(new_recs.keys())):
                 res[movie] += abs(old_recs[mid] - new_recs[mid])
             print "Local influence:", res
-    return res
+    res_normed = {k: v/float(qii_iters) for k, v in res.items()}
+    return res_normed
 
 def get_users_movies(myRatings):
     """
@@ -297,7 +303,7 @@ if __name__ == "__main__":
     print_top_recommendations(recommendations, movies)
 
     local_influence = compute_local_influence(sc, myRatings, recommendations,
-            ratings.filter(lambda x: x[0] < 6), rank, lmbda, numIter, qii_iters = 5)
+            ratings.filter(lambda x: x[0] < 6), rank, lmbda, numIter)
 
     print "Local influence:"
     for mid, minf in sorted(local_influence.items(), key = lambda x: -x[1]):
