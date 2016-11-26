@@ -52,8 +52,10 @@ def computeRmse(model, data, n):
       .values()
     return sqrt(predictionsAndRatings.map(lambda x: (x[0] - x[1]) ** 2).reduce(add) / float(n))
 
-
 def create_data_sets(sc, myRatingsRDD):
+    """
+    DEPRACATED (no longer used)
+    """
     # load ratings and movie titles
 
     movieLensHomeDir = sys.argv[1]
@@ -101,7 +103,9 @@ def create_data_sets(sc, myRatingsRDD):
 
 
 def create_best_model(sc, training, test, validation):
-
+    """
+    DEPRACATED (no longer used)
+    """
     numTraining = training.count()
     numValidation = validation.count()
     numTest = test.count()
@@ -141,27 +145,39 @@ def create_best_model(sc, training, test, validation):
 
     return bestModel
 
-def build_recommendations(sc, myRatings, bestModel):
+def build_recommendations(sc, myRatings, model):
+    """
+    Create recommendations for movies not in the current ratings set
+    """
     myRatedMovieIds = set([x[1] for x in myRatings])
-    candidates = sc.parallelize([m for m in movies if m not in myRatedMovieIds])
-    predictions = bestModel.predictAll(candidates.map(lambda x: (0, x))).collect()
-#    recommendations = sorted(predictions, key=lambda x: x[2], reverse=True)[:50]
+    candidates = sc.parallelize([m for m in movies if m not in myRatedMovieIds]).cache()
+    predictions = model.predictAll(candidates.map(lambda x: (0, x))).collect()
     recommendations = sorted(predictions, key = lambda x: x.product)
     return recommendations
 
 def print_top_recommendations(recommendations, movies):
+    """
+    Print the top 50 movie recommendations
+    """
     top_recommendations = sorted(recommendations, key=lambda x: x.rating,
             reverse=True)[:50]
     for i in xrange(len(top_recommendations)):
         print ("%2d: %s" % (i + 1, movies[top_recommendations[i][1]])).encode('ascii', 'ignore')
 
 def recommendations_to_dd(recommendations):
+    """
+    Convert recommendations to dictionary
+    """
     res = defaultdict(lambda: 0.0)
     for rec in recommendations:
         res[rec.product] = rec.rating
     return res
 
 def set_ratings_in_dataset(sc, dataset, new_ratings):
+    """
+    DEPRACATED (no longer used)
+    THIS METHOD DOES NOT WORK
+    """
     new_dataset = [x for x in dataset.toLocalIterator()]
     new_ratings_dict = {(x[0], x[1]):x[2] for x in new_dataset}
     for i in xrange(len(new_dataset)):
@@ -170,76 +186,61 @@ def set_ratings_in_dataset(sc, dataset, new_ratings):
                     new_ratings_dict[(new_dataset[i][0],
                         new_dataset[i][1])])
     new_dataset = sc.parallelize(new_dataset).cache()
+###########################################
+    # Test randomly iterating through ALL movies
+#    myMovies = get_users_movies(myRatings)
+#    new_ratings = myRatings
+#    for i in xrange(len(myRatings)):
+#	    temp = list(new_ratings[i])
+#	    temp[1] = random.randint(1,3076)
+#           new_ratings[i] = tuple(temp)
+#           new_rating = random.randint(1,5) #*4.0 + 1.0
+#           new_ratings = set_users_rating(new_ratings, movies[new_ratings[i][1]], new_rating)
+#############################################
     return new_dataset
 
-
 def compute_local_influence(sc, myRatings, original_recommendations,
-        bestModel, training_set, rank, lmbda, numIter, qii_iters = 5):
+        ratings, rank, lmbda, numIter, qii_iters = 5):
+    """
+    Compute the QII metrics for each rating given by a user
+    """
     res = defaultdict(lambda: 0.0)
     myMovies = get_users_movies(myRatings)
     old_recs = recommendations_to_dd(original_recommendations)
     for movie in myMovies:
-        new_rating = 1
-        myRatings = set_users_rating(myRatings, movie, new_rating)
-    new_dataset = set_ratings_in_dataset(sc, training, myRatings)
-    new_model = ALS.train(new_dataset, rank, numIter, lmbda, seed=7)
-    print "Built, predicting"
-    new_recommendations = build_recommendations(sc, myRatings,
-                    new_model)
-    old_recs = recommendations_to_dd(new_recommendations)
-    for movie in myMovies:
         for i in xrange(qii_iters):
-            new_rating = 5
+	    print "xrange is: "+ str(i + 1.0)
+            new_rating = i + 1.0 #random.randint(1,5) #*4.0 + 1.0
             new_ratings = set_users_rating(myRatings, movie, new_rating)
             print "New ratings:", new_ratings
+            newRatingsRDD = sc.parallelize(new_ratings, 1)
             print "Building new data set"
-            new_dataset = set_ratings_in_dataset(sc, training, new_ratings)
+            numPartitions = 4
+            new_dataset = ratings.values() \
+              .union(newRatingsRDD) \
+              .repartition(numPartitions) \
+              .cache()
             print "Building model"
             new_model = ALS.train(new_dataset, rank, numIter, lmbda, seed=7)
             print "Built, predicting"
             new_recommendations = build_recommendations(sc, new_ratings,
                     new_model)
             new_recs = recommendations_to_dd(new_recommendations)
-            #print "New recommendations:", new_recommendations
             for mid in set(old_recs.keys()).union(set(new_recs.keys())):
                 res[movie] += abs(old_recs[mid] - new_recs[mid])
-                if old_recs[mid] != new_recs[mid]:
-                    print "Diff: ", old_recs[mid], new_recs[mid] 
             print "Local influence:", res
     return res
-
-
-def compute_local_influence_old(sc, myRatings, original_recommendations,
-        bestModel, training_set, rank, lmbda, numIter, qii_iters = 5):
-    res = defaultdict(lambda: 0.0)
-    myMovies = get_users_movies(myRatings)
-    old_recs = recommendations_to_dd(original_recommendations)
-    for movie in myMovies:
-        for i in xrange(qii_iters):
-            new_rating = random.random()*4.0 + 1.0
-            new_ratings = set_users_rating(myRatings, movie, new_rating)
-            print "New ratings:", new_ratings
-            print "Building new data set"
-            new_dataset = set_ratings_in_dataset(sc, training, new_ratings)
-            print "Building model"
-            new_model = ALS.train(new_dataset, rank, numIter, lmbda, seed=7)
-            print "Built, predicting"
-            new_recommendations = build_recommendations(sc, new_ratings,
-                    new_model)
-            new_recs = recommendations_to_dd(new_recommendations)
-            #print "New recommendations:", new_recommendations
-            for mid in set(old_recs.keys()).union(set(new_recs.keys())):
-                res[movie] += abs(old_recs[mid] - new_recs[mid])
-                if old_recs[mid] != new_recs[mid]:
-                    print "Diff: ", old_recs[mid], new_recs[mid] 
-            print "Local influence:", res
-    return res
-
 
 def get_users_movies(myRatings):
+    """
+    Get all movies rated by a given user
+    """
     return [x[1] for x in myRatings]
 
 def set_users_rating(myRatings, movie_id, new_rating):
+    """
+    Set a user rating for a movie in a current set
+    """
     new_ratings = copy.deepcopy(myRatings)
     for i in xrange(len(new_ratings)):
         if new_ratings[i][1] == movie_id:
@@ -264,35 +265,39 @@ if __name__ == "__main__":
     ALS.checkpointInterval = 2
 #######################################
 
+    movieLensHomeDir = sys.argv[1]
     myRatings = loadRatings(sys.argv[2])
     myRatingsRDD = sc.parallelize(myRatings, 1)
 
-    training, test, validation, movies = create_data_sets(sc, myRatingsRDD)
+    ratings = sc.textFile(join(movieLensHomeDir, "ratings.dat")).map(parseRating)
+    movies = dict(sc.textFile(join(movieLensHomeDir, "movies.dat")).map(parseMovie).collect())
 
+    # create the initial training dataset with default ratings
+    numPartitions = 4
+    training = ratings.filter(lambda x: x[0] < 6) \
+      .values() \
+      .union(myRatingsRDD) \
+      .repartition(numPartitions) \
+      .cache()
 
     # load personal ratings
-
     print "My ratings:"
     for i in xrange(len(myRatings)):
         print movies[myRatings[i][1]], ":", myRatings[i][2]
 
-    bestModel = create_best_model(sc, training, test, validation)
-
+    # create initial model based on initial training data
     rank = 12
     lmbda = 0.1
     numIter = 20
-#    bestModel = model = ALS.train(training, rank, numIter, lmbda)
-#    model = ALS.train(training, rank, numIter, lmbda)
-
+    model = ALS.train(training, rank, numIter, lmbda)
 
     # make personalized recommendations
-    recommendations = build_recommendations(sc, myRatings, bestModel)
+    recommendations = build_recommendations(sc, myRatings, model)
     print "Movies recommended for you:"
     print_top_recommendations(recommendations, movies)
 
-
     local_influence = compute_local_influence(sc, myRatings, recommendations,
-            bestModel, training, rank, lmbda, numIter, qii_iters = 5)
+            ratings.filter(lambda x: x[0] < 6), rank, lmbda, numIter, qii_iters = 5)
 
     print "Local influence:"
     for mid, minf in sorted(local_influence.items(), key = lambda x: -x[1]):
