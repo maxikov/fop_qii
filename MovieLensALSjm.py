@@ -189,7 +189,7 @@ def set_ratings_in_dataset(sc, dataset, new_ratings):
     return new_dataset
 
 def compute_local_influence(sc, myRatings, original_recommendations,
-        ratings, rank, lmbda, numIter, qii_iters = 10):
+        ratings, rank, lmbda, numIter, qii_iters = 5, mode="exhaustive"):
     """
     Compute the QII metrics for each rating given by a user
     """
@@ -198,7 +198,10 @@ def compute_local_influence(sc, myRatings, original_recommendations,
     old_recs = recommendations_to_dd(original_recommendations)
     for movie in myMovies:
         for i in xrange(qii_iters):
-            new_rating = random.random()*4.0 + 1.0
+            if mode == "random":
+                new_rating = random.random()*4.0 + 1.0
+            elif mode == "exhaustive":
+                new_rating = i + 1
             new_ratings = set_users_rating(myRatings, movie, new_rating)
             print "New ratings:", new_ratings
             newRatingsRDD = sc.parallelize(new_ratings, 1)
@@ -217,7 +220,8 @@ def compute_local_influence(sc, myRatings, original_recommendations,
             for mid in set(old_recs.keys()).union(set(new_recs.keys())):
                 res[movie] += abs(old_recs[mid] - new_recs[mid])
             print "Local influence:", res
-    return res
+    res_normed = {k:float(v)/float(qii_iters) for k, v in res.items()}
+    return res_normed
 
 def get_users_movies(myRatings):
     """
