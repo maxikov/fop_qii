@@ -254,6 +254,24 @@ def set_users_rating(myRatings, movie_id, new_rating):
             break
     return new_ratings
 
+def compute_recommendations_and_qii(sc, dataset, rank, numIter, lmbda, myRatings):
+    model = ALS.train(dataset, rank, numIter, lmbda)
+
+    # make personalized recommendations
+    recommendations = build_recommendations(sc, myRatings, model)
+    print "Movies recommended for you:"
+    print_top_recommendations(recommendations, movies)
+
+    local_influence = compute_local_influence(sc, myRatings, recommendations,
+            ratings.filter(lambda x: x[0] < 6), rank, lmbda, numIter)
+
+    print "Local influence:"
+    for mid, minf in sorted(local_influence.items(), key = lambda x: -x[1]):
+        print movies[mid], ":", minf
+
+    return recommendations, local_influence
+
+
 if __name__ == "__main__":
     if (len(sys.argv) != 3):
         print "Usage: /path/to/spark/bin/spark-submit --driver-memory 2g " + \
@@ -295,20 +313,11 @@ if __name__ == "__main__":
     rank = 12
     lmbda = 0.1
     numIter = 20
-    model = ALS.train(training, rank, numIter, lmbda)
 
-    # make personalized recommendations
-    recommendations = build_recommendations(sc, myRatings, model)
-    print "Movies recommended for you:"
-    print_top_recommendations(recommendations, movies)
+    recommendations, local_influence = compute_recommendations_and_qii(sc,
+            training, rank, numIter, lmbda, myRatings)
 
-    local_influence = compute_local_influence(sc, myRatings, recommendations,
-            ratings.filter(lambda x: x[0] < 6), rank, lmbda, numIter)
-
-    print "Local influence:"
-    for mid, minf in sorted(local_influence.items(), key = lambda x: -x[1]):
-        print movies[mid], ":", minf
-
+    print recommendations, local_influence
 
     # clean up
     sc.stop()
