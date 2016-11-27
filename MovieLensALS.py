@@ -323,8 +323,6 @@ def extract_ratings_by_uid(sc, dataset, user_id):
 def calculate_l1_distance(dict1, dict2):
     """
     Calcuate the L1 distance between two dictionaries
-    
-    TODO
     """
     keys = set(dict1.keys()).union(dict2.keys())
     res = 0.0
@@ -343,10 +341,12 @@ def calculate_l1_distance(dict1, dict2):
 def get_user_list(dataset):
     """
     Extract the full list of users from the dataset
-    
-    TODO
     """
-    return []
+    res = dataset\
+            .map(lambda x: x[0])\
+            .collect()
+    return list(set(res))
+
 
 def compute_user_local_sensitivity(sc, dataset, user_id, num_iters_ls):
     """
@@ -402,6 +402,7 @@ if __name__ == "__main__":
     for i in xrange(len(myRatings)):
         print movies[myRatings[i][1]], ":", myRatings[i][2]
     """
+
 
 
     #recommendations, local_influence = compute_recommendations_and_qii(sc,
