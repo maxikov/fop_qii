@@ -12,6 +12,14 @@ from collections import defaultdict
 from pyspark import SparkConf, SparkContext
 from pyspark.mllib.recommendation import ALS
 
+# Global variables
+# create initial model based on initial training data
+rank = 12
+lmbda = 0.1
+numIter = 20
+
+
+
 def parseRating(line):
     """
     Parses a rating record in MovieLens format userId::movieId::rating::timestamp .
@@ -199,11 +207,13 @@ def set_ratings_in_dataset(sc, dataset, new_ratings):
 #############################################
     return new_dataset
 
-def compute_local_influence(sc, myRatings, original_recommendations,
+def compute_local_influence(sc, user_id, original_recommendations,
         ratings, rank, lmbda, numIter, qii_iters = 5, mode="exhaustive"):
     """
     Compute the QII metrics for each rating given by a user
     """
+    new_ratings, myRatings = extract_ratings_by_uid(ratings, user_id)
+
     res = defaultdict(lambda: 0.0)
     myMovies = get_users_movies(myRatings)
     old_recs = recommendations_to_dd(original_recommendations)
@@ -221,7 +231,7 @@ def compute_local_influence(sc, myRatings, original_recommendations,
             newRatingsRDD = sc.parallelize(new_ratings, 1)
             print "Building new data set"
             numPartitions = 4
-            new_dataset = ratings.values() \
+            new_dataset = new_ratings.values() \
               .union(newRatingsRDD) \
               .repartition(numPartitions) \
               .cache()
@@ -254,16 +264,22 @@ def set_users_rating(myRatings, movie_id, new_rating):
             break
     return new_ratings
 
-def compute_recommendations_and_qii(sc, dataset, rank, numIter, lmbda, myRatings):
+def compute_recommendations_and_qii(sc, dataset, user_id):
+    """
+    Computes the recommendations and qii metrics for a given dataset and user
+    specified by ID
+    """
     model = ALS.train(dataset, rank, numIter, lmbda)
+
+    myRatings = get_ratings_from_uid(sc, dataset, user_id)
 
     # make personalized recommendations
     recommendations = build_recommendations(sc, myRatings, model)
     print "Movies recommended for you:"
     print_top_recommendations(recommendations, movies)
 
-    local_influence = compute_local_influence(sc, myRatings, recommendations,
-            ratings.filter(lambda x: x[0] < 6), rank, lmbda, numIter)
+    local_influence = compute_local_influence(sc, user_id, recommendations,
+            dataset, rank, lmbda, numIter)
 
     print "Local influence:"
     for mid, minf in sorted(local_influence.items(), key = lambda x: -x[1]):
@@ -273,6 +289,68 @@ def compute_recommendations_and_qii(sc, dataset, rank, numIter, lmbda, myRatings
 
 def get_uid_from_ratings(myRatings):
     return myRatings[0][0]
+
+# JENNA WILL DO THIS
+def perturb_user_ratings(sc, dataset, user_id):
+    """
+    Takes a data set and perturbs the ratings for single user
+    specified by ID
+
+    TODO
+    """
+    return dataset
+
+# JENNA WILL DO THIS
+def get_ratings_from_uid(sc, dataset, user_id):
+    """
+    Returns the set of ratings from a given user specified by ID
+    
+    TODO
+    """
+    return [(0,1,1)]
+
+# JENNA WILL DO THIS
+def extract_ratings_by_uid(sc, dataset, user_id):
+    """
+    Removes the ratings from a given user in the dataset and
+    returns those ratings along with the modified dataset
+    
+    TODO
+    """
+    return new_dataset, user_data
+
+
+def calculate_l1_distance(dict1, dict2):
+    """
+    Calcuate the L1 distance between two dictionaries
+    
+    TODO
+    """
+    return 0
+
+def get_user_list(dataset):
+    """
+    Extract the full list of users from the dataset
+    
+    TODO
+    """
+    return []
+
+def compute_user_local_sensitivity(sc, dataset, user_id, num_iters_ls):
+    """
+    Computes the local sensitivitiy for a given user over a 
+    specific dataset
+
+    TODO
+    """
+    for x in xrange(num_iters_ls):
+        # Get a random user that is not the current user
+        # code here for that, use get_user_list
+        perturbed_datset = perturb_user_ratings(sc, dataset, other_user_id)
+        recommendations, local_influence = compute_recommendations_qii(sc, dataset, user_id)
+        # more TODO calculate_l1_distance for both
+
+    return recommendations_l1_dist, local_influence_l1_dist
 
 if __name__ == "__main__":
     if (len(sys.argv) != 3):
@@ -292,8 +370,8 @@ if __name__ == "__main__":
 #######################################
 
     movieLensHomeDir = sys.argv[1]
-    myRatings = loadRatings(sys.argv[2])
-    myRatingsRDD = sc.parallelize(myRatings, 1)
+    #myRatings = loadRatings(sys.argv[2])
+    #myRatingsRDD = sc.parallelize(myRatings, 1)
 
     ratings = sc.textFile(join(movieLensHomeDir, "ratings.dat")).map(parseRating)
     movies = dict(sc.textFile(join(movieLensHomeDir, "movies.dat")).map(parseMovie).collect())
@@ -302,23 +380,27 @@ if __name__ == "__main__":
     numPartitions = 4
     training = ratings.filter(lambda x: x[0] < 6) \
       .values() \
-      .union(myRatingsRDD) \
       .repartition(numPartitions) \
       .cache()
 
     # load personal ratings
+    """
     print "My user ID:", get_uid_from_ratings(myRatings)
     print "My ratings:"
     for i in xrange(len(myRatings)):
         print movies[myRatings[i][1]], ":", myRatings[i][2]
+    """
 
-    # create initial model based on initial training data
-    rank = 12
-    lmbda = 0.1
-    numIter = 20
 
-    recommendations, local_influence = compute_recommendations_and_qii(sc,
-            training, rank, numIter, lmbda, myRatings)
+    #recommendations, local_influence = compute_recommendations_and_qii(sc,
+     #        training, myRatings)
+  
+    # TODO specify a user ID
+    # TODO specify the number of iterations
+    # TODO decide on what local sensitivity metrics to use/print,
+    # average or maxiumum, etc.
+    # TODO call this function on many user IDs, not just one
+    compute_user_local_sensitivity(sc, training, user_id, num_iters_ls):
 
     print recommendations, local_influence
 
