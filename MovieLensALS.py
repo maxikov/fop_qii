@@ -350,11 +350,14 @@ def get_user_list(dataset):
 
 def compute_user_local_sensitivity(sc, dataset, user_id, num_iters_ls):
     """
-    Computes the local sensitivitiy for a given user over a 
+    Computes the local sensitivitiy for a given user over a
     specific dataset
 
     TODO
     """
+    recommendation_ls = []
+    qii_ls = []
+
     for x in xrange(num_iters_ls):
         # Get a random user that is not the current user
         # code here for that, use get_user_list
