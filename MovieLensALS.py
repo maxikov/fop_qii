@@ -160,9 +160,10 @@ def build_recommendations(sc, myRatings, model):
     Create recommendations for movies not in the current ratings set
     """
     #myRatedMovieIds = set([x[1] for x in myRatings])
+    uid = get_uid_from_ratings(myRatings)
     myRatedMovieIds = set([x[1] for x in myRatings.toLocalIterator()])
     candidates = sc.parallelize([m for m in movies if m not in myRatedMovieIds]).cache()
-    predictions = model.predictAll(candidates.map(lambda x: (0, x))).collect()
+    predictions = model.predictAll(candidates.map(lambda x: (uid, x))).collect()
     recommendations = sorted(predictions, key = lambda x: x.product)
     return recommendations
 
@@ -280,6 +281,8 @@ def compute_recommendations_and_qii(sc, dataset, user_id):
     specified by ID
     """
     # TODO avoid retraining?
+    print "Training the model, rank:", rank, "numIter:", numIter,\
+            "lmbda:", lmbda
     model = ALS.train(dataset, rank, numIter, lmbda)
 
     print "Computing recommendations/QII for user: ", user_id
@@ -435,10 +438,11 @@ if __name__ == "__main__":
     movies = dict(sc.textFile(join(movieLensHomeDir, "movies.dat")).map(parseMovie).collect())
 
     # create the initial training dataset with default ratings
-    training = ratings.filter(lambda x: x[0] < 6) \
+    training = ratings.filter(lambda x: x[0] < 6)\
       .values() \
       .repartition(numPartitions) \
       .cache()
+
 
 
     # TODO specify a user ID
