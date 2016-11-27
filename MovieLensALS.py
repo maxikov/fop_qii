@@ -284,7 +284,7 @@ def compute_recommendations_and_qii(sc, dataset, user_id):
 
     print "Computing recommendations/QII for user: ", user_id
     myRatings = get_ratings_from_uid(dataset, user_id)
-    print "User ratings: ", myRatings
+    print "User ratings: ", [x for x in myRatings.toLocalIterator()]
 
     # make personalized recommendations
     recommendations = build_recommendations(sc, myRatings, model)
