@@ -326,7 +326,19 @@ def calculate_l1_distance(dict1, dict2):
     
     TODO
     """
-    return 0
+    keys = set(dict1.keys()).union(dict2.keys())
+    res = 0.0
+    for key in keys:
+        if key in dict1:
+            d1 = dict1[key]
+        else:
+            d1 = 0
+        if key in dict2:
+            d2 = dict2[key]
+        else:
+            d2 = 0
+        res += abs(d1 + d2)
+    return res
 
 def get_user_list(dataset):
     """
@@ -400,7 +412,7 @@ if __name__ == "__main__":
     # TODO decide on what local sensitivity metrics to use/print,
     # average or maxiumum, etc.
     # TODO call this function on many user IDs, not just one
-    compute_user_local_sensitivity(sc, training, user_id, num_iters_ls):
+    compute_user_local_sensitivity(sc, training, user_id, num_iters_ls)
 
     print recommendations, local_influence
 
