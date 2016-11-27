@@ -13,11 +13,14 @@ from pyspark import SparkConf, SparkContext
 from pyspark.mllib.recommendation import ALS
 
 # Global variables
-# create initial model based on initial training data
+
+# Arguments to the ALS training function
 rank = 12
 lmbda = 0.1
 numIter = 20
 
+# Number of partitions created 
+numPartitions = 4
 
 
 def parseRating(line):
@@ -85,7 +88,6 @@ def create_data_sets(sc, myRatingsRDD):
 
     # training, validation, test are all RDDs of (userId, movieId, rating)
 
-    numPartitions = 4
     training = ratings.filter(lambda x: x[0] < 6) \
       .values() \
       .union(myRatingsRDD) \
@@ -212,33 +214,38 @@ def compute_local_influence(sc, user_id, original_recommendations,
     """
     Compute the QII metrics for each rating given by a user
     """
-    new_ratings, myRatings = extract_ratings_by_uid(ratings, user_id)
+    new_dataset, user_ratings = extract_ratings_by_uid(ratings, user_id)
 
     res = defaultdict(lambda: 0.0)
-    myMovies = get_users_movies(myRatings)
+    myMovies = get_users_movies(user_ratings)
     old_recs = recommendations_to_dd(original_recommendations)
     for movie in myMovies:
         for i in xrange(qii_iters):
             if mode == "exhaustive":
 	        print "xrange is: "+ str(i + 1.0)
-                new_rating = i + 1.0 #random.randint(1,5) #*4.0 + 1.0
+                new_rating = i + 1.0
                 if new_rating > 5:
                     break
             elif mode == "random":
                 new_rating = random.random()*4.0 + 1.0
+#TODOOOOOO
+            new_ratings = dict()
+            new_ratings[movie] = new_rating
+            new_dataset = set_user_ratings(sc, new_dataset, user_ratings, new_ratings)
+            """
             new_ratings = set_users_rating(myRatings, movie, new_rating)
             print "New ratings:", new_ratings
             newRatingsRDD = sc.parallelize(new_ratings, 1)
             print "Building new data set"
-            numPartitions = 4
             new_dataset = new_ratings.values() \
               .union(newRatingsRDD) \
               .repartition(numPartitions) \
               .cache()
+            """
             print "Building model"
             new_model = ALS.train(new_dataset, rank, numIter, lmbda, seed=7)
             print "Built, predicting"
-            new_recommendations = build_recommendations(sc, new_ratings,
+            new_recommendations = build_recommendations(sc, new_dataset,
                     new_model)
             new_recs = recommendations_to_dd(new_recommendations)
             for mid in set(old_recs.keys()).union(set(new_recs.keys())):
@@ -271,7 +278,7 @@ def compute_recommendations_and_qii(sc, dataset, user_id):
     """
     model = ALS.train(dataset, rank, numIter, lmbda)
 
-    myRatings = get_ratings_from_uid(sc, dataset, user_id)
+    myRatings = get_ratings_from_uid(dataset, user_id)
 
     # make personalized recommendations
     recommendations = build_recommendations(sc, myRatings, model)
@@ -290,34 +297,64 @@ def compute_recommendations_and_qii(sc, dataset, user_id):
 def get_uid_from_ratings(myRatings):
     return myRatings[0][0]
 
-# JENNA WILL DO THIS
 def perturb_user_ratings(sc, dataset, user_id):
     """
     Takes a data set and perturbs the ratings for single user
-    specified by ID
-
-    TODO
+    specified by ID, to random values
     """
-    return dataset
+    new_dataset, user_ratings = extract_ratings_by_uid(dataset, user_id)
+    set_user_ratings(sc, new_dataset, user_ratings)
 
-# JENNA WILL DO THIS
-def get_ratings_from_uid(sc, dataset, user_id):
+
+def set_user_ratings(sc, new_dataset, user_ratings, new_ratings = dict()):
+    """
+    Takes a data set (missing user data) and perturbs the ratings for single user
+    specified by ID, by default to random values or to specified
+    values if provided
+    """
+    user_movies = get_users_movies(user_ratings)
+    new_ratings_list = []
+    for movie in user_movies:
+        if not len(new_ratings):
+            new_rating = random.random()*4.0 + 1.0
+        elif movie in new_ratings:
+            new_rating = new_ratings[movie]
+        else:
+            new_rating = user_ratings.filter(lambda x: x[1] == movie)[0][2]
+        new_ratings_list.append((get_uid_from_ratings(user_ratings), movie, new_rating))
+
+    new_ratings_rdd = sc.parallelize(new_ratings_list).cache()
+    combined_dataset = new_dataset \
+      .union(new_ratings_rdd) \
+      .repartition(numPartitions) \
+      .cache()
+
+    return combined_dataset
+
+def get_ratings_from_uid(dataset, user_id):
     """
     Returns the set of ratings from a given user specified by ID
-    
-    TODO
     """
-    return [(0,1,1)]
+    user_ratings = dataset.filter(lambda x: x[0] == user_id) \
+      .repartition(numPartitions) \
+      .cache()
 
-# JENNA WILL DO THIS
-def extract_ratings_by_uid(sc, dataset, user_id):
+    return user_ratings
+
+def extract_ratings_by_uid(dataset, user_id):
     """
     Removes the ratings from a given user in the dataset and
     returns those ratings along with the modified dataset
-    
-    TODO
     """
-    return new_dataset, user_data
+    new_dataset = dataset.filter(lambda x: x[0] != user_id) \
+      .repartition(numPartitions) \
+      .cache()
+
+    user_ratings = dataset.filter(lambda x: x[0] == user_id) \
+      .repartition(numPartitions) \
+      .cache()
+
+    return new_dataset, user_ratings
 
 
 def calculate_l1_distance(dict1, dict2):
@@ -368,9 +405,9 @@ def compute_user_local_sensitivity(sc, dataset, user_id, num_iters_ls):
     return recommendations_l1_dist, local_influence_l1_dist
 
 if __name__ == "__main__":
-    if (len(sys.argv) != 3):
+    if (len(sys.argv) != 2):
         print "Usage: /path/to/spark/bin/spark-submit --driver-memory 2g " + \
-          "MovieLensALS.py movieLensDataDir personalRatingsFile"
+          "MovieLensALS.py movieLensDataDir"
         sys.exit(1)
 
     # set up environment
@@ -392,7 +429,6 @@ if __name__ == "__main__":
     movies = dict(sc.textFile(join(movieLensHomeDir, "movies.dat")).map(parseMovie).collect())
 
     # create the initial training dataset with default ratings
-    numPartitions = 4
     training = ratings.filter(lambda x: x[0] < 6) \
       .values() \
       .repartition(numPartitions) \
@@ -407,7 +443,6 @@ if __name__ == "__main__":
     """
 
 
-
     #recommendations, local_influence = compute_recommendations_and_qii(sc,
      #        training, myRatings)
   
@@ -416,7 +451,10 @@ if __name__ == "__main__":
     # TODO decide on what local sensitivity metrics to use/print,
     # average or maxiumum, etc.
     # TODO call this function on many user IDs, not just one
-    compute_user_local_sensitivity(sc, training, user_id, num_iters_ls)
+    #compute_user_local_sensitivity(sc, training, user_id, num_iters_ls)
+
+    list_of_users = get_user_list(training)
+    recommendations, local_influence = compute_recommendations_and_qii(sc, training, list_of_users[0])
 
     print recommendations, local_influence
 
