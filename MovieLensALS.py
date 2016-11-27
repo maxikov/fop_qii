@@ -159,7 +159,8 @@ def build_recommendations(sc, myRatings, model):
     """
     Create recommendations for movies not in the current ratings set
     """
-    myRatedMovieIds = set([x[1] for x in myRatings])
+    #myRatedMovieIds = set([x[1] for x in myRatings])
+    myRatedMovieIds = set([x[1] for x in myRatings.toLocalIterator()])
     candidates = sc.parallelize([m for m in movies if m not in myRatedMovieIds]).cache()
     predictions = model.predictAll(candidates.map(lambda x: (0, x))).collect()
     recommendations = sorted(predictions, key = lambda x: x.product)
@@ -214,6 +215,7 @@ def compute_local_influence(sc, user_id, original_recommendations,
     """
     Compute the QII metrics for each rating given by a user
     """
+    print "Computing QII for user: ", user_id
     new_dataset, user_ratings = extract_ratings_by_uid(ratings, user_id)
 
     res = defaultdict(lambda: 0.0)
@@ -258,7 +260,8 @@ def get_users_movies(myRatings):
     """
     Get all movies rated by a given user
     """
-    return [x[1] for x in myRatings]
+    #return [x[1] for x in myRatings]
+    return [x[1] for x in myRatings.toLocalIterator()]
 
 def set_users_rating(myRatings, movie_id, new_rating):
     """
@@ -276,9 +279,12 @@ def compute_recommendations_and_qii(sc, dataset, user_id):
     Computes the recommendations and qii metrics for a given dataset and user
     specified by ID
     """
+    # TODO avoid retraining?
     model = ALS.train(dataset, rank, numIter, lmbda)
 
+    print "Computing recommendations/QII for user: ", user_id
     myRatings = get_ratings_from_uid(dataset, user_id)
+    print "User ratings: ", myRatings
 
     # make personalized recommendations
     recommendations = build_recommendations(sc, myRatings, model)
@@ -295,7 +301,7 @@ def compute_recommendations_and_qii(sc, dataset, user_id):
     return recommendations, local_influence
 
 def get_uid_from_ratings(myRatings):
-    return myRatings[0][0]
+    return myRatings.toLocalIterator().next()[0]
 
 def perturb_user_ratings(sc, dataset, user_id):
     """
@@ -320,7 +326,7 @@ def set_user_ratings(sc, new_dataset, user_ratings, new_ratings = dict()):
         elif movie in new_ratings:
             new_rating = new_ratings[movie]
         else:
-            new_rating = user_ratings.filter(lambda x: x[1] == movie)[0][2]
+            new_rating = user_ratings.filter(lambda x: x[1] == movie).toLocalIterator().next()[2]
         new_ratings_list.append((get_uid_from_ratings(user_ratings), movie, new_rating))
 
     new_ratings_rdd = sc.parallelize(new_ratings_list).cache()
@@ -434,18 +440,7 @@ if __name__ == "__main__":
       .repartition(numPartitions) \
       .cache()
 
-    # load personal ratings
-    """
-    print "My user ID:", get_uid_from_ratings(myRatings)
-    print "My ratings:"
-    for i in xrange(len(myRatings)):
-        print movies[myRatings[i][1]], ":", myRatings[i][2]
-    """
 
-
-    #recommendations, local_influence = compute_recommendations_and_qii(sc,
-     #        training, myRatings)
-  
     # TODO specify a user ID
     # TODO specify the number of iterations
     # TODO decide on what local sensitivity metrics to use/print,
@@ -453,6 +448,7 @@ if __name__ == "__main__":
     # TODO call this function on many user IDs, not just one
     #compute_user_local_sensitivity(sc, training, user_id, num_iters_ls)
 
+    # JUST FOR TESTING
     list_of_users = get_user_list(training)
     recommendations, local_influence = compute_recommendations_and_qii(sc, training, list_of_users[0])
 
