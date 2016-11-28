@@ -8,7 +8,6 @@ from math import sqrt
 from operator import add
 from os.path import join, isfile, dirname
 from collections import defaultdict
-import time
 
 from pyspark import SparkConf, SparkContext
 from pyspark.mllib.recommendation import ALS
@@ -21,9 +20,9 @@ lmbda = 0.1
 numIter = 20
 
 # Number of partitions created 
-numPartitions = sys.argv[3]
-qii_iters = sys.argv[4]
-num_iters_ls = sys.argv[5]
+numPartitions = 1
+qii_iters = 4
+num_iters_ls = 4
 
 
 def parseRating(line):
@@ -205,41 +204,45 @@ def compute_local_influence(sc, user_id, original_recommendations,
     myMovies = get_users_movies(user_ratings)
     old_recs = recommendations_to_dd(original_recommendations)
     for movie in myMovies:
-        for i in xrange(qii_iters):
-            if mode == "exhaustive":
-                print "xrange is: "+ str(i + 1.0)
-                new_rating = i + 1.0
-                if new_rating > 5:
-                    break
-            elif mode == "random":
-                new_rating = random.random()*4.0 + 1.0
+	def parallel_compute_local_influence(i):
+	 #       for i in xrange(qii_iters):
+ 		if mode == "exhaustive":
+		    print "xrange is: "+ str(i + 1.0)
+            	    new_rating = i + 1.0
+#            	if new_rating > 5:
+#                	break
+        	else: #if mode == "random":
+            		new_rating = random.random()*4.0 + 1.0
 #TODOOOOOO
-            print "Perturbed rating:", new_rating
-            new_ratings = dict()
-            new_ratings[movie] = new_rating
-            print "New ratings:", new_ratings
-            new_dataset = set_user_ratings(sc, new_dataset, user_ratings, new_ratings)
-            """
-            new_ratings = set_users_rating(myRatings, movie, new_rating)
-            print "New ratings:", new_ratings
-            newRatingsRDD = sc.parallelize(new_ratings, 1)
-            print "Building new data set"
-            new_dataset = new_ratings.values() \
-              .union(newRatingsRDD) \
-              .repartition(numPartitions) \
-              .cache()
-            """
-            print "Building model"
-            new_model = ALS.train(new_dataset, rank, numIter, lmbda, seed=7)
-            print "Built, predicting"
-            new_recommendations = build_recommendations(sc, new_dataset,
-                    new_model)
-            new_recs = recommendations_to_dd(new_recommendations)
-            for mid in set(old_recs.keys()).union(set(new_recs.keys())):
-                res[movie] += abs(old_recs[mid] - new_recs[mid])
-            print "Local influence:", res
+        	new_ratings = dict()
+        	new_ratings[movie] = new_rating
+#        	new_dataset = set_user_ratings(sc, new_dataset, user_ratings, new_ratings)
+        	"""
+        	new_ratings = set_users_rating(myRatings, movie, new_rating)
+        	print "New ratings:", new_ratings
+        	newRatingsRDD = sc.parallelize(new_ratings, 1)
+        	print "Building new data set"
+        	new_dataset = new_ratings.values() \
+        	  .union(newRatingsRDD) \
+        	  .repartition(numPartitions) \
+       		   .cache()
+        	"""
+        	print "Building model"
+        	new_model = ALS.train(new_dataset, rank, numIter, lmbda, seed=7)
+        	print "Built, predicting"
+#        	new_recommendations = build_recommendations(sc, new_dataset,new_model)
+#        	new_recs = recommendations_to_dd(new_recommendations)
+#        	for mid in set(old_recs.keys()).union(set(new_recs.keys())):
+#            		res[movie] = abs(old_recs[mid] - new_recs[mid])
+#        	print "Local influence:", res
+		return res
+	reslist = sc.parallelize(xrange(qii_iters)).foreach(parallel_compute_local_influence)
+#parallel_compute_local_influence(sc, user_id, original_recommendations, ratings, rank, lmbda, numIter, x, mode="exhaustive",res) 
+	print reslist
+
     res_normed = {k: v/float(qii_iters) for k, v in res.items()}
     return res_normed
+
 
 def get_users_movies(myRatings):
     """
@@ -279,7 +282,7 @@ def compute_recommendations_and_qii(sc, dataset, user_id):
     print_top_recommendations(recommendations, movies)
 
     local_influence = compute_local_influence(sc, user_id, recommendations,
-            dataset, rank, lmbda, numIter, qii_iters)
+            dataset, rank, lmbda, numIter,qii_iters)
 
     print "Local influence:"
     for mid, minf in sorted(local_influence.items(), key = lambda x: -x[1]):
@@ -296,8 +299,8 @@ def perturb_user_ratings(sc, dataset, user_id):
     specified by ID, to random values
     """
     new_dataset, user_ratings = extract_ratings_by_uid(dataset, user_id)
-    combined_dataset = set_user_ratings(sc, new_dataset, user_ratings)
-    return combined_dataset
+    set_user_ratings(sc, new_dataset, user_ratings)
+
 
 def set_user_ratings(sc, new_dataset, user_ratings, new_ratings = dict()):
     """
@@ -355,11 +358,6 @@ def calculate_l1_distance(dict1, dict2):
     """
     Calcuate the L1 distance between two dictionaries
     """
-
-    print "dict 1"
-    print dict1
-    print "dict 2"
-    print dict2
     keys = set(dict1.keys()).union(dict2.keys())
     res = 0.0
     for key in keys:
@@ -383,13 +381,6 @@ def get_user_list(dataset):
             .collect()
     return list(set(res))
 
-def convert_recs_to_dict(rating_list):
-    recdict = defaultdict( list )
-    for _,k,v in rating_list:
-	recdict[k] = v
-    return recdict
-
-
 
 def compute_user_local_sensitivity(sc, dataset, user_id, num_iters_ls):
     """
@@ -403,16 +394,14 @@ def compute_user_local_sensitivity(sc, dataset, user_id, num_iters_ls):
 
     original_recs, original_qii = compute_recommendations_and_qii(sc, dataset,
             user_id)
-    original_recs = recommendations_to_dd(original_recs
     all_users = get_user_list(dataset)
+
     for x in xrange(num_iters_ls):
         other_user_id = random.choice(list(set(all_users) - {user_id}))
         print "Perturbing user", other_user_id
         perturbed_dataset = perturb_user_ratings(sc, dataset, other_user_id)
         recs, qii = compute_recommendations_and_qii(sc, perturbed_dataset, user_id)
-        recs = recommendations_to_dd(recs)
         rec_ls = calculate_l1_distance(original_recs, recs)
-        rec_ls = calculate_l1_distance(original_rec_dict, recs_dict)
         qii_ls = calculate_l1_distance(original_qii, qii)
         rec_lss.append(rec_ls)
         qii_lss.append(qii_ls)
@@ -422,10 +411,8 @@ def compute_user_local_sensitivity(sc, dataset, user_id, num_iters_ls):
 if __name__ == "__main__":
     if (len(sys.argv) != 2):
         print "Usage: /path/to/spark/bin/spark-submit --driver-memory 2g " + \
-          "MovieLensALS.py movieLensDataDir numPartitions qii_iters num_iters_ls"
+          "MovieLensALS.py movieLensDataDir"
         sys.exit(1)
-
-    startconfig = time.time()
 
     # set up environment
     conf = SparkConf() \
@@ -434,7 +421,7 @@ if __name__ == "__main__":
     sc = SparkContext(conf=conf)
 
 ####################################### Fixes Stack Overflow issue when training ALS
-    sc.setCheckpointDir(sys.argv[2])
+    sc.setCheckpointDir('checkpoint/')
     ALS.checkpointInterval = 2
 #######################################
 
@@ -464,27 +451,16 @@ if __name__ == "__main__":
 
     
     list_of_users = get_user_list(training)
-    recommendations, local_influence = compute_recommendations_and_qii(sc, training, list_of_users[0])
+    #recommendations, local_influence = compute_recommendations_and_qii(sc, training, list_of_users[0])
 
-    endconfig = time.time()
+    #print recommendations, local_influence
 
-    startfunction = time.time()
+    # clean up
 
 
     rec_lss, qii_lss = compute_user_local_sensitivity(sc, training,\
-            list_of_users[0], num_iters_ls)
-
-    endfunction = time.time()
-
-    print("config time: " + str(endconfig - startconfig))
-    print("function time: " + str(endfunction - startfunction))
+            list_of_users[0],num_iters_ls)
     
     print "Recommendations local sensitivity:", rec_lss
     print "QII local sensitivity:", qii_lss
-    out_file = open("Output.txt", "w")
-    out_file.write("rec_lss: %s" % rec_lss)
-    out_file.write("qii_lss: %s" % qii_lss)
-    out_file.write("config time: " + str(endconfig - startconfig))
-    out_file.write("function time: " + str(endfunction - startfunction))
-    out_file.close()
     sc.stop()
