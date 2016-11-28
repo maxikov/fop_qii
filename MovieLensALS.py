@@ -9,6 +9,8 @@ from operator import add
 from os.path import join, isfile, dirname
 from collections import defaultdict
 import time
+import argparse
+
 
 from pyspark import SparkConf, SparkContext
 from pyspark.mllib.recommendation import ALS
@@ -20,10 +22,10 @@ rank = 12
 lmbda = 0.1
 numIter = 20
 
-# Number of partitions created 
-numPartitions = sys.argv[3]
-qii_iters = sys.argv[4]
-num_iters_ls = sys.argv[5]
+# Number of partitions created
+numPartitions = 4
+qii_iters = 5
+num_iters_ls = 5
 
 
 def parseRating(line):
@@ -420,10 +422,41 @@ def compute_user_local_sensitivity(sc, dataset, user_id, num_iters_ls):
     return rec_lss, qii_lss
 
 if __name__ == "__main__":
-    if (len(sys.argv) != 2):
-        print "Usage: /path/to/spark/bin/spark-submit --driver-memory 2g " + \
-          "MovieLensALS.py movieLensDataDir numPartitions qii_iters num_iters_ls"
-        sys.exit(1)
+
+    parser = argparse.ArgumentParser(description=u"Usage: " +\
+            "/path/to/spark/bin/spark-submit --driver-memory 2g " +\
+            "MovieLensALS.py [arguments]")
+
+    parser.add_argument("--rank", action="store", default=12, type=int,
+            help="Rank for ALS algorithm. 12 by default")
+    parser.add_argument("--lmbda", action="store", default=0.1, type=float,
+            help="Lambda for ALS algorithm. 0.1 by default")
+    parser.add_argument("--num-iter", action="store", default=20, type=int,
+            help="Number of iterations for ALS algorithm. 20 by default")
+    parser.add_argument("--num-partitions", action="store", default=4,
+            type=int, help="Number of partitions for the RDD. 4 by default")
+    parser.add_argument("--qii-iters", action="store", default=5, type=int,
+            help="Number of iterations for QII algorithm. 5 by default")
+    parser.add_argument("--num-iters-ls", action="store", default=5, type=int,
+            help="Number of iterations for local sensitvity algorithm. " +\
+                    "5 by default")
+    parser.add_argument("--data-path", action="store",
+            default="datasets/ml-1m/", type=str, help="Path to MovieLens " +\
+                    "home directory. datasets/ml-1m/ by default")
+    parser.add_argument("--ofname", action="store", default="Output.txt",
+            type=str, help="File to write the output. " +\
+                    "Output.txt by default")
+
+    args = parser.parse_args()
+    rank = args.rank
+    lmbda = args.lmbda
+    numIter = args.num_iter
+    numPartitions = args.num_partitions
+    qii_iters = args.qii_iters
+    num_iters_ls = args.num_iters_ls
+    movieLensHomeDir = args.data_path
+    ofname = args.ofname
+
 
     startconfig = time.time()
 
@@ -433,14 +466,11 @@ if __name__ == "__main__":
       .set("spark.executor.memory", "2g")
     sc = SparkContext(conf=conf)
 
-####################################### Fixes Stack Overflow issue when training ALS
+######################################## Fixes Stack Overflow issue when training ALS
     sc.setCheckpointDir(sys.argv[2])
     ALS.checkpointInterval = 2
 #######################################
 
-    movieLensHomeDir = sys.argv[1]
-    #myRatings = loadRatings(sys.argv[2])
-    #myRatingsRDD = sc.parallelize(myRatings, 1)
 
     ratings = sc.textFile(join(movieLensHomeDir, "ratings.dat")).map(parseRating)
     movies = dict(sc.textFile(join(movieLensHomeDir, "movies.dat")).map(parseMovie).collect())
@@ -481,7 +511,7 @@ if __name__ == "__main__":
     
     print "Recommendations local sensitivity:", rec_lss
     print "QII local sensitivity:", qii_lss
-    out_file = open("Output.txt", "w")
+    out_file = open(ofname, "w")
     out_file.write("rec_lss: %s" % rec_lss)
     out_file.write("qii_lss: %s" % qii_lss)
     out_file.write("config time: " + str(endconfig - startconfig))
