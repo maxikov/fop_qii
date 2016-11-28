@@ -291,8 +291,8 @@ def perturb_user_ratings(sc, dataset, user_id):
     specified by ID, to random values
     """
     new_dataset, user_ratings = extract_ratings_by_uid(dataset, user_id)
-    set_user_ratings(sc, new_dataset, user_ratings)
-
+    combined_dataset = set_user_ratings(sc, new_dataset, user_ratings)
+    return combined_dataset
 
 def set_user_ratings(sc, new_dataset, user_ratings, new_ratings = dict()):
     """
@@ -448,6 +448,7 @@ if __name__ == "__main__":
     #print recommendations, local_influence
 
     # clean up
+
 
 
     rec_lss, qii_lss = compute_user_local_sensitivity(sc, training,\
