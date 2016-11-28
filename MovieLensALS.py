@@ -161,9 +161,13 @@ def build_recommendations(sc, myRatings, model):
     """
     #myRatedMovieIds = set([x[1] for x in myRatings])
     uid = get_uid_from_ratings(myRatings)
-    myRatedMovieIds = set([x[1] for x in myRatings.toLocalIterator()])
+    #print "uid:", uid
+    myRatedMovieIds = set([x[1] for x in myRatings.collect()])
+    #print "myRatedMovieIds:", myRatedMovieIds
     candidates = sc.parallelize([m for m in movies if m not in myRatedMovieIds]).cache()
+    #print candidates
     predictions = model.predictAll(candidates.map(lambda x: (uid, x))).collect()
+    #print predictions
     recommendations = sorted(predictions, key = lambda x: x.product)
     return recommendations
 
@@ -185,31 +189,6 @@ def recommendations_to_dd(recommendations):
         res[rec.product] = rec.rating
     return res
 
-def set_ratings_in_dataset(sc, dataset, new_ratings):
-    """
-    DEPRACATED (no longer used)
-    THIS METHOD DOES NOT WORK
-    """
-    new_dataset = [x for x in dataset.toLocalIterator()]
-    new_ratings_dict = {(x[0], x[1]):x[2] for x in new_dataset}
-    for i in xrange(len(new_dataset)):
-        if (new_dataset[i][0], new_dataset[i][1]) in new_ratings_dict:
-            new_dataset[i] = (new_dataset[i][0], new_dataset[i][1],
-                    new_ratings_dict[(new_dataset[i][0],
-                        new_dataset[i][1])])
-    new_dataset = sc.parallelize(new_dataset).cache()
-###########################################
-    # Test randomly iterating through ALL movies
-#    myMovies = get_users_movies(myRatings)
-#    new_ratings = myRatings
-#    for i in xrange(len(myRatings)):
-#	    temp = list(new_ratings[i])
-#	    temp[1] = random.randint(1,3076)
-#           new_ratings[i] = tuple(temp)
-#           new_rating = random.randint(1,5) #*4.0 + 1.0
-#           new_ratings = set_users_rating(new_ratings, movies[new_ratings[i][1]], new_rating)
-#############################################
-    return new_dataset
 
 def compute_local_influence(sc, user_id, original_recommendations,
         ratings, rank, lmbda, numIter, qii_iters = 5, mode="exhaustive"):
@@ -262,7 +241,7 @@ def get_users_movies(myRatings):
     Get all movies rated by a given user
     """
     #return [x[1] for x in myRatings]
-    return [x[1] for x in myRatings.toLocalIterator()]
+    return list(myRatings.map(lambda x: x[1]).collect())
 
 def set_users_rating(myRatings, movie_id, new_rating):
     """
@@ -287,7 +266,7 @@ def compute_recommendations_and_qii(sc, dataset, user_id):
 
     print "Computing recommendations/QII for user: ", user_id
     myRatings = get_ratings_from_uid(dataset, user_id)
-    print "User ratings: ", [x for x in myRatings.toLocalIterator()]
+    print "User ratings: ", list(myRatings.collect())
 
     # make personalized recommendations
     recommendations = build_recommendations(sc, myRatings, model)
@@ -304,7 +283,7 @@ def compute_recommendations_and_qii(sc, dataset, user_id):
     return recommendations, local_influence
 
 def get_uid_from_ratings(myRatings):
-    return myRatings.toLocalIterator().next()[0]
+    return list(myRatings.take(1))[0][0]
 
 def perturb_user_ratings(sc, dataset, user_id):
     """
@@ -329,7 +308,8 @@ def set_user_ratings(sc, new_dataset, user_ratings, new_ratings = dict()):
         elif movie in new_ratings:
             new_rating = new_ratings[movie]
         else:
-            new_rating = user_ratings.filter(lambda x: x[1] == movie).toLocalIterator().next()[2]
+            new_rating = user_ratings.filter(lambda x: x[1] ==
+                movie).take(1)[0][2]
         new_ratings_list.append((get_uid_from_ratings(user_ratings), movie, new_rating))
 
     new_ratings_rdd = sc.parallelize(new_ratings_list).cache()
@@ -394,24 +374,31 @@ def get_user_list(dataset):
     return list(set(res))
 
 
-def compute_user_local_sensitivity(sc, dataset, user_id, num_iters_ls):
+def compute_user_local_sensitivity(sc, dataset, user_id, num_iters_ls=5):
     """
     Computes the local sensitivitiy for a given user over a
     specific dataset
 
     TODO
     """
-    recommendation_ls = []
-    qii_ls = []
+    rec_lss = []
+    qii_lss = []
+
+    original_recs, original_qii = compute_recommendations_and_qii(sc, dataset,
+            user_id)
+    all_users = get_user_list(dataset)
 
     for x in xrange(num_iters_ls):
-        # Get a random user that is not the current user
-        # code here for that, use get_user_list
-        perturbed_datset = perturb_user_ratings(sc, dataset, other_user_id)
-        recommendations, local_influence = compute_recommendations_qii(sc, dataset, user_id)
-        # more TODO calculate_l1_distance for both
+        other_user_id = random.choice(list(set(all_users) - {user_id}))
+        print "Perturbing user", other_user_id
+        perturbed_dataset = perturb_user_ratings(sc, dataset, other_user_id)
+        recs, qii = compute_recommendations_and_qii(sc, perturbed_dataset, user_id)
+        rec_ls = calculate_l1_distance(original_recs, recs)
+        qii_ls = calculate_l1_distance(original_qii, qii)
+        rec_lss.append(rec_ls)
+        qii_lss.append(qii_ls)
 
-    return recommendations_l1_dist, local_influence_l1_dist
+    return rec_lss, qii_lss
 
 if __name__ == "__main__":
     if (len(sys.argv) != 2):
@@ -453,10 +440,19 @@ if __name__ == "__main__":
     #compute_user_local_sensitivity(sc, training, user_id, num_iters_ls)
 
     # JUST FOR TESTING
-    list_of_users = get_user_list(training)
-    recommendations, local_influence = compute_recommendations_and_qii(sc, training, list_of_users[0])
 
-    print recommendations, local_influence
+    
+    list_of_users = get_user_list(training)
+    #recommendations, local_influence = compute_recommendations_and_qii(sc, training, list_of_users[0])
+
+    #print recommendations, local_influence
 
     # clean up
+
+
+    rec_lss, qii_lss = compute_user_local_sensitivity(sc, training,\
+            list_of_users[0])
+    
+    print "Recommendations local sensitivity:", rec_lss
+    print "QII local sensitivity:", qii_lss
     sc.stop()
