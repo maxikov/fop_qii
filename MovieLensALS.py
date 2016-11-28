@@ -268,10 +268,6 @@ def calculate_l1_distance(dict1, dict2):
     Calcuate the L1 distance between two dictionaries
     """
 
-    print "dict 1"
-    print dict1
-    print "dict 2"
-    print dict2
     keys = set(dict1.keys()).union(dict2.keys())
     res = 0.0
     for key in keys:
@@ -324,7 +320,6 @@ def compute_user_local_sensitivity(sc, dataset, user_id, num_iters_ls):
         recs, qii = compute_recommendations_and_qii(sc, perturbed_dataset, user_id)
         recs = recommendations_to_dd(recs)
         rec_ls = calculate_l1_distance(original_recs, recs)
-        rec_ls = calculate_l1_distance(original_rec_dict, recs_dict)
         qii_ls = calculate_l1_distance(original_qii, qii)
         rec_lss.append(rec_ls)
         qii_lss.append(qii_ls)
