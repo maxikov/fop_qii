@@ -8,6 +8,7 @@ from math import sqrt
 from operator import add
 from os.path import join, isfile, dirname
 from collections import defaultdict
+import time
 
 from pyspark import SparkConf, SparkContext
 from pyspark.mllib.recommendation import ALS
@@ -20,9 +21,9 @@ lmbda = 0.1
 numIter = 20
 
 # Number of partitions created 
-numPartitions = 4
-qii_iters = 5
-num_iters_ls = 5
+numPartitions = sys.argv[3]
+qii_iters = sys.argv[4]
+num_iters_ls = sys.argv[5]
 
 
 def parseRating(line):
@@ -206,7 +207,7 @@ def compute_local_influence(sc, user_id, original_recommendations,
     for movie in myMovies:
         for i in xrange(qii_iters):
             if mode == "exhaustive":
-	        print "xrange is: "+ str(i + 1.0)
+                print "xrange is: "+ str(i + 1.0)
                 new_rating = i + 1.0
                 if new_rating > 5:
                     break
@@ -352,6 +353,11 @@ def calculate_l1_distance(dict1, dict2):
     """
     Calcuate the L1 distance between two dictionaries
     """
+
+    print "dict 1"
+    print dict1
+    print "dict 2"
+    print dict2
     keys = set(dict1.keys()).union(dict2.keys())
     res = 0.0
     for key in keys:
@@ -375,6 +381,13 @@ def get_user_list(dataset):
             .collect()
     return list(set(res))
 
+def convert_recs_to_dict(rating_list):
+    recdict = defaultdict( list )
+    for _,k,v in rating_list:
+	recdict[k] = v
+    return recdict
+
+
 
 def compute_user_local_sensitivity(sc, dataset, user_id, num_iters_ls):
     """
@@ -389,13 +402,17 @@ def compute_user_local_sensitivity(sc, dataset, user_id, num_iters_ls):
     original_recs, original_qii = compute_recommendations_and_qii(sc, dataset,
             user_id)
     all_users = get_user_list(dataset)
+#   convert original recommendation list of Rating type to dictionary"
+    original_rec_dict = convert_recs_to_dict(original_recs)
 
     for x in xrange(num_iters_ls):
         other_user_id = random.choice(list(set(all_users) - {user_id}))
         print "Perturbing user", other_user_id
         perturbed_dataset = perturb_user_ratings(sc, dataset, other_user_id)
         recs, qii = compute_recommendations_and_qii(sc, perturbed_dataset, user_id)
-        rec_ls = calculate_l1_distance(original_recs, recs)
+#    	convert new recommendation list of Rating type to dictionary"
+    	recs_dict = convert_recs_to_dict(recs)
+        rec_ls = calculate_l1_distance(original_rec_dict, recs_dict)
         qii_ls = calculate_l1_distance(original_qii, qii)
         rec_lss.append(rec_ls)
         qii_lss.append(qii_ls)
@@ -405,8 +422,10 @@ def compute_user_local_sensitivity(sc, dataset, user_id, num_iters_ls):
 if __name__ == "__main__":
     if (len(sys.argv) != 2):
         print "Usage: /path/to/spark/bin/spark-submit --driver-memory 2g " + \
-          "MovieLensALS.py movieLensDataDir"
+          "MovieLensALS.py movieLensDataDir numPartitions qii_iters num_iters_ls"
         sys.exit(1)
+
+    startconfig = time.time()
 
     # set up environment
     conf = SparkConf() \
@@ -415,7 +434,7 @@ if __name__ == "__main__":
     sc = SparkContext(conf=conf)
 
 ####################################### Fixes Stack Overflow issue when training ALS
-    sc.setCheckpointDir('checkpoint/')
+    sc.setCheckpointDir(sys.argv[2])
     ALS.checkpointInterval = 2
 #######################################
 
@@ -451,11 +470,25 @@ if __name__ == "__main__":
 
     # clean up
 
+    endconfig = time.time()
+
+    startfunction = time.time()
 
 
     rec_lss, qii_lss = compute_user_local_sensitivity(sc, training,\
             list_of_users[0], num_iters_ls)
+
+    endfunction = time.time()
+
+    print("config time: " + str(endconfig - startconfig))
+    print("function time: " + str(endfunction - startfunction))
     
     print "Recommendations local sensitivity:", rec_lss
     print "QII local sensitivity:", qii_lss
+    out_file = open("Output.txt", "w")
+    out_file.write("rec_lss: %s" % rec_lss)
+    out_file.write("qii_lss: %s" % qii_lss)
+    out_file.write("config time: " + str(endconfig - startconfig))
+    out_file.write("function time: " + str(endfunction - startfunction))
+    out_file.close()
     sc.stop()
