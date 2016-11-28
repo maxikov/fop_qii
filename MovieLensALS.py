@@ -358,6 +358,10 @@ if __name__ == "__main__":
                     "Output.txt by default")
 
 
+    parser.add_argument("--checkpoint-dir", action="store",
+            default="checkpoint", "type"=str, help="Path to checkpoint " +\
+                    "directory. checkpoint by default")
+
     args = parser.parse_args()
     rank = args.rank
     lmbda = args.lmbda
@@ -367,6 +371,7 @@ if __name__ == "__main__":
     num_iters_ls = args.num_iters_ls
     movieLensHomeDir = args.data_path
     ofname = args.ofname
+    checkpoint_dir = args.checkpoint_dir
 
 
     startconfig = time.time()
@@ -378,7 +383,7 @@ if __name__ == "__main__":
     sc = SparkContext(conf=conf)
 
 ######################################## Fixes Stack Overflow issue when training ALS
-    sc.setCheckpointDir(movieLensHomeDir)
+    sc.setCheckpointDir(checkpoint_dir)
     ALS.checkpointInterval = 2
 #######################################
 
