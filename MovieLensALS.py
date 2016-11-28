@@ -21,6 +21,8 @@ numIter = 20
 
 # Number of partitions created 
 numPartitions = 4
+qii_iters = 5
+num_iters_ls = 5
 
 
 def parseRating(line):
@@ -191,7 +193,7 @@ def recommendations_to_dd(recommendations):
 
 
 def compute_local_influence(sc, user_id, original_recommendations,
-        ratings, rank, lmbda, numIter, qii_iters = 5, mode="exhaustive"):
+        ratings, rank, lmbda, numIter, qii_iters, mode="exhaustive"):
     """
     Compute the QII metrics for each rating given by a user
     """
@@ -274,7 +276,7 @@ def compute_recommendations_and_qii(sc, dataset, user_id):
     print_top_recommendations(recommendations, movies)
 
     local_influence = compute_local_influence(sc, user_id, recommendations,
-            dataset, rank, lmbda, numIter)
+            dataset, rank, lmbda, numIter, qii_iters)
 
     print "Local influence:"
     for mid, minf in sorted(local_influence.items(), key = lambda x: -x[1]):
@@ -374,7 +376,7 @@ def get_user_list(dataset):
     return list(set(res))
 
 
-def compute_user_local_sensitivity(sc, dataset, user_id, num_iters_ls=5):
+def compute_user_local_sensitivity(sc, dataset, user_id, num_iters_ls):
     """
     Computes the local sensitivitiy for a given user over a
     specific dataset
@@ -451,7 +453,7 @@ if __name__ == "__main__":
 
 
     rec_lss, qii_lss = compute_user_local_sensitivity(sc, training,\
-            list_of_users[0])
+            list_of_users[0], num_iters_ls)
     
     print "Recommendations local sensitivity:", rec_lss
     print "QII local sensitivity:", qii_lss
