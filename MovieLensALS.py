@@ -359,7 +359,7 @@ if __name__ == "__main__":
 
 
     parser.add_argument("--checkpoint-dir", action="store",
-            default="checkpoint", "type"=str, help="Path to checkpoint " +\
+            default="checkpoint", type=str, help="Path to checkpoint " +\
                     "directory. checkpoint by default")
 
     args = parser.parse_args()
