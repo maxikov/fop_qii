@@ -211,8 +211,10 @@ def compute_local_influence(sc, user_id, original_recommendations,
             elif mode == "random":
                 new_rating = random.random()*4.0 + 1.0
 #TODOOOOOO
+            print "Perturbed rating:", new_rating
             new_ratings = dict()
             new_ratings[movie] = new_rating
+            print "New ratings:", new_ratings
             new_dataset = set_user_ratings(sc, new_dataset, user_ratings, new_ratings)
             """
             new_ratings = set_users_rating(myRatings, movie, new_rating)
@@ -386,6 +388,7 @@ def compute_user_local_sensitivity(sc, dataset, user_id, num_iters_ls=5):
 
     original_recs, original_qii = compute_recommendations_and_qii(sc, dataset,
             user_id)
+    original_recs = recommendations_to_dd(original_recs
     all_users = get_user_list(dataset)
 
     for x in xrange(num_iters_ls):
@@ -393,6 +396,7 @@ def compute_user_local_sensitivity(sc, dataset, user_id, num_iters_ls=5):
         print "Perturbing user", other_user_id
         perturbed_dataset = perturb_user_ratings(sc, dataset, other_user_id)
         recs, qii = compute_recommendations_and_qii(sc, perturbed_dataset, user_id)
+        recs = recommendations_to_dd(recs)
         rec_ls = calculate_l1_distance(original_recs, recs)
         qii_ls = calculate_l1_distance(original_qii, qii)
         rec_lss.append(rec_ls)
@@ -443,12 +447,13 @@ if __name__ == "__main__":
 
     
     list_of_users = get_user_list(training)
-    #recommendations, local_influence = compute_recommendations_and_qii(sc, training, list_of_users[0])
+    recommendations, local_influence = compute_recommendations_and_qii(sc, training, list_of_users[0])
 
-    #print recommendations, local_influence
+    print recommendations, local_influence
 
     # clean up
-
+    sc.stop()
+    sys.exit(1)
 
 
     rec_lss, qii_lss = compute_user_local_sensitivity(sc, training,\
