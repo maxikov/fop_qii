@@ -403,7 +403,7 @@ def compute_user_local_sensitivity(sc, dataset, user_id, num_iters_ls):
 
     original_recs, original_qii = compute_recommendations_and_qii(sc, dataset,
             user_id)
-    original_recs = recommendations_to_dd(original_recs
+    original_recs = recommendations_to_dd(original_recs)
     all_users = get_user_list(dataset)
     for x in xrange(num_iters_ls):
         other_user_id = random.choice(list(set(all_users) - {user_id}))
