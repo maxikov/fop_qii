@@ -116,16 +116,17 @@ def compute_local_influence(sc, user_id, original_recommendations,
     res = defaultdict(lambda: 0.0)
     myMovies = get_users_movies(user_ratings)
     old_recs = recommendations_to_dd(original_recommendations)
-    for movie in myMovies:
+    for miter, movie in enumerate(myMovies):
         for i in xrange(qii_iters):
             if mode == "exhaustive":
-                print "xrange is: "+ str(i + 1.0)
                 new_rating = i + 1.0
                 if new_rating > 5:
                     break
             elif mode == "random":
                 new_rating = random.random()*4.0 + 1.0
 #TODOOOOOO
+            print "Perturbing movie", movie, "(", miter + 1, "out of",\
+                len(myMovies), ")"
             print "Perturbed rating:", new_rating
             new_ratings = dict()
             new_ratings[movie] = new_rating
@@ -183,7 +184,7 @@ def compute_recommendations_and_qii(sc, dataset, user_id):
 
     print "Computing recommendations/QII for user: ", user_id
     myRatings = get_ratings_from_uid(dataset, user_id)
-    print "User ratings: ", list(myRatings.collect())
+    #print "User ratings: ", list(myRatings.collect())
 
     # make personalized recommendations
     recommendations = build_recommendations(sc, myRatings, model)
@@ -332,8 +333,6 @@ def compute_user_local_sensitivity(sc, dataset, user_id, num_iters_ls):
         recs = recommendations_to_dd(recs)
         rec_ls = calculate_l1_distance(original_recs, recs)
         qii_ls = calculate_l1_distance(original_qii, qii)
-        rec_lss.append(rec_ls)
-        qii_lss.append(qii_ls)
 
         report = {}
         report["perturbed_user_id"] = other_user_id
@@ -456,8 +455,8 @@ if __name__ == "__main__":
     
     print "Result:", res
     out_file = open(ofname, "w")
-    out_file.write("result: %s" % str(res))
-    out_file.write("config time: " + str(endconfig - startconfig))
-    out_file.write("function time: " + str(endfunction - startfunction))
+    out_file.write("result: %s\n" % str(res))
+    out_file.write("config time: \n" + str(endconfig - startconfig))
+    out_file.write("function time: \n" + str(endfunction - startfunction))
     out_file.close()
     sc.stop()
