@@ -282,6 +282,13 @@ def calculate_l1_distance(dict1, dict2):
         res += abs(d1 + d2)
     return res
 
+def l1_norm(vec):
+    """
+    Calculate L1 norm of a dictionary
+    """
+    res = sum(abs(float(x)) for x in vec.values())
+    return res
+
 def get_user_list(dataset):
     """
     Extract the full list of users from the dataset
@@ -303,15 +310,19 @@ def compute_user_local_sensitivity(sc, dataset, user_id, num_iters_ls):
     """
     Computes the local sensitivitiy for a given user over a
     specific dataset
-
-    TODO
     """
-    rec_lss = []
-    qii_lss = []
+
+    res = {}
 
     original_recs, original_qii = compute_recommendations_and_qii(sc, dataset,
             user_id)
     original_recs = recommendations_to_dd(original_recs)
+
+    res["recommendee_user_id"] = user_id
+    res["recommendee_recs_l1_norm"] = l1_norm(original_recs)
+    res["recommendee_qii_l1_norm"] = l1_norm(original_qii)
+    res["perturbations"] = []
+
     all_users = get_user_list(dataset)
     for x in xrange(num_iters_ls):
         other_user_id = random.choice(list(set(all_users) - {user_id}))
@@ -324,7 +335,31 @@ def compute_user_local_sensitivity(sc, dataset, user_id, num_iters_ls):
         rec_lss.append(rec_ls)
         qii_lss.append(qii_ls)
 
-    return rec_lss, qii_lss
+        report = {}
+        report["perturbed_user_id"] = other_user_id
+        report["perturbed_recs_l1_norm"] = l1_norm(recs)
+        report["perturbed_qii_l1_norm"] = l1_norm(qii)
+        report["recs_ls"] = rec_ls
+        report["qii_ls"] = qii_ls
+
+        res["perturbations"].append(report)
+
+    return res
+
+def compute_multiuser_local_sensitivity(sc, dataset, num_iters_ls,
+        num_users_ls):
+    """
+    Computes local sensitivity for a number of randomly chosen users.
+    """
+    res = []
+    all_users = list(get_user_list(dataset))
+    for x in xrange(num_users_ls):
+        cur_user = random.choice(all_users)
+        print "Probing user", cur_user
+        report = compute_user_local_sensitivity(sc, dataset, cur_user,
+                num_iters_ls)
+        res.append(report)
+    return res
 
 if __name__ == "__main__":
 
@@ -351,11 +386,12 @@ if __name__ == "__main__":
     parser.add_argument("--ofname", action="store", default="Output.txt",
             type=str, help="File to write the output. " +\
                     "Output.txt by default")
-
-
     parser.add_argument("--checkpoint-dir", action="store",
             default="checkpoint", type=str, help="Path to checkpoint " +\
                     "directory. checkpoint by default")
+    parser.add_argument("--num-users-ls", action="store", default=5, type=int,
+            help="Number of users for whom local sensitivity is computed. " +\
+                    "5 by default")
 
     args = parser.parse_args()
     rank = args.rank
@@ -367,6 +403,7 @@ if __name__ == "__main__":
     movieLensHomeDir = args.data_path
     ofname = args.ofname
     checkpoint_dir = args.checkpoint_dir
+    num_users_ls = args.num_users_ls
 
 
     startconfig = time.time()
@@ -404,27 +441,22 @@ if __name__ == "__main__":
     # JUST FOR TESTING
 
     
-    list_of_users = get_user_list(training)
-    recommendations, local_influence = compute_recommendations_and_qii(sc, training, list_of_users[0])
 
     endconfig = time.time()
 
     startfunction = time.time()
 
-
-    rec_lss, qii_lss = compute_user_local_sensitivity(sc, training,\
-            list_of_users[0], num_iters_ls)
+    res = compute_multiuser_local_sensitivity(sc, training, num_iters_ls,
+            num_users_ls)
 
     endfunction = time.time()
 
     print("config time: " + str(endconfig - startconfig))
     print("function time: " + str(endfunction - startfunction))
     
-    print "Recommendations local sensitivity:", rec_lss
-    print "QII local sensitivity:", qii_lss
+    print "Result:", res
     out_file = open(ofname, "w")
-    out_file.write("rec_lss: %s" % rec_lss)
-    out_file.write("qii_lss: %s" % qii_lss)
+    out_file.write("result: %s" % str(res))
     out_file.write("config time: " + str(endconfig - startconfig))
     out_file.write("function time: " + str(endfunction - startfunction))
     out_file.close()
