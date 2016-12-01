@@ -189,7 +189,7 @@ def compute_recommendations_and_qii(sc, dataset, user_id):
     # make personalized recommendations
     recommendations = build_recommendations(sc, myRatings, model)
     print "Movies recommended for you:"
-    print_top_recommendations(recommendations, movies)
+    #print_top_recommendations(recommendations, movies)
 
     local_influence = compute_local_influence(sc, user_id, recommendations,
             dataset, rank, lmbda, numIter, qii_iters)
