@@ -196,7 +196,7 @@ def compute_recommendations_and_qii(sc, dataset, user_id):
 
     print "Local influence:"
     for mid, minf in sorted(local_influence.items(), key = lambda x: -x[1]):
-        print movies[mid], ":", minf
+        print mid, ":", minf
 
     return recommendations, local_influence
 
