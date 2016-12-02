@@ -10,6 +10,7 @@ from os.path import join, isfile, dirname
 from collections import defaultdict
 import time
 import argparse
+import math
 
 
 from pyspark import SparkConf, SparkContext
@@ -360,6 +361,10 @@ def compute_multiuser_local_sensitivity(sc, dataset, num_iters_ls,
         res.append(report)
     return res
 
+def users_with_most_ratings(training,listlength):
+	userlist = sorted(training.countByKey().items(), key = lambda x: x[1], reverse=True)
+	return userlist[0:listlength]
+
 if __name__ == "__main__":
 
     parser = argparse.ArgumentParser(description=u"Usage: " +\
@@ -391,6 +396,9 @@ if __name__ == "__main__":
     parser.add_argument("--num-users-ls", action="store", default=5, type=int,
             help="Number of users for whom local sensitivity is computed. " +\
                     "5 by default")
+    parser.add_argument("--specific-user", action="store", default=4169, type=int,
+            help="user-id to compute recommendations for a specific user " +\
+                    "4169 by default")
 
     args = parser.parse_args()
     rank = args.rank
@@ -403,6 +411,7 @@ if __name__ == "__main__":
     ofname = args.ofname
     checkpoint_dir = args.checkpoint_dir
     num_users_ls = args.num_users_ls
+    specific_user = args.specific_user
 
 
     startconfig = time.time()
@@ -428,7 +437,7 @@ if __name__ == "__main__":
       .repartition(numPartitions) \
       .cache()
 
-
+    UsersWithMostRatingslist = users_with_most_ratings(training,50)
 
     # TODO specify a user ID
     # TODO specify the number of iterations
@@ -436,6 +445,8 @@ if __name__ == "__main__":
     # average or maxiumum, etc.
     # TODO call this function on many user IDs, not just one
     #compute_user_local_sensitivity(sc, training, user_id, num_iters_ls)
+
+#.countByKey().items(), key = usercount: usercount[1], reverse = True)
 
     # JUST FOR TESTING
 
