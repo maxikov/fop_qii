@@ -28,6 +28,7 @@ numPartitions = 4
 qii_iters = 5
 num_iters_ls = 5
 
+max_movies_per_user = 0 #0 = no limit
 
 def parseRating(line):
     """
@@ -352,12 +353,34 @@ def compute_multiuser_local_sensitivity(sc, dataset, num_iters_ls,
     Computes local sensitivity for a number of randomly chosen users.
     """
     res = []
+    users_already_processed = set()
     all_users = list(get_user_list(dataset))
     for x in xrange(num_users_ls):
-        cur_user = random.choice(all_users)
+        while True:
+            cur_user = random.choice(all_users)
+            print "Trying user", cur_user
+            if cur_user in users_already_processed:
+                print "Oops, we've already processed this one"
+                continue
+            if max_movies_per_user == 0:
+                break
+            print "Looking at their ratings"
+            u_ratings = get_ratings_from_uid(dataset, cur_user)
+            u_ratings_list = u_ratings.collect()
+            l = len(u_ratings_list)
+            if l > max_movies_per_user:
+                print "This user has too many movies: ",\
+                        l, ">", max_movies_per_user
+                users_already_processed.add(cur_user)
+                continue
+            else:
+                print "This user with", l, "movies " +\
+                        "rated is fine!"
+                break
         print "Probing user", cur_user
         report = compute_user_local_sensitivity(sc, dataset, cur_user,
                 num_iters_ls)
+        users_already_processed.add(cur_user)
         res.append(report)
     return res
 
@@ -399,6 +422,11 @@ if __name__ == "__main__":
     parser.add_argument("--specific-user", action="store", default=4169, type=int,
             help="user-id to compute recommendations for a specific user " +\
                     "4169 by default")
+    parser.add_argument("--max-movies-per-user", action="store", default=0,
+            type=int, help="Maximum number of movie ratings allowed per " +\
+                    "user. If a user has more movies rated, they're " +\
+                    "skipped, until a user with fewer movies is found. " +\
+                    "0 (default) means no limit")
 
     args = parser.parse_args()
     rank = args.rank
@@ -412,6 +440,7 @@ if __name__ == "__main__":
     checkpoint_dir = args.checkpoint_dir
     num_users_ls = args.num_users_ls
     specific_user = args.specific_user
+    max_movies_per_user = args.max_movies_per_user
 
 
     startconfig = time.time()
