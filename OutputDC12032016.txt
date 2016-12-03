@@ -1,0 +1,4 @@
+result: [{'recommendee_recs_l1_norm': 11421.163005943992, 'recommendee_qii_l1_norm': 85.3505123610538, 'perturbations': [{'perturbed_user_id': 3167, 'recs_ls': 23108.234332471573, 'perturbed_qii_l1_norm': 87.33764899425606, 'qii_ls': 172.68816135530994, 'perturbed_recs_l1_norm': 11687.07132652762}], 'recommendee_user_id': 573}]
+config time: 
+3.53755688667function time: 
+4824.6360569
