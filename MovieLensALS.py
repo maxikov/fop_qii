@@ -154,6 +154,7 @@ def compute_local_influence(sc, user_id, original_recommendations,
                 res[movie] += abs(old_recs[mid] - new_recs[mid])
             print "Local influence:", res
     res_normed = {k: v/float(qii_iters*len(new_recs)) for k, v in res.items()}
+    print "Final local influence:", res_normed
     return res_normed
 
 def get_users_movies(myRatings):
