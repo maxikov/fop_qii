@@ -11,7 +11,7 @@ from collections import defaultdict
 import time
 import argparse
 import math
-
+from prettytable import PrettyTable
 
 from pyspark import SparkConf, SparkContext
 from pyspark.mllib.recommendation import ALS
@@ -153,7 +153,8 @@ def compute_local_influence(sc, user_id, original_recommendations,
             for mid in set(old_recs.keys()).union(set(new_recs.keys())):
                 res[movie] += abs(old_recs[mid] - new_recs[mid])
             print "Local influence:", res
-    res_normed = {k: v/float(qii_iters) for k, v in res.items()}
+    res_normed = {k: v/float(qii_iters*len(new_recs)) for k, v in res.items()}
+    print "Final local influence:", res_normed
     return res_normed
 
 def get_users_movies(myRatings):
@@ -197,8 +198,10 @@ def compute_recommendations_and_qii(sc, dataset, user_id):
             dataset, rank, lmbda, numIter, qii_iters)
 
     print "Local influence:"
+    t = PrettyTable(["Movie ID", "Local Influence"])
     for mid, minf in sorted(local_influence.items(), key = lambda x: -x[1]):
-        print mid, ":", minf
+        t.add_row([mid, minf])
+    print t
 
     return recommendations, local_influence
 
@@ -419,14 +422,18 @@ if __name__ == "__main__":
     parser.add_argument("--num-users-ls", action="store", default=5, type=int,
             help="Number of users for whom local sensitivity is computed. " +\
                     "5 by default")
-    parser.add_argument("--specific-user", action="store", default=4169, type=int,
-            help="user-id to compute recommendations for a specific user " +\
-                    "4169 by default")
+    parser.add_argument("--specific-user", action="store", type=int,
+            help="user-id to compute recommendations for a specific user")
     parser.add_argument("--max-movies-per-user", action="store", default=0,
             type=int, help="Maximum number of movie ratings allowed per " +\
                     "user. If a user has more movies rated, they're " +\
                     "skipped, until a user with fewer movies is found. " +\
                     "0 (default) means no limit")
+    parser.add_argument("--prominent-raters", action="store", default=0,
+            type=int, help="If set to anything other than 0 (default), " +\
+                    "display a given number of users who had rated " +\
+                    "the highest number of movies, and then exit.")
+
 
     args = parser.parse_args()
     rank = args.rank
@@ -441,6 +448,7 @@ if __name__ == "__main__":
     num_users_ls = args.num_users_ls
     specific_user = args.specific_user
     max_movies_per_user = args.max_movies_per_user
+    prominent_raters = args.prominent_raters
 
 
     startconfig = time.time()
@@ -466,35 +474,39 @@ if __name__ == "__main__":
       .repartition(numPartitions) \
       .cache()
 
-    UsersWithMostRatingslist = users_with_most_ratings(training,50)
-
-    # TODO specify a user ID
-    # TODO specify the number of iterations
-    # TODO decide on what local sensitivity metrics to use/print,
-    # average or maxiumum, etc.
-    # TODO call this function on many user IDs, not just one
-    #compute_user_local_sensitivity(sc, training, user_id, num_iters_ls)
+    if prominent_raters > 0:
+        UsersWithMostRatingslist =\
+            users_with_most_ratings(training,prominent_raters)
+        t = PrettyTable(["User ID", "Movies rated"])
+        for uid, nm in UsersWithMostRatingslist:
+            t.add_row([uid, nm])
+        print t
 
     # JUST FOR TESTING
+    else:
+        endconfig = time.time()
 
-    
+        startfunction = time.time()
 
-    endconfig = time.time()
+        if specific_user is not None:
+            res = compute_user_local_sensitivity(sc, training, specific_user,
+                    num_iters_ls)
+            res = [res]
+        else:
+            res = compute_multiuser_local_sensitivity(sc, training, num_iters_ls,
+                num_users_ls)
 
-    startfunction = time.time()
+        endfunction = time.time()
 
-    res = compute_multiuser_local_sensitivity(sc, training, num_iters_ls,
-            num_users_ls)
+        print("config time: " + str(endconfig - startconfig))
+        print("function time: " + str(endfunction - startfunction))
 
-    endfunction = time.time()
+        print "Result:", res
+        out_file = open(ofname, "w")
+        out_file.write("result: %s\n" % str(res))
+        out_file.write("config time: \n" + str(endconfig - startconfig))
+        out_file.write("function time: \n" + str(endfunction - startfunction))
+        out_file.close()
 
-    print("config time: " + str(endconfig - startconfig))
-    print("function time: " + str(endfunction - startfunction))
-    
-    print "Result:", res
-    out_file = open(ofname, "w")
-    out_file.write("result: %s\n" % str(res))
-    out_file.write("config time: \n" + str(endconfig - startconfig))
-    out_file.write("function time: \n" + str(endfunction - startfunction))
-    out_file.close()
+
     sc.stop()
