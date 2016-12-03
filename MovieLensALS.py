@@ -475,8 +475,6 @@ if __name__ == "__main__":
     # TODO call this function on many user IDs, not just one
     #compute_user_local_sensitivity(sc, training, user_id, num_iters_ls)
 
-#.countByKey().items(), key = usercount: usercount[1], reverse = True)
-
     # JUST FOR TESTING
 
     
