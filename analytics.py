@@ -1,6 +1,10 @@
 #!/usr/bin/env  python
 
 from prettytable import PrettyTable
+import scipy.stats
+import numpy
+import matplotlib.pyplot as plt
+
 
 def load_data():
     res = []
@@ -20,8 +24,10 @@ def main():
                         "Rel QII ls",
                         "Rel Rec ls"
                         ])
+    qii_lss = []
     for item in data:
         for per in item["perturbations"]:
+            qii_lss.append(per["qii_ls"])
             table.add_row([
                 per["qii_ls"],
                 per["recs_ls"],
@@ -30,6 +36,13 @@ def main():
             ])
 
     print table
+    print "QII LS mean:", numpy.mean(qii_lss)
+    print "QII LS STD:", numpy.std(qii_lss)
+    print "QII LS skeweness:", scipy.stats.skew(qii_lss)
+
+    n, bins, patches = plt.hist(qii_lss)
+
+    plt.show()
 
 if __name__ == "__main__":
     main()
