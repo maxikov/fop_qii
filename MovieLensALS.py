@@ -113,8 +113,10 @@ def compute_local_influence(sc, user_id, original_recommendations,
     Compute the QII metrics for each rating given by a user
     """
     print "Computing QII for user: ", user_id
-    new_dataset, user_ratings = extract_ratings_by_uid(ratings, user_id)
+    orig_dataset, user_ratings = extract_ratings_by_uid(ratings, user_id)
 
+    new_dataset = None
+    old_dataset = None
     res = defaultdict(lambda: 0.0)
     myMovies = get_users_movies(user_ratings)
     old_recs = recommendations_to_dd(original_recommendations)
@@ -126,24 +128,21 @@ def compute_local_influence(sc, user_id, original_recommendations,
                     break
             elif mode == "random":
                 new_rating = random.random()*4.0 + 1.0
-#TODOOOOOO
             print "Perturbing movie", movie, "(", miter + 1, "out of",\
                 len(myMovies), ")"
             print "Perturbed rating:", new_rating
             new_ratings = dict()
             new_ratings[movie] = new_rating
             print "New ratings:", new_ratings
-            new_dataset = set_user_ratings(sc, new_dataset, user_ratings, new_ratings)
-            """
-            new_ratings = set_users_rating(myRatings, movie, new_rating)
-            print "New ratings:", new_ratings
-            newRatingsRDD = sc.parallelize(new_ratings, 1)
-            print "Building new data set"
-            new_dataset = new_ratings.values() \
-              .union(newRatingsRDD) \
-              .repartition(numPartitions) \
-              .cache()
-            """
+            if new_dataset:
+               old_dataset = new_dataset 
+            new_dataset = set_user_ratings(sc, orig_dataset, user_ratings, new_ratings)
+            if old_dataset:
+                inter = old_dataset.intersection(new_dataset)
+                print "join count", inter.count()
+                print "distinct", old_dataset.subtract(inter).collect()
+                print "old count", old_dataset.count()
+                print "new count", new_dataset.count()
             print "Building model"
             new_model = ALS.train(new_dataset, rank, numIter, lmbda, seed=7)
             print "Built, predicting"
@@ -217,7 +216,7 @@ def perturb_user_ratings(sc, dataset, user_id):
     combined_dataset = set_user_ratings(sc, new_dataset, user_ratings)
     return combined_dataset
 
-def set_user_ratings(sc, new_dataset, user_ratings, new_ratings = dict()):
+def set_user_ratings(sc, new_dataset, user_ratings, new_ratings = None):
     """
     Takes a data set (missing user data) and perturbs the ratings for single user
     specified by ID, by default to random values or to specified
@@ -226,16 +225,17 @@ def set_user_ratings(sc, new_dataset, user_ratings, new_ratings = dict()):
     user_movies = get_users_movies(user_ratings)
     new_ratings_list = []
     for movie in user_movies:
-        if not len(new_ratings):
+        if not new_ratings:
             new_rating = random.random()*4.0 + 1.0
         elif movie in new_ratings:
             new_rating = new_ratings[movie]
         else:
             new_rating = user_ratings.filter(lambda x: x[1] ==
-                movie).take(1)[0][2]
+                movie).first()[2]
         new_ratings_list.append((get_uid_from_ratings(user_ratings), movie, new_rating))
+    print "** New Ratings List: ", new_ratings_list
 
-    new_ratings_rdd = sc.parallelize(new_ratings_list).cache()
+    new_ratings_rdd = sc.parallelize(new_ratings_list, 1).cache()  #chg
     combined_dataset = new_dataset \
       .union(new_ratings_rdd) \
       .repartition(numPartitions) \
@@ -266,6 +266,9 @@ def extract_ratings_by_uid(dataset, user_id):
       .repartition(numPartitions) \
       .cache()
 
+# debug
+    print "Count of user ratings: ", user_ratings.count()
+
     return new_dataset, user_ratings
 
 
@@ -273,19 +276,11 @@ def calculate_l1_distance(dict1, dict2):
     """
     Calcuate the L1 distance between two dictionaries
     """
-
-    keys = set(dict1.keys()).union(dict2.keys())
     res = 0.0
-    for key in keys:
-        if key in dict1:
-            d1 = dict1[key]
-        else:
-            d1 = 0
-        if key in dict2:
-            d2 = dict2[key]
-        else:
-            d2 = 0
-        res += abs(d1 + d2)
+    for key in dict1.keys():
+        d1 = dict1[key]
+        d2 = dict2[key]
+    res += abs(d1-d2)
     return res
 
 def l1_norm(vec):
@@ -327,6 +322,8 @@ def compute_user_local_sensitivity(sc, dataset, user_id, num_iters_ls):
     res["recommendee_user_id"] = user_id
     res["recommendee_recs_l1_norm"] = l1_norm(original_recs)
     res["recommendee_qii_l1_norm"] = l1_norm(original_qii)
+    res["recommendee_recs_l0_norm"] = len(original_recs)
+    res["recommendee_qii_l0_norm"] = len(original_qii)
     res["perturbations"] = []
 
     all_users = get_user_list(dataset)
@@ -343,8 +340,13 @@ def compute_user_local_sensitivity(sc, dataset, user_id, num_iters_ls):
         report["perturbed_user_id"] = other_user_id
         report["perturbed_recs_l1_norm"] = l1_norm(recs)
         report["perturbed_qii_l1_norm"] = l1_norm(qii)
+        report["perturbed_recs_l0_norm"] = len(recs)
+        report["perturbed_qii_l0_norm"] = len(qii)
         report["recs_ls"] = rec_ls
         report["qii_ls"] = qii_ls
+        # Jenna added
+        print "Local sensitivity of recs: ", rec_ls/float((len(recs)*4))
+        print "Local sensitivity of QII: ", qii_ls/float((len(qii)*4))
 
         res["perturbations"].append(report)
 
@@ -450,6 +452,13 @@ if __name__ == "__main__":
     max_movies_per_user = args.max_movies_per_user
     prominent_raters = args.prominent_raters
 
+    print "Rank: {}, lmbda: {}, numIter: {}, numPartitions: {}".format(
+        rank, lmbda, numIter, numPartitions)
+    print "qii_iters: {}, num_iters_ls: {}, movieLensHomeDir: {}".format(
+        qii_iters, num_iters_ls, movieLensHomeDir)
+    print "ofname: {}, checkpoint_dir: {}, num_users_ls:{}".format(
+        ofname, checkpoint_dir, num_users_ls)
+    print "specific_user: {}, max_movies_per_user: {}, prominent_raters: {}".format(specific_user, max_movies_per_user, prominent_raters)
 
     startconfig = time.time()
 
