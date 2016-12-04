@@ -285,7 +285,7 @@ def calculate_l1_distance(dict1, dict2):
             d2 = dict2[key]
         else:
             d2 = 0
-        res += abs(d1 + d2)
+        res += abs(d1 - d2)
     return res
 
 def l1_norm(vec):
@@ -327,6 +327,8 @@ def compute_user_local_sensitivity(sc, dataset, user_id, num_iters_ls):
     res["recommendee_user_id"] = user_id
     res["recommendee_recs_l1_norm"] = l1_norm(original_recs)
     res["recommendee_qii_l1_norm"] = l1_norm(original_qii)
+	res["recommendee_recs_l0_norm"] = len(original_recs)
+    res["recommendee_qii_l0_norm"] = len(original_qii)
     res["perturbations"] = []
 
     all_users = get_user_list(dataset)
@@ -343,6 +345,8 @@ def compute_user_local_sensitivity(sc, dataset, user_id, num_iters_ls):
         report["perturbed_user_id"] = other_user_id
         report["perturbed_recs_l1_norm"] = l1_norm(recs)
         report["perturbed_qii_l1_norm"] = l1_norm(qii)
+        report["perturbed_recs_l0_norm"] = len(recs)
+        report["perturbed_qii_l0_norm"] = len(qii)
         report["recs_ls"] = rec_ls
         report["qii_ls"] = qii_ls
 
@@ -450,6 +454,14 @@ if __name__ == "__main__":
     max_movies_per_user = args.max_movies_per_user
     prominent_raters = args.prominent_raters
 
+	print "Rank: {}, lmbda: {}, numIter: {}, numPartitions: {}".format(
+	    rank, lmbda, numIter, numPartitions)
+    print "qii_iters: {}, num_iters_ls: {}, movieLensHomeDir: {}".format(
+	    qii_iters, num_iters_ls, movieLensHomeDir)
+    print "ofname: {}, checkpoint_dir: {}, num_users_ls:{}".format(
+	    ofname, checkpoint_dir, num_users_ls)
+    print "specific_user: {}, max_movies_per_user: {}, prominent_raters: {}".format(
+	    specific_user, max_movies_per_user, prominent_raters)
 
     startconfig = time.time()
 
