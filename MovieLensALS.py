@@ -146,7 +146,7 @@ def compute_local_influence(sc, user_id, original_recommendations,
             print "Building model"
             new_model = ALS.train(new_dataset, rank, numIter, lmbda, seed=7)
             print "Built, predicting"
-            new_recommendations = build_recommendations(sc, new_dataset,
+            new_recommendations = build_recommendations(sc, user_ratings,  #final chg
                     new_model)
             new_recs = recommendations_to_dd(new_recommendations)
             for mid in set(old_recs.keys()).union(set(new_recs.keys())):
