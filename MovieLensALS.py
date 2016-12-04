@@ -327,7 +327,7 @@ def compute_user_local_sensitivity(sc, dataset, user_id, num_iters_ls):
     res["recommendee_user_id"] = user_id
     res["recommendee_recs_l1_norm"] = l1_norm(original_recs)
     res["recommendee_qii_l1_norm"] = l1_norm(original_qii)
-	res["recommendee_recs_l0_norm"] = len(original_recs)
+    res["recommendee_recs_l0_norm"] = len(original_recs)
     res["recommendee_qii_l0_norm"] = len(original_qii)
     res["perturbations"] = []
 
@@ -454,14 +454,13 @@ if __name__ == "__main__":
     max_movies_per_user = args.max_movies_per_user
     prominent_raters = args.prominent_raters
 
-	print "Rank: {}, lmbda: {}, numIter: {}, numPartitions: {}".format(
-	    rank, lmbda, numIter, numPartitions)
+    print "Rank: {}, lmbda: {}, numIter: {}, numPartitions: {}".format(
+        rank, lmbda, numIter, numPartitions)
     print "qii_iters: {}, num_iters_ls: {}, movieLensHomeDir: {}".format(
-	    qii_iters, num_iters_ls, movieLensHomeDir)
+        qii_iters, num_iters_ls, movieLensHomeDir)
     print "ofname: {}, checkpoint_dir: {}, num_users_ls:{}".format(
-	    ofname, checkpoint_dir, num_users_ls)
-    print "specific_user: {}, max_movies_per_user: {}, prominent_raters: {}".format(
-	    specific_user, max_movies_per_user, prominent_raters)
+        ofname, checkpoint_dir, num_users_ls)
+    print "specific_user: {}, max_movies_per_user: {}, prominent_raters: {}".format(specific_user, max_movies_per_user, prominent_raters)
 
     startconfig = time.time()
 
