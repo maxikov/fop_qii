@@ -473,7 +473,8 @@ if __name__ == "__main__":
     parser.add_argument("--recommendations-to-print", action="store",
             default=10, type=int, help="How many movie recommendations "+\
                     "to display. 10 by default.")
-
+    parser.add_argument("--print-movie-names", action="store_true", help=\
+            "If set, movie names will be printed instead of movie IDs")
 
     args = parser.parse_args()
     rank = args.rank
@@ -490,6 +491,7 @@ if __name__ == "__main__":
     max_movies_per_user = args.max_movies_per_user
     prominent_raters = args.prominent_raters
     recommendations_to_print = args.recommendations_to_print
+    print_movie_names = args.print_movie_names
 
     print "Rank: {}, lmbda: {}, numIter: {}, numPartitions: {}".format(
         rank, lmbda, numIter, numPartitions)
