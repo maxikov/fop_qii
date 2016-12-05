@@ -187,6 +187,7 @@ def compute_recommendations_and_qii(sc, dataset, user_id):
     # TODO avoid retraining?
     print "Training the model, rank:", rank, "numIter:", numIter,\
             "lmbda:", lmbda
+    start_recommend_time = time.time()
     model = ALS.train(dataset, rank, numIter, lmbda)
 
     print "Computing recommendations/QII for user: ", user_id
@@ -195,6 +196,10 @@ def compute_recommendations_and_qii(sc, dataset, user_id):
 
     # make personalized recommendations
     recommendations = build_recommendations(sc, myRatings, model)
+    end_recommend_time = time.time()
+    rec_time = end_recommend_time - start_recommend_time
+    print "Time it took to create recommendations:", rec_time
+
     if recommendations_to_print > 0:
         print "Movies recommended for you:"
         print_top_recommendations(recommendations, recommendations_to_print)
