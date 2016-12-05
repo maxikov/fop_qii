@@ -32,6 +32,7 @@ max_movies_per_user = 0 #0 = no limit
 
 recommendations_to_print = 0 # 0 = don't print
 
+print_movie_names = False
 
 def parseRating(line):
     """
@@ -101,7 +102,8 @@ def print_top_recommendations(recommendations, n):
     for i in xrange(len(top_recommendations)):
         table.add_row([
             i+1,
-            movies[top_recommendations[i].product],
+            movies[top_recommendations[i].product] if print_movie_names\
+                    else top_recommendations[i].product,
             top_recommendations[i].rating,
         ])
     print table
@@ -210,7 +212,10 @@ def compute_recommendations_and_qii(sc, dataset, user_id):
     print "Local influence:"
     t = PrettyTable(["Movie ID", "Local Influence"])
     for mid, minf in sorted(local_influence.items(), key = lambda x: -x[1]):
-        t.add_row([movies[mid], minf])
+        if print_movie_names:
+            t.add_row([movies[mid], minf])
+        else:
+            t.add_row([mid, minf])
     print t
 
     return recommendations, local_influence
