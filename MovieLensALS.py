@@ -134,15 +134,7 @@ def compute_local_influence(sc, user_id, original_recommendations,
             new_ratings = dict()
             new_ratings[movie] = new_rating
             print "New ratings:", new_ratings
-            if new_dataset:
-               old_dataset = new_dataset 
             new_dataset = set_user_ratings(sc, orig_dataset, user_ratings, new_ratings)
-            if old_dataset:
-                inter = old_dataset.intersection(new_dataset)
-                print "join count", inter.count()
-                print "distinct", old_dataset.subtract(inter).collect()
-                print "old count", old_dataset.count()
-                print "new count", new_dataset.count()
             print "Building model"
             new_model = ALS.train(new_dataset, rank, numIter, lmbda, seed=7)
             print "Built, predicting"
@@ -151,7 +143,7 @@ def compute_local_influence(sc, user_id, original_recommendations,
             new_recs = recommendations_to_dd(new_recommendations)
             for mid in set(old_recs.keys()).union(set(new_recs.keys())):
                 res[movie] += abs(old_recs[mid] - new_recs[mid])
-            print "Local influence:", res
+        print "Local influence:", res[movie]
     res_normed = {k: v/float(qii_iters*len(new_recs)) for k, v in res.items()}
     print "Final local influence:", res_normed
     return res_normed
@@ -344,7 +336,7 @@ def compute_user_local_sensitivity(sc, dataset, user_id, num_iters_ls):
         report["perturbed_qii_l0_norm"] = len(qii)
         report["recs_ls"] = rec_ls
         report["qii_ls"] = qii_ls
-        # Jenna added
+        # TODO add to report
         print "Local sensitivity of recs: ", rec_ls/float((len(recs)*4))
         print "Local sensitivity of QII: ", qii_ls/float((len(qii)*4))
 
