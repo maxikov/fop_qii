@@ -30,6 +30,9 @@ num_iters_ls = 5
 
 max_movies_per_user = 0 #0 = no limit
 
+recommendations_to_print = 0 # 0 = don't print
+
+
 def parseRating(line):
     """
     Parses a rating record in MovieLens format userId::movieId::rating::timestamp .
@@ -88,14 +91,20 @@ def build_recommendations(sc, myRatings, model):
     recommendations = sorted(predictions, key = lambda x: x.product)
     return recommendations
 
-def print_top_recommendations(recommendations, movies):
+def print_top_recommendations(recommendations, n):
     """
-    Print the top 50 movie recommendations
+    Print the top n movie recommendations
     """
     top_recommendations = sorted(recommendations, key=lambda x: x.rating,
-            reverse=True)[:50]
+            reverse=True)[:n]
+    table = PrettyTable(["Rank", "Movie", "Estimated rating"])
     for i in xrange(len(top_recommendations)):
-        print ("%2d: %s" % (i + 1, movies[top_recommendations[i][1]])).encode('ascii', 'ignore')
+        table.add_row([
+            i+1,
+            movies[top_recommendations[i].product],
+            top_recommendations[i].rating,
+        ])
+    print table
 
 def recommendations_to_dd(recommendations):
     """
@@ -140,6 +149,10 @@ def compute_local_influence(sc, user_id, original_recommendations,
             print "Built, predicting"
             new_recommendations = build_recommendations(sc, user_ratings,  #final chg
                     new_model)
+            if recommendations_to_print > 0:
+                print "New recommendations:"
+                print_top_recommendations(new_recommendations,
+                    recommendations_to_print)
             new_recs = recommendations_to_dd(new_recommendations)
             for mid in set(old_recs.keys()).union(set(new_recs.keys())):
                 res[movie] += abs(old_recs[mid] - new_recs[mid])
@@ -182,8 +195,9 @@ def compute_recommendations_and_qii(sc, dataset, user_id):
 
     # make personalized recommendations
     recommendations = build_recommendations(sc, myRatings, model)
-    print "Movies recommended for you:"
-    #print_top_recommendations(recommendations, movies)
+    if recommendations_to_print > 0:
+        print "Movies recommended for you:"
+        print_top_recommendations(recommendations, recommendations_to_print)
 
     local_influence = compute_local_influence(sc, user_id, recommendations,
             dataset, rank, lmbda, numIter, qii_iters)
@@ -191,7 +205,7 @@ def compute_recommendations_and_qii(sc, dataset, user_id):
     print "Local influence:"
     t = PrettyTable(["Movie ID", "Local Influence"])
     for mid, minf in sorted(local_influence.items(), key = lambda x: -x[1]):
-        t.add_row([mid, minf])
+        t.add_row([movies[mid], minf])
     print t
 
     return recommendations, local_influence
@@ -305,7 +319,7 @@ def compute_user_local_sensitivity(sc, dataset, user_id, num_iters_ls):
     specific dataset
     """
 
-    res = {}
+    res = defaultdict(lambda: 0.0)
 
     original_recs, original_qii = compute_recommendations_and_qii(sc, dataset,
             user_id)
@@ -324,7 +338,9 @@ def compute_user_local_sensitivity(sc, dataset, user_id, num_iters_ls):
         print "Perturbing user", other_user_id, "(", x+1, "out of",\
             num_iters_ls, ")"
         perturbed_dataset = perturb_user_ratings(sc, dataset, other_user_id)
+        start = time.time()
         recs, qii = compute_recommendations_and_qii(sc, perturbed_dataset, user_id)
+        stop = time.time()
         recs = recommendations_to_dd(recs)
         rec_ls = calculate_l1_distance(original_recs, recs)
         qii_ls = calculate_l1_distance(original_qii, qii)
@@ -341,10 +357,25 @@ def compute_user_local_sensitivity(sc, dataset, user_id, num_iters_ls):
         report["qii_ls_norm"] = qii_ls/float((len(qii)*4))
         print "Local sensitivity of recs: ", rec_ls/float((len(recs)*4))
         print "Local sensitivity of QII: ", qii_ls/float((len(qii)*4))
+        report["computation_time"] = stop - start
+
 
         res["perturbations"].append(report)
 
-    return res
+    for per in res["perturbations"]:
+        res["avg_recs_ls"] += float(per["recs_ls"])/len(res["perturbations"])
+        res["max_recs_ls"] = max(res["max_recs_ls"], per["recs_ls"])
+        res["avg_recs_ls_norm"] +=\
+            float(per["recs_ls_norm"])/len(res["perturbations"])
+        res["max_recs_ls_norm"] = max(res["max_recs_ls_norm"],
+                per["recs_ls_norm"])
+        res["avg_qii_ls"] += float(per["qii_ls"])/len(res["perturbations"])
+        res["max_qii_ls"] = max(res["max_qii_ls"], per["qii_ls"])
+        res["avg_qii_ls_norm"] +=\
+            float(per["qii_ls_norm"])/len(res["perturbations"])
+        res["max_qii_ls_norm"] = max(res["max_recs_qii_norm"],
+                per["qii_ls_norm"])
+    return dict(res)
 
 def compute_multiuser_local_sensitivity(sc, dataset, num_iters_ls,
         num_users_ls):
@@ -429,6 +460,9 @@ if __name__ == "__main__":
             type=int, help="If set to anything other than 0 (default), " +\
                     "display a given number of users who had rated " +\
                     "the highest number of movies, and then exit.")
+    parser.add_argument("--recommendations-to-print", action="store",
+            default=10, type=int, help="How many movie recommendations "+\
+                    "to display. 10 by default.")
 
 
     args = parser.parse_args()
@@ -445,6 +479,7 @@ if __name__ == "__main__":
     specific_user = args.specific_user
     max_movies_per_user = args.max_movies_per_user
     prominent_raters = args.prominent_raters
+    recommendations_to_print = args.recommendations_to_print
 
     print "Rank: {}, lmbda: {}, numIter: {}, numPartitions: {}".format(
         rank, lmbda, numIter, numPartitions)
