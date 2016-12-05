@@ -1,0 +1,725 @@
+Rank: 12, lmbda: 0.1, numIter: 20, numPartitions: 4
+qii_iters: 5, num_iters_ls: 1, movieLensHomeDir: datasets/ml-1m/
+ofname: Output.txt, checkpoint_dir: checkpoint, num_users_ls:1
+specific_user: None, max_movies_per_user: 10, prominent_raters: 0
+Trying user 4828
+Looking at their ratings
+This user has too many movies:  41 > 10
+Trying user 2831
+Looking at their ratings
+This user has too many movies:  21 > 10
+Trying user 883
+Looking at their ratings
+This user has too many movies:  23 > 10
+Trying user 3896
+Looking at their ratings
+This user has too many movies:  98 > 10
+Trying user 1555
+Looking at their ratings
+This user has too many movies:  50 > 10
+Trying user 1594
+Looking at their ratings
+This user has too many movies:  86 > 10
+Trying user 5789
+Looking at their ratings
+This user has too many movies:  13 > 10
+Trying user 4894
+Looking at their ratings
+This user has too many movies:  30 > 10
+Trying user 2071
+Looking at their ratings
+This user has too many movies:  146 > 10
+Trying user 3183
+Looking at their ratings
+This user has too many movies:  66 > 10
+Trying user 589
+Looking at their ratings
+This user has too many movies:  16 > 10
+Trying user 235
+Looking at their ratings
+This user has too many movies:  263 > 10
+Trying user 3773
+Looking at their ratings
+This user has too many movies:  227 > 10
+Trying user 2357
+Looking at their ratings
+This user has too many movies:  13 > 10
+Trying user 2737
+Looking at their ratings
+This user has too many movies:  266 > 10
+Trying user 1666
+Looking at their ratings
+This user has too many movies:  215 > 10
+Trying user 4434
+Looking at their ratings
+This user has too many movies:  26 > 10
+Trying user 5657
+Looking at their ratings
+This user has too many movies:  129 > 10
+Trying user 6000
+Looking at their ratings
+This user has too many movies:  288 > 10
+Trying user 4977
+Looking at their ratings
+This user has too many movies:  124 > 10
+Trying user 5498
+Looking at their ratings
+This user has too many movies:  37 > 10
+Trying user 3260
+Looking at their ratings
+This user has too many movies:  149 > 10
+Trying user 4173
+Looking at their ratings
+This user has too many movies:  44 > 10
+Trying user 2030
+Looking at their ratings
+This user has too many movies:  371 > 10
+Trying user 4814
+Looking at their ratings
+This user has too many movies:  100 > 10
+Trying user 764
+Looking at their ratings
+This user has too many movies:  78 > 10
+Trying user 5517
+Looking at their ratings
+This user has too many movies:  205 > 10
+Trying user 1882
+Looking at their ratings
+This user has too many movies:  141 > 10
+Trying user 4729
+Looking at their ratings
+This user has too many movies:  172 > 10
+Trying user 1713
+Looking at their ratings
+This user has too many movies:  20 > 10
+Trying user 436
+Looking at their ratings
+This user has too many movies:  90 > 10
+Trying user 303
+Looking at their ratings
+This user has too many movies:  122 > 10
+Trying user 1598
+Looking at their ratings
+This user has too many movies:  114 > 10
+Trying user 4590
+Looking at their ratings
+This user has too many movies:  27 > 10
+Trying user 347
+Looking at their ratings
+This user has too many movies:  57 > 10
+Trying user 5947
+Looking at their ratings
+This user has too many movies:  72 > 10
+Trying user 5916
+Looking at their ratings
+This user has too many movies:  406 > 10
+Trying user 2657
+Looking at their ratings
+This user with 9 movies rated is fine!
+Probing user 2657
+Training the model, rank: 12 numIter: 20 lmbda: 0.1
+Computing recommendations/QII for user:  2657
+Movies recommended for you:
+Computing QII for user:  2657
+Count of user ratings:  9
+Perturbing movie 2858 ( 1 out of 9 )
+Perturbed rating: 1.0
+New ratings: {2858: 1.0}
+** New Ratings List:  [(2657, 2858, 1.0), (2657, 628, 4.0), (2657, 2716, 4.0), (2657, 318, 4.0), (2657, 2762, 5.0), (2657, 2918, 5.0), (2657, 1043, 4.0), (2657, 1203, 4.0), (2657, 1894, 2.0)]
+Building model
+Built, predicting
+Perturbing movie 2858 ( 1 out of 9 )
+Perturbed rating: 2.0
+New ratings: {2858: 2.0}
+** New Ratings List:  [(2657, 2858, 2.0), (2657, 628, 4.0), (2657, 2716, 4.0), (2657, 318, 4.0), (2657, 2762, 5.0), (2657, 2918, 5.0), (2657, 1043, 4.0), (2657, 1203, 4.0), (2657, 1894, 2.0)]
+Building model
+Built, predicting
+Perturbing movie 2858 ( 1 out of 9 )
+Perturbed rating: 3.0
+New ratings: {2858: 3.0}
+** New Ratings List:  [(2657, 2858, 3.0), (2657, 628, 4.0), (2657, 2716, 4.0), (2657, 318, 4.0), (2657, 2762, 5.0), (2657, 2918, 5.0), (2657, 1043, 4.0), (2657, 1203, 4.0), (2657, 1894, 2.0)]
+Building model
+Built, predicting
+Perturbing movie 2858 ( 1 out of 9 )
+Perturbed rating: 4.0
+New ratings: {2858: 4.0}
+** New Ratings List:  [(2657, 2858, 4.0), (2657, 628, 4.0), (2657, 2716, 4.0), (2657, 318, 4.0), (2657, 2762, 5.0), (2657, 2918, 5.0), (2657, 1043, 4.0), (2657, 1203, 4.0), (2657, 1894, 2.0)]
+Building model
+Built, predicting
+Perturbing movie 2858 ( 1 out of 9 )
+Perturbed rating: 5.0
+New ratings: {2858: 5.0}
+** New Ratings List:  [(2657, 2858, 5.0), (2657, 628, 4.0), (2657, 2716, 4.0), (2657, 318, 4.0), (2657, 2762, 5.0), (2657, 2918, 5.0), (2657, 1043, 4.0), (2657, 1203, 4.0), (2657, 1894, 2.0)]
+Building model
+Built, predicting
+Local influence: 5003.35469178
+Perturbing movie 628 ( 2 out of 9 )
+Perturbed rating: 1.0
+New ratings: {628: 1.0}
+** New Ratings List:  [(2657, 2858, 5.0), (2657, 628, 1.0), (2657, 2716, 4.0), (2657, 318, 4.0), (2657, 2762, 5.0), (2657, 2918, 5.0), (2657, 1043, 4.0), (2657, 1203, 4.0), (2657, 1894, 2.0)]
+Building model
+Built, predicting
+Perturbing movie 628 ( 2 out of 9 )
+Perturbed rating: 2.0
+New ratings: {628: 2.0}
+** New Ratings List:  [(2657, 2858, 5.0), (2657, 628, 2.0), (2657, 2716, 4.0), (2657, 318, 4.0), (2657, 2762, 5.0), (2657, 2918, 5.0), (2657, 1043, 4.0), (2657, 1203, 4.0), (2657, 1894, 2.0)]
+Building model
+Built, predicting
+Perturbing movie 628 ( 2 out of 9 )
+Perturbed rating: 3.0
+New ratings: {628: 3.0}
+** New Ratings List:  [(2657, 2858, 5.0), (2657, 628, 3.0), (2657, 2716, 4.0), (2657, 318, 4.0), (2657, 2762, 5.0), (2657, 2918, 5.0), (2657, 1043, 4.0), (2657, 1203, 4.0), (2657, 1894, 2.0)]
+Building model
+Built, predicting
+Perturbing movie 628 ( 2 out of 9 )
+Perturbed rating: 4.0
+New ratings: {628: 4.0}
+** New Ratings List:  [(2657, 2858, 5.0), (2657, 628, 4.0), (2657, 2716, 4.0), (2657, 318, 4.0), (2657, 2762, 5.0), (2657, 2918, 5.0), (2657, 1043, 4.0), (2657, 1203, 4.0), (2657, 1894, 2.0)]
+Building model
+Built, predicting
+Perturbing movie 628 ( 2 out of 9 )
+Perturbed rating: 5.0
+New ratings: {628: 5.0}
+** New Ratings List:  [(2657, 2858, 5.0), (2657, 628, 5.0), (2657, 2716, 4.0), (2657, 318, 4.0), (2657, 2762, 5.0), (2657, 2918, 5.0), (2657, 1043, 4.0), (2657, 1203, 4.0), (2657, 1894, 2.0)]
+Building model
+Built, predicting
+Local influence: 3030.32203838
+Perturbing movie 2716 ( 3 out of 9 )
+Perturbed rating: 1.0
+New ratings: {2716: 1.0}
+** New Ratings List:  [(2657, 2858, 5.0), (2657, 628, 4.0), (2657, 2716, 1.0), (2657, 318, 4.0), (2657, 2762, 5.0), (2657, 2918, 5.0), (2657, 1043, 4.0), (2657, 1203, 4.0), (2657, 1894, 2.0)]
+Building model
+Built, predicting
+Perturbing movie 2716 ( 3 out of 9 )
+Perturbed rating: 2.0
+New ratings: {2716: 2.0}
+** New Ratings List:  [(2657, 2858, 5.0), (2657, 628, 4.0), (2657, 2716, 2.0), (2657, 318, 4.0), (2657, 2762, 5.0), (2657, 2918, 5.0), (2657, 1043, 4.0), (2657, 1203, 4.0), (2657, 1894, 2.0)]
+Building model
+Built, predicting
+Perturbing movie 2716 ( 3 out of 9 )
+Perturbed rating: 3.0
+New ratings: {2716: 3.0}
+** New Ratings List:  [(2657, 2858, 5.0), (2657, 628, 4.0), (2657, 2716, 3.0), (2657, 318, 4.0), (2657, 2762, 5.0), (2657, 2918, 5.0), (2657, 1043, 4.0), (2657, 1203, 4.0), (2657, 1894, 2.0)]
+Building model
+Built, predicting
+Perturbing movie 2716 ( 3 out of 9 )
+Perturbed rating: 4.0
+New ratings: {2716: 4.0}
+** New Ratings List:  [(2657, 2858, 5.0), (2657, 628, 4.0), (2657, 2716, 4.0), (2657, 318, 4.0), (2657, 2762, 5.0), (2657, 2918, 5.0), (2657, 1043, 4.0), (2657, 1203, 4.0), (2657, 1894, 2.0)]
+Building model
+Built, predicting
+Perturbing movie 2716 ( 3 out of 9 )
+Perturbed rating: 5.0
+New ratings: {2716: 5.0}
+** New Ratings List:  [(2657, 2858, 5.0), (2657, 628, 4.0), (2657, 2716, 5.0), (2657, 318, 4.0), (2657, 2762, 5.0), (2657, 2918, 5.0), (2657, 1043, 4.0), (2657, 1203, 4.0), (2657, 1894, 2.0)]
+Building model
+Built, predicting
+Local influence: 4049.90830221
+Perturbing movie 318 ( 4 out of 9 )
+Perturbed rating: 1.0
+New ratings: {318: 1.0}
+** New Ratings List:  [(2657, 2858, 5.0), (2657, 628, 4.0), (2657, 2716, 4.0), (2657, 318, 1.0), (2657, 2762, 5.0), (2657, 2918, 5.0), (2657, 1043, 4.0), (2657, 1203, 4.0), (2657, 1894, 2.0)]
+Building model
+Built, predicting
+Perturbing movie 318 ( 4 out of 9 )
+Perturbed rating: 2.0
+New ratings: {318: 2.0}
+** New Ratings List:  [(2657, 2858, 5.0), (2657, 628, 4.0), (2657, 2716, 4.0), (2657, 318, 2.0), (2657, 2762, 5.0), (2657, 2918, 5.0), (2657, 1043, 4.0), (2657, 1203, 4.0), (2657, 1894, 2.0)]
+Building model
+Built, predicting
+Perturbing movie 318 ( 4 out of 9 )
+Perturbed rating: 3.0
+New ratings: {318: 3.0}
+** New Ratings List:  [(2657, 2858, 5.0), (2657, 628, 4.0), (2657, 2716, 4.0), (2657, 318, 3.0), (2657, 2762, 5.0), (2657, 2918, 5.0), (2657, 1043, 4.0), (2657, 1203, 4.0), (2657, 1894, 2.0)]
+Building model
+Built, predicting
+Perturbing movie 318 ( 4 out of 9 )
+Perturbed rating: 4.0
+New ratings: {318: 4.0}
+** New Ratings List:  [(2657, 2858, 5.0), (2657, 628, 4.0), (2657, 2716, 4.0), (2657, 318, 4.0), (2657, 2762, 5.0), (2657, 2918, 5.0), (2657, 1043, 4.0), (2657, 1203, 4.0), (2657, 1894, 2.0)]
+Building model
+Built, predicting
+Perturbing movie 318 ( 4 out of 9 )
+Perturbed rating: 5.0
+New ratings: {318: 5.0}
+** New Ratings List:  [(2657, 2858, 5.0), (2657, 628, 4.0), (2657, 2716, 4.0), (2657, 318, 5.0), (2657, 2762, 5.0), (2657, 2918, 5.0), (2657, 1043, 4.0), (2657, 1203, 4.0), (2657, 1894, 2.0)]
+Building model
+Built, predicting
+Local influence: 2183.43992308
+Perturbing movie 2762 ( 5 out of 9 )
+Perturbed rating: 1.0
+New ratings: {2762: 1.0}
+** New Ratings List:  [(2657, 2858, 5.0), (2657, 628, 4.0), (2657, 2716, 4.0), (2657, 318, 4.0), (2657, 2762, 1.0), (2657, 2918, 5.0), (2657, 1043, 4.0), (2657, 1203, 4.0), (2657, 1894, 2.0)]
+Building model
+Built, predicting
+Perturbing movie 2762 ( 5 out of 9 )
+Perturbed rating: 2.0
+New ratings: {2762: 2.0}
+** New Ratings List:  [(2657, 2858, 5.0), (2657, 628, 4.0), (2657, 2716, 4.0), (2657, 318, 4.0), (2657, 2762, 2.0), (2657, 2918, 5.0), (2657, 1043, 4.0), (2657, 1203, 4.0), (2657, 1894, 2.0)]
+Building model
+Built, predicting
+Perturbing movie 2762 ( 5 out of 9 )
+Perturbed rating: 3.0
+New ratings: {2762: 3.0}
+** New Ratings List:  [(2657, 2858, 5.0), (2657, 628, 4.0), (2657, 2716, 4.0), (2657, 318, 4.0), (2657, 2762, 3.0), (2657, 2918, 5.0), (2657, 1043, 4.0), (2657, 1203, 4.0), (2657, 1894, 2.0)]
+Building model
+Built, predicting
+Perturbing movie 2762 ( 5 out of 9 )
+Perturbed rating: 4.0
+New ratings: {2762: 4.0}
+** New Ratings List:  [(2657, 2858, 5.0), (2657, 628, 4.0), (2657, 2716, 4.0), (2657, 318, 4.0), (2657, 2762, 4.0), (2657, 2918, 5.0), (2657, 1043, 4.0), (2657, 1203, 4.0), (2657, 1894, 2.0)]
+Building model
+Built, predicting
+Perturbing movie 2762 ( 5 out of 9 )
+Perturbed rating: 5.0
+New ratings: {2762: 5.0}
+** New Ratings List:  [(2657, 2858, 5.0), (2657, 628, 4.0), (2657, 2716, 4.0), (2657, 318, 4.0), (2657, 2762, 5.0), (2657, 2918, 5.0), (2657, 1043, 4.0), (2657, 1203, 4.0), (2657, 1894, 2.0)]
+Building model
+Built, predicting
+Local influence: 3590.09968287
+Perturbing movie 2918 ( 6 out of 9 )
+Perturbed rating: 1.0
+New ratings: {2918: 1.0}
+** New Ratings List:  [(2657, 2858, 5.0), (2657, 628, 4.0), (2657, 2716, 4.0), (2657, 318, 4.0), (2657, 2762, 5.0), (2657, 2918, 1.0), (2657, 1043, 4.0), (2657, 1203, 4.0), (2657, 1894, 2.0)]
+Building model
+Built, predicting
+Perturbing movie 2918 ( 6 out of 9 )
+Perturbed rating: 2.0
+New ratings: {2918: 2.0}
+** New Ratings List:  [(2657, 2858, 5.0), (2657, 628, 4.0), (2657, 2716, 4.0), (2657, 318, 4.0), (2657, 2762, 5.0), (2657, 2918, 2.0), (2657, 1043, 4.0), (2657, 1203, 4.0), (2657, 1894, 2.0)]
+Building model
+Built, predicting
+Perturbing movie 2918 ( 6 out of 9 )
+Perturbed rating: 3.0
+New ratings: {2918: 3.0}
+** New Ratings List:  [(2657, 2858, 5.0), (2657, 628, 4.0), (2657, 2716, 4.0), (2657, 318, 4.0), (2657, 2762, 5.0), (2657, 2918, 3.0), (2657, 1043, 4.0), (2657, 1203, 4.0), (2657, 1894, 2.0)]
+Building model
+Built, predicting
+Perturbing movie 2918 ( 6 out of 9 )
+Perturbed rating: 4.0
+New ratings: {2918: 4.0}
+** New Ratings List:  [(2657, 2858, 5.0), (2657, 628, 4.0), (2657, 2716, 4.0), (2657, 318, 4.0), (2657, 2762, 5.0), (2657, 2918, 4.0), (2657, 1043, 4.0), (2657, 1203, 4.0), (2657, 1894, 2.0)]
+Building model
+Built, predicting
+Perturbing movie 2918 ( 6 out of 9 )
+Perturbed rating: 5.0
+New ratings: {2918: 5.0}
+** New Ratings List:  [(2657, 2858, 5.0), (2657, 628, 4.0), (2657, 2716, 4.0), (2657, 318, 4.0), (2657, 2762, 5.0), (2657, 2918, 5.0), (2657, 1043, 4.0), (2657, 1203, 4.0), (2657, 1894, 2.0)]
+Building model
+Built, predicting
+Local influence: 4053.6089835
+Perturbing movie 1043 ( 7 out of 9 )
+Perturbed rating: 1.0
+New ratings: {1043: 1.0}
+** New Ratings List:  [(2657, 2858, 5.0), (2657, 628, 4.0), (2657, 2716, 4.0), (2657, 318, 4.0), (2657, 2762, 5.0), (2657, 2918, 5.0), (2657, 1043, 1.0), (2657, 1203, 4.0), (2657, 1894, 2.0)]
+Building model
+Built, predicting
+Perturbing movie 1043 ( 7 out of 9 )
+Perturbed rating: 2.0
+New ratings: {1043: 2.0}
+** New Ratings List:  [(2657, 2858, 5.0), (2657, 628, 4.0), (2657, 2716, 4.0), (2657, 318, 4.0), (2657, 2762, 5.0), (2657, 2918, 5.0), (2657, 1043, 2.0), (2657, 1203, 4.0), (2657, 1894, 2.0)]
+Building model
+Built, predicting
+Perturbing movie 1043 ( 7 out of 9 )
+Perturbed rating: 3.0
+New ratings: {1043: 3.0}
+** New Ratings List:  [(2657, 2858, 5.0), (2657, 628, 4.0), (2657, 2716, 4.0), (2657, 318, 4.0), (2657, 2762, 5.0), (2657, 2918, 5.0), (2657, 1043, 3.0), (2657, 1203, 4.0), (2657, 1894, 2.0)]
+Building model
+Built, predicting
+Perturbing movie 1043 ( 7 out of 9 )
+Perturbed rating: 4.0
+New ratings: {1043: 4.0}
+** New Ratings List:  [(2657, 2858, 5.0), (2657, 628, 4.0), (2657, 2716, 4.0), (2657, 318, 4.0), (2657, 2762, 5.0), (2657, 2918, 5.0), (2657, 1043, 4.0), (2657, 1203, 4.0), (2657, 1894, 2.0)]
+Building model
+Built, predicting
+Perturbing movie 1043 ( 7 out of 9 )
+Perturbed rating: 5.0
+New ratings: {1043: 5.0}
+** New Ratings List:  [(2657, 2858, 5.0), (2657, 628, 4.0), (2657, 2716, 4.0), (2657, 318, 4.0), (2657, 2762, 5.0), (2657, 2918, 5.0), (2657, 1043, 5.0), (2657, 1203, 4.0), (2657, 1894, 2.0)]
+Building model
+Built, predicting
+Local influence: 4440.58721159
+Perturbing movie 1203 ( 8 out of 9 )
+Perturbed rating: 1.0
+New ratings: {1203: 1.0}
+** New Ratings List:  [(2657, 2858, 5.0), (2657, 628, 4.0), (2657, 2716, 4.0), (2657, 318, 4.0), (2657, 2762, 5.0), (2657, 2918, 5.0), (2657, 1043, 4.0), (2657, 1203, 1.0), (2657, 1894, 2.0)]
+Building model
+Built, predicting
+Perturbing movie 1203 ( 8 out of 9 )
+Perturbed rating: 2.0
+New ratings: {1203: 2.0}
+** New Ratings List:  [(2657, 2858, 5.0), (2657, 628, 4.0), (2657, 2716, 4.0), (2657, 318, 4.0), (2657, 2762, 5.0), (2657, 2918, 5.0), (2657, 1043, 4.0), (2657, 1203, 2.0), (2657, 1894, 2.0)]
+Building model
+Built, predicting
+Perturbing movie 1203 ( 8 out of 9 )
+Perturbed rating: 3.0
+New ratings: {1203: 3.0}
+** New Ratings List:  [(2657, 2858, 5.0), (2657, 628, 4.0), (2657, 2716, 4.0), (2657, 318, 4.0), (2657, 2762, 5.0), (2657, 2918, 5.0), (2657, 1043, 4.0), (2657, 1203, 3.0), (2657, 1894, 2.0)]
+Building model
+Built, predicting
+Perturbing movie 1203 ( 8 out of 9 )
+Perturbed rating: 4.0
+New ratings: {1203: 4.0}
+** New Ratings List:  [(2657, 2858, 5.0), (2657, 628, 4.0), (2657, 2716, 4.0), (2657, 318, 4.0), (2657, 2762, 5.0), (2657, 2918, 5.0), (2657, 1043, 4.0), (2657, 1203, 4.0), (2657, 1894, 2.0)]
+Building model
+Built, predicting
+Perturbing movie 1203 ( 8 out of 9 )
+Perturbed rating: 5.0
+New ratings: {1203: 5.0}
+** New Ratings List:  [(2657, 2858, 5.0), (2657, 628, 4.0), (2657, 2716, 4.0), (2657, 318, 4.0), (2657, 2762, 5.0), (2657, 2918, 5.0), (2657, 1043, 4.0), (2657, 1203, 5.0), (2657, 1894, 2.0)]
+Building model
+Built, predicting
+Local influence: 5206.19595143
+Perturbing movie 1894 ( 9 out of 9 )
+Perturbed rating: 1.0
+New ratings: {1894: 1.0}
+** New Ratings List:  [(2657, 2858, 5.0), (2657, 628, 4.0), (2657, 2716, 4.0), (2657, 318, 4.0), (2657, 2762, 5.0), (2657, 2918, 5.0), (2657, 1043, 4.0), (2657, 1203, 4.0), (2657, 1894, 1.0)]
+Building model
+Built, predicting
+Perturbing movie 1894 ( 9 out of 9 )
+Perturbed rating: 2.0
+New ratings: {1894: 2.0}
+** New Ratings List:  [(2657, 2858, 5.0), (2657, 628, 4.0), (2657, 2716, 4.0), (2657, 318, 4.0), (2657, 2762, 5.0), (2657, 2918, 5.0), (2657, 1043, 4.0), (2657, 1203, 4.0), (2657, 1894, 2.0)]
+Building model
+Built, predicting
+Perturbing movie 1894 ( 9 out of 9 )
+Perturbed rating: 3.0
+New ratings: {1894: 3.0}
+** New Ratings List:  [(2657, 2858, 5.0), (2657, 628, 4.0), (2657, 2716, 4.0), (2657, 318, 4.0), (2657, 2762, 5.0), (2657, 2918, 5.0), (2657, 1043, 4.0), (2657, 1203, 4.0), (2657, 1894, 3.0)]
+Building model
+Built, predicting
+Perturbing movie 1894 ( 9 out of 9 )
+Perturbed rating: 4.0
+New ratings: {1894: 4.0}
+** New Ratings List:  [(2657, 2858, 5.0), (2657, 628, 4.0), (2657, 2716, 4.0), (2657, 318, 4.0), (2657, 2762, 5.0), (2657, 2918, 5.0), (2657, 1043, 4.0), (2657, 1203, 4.0), (2657, 1894, 4.0)]
+Building model
+Built, predicting
+Perturbing movie 1894 ( 9 out of 9 )
+Perturbed rating: 5.0
+New ratings: {1894: 5.0}
+** New Ratings List:  [(2657, 2858, 5.0), (2657, 628, 4.0), (2657, 2716, 4.0), (2657, 318, 4.0), (2657, 2762, 5.0), (2657, 2918, 5.0), (2657, 1043, 4.0), (2657, 1203, 4.0), (2657, 1894, 5.0)]
+Building model
+Built, predicting
+Local influence: 3724.74837983
+Final local influence: {1203: 0.28676375386566716, 1894: 0.20516377746243028, 2858: 0.2755910047797839, 1043: 0.2445930714176125, 628: 0.1669139101284734, 2918: 0.2232778288900405, 2716: 0.22307399075797205, 2762: 0.19774715961823, 318: 0.12026658898827455}
+Local influence:
++----------+-----------------+
+| Movie ID | Local Influence |
++----------+-----------------+
+|   1203   |  0.286763753866 |
+|   2858   |  0.27559100478  |
+|   1043   |  0.244593071418 |
+|   2918   |  0.22327782889  |
+|   2716   |  0.223073990758 |
+|   1894   |  0.205163777462 |
+|   2762   |  0.197747159618 |
+|   628    |  0.166913910128 |
+|   318    |  0.120266588988 |
++----------+-----------------+
+Perturbing user 1334 ( 1 out of 1 )
+Count of user ratings:  38
+** New Ratings List:  [(1334, 589, 2.0788153082835388), (1334, 3005, 4.822463811142385), (1334, 2759, 2.8458194237257604), (1334, 2762, 4.119791539826695), (1334, 32, 2.5926435365768983), (1334, 3578, 2.049278423771553), (1334, 1204, 1.5040235584828983), (1334, 2961, 1.919923900947773), (1334, 1089, 4.273864852104752), (1334, 1278, 1.2062845237546176), (1334, 3039, 4.026234611390031), (1334, 3203, 3.60504415598383), (1334, 3072, 3.501120449616471), (1334, 3219, 3.409824127483722), (1334, 2433, 4.779315532586934), (1334, 2670, 2.7484657903378595), (1334, 2672, 2.962429682474264), (1334, 2688, 1.3844191853758687), (1334, 2694, 4.901575494820015), (1334, 2699, 1.786994540585603), (1334, 296, 2.4815568679111357), (1334, 2997, 3.7858125677171492), (1334, 608, 1.4735954698554137), (1334, 3893, 1.4391394034499045), (1334, 3108, 2.399585100470935), (1334, 3160, 4.482300660393886), (1334, 2369, 2.914179963733269), (1334, 3176, 1.5505163117995688), (1334, 1581, 3.9935548043777374), (1334, 2390, 4.766917739591401), (1334, 2395, 3.8671857590368783), (1334, 1748, 1.0927921217278973), (1334, 2702, 1.3216156637123304), (1334, 2707, 3.118742872556346), (1334, 2720, 2.0356429395318867), (1334, 2580, 2.3705156144257358), (1334, 3384, 4.971607252740771), (1334, 318, 2.104872851410518)]
+Training the model, rank: 12 numIter: 20 lmbda: 0.1
+Computing recommendations/QII for user:  2657
+Movies recommended for you:
+Computing QII for user:  2657
+Count of user ratings:  9
+Perturbing movie 2858 ( 1 out of 9 )
+Perturbed rating: 1.0
+New ratings: {2858: 1.0}
+** New Ratings List:  [(2657, 2858, 1.0), (2657, 628, 4.0), (2657, 2716, 4.0), (2657, 318, 4.0), (2657, 2762, 5.0), (2657, 2918, 5.0), (2657, 1043, 4.0), (2657, 1203, 4.0), (2657, 1894, 2.0)]
+Building model
+Built, predicting
+Perturbing movie 2858 ( 1 out of 9 )
+Perturbed rating: 2.0
+New ratings: {2858: 2.0}
+** New Ratings List:  [(2657, 2858, 2.0), (2657, 628, 4.0), (2657, 2716, 4.0), (2657, 318, 4.0), (2657, 2762, 5.0), (2657, 2918, 5.0), (2657, 1043, 4.0), (2657, 1203, 4.0), (2657, 1894, 2.0)]
+Building model
+Built, predicting
+Perturbing movie 2858 ( 1 out of 9 )
+Perturbed rating: 3.0
+New ratings: {2858: 3.0}
+** New Ratings List:  [(2657, 2858, 3.0), (2657, 628, 4.0), (2657, 2716, 4.0), (2657, 318, 4.0), (2657, 2762, 5.0), (2657, 2918, 5.0), (2657, 1043, 4.0), (2657, 1203, 4.0), (2657, 1894, 2.0)]
+Building model
+Built, predicting
+Perturbing movie 2858 ( 1 out of 9 )
+Perturbed rating: 4.0
+New ratings: {2858: 4.0}
+** New Ratings List:  [(2657, 2858, 4.0), (2657, 628, 4.0), (2657, 2716, 4.0), (2657, 318, 4.0), (2657, 2762, 5.0), (2657, 2918, 5.0), (2657, 1043, 4.0), (2657, 1203, 4.0), (2657, 1894, 2.0)]
+Building model
+Built, predicting
+Perturbing movie 2858 ( 1 out of 9 )
+Perturbed rating: 5.0
+New ratings: {2858: 5.0}
+** New Ratings List:  [(2657, 2858, 5.0), (2657, 628, 4.0), (2657, 2716, 4.0), (2657, 318, 4.0), (2657, 2762, 5.0), (2657, 2918, 5.0), (2657, 1043, 4.0), (2657, 1203, 4.0), (2657, 1894, 2.0)]
+Building model
+Built, predicting
+Local influence: 4993.91979399
+Perturbing movie 628 ( 2 out of 9 )
+Perturbed rating: 1.0
+New ratings: {628: 1.0}
+** New Ratings List:  [(2657, 2858, 5.0), (2657, 628, 1.0), (2657, 2716, 4.0), (2657, 318, 4.0), (2657, 2762, 5.0), (2657, 2918, 5.0), (2657, 1043, 4.0), (2657, 1203, 4.0), (2657, 1894, 2.0)]
+Building model
+Built, predicting
+Perturbing movie 628 ( 2 out of 9 )
+Perturbed rating: 2.0
+New ratings: {628: 2.0}
+** New Ratings List:  [(2657, 2858, 5.0), (2657, 628, 2.0), (2657, 2716, 4.0), (2657, 318, 4.0), (2657, 2762, 5.0), (2657, 2918, 5.0), (2657, 1043, 4.0), (2657, 1203, 4.0), (2657, 1894, 2.0)]
+Building model
+Built, predicting
+Perturbing movie 628 ( 2 out of 9 )
+Perturbed rating: 3.0
+New ratings: {628: 3.0}
+** New Ratings List:  [(2657, 2858, 5.0), (2657, 628, 3.0), (2657, 2716, 4.0), (2657, 318, 4.0), (2657, 2762, 5.0), (2657, 2918, 5.0), (2657, 1043, 4.0), (2657, 1203, 4.0), (2657, 1894, 2.0)]
+Building model
+Built, predicting
+Perturbing movie 628 ( 2 out of 9 )
+Perturbed rating: 4.0
+New ratings: {628: 4.0}
+** New Ratings List:  [(2657, 2858, 5.0), (2657, 628, 4.0), (2657, 2716, 4.0), (2657, 318, 4.0), (2657, 2762, 5.0), (2657, 2918, 5.0), (2657, 1043, 4.0), (2657, 1203, 4.0), (2657, 1894, 2.0)]
+Building model
+Built, predicting
+Perturbing movie 628 ( 2 out of 9 )
+Perturbed rating: 5.0
+New ratings: {628: 5.0}
+** New Ratings List:  [(2657, 2858, 5.0), (2657, 628, 5.0), (2657, 2716, 4.0), (2657, 318, 4.0), (2657, 2762, 5.0), (2657, 2918, 5.0), (2657, 1043, 4.0), (2657, 1203, 4.0), (2657, 1894, 2.0)]
+Building model
+Built, predicting
+Local influence: 2971.4029196
+Perturbing movie 2716 ( 3 out of 9 )
+Perturbed rating: 1.0
+New ratings: {2716: 1.0}
+** New Ratings List:  [(2657, 2858, 5.0), (2657, 628, 4.0), (2657, 2716, 1.0), (2657, 318, 4.0), (2657, 2762, 5.0), (2657, 2918, 5.0), (2657, 1043, 4.0), (2657, 1203, 4.0), (2657, 1894, 2.0)]
+Building model
+Built, predicting
+Perturbing movie 2716 ( 3 out of 9 )
+Perturbed rating: 2.0
+New ratings: {2716: 2.0}
+** New Ratings List:  [(2657, 2858, 5.0), (2657, 628, 4.0), (2657, 2716, 2.0), (2657, 318, 4.0), (2657, 2762, 5.0), (2657, 2918, 5.0), (2657, 1043, 4.0), (2657, 1203, 4.0), (2657, 1894, 2.0)]
+Building model
+Built, predicting
+Perturbing movie 2716 ( 3 out of 9 )
+Perturbed rating: 3.0
+New ratings: {2716: 3.0}
+** New Ratings List:  [(2657, 2858, 5.0), (2657, 628, 4.0), (2657, 2716, 3.0), (2657, 318, 4.0), (2657, 2762, 5.0), (2657, 2918, 5.0), (2657, 1043, 4.0), (2657, 1203, 4.0), (2657, 1894, 2.0)]
+Building model
+Built, predicting
+Perturbing movie 2716 ( 3 out of 9 )
+Perturbed rating: 4.0
+New ratings: {2716: 4.0}
+** New Ratings List:  [(2657, 2858, 5.0), (2657, 628, 4.0), (2657, 2716, 4.0), (2657, 318, 4.0), (2657, 2762, 5.0), (2657, 2918, 5.0), (2657, 1043, 4.0), (2657, 1203, 4.0), (2657, 1894, 2.0)]
+Building model
+Built, predicting
+Perturbing movie 2716 ( 3 out of 9 )
+Perturbed rating: 5.0
+New ratings: {2716: 5.0}
+** New Ratings List:  [(2657, 2858, 5.0), (2657, 628, 4.0), (2657, 2716, 5.0), (2657, 318, 4.0), (2657, 2762, 5.0), (2657, 2918, 5.0), (2657, 1043, 4.0), (2657, 1203, 4.0), (2657, 1894, 2.0)]
+Building model
+Built, predicting
+Local influence: 4107.75522228
+Perturbing movie 318 ( 4 out of 9 )
+Perturbed rating: 1.0
+New ratings: {318: 1.0}
+** New Ratings List:  [(2657, 2858, 5.0), (2657, 628, 4.0), (2657, 2716, 4.0), (2657, 318, 1.0), (2657, 2762, 5.0), (2657, 2918, 5.0), (2657, 1043, 4.0), (2657, 1203, 4.0), (2657, 1894, 2.0)]
+Building model
+Built, predicting
+Perturbing movie 318 ( 4 out of 9 )
+Perturbed rating: 2.0
+New ratings: {318: 2.0}
+** New Ratings List:  [(2657, 2858, 5.0), (2657, 628, 4.0), (2657, 2716, 4.0), (2657, 318, 2.0), (2657, 2762, 5.0), (2657, 2918, 5.0), (2657, 1043, 4.0), (2657, 1203, 4.0), (2657, 1894, 2.0)]
+Building model
+Built, predicting
+Perturbing movie 318 ( 4 out of 9 )
+Perturbed rating: 3.0
+New ratings: {318: 3.0}
+** New Ratings List:  [(2657, 2858, 5.0), (2657, 628, 4.0), (2657, 2716, 4.0), (2657, 318, 3.0), (2657, 2762, 5.0), (2657, 2918, 5.0), (2657, 1043, 4.0), (2657, 1203, 4.0), (2657, 1894, 2.0)]
+Building model
+Built, predicting
+Perturbing movie 318 ( 4 out of 9 )
+Perturbed rating: 4.0
+New ratings: {318: 4.0}
+** New Ratings List:  [(2657, 2858, 5.0), (2657, 628, 4.0), (2657, 2716, 4.0), (2657, 318, 4.0), (2657, 2762, 5.0), (2657, 2918, 5.0), (2657, 1043, 4.0), (2657, 1203, 4.0), (2657, 1894, 2.0)]
+Building model
+Built, predicting
+Perturbing movie 318 ( 4 out of 9 )
+Perturbed rating: 5.0
+New ratings: {318: 5.0}
+** New Ratings List:  [(2657, 2858, 5.0), (2657, 628, 4.0), (2657, 2716, 4.0), (2657, 318, 5.0), (2657, 2762, 5.0), (2657, 2918, 5.0), (2657, 1043, 4.0), (2657, 1203, 4.0), (2657, 1894, 2.0)]
+Building model
+Built, predicting
+Local influence: 2281.92909544
+Perturbing movie 2762 ( 5 out of 9 )
+Perturbed rating: 1.0
+New ratings: {2762: 1.0}
+** New Ratings List:  [(2657, 2858, 5.0), (2657, 628, 4.0), (2657, 2716, 4.0), (2657, 318, 4.0), (2657, 2762, 1.0), (2657, 2918, 5.0), (2657, 1043, 4.0), (2657, 1203, 4.0), (2657, 1894, 2.0)]
+Building model
+Built, predicting
+Perturbing movie 2762 ( 5 out of 9 )
+Perturbed rating: 2.0
+New ratings: {2762: 2.0}
+** New Ratings List:  [(2657, 2858, 5.0), (2657, 628, 4.0), (2657, 2716, 4.0), (2657, 318, 4.0), (2657, 2762, 2.0), (2657, 2918, 5.0), (2657, 1043, 4.0), (2657, 1203, 4.0), (2657, 1894, 2.0)]
+Building model
+Built, predicting
+Perturbing movie 2762 ( 5 out of 9 )
+Perturbed rating: 3.0
+New ratings: {2762: 3.0}
+** New Ratings List:  [(2657, 2858, 5.0), (2657, 628, 4.0), (2657, 2716, 4.0), (2657, 318, 4.0), (2657, 2762, 3.0), (2657, 2918, 5.0), (2657, 1043, 4.0), (2657, 1203, 4.0), (2657, 1894, 2.0)]
+Building model
+Built, predicting
+Perturbing movie 2762 ( 5 out of 9 )
+Perturbed rating: 4.0
+New ratings: {2762: 4.0}
+** New Ratings List:  [(2657, 2858, 5.0), (2657, 628, 4.0), (2657, 2716, 4.0), (2657, 318, 4.0), (2657, 2762, 4.0), (2657, 2918, 5.0), (2657, 1043, 4.0), (2657, 1203, 4.0), (2657, 1894, 2.0)]
+Building model
+Built, predicting
+Perturbing movie 2762 ( 5 out of 9 )
+Perturbed rating: 5.0
+New ratings: {2762: 5.0}
+** New Ratings List:  [(2657, 2858, 5.0), (2657, 628, 4.0), (2657, 2716, 4.0), (2657, 318, 4.0), (2657, 2762, 5.0), (2657, 2918, 5.0), (2657, 1043, 4.0), (2657, 1203, 4.0), (2657, 1894, 2.0)]
+Building model
+Built, predicting
+Local influence: 3587.08645924
+Perturbing movie 2918 ( 6 out of 9 )
+Perturbed rating: 1.0
+New ratings: {2918: 1.0}
+** New Ratings List:  [(2657, 2858, 5.0), (2657, 628, 4.0), (2657, 2716, 4.0), (2657, 318, 4.0), (2657, 2762, 5.0), (2657, 2918, 1.0), (2657, 1043, 4.0), (2657, 1203, 4.0), (2657, 1894, 2.0)]
+Building model
+Built, predicting
+Perturbing movie 2918 ( 6 out of 9 )
+Perturbed rating: 2.0
+New ratings: {2918: 2.0}
+** New Ratings List:  [(2657, 2858, 5.0), (2657, 628, 4.0), (2657, 2716, 4.0), (2657, 318, 4.0), (2657, 2762, 5.0), (2657, 2918, 2.0), (2657, 1043, 4.0), (2657, 1203, 4.0), (2657, 1894, 2.0)]
+Building model
+Built, predicting
+Perturbing movie 2918 ( 6 out of 9 )
+Perturbed rating: 3.0
+New ratings: {2918: 3.0}
+** New Ratings List:  [(2657, 2858, 5.0), (2657, 628, 4.0), (2657, 2716, 4.0), (2657, 318, 4.0), (2657, 2762, 5.0), (2657, 2918, 3.0), (2657, 1043, 4.0), (2657, 1203, 4.0), (2657, 1894, 2.0)]
+Building model
+Built, predicting
+Perturbing movie 2918 ( 6 out of 9 )
+Perturbed rating: 4.0
+New ratings: {2918: 4.0}
+** New Ratings List:  [(2657, 2858, 5.0), (2657, 628, 4.0), (2657, 2716, 4.0), (2657, 318, 4.0), (2657, 2762, 5.0), (2657, 2918, 4.0), (2657, 1043, 4.0), (2657, 1203, 4.0), (2657, 1894, 2.0)]
+Building model
+Built, predicting
+Perturbing movie 2918 ( 6 out of 9 )
+Perturbed rating: 5.0
+New ratings: {2918: 5.0}
+** New Ratings List:  [(2657, 2858, 5.0), (2657, 628, 4.0), (2657, 2716, 4.0), (2657, 318, 4.0), (2657, 2762, 5.0), (2657, 2918, 5.0), (2657, 1043, 4.0), (2657, 1203, 4.0), (2657, 1894, 2.0)]
+Building model
+Built, predicting
+Local influence: 4112.59174491
+Perturbing movie 1043 ( 7 out of 9 )
+Perturbed rating: 1.0
+New ratings: {1043: 1.0}
+** New Ratings List:  [(2657, 2858, 5.0), (2657, 628, 4.0), (2657, 2716, 4.0), (2657, 318, 4.0), (2657, 2762, 5.0), (2657, 2918, 5.0), (2657, 1043, 1.0), (2657, 1203, 4.0), (2657, 1894, 2.0)]
+Building model
+Built, predicting
+Perturbing movie 1043 ( 7 out of 9 )
+Perturbed rating: 2.0
+New ratings: {1043: 2.0}
+** New Ratings List:  [(2657, 2858, 5.0), (2657, 628, 4.0), (2657, 2716, 4.0), (2657, 318, 4.0), (2657, 2762, 5.0), (2657, 2918, 5.0), (2657, 1043, 2.0), (2657, 1203, 4.0), (2657, 1894, 2.0)]
+Building model
+Built, predicting
+Perturbing movie 1043 ( 7 out of 9 )
+Perturbed rating: 3.0
+New ratings: {1043: 3.0}
+** New Ratings List:  [(2657, 2858, 5.0), (2657, 628, 4.0), (2657, 2716, 4.0), (2657, 318, 4.0), (2657, 2762, 5.0), (2657, 2918, 5.0), (2657, 1043, 3.0), (2657, 1203, 4.0), (2657, 1894, 2.0)]
+Building model
+Built, predicting
+Perturbing movie 1043 ( 7 out of 9 )
+Perturbed rating: 4.0
+New ratings: {1043: 4.0}
+** New Ratings List:  [(2657, 2858, 5.0), (2657, 628, 4.0), (2657, 2716, 4.0), (2657, 318, 4.0), (2657, 2762, 5.0), (2657, 2918, 5.0), (2657, 1043, 4.0), (2657, 1203, 4.0), (2657, 1894, 2.0)]
+Building model
+Built, predicting
+Perturbing movie 1043 ( 7 out of 9 )
+Perturbed rating: 5.0
+New ratings: {1043: 5.0}
+** New Ratings List:  [(2657, 2858, 5.0), (2657, 628, 4.0), (2657, 2716, 4.0), (2657, 318, 4.0), (2657, 2762, 5.0), (2657, 2918, 5.0), (2657, 1043, 5.0), (2657, 1203, 4.0), (2657, 1894, 2.0)]
+Building model
+Built, predicting
+Local influence: 4476.11311141
+Perturbing movie 1203 ( 8 out of 9 )
+Perturbed rating: 1.0
+New ratings: {1203: 1.0}
+** New Ratings List:  [(2657, 2858, 5.0), (2657, 628, 4.0), (2657, 2716, 4.0), (2657, 318, 4.0), (2657, 2762, 5.0), (2657, 2918, 5.0), (2657, 1043, 4.0), (2657, 1203, 1.0), (2657, 1894, 2.0)]
+Building model
+Built, predicting
+Perturbing movie 1203 ( 8 out of 9 )
+Perturbed rating: 2.0
+New ratings: {1203: 2.0}
+** New Ratings List:  [(2657, 2858, 5.0), (2657, 628, 4.0), (2657, 2716, 4.0), (2657, 318, 4.0), (2657, 2762, 5.0), (2657, 2918, 5.0), (2657, 1043, 4.0), (2657, 1203, 2.0), (2657, 1894, 2.0)]
+Building model
+Built, predicting
+Perturbing movie 1203 ( 8 out of 9 )
+Perturbed rating: 3.0
+New ratings: {1203: 3.0}
+** New Ratings List:  [(2657, 2858, 5.0), (2657, 628, 4.0), (2657, 2716, 4.0), (2657, 318, 4.0), (2657, 2762, 5.0), (2657, 2918, 5.0), (2657, 1043, 4.0), (2657, 1203, 3.0), (2657, 1894, 2.0)]
+Building model
+Built, predicting
+Perturbing movie 1203 ( 8 out of 9 )
+Perturbed rating: 4.0
+New ratings: {1203: 4.0}
+** New Ratings List:  [(2657, 2858, 5.0), (2657, 628, 4.0), (2657, 2716, 4.0), (2657, 318, 4.0), (2657, 2762, 5.0), (2657, 2918, 5.0), (2657, 1043, 4.0), (2657, 1203, 4.0), (2657, 1894, 2.0)]
+Building model
+Built, predicting
+Perturbing movie 1203 ( 8 out of 9 )
+Perturbed rating: 5.0
+New ratings: {1203: 5.0}
+** New Ratings List:  [(2657, 2858, 5.0), (2657, 628, 4.0), (2657, 2716, 4.0), (2657, 318, 4.0), (2657, 2762, 5.0), (2657, 2918, 5.0), (2657, 1043, 4.0), (2657, 1203, 5.0), (2657, 1894, 2.0)]
+Building model
+Built, predicting
+Local influence: 5258.36729387
+Perturbing movie 1894 ( 9 out of 9 )
+Perturbed rating: 1.0
+New ratings: {1894: 1.0}
+** New Ratings List:  [(2657, 2858, 5.0), (2657, 628, 4.0), (2657, 2716, 4.0), (2657, 318, 4.0), (2657, 2762, 5.0), (2657, 2918, 5.0), (2657, 1043, 4.0), (2657, 1203, 4.0), (2657, 1894, 1.0)]
+Building model
+Built, predicting
+Perturbing movie 1894 ( 9 out of 9 )
+Perturbed rating: 2.0
+New ratings: {1894: 2.0}
+** New Ratings List:  [(2657, 2858, 5.0), (2657, 628, 4.0), (2657, 2716, 4.0), (2657, 318, 4.0), (2657, 2762, 5.0), (2657, 2918, 5.0), (2657, 1043, 4.0), (2657, 1203, 4.0), (2657, 1894, 2.0)]
+Building model
+Built, predicting
+Perturbing movie 1894 ( 9 out of 9 )
+Perturbed rating: 3.0
+New ratings: {1894: 3.0}
+** New Ratings List:  [(2657, 2858, 5.0), (2657, 628, 4.0), (2657, 2716, 4.0), (2657, 318, 4.0), (2657, 2762, 5.0), (2657, 2918, 5.0), (2657, 1043, 4.0), (2657, 1203, 4.0), (2657, 1894, 3.0)]
+Building model
+Built, predicting
+Perturbing movie 1894 ( 9 out of 9 )
+Perturbed rating: 4.0
+New ratings: {1894: 4.0}
+** New Ratings List:  [(2657, 2858, 5.0), (2657, 628, 4.0), (2657, 2716, 4.0), (2657, 318, 4.0), (2657, 2762, 5.0), (2657, 2918, 5.0), (2657, 1043, 4.0), (2657, 1203, 4.0), (2657, 1894, 4.0)]
+Building model
+Built, predicting
+Perturbing movie 1894 ( 9 out of 9 )
+Perturbed rating: 5.0
+New ratings: {1894: 5.0}
+** New Ratings List:  [(2657, 2858, 5.0), (2657, 628, 4.0), (2657, 2716, 4.0), (2657, 318, 4.0), (2657, 2762, 5.0), (2657, 2918, 5.0), (2657, 1043, 4.0), (2657, 1203, 4.0), (2657, 1894, 5.0)]
+Building model
+Built, predicting
+Local influence: 3786.29268434
+Final local influence: {1203: 0.2896374163522209, 1894: 0.20855371436759848, 2858: 0.27507131886464886, 1043: 0.24654988220356394, 628: 0.16366857172106594, 2918: 0.2265266728123851, 2716: 0.22626027112555328, 2762: 0.19758118751004, 318: 0.12569149520443562}
+Local influence:
++----------+-----------------+
+| Movie ID | Local Influence |
++----------+-----------------+
+|   1203   |  0.289637416352 |
+|   2858   |  0.275071318865 |
+|   1043   |  0.246549882204 |
+|   2918   |  0.226526672812 |
+|   2716   |  0.226260271126 |
+|   1894   |  0.208553714368 |
+|   2762   |  0.19758118751  |
+|   628    |  0.163668571721 |
+|   318    |  0.125691495204 |
++----------+-----------------+
+Local sensitivity of recs:  6.46016702967e-06
+Local sensitivity of QII:  0.000150691839338
+config time: 2.22905492783
+function time: 574.292762995
+Result: [{'recommendee_qii_l0_norm': 9, 'recommendee_qii_l1_norm': 1.9433910859084844, 'recommendee_user_id': 2657, 'perturbations': [{'perturbed_qii_l0_norm': 9, 'qii_ls_norm': 0.00015069183933780745, 'perturbed_qii_l1_norm': 1.959540530161512, 'perturbed_user_id': 1334, 'recs_ls': 0.09382746593889557, 'qii_ls': 0.005424906216161068, 'recs_ls_norm': 6.4601670296678306e-06, 'perturbed_recs_l0_norm': 3631, 'perturbed_recs_l1_norm': 11722.304394074878}], 'recommendee_recs_l1_norm': 11715.997049911302, 'recommendee_recs_l0_norm': 3631}]
