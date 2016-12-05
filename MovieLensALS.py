@@ -321,7 +321,8 @@ def compute_user_local_sensitivity(sc, dataset, user_id, num_iters_ls):
     all_users = get_user_list(dataset)
     for x in xrange(num_iters_ls):
         other_user_id = random.choice(list(set(all_users) - {user_id}))
-        print "Perturbing user", other_user_id
+        print "Perturbing user", other_user_id, "(", x+1, "out of",\
+            num_iters_ls, ")"
         perturbed_dataset = perturb_user_ratings(sc, dataset, other_user_id)
         recs, qii = compute_recommendations_and_qii(sc, perturbed_dataset, user_id)
         recs = recommendations_to_dd(recs)
@@ -336,7 +337,8 @@ def compute_user_local_sensitivity(sc, dataset, user_id, num_iters_ls):
         report["perturbed_qii_l0_norm"] = len(qii)
         report["recs_ls"] = rec_ls
         report["qii_ls"] = qii_ls
-        # TODO add to report
+        report["recs_ls_norm"] = rec_ls/float((len(recs)*4))
+        report["qii_ls_norm"] = qii_ls/float((len(qii)*4))
         print "Local sensitivity of recs: ", rec_ls/float((len(recs)*4))
         print "Local sensitivity of QII: ", qii_ls/float((len(qii)*4))
 
