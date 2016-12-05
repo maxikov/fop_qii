@@ -194,4 +194,3 @@ Local sensitivity of QII:  9.15310807465e-05
 config time: 3.14911389351
 function time: 15895.2243941
 Result: [{'recommendee_qii_l0_norm': 62, 'recommendee_qii_l1_norm': 5.790779694652101, 'recommendee_user_id': 2276, 'perturbations': [{'perturbed_qii_l0_norm': 62, 'perturbed_qii_l1_norm': 4.468929969869871, 'perturbed_user_id': 5408, 'recs_ls': 0.03881855967190351, 'qii_ls': 0.02269970802512407, 'perturbed_recs_l0_norm': 3578, 'perturbed_recs_l1_norm': 12017.689867655674}], 'recommendee_recs_l1_norm': 11965.886488452288, 'recommendee_recs_l0_norm': 3578}]
-
