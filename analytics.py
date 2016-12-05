@@ -61,10 +61,13 @@ def main():
                         "Normalized QII LS",
                         "Normalized recs LS",
                         ])
-    stats = [("Mean", numpy.mean),
+    stats = [("Max", max),
+            ("Mean", numpy.mean),
             ("Median", numpy.median),
             ("STD", numpy.std),
             ("Skewness", scipy.stats.skew),
+            ("Max-mean sigmas", lambda x:
+                (max(x) - numpy.mean(x))/numpy.std(x)),
             ]
 
     for name, f in stats:
