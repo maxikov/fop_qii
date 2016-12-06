@@ -34,6 +34,8 @@ recommendations_to_print = 0 # 0 = don't print
 
 print_movie_names = False
 
+perturb_specific_user = None
+
 def parseRating(line):
     """
     Parses a rating record in MovieLens format userId::movieId::rating::timestamp .
@@ -344,7 +346,10 @@ def compute_user_local_sensitivity(sc, dataset, user_id, num_iters_ls):
 
     all_users = get_user_list(dataset)
     for x in xrange(num_iters_ls):
-        other_user_id = random.choice(list(set(all_users) - {user_id}))
+        if perturb_specific_user:
+            other_user_id = perturb_specific_user
+        else:
+            other_user_id = random.choice(list(set(all_users) - {user_id}))
         print "Perturbing user", other_user_id, "(", x+1, "out of",\
             num_iters_ls, ")"
         perturbed_dataset = perturb_user_ratings(sc, dataset, other_user_id)
@@ -475,6 +480,11 @@ if __name__ == "__main__":
                     "to display. 10 by default.")
     parser.add_argument("--print-movie-names", action="store_true", help=\
             "If set, movie names will be printed instead of movie IDs")
+    parser.add_argument("--perturb-specific-user", action="store", type=int, help=\
+            "If set, instead of sampling random users to perturb for local " +\
+            "sensitivity, a particular UID gets perturbed. If set, " +\
+            "--num-iters-ls gets automatically set to 1")
+
 
     args = parser.parse_args()
     rank = args.rank
@@ -492,6 +502,9 @@ if __name__ == "__main__":
     prominent_raters = args.prominent_raters
     recommendations_to_print = args.recommendations_to_print
     print_movie_names = args.print_movie_names
+    perturb_specific_user = args.perturb_specific_user
+    if perturb_specific_user:
+        num_iters_ls = 1
 
     print "Rank: {}, lmbda: {}, numIter: {}, numPartitions: {}".format(
         rank, lmbda, numIter, numPartitions)
@@ -500,6 +513,7 @@ if __name__ == "__main__":
     print "ofname: {}, checkpoint_dir: {}, num_users_ls:{}".format(
         ofname, checkpoint_dir, num_users_ls)
     print "specific_user: {}, max_movies_per_user: {}, prominent_raters: {}".format(specific_user, max_movies_per_user, prominent_raters)
+    print "perturb_specific_user: {}".format(perturb_specific_user)
 
     startconfig = time.time()
 
