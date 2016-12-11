@@ -54,15 +54,14 @@ def main():
             ])
 
     print table
+    print "Sample size:", len(recs_lss_norm)
 
-    print "Two-talied t-test with independent samples and unequal variance"
+    print "Two-talied t-test with related samples"
     print "Mean(qii_ls_norm)", ">" if numpy.mean(qii_lss_norm) >\
             numpy.mean(recs_lss_norm) else "<=", "Mean(recs_ls_norm)"
-    print "p =", scipy.stats.ttest_ind(
+    print "p =", scipy.stats.ttest_rel(
             qii_lss_norm,
-            recs_lss_norm,
-            None,
-            False).pvalue
+            recs_lss_norm).pvalue
     print "Effect size (Cohen's d):", (numpy.mean(qii_lss_norm) -\
             numpy.mean(recs_lss_norm))\
             / (((numpy.std(qii_lss_norm) ** 2 +\
