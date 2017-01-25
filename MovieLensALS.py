@@ -15,6 +15,7 @@ from prettytable import PrettyTable
 
 from pyspark import SparkConf, SparkContext
 from pyspark.mllib.recommendation import ALS
+import pyspark.mllib.recommendation
 
 # Global variables
 
@@ -94,13 +95,18 @@ def build_recommendations(sc, myRatings, model):
     recommendations = sorted(predictions, key = lambda x: x.product)
     return recommendations
 
-def print_top_recommendations(recommendations, n):
+def print_top_recommendations(recommendations, n=10, all_ratings=False):
     """
     Print the top n movie recommendations
     """
     top_recommendations = sorted(recommendations, key=lambda x: x.rating,
-            reverse=True)[:n]
-    table = PrettyTable(["Rank", "Movie", "Estimated rating"])
+            reverse=True)
+    if all_ratings:
+        title = ["Rank", "Movie", "Rating"]
+    else:
+        title = ["Rank", "Movie", "Estimated rating"]
+        top_recommendations = top_recommendations[:n]
+    table = PrettyTable(title)
     for i in xrange(len(top_recommendations)):
         table.add_row([
             i+1,
@@ -183,7 +189,8 @@ def set_users_rating(myRatings, movie_id, new_rating):
             break
     return new_ratings
 
-def compute_recommendations_and_qii(sc, dataset, user_id):
+def compute_recommendations_and_qii(sc, dataset, user_id,
+        dont_compute_qii=False):
     """
     Computes the recommendations and qii metrics for a given dataset and user
     specified by ID
@@ -204,6 +211,7 @@ def compute_recommendations_and_qii(sc, dataset, user_id):
     rec_time = end_recommend_time - start_recommend_time
     print "Time it took to create recommendations:", rec_time
 
+    return recommendations, None
     if recommendations_to_print > 0:
         print "Movies recommended for you:"
         print_top_recommendations(recommendations, recommendations_to_print)
@@ -484,7 +492,9 @@ if __name__ == "__main__":
             "If set, instead of sampling random users to perturb for local " +\
             "sensitivity, a particular UID gets perturbed. If set, " +\
             "--num-iters-ls gets automatically set to 1")
-
+    parser.add_argument("--recommendations-only", action="store_true", help=\
+            "If set, only recommendations for a specific user (must be set)" +\
+            " will be displayed")
 
     args = parser.parse_args()
     rank = args.rank
@@ -505,6 +515,7 @@ if __name__ == "__main__":
     perturb_specific_user = args.perturb_specific_user
     if perturb_specific_user:
         num_iters_ls = 1
+    recommendations_only = args.recommendations_only
 
     print "Rank: {}, lmbda: {}, numIter: {}, numPartitions: {}".format(
         rank, lmbda, numIter, numPartitions)
@@ -512,8 +523,10 @@ if __name__ == "__main__":
         qii_iters, num_iters_ls, movieLensHomeDir)
     print "ofname: {}, checkpoint_dir: {}, num_users_ls:{}".format(
         ofname, checkpoint_dir, num_users_ls)
-    print "specific_user: {}, max_movies_per_user: {}, prominent_raters: {}".format(specific_user, max_movies_per_user, prominent_raters)
-    print "perturb_specific_user: {}".format(perturb_specific_user)
+    print "specific_user: {}, max_movies_per_user: {}, prominent_raters:{}".\
+            format(specific_user, max_movies_per_user, prominent_raters)
+    print "perturb_specific_user: {}, recommendations_only:{}".\
+            format(perturb_specific_user, recommendations_only)
 
     startconfig = time.time()
 
@@ -546,6 +559,15 @@ if __name__ == "__main__":
             t.add_row([uid, nm])
         print t
 
+    elif recommendations_only:
+        if not specific_user:
+            print "Specific user must be set for this to work"
+        ratings = [pyspark.mllib.recommendation.Rating(*x) for x in get_ratings_from_uid(
+                        training, specific_user).collect()]
+        print_top_recommendations(ratings, all_ratings=True)
+        recommendations, _ = compute_recommendations_and_qii(sc, training,
+                specific_user, dont_compute_qii=True)
+        print_top_recommendations(recommendations, recommendations_to_print)
     # JUST FOR TESTING
     else:
         endconfig = time.time()
