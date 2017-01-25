@@ -95,7 +95,8 @@ def build_recommendations(sc, myRatings, model):
     recommendations = sorted(predictions, key = lambda x: x.product)
     return recommendations
 
-def print_top_recommendations(recommendations, n=10, all_ratings=False):
+def print_top_recommendations(recommendations, n=10, all_ratings=False,
+        movie_qiis=None, movie_qiis_to_display=0):
     """
     Print the top n movie recommendations
     """
@@ -103,17 +104,32 @@ def print_top_recommendations(recommendations, n=10, all_ratings=False):
             reverse=True)
     if all_ratings:
         title = ["Rank", "Movie", "Rating"]
-    else:
+    elif movie_qiis is None:
         title = ["Rank", "Movie", "Estimated rating"]
         top_recommendations = top_recommendations[:n]
+    else:
+        title = ["Rank", "Movie", "Estimated rating"]
+        for i in xrange(movie_qiis_to_display):
+            title.append("#{} influence".format(i+1))
+            title.append("#{} QII".format(i+1))
+            top_recommendations = top_recommendations[:n]
     table = PrettyTable(title)
     for i in xrange(len(top_recommendations)):
-        table.add_row([
+        row = [
             i+1,
             movies[top_recommendations[i].product] if print_movie_names\
                     else top_recommendations[i].product,
             top_recommendations[i].rating,
-        ])
+        ]
+        if movie_qiis is not None:
+            qiis = movie_qiis[top_recommendations[i].product].items()
+            qiis.sort(key=lambda x: -x[1])
+            for j in xrange(movie_qiis_to_display):
+                row.append(movies[qiis[j][0]])
+                row.append(qiis[j][1])
+        table.add_row(row)
+
+
     print table
 
 def recommendations_to_dd(recommendations):
@@ -127,7 +143,8 @@ def recommendations_to_dd(recommendations):
 
 
 def compute_local_influence(sc, user_id, original_recommendations,
-        ratings, rank, lmbda, numIter, qii_iters, mode="exhaustive"):
+        ratings, rank, lmbda, numIter, qii_iters, mode="exhaustive",
+        per_movie=False):
     """
     Compute the QII metrics for each rating given by a user
     """
@@ -136,7 +153,10 @@ def compute_local_influence(sc, user_id, original_recommendations,
 
     new_dataset = None
     old_dataset = None
-    res = defaultdict(lambda: 0.0)
+    if per_movie:
+        res = defaultdict(lambda: defaultdict(lambda: 0.0))
+    else:
+        res = defaultdict(lambda: 0.0)
     myMovies = get_users_movies(user_ratings)
     old_recs = recommendations_to_dd(original_recommendations)
     for miter, movie in enumerate(myMovies):
@@ -165,10 +185,18 @@ def compute_local_influence(sc, user_id, original_recommendations,
                     recommendations_to_print)
             new_recs = recommendations_to_dd(new_recommendations)
             for mid in set(old_recs.keys()).union(set(new_recs.keys())):
-                res[movie] += abs(old_recs[mid] - new_recs[mid])
-        print "Local influence:", res[movie]
-    res_normed = {k: v/float(qii_iters*len(new_recs)) for k, v in res.items()}
-    print "Final local influence:", res_normed
+                if per_movie:
+                    res[mid][movie] += abs(old_recs[mid] - new_recs[mid])
+                else:
+                    res[movie] += abs(old_recs[mid] - new_recs[mid])
+        if not per_movie:
+            print "Local influence:", res[movie]
+    if not per_movie:
+        res_normed = {k: v/float(qii_iters) for k, v in res.items()}
+        print "Final local influence:", res_normed
+    else:
+        res_normed = {k: {k1: v1/float(qii_iters) for k1, v1 in v.items()} for
+            k, v in res.items()}
     return res_normed
 
 def get_users_movies(myRatings):
@@ -190,7 +218,7 @@ def set_users_rating(myRatings, movie_id, new_rating):
     return new_ratings
 
 def compute_recommendations_and_qii(sc, dataset, user_id,
-        dont_compute_qii=False):
+        dont_compute_qii=False, per_movie=False):
     """
     Computes the recommendations and qii metrics for a given dataset and user
     specified by ID
@@ -210,23 +238,24 @@ def compute_recommendations_and_qii(sc, dataset, user_id,
     end_recommend_time = time.time()
     rec_time = end_recommend_time - start_recommend_time
     print "Time it took to create recommendations:", rec_time
-
-    return recommendations, None
-    if recommendations_to_print > 0:
+    if dont_compute_qii:
+        return recommendations, None
+    if not per_movie and recommendations_to_print > 0:
         print "Movies recommended for you:"
         print_top_recommendations(recommendations, recommendations_to_print)
 
     local_influence = compute_local_influence(sc, user_id, recommendations,
-            dataset, rank, lmbda, numIter, qii_iters)
+            dataset, rank, lmbda, numIter, qii_iters, per_movie=per_movie)
 
-    print "Local influence:"
-    t = PrettyTable(["Movie ID", "Local Influence"])
-    for mid, minf in sorted(local_influence.items(), key = lambda x: -x[1]):
-        if print_movie_names:
-            t.add_row([movies[mid], minf])
-        else:
-            t.add_row([mid, minf])
-    print t
+    if not per_movie:
+        print "Local influence:"
+        t = PrettyTable(["Movie ID", "Local Influence"])
+        for mid, minf in sorted(local_influence.items(), key = lambda x: -x[1]):
+            if print_movie_names:
+                t.add_row([movies[mid], minf])
+            else:
+                t.add_row([mid, minf])
+        print t
 
     return recommendations, local_influence
 
@@ -495,6 +524,13 @@ if __name__ == "__main__":
     parser.add_argument("--recommendations-only", action="store_true", help=\
             "If set, only recommendations for a specific user (must be set)" +\
             " will be displayed")
+    parser.add_argument("--recommendations-and-per-movie-qii",
+            action="store_true", help=\
+            "If set, only recommendations and per movie qii "+\
+            "for a specific user (must be set) are computed")
+    parser.add_argument("--per-movie-qiis-displayed", action="store",
+            default=3, type=int, help="The number of per movie qii values "+\
+            "to display if --recommendations-and-per-movie-qii is set")
 
     args = parser.parse_args()
     rank = args.rank
@@ -516,6 +552,8 @@ if __name__ == "__main__":
     if perturb_specific_user:
         num_iters_ls = 1
     recommendations_only = args.recommendations_only
+    recommendations_and_per_movie_qii = args.recommendations_and_per_movie_qii
+    per_movie_qiis_displayed = args.per_movie_qiis_displayed
 
     print "Rank: {}, lmbda: {}, numIter: {}, numPartitions: {}".format(
         rank, lmbda, numIter, numPartitions)
@@ -527,6 +565,8 @@ if __name__ == "__main__":
             format(specific_user, max_movies_per_user, prominent_raters)
     print "perturb_specific_user: {}, recommendations_only:{}".\
             format(perturb_specific_user, recommendations_only)
+    print "recommendations_and_per_movie_qii: {}".format(recommendations_and_per_movie_qii)
+    print "per_movie_qiis_displayed: {}".format(per_movie_qiis_displayed)
 
     startconfig = time.time()
 
@@ -559,15 +599,22 @@ if __name__ == "__main__":
             t.add_row([uid, nm])
         print t
 
-    elif recommendations_only:
+    elif recommendations_only or recommendations_and_per_movie_qii:
         if not specific_user:
             print "Specific user must be set for this to work"
         ratings = [pyspark.mllib.recommendation.Rating(*x) for x in get_ratings_from_uid(
                         training, specific_user).collect()]
         print_top_recommendations(ratings, all_ratings=True)
-        recommendations, _ = compute_recommendations_and_qii(sc, training,
-                specific_user, dont_compute_qii=True)
-        print_top_recommendations(recommendations, recommendations_to_print)
+        if recommendations_only:
+            recommendations, _ = compute_recommendations_and_qii(sc, training,
+                    specific_user, dont_compute_qii=True)
+            print_top_recommendations(recommendations, recommendations_to_print)
+        elif recommendations_and_per_movie_qii:
+            recommendations, qii = compute_recommendations_and_qii(sc, training,
+                    specific_user, per_movie=True)
+            print_top_recommendations(recommendations,
+                    recommendations_to_print, movie_qiis = qii,
+                    movie_qiis_to_display = per_movie_qiis_displayed)
     # JUST FOR TESTING
     else:
         endconfig = time.time()
