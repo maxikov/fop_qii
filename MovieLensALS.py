@@ -582,6 +582,7 @@ if __name__ == "__main__":
             format(perturb_specific_user, recommendations_only)
     print "recommendations_and_per_movie_qii: {}".format(recommendations_and_per_movie_qii)
     print "per_movie_qiis_displayed: {}".format(per_movie_qiis_displayed)
+    print "genres_correlator: {}".format(genres_correlator)
 
     startconfig = time.time()
 
@@ -596,9 +597,14 @@ if __name__ == "__main__":
     ALS.checkpointInterval = 2
 #######################################
 
-
+    print "Loading ratings"
+    start = time.time()
     ratings = sc.textFile(join(movieLensHomeDir, "ratings.dat")).map(parseRating)
+    print "Done in {} seconds".format(time.time() - start)
+    print "Loading movies"
+    start = time.time()
     movies = dict(sc.textFile(join(movieLensHomeDir, "movies.dat")).map(parseMovie).collect())
+    print "Done in {} seconds".format(time.time() - start)
 
     # create the initial training dataset with default ratings
     training = ratings.filter(lambda x: x[0] < 6)\
@@ -624,7 +630,6 @@ if __name__ == "__main__":
             recommendations, model = compute_recommendations_and_qii(sc, training,
                     specific_user, dont_compute_qii=True)
             print_top_recommendations(recommendations, recommendations_to_print)
-            print model.userFeatures().collect()
         elif recommendations_and_per_movie_qii:
             recommendations, qii = compute_recommendations_and_qii(sc, training,
                     specific_user, per_movie=True)
@@ -633,8 +638,16 @@ if __name__ == "__main__":
                     movie_qiis_to_display = per_movie_qiis_displayed)
     # JUST FOR TESTING
     elif genres_correlator:
+        print "Loading genres"
+        start = time.time()
         genres = sc.textFile(join(movieLensHomeDir, "movies.dat")).map(parseGenre)
-        print genres
+        print "Done in {} seconds".format(time.time() - start)
+        print "Training model"
+        start = time.time()
+        model = ALS.train(training, rank, numIter, lmbda)
+        print "Done in {} seconds".format(time.time() - start)
+        features = dict(model.productFeatures().collect())
+        
 
     else:
         endconfig = time.time()
