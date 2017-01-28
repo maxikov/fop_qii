@@ -665,6 +665,7 @@ if __name__ == "__main__":
 
 
         print "Building a family of regresions"
+        reg_models = {}
         start = time.time()
         for cur_genre, cur_movies in movies_by_genre.items():
             print "Processing {}".format(cur_genre)
@@ -684,9 +685,15 @@ if __name__ == "__main__":
                 observations.collect())
             acc = sum(1 if p == o else 0 for (p, o) in
                     predobs)/float(len(predobs))
+            reg_models[cur_genre] = {"accuracy": acc, "model": lr_model}
             print "Accuracy: {} %".format(int(100*acc))
         print "Done in {} seconds".format(time.time() - start)
 
+        for cur_genre in reg_models:
+            row = (" "*3).join("{: 1.4f}".format(coeff)
+                    for coeff in reg_models[cur_genre]["model"].weights)
+            print "{:>12} ({:>3}%) {}".format(cur_genre,
+                    int(100*reg_models[cur_genre]["accuracy"]), row)
 
     else:
         endconfig = time.time()
