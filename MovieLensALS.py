@@ -16,6 +16,7 @@ from prettytable import PrettyTable
 from pyspark import SparkConf, SparkContext
 from pyspark.mllib.recommendation import ALS
 import pyspark.mllib.recommendation
+from pyspark.mllib.classification import LabeledPoint
 
 # Global variables
 
@@ -607,7 +608,7 @@ if __name__ == "__main__":
     print "Done in {} seconds".format(time.time() - start)
 
     # create the initial training dataset with default ratings
-    training = ratings.filter(lambda x: x[0] < 6)\
+    training = ratings.filter(lambda x: True or x[0] < 6)\
       .values() \
       .repartition(numPartitions) \
       .cache()
@@ -642,20 +643,50 @@ if __name__ == "__main__":
         start = time.time()
         genres = sc.textFile(join(movieLensHomeDir, "movies.dat")).map(parseGenre)
         print "Done in {} seconds".format(time.time() - start)
+        print "Bulding per-genre movie lists"
+        start = time.time()
+        gdict = dict(genres.collect())
+        mrdd = sc.parallelize(movies.keys())
         all_genres = sorted(list(genres.map(lambda (_, x): x).fold(set(), lambda x, y:
             set(x).union(set(y)))))
         movies_by_genre = {}
         for cur_genre in all_genres:
-            cur_movies = genres.filter(lambda (mid, gs): cur_genre in
-                    set(gs)).map(lambda (x, _): x).collect()
-            movies_by_genre[cur_genre] = cur_movies
-        print movies_by_genre
+            print "Processing {}".format(cur_genre)
+            cur_movies = mrdd.map(lambda x: (x, 1 if cur_genre in gdict[x] else
+                0))
+            movies_by_genre[cur_genre] = dict(cur_movies.collect())
+        print "Done in {} seconds".format(time.time() - start)
 
-        #features = dict(model.productFeatures().collect())
-        #print "Training model"
-        #start = time.time()
-        #model = ALS.train(training, rank, numIter, lmbda)
-        #print "Done in {} seconds".format(time.time() - start)
+        print "Training model"
+        start = time.time()
+        model = ALS.train(training, rank, numIter, lmbda)
+        print "Done in {} seconds".format(time.time() - start)
+        features = dict(model.productFeatures().collect())
+
+
+        print "Building a family of regresions"
+        start = time.time()
+        for cur_genre, cur_movies in movies_by_genre.items():
+            print "Processing {}".format(cur_genre)
+            lr_data = [LabeledPoint(lbl, features[mid])
+                    for (mid, lbl) in cur_movies.items()
+                    if mid in features]
+            lr_data = sc.parallelize(lr_data)
+            lr_model = pyspark.\
+                    mllib.\
+                    classification.\
+                    LogisticRegressionWithLBFGS.\
+                    train(lr_data)
+            observations = lr_data.map(lambda x: x.label)
+            predictions = lr_model.predict(lr_data.map(lambda x:
+                x.features))
+            predobs = zip(predictions.collect(),
+                observations.collect())
+            acc = sum(1 if p == o else 0 for (p, o) in
+                    predobs)/float(len(predobs))
+            print "Accuracy: {} %".format(int(100*acc))
+        print "Done in {} seconds".format(time.time() - start)
+
 
     else:
         endconfig = time.time()
