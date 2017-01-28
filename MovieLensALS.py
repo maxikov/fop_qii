@@ -53,7 +53,7 @@ def parseGenre(line):
     mid = int(fields[0])
     genres = fields[2]
     genres = genres.split("|")
-    return mid, tuple(genres)
+    return mid, set(genres)
 
 def parseMovie(line):
     """
@@ -642,12 +642,20 @@ if __name__ == "__main__":
         start = time.time()
         genres = sc.textFile(join(movieLensHomeDir, "movies.dat")).map(parseGenre)
         print "Done in {} seconds".format(time.time() - start)
-        print "Training model"
-        start = time.time()
-        model = ALS.train(training, rank, numIter, lmbda)
-        print "Done in {} seconds".format(time.time() - start)
-        features = dict(model.productFeatures().collect())
-        
+        all_genres = sorted(list(genres.map(lambda (_, x): x).fold(set(), lambda x, y:
+            set(x).union(set(y)))))
+        movies_by_genre = {}
+        for cur_genre in all_genres:
+            cur_movies = genres.filter(lambda (mid, gs): cur_genre in
+                    set(gs)).map(lambda (x, _): x).collect()
+            movies_by_genre[cur_genre] = cur_movies
+        print movies_by_genre
+
+        #features = dict(model.productFeatures().collect())
+        #print "Training model"
+        #start = time.time()
+        #model = ALS.train(training, rank, numIter, lmbda)
+        #print "Done in {} seconds".format(time.time() - start)
 
     else:
         endconfig = time.time()
