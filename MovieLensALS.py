@@ -12,6 +12,7 @@ import time
 import argparse
 import math
 from prettytable import PrettyTable
+import numpy
 
 from pyspark import SparkConf, SparkContext
 from pyspark.mllib.recommendation import ALS
@@ -546,6 +547,8 @@ if __name__ == "__main__":
     parser.add_argument("--genres-correlator", action="store_true", help=\
             "Corralting genres. Make better description!#TODO")
 
+    parser.add_argument("--gui", action="store_true", help=\
+            "Enables GUI visualtisations")
 
     args = parser.parse_args()
     rank = args.rank
@@ -570,6 +573,7 @@ if __name__ == "__main__":
     recommendations_and_per_movie_qii = args.recommendations_and_per_movie_qii
     per_movie_qiis_displayed = args.per_movie_qiis_displayed
     genres_correlator = args.genres_correlator
+    gui = args.gui
 
     print "Rank: {}, lmbda: {}, numIter: {}, numPartitions: {}".format(
         rank, lmbda, numIter, numPartitions)
@@ -583,7 +587,7 @@ if __name__ == "__main__":
             format(perturb_specific_user, recommendations_only)
     print "recommendations_and_per_movie_qii: {}".format(recommendations_and_per_movie_qii)
     print "per_movie_qiis_displayed: {}".format(per_movie_qiis_displayed)
-    print "genres_correlator: {}".format(genres_correlator)
+    print "genres_correlator: {}, gui: {}".format(genres_correlator, gui)
 
     startconfig = time.time()
 
@@ -689,11 +693,39 @@ if __name__ == "__main__":
             print "Accuracy: {} %".format(int(100*acc))
         print "Done in {} seconds".format(time.time() - start)
 
-        for cur_genre in reg_models:
+        print "{} genres".format(len(reg_models))
+
+        #Trying to bring it closer to diagonal
+        reg_models_src = reg_models.items()
+        reg_models_res = []
+        for i in xrange(len(reg_models_src)):
+            ind = min(
+                    enumerate(
+                            abs(i - max(
+                                        enumerate(x["model"].weights),
+                                        key = lambda y: y[1]
+                                       )[0]
+                               ) for (gnr, x) in reg_models_src
+                             ), key = lambda y: y[1]
+                     )[0]
+            reg_models_res.append(reg_models_src[ind])
+            del reg_models_src[ind]
+
+
+        for cur_genre, d in reg_models_res:
             row = (" "*3).join("{: 1.4f}".format(coeff)
-                    for coeff in reg_models[cur_genre]["model"].weights)
+                    for coeff in d["model"].weights)
             print "{:>12} ({:>3}%) {}".format(cur_genre,
-                    int(100*reg_models[cur_genre]["accuracy"]), row)
+                    int(100*d["accuracy"]), row)
+
+        if gui:
+            import matplotlib.pyplot as plt
+            matrix = [list(x["model"].weights) for _, x in reg_models_res]
+            matrix = numpy.array(matrix)
+            fig, ax = plt.subplots()
+            cax = ax.imshow(matrix, cmap='viridis', interpolation='nearest')
+            cbar = fig.colorbar(cax)
+            plt.show()
 
     else:
         endconfig = time.time()
