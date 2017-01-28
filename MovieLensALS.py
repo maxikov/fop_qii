@@ -44,6 +44,17 @@ def parseRating(line):
     fields = line.strip().split("::")
     return long(fields[3]) % 10, (int(fields[0]), int(fields[1]), float(fields[2]))
 
+def parseGenre(line):
+    """
+    Parses movie genres in MovieLens format
+    movieId::movieTitle::movieGenre1[|movieGenre2...]
+    """
+    fields = line.strip().split("::")
+    mid = int(fields[0])
+    genres = fields[2]
+    genres = genres.split("|")
+    return mid, tuple(genres)
+
 def parseMovie(line):
     """
     Parses a movie record in MovieLens format movieId::movieTitle .
@@ -239,7 +250,7 @@ def compute_recommendations_and_qii(sc, dataset, user_id,
     rec_time = end_recommend_time - start_recommend_time
     print "Time it took to create recommendations:", rec_time
     if dont_compute_qii:
-        return recommendations, None
+        return recommendations, model
     if not per_movie and recommendations_to_print > 0:
         print "Movies recommended for you:"
         print_top_recommendations(recommendations, recommendations_to_print)
@@ -531,6 +542,9 @@ if __name__ == "__main__":
     parser.add_argument("--per-movie-qiis-displayed", action="store",
             default=3, type=int, help="The number of per movie qii values "+\
             "to display if --recommendations-and-per-movie-qii is set")
+    parser.add_argument("--genres-correlator", action="store_true", help=\
+            "Corralting genres. Make better description!#TODO")
+
 
     args = parser.parse_args()
     rank = args.rank
@@ -554,6 +568,7 @@ if __name__ == "__main__":
     recommendations_only = args.recommendations_only
     recommendations_and_per_movie_qii = args.recommendations_and_per_movie_qii
     per_movie_qiis_displayed = args.per_movie_qiis_displayed
+    genres_correlator = args.genres_correlator
 
     print "Rank: {}, lmbda: {}, numIter: {}, numPartitions: {}".format(
         rank, lmbda, numIter, numPartitions)
@@ -606,9 +621,10 @@ if __name__ == "__main__":
                         training, specific_user).collect()]
         print_top_recommendations(ratings, all_ratings=True)
         if recommendations_only:
-            recommendations, _ = compute_recommendations_and_qii(sc, training,
+            recommendations, model = compute_recommendations_and_qii(sc, training,
                     specific_user, dont_compute_qii=True)
             print_top_recommendations(recommendations, recommendations_to_print)
+            print model.userFeatures().collect()
         elif recommendations_and_per_movie_qii:
             recommendations, qii = compute_recommendations_and_qii(sc, training,
                     specific_user, per_movie=True)
@@ -616,6 +632,10 @@ if __name__ == "__main__":
                     recommendations_to_print, movie_qiis = qii,
                     movie_qiis_to_display = per_movie_qiis_displayed)
     # JUST FOR TESTING
+    elif genres_correlator:
+        genres = sc.textFile(join(movieLensHomeDir, "movies.dat")).map(parseGenre)
+        print genres
+
     else:
         endconfig = time.time()
 
