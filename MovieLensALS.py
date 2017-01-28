@@ -724,6 +724,13 @@ if __name__ == "__main__":
             matrix = numpy.array(matrix)
             fig, ax = plt.subplots()
             cax = ax.imshow(matrix, cmap='viridis', interpolation='nearest')
+            ax.set_yticks(range(len(reg_models_res)))
+            ax.set_yticklabels(x for x, _ in reg_models_res)
+            ax.set_ylabel("Genre")
+            ax.set_xticks(range(len(reg_models_res[0][1]["model"].weights)))
+            ax.set_xticklabels(range(len(reg_models_res[0][1]["model"].weights)))
+            ax.set_xlabel("Product Features")
+            ax.set_title("Coefficients for logistic regression")
             cbar = fig.colorbar(cax)
             plt.show()
 
