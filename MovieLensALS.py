@@ -20,7 +20,8 @@ import pyspark.mllib.recommendation
 from pyspark.mllib.classification import LabeledPoint
 import pyspark.mllib.regression
 from pyspark.mllib.regression import LinearRegressionWithSGD
-from pyspark.mllib.evaluation import RegressionMetrics
+from pyspark.mllib.evaluation import RegressionMetrics,\
+        BinaryClassificationMetrics
 
 # Global variables
 
@@ -728,20 +729,27 @@ if __name__ == "__main__":
                     for (mid, lbl) in cur_movies.items()
                     if mid in features]
             lr_data = sc.parallelize(lr_data)
+            n_pos = lr_data.filter(lambda x: x.label == 1).count()
+            print "Percent of true positives: {}%".\
+                    format(100*n_pos/lr_data.count())
             lr_model = pyspark.\
                     mllib.\
                     classification.\
                     LogisticRegressionWithLBFGS.\
                     train(lr_data)
-            observations = lr_data.map(lambda x: x.label)
-            predictions = lr_model.predict(lr_data.map(lambda x:
+            lr_model.clearThreshold()
+            labels = lr_data.map(lambda x: x.label)
+            scores = lr_model.predict(lr_data.map(lambda x:
                 x.features))
-            predobs = zip(predictions.collect(),
-                observations.collect())
-            acc = sum(1 if p == o else 0 for (p, o) in
-                    predobs)/float(len(predobs))
-            reg_models[cur_genre] = {"accuracy": acc, "model": lr_model}
-            print "Accuracy: {} %".format(int(100*acc))
+            predobs = scores.zip(labels).map(
+                    lambda(a, b): (float(a), float(b)))
+            metrics = BinaryClassificationMetrics(predobs)
+            auroc = metrics.areaUnderROC
+            aupr = metrics.areaUnderPR
+            reg_models[cur_genre] = {"auroc": auroc,
+                    "auprc": aupr, "model": lr_model}
+            print "Area under ROC: {}, area under precision-recall curve: {}\n".\
+                    format(auroc, aupr)
         print "Done in {} seconds".format(time.time() - start)
 
         print "{} genres".format(len(reg_models))
@@ -766,8 +774,8 @@ if __name__ == "__main__":
         for cur_genre, d in reg_models_res:
             row = (" "*3).join("{: 1.4f}".format(coeff)
                     for coeff in d["model"].weights)
-            print "{:>12} ({:>3}%) {}".format(cur_genre,
-                    int(100*d["accuracy"]), row)
+            print "{:>12} (AUROC: {:1.3f}) {}".format(cur_genre,
+                    d["auroc"], row)
 
         if gui:
             import matplotlib.pyplot as plt
