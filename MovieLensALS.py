@@ -18,6 +18,9 @@ from pyspark import SparkConf, SparkContext
 from pyspark.mllib.recommendation import ALS
 import pyspark.mllib.recommendation
 from pyspark.mllib.classification import LabeledPoint
+import pyspark.mllib.regression
+from pyspark.mllib.regression import LinearRegressionWithSGD
+from pyspark.mllib.evaluation import RegressionMetrics
 
 # Global variables
 
@@ -56,6 +59,19 @@ def parseGenre(line):
     genres = fields[2]
     genres = genres.split("|")
     return mid, set(genres)
+
+def parseYear(line):
+    """
+    Parses movie years in MovieLens format
+    movieId::movieTitle (movieYear)::movieGenre1[|movieGenre2...]
+    """
+    fields = line.strip().split("::")
+    mid = int(fields[0])
+    mtitle = fields[1]
+    year = mtitle.split("(")[-1]
+    year = year.strip(")")
+    year = int(year)
+    return mid, year
 
 def parseMovie(line):
     """
@@ -550,6 +566,9 @@ if __name__ == "__main__":
     parser.add_argument("--gui", action="store_true", help=\
             "Enables GUI visualtisations")
 
+    parser.add_argument("--years-correlator", action="store_true", help=\
+            "Correlating years.")
+
     args = parser.parse_args()
     rank = args.rank
     lmbda = args.lmbda
@@ -574,6 +593,7 @@ if __name__ == "__main__":
     per_movie_qiis_displayed = args.per_movie_qiis_displayed
     genres_correlator = args.genres_correlator
     gui = args.gui
+    years_correlator = args.years_correlator
 
     print "Rank: {}, lmbda: {}, numIter: {}, numPartitions: {}".format(
         rank, lmbda, numIter, numPartitions)
@@ -587,7 +607,8 @@ if __name__ == "__main__":
             format(perturb_specific_user, recommendations_only)
     print "recommendations_and_per_movie_qii: {}".format(recommendations_and_per_movie_qii)
     print "per_movie_qiis_displayed: {}".format(per_movie_qiis_displayed)
-    print "genres_correlator: {}, gui: {}".format(genres_correlator, gui)
+    print "genres_correlator: {}, gui: {}, years_correlator: {}".format(
+            genres_correlator, gui, years_correlator)
 
     startconfig = time.time()
 
@@ -641,7 +662,38 @@ if __name__ == "__main__":
             print_top_recommendations(recommendations,
                     recommendations_to_print, movie_qiis = qii,
                     movie_qiis_to_display = per_movie_qiis_displayed)
-    # JUST FOR TESTING
+    elif years_correlator:
+        print "Loading years"
+        start = time.time()
+        years = sc.textFile(join(movieLensHomeDir, "movies.dat")).map(parseYear)
+        print "Done in {} seconds".format(time.time() - start)
+        print "Training model"
+        start = time.time()
+        model = ALS.train(training, rank, numIter, lmbda)
+        print "Done in {} seconds".format(time.time() - start)
+        print "Preparing features"
+        start = time.time()
+        features = model.productFeatures()
+        data = features.join(years).map(
+                lambda (mid, (ftrs, yr)):
+                        LabeledPoint(yr, ftrs))
+        print "Done in {} seconds".format(time.time() - start)
+        print "Building linear regression"
+        start = time.time()
+        lr_model = LinearRegressionWithSGD.train(data)
+        print "Done in {} seconds".format(time.time() - start)
+        observations = data.map(lambda x: x.label)
+        predictions = lr_model.predict(data.map(lambda x:
+                x.features))
+        predobs = predictions.zip(observations).map(lambda (a, b): (float(a),
+            float(b)))
+        metrics = RegressionMetrics(predobs)
+        print "RMSE: {}, variance explained: {}, mean absolute error: {}".\
+                format(metrics.explainedVariance,\
+                metrics.rootMeanSquaredError,
+                metrics.meanAbsoluteError)
+        print "Weights: {}".format(lr_model.weights)
+
     elif genres_correlator:
         print "Loading genres"
         start = time.time()
@@ -666,7 +718,6 @@ if __name__ == "__main__":
         model = ALS.train(training, rank, numIter, lmbda)
         print "Done in {} seconds".format(time.time() - start)
         features = dict(model.productFeatures().collect())
-
 
         print "Building a family of regresions"
         reg_models = {}
