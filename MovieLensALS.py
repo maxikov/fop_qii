@@ -500,6 +500,88 @@ def users_with_most_ratings(training,listlength):
 	userlist = sorted(training.countByKey().items(), key = lambda x: x[1], reverse=True)
 	return userlist[0:listlength]
 
+def correlate_genres(sc, genres, movies, ratings, rank, numIter, lmbda):
+        print "Bulding per-genre movie lists"
+        start = time.time()
+        gdict = dict(genres.collect())
+        mrdd = sc.parallelize(movies.keys())
+        all_genres = sorted(list(genres.map(lambda (_, x): x).fold(set(), lambda x, y:
+            set(x).union(set(y)))))
+        movies_by_genre = {}
+        for cur_genre in all_genres:
+            print "Processing {}".format(cur_genre)
+            cur_movies = mrdd.map(lambda x: (x, 1 if cur_genre in gdict[x] else
+                0))
+            movies_by_genre[cur_genre] = dict(cur_movies.collect())
+        print "Done in {} seconds".format(time.time() - start)
+
+        print "Training model"
+        start = time.time()
+        model = ALS.train(ratings, rank, numIter, lmbda)
+        print "Done in {} seconds".format(time.time() - start)
+        features = dict(model.productFeatures().collect())
+
+        print "Building a family of regresions"
+        reg_models = {}
+        start = time.time()
+        avgbetter = 0.0
+        for cur_genre, cur_movies in movies_by_genre.items():
+            print "Processing {}".format(cur_genre)
+            lr_data = [LabeledPoint(lbl, features[mid])
+                    for (mid, lbl) in cur_movies.items()
+                    if mid in features]
+            lr_data = sc.parallelize(lr_data)
+            n_pos = lr_data.filter(lambda x: x.label == 1).count()
+            prate = float(n_pos)/float(lr_data.count())
+            print "Percent of true positives: {:3.1f}%".\
+                    format(100*prate)
+            lr_model = pyspark.\
+                    mllib.\
+                    classification.\
+                    LogisticRegressionWithLBFGS.\
+                    train(lr_data)
+            lr_model.clearThreshold()
+            labels = lr_data.map(lambda x: x.label)
+            scores = lr_model.predict(lr_data.map(lambda x:
+                x.features))
+            predobs = scores.zip(labels).map(
+                    lambda(a, b): (float(a), float(b)))
+            metrics = BinaryClassificationMetrics(predobs)
+            auroc = metrics.areaUnderROC
+            aupr = metrics.areaUnderPR
+            better = (1.0 - prate)/(1.0 - aupr)
+            reg_models[cur_genre] = {"auroc": auroc,
+                    "auprc": aupr, "prate": prate, "model": lr_model, "better":
+                    better}
+            avgbetter += better
+            print "Area under ROC: {:1.3f}, area under precision-recall curve: {:1.3f} ".\
+                    format(auroc, aupr) +\
+                    "(AuPRc for a random classifier: {:1.3f}, {:1.3f} times better)\n".\
+                    format(prate, better)
+        avgbetter = avgbetter/float(len(movies_by_genre))
+        print avgbetter, "times better than random on average"
+        print "Done in {} seconds".format(time.time() - start)
+
+        print "{} genres".format(len(reg_models))
+
+        #Trying to bring it closer to diagonal
+        reg_models_src = reg_models.items()
+        reg_models_res = []
+        for i in xrange(len(reg_models_src)):
+            ind = min(
+                    enumerate(
+                            abs(i - max(
+                                        enumerate(x["model"].weights),
+                                        key = lambda y: y[1]
+                                       )[0]
+                               ) for (gnr, x) in reg_models_src
+                             ), key = lambda y: y[1]
+                     )[0]
+            reg_models_res.append(reg_models_src[ind])
+            del reg_models_src[ind]
+        return reg_models_res, avgbetter
+
+
 if __name__ == "__main__":
 
     parser = argparse.ArgumentParser(description=u"Usage: " +\
@@ -700,85 +782,9 @@ if __name__ == "__main__":
         start = time.time()
         genres = sc.textFile(join(movieLensHomeDir, "movies.dat")).map(parseGenre)
         print "Done in {} seconds".format(time.time() - start)
-        print "Bulding per-genre movie lists"
-        start = time.time()
-        gdict = dict(genres.collect())
-        mrdd = sc.parallelize(movies.keys())
-        all_genres = sorted(list(genres.map(lambda (_, x): x).fold(set(), lambda x, y:
-            set(x).union(set(y)))))
-        movies_by_genre = {}
-        for cur_genre in all_genres:
-            print "Processing {}".format(cur_genre)
-            cur_movies = mrdd.map(lambda x: (x, 1 if cur_genre in gdict[x] else
-                0))
-            movies_by_genre[cur_genre] = dict(cur_movies.collect())
-        print "Done in {} seconds".format(time.time() - start)
 
-        print "Training model"
-        start = time.time()
-        model = ALS.train(training, rank, numIter, lmbda)
-        print "Done in {} seconds".format(time.time() - start)
-        features = dict(model.productFeatures().collect())
-
-        print "Building a family of regresions"
-        reg_models = {}
-        start = time.time()
-        avgbetter = 0.0
-        for cur_genre, cur_movies in movies_by_genre.items():
-            print "Processing {}".format(cur_genre)
-            lr_data = [LabeledPoint(lbl, features[mid])
-                    for (mid, lbl) in cur_movies.items()
-                    if mid in features]
-            lr_data = sc.parallelize(lr_data)
-            n_pos = lr_data.filter(lambda x: x.label == 1).count()
-            prate = float(n_pos)/float(lr_data.count())
-            print "Percent of true positives: {:3.1f}%".\
-                    format(100*prate)
-            lr_model = pyspark.\
-                    mllib.\
-                    classification.\
-                    LogisticRegressionWithLBFGS.\
-                    train(lr_data)
-            lr_model.clearThreshold()
-            labels = lr_data.map(lambda x: x.label)
-            scores = lr_model.predict(lr_data.map(lambda x:
-                x.features))
-            predobs = scores.zip(labels).map(
-                    lambda(a, b): (float(a), float(b)))
-            metrics = BinaryClassificationMetrics(predobs)
-            auroc = metrics.areaUnderROC
-            aupr = metrics.areaUnderPR
-            better = (1.0 - prate)/(1.0 - aupr)
-            reg_models[cur_genre] = {"auroc": auroc,
-                    "auprc": aupr, "prate": prate, "model": lr_model, "better":
-                    better}
-            avgbetter += better
-            print "Area under ROC: {:1.3f}, area under precision-recall curve: {:1.3f} ".\
-                    format(auroc, aupr) +\
-                    "(AuPRc for a random classifier: {:1.3f}, {:1.3f} times better)\n".\
-                    format(prate, better)
-        avgbetter = avgbetter/float(len(movies_by_genre))
-        print avgbetter, "times better than random on average"
-        print "Done in {} seconds".format(time.time() - start)
-
-        print "{} genres".format(len(reg_models))
-
-        #Trying to bring it closer to diagonal
-        reg_models_src = reg_models.items()
-        reg_models_res = []
-        for i in xrange(len(reg_models_src)):
-            ind = min(
-                    enumerate(
-                            abs(i - max(
-                                        enumerate(x["model"].weights),
-                                        key = lambda y: y[1]
-                                       )[0]
-                               ) for (gnr, x) in reg_models_src
-                             ), key = lambda y: y[1]
-                     )[0]
-            reg_models_res.append(reg_models_src[ind])
-            del reg_models_src[ind]
-
+        reg_models_res, avgbetter = correlate_genres(sc, genres, movies,
+                training, rank, numIter, lmbda)
 
         for cur_genre, d in reg_models_res:
             row = (" "*3).join("{: 1.4f}".format(coeff)
