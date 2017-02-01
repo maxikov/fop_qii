@@ -13,6 +13,7 @@ import argparse
 import math
 from prettytable import PrettyTable
 import numpy
+import itertools
 
 from pyspark import SparkConf, SparkContext
 from pyspark.mllib.recommendation import ALS
@@ -709,6 +710,10 @@ if __name__ == "__main__":
             format(iterate_rank, iterate_from, iterate_to, iterate_step)
     startconfig = time.time()
 
+    if gui:
+        import matplotlib.pyplot as plt
+
+
     # set up environment
     conf = SparkConf() \
       .setAppName("MovieLensALS") \
@@ -848,9 +853,32 @@ if __name__ == "__main__":
             print "{:1.3f}x better on average".format(avgbetter)
 
         if gui:
-            import matplotlib.pyplot as plt
             if iterate_rank:
-                pass
+                colors = ['k', 'r', 'g', 'b', 'y']
+                styles = ['-', '--', '-.']
+                markers = ["o", "^", "s"]
+                csms = [(c, s, m) for m in markers for s in styles for c in colors]
+                fig, ax = plt.subplots()
+                ranks = [x["rank"] for x in results]
+                for i in xrange(len(genre_averages_lst)):
+                    color, style, marker = csms[i]
+                    cur_genre, avg = genre_averages_lst[i]
+                    if cur_genre == "Average of all":
+                        avgs = [x["avgbetter"] for x in results]
+                    else:
+                        avgs = [x["reg_models_res"][cur_genre]["better"]
+                                for x in results]
+                    line_label = "{} (AVG: {:1.3f})".format(cur_genre, avg)
+                    ax.plot(ranks, avgs, color = color, linestyle=style,
+                            label = line_label, marker=marker)
+                legend = ax.legend(loc="center left", bbox_to_anchor=(1,0.5))
+                ax.set_xticks(ranks)
+                ax.set_xticklabels(ranks)
+                ax.set_xlabel("Rank")
+                ax.set_ylabel("Quality of logistic regression")
+                ax.set_title("Performance of logistic regression from " +\
+                        "movie matrix to genres")
+                plt.show()
             else:
                 matrix = [list(x["model"].weights) for _, x in reg_models_res]
                 matrix = numpy.array(matrix)
