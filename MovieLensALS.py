@@ -865,12 +865,14 @@ if __name__ == "__main__":
                     cur_genre, avg = genre_averages_lst[i]
                     if cur_genre == "Average of all":
                         avgs = [x["avgbetter"] for x in results]
+                        lw = 2
                     else:
                         avgs = [x["reg_models_res"][cur_genre]["better"]
                                 for x in results]
+                        lw = 1
                     line_label = "{} (AVG: {:1.3f})".format(cur_genre, avg)
                     ax.plot(ranks, avgs, color = color, linestyle=style,
-                            label = line_label, marker=marker)
+                            label = line_label, marker=marker, lw=lw)
                 legend = ax.legend(loc="center left", bbox_to_anchor=(1,0.5))
                 ax.set_xticks(ranks)
                 ax.set_xticklabels(ranks)
