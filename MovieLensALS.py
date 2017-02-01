@@ -651,6 +651,15 @@ if __name__ == "__main__":
 
     parser.add_argument("--years-correlator", action="store_true", help=\
             "Correlating years.")
+    parser.add_argument("--iterate-rank", action="store_true", help=\
+            "Iterate through models with different ranks")
+    parser.add_argument("--iterate-from", action="store", type=int, default=5,\
+            help="Iterate the value from (5 by default)")
+    parser.add_argument("--iterate-to", action="store", type=int, default=40,\
+            help="Iterate the vaue to (40 by default)")
+    parser.add_argument("--iterate-step", action="store", type=int, default=5,\
+            help="Step for iteration (5 by default)")
+
 
     args = parser.parse_args()
     rank = args.rank
@@ -677,6 +686,10 @@ if __name__ == "__main__":
     genres_correlator = args.genres_correlator
     gui = args.gui
     years_correlator = args.years_correlator
+    iterate_rank = args.iterate_rank
+    iterate_from = args.iterate_from
+    iterate_to = args.iterate_to
+    iterate_step = args.iterate_step
 
     print "Rank: {}, lmbda: {}, numIter: {}, numPartitions: {}".format(
         rank, lmbda, numIter, numPartitions)
@@ -692,7 +705,8 @@ if __name__ == "__main__":
     print "per_movie_qiis_displayed: {}".format(per_movie_qiis_displayed)
     print "genres_correlator: {}, gui: {}, years_correlator: {}".format(
             genres_correlator, gui, years_correlator)
-
+    print "iterate_rank: {}, iterate_from: {}, iterate_to: {}, iterate_step:{}".\
+            format(iterate_rank, iterate_from, iterate_to, iterate_step)
     startconfig = time.time()
 
     # set up environment
@@ -783,34 +797,77 @@ if __name__ == "__main__":
         genres = sc.textFile(join(movieLensHomeDir, "movies.dat")).map(parseGenre)
         print "Done in {} seconds".format(time.time() - start)
 
-        reg_models_res, avgbetter = correlate_genres(sc, genres, movies,
-                training, rank, numIter, lmbda)
+        if iterate_rank:
+            results = []
+            for rank in xrange(iterate_from, iterate_to+1, iterate_step):
+                print "Processing rank", rank
+                start = time.time()
+                reg_models_res, avgbetter = correlate_genres(sc, genres, movies,
+                        training, rank, numIter, lmbda)
+                reg_models_res = dict(reg_models_res)
+                results.append({"rank": rank,
+                                "reg_models_res": reg_models_res,
+                                "avgbetter": avgbetter})
+                print "Done in {} seconds".format(time.time() - start)
+            genre_averages = defaultdict(lambda: 0.0)
+            for datum in results:
+                genre_averages["Average of all"] += datum["avgbetter"]
+                for genre, d in datum["reg_models_res"].items():
+                    genre_averages[genre] += d["better"]
+            genre_averages = {k: v/float(len(results)) for k, v in
+                    genre_averages.items()}
+            avgall = genre_averages["Average of all"]
+            del genre_averages["Average of all"]
+            genre_averages_lst = genre_averages.items()
+            genre_averages_lst.sort(key=lambda x: -x[1])
+            genre_averages_lst = [("Average of all", avgall)] +\
+                genre_averages_lst
+            title = ["Genre"] + ["rank: {}".format(x["rank"]) for x in results]
+            table = PrettyTable(title)
+            for cur_genre, avg in genre_averages_lst:
+                row = ["{} (AVG: {:1.3f})".format(cur_genre, avg)]
+                if cur_genre == "Average of all":
+                    row += ["{:1.3f}".format(x["avgbetter"]) for x in results]
+                else:
+                    row += ["{:1.3f}".format(
+                        x["reg_models_res"][cur_genre]["better"])
+                        for x in results]
+                table.add_row(row)
+            table.align["Genre"] = "r"
+            print table
 
-        for cur_genre, d in reg_models_res:
-            row = (" "*3).join("{: 1.4f}".format(coeff)
-                    for coeff in d["model"].weights)
-            print "{:>12} (AuPRc: {:1.3f}, Prate: {:1.3f}, {:1.3f}x better) {}".\
-                    format(cur_genre, d["auprc"], d["prate"], d["better"], row)
-        print "{:1.3f}x better on average".format(avgbetter)
+        else:
+            reg_models_res, avgbetter = correlate_genres(sc, genres, movies,
+                    training, rank, numIter, lmbda)
+
+            for cur_genre, d in reg_models_res:
+                row = (" "*3).join("{: 1.4f}".format(coeff)
+                        for coeff in d["model"].weights)
+                print "{:>12} (AuPRc: {:1.3f}, Prate: {:1.3f}, {:1.3f}x better) {}".\
+                        format(cur_genre, d["auprc"], d["prate"], d["better"], row)
+            print "{:1.3f}x better on average".format(avgbetter)
 
         if gui:
             import matplotlib.pyplot as plt
-            matrix = [list(x["model"].weights) for _, x in reg_models_res]
-            matrix = numpy.array(matrix)
-            fig, ax = plt.subplots()
-            cax = ax.imshow(matrix, cmap='viridis', interpolation='nearest')
-            ax.set_yticks(range(len(reg_models_res)))
-            ax.set_yticklabels("{} ({:1.1f}x)".format(x,\
-                d["better"]) for x, d in reg_models_res)
-            ax.set_ylabel("Genre")
-            ax.set_xticks(range(len(reg_models_res[0][1]["model"].weights)))
-            ax.set_xticklabels(range(len(reg_models_res[0][1]["model"].weights)))
-            ax.set_xlabel("Product Features")
-            ax.set_title("Coefficients for logistic regression ({:1.3f}".\
-                    format(avgbetter) +\
-                    " times better than random on average)")
-            cbar = fig.colorbar(cax)
-            plt.show()
+            if iterate_rank:
+                pass
+            else:
+                matrix = [list(x["model"].weights) for _, x in reg_models_res]
+                matrix = numpy.array(matrix)
+                fig, ax = plt.subplots()
+                cax = ax.imshow(matrix, cmap='viridis', interpolation='nearest')
+                ax.set_yticks(range(len(reg_models_res)))
+                ax.set_yticklabels("{} ({:1.1f}x)".format(x,\
+                    d["better"]) for x, d in reg_models_res)
+                ax.set_ylabel("Genre")
+                ax.set_xticks(range(len(reg_models_res[0][1]["model"].weights)))
+                ax.set_xticklabels(range(len(reg_models_res[0][1]["model"].weights)))
+                ax.set_xlabel("Product Features")
+                ax.set_title("Coefficients for logistic regression ({:1.3f}".\
+                        format(avgbetter) +\
+                        " times better than random on average)")
+                cbar = fig.colorbar(cax)
+                plt.show()
 
     else:
         endconfig = time.time()
