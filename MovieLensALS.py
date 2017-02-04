@@ -889,7 +889,10 @@ if __name__ == "__main__":
             for datum in results:
                 genre_averages["Average of all"] += datum["avgbetter"]
                 for genre, d in datum["reg_models_res"].items():
-                    genre_averages[genre] += d["recall"]
+                    if no_threshold:
+                        genre_averages[genre] += d["better"]
+                    else:
+                        genre_averages[genre] += d["recall"]
             genre_averages = {k: v/float(len(results)) for k, v in
                     genre_averages.items()}
             avgall = genre_averages["Average of all"]
@@ -906,7 +909,8 @@ if __name__ == "__main__":
                     row += ["{:3.1f}%".format(x["avgbetter"]*100) for x in results]
                 else:
                     row += ["{:3.1f}%".format(
-                        x["reg_models_res"][cur_genre]["recall"]*100)
+                        x["reg_models_res"][cur_genre]\
+                        ["better" if no_threshold else "recall"]*100)
                         for x in results]
                 table.add_row(row)
             table.align["Genre"] = "r"
@@ -940,13 +944,18 @@ if __name__ == "__main__":
                     color, style, marker = csms[i]
                     cur_genre, avg = genre_averages_lst[i]
                     if cur_genre == "Average of all":
-                        avgs = [x["avgbetter"]*100 for x in results]
+                        avgs = [x["avgbetter"]*(1 if no_threshold else 100) for x in results]
                         lw = 2
                     else:
-                        avgs = [x["reg_models_res"][cur_genre]["recall"]*100
+                        avgs = [x["reg_models_res"][cur_genre]\
+                                ["better" if no_threshold else "recall"]*\
+                                (1 if no_threshold else 100)
                                 for x in results]
                         lw = 1
-                    line_label = "{} (AVG: {:3.1f}%)".format(cur_genre, avg*100)
+                    if no_threshold:
+                        line_label = "{} (AVG: {:1.3f})".format(cur_genre, avg)
+                    else:
+                        line_label = "{} (AVG: {:3.1f}%)".format(cur_genre, avg*100)
                     ax.plot(ranks, avgs, color = color, linestyle=style,
                             label = line_label, marker=marker, lw=lw)
                 legend = ax.legend(loc="center left", bbox_to_anchor=(1,0.5))
