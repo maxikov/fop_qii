@@ -561,9 +561,68 @@ def correlate_genres(sc, genres, movies, ratings, rank, numIter, lmbda,
                             format(auroc, aupr) +\
                             "(AuPRc for a random classifier: {:1.3f}, {:1.3f} times better)\n".\
                            format(prate, better)
+            else:
+                predictions = lr_model.predict(lr_data.map(lambda x:
+                    x.features))
+                predobs = predictions.zip(labels).map(
+                    lambda(a, b): (float(a), float(b)))
+                corrects = predobs.filter(
+                        lambda (x, y): (x == y))
+                fp_count = predobs.filter(lambda (x, y):
+                        (x == 1) and (y == 0)).count()
+                tp_count = corrects.filter(lambda (x, y): (x==1)).count()
+                tn_count = corrects.filter(lambda (x, y): (x==0)).count()
+                p_count = labels.filter(lambda x: (x==1)).count()
+                n_count = labels.filter(lambda x: (x==0)).count()
+                total_count = predobs.count()
+                acc = float(tp_count + tn_count)/total_count
+                print "Accuracy (tp+tn)/(p+n): {:3.1f}%".format(100*acc)
+                if p_count > 0:
+                    recall = float(tp_count)/p_count
+                    print "Recall (sensitivity, tp rate, tp/p): {:3.1f}%".\
+                        format(100*recall)
+                else:
+                    recall = 0
+                    print "No positives in the data set, setting recall"+\
+                            " (sensitivity, tp rate, tp/p) to 0"
+                if n_count > 0:
+                    specificity = float(tn_count)/n_count
+                    print "Specificity (tn rate, tn/n): {:3.1f}%".\
+                            format(100*specificity)
+                else:
+                    specificity = 0
+                    print "No negatives in the data set, setting specificity"+\
+                            " (tn rate, tn/n) to 0"
+                if tp_count+fp_count > 0:
+                    precision = float(tp_count)/(tp_count+fp_count)
+                    print "Precision (positive predictive value, tp/(tp+fp)):" +\
+                        " {:3.1f}%".format(100*precision)
+                else:
+                    precision = 0
+                    print "No positives predicted by the classifier"+\
+                            " (tp+fp <= 0), setting precision ("+\
+                            "positive predictive value, tp/(tp+fp)) to 0"
+                if tn_count+fp_count > 0:
+                    fpr = float(fp_count)/(tn_count + fp_count)
+                    print "False positive rate (fp/(tn+fp)): {:3.1f}%".\
+                            format(100*fpr)
+                else:
+                    fpr = 0
+                    print "No true negatives of false positives, setting"+\
+                            "false positive rate (fp/(tn+fp)) to 0"
+                print ""
+                avgbetter += recall
+                reg_models[cur_genre] = {"total_count": total_count,
+                        "tp_count": tp_count, "fp_count": fp_count,
+                        "p_count": p_count, "n_count": n_count,
+                        "accuracy": acc, "recall": recall,
+                        "specificity": specificity, "precision": precision,
+                        "fpr": fpr, "model": lr_model}
+        avgbetter = avgbetter/float(len(movies_by_genre))
         if no_threshold:
-            avgbetter = avgbetter/float(len(movies_by_genre))
             print avgbetter, "times better than random on average"
+        else:
+            print "Average recall: {:3.1f}%".format(100*avgbetter)
         print "Done in {} seconds".format(time.time() - start)
 
         print "{} genres".format(len(reg_models))
@@ -830,7 +889,7 @@ if __name__ == "__main__":
             for datum in results:
                 genre_averages["Average of all"] += datum["avgbetter"]
                 for genre, d in datum["reg_models_res"].items():
-                    genre_averages[genre] += d["better"]
+                    genre_averages[genre] += d["recall"]
             genre_averages = {k: v/float(len(results)) for k, v in
                     genre_averages.items()}
             avgall = genre_averages["Average of all"]
@@ -842,12 +901,12 @@ if __name__ == "__main__":
             title = ["Genre"] + ["rank: {}".format(x["rank"]) for x in results]
             table = PrettyTable(title)
             for cur_genre, avg in genre_averages_lst:
-                row = ["{} (AVG: {:1.3f})".format(cur_genre, avg)]
+                row = ["{} (AVG: {:3.1f}%)".format(cur_genre, avg*100)]
                 if cur_genre == "Average of all":
-                    row += ["{:1.3f}".format(x["avgbetter"]) for x in results]
+                    row += ["{:3.1f}%".format(x["avgbetter"]*100) for x in results]
                 else:
-                    row += ["{:1.3f}".format(
-                        x["reg_models_res"][cur_genre]["better"])
+                    row += ["{:3.1f}%".format(
+                        x["reg_models_res"][cur_genre]["recall"]*100)
                         for x in results]
                 table.add_row(row)
             table.align["Genre"] = "r"
@@ -863,8 +922,11 @@ if __name__ == "__main__":
                 if no_threshold:
                     print "{:>12} (AuPRc: {:1.3f}, Prate: {:1.3f}, {:1.3f}x better) {}".\
                             format(cur_genre, d["auprc"], d["prate"], d["better"], row)
+                else:
+                    print "{:>12} (recall (tp/p): {:3.1f}%) {}".\
+                            format(cur_genre, d["recall"]*100, row)
             if no_threshold:
-                print "{:1.3f}x better on average".format(avgbetter)
+                print "Average recall: {:3.1f}%".format(avgbetter*100)
 
         if gui:
             if iterate_rank:
@@ -878,13 +940,13 @@ if __name__ == "__main__":
                     color, style, marker = csms[i]
                     cur_genre, avg = genre_averages_lst[i]
                     if cur_genre == "Average of all":
-                        avgs = [x["avgbetter"] for x in results]
+                        avgs = [x["avgbetter"]*100 for x in results]
                         lw = 2
                     else:
-                        avgs = [x["reg_models_res"][cur_genre]["better"]
+                        avgs = [x["reg_models_res"][cur_genre]["recall"]*100
                                 for x in results]
                         lw = 1
-                    line_label = "{} (AVG: {:1.3f})".format(cur_genre, avg)
+                    line_label = "{} (AVG: {:3.1f}%)".format(cur_genre, avg*100)
                     ax.plot(ranks, avgs, color = color, linestyle=style,
                             label = line_label, marker=marker, lw=lw)
                 legend = ax.legend(loc="center left", bbox_to_anchor=(1,0.5))
@@ -893,9 +955,11 @@ if __name__ == "__main__":
                 ax.set_xlabel("Rank")
                 if no_threshold:
                     ax.set_ylabel("Quality of logistic regression")
-                    ax.set_title("Performance of logistic regression " +\
-                         ("with inverted labels " if invert_labels else "") +\
-                         "from movie matrix to genres")
+                else:
+                    ax.set_ylabel("Recall (tp/p), %)")
+                ax.set_title("Performance of logistic regression " +\
+                     ("with inverted labels " if invert_labels else "") +\
+                     "from movie matrix to genres")
                 plt.show()
             else:
                 matrix = [list(x["model"].weights) for _, x in reg_models_res]
@@ -906,6 +970,9 @@ if __name__ == "__main__":
                 if no_threshold:
                     ax.set_yticklabels("{} ({:1.1f}x)".format(x,\
                        d["better"]) for x, d in reg_models_res)
+                else:
+                    ax.set_yticklabels("{} ({:3.1f}% recall)".format(x,\
+                            d["recall"]*100) for x, d in reg_models_res)
                 ax.set_ylabel("Genre")
                 ax.set_xticks(range(len(reg_models_res[0][1]["model"].weights)))
                 ax.set_xticklabels(range(len(reg_models_res[0][1]["model"].weights)))
@@ -914,8 +981,8 @@ if __name__ == "__main__":
                         (" with inverted labels" if invert_labels else "") +\
                         (" ({:1.3f} times better than random on average)"
                             if no_threshold
-                            else "({:3.2f}% true positives)").\
-                        format(avgbetter))
+                            else "({:3.1f}% true positives)").\
+                        format(avgbetter * (1 if no_threshold else 100)))
                 cbar = fig.colorbar(cax)
                 plt.show()
 
