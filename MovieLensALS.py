@@ -501,7 +501,8 @@ def users_with_most_ratings(training,listlength):
 	userlist = sorted(training.countByKey().items(), key = lambda x: x[1], reverse=True)
 	return userlist[0:listlength]
 
-def correlate_genres(sc, genres, movies, ratings, rank, numIter, lmbda):
+def correlate_genres(sc, genres, movies, ratings, rank, numIter, lmbda,
+                invert_labels=False):
         print "Bulding per-genre movie lists"
         start = time.time()
         gdict = dict(genres.collect())
@@ -511,8 +512,8 @@ def correlate_genres(sc, genres, movies, ratings, rank, numIter, lmbda):
         movies_by_genre = {}
         for cur_genre in all_genres:
             print "Processing {}".format(cur_genre)
-            cur_movies = mrdd.map(lambda x: (x, 1 if cur_genre in gdict[x] else
-                0))
+            cur_movies = mrdd.map(lambda x: (x, 1 ^ invert_labels
+                if cur_genre in gdict[x] else 0 ^ invert_labels))
             movies_by_genre[cur_genre] = dict(cur_movies.collect())
         print "Done in {} seconds".format(time.time() - start)
 
@@ -534,7 +535,7 @@ def correlate_genres(sc, genres, movies, ratings, rank, numIter, lmbda):
             lr_data = sc.parallelize(lr_data)
             n_pos = lr_data.filter(lambda x: x.label == 1).count()
             prate = float(n_pos)/float(lr_data.count())
-            print "Percent of true positives: {:3.1f}%".\
+            print "Percent of positives: {:3.1f}%".\
                     format(100*prate)
             lr_model = pyspark.\
                     mllib.\
@@ -660,6 +661,8 @@ if __name__ == "__main__":
             help="Iterate the vaue to (40 by default)")
     parser.add_argument("--iterate-step", action="store", type=int, default=5,\
             help="Step for iteration (5 by default)")
+    parser.add_argument("--invert-labels", action="store_true", help=\
+            "Invert true and false labels for genre correlator")
 
 
     args = parser.parse_args()
@@ -691,6 +694,7 @@ if __name__ == "__main__":
     iterate_from = args.iterate_from
     iterate_to = args.iterate_to
     iterate_step = args.iterate_step
+    invert_labels = args.invert_labels
 
     print "Rank: {}, lmbda: {}, numIter: {}, numPartitions: {}".format(
         rank, lmbda, numIter, numPartitions)
@@ -808,7 +812,7 @@ if __name__ == "__main__":
                 print "Processing rank", rank
                 start = time.time()
                 reg_models_res, avgbetter = correlate_genres(sc, genres, movies,
-                        training, rank, numIter, lmbda)
+                        training, rank, numIter, lmbda, invert_labels)
                 reg_models_res = dict(reg_models_res)
                 results.append({"rank": rank,
                                 "reg_models_res": reg_models_res,
@@ -878,8 +882,9 @@ if __name__ == "__main__":
                 ax.set_xticklabels(ranks)
                 ax.set_xlabel("Rank")
                 ax.set_ylabel("Quality of logistic regression")
-                ax.set_title("Performance of logistic regression from " +\
-                        "movie matrix to genres")
+                ax.set_title("Performance of logistic regression " +\
+                        ("with inverted labels " if invert_labels else "") +\
+                        "from movie matrix to genres")
                 plt.show()
             else:
                 matrix = [list(x["model"].weights) for _, x in reg_models_res]
@@ -893,9 +898,10 @@ if __name__ == "__main__":
                 ax.set_xticks(range(len(reg_models_res[0][1]["model"].weights)))
                 ax.set_xticklabels(range(len(reg_models_res[0][1]["model"].weights)))
                 ax.set_xlabel("Product Features")
-                ax.set_title("Coefficients for logistic regression ({:1.3f}".\
-                        format(avgbetter) +\
-                        " times better than random on average)")
+                ax.set_title("Coefficients for logistic regression"+\
+                        (" with inverted labels" if invert_labels else "") +\
+                        " ({:1.3f} times better than random on average)".\
+                        format(avgbetter))
                 cbar = fig.colorbar(cax)
                 plt.show()
 
