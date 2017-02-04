@@ -502,7 +502,7 @@ def users_with_most_ratings(training,listlength):
 	return userlist[0:listlength]
 
 def correlate_genres(sc, genres, movies, ratings, rank, numIter, lmbda,
-                invert_labels=False):
+                invert_labels=False, no_threshold=False):
         print "Bulding per-genre movie lists"
         start = time.time()
         gdict = dict(genres.collect())
@@ -542,26 +542,28 @@ def correlate_genres(sc, genres, movies, ratings, rank, numIter, lmbda,
                     classification.\
                     LogisticRegressionWithLBFGS.\
                     train(lr_data)
-            lr_model.clearThreshold()
             labels = lr_data.map(lambda x: x.label)
-            scores = lr_model.predict(lr_data.map(lambda x:
-                x.features))
-            predobs = scores.zip(labels).map(
+            if no_threshold:
+                lr_model.clearThreshold()
+                scores = lr_model.predict(lr_data.map(lambda x:
+                    x.features))
+                predobs = scores.zip(labels).map(
                     lambda(a, b): (float(a), float(b)))
-            metrics = BinaryClassificationMetrics(predobs)
-            auroc = metrics.areaUnderROC
-            aupr = metrics.areaUnderPR
-            better = (1.0 - prate)/(1.0 - aupr)
-            reg_models[cur_genre] = {"auroc": auroc,
-                    "auprc": aupr, "prate": prate, "model": lr_model, "better":
-                    better}
-            avgbetter += better
-            print "Area under ROC: {:1.3f}, area under precision-recall curve: {:1.3f} ".\
-                    format(auroc, aupr) +\
-                    "(AuPRc for a random classifier: {:1.3f}, {:1.3f} times better)\n".\
-                    format(prate, better)
-        avgbetter = avgbetter/float(len(movies_by_genre))
-        print avgbetter, "times better than random on average"
+                metrics = BinaryClassificationMetrics(predobs)
+                auroc = metrics.areaUnderROC
+                aupr = metrics.areaUnderPR
+                better = (1.0 - prate)/(1.0 - aupr)
+                reg_models[cur_genre] = {"auroc": auroc,
+                            "auprc": aupr, "prate": prate, "model": lr_model, "better":
+                            better}
+                avgbetter += better
+                print "Area under ROC: {:1.3f}, area under precision-recall curve: {:1.3f} ".\
+                            format(auroc, aupr) +\
+                            "(AuPRc for a random classifier: {:1.3f}, {:1.3f} times better)\n".\
+                           format(prate, better)
+        if no_threshold:
+            avgbetter = avgbetter/float(len(movies_by_genre))
+            print avgbetter, "times better than random on average"
         print "Done in {} seconds".format(time.time() - start)
 
         print "{} genres".format(len(reg_models))
@@ -572,7 +574,7 @@ def correlate_genres(sc, genres, movies, ratings, rank, numIter, lmbda,
         for i in xrange(len(reg_models_src)):
             ind = min(
                     enumerate(
-                            abs(i - max(
+                            abs(i - (min if invert_labels else max)(
                                         enumerate(x["model"].weights),
                                         key = lambda y: y[1]
                                        )[0]
@@ -663,7 +665,9 @@ if __name__ == "__main__":
             help="Step for iteration (5 by default)")
     parser.add_argument("--invert-labels", action="store_true", help=\
             "Invert true and false labels for genre correlator")
-
+    parser.add_argument("--no-threshold", action="store_true", help=\
+            "Turn off thresholds for regression models, "+\
+            "look at scores, and do model-wide evaluation")
 
     args = parser.parse_args()
     rank = args.rank
@@ -695,6 +699,7 @@ if __name__ == "__main__":
     iterate_to = args.iterate_to
     iterate_step = args.iterate_step
     invert_labels = args.invert_labels
+    no_threshold = args.no_threshold
 
     print "Rank: {}, lmbda: {}, numIter: {}, numPartitions: {}".format(
         rank, lmbda, numIter, numPartitions)
@@ -713,6 +718,8 @@ if __name__ == "__main__":
     print "iterate_rank: {}, iterate_from: {}, iterate_to: {}, iterate_step:{}".\
             format(iterate_rank, iterate_from, iterate_to, iterate_step)
     startconfig = time.time()
+    print "invert_labels: {}, no_threshold: {}".format(invert_labels,
+            no_threshold)
 
     if gui:
         import matplotlib.pyplot as plt
@@ -812,7 +819,8 @@ if __name__ == "__main__":
                 print "Processing rank", rank
                 start = time.time()
                 reg_models_res, avgbetter = correlate_genres(sc, genres, movies,
-                        training, rank, numIter, lmbda, invert_labels)
+                        training, rank, numIter, lmbda, invert_labels,
+                        no_threshold)
                 reg_models_res = dict(reg_models_res)
                 results.append({"rank": rank,
                                 "reg_models_res": reg_models_res,
@@ -847,14 +855,16 @@ if __name__ == "__main__":
 
         else:
             reg_models_res, avgbetter = correlate_genres(sc, genres, movies,
-                    training, rank, numIter, lmbda)
+                    training, rank, numIter, lmbda, invert_labels, no_threshold)
 
             for cur_genre, d in reg_models_res:
                 row = (" "*3).join("{: 1.4f}".format(coeff)
                         for coeff in d["model"].weights)
-                print "{:>12} (AuPRc: {:1.3f}, Prate: {:1.3f}, {:1.3f}x better) {}".\
-                        format(cur_genre, d["auprc"], d["prate"], d["better"], row)
-            print "{:1.3f}x better on average".format(avgbetter)
+                if no_threshold:
+                    print "{:>12} (AuPRc: {:1.3f}, Prate: {:1.3f}, {:1.3f}x better) {}".\
+                            format(cur_genre, d["auprc"], d["prate"], d["better"], row)
+            if no_threshold:
+                print "{:1.3f}x better on average".format(avgbetter)
 
         if gui:
             if iterate_rank:
@@ -881,10 +891,11 @@ if __name__ == "__main__":
                 ax.set_xticks(ranks)
                 ax.set_xticklabels(ranks)
                 ax.set_xlabel("Rank")
-                ax.set_ylabel("Quality of logistic regression")
-                ax.set_title("Performance of logistic regression " +\
-                        ("with inverted labels " if invert_labels else "") +\
-                        "from movie matrix to genres")
+                if no_threshold:
+                    ax.set_ylabel("Quality of logistic regression")
+                    ax.set_title("Performance of logistic regression " +\
+                         ("with inverted labels " if invert_labels else "") +\
+                         "from movie matrix to genres")
                 plt.show()
             else:
                 matrix = [list(x["model"].weights) for _, x in reg_models_res]
@@ -892,15 +903,18 @@ if __name__ == "__main__":
                 fig, ax = plt.subplots()
                 cax = ax.imshow(matrix, cmap='viridis', interpolation='nearest')
                 ax.set_yticks(range(len(reg_models_res)))
-                ax.set_yticklabels("{} ({:1.1f}x)".format(x,\
-                    d["better"]) for x, d in reg_models_res)
+                if no_threshold:
+                    ax.set_yticklabels("{} ({:1.1f}x)".format(x,\
+                       d["better"]) for x, d in reg_models_res)
                 ax.set_ylabel("Genre")
                 ax.set_xticks(range(len(reg_models_res[0][1]["model"].weights)))
                 ax.set_xticklabels(range(len(reg_models_res[0][1]["model"].weights)))
                 ax.set_xlabel("Product Features")
                 ax.set_title("Coefficients for logistic regression"+\
                         (" with inverted labels" if invert_labels else "") +\
-                        " ({:1.3f} times better than random on average)".\
+                        (" ({:1.3f} times better than random on average)"
+                            if no_threshold
+                            else "({:3.2f}% true positives)").\
                         format(avgbetter))
                 cbar = fig.colorbar(cax)
                 plt.show()
