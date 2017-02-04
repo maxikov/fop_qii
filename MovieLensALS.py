@@ -956,7 +956,10 @@ if __name__ == "__main__":
                 if no_threshold:
                     ax.set_ylabel("Quality of logistic regression")
                 else:
-                    ax.set_ylabel("Recall (tp/p), %)")
+                    if invert_labels:
+                        ax.set_ylabel("Inverted recall (tn/n), %")
+                    else:
+                        ax.set_ylabel("Recall (tp/p), %)")
                 ax.set_title("Performance of logistic regression " +\
                      ("with inverted labels " if invert_labels else "") +\
                      "from movie matrix to genres")
