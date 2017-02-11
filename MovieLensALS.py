@@ -502,7 +502,7 @@ def users_with_most_ratings(training,listlength):
 	return userlist[0:listlength]
 
 def correlate_genres(sc, genres, movies, ratings, rank, numIter, lmbda,
-                invert_labels=False, no_threshold=False):
+        invert_labels=False, no_threshold=False, classifier_model="logistic"):
         print "Bulding per-genre movie lists"
         start = time.time()
         gdict = dict(genres.collect())
@@ -727,6 +727,11 @@ if __name__ == "__main__":
     parser.add_argument("--no-threshold", action="store_true", help=\
             "Turn off thresholds for regression models, "+\
             "look at scores, and do model-wide evaluation")
+    parser.add_argument("--classifier-model", action="store", type=str,
+            default="logistic", help="Model used in genres-correlator. "+\
+                    "Possible values: logistic. "+\
+                    "logistic by default")
+
 
     args = parser.parse_args()
     rank = args.rank
@@ -759,6 +764,7 @@ if __name__ == "__main__":
     iterate_step = args.iterate_step
     invert_labels = args.invert_labels
     no_threshold = args.no_threshold
+    classifier_model = args.classifier_model
 
     print "Rank: {}, lmbda: {}, numIter: {}, numPartitions: {}".format(
         rank, lmbda, numIter, numPartitions)
@@ -779,6 +785,7 @@ if __name__ == "__main__":
     startconfig = time.time()
     print "invert_labels: {}, no_threshold: {}".format(invert_labels,
             no_threshold)
+    print "classifier_model: {}".format(classifier_model)
 
     if gui:
         import matplotlib.pyplot as plt
