@@ -20,6 +20,7 @@ from pyspark.mllib.recommendation import ALS
 import pyspark.mllib.recommendation
 from pyspark.mllib.classification import LabeledPoint
 import pyspark.mllib.regression
+import pyspark.mllib.tree
 from pyspark.mllib.regression import LinearRegressionWithSGD
 from pyspark.mllib.evaluation import RegressionMetrics,\
         BinaryClassificationMetrics
@@ -537,11 +538,18 @@ def correlate_genres(sc, genres, movies, ratings, rank, numIter, lmbda,
             prate = float(n_pos)/float(lr_data.count())
             print "Percent of positives: {:3.1f}%".\
                     format(100*prate)
-            lr_model = pyspark.\
-                    mllib.\
-                    classification.\
-                    LogisticRegressionWithLBFGS.\
-                    train(lr_data)
+            if classifier_model == "logistic":
+                lr_model = pyspark.\
+                        mllib.\
+                        classification.\
+                        LogisticRegressionWithLBFGS.\
+                        train(lr_data)
+            elif classifier_model == "decision_tree":
+                lr_model = pyspark.\
+                        mllib.\
+                        tree.\
+                        DecisionTree.\
+                        trainClassifier(lr_data,2,{})
             labels = lr_data.map(lambda x: x.label)
             if no_threshold:
                 lr_model.clearThreshold()
@@ -629,19 +637,22 @@ def correlate_genres(sc, genres, movies, ratings, rank, numIter, lmbda,
 
         #Trying to bring it closer to diagonal
         reg_models_src = reg_models.items()
-        reg_models_res = []
-        for i in xrange(len(reg_models_src)):
-            ind = min(
-                    enumerate(
-                            abs(i - (min if invert_labels else max)(
-                                        enumerate(x["model"].weights),
-                                        key = lambda y: y[1]
-                                       )[0]
-                               ) for (gnr, x) in reg_models_src
-                             ), key = lambda y: y[1]
-                     )[0]
-            reg_models_res.append(reg_models_src[ind])
-            del reg_models_src[ind]
+        if classifier_model == "logistic":
+            reg_models_res = []
+            for i in xrange(len(reg_models_src)):
+                ind = min(
+                        enumerate(
+                                abs(i - (min if invert_labels else max)(
+                                            enumerate(x["model"].weights),
+                                            key = lambda y: y[1]
+                                           )[0]
+                                   ) for (gnr, x) in reg_models_src
+                                 ), key = lambda y: y[1]
+                         )[0]
+                reg_models_res.append(reg_models_src[ind])
+                del reg_models_src[ind]
+        else:
+            reg_models_res = reg_models_src
         return reg_models_res, avgbetter
 
 
@@ -729,7 +740,8 @@ if __name__ == "__main__":
             "look at scores, and do model-wide evaluation")
     parser.add_argument("--classifier-model", action="store", type=str,
             default="logistic", help="Model used in genres-correlator. "+\
-                    "Possible values: logistic. "+\
+                    "Possible values: logistic, "+\
+                    "decision_tree (no_threshold not available), "+\
                     "logistic by default")
 
 
@@ -765,6 +777,8 @@ if __name__ == "__main__":
     invert_labels = args.invert_labels
     no_threshold = args.no_threshold
     classifier_model = args.classifier_model
+    if classifier_model == "decision_tree":
+        no_threshold = False
 
     print "Rank: {}, lmbda: {}, numIter: {}, numPartitions: {}".format(
         rank, lmbda, numIter, numPartitions)
@@ -886,7 +900,7 @@ if __name__ == "__main__":
                 start = time.time()
                 reg_models_res, avgbetter = correlate_genres(sc, genres, movies,
                         training, rank, numIter, lmbda, invert_labels,
-                        no_threshold)
+                        no_threshold, classifier_model=classifier_model)
                 reg_models_res = dict(reg_models_res)
                 results.append({"rank": rank,
                                 "reg_models_res": reg_models_res,
@@ -911,14 +925,24 @@ if __name__ == "__main__":
             title = ["Genre"] + ["rank: {}".format(x["rank"]) for x in results]
             table = PrettyTable(title)
             for cur_genre, avg in genre_averages_lst:
-                row = ["{} (AVG: {:3.1f}%)".format(cur_genre, avg*100)]
-                if cur_genre == "Average of all":
-                    row += ["{:3.1f}%".format(x["avgbetter"]*100) for x in results]
+                if no_threshold:
+                    row = ["{} (AVG: {:1.3f})".format(cur_genre, avg)]
+                    if cur_genre == "Average of all":
+                        row += ["{:1.3f}".format(x["avgbetter"]) for x in results]
+                    else:
+                        row += ["{:3.1f}%".format(
+                            x["reg_models_res"][cur_genre]\
+                            ["better" if no_threshold else "recall"]*100)
+                            for x in results]
                 else:
-                    row += ["{:3.1f}%".format(
-                        x["reg_models_res"][cur_genre]\
-                        ["better" if no_threshold else "recall"]*100)
-                        for x in results]
+                    row = ["{} (AVG: {:3.1f}%)".format(cur_genre, avg*100)]
+                    if cur_genre == "Average of all":
+                        row += ["{:3.1f}%".format(x["avgbetter"]*100) for x in results]
+                    else:
+                        row += ["{:3.1f}%".format(
+                            x["reg_models_res"][cur_genre]\
+                            ["better" if no_threshold else "recall"]*100)
+                            for x in results]
                 table.add_row(row)
             table.align["Genre"] = "r"
             print table
@@ -970,13 +994,13 @@ if __name__ == "__main__":
                 ax.set_xticklabels(ranks)
                 ax.set_xlabel("Rank")
                 if no_threshold:
-                    ax.set_ylabel("Quality of logistic regression")
+                    ax.set_ylabel("Quality of {}".format(classifier_model))
                 else:
                     if invert_labels:
                         ax.set_ylabel("Inverted recall (tn/n), %")
                     else:
                         ax.set_ylabel("Recall (tp/p), %)")
-                ax.set_title("Performance of logistic regression " +\
+                ax.set_title("Performance of {} ".format(classifier_model) +\
                      ("with inverted labels " if invert_labels else "") +\
                      "from movie matrix to genres")
                 plt.show()
