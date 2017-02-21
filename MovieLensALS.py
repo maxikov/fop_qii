@@ -706,7 +706,9 @@ def regression_genres(sc, genres, movies, ratings, rank, numIter, lmbda):
             print "\tMean relative absolute error: {}".format(mrae)
             res[i] = {
                     "model": lr_model,
-                    "mrae": mrae}
+                    "mrae": mrae,
+                    "f": i}
+        res = sorted(res.values(),key=lambda x: -x["f"])
         return all_genres, res
 
 if __name__ == "__main__":
@@ -1095,7 +1097,7 @@ if __name__ == "__main__":
         else:
             all_genres, models = regression_genres(sc, genres, movies, training, rank, numIter, lmbda)
             title = ["Genre"] + ["F #{} (MRAE {:4d}%)".format(
-                    i, int(100*models[i]["mrae"])
+                    models[i]["f"], int(100*models[i]["mrae"])
                 ) for i in xrange(rank)]
             table = PrettyTable(title)
             for i in xrange(len(all_genres)):
@@ -1119,10 +1121,13 @@ if __name__ == "__main__":
                 ax.set_xlabel("Product Features")
                 ax.set_xticks(range(rank))
                 ax.set_xticklabels("F #{} (MRAE {:4d}%)".format(
-                    i, int(100*models[i]["mrae"])) for i in xrange(rank))
+                    models[i]["f"], int(100*models[i]["mrae"])) for i in xrange(rank))
 
                 for tick in ax.get_xticklabels():
                     tick.set_rotation(90)
+
+                ax.set_title("Coefficients of linear regression from genre\n"+\
+                        "indicator vectors to product features")
 
                 cbar = fig.colorbar(cax)
                 plt.show()
