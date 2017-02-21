@@ -1090,17 +1090,42 @@ if __name__ == "__main__":
         start = time.time()
         genres = sc.textFile(join(movieLensHomeDir, "movies.dat")).map(parseGenre)
         print "Done in {} seconds".format(time.time() - start)
-        all_genres, models = regression_genres(sc, genres, movies, training, rank, numIter, lmbda)
-        title = ["Genre"] + ["F #{} (MRAE {:4d}%)".format(
-                i, int(100*models[i]["mrae"])
-            ) for i in xrange(rank)]
-        table = PrettyTable(title)
-        for i in xrange(len(all_genres)):
-            row = [all_genres[i]]
-            for j in xrange(rank):
-                row += ["{:2.2f}".format(models[j]["model"].weights[i])]
-            table.add_row(row)
-        print table
+        if iterate_rank:
+            pass
+        else:
+            all_genres, models = regression_genres(sc, genres, movies, training, rank, numIter, lmbda)
+            title = ["Genre"] + ["F #{} (MRAE {:4d}%)".format(
+                    i, int(100*models[i]["mrae"])
+                ) for i in xrange(rank)]
+            table = PrettyTable(title)
+            for i in xrange(len(all_genres)):
+                row = [all_genres[i]]
+                for j in xrange(rank):
+                    row += ["{:2.2f}".format(models[j]["model"].weights[i])]
+                table.add_row(row)
+            print table
+
+            if gui:
+                matrix = [list(models[i]["model"].weights) for i in
+                        xrange(rank)]
+                matrix = numpy.array(matrix).transpose()
+                fig, ax = plt.subplots()
+                cax = ax.imshow(matrix, cmap='viridis', interpolation='nearest')
+
+                ax.set_ylabel("Genre")
+                ax.set_yticks(range(len(all_genres)))
+                ax.set_yticklabels(all_genres)
+
+                ax.set_xlabel("Product Features")
+                ax.set_xticks(range(rank))
+                ax.set_xticklabels("F #{} (MRAE {:4d}%)".format(
+                    i, int(100*models[i]["mrae"])) for i in xrange(rank))
+
+                for tick in ax.get_xticklabels():
+                    tick.set_rotation(90)
+
+                cbar = fig.colorbar(cax)
+                plt.show()
 
     else:
         endconfig = time.time()
