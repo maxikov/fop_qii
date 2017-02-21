@@ -675,7 +675,7 @@ def regression_genres(sc, genres, movies, ratings, rank, numIter, lmbda):
         print "Training models"
         start = time.time()
         joined = indicators.join(model.productFeatures())
-        all_training_sets = dict()
+        res = dict()
         for i in xrange(rank):
             print "Processing feature {} out of {}".format(i, rank)
             print "\tBuilding training set..."
@@ -704,6 +704,10 @@ def regression_genres(sc, genres, movies, ratings, rank, numIter, lmbda):
                         abs(pred-obs)/abs(float(1 if obs == 0 else obs))).\
                     sum()/predobs.count()
             print "\tMean relative absolute error: {}".format(mrae)
+            res[i] = {
+                    "model": lr_model,
+                    "mrae": mrae}
+        return all_genres, res
 
 if __name__ == "__main__":
 
@@ -1086,7 +1090,17 @@ if __name__ == "__main__":
         start = time.time()
         genres = sc.textFile(join(movieLensHomeDir, "movies.dat")).map(parseGenre)
         print "Done in {} seconds".format(time.time() - start)
-        regression_genres(sc, genres, movies, training, rank, numIter, lmbda)
+        all_genres, models = regression_genres(sc, genres, movies, training, rank, numIter, lmbda)
+        title = ["Genre"] + ["F #{} (MRAE {:4d}%)".format(
+                i, int(100*models[i]["mrae"])
+            ) for i in xrange(rank)]
+        table = PrettyTable(title)
+        for i in xrange(len(all_genres)):
+            row = [all_genres[i]]
+            for j in xrange(rank):
+                row += ["{:2.2f}".format(models[j]["model"].weights[i])]
+            table.add_row(row)
+        print table
 
     else:
         endconfig = time.time()
