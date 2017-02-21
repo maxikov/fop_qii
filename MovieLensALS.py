@@ -655,6 +655,55 @@ def correlate_genres(sc, genres, movies, ratings, rank, numIter, lmbda,
             reg_models_res = reg_models_src
         return reg_models_res, avgbetter
 
+def regression_genres(sc, genres, movies, ratings, rank, numIter, lmbda):
+        print "Building indicator vectors"
+        start = time.time()
+        all_genres = sorted(list(genres.map(lambda (_, x): x).fold(set(), lambda x, y:
+            set(x).union(set(y)))))
+        indicators = genres.map(
+                lambda (mid, cur_genres): (
+                    mid, map(lambda g: int(g in cur_genres), all_genres)
+                    )
+                )
+        print "Done in {} seconds".format(time.time() - start)
+
+        print "Training model"
+        start = time.time()
+        model = ALS.train(ratings, rank, numIter, lmbda)
+        print "Done in {} seconds".format(time.time() - start)
+
+        print "Training models"
+        start = time.time()
+        joined = indicators.join(model.productFeatures())
+        all_training_sets = dict()
+        for i in xrange(rank):
+            print "Processing feature {} out of {}".format(i, rank)
+            print "\tBuilding training set..."
+            training_set = joined.map(lambda (mid, (ind, feats)):
+                    LabeledPoint(feats[i], ind))
+            print "\tDone"
+            print "\tBuilding regression model"
+            lr_model = pyspark.\
+                    mllib.\
+                    regression.\
+                    LinearRegressionWithSGD.\
+                    train(training_set)
+            print "\tDone"
+            print "\tBuilding predictions"
+            observations = training_set.map(lambda lp:
+                    lp.label)
+            features = training_set.map(lambda lp:
+                    lp.features)
+            predictions = lr_model.predict(features)
+            print "\tDone"
+            print "\tEvaluating the model"
+            predobs = predictions.zip(observations).map(lambda (a, b):
+                    (float(a), float(b)))
+            mrae = predobs.\
+                    map(lambda (pred, obs):
+                        abs(pred-obs)/abs(float(1 if obs == 0 else obs))).\
+                    sum()/predobs.count()
+            print "\tMean relative absolute error: {}".format(mrae)
 
 if __name__ == "__main__":
 
@@ -743,6 +792,8 @@ if __name__ == "__main__":
                     "Possible values: logistic, "+\
                     "decision_tree (no_threshold not available), "+\
                     "logistic by default")
+    parser.add_argument("--genres-regression", action="store_true", help=\
+            "Do regression from genre indicator vectors to internal features")
 
 
     args = parser.parse_args()
@@ -779,6 +830,7 @@ if __name__ == "__main__":
     classifier_model = args.classifier_model
     if classifier_model == "decision_tree":
         no_threshold = False
+    genres_regression = args.genres_regression
 
     print "Rank: {}, lmbda: {}, numIter: {}, numPartitions: {}".format(
         rank, lmbda, numIter, numPartitions)
@@ -800,6 +852,7 @@ if __name__ == "__main__":
     print "invert_labels: {}, no_threshold: {}".format(invert_labels,
             no_threshold)
     print "classifier_model: {}".format(classifier_model)
+    print "genres_regression: {}".format(genres_regression)
 
     if gui:
         import matplotlib.pyplot as plt
@@ -1028,6 +1081,12 @@ if __name__ == "__main__":
                         format(avgbetter * (1 if no_threshold else 100)))
                 cbar = fig.colorbar(cax)
                 plt.show()
+    elif genres_regression:
+        print "Loading genres"
+        start = time.time()
+        genres = sc.textFile(join(movieLensHomeDir, "movies.dat")).map(parseGenre)
+        print "Done in {} seconds".format(time.time() - start)
+        regression_genres(sc, genres, movies, training, rank, numIter, lmbda)
 
     else:
         endconfig = time.time()
