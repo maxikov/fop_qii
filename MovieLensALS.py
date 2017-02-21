@@ -708,7 +708,7 @@ def regression_genres(sc, genres, movies, ratings, rank, numIter, lmbda):
                     "model": lr_model,
                     "mrae": mrae,
                     "f": i}
-        res = sorted(res.values(),key=lambda x: -x["f"])
+        res = sorted(res.values(),key=lambda x: x["mrae"])
         return all_genres, res
 
 if __name__ == "__main__":
