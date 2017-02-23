@@ -655,7 +655,8 @@ def correlate_genres(sc, genres, movies, ratings, rank, numIter, lmbda,
             reg_models_res = reg_models_src
         return reg_models_res, avgbetter
 
-def regression_genres(sc, genres, movies, ratings, rank, numIter, lmbda):
+def regression_genres(sc, genres, movies, ratings, rank, numIter, lmbda,
+            regression_model = "linear"):
         print "Building indicator vectors"
         start = time.time()
         all_genres = sorted(list(genres.map(lambda (_, x): x).fold(set(), lambda x, y:
@@ -683,11 +684,23 @@ def regression_genres(sc, genres, movies, ratings, rank, numIter, lmbda):
                     LabeledPoint(feats[i], ind))
             print "\tDone"
             print "\tBuilding regression model"
-            lr_model = pyspark.\
-                    mllib.\
-                    regression.\
-                    LinearRegressionWithSGD.\
-                    train(training_set)
+            if regression_model == "linear":
+                lr_model = pyspark.\
+                        mllib.\
+                        regression.\
+                        LinearRegressionWithSGD.\
+                        train(training_set)
+            elif regression_model == "regression_tree":
+                lr_model = pyspark.\
+                        mllib.\
+                        tree.\
+                        DecisionTree.\
+                        trainRegressor(
+                                training_set,
+                                categoricalFeaturesInfo={},
+                                impurity = "variance",
+                                maxDepth = 5,
+                                maxBins = 32)
             print "\tDone"
             print "\tBuilding predictions"
             observations = training_set.map(lambda lp:
@@ -798,6 +811,11 @@ if __name__ == "__main__":
                     "Possible values: logistic, "+\
                     "decision_tree (no_threshold not available), "+\
                     "logistic by default")
+    parser.add_argument("--regression-model", action="store", type=str,
+            default="linear", help="Model used in genres-regression, "+\
+                    "Possible values: linear, "+\
+                    "regression_tree, "+\
+                    "linear by default")
     parser.add_argument("--genres-regression", action="store_true", help=\
             "Do regression from genre indicator vectors to internal features")
 
@@ -837,6 +855,7 @@ if __name__ == "__main__":
     if classifier_model == "decision_tree":
         no_threshold = False
     genres_regression = args.genres_regression
+    regression_model = args.regression_model
 
     print "Rank: {}, lmbda: {}, numIter: {}, numPartitions: {}".format(
         rank, lmbda, numIter, numPartitions)
@@ -859,6 +878,7 @@ if __name__ == "__main__":
             no_threshold)
     print "classifier_model: {}".format(classifier_model)
     print "genres_regression: {}".format(genres_regression)
+    print "regression_model: {}".format(regression_model)
 
     if gui:
         import matplotlib.pyplot as plt
@@ -1093,45 +1113,52 @@ if __name__ == "__main__":
         genres = sc.textFile(join(movieLensHomeDir, "movies.dat")).map(parseGenre)
         print "Done in {} seconds".format(time.time() - start)
         if iterate_rank:
-            pass
+            pass #TODO
         else:
-            all_genres, models = regression_genres(sc, genres, movies, training, rank, numIter, lmbda)
-            title = ["Genre"] + ["F #{} (MRAE {:4d}%)".format(
-                    models[i]["f"], int(100*models[i]["mrae"])
-                ) for i in xrange(rank)]
-            table = PrettyTable(title)
-            for i in xrange(len(all_genres)):
-                row = [all_genres[i]]
-                for j in xrange(rank):
-                    row += ["{:2.2f}".format(models[j]["model"].weights[i])]
-                table.add_row(row)
-            print table
+            all_genres, models = regression_genres(sc, genres, movies,
+                    training, rank, numIter, lmbda, regression_model)
+            if regression_model == "linear":
+                title = ["Genre"] + ["F #{} (MRAE {:4d}%)".format(
+                        models[i]["f"], int(100*models[i]["mrae"])
+                    ) for i in xrange(rank)]
+                table = PrettyTable(title)
+                for i in xrange(len(all_genres)):
+                    row = [all_genres[i]]
+                    for j in xrange(rank):
+                        row += ["{:2.2f}".format(models[j]["model"].weights[i])]
+                    table.add_row(row)
+                print table
 
-            if gui:
-                matrix = [list(models[i]["model"].weights) for i in
-                        xrange(rank)]
-                matrix = numpy.array(matrix).transpose()
-                fig, ax = plt.subplots()
-                cax = ax.imshow(matrix, cmap='viridis', interpolation='nearest')
+                if gui:
+                    matrix = [list(models[i]["model"].weights) for i in
+                            xrange(rank)]
+                    matrix = numpy.array(matrix).transpose()
+                    fig, ax = plt.subplots()
+                    cax = ax.imshow(matrix, cmap='viridis', interpolation='nearest')
 
-                ax.set_ylabel("Genre")
-                ax.set_yticks(range(len(all_genres)))
-                ax.set_yticklabels(all_genres)
+                    ax.set_ylabel("Genre")
+                    ax.set_yticks(range(len(all_genres)))
+                    ax.set_yticklabels(all_genres)
 
-                ax.set_xlabel("Product Features")
-                ax.set_xticks(range(rank))
-                ax.set_xticklabels("F #{} (MRAE {:4d}%)".format(
-                    models[i]["f"], int(100*models[i]["mrae"])) for i in xrange(rank))
+                    ax.set_xlabel("Product Features")
+                    ax.set_xticks(range(rank))
+                    ax.set_xticklabels("F #{} (MRAE {:4d}%)".format(
+                        models[i]["f"], int(100*models[i]["mrae"])) for i in xrange(rank))
 
-                for tick in ax.get_xticklabels():
-                    tick.set_rotation(90)
+                    for tick in ax.get_xticklabels():
+                        tick.set_rotation(90)
 
-                ax.set_title("Coefficients of linear regression from genre\n"+\
-                        "indicator vectors to product features")
+                    ax.set_title("Coefficients of linear regression from genre\n"+\
+                            "indicator vectors to product features")
 
-                cbar = fig.colorbar(cax)
-                plt.show()
-
+                    cbar = fig.colorbar(cax)
+                    plt.show()
+            elif regression_model == "regression_tree":
+                title = ["Feature", "MRAE, %"]
+                table = PrettyTable(title)
+                for model in models:
+                    table.add_row([model["f"], int(model["mrae"]*100)])
+                print table
     else:
         endconfig = time.time()
 
