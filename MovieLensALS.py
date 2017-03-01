@@ -656,7 +656,7 @@ def correlate_genres(sc, genres, movies, ratings, rank, numIter, lmbda,
         return reg_models_res, avgbetter
 
 def regression_genres(sc, genres, movies, ratings, rank, numIter, lmbda,
-            regression_model = "linear"):
+            regression_model = "linear", nbins=32):
         print "Building indicator vectors"
         start = time.time()
         all_genres = sorted(list(genres.map(lambda (_, x): x).fold(set(), lambda x, y:
@@ -699,8 +699,8 @@ def regression_genres(sc, genres, movies, ratings, rank, numIter, lmbda,
                                 training_set,
                                 categoricalFeaturesInfo={},
                                 impurity = "variance",
-                                maxDepth = 5,
-                                maxBins = 32)
+                                maxDepth = int(math.ceil(math.log(nbins, 2))),
+                                maxBins = nbins)
             print "\tDone"
             print "\tBuilding predictions"
             observations = training_set.map(lambda lp:
@@ -818,6 +818,9 @@ if __name__ == "__main__":
                     "linear by default")
     parser.add_argument("--genres-regression", action="store_true", help=\
             "Do regression from genre indicator vectors to internal features")
+    parser.add_argument("--nbins", action="store", type=int, default=32, help=\
+            "Number of bins for a regression tree. 32 by default. "+\
+            "Maximum depth is ceil(log(nbins, 2)).")
 
 
     args = parser.parse_args()
@@ -856,6 +859,7 @@ if __name__ == "__main__":
         no_threshold = False
     genres_regression = args.genres_regression
     regression_model = args.regression_model
+    nbins = args.nbins
 
     print "Rank: {}, lmbda: {}, numIter: {}, numPartitions: {}".format(
         rank, lmbda, numIter, numPartitions)
@@ -950,9 +954,21 @@ if __name__ == "__main__":
                 lambda (mid, (ftrs, yr)):
                         LabeledPoint(yr, ftrs))
         print "Done in {} seconds".format(time.time() - start)
-        print "Building linear regression"
-        start = time.time()
-        lr_model = LinearRegressionWithSGD.train(data)
+        if regression_model == "regression_tree":
+            lr_model = pyspark.\
+                    mllib.\
+                    tree.\
+                    DecisionTree.\
+                    trainRegressor(
+                            data,
+                            categoricalFeaturesInfo={},
+                            impurity = "variance",
+                            maxDepth = int(math.ceil(math.log(nbins, 2))),
+                            maxBins = nbins)
+        elif regression_model == "linear":
+            print "Building linear regression"
+            start = time.time()
+            lr_model = LinearRegressionWithSGD.train(data)
         print "Done in {} seconds".format(time.time() - start)
         observations = data.map(lambda x: x.label)
         predictions = lr_model.predict(data.map(lambda x:
@@ -964,7 +980,10 @@ if __name__ == "__main__":
                 format(metrics.explainedVariance,\
                 metrics.rootMeanSquaredError,
                 metrics.meanAbsoluteError)
-        print "Weights: {}".format(lr_model.weights)
+        if regression_model == "linear":
+            print "Weights: {}".format(lr_model.weights)
+        elif regression_model == "regression_tree":
+            print lr_model.toDebugString()
 
     elif genres_correlator:
         print "Loading genres"
