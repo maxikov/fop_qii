@@ -99,15 +99,6 @@ def loadRatings(ratingsFile):
     else:
         return ratings
 
-def computeRmse(model, data, n):
-    """
-    Compute RMSE (Root Mean Squared Error).
-    """
-    predictions = model.predictAll(data.map(lambda x: (x[0], x[1])))
-    predictionsAndRatings = predictions.map(lambda x: ((x[0], x[1]), x[2])) \
-      .join(data.map(lambda x: ((x[0], x[1]), x[2]))) \
-      .values()
-    return sqrt(predictionsAndRatings.map(lambda x: (x[0] - x[1]) ** 2).reduce(add) / float(n))
 
 
 
@@ -673,6 +664,7 @@ def regression_genres(sc, genres, movies, ratings, rank, numIter, lmbda,
         model = ALS.train(ratings, rank, numIter, lmbda)
         print "Done in {} seconds".format(time.time() - start)
 
+
         print "Training models"
         start = time.time()
         joined = indicators.join(model.productFeatures())
@@ -722,7 +714,15 @@ def regression_genres(sc, genres, movies, ratings, rank, numIter, lmbda,
                     "mrae": mrae,
                     "f": i}
         res = sorted(res.values(),key=lambda x: x["mrae"])
-        return all_genres, res
+        return model, all_genres, res
+
+def recommender_mean_error(model, data, power=1.0):
+    predictions = model.predictAll(data.map(lambda x: (x[0], x[1])))
+    predictionsAndRatings = predictions.map(lambda x: ((x[0], x[1]), x[2])) \
+      .join(data.map(lambda x: ((x[0], x[1]), x[2]))) \
+      .values()
+    return (predictionsAndRatings.map(lambda x: abs(x[0] - x[1]) **\
+        power).reduce(add) / float(predictionsAndRatings.count())) ** (1.0/power)
 
 if __name__ == "__main__":
 
@@ -821,6 +821,8 @@ if __name__ == "__main__":
     parser.add_argument("--nbins", action="store", type=int, default=32, help=\
             "Number of bins for a regression tree. 32 by default. "+\
             "Maximum depth is ceil(log(nbins, 2)).")
+    parser.add_argument("--mean-error-experiments", action="store_true", help=\
+            "Do experiments with mean error and feature substitution")
 
 
     args = parser.parse_args()
@@ -860,6 +862,7 @@ if __name__ == "__main__":
     genres_regression = args.genres_regression
     regression_model = args.regression_model
     nbins = args.nbins
+    mean_error_experiments = args.mean_error_experiments
 
     print "Rank: {}, lmbda: {}, numIter: {}, numPartitions: {}".format(
         rank, lmbda, numIter, numPartitions)
@@ -883,6 +886,7 @@ if __name__ == "__main__":
     print "classifier_model: {}".format(classifier_model)
     print "genres_regression: {}".format(genres_regression)
     print "regression_model: {}".format(regression_model)
+    print "mean_error_experiments: {}".format(mean_error_experiments)
 
     if gui:
         import matplotlib.pyplot as plt
@@ -1134,8 +1138,54 @@ if __name__ == "__main__":
         if iterate_rank:
             pass #TODO
         else:
-            all_genres, models = regression_genres(sc, genres, movies,
+            model, all_genres, models = regression_genres(sc, genres, movies,
                     training, rank, numIter, lmbda, regression_model)
+
+            if mean_error_experiments:
+                print "Computing mean error"
+                start = time.time()
+                mean_error = recommender_mean_error(model, training)
+                print "Mean error:", mean_error
+                print "Done in {} seconds".format(time.time() - start)
+                print "Replacing top feature with predicted one"
+                print "Top feature is", models[0]["f"]
+                indicators = genres.map(
+                    lambda (mid, cur_genres): (
+                        mid, map(lambda g: int(g in cur_genres), all_genres)
+                         )
+                    )
+                product_features = model.productFeatures()
+                joined = indicators.join(product_features)
+                top_feature = models[0]["f"]
+                training_set = joined.map(lambda (mid, (ind, feats)):
+                    LabeledPoint(feats[top_feature], ind))
+                mids = joined.map(lambda (mid, (ind, feats)): mid)
+                features = training_set.map(lambda lp:
+                    lp.features)
+                predictions = models[0]["model"].\
+                        predict(features).\
+                        map(lambda x: float(x))
+                mid_preds = mids.zip(predictions)
+                def set_list_value(lst, ind, val):
+                    new_lst = list(lst)
+                    new_lst[ind] = val
+                    return new_lst
+                joined = product_features.join(mid_preds)
+#                replaced = joined.map(lambda (mid, (feats, pred)):
+#                        (mid, set_list_values(feats, top_feature, pred)))
+
+                replaced = joined.map(lambda (mid, (feats, pred)):
+                        (mid, [100]))
+                model.product_features = replaced
+                print "Done in {} seconds".format(time.time() - start)
+                print "Computing mean error"
+                start = time.time()
+                new_mean_error = recommender_mean_error(model, training)
+                print "Mean error:", new_mean_error, ",",\
+                        new_mean_error - mean_error, "higher"
+                print "Done in {} seconds".format(time.time() - start)
+
+
             if regression_model == "linear":
                 title = ["Genre"] + ["F #{} (MRAE {:4d}%)".format(
                         models[i]["f"], int(100*models[i]["mrae"])
