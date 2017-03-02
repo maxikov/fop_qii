@@ -724,6 +724,25 @@ def recommender_mean_error(model, data, power=1.0):
     return (predictionsAndRatings.map(lambda x: abs(x[0] - x[1]) **\
         power).reduce(add) / float(predictionsAndRatings.count())) ** (1.0/power)
 
+def manual_predict_all(data, user_features, product_features):
+    user_products = data.map(lambda x: (x[0], x[1]))
+    user_features = dict(user_features.collect())
+    product_features = dict(product_features.collect())
+    res = user_products.map(lambda (user, product):
+            (user, product, sum(map(lambda (x, y): x*y,
+                zip(user_features[user],
+                    product_features[product])))))
+    return res
+
+def manual_recommender_mean_error(user_features, product_features, data, power=1.0):
+    predictions = manual_predict_all(data, user_features, product_features)
+    predictionsAndRatings = predictions.map(lambda x: ((x[0], x[1]), x[2])) \
+      .join(data.map(lambda x: ((x[0], x[1]), x[2]))) \
+      .values()
+    return (predictionsAndRatings.map(lambda x: abs(x[0] - x[1]) **\
+        power).reduce(add) / float(predictionsAndRatings.count())) ** (1.0/power)
+
+
 if __name__ == "__main__":
 
     parser = argparse.ArgumentParser(description=u"Usage: " +\
@@ -1147,6 +1166,10 @@ if __name__ == "__main__":
                 mean_error = recommender_mean_error(model, training)
                 print "Mean error:", mean_error
                 print "Done in {} seconds".format(time.time() - start)
+
+                product_features = model.productFeatures()
+                user_features = model.userFeatures()
+
                 print "Replacing top feature with predicted one"
                 print "Top feature is", models[0]["f"]
                 indicators = genres.map(
@@ -1154,7 +1177,6 @@ if __name__ == "__main__":
                         mid, map(lambda g: int(g in cur_genres), all_genres)
                          )
                     )
-                product_features = model.productFeatures()
                 joined = indicators.join(product_features)
                 top_feature = models[0]["f"]
                 training_set = joined.map(lambda (mid, (ind, feats)):
@@ -1171,16 +1193,16 @@ if __name__ == "__main__":
                     new_lst[ind] = val
                     return new_lst
                 joined = product_features.join(mid_preds)
-#                replaced = joined.map(lambda (mid, (feats, pred)):
-#                        (mid, set_list_values(feats, top_feature, pred)))
+                replaced = joined.map(lambda (mid, (feats, pred)):
+                        (mid, set_list_values(feats, top_feature, pred)))
 
                 replaced = joined.map(lambda (mid, (feats, pred)):
                         (mid, [100]))
-                model.product_features = replaced
                 print "Done in {} seconds".format(time.time() - start)
                 print "Computing mean error"
                 start = time.time()
-                new_mean_error = recommender_mean_error(model, training)
+                new_mean_error = manual_recommender_mean_error(user_features,
+                        replaced, training)
                 print "Mean error:", new_mean_error, ",",\
                         new_mean_error - mean_error, "higher"
                 print "Done in {} seconds".format(time.time() - start)
