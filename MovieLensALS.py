@@ -721,8 +721,7 @@ def recommender_mean_error(model, data, power=1.0):
     predictionsAndRatings = predictions.map(lambda x: ((x[0], x[1]), x[2])) \
       .join(data.map(lambda x: ((x[0], x[1]), x[2]))) \
       .values()
-    return (predictionsAndRatings.map(lambda x: abs(x[0] - x[1]) **\
-        power).reduce(add) / float(predictionsAndRatings.count())) ** (1.0/power)
+    return mean_error(predictionsAndRatings, power)
 
 def manual_predict_all(data, user_features, product_features):
     user_products = data.map(lambda x: (x[0], x[1]))
@@ -739,8 +738,72 @@ def manual_recommender_mean_error(user_features, product_features, data, power=1
     predictionsAndRatings = predictions.map(lambda x: ((x[0], x[1]), x[2])) \
       .join(data.map(lambda x: ((x[0], x[1]), x[2]))) \
       .values()
+    return mean_error(predictionsAndRatings, power)
+
+def mean_error(predictionsAndRatings, power):
     return (predictionsAndRatings.map(lambda x: abs(x[0] - x[1]) **\
         power).reduce(add) / float(predictionsAndRatings.count())) ** (1.0/power)
+
+def manual_diff_models(model_1, model_2, user_product_pairs, power=1.0):
+    predictions_1 = manual_predict_all(user_product_pairs, *model_1)
+    predictions_2 = manual_predict_all(user_product_pairs, *model_2)
+    predictionsAndRatings = predictions_1.map(lambda x: ((x[0], x[1]), x[2])) \
+      .join(predictions_2.map(lambda x: ((x[0], x[1]), x[2]))) \
+      .values()
+    return mean_error(predictionsAndRatings, power)
+
+def set_list_value(lst, ind, val):
+    new_lst = list(lst)
+    new_lst[ind] = val
+    return new_lst
+
+def get_feature_distribution(features, f):
+    res = features.map(lambda (_, arr): arr[f]).collect()
+    return res
+
+def perturb_feature(features, f):
+    dist = get_feature_distribution(features, f)
+    res = features.map(lambda (x, arr):
+            (x, set_list_value(arr, f, random.choice(dist))))
+    return res
+
+def feature_global_influence(model, rank, user_product_pairs, power=1.0):
+    original_user_features = model.userFeatures()
+    original_product_features = model.productFeatures()
+    original_model = (original_user_features, original_product_features)
+    print "Computing the predictions of the original model"
+    start = time.time()
+    original_predictions = manual_predict_all(user_product_pairs,
+            *original_model)
+    print "Done in", time.time() - start, "seconds"
+    res = {}
+    for f in xrange(rank):
+        print "Perturbing feature", f, "out of", rank
+        start = time.time()
+        print "\tPerturbing user feature"
+        perturbed_user_features = perturb_feature(original_user_features, f)
+        print "\tDone in", time.time() - start, "seconds"
+        print "\tPerturbing product feature"
+        start = time.time()
+        perturbed_product_features = perturb_feature(original_product_features,
+                f)
+        print "\tDone in", time.time() - start, "seconds"
+        perturbed_model = (perturbed_user_features, perturbed_product_features)
+        print "\tComputing the predictions of the perturbed model"
+        start = time.time()
+        perturbed_predictions = manual_predict_all(user_product_pairs,
+            *perturbed_model)
+        print "\tDone in", time.time() - start, "seconds"
+        print "\tComparing models"
+        start = time.time()
+        predictionsAndRatings = original_predictions.map(lambda x: ((x[0], x[1]), x[2])) \
+            .join(perturbed_predictions.map(lambda x: ((x[0], x[1]), x[2]))) \
+            .values()
+        diff = mean_error(predictionsAndRatings, power)
+        print "\tDone in", time.time() - start, "seconds"
+        print "\tAverage difference:", diff
+        res[f] = {"model_diff": diff}
+    return res
 
 
 if __name__ == "__main__":
@@ -842,6 +905,8 @@ if __name__ == "__main__":
             "Maximum depth is ceil(log(nbins, 2)).")
     parser.add_argument("--mean-error-experiments", action="store_true", help=\
             "Do experiments with mean error and feature substitution")
+    parser.add_argument("--internal-feature-influence", action="store_true",
+            help="Compute the global influence of internal features")
 
 
     args = parser.parse_args()
@@ -882,6 +947,7 @@ if __name__ == "__main__":
     regression_model = args.regression_model
     nbins = args.nbins
     mean_error_experiments = args.mean_error_experiments
+    internal_feature_influence = args.internal_feature_influence
 
     print "Rank: {}, lmbda: {}, numIter: {}, numPartitions: {}".format(
         rank, lmbda, numIter, numPartitions)
@@ -906,6 +972,7 @@ if __name__ == "__main__":
     print "genres_regression: {}".format(genres_regression)
     print "regression_model: {}".format(regression_model)
     print "mean_error_experiments: {}".format(mean_error_experiments)
+    print "internal_feature_influence: {}".format(internal_feature_influence)
 
     if gui:
         import matplotlib.pyplot as plt
@@ -932,7 +999,7 @@ if __name__ == "__main__":
     print "Done in {} seconds".format(time.time() - start)
 
     # create the initial training dataset with default ratings
-    training = ratings.filter(lambda x: True or x[0] < 6)\
+    training = ratings.filter(lambda x: False or x[0] < 3)\
       .values() \
       .repartition(numPartitions) \
       .cache()
@@ -1188,10 +1255,6 @@ if __name__ == "__main__":
                         predict(features).\
                         map(lambda x: float(x))
                 mid_preds = mids.zip(predictions)
-                def set_list_value(lst, ind, val):
-                    new_lst = list(lst)
-                    new_lst[ind] = val
-                    return new_lst
                 joined = product_features.join(mid_preds)
                 replaced = joined.map(lambda (mid, (feats, pred)):
                         (mid, set_list_values(feats, top_feature, pred)))
@@ -1250,6 +1313,14 @@ if __name__ == "__main__":
                 for model in models:
                     table.add_row([model["f"], int(model["mrae"]*100)])
                 print table
+    elif internal_feature_influence:
+        user_product_pairs = training.map(lambda x: (x[0], x[1]))
+        print "Training model"
+        start = time.time()
+        model = ALS.train(training, rank, numIter, lmbda)
+        print "Done in {} seconds".format(time.time() - start)
+        infs = feature_global_influence(model, rank, user_product_pairs)
+        print infs
     else:
         endconfig = time.time()
 
