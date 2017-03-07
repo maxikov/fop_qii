@@ -1364,7 +1364,22 @@ if __name__ == "__main__":
         print "Done in {} seconds".format(time.time() - start)
         infs = feature_global_influence(model, rank, user_product_pairs, 1.0,
                 compute_mean_error, training, compute_fast_influence)
-        print infs
+        if compute_mean_error:
+            print "Mean error of the original model:", infs["original_rmse"]
+        all_features = infs["feature_data"].keys()
+        all_features.sort(key=lambda x: -infs["feature_data"][x]["model_diff"])
+        title = ["Feature", "Global influence"]
+        if compute_mean_error:
+            title += ["Perturbed mean error", "delta mean error"]
+        table = PrettyTable(title)
+        for f in all_features:
+            row = [f, infs["feature_data"][f]["model_diff"]]
+            if compute_mean_error:
+                row += [infs["feature_data"][f]["rmse"],
+                        infs["feature_data"][f]["rmse"] -\
+                        infs["original_rmse"]]
+            table.add_row(row)
+        print table
     else:
         endconfig = time.time()
 
