@@ -767,8 +767,19 @@ def perturb_feature(features, f):
             (x, set_list_value(arr, f, random.choice(dist))))
     return res
 
+def fast_feature_global_influence(user_features, product_features, f):
+    res = user_features.\
+            map(lambda (_, arr): arr[f]).\
+            zip(\
+                product_features.\
+                map(lambda (_, arr): arr[f])\
+            ).\
+            map(lambda (x, y): x*y).\
+            sum()
+    return res
+
 def feature_global_influence(model, rank, user_product_pairs, power=1.0,
-        compute_rmse = False, data = None):
+        compute_rmse = False, data = None, compute_fast_inf = False):
     original_user_features = model.userFeatures()
     original_product_features = model.productFeatures()
     original_model = (original_user_features, original_product_features)
@@ -786,6 +797,14 @@ def feature_global_influence(model, rank, user_product_pairs, power=1.0,
         print "Mean error:", error
         res["original_rmse"] = error
     for f in xrange(rank):
+        res["feature_data"][f] = {}
+        if compute_fast_inf:
+            print "Computing fast influence of feature", f, "out of", rank
+            start = time.time()
+            inf = fast_feature_global_influence(*original_model, f=f)
+            print "\tDone in", time.time() - start, "seconds"
+            print "\tInfluence:", inf
+            res["feature_data"][f]["fast_influence"] = inf
         print "Perturbing feature", f, "out of", rank
         start = time.time()
         print "\tPerturbing user feature"
@@ -810,7 +829,7 @@ def feature_global_influence(model, rank, user_product_pairs, power=1.0,
         diff = mean_error(predictionsAndRatings, power)
         print "\tDone in", time.time() - start, "seconds"
         print "\tAverage difference:", diff
-        res["feature_data"][f] = {"model_diff": diff}
+        res["feature_data"][f]["model_diff"] = diff
         if compute_rmse:
             print "\tComputing the mean error of the original model"
             start = time.time()
@@ -926,6 +945,8 @@ if __name__ == "__main__":
     parser.add_argument("--compute-mean-error", action="store_true", help=\
             "Also compute the influence of features on the mean error "+\
             "on the training set")
+    parser.add_argument("--compute-fast-influence", action="store_true", help=\
+            "Use the fast method for computing feature global influence")
 
     args = parser.parse_args()
     rank = args.rank
@@ -967,6 +988,7 @@ if __name__ == "__main__":
     mean_error_experiments = args.mean_error_experiments
     internal_feature_influence = args.internal_feature_influence
     compute_mean_error = args.compute_mean_error
+    compute_fast_influence = args.compute_fast_influence
 
     print "Rank: {}, lmbda: {}, numIter: {}, numPartitions: {}".format(
         rank, lmbda, numIter, numPartitions)
@@ -993,6 +1015,7 @@ if __name__ == "__main__":
     print "mean_error_experiments: {}".format(mean_error_experiments)
     print "internal_feature_influence: {}".format(internal_feature_influence)
     print "compute_mean_error: {}".format(compute_mean_error)
+    print "compute_fast_influence: {}".format(compute_fast_influence)
 
     if gui:
         import matplotlib.pyplot as plt
@@ -1340,7 +1363,7 @@ if __name__ == "__main__":
         model = ALS.train(training, rank, numIter, lmbda)
         print "Done in {} seconds".format(time.time() - start)
         infs = feature_global_influence(model, rank, user_product_pairs, 1.0,
-                compute_mean_error, training)
+                compute_mean_error, training, compute_fast_influence)
         print infs
     else:
         endconfig = time.time()
