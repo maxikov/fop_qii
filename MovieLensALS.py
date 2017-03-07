@@ -947,6 +947,14 @@ if __name__ == "__main__":
             "on the training set")
     parser.add_argument("--compute-fast-influence", action="store_true", help=\
             "Use the fast method for computing feature global influence")
+    parser.add_argument("--sample-type", action="store", type=str,\
+            default="training", help="What kind of sample of users and "+\
+            "movies to use for global influence estimation. "+\
+            "Possible values: training, random. If random is selected, "+\
+            "--sample-size can be specified. training by default")
+    parser.add_argument("--sample-size", action="store", type=int,\
+            default=10000, help="Random sample size for feature global "+\
+            "influence. 10000 by default")
 
     args = parser.parse_args()
     rank = args.rank
@@ -989,6 +997,8 @@ if __name__ == "__main__":
     internal_feature_influence = args.internal_feature_influence
     compute_mean_error = args.compute_mean_error
     compute_fast_influence = args.compute_fast_influence
+    sample_type = args.sample_type
+    sample_size = args.sample_size
 
     print "Rank: {}, lmbda: {}, numIter: {}, numPartitions: {}".format(
         rank, lmbda, numIter, numPartitions)
@@ -1016,6 +1026,7 @@ if __name__ == "__main__":
     print "internal_feature_influence: {}".format(internal_feature_influence)
     print "compute_mean_error: {}".format(compute_mean_error)
     print "compute_fast_influence: {}".format(compute_fast_influence)
+    print "sample_size: {}, sample_type: {}".format(sample_size, sample_type)
 
     if gui:
         import matplotlib.pyplot as plt
@@ -1357,7 +1368,14 @@ if __name__ == "__main__":
                     table.add_row([model["f"], int(model["mrae"]*100)])
                 print table
     elif internal_feature_influence:
-        user_product_pairs = training.map(lambda x: (x[0], x[1]))
+        if sample_type == "training":
+            user_product_pairs = training.map(lambda x: (x[0], x[1]))
+        elif sample_type == "random":
+            all_movies = list(set(training.map(lambda x: x[1]).collect()))
+            all_users = list(set(training.map(lambda x: x[0]).collect()))
+            pairs = [(random.choice(all_users), random.choice(all_movies)) for\
+                    _ in xrange(sample_size)]
+            user_product_pairs = sc.parallelize(pairs)
         print "Training model"
         start = time.time()
         model = ALS.train(training, rank, numIter, lmbda)
