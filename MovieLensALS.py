@@ -25,6 +25,10 @@ from pyspark.mllib.regression import LinearRegressionWithSGD
 from pyspark.mllib.evaluation import RegressionMetrics,\
         BinaryClassificationMetrics
 
+from pyspark.mllib.linalg import Matrices
+from pyspark.mllib.linalg.distributed import BlockMatrix
+from pyspark.sql import SQLContext
+
 # Global variables
 
 # Arguments to the ALS training function
@@ -768,14 +772,16 @@ def perturb_feature(features, f):
     return res
 
 def fast_feature_global_influence(user_features, product_features, f):
-    res = user_features.\
-            map(lambda (_, arr): arr[f]).\
-            zip(\
-                product_features.\
-                map(lambda (_, arr): arr[f])\
-            ).\
-            map(lambda (x, y): x*y).\
-            sum()
+    uarr = user_features.map(lambda (_, arr): arr[f])
+    parr = product_features.map(lambda (_, arr): arr[f])
+    ucount = user_features.count()
+    pcount = product_features.count()
+    um = Matrices.dense(ucount, 1, uarr.collect())
+    um = BlockMatrix(sc.parallelize([((0,0),um)]), ucount, 1)
+    pm = Matrices.dense(1, pcount, parr.collect())
+    pm = BlockMatrix(sc.parallelize([((0,0), pm)]), 1, pcount)
+    product = um.multiply(pm)
+    res = product.rows.map(lambda x: sum(x)).sum()
     return res
 
 def feature_global_influence(model, rank, user_product_pairs, power=1.0,
