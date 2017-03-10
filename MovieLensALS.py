@@ -697,6 +697,17 @@ def regression_genres(sc, genres, movies, ratings, rank, numIter, lmbda,
                                 impurity = "variance",
                                 maxDepth = int(math.ceil(math.log(nbins, 2))),
                                 maxBins = nbins)
+            elif regression_model == "random_forest":
+                lr_model = pyspark.\
+                        mllib.\
+                        tree.\
+                        RandomForest.\
+                        trainRegressor(
+                                training_set,
+                                categoricalFeaturesInfo={},
+                                numTrees = 128,
+                                maxDepth = int(math.ceil(math.log(nbins, 2))),
+                                maxBins = nbins)
             print "\tDone"
             print "\tBuilding predictions"
             observations = training_set.map(lambda lp:
@@ -772,6 +783,7 @@ def perturb_feature(features, f):
     return res
 
 def fast_feature_global_influence(user_features, product_features, f):
+    #FIXME
     uarr = user_features.map(lambda (_, arr): arr[f])
     parr = product_features.map(lambda (_, arr): arr[f])
     ucount = user_features.count()
@@ -938,6 +950,7 @@ if __name__ == "__main__":
             default="linear", help="Model used in genres-regression, "+\
                     "Possible values: linear, "+\
                     "regression_tree, "+\
+                    "random_forest, "+\
                     "linear by default")
     parser.add_argument("--genres-regression", action="store_true", help=\
             "Do regression from genre indicator vectors to internal features")
@@ -961,6 +974,8 @@ if __name__ == "__main__":
     parser.add_argument("--sample-size", action="store", type=int,\
             default=10000, help="Random sample size for feature global "+\
             "influence. 10000 by default")
+    parser.add_argument("--regression-years", action="store_true", help=\
+            "Predicting internal features based on years")
 
     args = parser.parse_args()
     rank = args.rank
@@ -1005,6 +1020,7 @@ if __name__ == "__main__":
     compute_fast_influence = args.compute_fast_influence
     sample_type = args.sample_type
     sample_size = args.sample_size
+    regression_years = args.regression_years
 
     print "Rank: {}, lmbda: {}, numIter: {}, numPartitions: {}".format(
         rank, lmbda, numIter, numPartitions)
@@ -1033,6 +1049,7 @@ if __name__ == "__main__":
     print "compute_mean_error: {}".format(compute_mean_error)
     print "compute_fast_influence: {}".format(compute_fast_influence)
     print "sample_size: {}, sample_type: {}".format(sample_size, sample_type)
+    print "nbins: {}, regression_years: {}".format(nbins, regression_years)
 
     if gui:
         import matplotlib.pyplot as plt
@@ -1134,6 +1151,54 @@ if __name__ == "__main__":
             print "Weights: {}".format(lr_model.weights)
         elif regression_model == "regression_tree":
             print lr_model.toDebugString()
+
+    elif regression_years:
+        print "Loading years"
+        start = time.time()
+        years = sc.textFile(join(movieLensHomeDir, "movies.dat")).map(parseYear)
+        print "Done in {} seconds".format(time.time() - start)
+        print "Training model"
+        start = time.time()
+        model = ALS.train(training, rank, numIter, lmbda)
+        print "Done in {} seconds".format(time.time() - start)
+        print "Preparing features"
+        start = time.time()
+        features = model.productFeatures()
+        for f in xrange(rank):
+            data = features.join(years).map(
+                lambda (mid, (ftrs, yr)):
+                        LabeledPoint(ftrs[f], [yr]))
+            print "Done in {} seconds".format(time.time() - start)
+            if regression_model == "regression_tree":
+                lr_model = pyspark.\
+                        mllib.\
+                        tree.\
+                        DecisionTree.\
+                        trainRegressor(
+                                data,
+                                categoricalFeaturesInfo={},
+                                impurity = "variance",
+                                maxDepth = int(math.ceil(math.log(nbins, 2))),
+                                maxBins = nbins)
+            elif regression_model == "linear":
+                print "Building linear regression"
+                start = time.time()
+                lr_model = LinearRegressionWithSGD.train(data)
+            print "Done in {} seconds".format(time.time() - start)
+            observations = data.map(lambda x: x.label)
+            predictions = lr_model.predict(data.map(lambda x:
+                    x.features))
+            predobs = predictions.zip(observations).map(lambda (a, b): (float(a),
+                float(b)))
+            metrics = RegressionMetrics(predobs)
+            print "RMSE: {}, variance explained: {}, mean absolute error: {}".\
+                    format(metrics.explainedVariance,\
+                    metrics.rootMeanSquaredError,
+                    metrics.meanAbsoluteError)
+            if regression_model == "linear":
+                print "Weights: {}".format(lr_model.weights)
+            elif regression_model == "regression_tree":
+                print lr_model.toDebugString()
 
     elif genres_correlator:
         print "Loading genres"
@@ -1367,7 +1432,7 @@ if __name__ == "__main__":
 
                     cbar = fig.colorbar(cax)
                     plt.show()
-            elif regression_model == "regression_tree":
+            elif regression_model in ["regression_tree", "random_forest"]:
                 title = ["Feature", "MRAE, %"]
                 table = PrettyTable(title)
                 for model in models:
