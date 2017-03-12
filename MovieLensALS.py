@@ -87,6 +87,57 @@ def parseMovie(line):
     fields = line.strip().split("::")
     return int(fields[0]), fields[1]
 
+def parseUser(line):
+    """
+    Parses user metadata from the 1m format:
+    UserID::Gender::Age::Occupation::Zip-code
+
+    All demographic information is provided voluntarily by the users and is
+    not checked for accuracy.  Only users who have provided some demographic
+    information are included in this data set.
+
+    - Gender is denoted by a "M" for male and "F" for female
+    - Age is chosen from the following ranges:
+
+        *  1:  "Under 18"
+        * 18:  "18-24"
+        * 25:  "25-34"
+        * 35:  "35-44"
+        * 45:  "45-49"
+        * 50:  "50-55"
+        * 56:  "56+"
+
+    - Occupation is chosen from the following choices:
+
+        *  0:  "other" or not specified
+        *  1:  "academic/educator"
+        *  2:  "artist"
+        *  3:  "clerical/admin"
+        *  4:  "college/grad student"
+        *  5:  "customer service"
+        *  6:  "doctor/health care"
+        *  7:  "executive/managerial"
+        *  8:  "farmer"
+        *  9:  "homemaker"
+        * 10:  "K-12 student"
+        * 11:  "lawyer"
+        * 12:  "programmer"
+        * 13:  "retired"
+        * 14:  "sales/marketing"
+        * 15:  "scientist"
+        * 16:  "self-employed"
+        * 17:  "technician/engineer"
+        * 18:  "tradesman/craftsman"
+        * 19:  "unemployed"
+        * 20:  "writer"
+    """
+    fields = line.strip().split("::")
+    fields[1] = 0 if fields[1] == "M" else 1
+    fields[4] = fields[4].split("-")[0]
+    fields = map(int, fields)
+    return tuple(fields)
+
+
 def loadRatings(ratingsFile):
     """
     Load ratings from file.
@@ -384,7 +435,7 @@ def get_user_list(dataset):
 def convert_recs_to_dict(rating_list):
     recdict = defaultdict( list )
     for _,k,v in rating_list:
-	recdict[k] = v
+        recdict[k] = v
     return recdict
 
 
@@ -494,8 +545,8 @@ def compute_multiuser_local_sensitivity(sc, dataset, num_iters_ls,
     return res
 
 def users_with_most_ratings(training,listlength):
-	userlist = sorted(training.countByKey().items(), key = lambda x: x[1], reverse=True)
-	return userlist[0:listlength]
+    userlist = sorted(training.countByKey().items(), key = lambda x: x[1], reverse=True)
+    return userlist[0:listlength]
 
 def correlate_genres(sc, genres, movies, ratings, rank, numIter, lmbda,
         invert_labels=False, no_threshold=False, classifier_model="logistic"):
@@ -976,6 +1027,8 @@ if __name__ == "__main__":
             "influence. 10000 by default")
     parser.add_argument("--regression-years", action="store_true", help=\
             "Predicting internal features based on years")
+    parser.add_argument("--regression-users", action="store_true", help=\
+            "Predicting internal features based on user metadata")
 
     args = parser.parse_args()
     rank = args.rank
@@ -1021,6 +1074,7 @@ if __name__ == "__main__":
     sample_type = args.sample_type
     sample_size = args.sample_size
     regression_years = args.regression_years
+    regression_users = args.regression_users
 
     print "Rank: {}, lmbda: {}, numIter: {}, numPartitions: {}".format(
         rank, lmbda, numIter, numPartitions)
@@ -1050,6 +1104,7 @@ if __name__ == "__main__":
     print "compute_fast_influence: {}".format(compute_fast_influence)
     print "sample_size: {}, sample_type: {}".format(sample_size, sample_type)
     print "nbins: {}, regression_years: {}".format(nbins, regression_years)
+    print "regression_users: {}".format(regression_users)
 
     if gui:
         import matplotlib.pyplot as plt
@@ -1155,7 +1210,8 @@ if __name__ == "__main__":
     elif regression_years:
         print "Loading years"
         start = time.time()
-        years = sc.textFile(join(movieLensHomeDir, "movies.dat")).map(parseYear)
+        years = sc.textFile(join(movieLensHomeDir, "movies.dat")).\
+                map(parseYear)
         print "Done in {} seconds".format(time.time() - start)
         print "Training model"
         start = time.time()
@@ -1169,6 +1225,78 @@ if __name__ == "__main__":
             data = features.join(years).map(
                 lambda (mid, (ftrs, yr)):
                         LabeledPoint(ftrs[f], [yr]))
+            print "Done in {} seconds".format(time.time() - start)
+            if regression_model == "regression_tree":
+                lr_model = pyspark.\
+                        mllib.\
+                        tree.\
+                        DecisionTree.\
+                        trainRegressor(
+                                data,
+                                categoricalFeaturesInfo={},
+                                impurity = "variance",
+                                maxDepth = int(math.ceil(math.log(nbins, 2))),
+                                maxBins = nbins)
+            elif regression_model == "random_forest":
+                lr_model = pyspark.\
+                        mllib.\
+                        tree.\
+                        RandomForest.\
+                        trainRegressor(
+                                data,
+                                categoricalFeaturesInfo={},
+                                numTrees = 128,
+                                maxDepth = int(math.ceil(math.log(nbins, 2))),
+                                maxBins = nbins)
+            elif regression_model == "linear":
+                print "Building linear regression"
+                start = time.time()
+                lr_model = LinearRegressionWithSGD.train(data)
+            print "Done in {} seconds".format(time.time() - start)
+            observations = data.map(lambda x: x.label)
+            predictions = lr_model.predict(data.map(lambda x:
+                    x.features))
+            predobs = predictions.zip(observations).map(lambda (a, b): (float(a),
+                float(b)))
+            metrics = RegressionMetrics(predobs)
+            mrae = predobs.\
+                    map(lambda (pred, obs):
+                        abs(pred-obs)/abs(float(1 if obs == 0 else obs))).\
+                    sum()/predobs.count()
+            print "RMSE: {}, variance explained: {}, mean absolute error: {},".\
+                    format(metrics.explainedVariance,\
+                    metrics.rootMeanSquaredError,
+                    metrics.meanAbsoluteError)
+            print "MRAE: {}".format(mrae)
+            results[f] = {"mre": metrics.meanAbsoluteError, "mrae": mrae}
+            if regression_model == "linear":
+                print "Weights: {}".format(lr_model.weights)
+            elif regression_model == "regression_tree":
+                print lr_model.toDebugString()
+        results = sorted(results.items(), key=lambda x: x[1]["mrae"])
+        table = PrettyTable(["Feature", "MRAE", "Mean absolute error"])
+        for f, r in results:
+            table.add_row([f, r["mrae"], r["mre"]])
+        print table
+    elif regression_users:
+        print "Loading user metadata"
+        start = time.time()
+        userdata = sc.textFile(join(movieLensHomeDir, "users.dat")).\
+                map(parseUser).\
+                map(lambda x: (x[0], list(x[1:])))
+        print "Done in {} seconds".format(time.time() - start)
+        print "Training model"
+        start = time.time()
+        model = ALS.train(training, rank, numIter, lmbda)
+        print "Done in {} seconds".format(time.time() - start)
+        print "Preparing features"
+        start = time.time()
+        features = model.userFeatures()
+        results = {}
+        for f in xrange(rank):
+            data = features.join(userdata).map(
+                lambda (uid, (ftrs, ufs)):
+                        LabeledPoint(ftrs[f], list(ufs)))
             print "Done in {} seconds".format(time.time() - start)
             if regression_model == "regression_tree":
                 lr_model = pyspark.\
