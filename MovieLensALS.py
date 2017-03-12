@@ -1164,6 +1164,7 @@ if __name__ == "__main__":
         print "Preparing features"
         start = time.time()
         features = model.productFeatures()
+        results = {}
         for f in xrange(rank):
             data = features.join(years).map(
                 lambda (mid, (ftrs, yr)):
@@ -1180,6 +1181,17 @@ if __name__ == "__main__":
                                 impurity = "variance",
                                 maxDepth = int(math.ceil(math.log(nbins, 2))),
                                 maxBins = nbins)
+            elif regression_model == "random_forest":
+                lr_model = pyspark.\
+                        mllib.\
+                        tree.\
+                        RandomForest.\
+                        trainRegressor(
+                                data,
+                                categoricalFeaturesInfo={},
+                                numTrees = 128,
+                                maxDepth = int(math.ceil(math.log(nbins, 2))),
+                                maxBins = nbins)
             elif regression_model == "linear":
                 print "Building linear regression"
                 start = time.time()
@@ -1191,14 +1203,25 @@ if __name__ == "__main__":
             predobs = predictions.zip(observations).map(lambda (a, b): (float(a),
                 float(b)))
             metrics = RegressionMetrics(predobs)
-            print "RMSE: {}, variance explained: {}, mean absolute error: {}".\
+            mrae = predobs.\
+                    map(lambda (pred, obs):
+                        abs(pred-obs)/abs(float(1 if obs == 0 else obs))).\
+                    sum()/predobs.count()
+            print "RMSE: {}, variance explained: {}, mean absolute error: {},".\
                     format(metrics.explainedVariance,\
                     metrics.rootMeanSquaredError,
                     metrics.meanAbsoluteError)
+            print "MRAE: {}".format(mrae)
+            results[f] = {"mre": metrics.meanAbsoluteError, "mrae": mrae}
             if regression_model == "linear":
                 print "Weights: {}".format(lr_model.weights)
             elif regression_model == "regression_tree":
                 print lr_model.toDebugString()
+        results = sorted(results.items(), key=lambda x: x[1]["mrae"])
+        table = PrettyTable(["Feature", "MRAE", "Mean absolute error"])
+        for f, r in results:
+            table.add_row([f, r["mrae"], r["mre"]])
+        print table
 
     elif genres_correlator:
         print "Loading genres"
