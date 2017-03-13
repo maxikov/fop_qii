@@ -49,11 +49,21 @@ print_movie_names = False
 
 perturb_specific_user = None
 
-def parseRating(line):
+def loadCSV(fname, remove_first_line = True):
+    """
+    Probably won't work with very large data sets.
+    """
+    with open(fname, "r") as f:
+        res = f.readlines()
+        if remove_first_line:
+            res = res[1:]
+        return res
+
+def parseRating(line, sep="::"):
     """
     Parses a rating record in MovieLens format userId::movieId::rating::timestamp .
     """
-    fields = line.strip().split("::")
+    fields = line.strip().split(sep)
     return long(fields[3]) % 10, (int(fields[0]), int(fields[1]), float(fields[2]))
 
 def parseGenre(line):
@@ -80,11 +90,11 @@ def parseYear(line):
     year = int(year)
     return mid, year
 
-def parseMovie(line):
+def parseMovie(line, sep="::"):
     """
     Parses a movie record in MovieLens format movieId::movieTitle .
     """
-    fields = line.strip().split("::")
+    fields = line.strip().split(sep)
     return int(fields[0]), fields[1]
 
 def parseUser(line):
@@ -1029,6 +1039,8 @@ if __name__ == "__main__":
             "Predicting internal features based on years")
     parser.add_argument("--regression-users", action="store_true", help=\
             "Predicting internal features based on user metadata")
+    parser.add_argument("--regression-tags", action="store_true", help=\
+            "Predict internal features based on movie tags")
 
     args = parser.parse_args()
     rank = args.rank
@@ -1075,6 +1087,7 @@ if __name__ == "__main__":
     sample_size = args.sample_size
     regression_years = args.regression_years
     regression_users = args.regression_users
+    regression_tags = args.regression_tags
 
     print "Rank: {}, lmbda: {}, numIter: {}, numPartitions: {}".format(
         rank, lmbda, numIter, numPartitions)
@@ -1105,6 +1118,8 @@ if __name__ == "__main__":
     print "sample_size: {}, sample_type: {}".format(sample_size, sample_type)
     print "nbins: {}, regression_years: {}".format(nbins, regression_years)
     print "regression_users: {}".format(regression_users)
+    print "regression_tags: {}".format(regression_tags)
+
 
     if gui:
         import matplotlib.pyplot as plt
@@ -1123,11 +1138,21 @@ if __name__ == "__main__":
 
     print "Loading ratings"
     start = time.time()
-    ratings = sc.textFile(join(movieLensHomeDir, "ratings.dat")).map(parseRating)
+    if "ml-20m" in movieLensHomeDir:
+        ratings = loadCSV(join(movieLensHomeDir, "ratings.csv"))
+        ratings = sc.parallelize(ratings).map(lambda x: parseRating(x,
+            sep=","))
+    else:
+        ratings = sc.textFile(join(movieLensHomeDir, "ratings.dat")).map(parseRating)
     print "Done in {} seconds".format(time.time() - start)
     print "Loading movies"
     start = time.time()
-    movies = dict(sc.textFile(join(movieLensHomeDir, "movies.dat")).map(parseMovie).collect())
+    if "ml-20m" in movieLensHomeDir:
+        movies = loadCSV(join(movieLensHomeDir, "movies.csv"))
+        movies = dict(sc.parallelize(movies).map(lambda x: parseMovie(x,
+            sep=",")).collect())
+    else:
+        movies = dict(sc.textFile(join(movieLensHomeDir, "movies.dat")).map(parseMovie).collect())
     print "Done in {} seconds".format(time.time() - start)
 
     # create the initial training dataset with default ratings
@@ -1285,6 +1310,87 @@ if __name__ == "__main__":
                 map(parseUser).\
                 map(lambda x: (x[0], list(x[1:])))
         print "Done in {} seconds".format(time.time() - start)
+        print "Training model"
+        start = time.time()
+        model = ALS.train(training, rank, numIter, lmbda)
+        print "Done in {} seconds".format(time.time() - start)
+        print "Preparing features"
+        start = time.time()
+        features = model.userFeatures()
+        results = {}
+        for f in xrange(rank):
+            data = features.join(userdata).map(
+                lambda (uid, (ftrs, ufs)):
+                        LabeledPoint(ftrs[f], list(ufs)))
+            print "Done in {} seconds".format(time.time() - start)
+            if regression_model == "regression_tree":
+                lr_model = pyspark.\
+                        mllib.\
+                        tree.\
+                        DecisionTree.\
+                        trainRegressor(
+                                data,
+                                categoricalFeaturesInfo={},
+                                impurity = "variance",
+                                maxDepth = int(math.ceil(math.log(nbins, 2))),
+                                maxBins = nbins)
+            elif regression_model == "random_forest":
+                lr_model = pyspark.\
+                        mllib.\
+                        tree.\
+                        RandomForest.\
+                        trainRegressor(
+                                data,
+                                categoricalFeaturesInfo={},
+                                numTrees = 128,
+                                maxDepth = int(math.ceil(math.log(nbins, 2))),
+                                maxBins = nbins)
+            elif regression_model == "linear":
+                print "Building linear regression"
+                start = time.time()
+                lr_model = LinearRegressionWithSGD.train(data)
+            print "Done in {} seconds".format(time.time() - start)
+            observations = data.map(lambda x: x.label)
+            predictions = lr_model.predict(data.map(lambda x:
+                    x.features))
+            predobs = predictions.zip(observations).map(lambda (a, b): (float(a),
+                float(b)))
+            metrics = RegressionMetrics(predobs)
+            mrae = predobs.\
+                    map(lambda (pred, obs):
+                        abs(pred-obs)/abs(float(1 if obs == 0 else obs))).\
+                    sum()/predobs.count()
+            print "RMSE: {}, variance explained: {}, mean absolute error: {},".\
+                    format(metrics.explainedVariance,\
+                    metrics.rootMeanSquaredError,
+                    metrics.meanAbsoluteError)
+            print "MRAE: {}".format(mrae)
+            results[f] = {"mre": metrics.meanAbsoluteError, "mrae": mrae}
+            if regression_model == "linear":
+                print "Weights: {}".format(lr_model.weights)
+            elif regression_model == "regression_tree":
+                print lr_model.toDebugString()
+        results = sorted(results.items(), key=lambda x: x[1]["mrae"])
+        table = PrettyTable(["Feature", "MRAE", "Mean absolute error"])
+        for f, r in results:
+            table.add_row([f, r["mrae"], r["mre"]])
+        print table
+    elif regression_tags:
+        print "Loading movie tags"
+        start = time.time()
+        tags = loadCSV(join(movieLensHomeDir, "tags.csv"))
+        tags = sc.parallelize(tags)\
+            .map(lambda x: x.split(","))\
+            .map(lambda x: (int(x[0]), int(x[1]), x[2]))
+        all_tags = set(tags.map(lambda x: x[2]).collect())
+        all_tags = sorted(list(all_tags))
+        tags = tags\
+                .groupBy(lambda x: (x[1], x[2]))\
+                .map(lambda x: x[0])\
+                .groupBy(lambda x: x[0])\
+                .map(lambda (mid, data): (mid, set(d[1] for d in data)))
+        print "Done in {} seconds".format(time.time() - start)
+        sys.exit(1)
         print "Training model"
         start = time.time()
         model = ALS.train(training, rank, numIter, lmbda)
