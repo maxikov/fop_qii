@@ -1389,7 +1389,13 @@ if __name__ == "__main__":
                 .map(lambda x: x[0])\
                 .groupBy(lambda x: x[0])\
                 .map(lambda (mid, data): (mid, set(d[1] for d in data)))
+        indicators = tags.map(
+                    lambda (mid, cur_tags): (
+                        mid, map(lambda t: int(t in cur_tags), all_tags)
+                         )
+                    )
         print "Done in {} seconds".format(time.time() - start)
+        print indicators.take(5)
         sys.exit(1)
         print "Training model"
         start = time.time()
