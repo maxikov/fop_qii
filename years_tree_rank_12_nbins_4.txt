@@ -1,0 +1,37 @@
+Rank: 12, lmbda: 0.1, numIter: 20, numPartitions: 4
+qii_iters: 5, num_iters_ls: 5, movieLensHomeDir: datasets/ml-1m/
+ofname: Output.txt, checkpoint_dir: checkpoint, num_users_ls:5
+specific_user: None, max_movies_per_user: 0, prominent_raters:0
+perturb_specific_user: None, recommendations_only:False
+recommendations_and_per_movie_qii: False
+per_movie_qiis_displayed: 3
+genres_correlator: False, gui: False, years_correlator: True
+iterate_rank: False, iterate_from: 5, iterate_to: 40, iterate_step:5
+invert_labels: False, no_threshold: False
+classifier_model: logistic
+genres_regression: False
+regression_model: regression_tree
+Loading ratings
+Done in 0.461917877197 seconds
+Loading movies
+Done in 0.669853925705 seconds
+Loading years
+Done in 0.0248019695282 seconds
+Training model
+Done in 13.3227758408 seconds
+Preparing features
+Done in 0.0783338546753 seconds
+Done in 1.43771100044 seconds
+RMSE: 80.8037886599, variance explained: 13.9744835061, mean absolute error: 9.87660964769
+DecisionTreeModel regressor of depth 2 with 7 nodes
+  If (feature 9 <= -0.2507931590080261)
+   If (feature 4 <= -0.6548625230789185)
+    Predict: 1963.5192307692307
+   Else (feature 4 > -0.6548625230789185)
+    Predict: 1980.8043052837572
+  Else (feature 9 > -0.2507931590080261)
+   If (feature 4 <= -0.6548625230789185)
+    Predict: 1984.7514677103718
+   Else (feature 4 > -0.6548625230789185)
+    Predict: 1991.7376543209878
+

@@ -1,0 +1,772 @@
+Rank: 12, lmbda: 0.1, numIter: 20, numPartitions: 4
+qii_iters: 5, num_iters_ls: 5, movieLensHomeDir: datasets/ml-1m/
+ofname: Output.txt, checkpoint_dir: checkpoint, num_users_ls:5
+specific_user: 951, max_movies_per_user: 0, prominent_raters:0
+perturb_specific_user: None, recommendations_only:False
+recommendations_and_per_movie_qii: True
+per_movie_qiis_displayed: 3
++------+---------------------------------+--------+
+| Rank |              Movie              | Rating |
++------+---------------------------------+--------+
+|  1   |  Inspector General, The (1949)  |  5.0   |
+|  2   |          Misery (1990)          |  5.0   |
+|  3   |        Chicken Run (2000)       |  5.0   |
+|  4   |    North by Northwest (1959)    |  5.0   |
+|  5   |  League of Their Own, A (1992)  |  4.0   |
+|  6   |        Under Siege (1992)       |  4.0   |
+|  7   | Clear and Present Danger (1994) |  4.0   |
++------+---------------------------------+--------+
+Training the model, rank: 12 numIter: 20 lmbda: 0.1
+Computing recommendations/QII for user:  951
+Time it took to create recommendations: 9.88459706306
+Computing QII for user:  951
+Count of user ratings:  7
+Perturbing movie 963 ( 1 out of 7 )
+Perturbed rating: 1.0
+New ratings: {963: 1.0}
+** New Ratings List:  [(951, 963, 1.0), (951, 3255, 4.0), (951, 3499, 5.0), (951, 1385, 4.0), (951, 349, 4.0), (951, 3751, 5.0), (951, 908, 5.0)]
+Building model
+Built, predicting
+New recommendations:
++------+----------------------------------+------------------+
+| Rank |              Movie               | Estimated rating |
++------+----------------------------------+------------------+
+|  1   | Silence of the Lambs, The (1991) |  5.36505456095   |
+|  2   |     Schindler's List (1993)      |  5.34259064625   |
+|  3   | Leather Jacket Love Story (1997) |  5.27904620444   |
+|  4   |          Sanjuro (1962)          |  5.24133349187   |
+|  5   |    Saving Private Ryan (1998)    |  5.23021685637   |
+|  6   |     Leading Man, The (1996)      |  5.20495007003   |
+|  7   |      Godfather, The (1972)       |  5.13460009089   |
+|  8   | Shawshank Redemption, The (1994) |  5.09972410263   |
+|  9   |      For All Mankind (1989)      |  5.07794896491   |
+|  10  |     Sixth Sense, The (1999)      |  5.05391115407   |
++------+----------------------------------+------------------+
+Perturbing movie 963 ( 1 out of 7 )
+Perturbed rating: 2.0
+New ratings: {963: 2.0}
+** New Ratings List:  [(951, 963, 2.0), (951, 3255, 4.0), (951, 3499, 5.0), (951, 1385, 4.0), (951, 349, 4.0), (951, 3751, 5.0), (951, 908, 5.0)]
+Building model
+Built, predicting
+New recommendations:
++------+----------------------------------+------------------+
+| Rank |              Movie               | Estimated rating |
++------+----------------------------------+------------------+
+|  1   | Silence of the Lambs, The (1991) |  5.27643740481   |
+|  2   |     Schindler's List (1993)      |  5.26790175982   |
+|  3   | Leather Jacket Love Story (1997) |  5.22609590151   |
+|  4   |          Sanjuro (1962)          |  5.21811371972   |
+|  5   |     Bewegte Mann, Der (1994)     |  5.15106091817   |
+|  6   |      Godfather, The (1972)       |  5.14050151942   |
+|  7   |      For All Mankind (1989)      |  5.13640134693   |
+|  8   |    Saving Private Ryan (1998)    |  5.11684060439   |
+|  9   | Shawshank Redemption, The (1994) |  5.10573024376   |
+|  10  |     Sixth Sense, The (1999)      |  5.03708043873   |
++------+----------------------------------+------------------+
+Perturbing movie 963 ( 1 out of 7 )
+Perturbed rating: 3.0
+New ratings: {963: 3.0}
+** New Ratings List:  [(951, 963, 3.0), (951, 3255, 4.0), (951, 3499, 5.0), (951, 1385, 4.0), (951, 349, 4.0), (951, 3751, 5.0), (951, 908, 5.0)]
+Building model
+Built, predicting
+New recommendations:
++------+----------------------------------+------------------+
+| Rank |              Movie               | Estimated rating |
++------+----------------------------------+------------------+
+|  1   |     Bewegte Mann, Der (1994)     |  5.31131524483   |
+|  2   |      For All Mankind (1989)      |  5.21100588651   |
+|  3   |          Sanjuro (1962)          |  5.20269988099   |
+|  4   |     Schindler's List (1993)      |  5.20181464676   |
+|  5   | Silence of the Lambs, The (1991) |  5.19476699486   |
+|  6   | Leather Jacket Love Story (1997) |  5.18915141905   |
+|  7   |      Godfather, The (1972)       |  5.15919682064   |
+|  8   | Shawshank Redemption, The (1994) |  5.11710905861   |
+|  9   |  Raiders of the Lost Ark (1981)  |  5.06892802099   |
+|  10  |    Man of the Century (1999)     |  5.06466024951   |
++------+----------------------------------+------------------+
+Perturbing movie 963 ( 1 out of 7 )
+Perturbed rating: 4.0
+New ratings: {963: 4.0}
+** New Ratings List:  [(951, 963, 4.0), (951, 3255, 4.0), (951, 3499, 5.0), (951, 1385, 4.0), (951, 349, 4.0), (951, 3751, 5.0), (951, 908, 5.0)]
+Building model
+Built, predicting
+New recommendations:
++------+----------------------------------+------------------+
+| Rank |              Movie               | Estimated rating |
++------+----------------------------------+------------------+
+|  1   |     Bewegte Mann, Der (1994)     |  5.47478771529   |
+|  2   |        Chushingura (1962)        |  5.32819396311   |
+|  3   |      For All Mankind (1989)      |  5.29718852231   |
+|  4   |    Man of the Century (1999)     |  5.23520185237   |
+|  5   |          Sanjuro (1962)          |  5.19090474136   |
+|  6   |      Godfather, The (1972)       |   5.1890281305   |
+|  7   | Leather Jacket Love Story (1997) |   5.1671638044   |
+|  8   |     Schindler's List (1993)      |  5.14183711932   |
+|  9   |        Circus, The (1928)        |  5.13506903247   |
+|  10  | Shawshank Redemption, The (1994) |  5.12922575772   |
++------+----------------------------------+------------------+
+Perturbing movie 963 ( 1 out of 7 )
+Perturbed rating: 5.0
+New ratings: {963: 5.0}
+** New Ratings List:  [(951, 963, 5.0), (951, 3255, 4.0), (951, 3499, 5.0), (951, 1385, 4.0), (951, 349, 4.0), (951, 3751, 5.0), (951, 908, 5.0)]
+Building model
+Built, predicting
+New recommendations:
++------+----------------------------------------+------------------+
+| Rank |                 Movie                  | Estimated rating |
++------+----------------------------------------+------------------+
+|  1   |           Chushingura (1962)           |  5.71903524944   |
+|  2   |        Bewegte Mann, Der (1994)        |  5.62641755362   |
+|  3   |       Man of the Century (1999)        |  5.40041306462   |
+|  4   |         For All Mankind (1989)         |  5.37963347675   |
+|  5   | Maya Lin: A Strong Clear Vision (1994) |  5.34727430165   |
+|  6   |      Anne Frank Remembered (1995)      |  5.33188382186   |
+|  7   |           Circus, The (1928)           |  5.31445271788   |
+|  8   |       Wrong Trousers, The (1993)       |   5.2919503763   |
+|  9   |        Arguing the World (1996)        |  5.26952122853   |
+|  10  |         Paths of Glory (1957)          |  5.25149282591   |
++------+----------------------------------------+------------------+
+Perturbing movie 3255 ( 2 out of 7 )
+Perturbed rating: 1.0
+New ratings: {3255: 1.0}
+** New Ratings List:  [(951, 963, 5.0), (951, 3255, 1.0), (951, 3499, 5.0), (951, 1385, 4.0), (951, 349, 4.0), (951, 3751, 5.0), (951, 908, 5.0)]
+Building model
+Built, predicting
+New recommendations:
++------+----------------------------------------------------------+------------------+
+| Rank |                          Movie                           | Estimated rating |
++------+----------------------------------------------------------+------------------+
+|  1   |                  Taste of Cherry (1997)                  |  6.38081446635   |
+|  2   |        My Best Fiend (Mein liebster Feind) (1999)        |  6.04844375804   |
+|  3   |    Message to Love: The Isle of Wight Festival (1996)    |  5.93792222526   |
+|  4   |           Thing From Another World, The (1951)           |  5.85299848134   |
+|  5   |               Anne Frank Remembered (1995)               |  5.82356721673   |
+|  6   |                     Dadetown (1995)                      |  5.74425214458   |
+|  7   |                 Arguing the World (1996)                 |  5.73594068587   |
+|  8   | Nosferatu (Nosferatu, eine Symphonie des Grauens) (1922) |  5.71047763403   |
+|  9   |            Evil Dead II (Dead By Dawn) (1987)            |  5.65451675052   |
+|  10  |         Woman in the Dunes (Suna no onna) (1964)         |  5.64219041713   |
++------+----------------------------------------------------------+------------------+
+Perturbing movie 3255 ( 2 out of 7 )
+Perturbed rating: 2.0
+New ratings: {3255: 2.0}
+** New Ratings List:  [(951, 963, 5.0), (951, 3255, 2.0), (951, 3499, 5.0), (951, 1385, 4.0), (951, 349, 4.0), (951, 3751, 5.0), (951, 908, 5.0)]
+Building model
+Built, predicting
+New recommendations:
++------+----------------------------------------------------------+------------------+
+| Rank |                          Movie                           | Estimated rating |
++------+----------------------------------------------------------+------------------+
+|  1   |                  Taste of Cherry (1997)                  |  5.74045010454   |
+|  2   |               Anne Frank Remembered (1995)               |  5.66407773776   |
+|  3   |                 Arguing the World (1996)                 |  5.60391016647   |
+|  4   |        My Best Fiend (Mein liebster Feind) (1999)        |  5.55424583437   |
+|  5   |           Thing From Another World, The (1951)           |  5.51807137583   |
+|  6   |                  Paths of Glory (1957)                   |  5.47136933708   |
+|  7   | Nosferatu (Nosferatu, eine Symphonie des Grauens) (1922) |  5.42239754121   |
+|  8   |            Evil Dead II (Dead By Dawn) (1987)            |  5.41897364542   |
+|  9   |                       Limbo (1999)                       |  5.40052845086   |
+|  10  |         Woman in the Dunes (Suna no onna) (1964)         |  5.39681846695   |
++------+----------------------------------------------------------+------------------+
+Perturbing movie 3255 ( 2 out of 7 )
+Perturbed rating: 3.0
+New ratings: {3255: 3.0}
+** New Ratings List:  [(951, 963, 5.0), (951, 3255, 3.0), (951, 3499, 5.0), (951, 1385, 4.0), (951, 349, 4.0), (951, 3751, 5.0), (951, 908, 5.0)]
+Building model
+Built, predicting
+New recommendations:
++------+--------------------------------------------+------------------+
+| Rank |                   Movie                    | Estimated rating |
++------+--------------------------------------------+------------------+
+|  1   |             Chushingura (1962)             |  5.50669220769   |
+|  2   |        Anne Frank Remembered (1995)        |  5.50051160873   |
+|  3   |          Bewegte Mann, Der (1994)          |  5.46763704055   |
+|  4   |          Arguing the World (1996)          |  5.44912534922   |
+|  5   |           Paths of Glory (1957)            |  5.36603688077   |
+|  6   |   Maya Lin: A Strong Clear Vision (1994)   |  5.35747596891   |
+|  7   |             Circus, The (1928)             |  5.32317951749   |
+|  8   |          Hearts and Minds (1996)           |  5.30690027158   |
+|  9   |           For All Mankind (1989)           |  5.29002323524   |
+|  10  | Nobody Loves Me (Keiner liebt mich) (1994) |  5.26490803132   |
++------+--------------------------------------------+------------------+
+Perturbing movie 3255 ( 2 out of 7 )
+Perturbed rating: 4.0
+New ratings: {3255: 4.0}
+** New Ratings List:  [(951, 963, 5.0), (951, 3255, 4.0), (951, 3499, 5.0), (951, 1385, 4.0), (951, 349, 4.0), (951, 3751, 5.0), (951, 908, 5.0)]
+Building model
+Built, predicting
+New recommendations:
++------+----------------------------------------+------------------+
+| Rank |                 Movie                  | Estimated rating |
++------+----------------------------------------+------------------+
+|  1   |           Chushingura (1962)           |  5.71903524944   |
+|  2   |        Bewegte Mann, Der (1994)        |  5.62641755362   |
+|  3   |       Man of the Century (1999)        |  5.40041306462   |
+|  4   |         For All Mankind (1989)         |  5.37963347675   |
+|  5   | Maya Lin: A Strong Clear Vision (1994) |  5.34727430165   |
+|  6   |      Anne Frank Remembered (1995)      |  5.33188382186   |
+|  7   |           Circus, The (1928)           |  5.31445271788   |
+|  8   |       Wrong Trousers, The (1993)       |   5.2919503763   |
+|  9   |        Arguing the World (1996)        |  5.26952122853   |
+|  10  |         Paths of Glory (1957)          |  5.25149282591   |
++------+----------------------------------------+------------------+
+Perturbing movie 3255 ( 2 out of 7 )
+Perturbed rating: 5.0
+New ratings: {3255: 5.0}
+** New Ratings List:  [(951, 963, 5.0), (951, 3255, 5.0), (951, 3499, 5.0), (951, 1385, 4.0), (951, 349, 4.0), (951, 3751, 5.0), (951, 908, 5.0)]
+Building model
+Built, predicting
+New recommendations:
++------+----------------------------------+------------------+
+| Rank |              Movie               | Estimated rating |
++------+----------------------------------+------------------+
+|  1   |        Chushingura (1962)        |  5.90873371025   |
+|  2   |     Bewegte Mann, Der (1994)     |  5.77328435498   |
+|  3   |    Man of the Century (1999)     |   5.5970156557   |
+|  4   |          Bandits (1997)          |  5.52550725971   |
+|  5   |      For All Mankind (1989)      |  5.46415202532   |
+|  6   | Shawshank Redemption, The (1994) |  5.40586376967   |
+|  7   | Leather Jacket Love Story (1997) |  5.39804216045   |
+|  8   |    Wrong Trousers, The (1993)    |  5.39514193232   |
+|  9   |   It's a Wonderful Life (1946)   |  5.38142216494   |
+|  10  |     Schindler's List (1993)      |  5.38097907346   |
++------+----------------------------------+------------------+
+Perturbing movie 3499 ( 3 out of 7 )
+Perturbed rating: 1.0
+New ratings: {3499: 1.0}
+** New Ratings List:  [(951, 963, 5.0), (951, 3255, 4.0), (951, 3499, 1.0), (951, 1385, 4.0), (951, 349, 4.0), (951, 3751, 5.0), (951, 908, 5.0)]
+Building model
+Built, predicting
+New recommendations:
++------+----------------------------------------+------------------+
+| Rank |                 Movie                  | Estimated rating |
++------+----------------------------------------+------------------+
+|  1   |           Chushingura (1962)           |  6.17594256543   |
+|  2   |             Careful (1992)             |  6.05301602073   |
+|  3   |         Hard Core Logo (1996)          |  5.95311340124   |
+|  4   |      Damsel in Distress, A (1937)      |  5.79617711705   |
+|  5   |    Dear Diary (Caro Diario) (1994)     |  5.63936512353   |
+|  6   | World of Apu, The (Apur Sansar) (1959) |  5.61173239637   |
+|  7   |           Fever Pitch (1997)           |  5.60178445968   |
+|  8   |           Lodger, The (1926)           |  5.37437744176   |
+|  9   |           Persuasion (1995)            |  5.35701223675   |
+|  10  |     First Love, Last Rites (1997)      |  5.30140376891   |
++------+----------------------------------------+------------------+
+Perturbing movie 3499 ( 3 out of 7 )
+Perturbed rating: 2.0
+New ratings: {3499: 2.0}
+** New Ratings List:  [(951, 963, 5.0), (951, 3255, 4.0), (951, 3499, 2.0), (951, 1385, 4.0), (951, 349, 4.0), (951, 3751, 5.0), (951, 908, 5.0)]
+Building model
+Built, predicting
+New recommendations:
++------+--------------------------------------------------------+------------------+
+| Rank |                         Movie                          | Estimated rating |
++------+--------------------------------------------------------+------------------+
+|  1   |                   Chushingura (1962)                   |  6.08300505589   |
+|  2   |                     Careful (1992)                     |  5.60651186009   |
+|  3   |                 Hard Core Logo (1996)                  |  5.59513497092   |
+|  4   |              Damsel in Distress, A (1937)              |  5.48661665462   |
+|  5   |                   Fever Pitch (1997)                   |  5.44694714446   |
+|  6   |         World of Apu, The (Apur Sansar) (1959)         |  5.38405227193   |
+|  7   |            Dear Diary (Caro Diario) (1994)             |  5.31280854692   |
+|  8   |                   Persuasion (1995)                    |  5.26553619147   |
+|  9   | Wallace & Gromit: The Best of Aardman Animation (1996) |  5.22965817139   |
+|  10  |             First Love, Last Rites (1997)              |  5.22162657692   |
++------+--------------------------------------------------------+------------------+
+Perturbing movie 3499 ( 3 out of 7 )
+Perturbed rating: 3.0
+New ratings: {3499: 3.0}
+** New Ratings List:  [(951, 963, 5.0), (951, 3255, 4.0), (951, 3499, 3.0), (951, 1385, 4.0), (951, 349, 4.0), (951, 3751, 5.0), (951, 908, 5.0)]
+Building model
+Built, predicting
+New recommendations:
++------+--------------------------------------------------------+------------------+
+| Rank |                         Movie                          | Estimated rating |
++------+--------------------------------------------------------+------------------+
+|  1   |                   Chushingura (1962)                   |  5.98118165326   |
+|  2   |                   Fever Pitch (1997)                   |  5.28224651436   |
+|  3   |                 Hard Core Logo (1996)                  |  5.22927372036   |
+|  4   |                Bewegte Mann, Der (1994)                |  5.21154744547   |
+|  5   | Wallace & Gromit: The Best of Aardman Animation (1996) |  5.18746161701   |
+|  6   |                   Persuasion (1995)                    |  5.17023716763   |
+|  7   |                  General, The (1927)                   |  5.16655887968   |
+|  8   |         World of Apu, The (Apur Sansar) (1959)         |  5.16458601091   |
+|  9   |               Wrong Trousers, The (1993)               |  5.16374056179   |
+|  10  |              Damsel in Distress, A (1937)              |  5.16257573868   |
++------+--------------------------------------------------------+------------------+
+Perturbing movie 3499 ( 3 out of 7 )
+Perturbed rating: 4.0
+New ratings: {3499: 4.0}
+** New Ratings List:  [(951, 963, 5.0), (951, 3255, 4.0), (951, 3499, 4.0), (951, 1385, 4.0), (951, 349, 4.0), (951, 3751, 5.0), (951, 908, 5.0)]
+Building model
+Built, predicting
+New recommendations:
++------+--------------------------------------------------------+------------------+
+| Rank |                         Movie                          | Estimated rating |
++------+--------------------------------------------------------+------------------+
+|  1   |                   Chushingura (1962)                   |  5.86150502799   |
+|  2   |                Bewegte Mann, Der (1994)                |   5.4242332571   |
+|  3   |               Wrong Trousers, The (1993)               |  5.23520978806   |
+|  4   |                   Circus, The (1928)                   |  5.23066270979   |
+|  5   |                 For All Mankind (1989)                 |  5.18985152283   |
+|  6   |                  General, The (1927)                   |  5.17547995027   |
+|  7   |                 Close Shave, A (1995)                  |  5.16954429243   |
+|  8   |               Man of the Century (1999)                |  5.16437773862   |
+|  9   | Wallace & Gromit: The Best of Aardman Animation (1996) |  5.13232865697   |
+|  10  |                   Toy Story 2 (1999)                   |  5.11200076228   |
++------+--------------------------------------------------------+------------------+
+Perturbing movie 3499 ( 3 out of 7 )
+Perturbed rating: 5.0
+New ratings: {3499: 5.0}
+** New Ratings List:  [(951, 963, 5.0), (951, 3255, 4.0), (951, 3499, 5.0), (951, 1385, 4.0), (951, 349, 4.0), (951, 3751, 5.0), (951, 908, 5.0)]
+Building model
+Built, predicting
+New recommendations:
++------+----------------------------------------+------------------+
+| Rank |                 Movie                  | Estimated rating |
++------+----------------------------------------+------------------+
+|  1   |           Chushingura (1962)           |  5.71903524944   |
+|  2   |        Bewegte Mann, Der (1994)        |  5.62641755362   |
+|  3   |       Man of the Century (1999)        |  5.40041306462   |
+|  4   |         For All Mankind (1989)         |  5.37963347675   |
+|  5   | Maya Lin: A Strong Clear Vision (1994) |  5.34727430165   |
+|  6   |      Anne Frank Remembered (1995)      |  5.33188382186   |
+|  7   |           Circus, The (1928)           |  5.31445271788   |
+|  8   |       Wrong Trousers, The (1993)       |   5.2919503763   |
+|  9   |        Arguing the World (1996)        |  5.26952122853   |
+|  10  |         Paths of Glory (1957)          |  5.25149282591   |
++------+----------------------------------------+------------------+
+Perturbing movie 1385 ( 4 out of 7 )
+Perturbed rating: 1.0
+New ratings: {1385: 1.0}
+** New Ratings List:  [(951, 963, 5.0), (951, 3255, 4.0), (951, 3499, 5.0), (951, 1385, 1.0), (951, 349, 4.0), (951, 3751, 5.0), (951, 908, 5.0)]
+Building model
+Built, predicting
+New recommendations:
++------+---------------------------------------------+------------------+
+| Rank |                    Movie                    | Estimated rating |
++------+---------------------------------------------+------------------+
+|  1   |  Nobody Loves Me (Keiner liebt mich) (1994) |  6.08042518771   |
+|  2   |           Arguing the World (1996)          |  5.68297309725   |
+|  3   | Time of the Gypsies (Dom za vesanje) (1989) |  5.57160153613   |
+|  4   |              Circus, The (1928)             |  5.55473194186   |
+|  5   |    Maya Lin: A Strong Clear Vision (1994)   |  5.55347154329   |
+|  6   |               Aparajito (1956)              |  5.54824225934   |
+|  7   |              Source, The (1999)             |  5.52440620212   |
+|  8   |          Man of the Century (1999)          |  5.49726992201   |
+|  9   |            For All Mankind (1989)           |   5.4573881507   |
+|  10  |           Bewegte Mann, Der (1994)          |  5.45718104852   |
++------+---------------------------------------------+------------------+
+Perturbing movie 1385 ( 4 out of 7 )
+Perturbed rating: 2.0
+New ratings: {1385: 2.0}
+** New Ratings List:  [(951, 963, 5.0), (951, 3255, 4.0), (951, 3499, 5.0), (951, 1385, 2.0), (951, 349, 4.0), (951, 3751, 5.0), (951, 908, 5.0)]
+Building model
+Built, predicting
+New recommendations:
++------+---------------------------------------------+------------------+
+| Rank |                    Movie                    | Estimated rating |
++------+---------------------------------------------+------------------+
+|  1   |  Nobody Loves Me (Keiner liebt mich) (1994) |  5.77363049504   |
+|  2   |           Arguing the World (1996)          |  5.53952757123   |
+|  3   |           Bewegte Mann, Der (1994)          |  5.51830098905   |
+|  4   |    Maya Lin: A Strong Clear Vision (1994)   |   5.478132103    |
+|  5   |              Circus, The (1928)             |  5.47390926247   |
+|  6   |          Man of the Century (1999)          |  5.47075142711   |
+|  7   |            For All Mankind (1989)           |  5.43356563802   |
+|  8   |            Close Shave, A (1995)            |  5.37172091473   |
+|  9   | Time of the Gypsies (Dom za vesanje) (1989) |  5.36954431466   |
+|  10  |          Wrong Trousers, The (1993)         |  5.35005797345   |
++------+---------------------------------------------+------------------+
+Perturbing movie 1385 ( 4 out of 7 )
+Perturbed rating: 3.0
+New ratings: {1385: 3.0}
+** New Ratings List:  [(951, 963, 5.0), (951, 3255, 4.0), (951, 3499, 5.0), (951, 1385, 3.0), (951, 349, 4.0), (951, 3751, 5.0), (951, 908, 5.0)]
+Building model
+Built, predicting
+New recommendations:
++------+--------------------------------------------+------------------+
+| Rank |                   Movie                    | Estimated rating |
++------+--------------------------------------------+------------------+
+|  1   |          Bewegte Mann, Der (1994)          |  5.57658524727   |
+|  2   | Nobody Loves Me (Keiner liebt mich) (1994) |  5.46855254794   |
+|  3   |         Man of the Century (1999)          |  5.44068585349   |
+|  4   |   Maya Lin: A Strong Clear Vision (1994)   |  5.41374535166   |
+|  5   |           For All Mankind (1989)           |  5.40944194865   |
+|  6   |          Arguing the World (1996)          |  5.40695139327   |
+|  7   |             Circus, The (1928)             |  5.39513677253   |
+|  8   |             Chushingura (1962)             |  5.38388259199   |
+|  9   |         Wrong Trousers, The (1993)         |  5.32640490837   |
+|  10  |        Anne Frank Remembered (1995)        |  5.30584449677   |
++------+--------------------------------------------+------------------+
+Perturbing movie 1385 ( 4 out of 7 )
+Perturbed rating: 4.0
+New ratings: {1385: 4.0}
+** New Ratings List:  [(951, 963, 5.0), (951, 3255, 4.0), (951, 3499, 5.0), (951, 1385, 4.0), (951, 349, 4.0), (951, 3751, 5.0), (951, 908, 5.0)]
+Building model
+Built, predicting
+New recommendations:
++------+----------------------------------------+------------------+
+| Rank |                 Movie                  | Estimated rating |
++------+----------------------------------------+------------------+
+|  1   |           Chushingura (1962)           |  5.71903524944   |
+|  2   |        Bewegte Mann, Der (1994)        |  5.62641755362   |
+|  3   |       Man of the Century (1999)        |  5.40041306462   |
+|  4   |         For All Mankind (1989)         |  5.37963347675   |
+|  5   | Maya Lin: A Strong Clear Vision (1994) |  5.34727430165   |
+|  6   |      Anne Frank Remembered (1995)      |  5.33188382186   |
+|  7   |           Circus, The (1928)           |  5.31445271788   |
+|  8   |       Wrong Trousers, The (1993)       |   5.2919503763   |
+|  9   |        Arguing the World (1996)        |  5.26952122853   |
+|  10  |         Paths of Glory (1957)          |  5.25149282591   |
++------+----------------------------------------+------------------+
+Perturbing movie 1385 ( 4 out of 7 )
+Perturbed rating: 5.0
+New ratings: {1385: 5.0}
+** New Ratings List:  [(951, 963, 5.0), (951, 3255, 4.0), (951, 3499, 5.0), (951, 1385, 5.0), (951, 349, 4.0), (951, 3751, 5.0), (951, 908, 5.0)]
+Building model
+Built, predicting
+New recommendations:
++------+--------------------------------+------------------+
+| Rank |             Movie              | Estimated rating |
++------+--------------------------------+------------------+
+|  1   |       Chushingura (1962)       |  6.04689353645   |
+|  2   |    Bewegte Mann, Der (1994)    |  5.66296199168   |
+|  3   |  Anne Frank Remembered (1995)  |  5.35421296651   |
+|  4   |     Last Days, The (1998)      |  5.34624796468   |
+|  5   |   Man of the Century (1999)    |  5.34442155363   |
+|  6   |     For All Mankind (1989)     |  5.34045956247   |
+|  7   |       Toy Story 2 (1999)       |  5.31088465704   |
+|  8   | First Love, Last Rites (1997)  |  5.29968288329   |
+|  9   |     Paths of Glory (1957)      |  5.29617719724   |
+|  10  | Raiders of the Lost Ark (1981) |  5.28513212432   |
++------+--------------------------------+------------------+
+Perturbing movie 349 ( 5 out of 7 )
+Perturbed rating: 1.0
+New ratings: {349: 1.0}
+** New Ratings List:  [(951, 963, 5.0), (951, 3255, 4.0), (951, 3499, 5.0), (951, 1385, 4.0), (951, 349, 1.0), (951, 3751, 5.0), (951, 908, 5.0)]
+Building model
+Built, predicting
+New recommendations:
++------+---------------------------------------------------+------------------+
+| Rank |                       Movie                       | Estimated rating |
++------+---------------------------------------------------+------------------+
+|  1   |     Nobody Loves Me (Keiner liebt mich) (1994)    |  5.74700559894   |
+|  2   |            Anne Frank Remembered (1995)           |  5.73303738603   |
+|  3   | Ballad of Narayama, The (Narayama Bushiko) (1958) |  5.66549755336   |
+|  4   |              Arguing the World (1996)             |   5.654262074    |
+|  5   | Ballad of Narayama, The (Narayama Bushiko) (1982) |  5.60084034353   |
+|  6   |                 Chushingura (1962)                |  5.54508200669   |
+|  7   |              Hearts and Minds (1996)              |  5.50544565258   |
+|  8   |                  Germinal (1993)                  |   5.4632994397   |
+|  9   |        Education of Little Tree, The (1997)       |  5.44832185504   |
+|  10  |            Angel on My Shoulder (1946)            |  5.44242257492   |
++------+---------------------------------------------------+------------------+
+Perturbing movie 349 ( 5 out of 7 )
+Perturbed rating: 2.0
+New ratings: {349: 2.0}
+** New Ratings List:  [(951, 963, 5.0), (951, 3255, 4.0), (951, 3499, 5.0), (951, 1385, 4.0), (951, 349, 2.0), (951, 3751, 5.0), (951, 908, 5.0)]
+Building model
+Built, predicting
+New recommendations:
++------+---------------------------------------------------+------------------+
+| Rank |                       Movie                       | Estimated rating |
++------+---------------------------------------------------+------------------+
+|  1   |                 Chushingura (1962)                |  5.60363602909   |
+|  2   |            Anne Frank Remembered (1995)           |  5.58450010617   |
+|  3   |     Nobody Loves Me (Keiner liebt mich) (1994)    |  5.54013115824   |
+|  4   |              Arguing the World (1996)             |  5.51552224699   |
+|  5   | Ballad of Narayama, The (Narayama Bushiko) (1982) |  5.42550233325   |
+|  6   |              Hearts and Minds (1996)              |   5.4048365843   |
+|  7   |       Maya Lin: A Strong Clear Vision (1994)      |  5.32847195027   |
+|  8   |        Education of Little Tree, The (1997)       |  5.30182289225   |
+|  9   |              Bewegte Mann, Der (1994)             |   5.2420479239   |
+|  10  |             Man of the Century (1999)             |   5.1997177389   |
++------+---------------------------------------------------+------------------+
+Perturbing movie 349 ( 5 out of 7 )
+Perturbed rating: 3.0
+New ratings: {349: 3.0}
+** New Ratings List:  [(951, 963, 5.0), (951, 3255, 4.0), (951, 3499, 5.0), (951, 1385, 4.0), (951, 349, 3.0), (951, 3751, 5.0), (951, 908, 5.0)]
+Building model
+Built, predicting
+New recommendations:
++------+---------------------------------------------------+------------------+
+| Rank |                       Movie                       | Estimated rating |
++------+---------------------------------------------------+------------------+
+|  1   |                 Chushingura (1962)                |  5.66277924056   |
+|  2   |            Anne Frank Remembered (1995)           |  5.45347635421   |
+|  3   |              Bewegte Mann, Der (1994)             |  5.43870904398   |
+|  4   |              Arguing the World (1996)             |  5.39048186267   |
+|  5   |     Nobody Loves Me (Keiner liebt mich) (1994)    |  5.34523837209   |
+|  6   |       Maya Lin: A Strong Clear Vision (1994)      |  5.33854809385   |
+|  7   |              Hearts and Minds (1996)              |   5.3066401628   |
+|  8   |             Man of the Century (1999)             |  5.30320730142   |
+|  9   | Ballad of Narayama, The (Narayama Bushiko) (1982) |  5.25704958297   |
+|  10  |                 Circus, The (1928)                |   5.2453913507   |
++------+---------------------------------------------------+------------------+
+Perturbing movie 349 ( 5 out of 7 )
+Perturbed rating: 4.0
+New ratings: {349: 4.0}
+** New Ratings List:  [(951, 963, 5.0), (951, 3255, 4.0), (951, 3499, 5.0), (951, 1385, 4.0), (951, 349, 4.0), (951, 3751, 5.0), (951, 908, 5.0)]
+Building model
+Built, predicting
+New recommendations:
++------+----------------------------------------+------------------+
+| Rank |                 Movie                  | Estimated rating |
++------+----------------------------------------+------------------+
+|  1   |           Chushingura (1962)           |  5.71903524944   |
+|  2   |        Bewegte Mann, Der (1994)        |  5.62641755362   |
+|  3   |       Man of the Century (1999)        |  5.40041306462   |
+|  4   |         For All Mankind (1989)         |  5.37963347675   |
+|  5   | Maya Lin: A Strong Clear Vision (1994) |  5.34727430165   |
+|  6   |      Anne Frank Remembered (1995)      |  5.33188382186   |
+|  7   |           Circus, The (1928)           |  5.31445271788   |
+|  8   |       Wrong Trousers, The (1993)       |   5.2919503763   |
+|  9   |        Arguing the World (1996)        |  5.26952122853   |
+|  10  |         Paths of Glory (1957)          |  5.25149282591   |
++------+----------------------------------------+------------------+
+Perturbing movie 349 ( 5 out of 7 )
+Perturbed rating: 5.0
+New ratings: {349: 5.0}
+** New Ratings List:  [(951, 963, 5.0), (951, 3255, 4.0), (951, 3499, 5.0), (951, 1385, 4.0), (951, 349, 5.0), (951, 3751, 5.0), (951, 908, 5.0)]
+Building model
+Built, predicting
+New recommendations:
++------+----------------------------------+------------------+
+| Rank |              Movie               | Estimated rating |
++------+----------------------------------+------------------+
+|  1   |     Bewegte Mann, Der (1994)     |  5.80545332496   |
+|  2   |        Chushingura (1962)        |  5.76824416538   |
+|  3   |      For All Mankind (1989)      |  5.58027498518   |
+|  4   |    Man of the Century (1999)     |  5.48964422925   |
+|  5   |          Sanjuro (1962)          |  5.47149283767   |
+|  6   |  Raiders of the Lost Ark (1981)  |  5.46660636206   |
+|  7   |    Wrong Trousers, The (1993)    |  5.41463768467   |
+|  8   | Shawshank Redemption, The (1994) |  5.40926527158   |
+|  9   |      Godfather, The (1972)       |  5.39438963993   |
+|  10  |        Circus, The (1928)        |   5.3808756021   |
++------+----------------------------------+------------------+
+Perturbing movie 3751 ( 6 out of 7 )
+Perturbed rating: 1.0
+New ratings: {3751: 1.0}
+** New Ratings List:  [(951, 963, 5.0), (951, 3255, 4.0), (951, 3499, 5.0), (951, 1385, 4.0), (951, 349, 4.0), (951, 3751, 1.0), (951, 908, 5.0)]
+Building model
+Built, predicting
+New recommendations:
++------+-----------------------------------------------------+------------------+
+| Rank |                        Movie                        | Estimated rating |
++------+-----------------------------------------------------+------------------+
+|  1   |                 Grateful Dead (1995)                |  6.57807780623   |
+|  2   |                 Smashing Time (1967)                |  5.91576931222   |
+|  3   |                   Lawn Dogs (1997)                  |  5.87139659746   |
+|  4   |               Bewegte Mann, Der (1994)              |  5.64474770267   |
+|  5   |             Lonely Are the Brave (1962)             |  5.50718810312   |
+|  6   |                 Bandit Queen (1994)                 |  5.36248244617   |
+|  7   | When the Cats Away (Chacun cherche son chat) (1996) |  5.35392068105   |
+|  8   |                 Pajama Party (1964)                 |  5.32782125701   |
+|  9   |                 Among Giants (1998)                 |  5.30439528038   |
+|  10  |        Steam: The Turkish Bath (Hamam) (1997)       |  5.26392445235   |
++------+-----------------------------------------------------+------------------+
+Perturbing movie 3751 ( 6 out of 7 )
+Perturbed rating: 2.0
+New ratings: {3751: 2.0}
+** New Ratings List:  [(951, 963, 5.0), (951, 3255, 4.0), (951, 3499, 5.0), (951, 1385, 4.0), (951, 349, 4.0), (951, 3751, 2.0), (951, 908, 5.0)]
+Building model
+Built, predicting
+New recommendations:
++------+-----------------------------------------------------+------------------+
+| Rank |                        Movie                        | Estimated rating |
++------+-----------------------------------------------------+------------------+
+|  1   |                 Grateful Dead (1995)                |  6.03117532071   |
+|  2   |               Bewegte Mann, Der (1994)              |  5.66011374284   |
+|  3   |                 Smashing Time (1967)                |  5.61294389292   |
+|  4   |                   Lawn Dogs (1997)                  |  5.30760234321   |
+|  5   | When the Cats Away (Chacun cherche son chat) (1996) |  5.17515521899   |
+|  6   |             Lonely Are the Brave (1962)             |   5.1368085731   |
+|  7   |                Last Days, The (1998)                |  5.12053746768   |
+|  8   |                 Bandit Queen (1994)                 |  5.07704872756   |
+|  9   |        King of Masks, The (Bian Lian) (1996)        |  5.06877401306   |
+|  10  |                     T-Men (1947)                    |  5.04556386677   |
++------+-----------------------------------------------------+------------------+
+Perturbing movie 3751 ( 6 out of 7 )
+Perturbed rating: 3.0
+New ratings: {3751: 3.0}
+** New Ratings List:  [(951, 963, 5.0), (951, 3255, 4.0), (951, 3499, 5.0), (951, 1385, 4.0), (951, 349, 4.0), (951, 3751, 3.0), (951, 908, 5.0)]
+Building model
+Built, predicting
+New recommendations:
++------+---------------------------------------------------+------------------+
+| Rank |                       Movie                       | Estimated rating |
++------+---------------------------------------------------+------------------+
+|  1   |              Bewegte Mann, Der (1994)             |  5.65802696372   |
+|  2   |                Grateful Dead (1995)               |  5.44813528507   |
+|  3   |                Smashing Time (1967)               |  5.29458909981   |
+|  4   |               Last Days, The (1998)               |  5.12516215796   |
+|  5   |               Godfather, The (1972)               |  5.08412909484   |
+|  6   |             Man of the Century (1999)             |  5.06798813611   |
+|  7   |        Education of Little Tree, The (1997)       |  5.05105704868   |
+|  8   |             Christmas Story, A (1983)             |  5.03725753413   |
+|  9   |       King of Masks, The (Bian Lian) (1996)       |  5.00313150563   |
+|  10  | Ballad of Narayama, The (Narayama Bushiko) (1982) |   5.0011817498   |
++------+---------------------------------------------------+------------------+
+Perturbing movie 3751 ( 6 out of 7 )
+Perturbed rating: 4.0
+New ratings: {3751: 4.0}
+** New Ratings List:  [(951, 963, 5.0), (951, 3255, 4.0), (951, 3499, 5.0), (951, 1385, 4.0), (951, 349, 4.0), (951, 3751, 4.0), (951, 908, 5.0)]
+Building model
+Built, predicting
+New recommendations:
++------+---------------------------------------------------+------------------+
+| Rank |                       Movie                       | Estimated rating |
++------+---------------------------------------------------+------------------+
+|  1   |              Bewegte Mann, Der (1994)             |   5.6438200965   |
+|  2   |                 Chushingura (1962)                |  5.35571236028   |
+|  3   |             Man of the Century (1999)             |  5.24090429397   |
+|  4   |               For All Mankind (1989)              |  5.16108090116   |
+|  5   |               Godfather, The (1972)               |  5.15108703132   |
+|  6   |            Anne Frank Remembered (1995)           |  5.13630803106   |
+|  7   |       Maya Lin: A Strong Clear Vision (1994)      |  5.12983728807   |
+|  8   |               Last Days, The (1998)               |  5.08351218959   |
+|  9   |               Paths of Glory (1957)               |  5.06651774125   |
+|  10  | Ballad of Narayama, The (Narayama Bushiko) (1982) |  5.05358858249   |
++------+---------------------------------------------------+------------------+
+Perturbing movie 3751 ( 6 out of 7 )
+Perturbed rating: 5.0
+New ratings: {3751: 5.0}
+** New Ratings List:  [(951, 963, 5.0), (951, 3255, 4.0), (951, 3499, 5.0), (951, 1385, 4.0), (951, 349, 4.0), (951, 3751, 5.0), (951, 908, 5.0)]
+Building model
+Built, predicting
+New recommendations:
++------+----------------------------------------+------------------+
+| Rank |                 Movie                  | Estimated rating |
++------+----------------------------------------+------------------+
+|  1   |           Chushingura (1962)           |  5.71903524944   |
+|  2   |        Bewegte Mann, Der (1994)        |  5.62641755362   |
+|  3   |       Man of the Century (1999)        |  5.40041306462   |
+|  4   |         For All Mankind (1989)         |  5.37963347675   |
+|  5   | Maya Lin: A Strong Clear Vision (1994) |  5.34727430165   |
+|  6   |      Anne Frank Remembered (1995)      |  5.33188382186   |
+|  7   |           Circus, The (1928)           |  5.31445271788   |
+|  8   |       Wrong Trousers, The (1993)       |   5.2919503763   |
+|  9   |        Arguing the World (1996)        |  5.26952122853   |
+|  10  |         Paths of Glory (1957)          |  5.25149282591   |
++------+----------------------------------------+------------------+
+Perturbing movie 908 ( 7 out of 7 )
+Perturbed rating: 1.0
+New ratings: {908: 1.0}
+** New Ratings List:  [(951, 963, 5.0), (951, 3255, 4.0), (951, 3499, 5.0), (951, 1385, 4.0), (951, 349, 4.0), (951, 3751, 5.0), (951, 908, 1.0)]
+Building model
+Built, predicting
+New recommendations:
++------+---------------------------------------------------+------------------+
+| Rank |                       Movie                       | Estimated rating |
++------+---------------------------------------------------+------------------+
+|  1   |     Last Time I Committed Suicide, The (1997)     |  5.20888001565   |
+|  2   |                 Chushingura (1962)                |  5.16653171595   |
+|  3   |               Talk of Angels (1998)               |  5.05000584156   |
+|  4   | Police Story 4: Project S (Chao ji ji hua) (1993) |  4.98856084258   |
+|  5   |            When Night Is Falling (1995)           |  4.94099886329   |
+|  6   |                  Star Maps (1997)                 |  4.93104862452   |
+|  7   |                Bye Bye, Love (1995)               |   4.8941597425   |
+|  8   |        Visitors, The (Les Visiteurs) (1993)       |  4.82014166668   |
+|  9   |           I'm the One That I Want (2000)          |  4.78010790815   |
+|  10  |                    Hype! (1996)                   |  4.74022863627   |
++------+---------------------------------------------------+------------------+
+Perturbing movie 908 ( 7 out of 7 )
+Perturbed rating: 2.0
+New ratings: {908: 2.0}
+** New Ratings List:  [(951, 963, 5.0), (951, 3255, 4.0), (951, 3499, 5.0), (951, 1385, 4.0), (951, 349, 4.0), (951, 3751, 5.0), (951, 908, 2.0)]
+Building model
+Built, predicting
+New recommendations:
++------+-------------------------------------------+------------------+
+| Rank |                   Movie                   | Estimated rating |
++------+-------------------------------------------+------------------+
+|  1   |             Chushingura (1962)            |  5.35117147935   |
+|  2   | Last Time I Committed Suicide, The (1997) |   5.0747540136   |
+|  3   |    Visitors, The (Les Visiteurs) (1993)   |  4.89206162857   |
+|  4   |             Toy Story 2 (1999)            |  4.85086984054   |
+|  5   |        When Night Is Falling (1995)       |  4.83996278032   |
+|  6   |               Bandits (1997)              |   4.8115810955   |
+|  7   |       I'm the One That I Want (2000)      |  4.79236146477   |
+|  8   |              Toy Story (1995)             |   4.763659775    |
+|  9   |     Evil Dead II (Dead By Dawn) (1987)    |  4.74365865384   |
+|  10  |       First Love, Last Rites (1997)       |  4.67206481381   |
++------+-------------------------------------------+------------------+
+Perturbing movie 908 ( 7 out of 7 )
+Perturbed rating: 3.0
+New ratings: {908: 3.0}
+** New Ratings List:  [(951, 963, 5.0), (951, 3255, 4.0), (951, 3499, 5.0), (951, 1385, 4.0), (951, 349, 4.0), (951, 3751, 5.0), (951, 908, 3.0)]
+Building model
+Built, predicting
+New recommendations:
++------+-------------------------------------------+------------------+
+| Rank |                   Movie                   | Estimated rating |
++------+-------------------------------------------+------------------+
+|  1   |             Chushingura (1962)            |  5.50570264955   |
+|  2   |             Toy Story 2 (1999)            |  4.97451612925   |
+|  3   | Last Time I Committed Suicide, The (1997) |  4.92681759867   |
+|  4   |    Visitors, The (Les Visiteurs) (1993)   |   4.9062252493   |
+|  5   |               Bandits (1997)              |  4.89368541767   |
+|  6   |              Toy Story (1995)             |  4.87263513037   |
+|  7   |   Maya Lin: A Strong Clear Vision (1994)  |  4.87015865898   |
+|  8   |      Leather Jacket Love Story (1997)     |  4.81778314836   |
+|  9   |     Evil Dead II (Dead By Dawn) (1987)    |   4.8156031837   |
+|  10  |        Anne Frank Remembered (1995)       |   4.7897875178   |
++------+-------------------------------------------+------------------+
+Perturbing movie 908 ( 7 out of 7 )
+Perturbed rating: 4.0
+New ratings: {908: 4.0}
+** New Ratings List:  [(951, 963, 5.0), (951, 3255, 4.0), (951, 3499, 5.0), (951, 1385, 4.0), (951, 349, 4.0), (951, 3751, 5.0), (951, 908, 4.0)]
+Building model
+Built, predicting
+New recommendations:
++------+----------------------------------------+------------------+
+| Rank |                 Movie                  | Estimated rating |
++------+----------------------------------------+------------------+
+|  1   |           Chushingura (1962)           |  5.62704028235   |
+|  2   |        Bewegte Mann, Der (1994)        |  5.12091116822   |
+|  3   | Maya Lin: A Strong Clear Vision (1994) |  5.11876549462   |
+|  4   |           Toy Story 2 (1999)           |  5.08993692711   |
+|  5   |      Anne Frank Remembered (1995)      |  5.06786667931   |
+|  6   |       Man of the Century (1999)        |  5.05768799677   |
+|  7   |        Arguing the World (1996)        |  5.00710782792   |
+|  8   |         For All Mankind (1989)         |  4.98172752546   |
+|  9   |    Leather Jacket Love Story (1997)    |  4.97964628181   |
+|  10  |       Wrong Trousers, The (1993)       |  4.97547360896   |
++------+----------------------------------------+------------------+
+Perturbing movie 908 ( 7 out of 7 )
+Perturbed rating: 5.0
+New ratings: {908: 5.0}
+** New Ratings List:  [(951, 963, 5.0), (951, 3255, 4.0), (951, 3499, 5.0), (951, 1385, 4.0), (951, 349, 4.0), (951, 3751, 5.0), (951, 908, 5.0)]
+Building model
+Built, predicting
+New recommendations:
++------+----------------------------------------+------------------+
+| Rank |                 Movie                  | Estimated rating |
++------+----------------------------------------+------------------+
+|  1   |           Chushingura (1962)           |  5.71903524944   |
+|  2   |        Bewegte Mann, Der (1994)        |  5.62641755362   |
+|  3   |       Man of the Century (1999)        |  5.40041306462   |
+|  4   |         For All Mankind (1989)         |  5.37963347675   |
+|  5   | Maya Lin: A Strong Clear Vision (1994) |  5.34727430165   |
+|  6   |      Anne Frank Remembered (1995)      |  5.33188382186   |
+|  7   |           Circus, The (1928)           |  5.31445271788   |
+|  8   |       Wrong Trousers, The (1993)       |   5.2919503763   |
+|  9   |        Arguing the World (1996)        |  5.26952122853   |
+|  10  |         Paths of Glory (1957)          |  5.25149282591   |
++------+----------------------------------------+------------------+
++------+----------------------------------------+------------------+-------------------------------+----------------+-------------------------------+----------------+-------------------------------+----------------+
+| Rank |                 Movie                  | Estimated rating |          #1 influence         |     #1 QII     |          #2 influence         |     #2 QII     |          #3 influence         |     #3 QII     |
++------+----------------------------------------+------------------+-------------------------------+----------------+-------------------------------+----------------+-------------------------------+----------------+
+|  1   |        Bewegte Mann, Der (1994)        |  5.66926612483   |   North by Northwest (1959)   | 1.10911755848  |         Misery (1990)         | 0.46476985352  | Inspector General, The (1949) | 0.356030451752 |
+|  2   |           Chushingura (1962)           |  5.35378167312   |         Misery (1990)         | 0.610352237279 |       Chicken Run (2000)      | 0.608749249607 | Inspector General, The (1949) | 0.522232815523 |
+|  3   |       Man of the Century (1999)        |  5.34099585592   |   North by Northwest (1959)   |  0.6923137992  |         Misery (1990)         | 0.45529014538  |       Chicken Run (2000)      | 0.313628276504 |
+|  4   |        Arguing the World (1996)        |  5.33087130354   | Inspector General, The (1949) | 1.12235418741  |         Misery (1990)         | 0.88111432717  |   North by Northwest (1959)   | 0.670576643288 |
+|  5   |      Anne Frank Remembered (1995)      |  5.31152549134   |         Misery (1990)         | 1.13252026494  |   North by Northwest (1959)   | 0.548345923571 |       Chicken Run (2000)      | 0.453841570582 |
+|  6   |       Wrong Trousers, The (1993)       |  5.27801129206   |   North by Northwest (1959)   | 0.680383825862 |       Chicken Run (2000)      | 0.677070444945 | Inspector General, The (1949) | 0.469512832734 |
+|  7   |         Paths of Glory (1957)          |  5.27337634866   |   North by Northwest (1959)   | 1.03263136634  |         Misery (1990)         | 0.540121222426 |       Chicken Run (2000)      | 0.439253557654 |
+|  8   | Maya Lin: A Strong Clear Vision (1994) |  5.26816479927   |         Misery (1990)         | 0.779079296157 | Inspector General, The (1949) | 0.518621365443 |       Chicken Run (2000)      | 0.459771863744 |
+|  9   |           Circus, The (1928)           |  5.26080250829   |   North by Northwest (1959)   | 1.04937466461  |       Chicken Run (2000)      | 0.653438060547 | Inspector General, The (1949) | 0.289291106755 |
+|  10  |         For All Mankind (1989)         |   5.258218862    |   North by Northwest (1959)   | 0.747339421898 |       Chicken Run (2000)      |  0.3821635826  |         Misery (1990)         | 0.314883120118 |
++------+----------------------------------------+------------------+-------------------------------+----------------+-------------------------------+----------------+-------------------------------+----------------+

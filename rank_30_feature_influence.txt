@@ -1,0 +1,454 @@
+Rank: 30, lmbda: 0.1, numIter: 20, numPartitions: 4
+qii_iters: 5, num_iters_ls: 5, movieLensHomeDir: datasets/ml-1m/
+ofname: Output.txt, checkpoint_dir: checkpoint, num_users_ls:5
+specific_user: None, max_movies_per_user: 0, prominent_raters:0
+perturb_specific_user: None, recommendations_only:False
+recommendations_and_per_movie_qii: False
+per_movie_qiis_displayed: 3
+genres_correlator: False, gui: False, years_correlator: False
+iterate_rank: False, iterate_from: 5, iterate_to: 40, iterate_step:5
+invert_labels: False, no_threshold: False
+classifier_model: logistic
+genres_regression: False
+regression_model: linear
+mean_error_experiments: False
+internal_feature_influence: True
+compute_mean_error: True
+compute_fast_influence: False
+sample_size: 100000, sample_type: random
+Loading ratings
+Done in 0.374381065369 seconds
+Loading movies
+Done in 0.641761064529 seconds
+Training model
+Done in 10.4295461178 seconds
+Computing the predictions of the original model
+Done in 0.365969181061 seconds
+Computing the mean error of the original model
+Done in 6.57385993004 seconds
+Mean error: 0.506041092009
+Perturbing feature 0 out of 30
+	Perturbing user feature
+	Done in 0.140709877014 seconds
+	Perturbing product feature
+	Done in 0.1186170578 seconds
+	Computing the predictions of the perturbed model
+	Done in 0.296671867371 seconds
+	Comparing models
+	Done in 2.86571788788 seconds
+	Average difference: 0.0503400520301
+	Computing the mean error of the original model
+	Done in 5.60479402542 seconds
+	Mean error: 0.514984864342
+Perturbing feature 1 out of 30
+	Perturbing user feature
+	Done in 0.0883131027222 seconds
+	Perturbing product feature
+	Done in 0.0882391929626 seconds
+	Computing the predictions of the perturbed model
+	Done in 0.290081977844 seconds
+	Comparing models
+	Done in 2.77116990089 seconds
+	Average difference: 0.0558458229447
+	Computing the mean error of the original model
+	Done in 6.91364812851 seconds
+	Mean error: 0.516113962883
+Perturbing feature 2 out of 30
+	Perturbing user feature
+	Done in 0.0814871788025 seconds
+	Perturbing product feature
+	Done in 0.093640089035 seconds
+	Computing the predictions of the perturbed model
+	Done in 0.233803033829 seconds
+	Comparing models
+	Done in 2.58788490295 seconds
+	Average difference: 0.365720643163
+	Computing the mean error of the original model
+	Done in 5.56344008446 seconds
+	Mean error: 0.642071498605
+Perturbing feature 3 out of 30
+	Perturbing user feature
+	Done in 0.0837531089783 seconds
+	Perturbing product feature
+	Done in 0.0834350585938 seconds
+	Computing the predictions of the perturbed model
+	Done in 0.229377985001 seconds
+	Comparing models
+	Done in 2.50769805908 seconds
+	Average difference: 0.131955196667
+	Computing the mean error of the original model
+	Done in 5.46337294579 seconds
+	Mean error: 0.532681683579
+Perturbing feature 4 out of 30
+	Perturbing user feature
+	Done in 0.081383228302 seconds
+	Perturbing product feature
+	Done in 0.0571529865265 seconds
+	Computing the predictions of the perturbed model
+	Done in 0.234116077423 seconds
+	Comparing models
+	Done in 2.45103120804 seconds
+	Average difference: 0.176454303892
+	Computing the mean error of the original model
+	Done in 5.4545249939 seconds
+	Mean error: 0.545399717177
+Perturbing feature 5 out of 30
+	Perturbing user feature
+	Done in 0.0827860832214 seconds
+	Perturbing product feature
+	Done in 0.0621831417084 seconds
+	Computing the predictions of the perturbed model
+	Done in 0.246711969376 seconds
+	Comparing models
+	Done in 2.56080794334 seconds
+	Average difference: 0.056172301616
+	Computing the mean error of the original model
+	Done in 5.99541497231 seconds
+	Mean error: 0.517193907384
+Perturbing feature 6 out of 30
+	Perturbing user feature
+	Done in 0.109633922577 seconds
+	Perturbing product feature
+	Done in 0.0690929889679 seconds
+	Computing the predictions of the perturbed model
+	Done in 0.233263015747 seconds
+	Comparing models
+	Done in 3.16536688805 seconds
+	Average difference: 0.0577321366981
+	Computing the mean error of the original model
+	Done in 7.26950001717 seconds
+	Mean error: 0.516781864085
+Perturbing feature 7 out of 30
+	Perturbing user feature
+	Done in 0.0886290073395 seconds
+	Perturbing product feature
+	Done in 0.0608401298523 seconds
+	Computing the predictions of the perturbed model
+	Done in 0.236560106277 seconds
+	Comparing models
+	Done in 2.56628513336 seconds
+	Average difference: 0.0550397648791
+	Computing the mean error of the original model
+	Done in 5.85774588585 seconds
+	Mean error: 0.515668651606
+Perturbing feature 8 out of 30
+	Perturbing user feature
+	Done in 0.0831050872803 seconds
+	Perturbing product feature
+	Done in 0.0662591457367 seconds
+	Computing the predictions of the perturbed model
+	Done in 0.258635997772 seconds
+	Comparing models
+	Done in 2.45475411415 seconds
+	Average difference: 0.0784048076289
+	Computing the mean error of the original model
+	Done in 5.68978691101 seconds
+	Mean error: 0.51955105787
+Perturbing feature 9 out of 30
+	Perturbing user feature
+	Done in 0.0912959575653 seconds
+	Perturbing product feature
+	Done in 0.0602669715881 seconds
+	Computing the predictions of the perturbed model
+	Done in 0.268913984299 seconds
+	Comparing models
+	Done in 2.59059000015 seconds
+	Average difference: 0.0666989561125
+	Computing the mean error of the original model
+	Done in 5.69903206825 seconds
+	Mean error: 0.518462399896
+Perturbing feature 10 out of 30
+	Perturbing user feature
+	Done in 0.0886991024017 seconds
+	Perturbing product feature
+	Done in 0.0617160797119 seconds
+	Computing the predictions of the perturbed model
+	Done in 0.242403030396 seconds
+	Comparing models
+	Done in 3.64554190636 seconds
+	Average difference: 0.208177112017
+	Computing the mean error of the original model
+	Done in 7.70877504349 seconds
+	Mean error: 0.56677172336
+Perturbing feature 11 out of 30
+	Perturbing user feature
+	Done in 0.0781228542328 seconds
+	Perturbing product feature
+	Done in 0.0610239505768 seconds
+	Computing the predictions of the perturbed model
+	Done in 0.255393981934 seconds
+	Comparing models
+	Done in 2.62983489037 seconds
+	Average difference: 0.0511845526893
+	Computing the mean error of the original model
+	Done in 5.60435605049 seconds
+	Mean error: 0.515649928117
+Perturbing feature 12 out of 30
+	Perturbing user feature
+	Done in 0.087806224823 seconds
+	Perturbing product feature
+	Done in 0.0562789440155 seconds
+	Computing the predictions of the perturbed model
+	Done in 0.285549879074 seconds
+	Comparing models
+	Done in 2.4816968441 seconds
+	Average difference: 0.0644863956455
+	Computing the mean error of the original model
+	Done in 5.47292208672 seconds
+	Mean error: 0.518103424094
+Perturbing feature 13 out of 30
+	Perturbing user feature
+	Done in 0.0882248878479 seconds
+	Perturbing product feature
+	Done in 0.0583100318909 seconds
+	Computing the predictions of the perturbed model
+	Done in 0.200319051743 seconds
+	Comparing models
+	Done in 2.52536487579 seconds
+	Average difference: 0.0549670555787
+	Computing the mean error of the original model
+	Done in 5.52196502686 seconds
+	Mean error: 0.517068607873
+Perturbing feature 14 out of 30
+	Perturbing user feature
+	Done in 0.102341890335 seconds
+	Perturbing product feature
+	Done in 0.0593078136444 seconds
+	Computing the predictions of the perturbed model
+	Done in 0.288733959198 seconds
+	Comparing models
+	Done in 2.6430850029 seconds
+	Average difference: 0.181810589511
+	Computing the mean error of the original model
+	Done in 5.82391500473 seconds
+	Mean error: 0.554108014938
+Perturbing feature 15 out of 30
+	Perturbing user feature
+	Done in 0.128805160522 seconds
+	Perturbing product feature
+	Done in 0.11518907547 seconds
+	Computing the predictions of the perturbed model
+	Done in 0.361495018005 seconds
+	Comparing models
+	Done in 4.36443781853 seconds
+	Average difference: 0.210061831638
+	Computing the mean error of the original model
+	Done in 8.66927695274 seconds
+	Mean error: 0.568161099471
+Perturbing feature 16 out of 30
+	Perturbing user feature
+	Done in 0.129814863205 seconds
+	Perturbing product feature
+	Done in 0.0890870094299 seconds
+	Computing the predictions of the perturbed model
+	Done in 0.349717140198 seconds
+	Comparing models
+	Done in 3.09221696854 seconds
+	Average difference: 0.122838787806
+	Computing the mean error of the original model
+	Done in 5.9453318119 seconds
+	Mean error: 0.531402651262
+Perturbing feature 17 out of 30
+	Perturbing user feature
+	Done in 0.0956208705902 seconds
+	Perturbing product feature
+	Done in 0.060830116272 seconds
+	Computing the predictions of the perturbed model
+	Done in 0.275155067444 seconds
+	Comparing models
+	Done in 2.52812099457 seconds
+	Average difference: 0.0498216686363
+	Computing the mean error of the original model
+	Done in 5.69709801674 seconds
+	Mean error: 0.514922986942
+Perturbing feature 18 out of 30
+	Perturbing user feature
+	Done in 0.0878279209137 seconds
+	Perturbing product feature
+	Done in 0.0695178508759 seconds
+	Computing the predictions of the perturbed model
+	Done in 0.263931035995 seconds
+	Comparing models
+	Done in 2.46840882301 seconds
+	Average difference: 0.102317298414
+	Computing the mean error of the original model
+	Done in 5.57012987137 seconds
+	Mean error: 0.530043005409
+Perturbing feature 19 out of 30
+	Perturbing user feature
+	Done in 0.0801038742065 seconds
+	Perturbing product feature
+	Done in 0.0637600421906 seconds
+	Computing the predictions of the perturbed model
+	Done in 0.226613998413 seconds
+	Comparing models
+	Done in 2.51750206947 seconds
+	Average difference: 0.0561172201181
+	Computing the mean error of the original model
+	Done in 7.32363605499 seconds
+	Mean error: 0.517309547415
+Perturbing feature 20 out of 30
+	Perturbing user feature
+	Done in 0.0814809799194 seconds
+	Perturbing product feature
+	Done in 0.0655438899994 seconds
+	Computing the predictions of the perturbed model
+	Done in 0.274865150452 seconds
+	Comparing models
+	Done in 2.66581296921 seconds
+	Average difference: 0.175510057056
+	Computing the mean error of the original model
+	Done in 5.93020701408 seconds
+	Mean error: 0.55647783602
+Perturbing feature 21 out of 30
+	Perturbing user feature
+	Done in 0.0897538661957 seconds
+	Perturbing product feature
+	Done in 0.0670130252838 seconds
+	Computing the predictions of the perturbed model
+	Done in 0.250571012497 seconds
+	Comparing models
+	Done in 2.61302304268 seconds
+	Average difference: 0.0748993605576
+	Computing the mean error of the original model
+	Done in 6.0534620285 seconds
+	Mean error: 0.522052246713
+Perturbing feature 22 out of 30
+	Perturbing user feature
+	Done in 0.0776929855347 seconds
+	Perturbing product feature
+	Done in 0.0621399879456 seconds
+	Computing the predictions of the perturbed model
+	Done in 0.220514059067 seconds
+	Comparing models
+	Done in 2.60007214546 seconds
+	Average difference: 0.121097493651
+	Computing the mean error of the original model
+	Done in 5.87708997726 seconds
+	Mean error: 0.531352654915
+Perturbing feature 23 out of 30
+	Perturbing user feature
+	Done in 0.0731029510498 seconds
+	Perturbing product feature
+	Done in 0.061341047287 seconds
+	Computing the predictions of the perturbed model
+	Done in 0.271206855774 seconds
+	Comparing models
+	Done in 2.63646912575 seconds
+	Average difference: 0.230607219594
+	Computing the mean error of the original model
+	Done in 6.12449002266 seconds
+	Mean error: 0.572067297035
+Perturbing feature 24 out of 30
+	Perturbing user feature
+	Done in 0.151173114777 seconds
+	Perturbing product feature
+	Done in 0.0856420993805 seconds
+	Computing the predictions of the perturbed model
+	Done in 0.265599966049 seconds
+	Comparing models
+	Done in 2.594851017 seconds
+	Average difference: 0.109655707885
+	Computing the mean error of the original model
+	Done in 5.98447489738 seconds
+	Mean error: 0.526627868582
+Perturbing feature 25 out of 30
+	Perturbing user feature
+	Done in 0.124547958374 seconds
+	Perturbing product feature
+	Done in 0.103864908218 seconds
+	Computing the predictions of the perturbed model
+	Done in 0.384251832962 seconds
+	Comparing models
+	Done in 3.89673399925 seconds
+	Average difference: 0.0827529139674
+	Computing the mean error of the original model
+	Done in 6.03527402878 seconds
+	Mean error: 0.52524675924
+Perturbing feature 26 out of 30
+	Perturbing user feature
+	Done in 0.0773589611053 seconds
+	Perturbing product feature
+	Done in 0.0571911334991 seconds
+	Computing the predictions of the perturbed model
+	Done in 0.260298013687 seconds
+	Comparing models
+	Done in 2.80388879776 seconds
+	Average difference: 0.102854183076
+	Computing the mean error of the original model
+	Done in 5.86687898636 seconds
+	Mean error: 0.528806111911
+Perturbing feature 27 out of 30
+	Perturbing user feature
+	Done in 0.0756709575653 seconds
+	Perturbing product feature
+	Done in 0.0595619678497 seconds
+	Computing the predictions of the perturbed model
+	Done in 0.278635025024 seconds
+	Comparing models
+	Done in 2.42027592659 seconds
+	Average difference: 0.179806080849
+	Computing the mean error of the original model
+	Done in 5.91621398926 seconds
+	Mean error: 0.552443950997
+Perturbing feature 28 out of 30
+	Perturbing user feature
+	Done in 0.130717039108 seconds
+	Perturbing product feature
+	Done in 0.114742040634 seconds
+	Computing the predictions of the perturbed model
+	Done in 0.452753067017 seconds
+	Comparing models
+	Done in 3.81600594521 seconds
+	Average difference: 0.0521691709684
+	Computing the mean error of the original model
+	Done in 5.95293402672 seconds
+	Mean error: 0.515463310848
+Perturbing feature 29 out of 30
+	Perturbing user feature
+	Done in 0.0762588977814 seconds
+	Perturbing product feature
+	Done in 0.0592482089996 seconds
+	Computing the predictions of the perturbed model
+	Done in 0.240198135376 seconds
+	Comparing models
+	Done in 2.44761705399 seconds
+	Average difference: 0.0873799250982
+	Computing the mean error of the original model
+	Done in 5.54157590866 seconds
+	Mean error: 0.523024475754
+Mean error of the original model: 0.506041092009
++---------+------------------+----------------------+------------------+
+| Feature | Global influence | Perturbed mean error | delta mean error |
++---------+------------------+----------------------+------------------+
+|    2    |  0.365720643163  |    0.642071498605    |  0.136030406596  |
+|    23   |  0.230607219594  |    0.572067297035    | 0.0660262050258  |
+|    15   |  0.210061831638  |    0.568161099471    | 0.0621200074616  |
+|    10   |  0.208177112017  |    0.56677172336     | 0.0607306313501  |
+|    14   |  0.181810589511  |    0.554108014938    | 0.0480669229289  |
+|    27   |  0.179806080849  |    0.552443950997    | 0.0464028589872  |
+|    4    |  0.176454303892  |    0.545399717177    | 0.0393586251675  |
+|    20   |  0.175510057056  |    0.55647783602     | 0.0504367440104  |
+|    3    |  0.131955196667  |    0.532681683579    | 0.0266405915691  |
+|    16   |  0.122838787806  |    0.531402651262    | 0.0253615592527  |
+|    22   |  0.121097493651  |    0.531352654915    | 0.0253115629057  |
+|    24   |  0.109655707885  |    0.526627868582    | 0.0205867765721  |
+|    26   |  0.102854183076  |    0.528806111911    | 0.0227650199018  |
+|    18   |  0.102317298414  |    0.530043005409    | 0.0240019133994  |
+|    29   | 0.0873799250982  |    0.523024475754    |  0.016983383745  |
+|    25   | 0.0827529139674  |    0.52524675924     | 0.0192056672305  |
+|    8    | 0.0784048076289  |    0.51955105787     |  0.013509965861  |
+|    21   | 0.0748993605576  |    0.522052246713    | 0.0160111547039  |
+|    9    | 0.0666989561125  |    0.518462399896    | 0.0124213078868  |
+|    12   | 0.0644863956455  |    0.518103424094    | 0.0120623320845  |
+|    6    | 0.0577321366981  |    0.516781864085    | 0.0107407720754  |
+|    5    |  0.056172301616  |    0.517193907384    | 0.0111528153744  |
+|    19   | 0.0561172201181  |    0.517309547415    | 0.0112684554053  |
+|    1    | 0.0558458229447  |    0.516113962883    | 0.0100728708739  |
+|    7    | 0.0550397648791  |    0.515668651606    | 0.00962755959705 |
+|    13   | 0.0549670555787  |    0.517068607873    | 0.0110275158639  |
+|    28   | 0.0521691709684  |    0.515463310848    | 0.00942221883865 |
+|    11   | 0.0511845526893  |    0.515649928117    | 0.00960883610784 |
+|    0    | 0.0503400520301  |    0.514984864342    | 0.00894377233261 |
+|    17   | 0.0498216686363  |    0.514922986942    | 0.00888189493249 |
++---------+------------------+----------------------+------------------+

@@ -14,6 +14,9 @@ import math
 from prettytable import PrettyTable
 import numpy
 import itertools
+import StringIO
+import csv
+import traceback
 
 from pyspark import SparkConf, SparkContext
 from pyspark.mllib.recommendation import ALS
@@ -63,38 +66,54 @@ def parseRating(line, sep="::"):
     """
     Parses a rating record in MovieLens format userId::movieId::rating::timestamp .
     """
-    fields = line.strip().split(sep)
+    s = StringIO.StringIO(line)
+    r = csv.reader(s, delimiter=sep, quotechar='"')
+    fields = r.next()
     return long(fields[3]) % 10, (int(fields[0]), int(fields[1]), float(fields[2]))
 
-def parseGenre(line):
+def parseGenre(line, sep="::"):
     """
     Parses movie genres in MovieLens format
     movieId::movieTitle::movieGenre1[|movieGenre2...]
     """
-    fields = line.strip().split("::")
+    s = StringIO.StringIO(line)
+    r = csv.reader(s, delimiter=sep, quotechar='"')
+    fields = r.next()
     mid = int(fields[0])
     genres = fields[2]
     genres = genres.split("|")
     return mid, set(genres)
 
-def parseYear(line):
+def parseYear(line, sep="::"):
     """
     Parses movie years in MovieLens format
     movieId::movieTitle (movieYear)::movieGenre1[|movieGenre2...]
     """
-    fields = line.strip().split("::")
+    s = StringIO.StringIO(line)
+    r = csv.reader(s, delimiter=sep, quotechar='"')
+    fields = r.next()
     mid = int(fields[0])
     mtitle = fields[1]
-    year = mtitle.split("(")[-1]
-    year = year.strip(")")
-    year = int(year)
-    return mid, year
+    try:
+        year = mtitle.split("(")[-1]
+        year = year.split(")")[0]
+        year = int(year)
+        return mid, year
+    except Exception as e: #Dirty hack, but this isn't even supposed to happen!
+        print e
+        traceback.print_exc()
+        print "mid:", mid
+        print "Setting the year to 2000, and continuing"
+        return mid, 2000
+
 
 def parseMovie(line, sep="::"):
     """
     Parses a movie record in MovieLens format movieId::movieTitle .
     """
-    fields = line.strip().split(sep)
+    s = StringIO.StringIO(line)
+    r = csv.reader(s, delimiter=sep, quotechar='"')
+    fields = r.next()
     return int(fields[0]), fields[1]
 
 def parseUser(line):
@@ -141,7 +160,9 @@ def parseUser(line):
         * 19:  "unemployed"
         * 20:  "writer"
     """
-    fields = line.strip().split("::")
+    s = StringIO.StringIO(line)
+    r = csv.reader(s, delimiter=sep, quotechar='"')
+    fields = r.next()
     fields[1] = 0 if fields[1] == "M" else 1
     fields[4] = fields[4].split("-")[0]
     fields = map(int, fields)
@@ -1378,9 +1399,14 @@ if __name__ == "__main__":
     elif regression_tags:
         print "Loading movie tags"
         start = time.time()
-        tags = loadCSV(join(movieLensHomeDir, "tags.csv"))
+        mv_file = sc.parallelize(loadCSV(join(movieLensHomeDir, "movies.csv")))
+        years = mv_file.map(lambda x: parseYear(x, sep=","))
+        genres = mv_file.map(lambda x: parseGenre(x, sep=","))
+        with open(join(movieLensHomeDir, "tags.csv"), "r") as f:
+            r = csv.reader(f, delimiter=",", quotechar='"')
+            r.next()
+            tags = [x for x in r]
         tags = sc.parallelize(tags)\
-            .map(lambda x: x.split(","))\
             .map(lambda x: (int(x[0]), int(x[1]), x[2]))
         all_tags = set(tags.map(lambda x: x[2]).collect())
         all_tags = sorted(list(all_tags))
@@ -1394,22 +1420,38 @@ if __name__ == "__main__":
                         mid, map(lambda t: int(t in cur_tags), all_tags)
                          )
                     )
+        all_genres = sorted(list(genres.map(lambda (_, x): x).fold(set(), lambda x, y:
+            set(x).union(set(y)))))
+        indicators_genres = genres.map(
+                lambda (mid, cur_genres): (
+                    mid, map(lambda g: int(g in cur_genres), all_genres)
+                    )
+                )
+        indicators = indicators\
+                .join(indicators_genres)\
+                .map(lambda (mid, (foo, bar)): (mid, foo+bar))\
+                .join(years)\
+                .map(lambda (mid, (foo, year)): (mid, foo+[year]))
         print "Done in {} seconds".format(time.time() - start)
-        print indicators.take(5)
-        sys.exit(1)
         print "Training model"
         start = time.time()
         model = ALS.train(training, rank, numIter, lmbda)
         print "Done in {} seconds".format(time.time() - start)
         print "Preparing features"
         start = time.time()
-        features = model.userFeatures()
+        features = model.productFeatures()
+        print "Done in {} seconds".format(time.time() - start)
         results = {}
         for f in xrange(rank):
-            data = features.join(userdata).map(
-                lambda (uid, (ftrs, ufs)):
-                        LabeledPoint(ftrs[f], list(ufs)))
+            print "Processing feature", f
+            print "Building data set"
+            start = time.time()
+            data = features.join(indicators).map(
+                lambda (mid, (ftrs, inds)):
+                        LabeledPoint(ftrs[f], inds))
             print "Done in {} seconds".format(time.time() - start)
+            print "Training the model"
+            start = time.time()
             if regression_model == "regression_tree":
                 lr_model = pyspark.\
                         mllib.\
@@ -1466,7 +1508,11 @@ if __name__ == "__main__":
     elif genres_correlator:
         print "Loading genres"
         start = time.time()
-        genres = sc.textFile(join(movieLensHomeDir, "movies.dat")).map(parseGenre)
+        if "ml-20m" in movieLensHomeDir:
+            mv_file = sc.parallelize(loadCSV(join(movieLensHomeDir, "movies.csv")))
+            genres = mv_file.map(lambda x: parseGenre(x, sep=","))
+        else:
+            genres = sc.textFile(join(movieLensHomeDir, "movies.dat")).map(parseGenre)
         print "Done in {} seconds".format(time.time() - start)
 
         if iterate_rank:
@@ -1607,7 +1653,11 @@ if __name__ == "__main__":
     elif genres_regression:
         print "Loading genres"
         start = time.time()
-        genres = sc.textFile(join(movieLensHomeDir, "movies.dat")).map(parseGenre)
+        if "ml-20m" in movieLensHomeDir:
+            mv_file = sc.parallelize(loadCSV(join(movieLensHomeDir, "movies.csv")))
+            genres = mv_file.map(lambda x: parseGenre(x, sep=","))
+        else:
+            genres = sc.textFile(join(movieLensHomeDir, "movies.dat")).map(parseGenre)
         print "Done in {} seconds".format(time.time() - start)
         if iterate_rank:
             pass #TODO

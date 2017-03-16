@@ -1,0 +1,121 @@
+Rank: 30, lmbda: 0.1, numIter: 20, numPartitions: 4
+qii_iters: 5, num_iters_ls: 5, movieLensHomeDir: datasets/ml-1m/
+ofname: Output.txt, checkpoint_dir: checkpoint, num_users_ls:5
+specific_user: None, max_movies_per_user: 0, prominent_raters:0
+perturb_specific_user: None, recommendations_only:False
+recommendations_and_per_movie_qii: False
+per_movie_qiis_displayed: 3
+genres_correlator: False, gui: False, years_correlator: True
+iterate_rank: False, iterate_from: 5, iterate_to: 40, iterate_step:5
+invert_labels: False, no_threshold: False
+classifier_model: logistic
+genres_regression: False
+regression_model: regression_tree
+Loading ratings
+Done in 0.444493055344 seconds
+Loading movies
+Done in 0.682513952255 seconds
+Loading years
+Done in 0.0242011547089 seconds
+Training model
+Done in 18.9181249142 seconds
+Preparing features
+Done in 0.0544250011444 seconds
+Done in 1.86591696739 seconds
+RMSE: 130.098919867, variance explained: 12.0826759476, mean absolute error: 8.20900997158
+DecisionTreeModel regressor of depth 5 with 63 nodes
+  If (feature 25 <= -0.43611499667167664)
+   If (feature 9 <= -0.04815948009490967)
+    If (feature 22 <= -0.43242138624191284)
+     If (feature 17 <= -0.048194605857133865)
+      If (feature 10 <= 0.26947078108787537)
+       Predict: 1990.2857142857142
+      Else (feature 10 > 0.26947078108787537)
+       Predict: 1944.0
+     Else (feature 17 > -0.048194605857133865)
+      If (feature 10 <= 0.09702467918395996)
+       Predict: 1975.95
+      Else (feature 10 > 0.09702467918395996)
+       Predict: 1952.1
+    Else (feature 22 > -0.43242138624191284)
+     If (feature 1 <= 0.11451652646064758)
+      If (feature 9 <= -0.10788579285144806)
+       Predict: 1991.3886010362694
+      Else (feature 9 > -0.10788579285144806)
+       Predict: 1983.8235294117646
+     Else (feature 1 > 0.11451652646064758)
+      If (feature 3 <= -0.014507362619042397)
+       Predict: 1991.7777777777778
+      Else (feature 3 > -0.014507362619042397)
+       Predict: 1957.2222222222222
+   Else (feature 9 > -0.04815948009490967)
+    If (feature 22 <= -0.2714930474758148)
+     If (feature 19 <= -0.4459058940410614)
+      If (feature 1 <= -0.3712679147720337)
+       Predict: 1965.6145833333333
+      Else (feature 1 > -0.3712679147720337)
+       Predict: 1950.9054054054054
+     Else (feature 19 > -0.4459058940410614)
+      If (feature 2 <= -0.21063189208507538)
+       Predict: 1978.5094339622642
+      Else (feature 2 > -0.21063189208507538)
+       Predict: 1962.925
+    Else (feature 22 > -0.2714930474758148)
+     If (feature 12 <= 0.244781956076622)
+      If (feature 19 <= -0.25556614995002747)
+       Predict: 1971.7043478260869
+      Else (feature 19 > -0.25556614995002747)
+       Predict: 1983.9041095890411
+     Else (feature 12 > 0.244781956076622)
+      If (feature 27 <= 1.055984616279602)
+       Predict: 1992.408163265306
+      Else (feature 27 > 1.055984616279602)
+       Predict: 1951.5
+  Else (feature 25 > -0.43611499667167664)
+   If (feature 22 <= -0.2714930474758148)
+    If (feature 9 <= -0.04815948009490967)
+     If (feature 29 <= -0.09126017987728119)
+      If (feature 2 <= -0.3629907965660095)
+       Predict: 1985.7272727272727
+      Else (feature 2 > -0.3629907965660095)
+       Predict: 1923.0
+     Else (feature 29 > -0.09126017987728119)
+      If (feature 2 <= -0.03549861162900925)
+       Predict: 1991.4591836734694
+      Else (feature 2 > -0.03549861162900925)
+       Predict: 1978.1
+    Else (feature 9 > -0.04815948009490967)
+     If (feature 26 <= 0.5043932199478149)
+      If (feature 25 <= -0.26086944341659546)
+       Predict: 1979.301886792453
+      Else (feature 25 > -0.26086944341659546)
+       Predict: 1991.4179104477612
+     Else (feature 26 > 0.5043932199478149)
+      If (feature 1 <= -0.20294281840324402)
+       Predict: 1976.2314814814815
+      Else (feature 1 > -0.20294281840324402)
+       Predict: 1958.7291666666667
+   Else (feature 22 > -0.2714930474758148)
+    If (feature 29 <= 0.24472014605998993)
+     If (feature 5 <= 0.39166396856307983)
+      If (feature 23 <= -0.20253536105155945)
+       Predict: 1952.0
+      Else (feature 23 > -0.20253536105155945)
+       Predict: 1990.941792782305
+     Else (feature 5 > 0.39166396856307983)
+      If (feature 9 <= 0.1267724186182022)
+       Predict: 1988.1172839506173
+      Else (feature 9 > 0.1267724186182022)
+       Predict: 1971.3
+    Else (feature 29 > 0.24472014605998993)
+     If (feature 18 <= -0.38480302691459656)
+      If (feature 1 <= 0.19746004045009613)
+       Predict: 1995.5798525798525
+      Else (feature 1 > 0.19746004045009613)
+       Predict: 1974.8
+     Else (feature 18 > -0.38480302691459656)
+      If (feature 12 <= 0.07011256366968155)
+       Predict: 1989.580357142857
+      Else (feature 12 > 0.07011256366968155)
+       Predict: 1993.9101654846336
+
