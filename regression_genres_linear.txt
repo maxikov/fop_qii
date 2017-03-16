@@ -1,0 +1,327 @@
+Rank: 30, lmbda: 0.1, numIter: 20, numPartitions: 4
+qii_iters: 5, num_iters_ls: 5, movieLensHomeDir: datasets/ml-20m/
+ofname: Output.txt, checkpoint_dir: checkpoint, num_users_ls:5
+specific_user: None, max_movies_per_user: 0, prominent_raters:0
+perturb_specific_user: None, recommendations_only:False
+recommendations_and_per_movie_qii: False
+per_movie_qiis_displayed: 3
+genres_correlator: False, gui: False, years_correlator: False
+iterate_rank: False, iterate_from: 5, iterate_to: 40, iterate_step:5
+invert_labels: False, no_threshold: False
+classifier_model: logistic
+genres_regression: True
+regression_model: linear
+mean_error_experiments: False
+internal_feature_influence: False
+compute_mean_error: False
+compute_fast_influence: False
+sample_size: 10000, sample_type: training
+nbins: 32, regression_years: False
+regression_users: False
+regression_tags: False
+Loading ratings
+Done in 6.57706689835 seconds
+Loading movies
+Done in 0.699771881104 seconds
+Loading genres
+Done in 0.0127618312836 seconds
+Building indicator vectors
+Done in 0.238013982773 seconds
+Training model
+Done in 124.803755045 seconds
+Training models
+Processing feature 0 out of 30
+	Building training set...
+	Done
+	Building regression model
+/opt/spark-2.0.1/python/lib/pyspark.zip/pyspark/mllib/regression.py:281: UserWarning: Deprecated in 2.0.0. Use ml.regression.LinearRegression.
+	Done
+	Building predictions
+	Done
+	Evaluating the model
+	Mean relative absolute error: 3.68183766221
+Processing feature 1 out of 30
+	Building training set...
+	Done
+	Building regression model
+	Done
+	Building predictions
+	Done
+	Evaluating the model
+	Mean relative absolute error: 2.79131227271
+Processing feature 2 out of 30
+	Building training set...
+	Done
+	Building regression model
+	Done
+	Building predictions
+	Done
+	Evaluating the model
+	Mean relative absolute error: 2.74156510858
+Processing feature 3 out of 30
+	Building training set...
+	Done
+	Building regression model
+	Done
+	Building predictions
+	Done
+	Evaluating the model
+	Mean relative absolute error: 3.65088731996
+Processing feature 4 out of 30
+	Building training set...
+	Done
+	Building regression model
+	Done
+	Building predictions
+	Done
+	Evaluating the model
+	Mean relative absolute error: 0.735362238936
+Processing feature 5 out of 30
+	Building training set...
+	Done
+	Building regression model
+	Done
+	Building predictions
+	Done
+	Evaluating the model
+	Mean relative absolute error: 2.27100265064
+Processing feature 6 out of 30
+	Building training set...
+	Done
+	Building regression model
+	Done
+	Building predictions
+	Done
+	Evaluating the model
+	Mean relative absolute error: 4.38717498284
+Processing feature 7 out of 30
+	Building training set...
+	Done
+	Building regression model
+	Done
+	Building predictions
+	Done
+	Evaluating the model
+	Mean relative absolute error: 3.36064535869
+Processing feature 8 out of 30
+	Building training set...
+	Done
+	Building regression model
+	Done
+	Building predictions
+	Done
+	Evaluating the model
+	Mean relative absolute error: 90.0119357638
+Processing feature 9 out of 30
+	Building training set...
+	Done
+	Building regression model
+	Done
+	Building predictions
+	Done
+	Evaluating the model
+	Mean relative absolute error: 1.06948733897
+Processing feature 10 out of 30
+	Building training set...
+	Done
+	Building regression model
+	Done
+	Building predictions
+	Done
+	Evaluating the model
+	Mean relative absolute error: 6.66924161013
+Processing feature 11 out of 30
+	Building training set...
+	Done
+	Building regression model
+	Done
+	Building predictions
+	Done
+	Evaluating the model
+	Mean relative absolute error: 1.17500962485
+Processing feature 12 out of 30
+	Building training set...
+	Done
+	Building regression model
+	Done
+	Building predictions
+	Done
+	Evaluating the model
+	Mean relative absolute error: 1.41746555813
+Processing feature 13 out of 30
+	Building training set...
+	Done
+	Building regression model
+	Done
+	Building predictions
+	Done
+	Evaluating the model
+	Mean relative absolute error: 2.28354204768
+Processing feature 14 out of 30
+	Building training set...
+	Done
+	Building regression model
+	Done
+	Building predictions
+	Done
+	Evaluating the model
+	Mean relative absolute error: 5.13862796416
+Processing feature 15 out of 30
+	Building training set...
+	Done
+	Building regression model
+	Done
+	Building predictions
+	Done
+	Evaluating the model
+	Mean relative absolute error: 5.80088851542
+Processing feature 16 out of 30
+	Building training set...
+	Done
+	Building regression model
+	Done
+	Building predictions
+	Done
+	Evaluating the model
+	Mean relative absolute error: 2.2010978699
+Processing feature 17 out of 30
+	Building training set...
+	Done
+	Building regression model
+	Done
+	Building predictions
+	Done
+	Evaluating the model
+	Mean relative absolute error: 1.73760724126
+Processing feature 18 out of 30
+	Building training set...
+	Done
+	Building regression model
+	Done
+	Building predictions
+	Done
+	Evaluating the model
+	Mean relative absolute error: 2.62587419554
+Processing feature 19 out of 30
+	Building training set...
+	Done
+	Building regression model
+	Done
+	Building predictions
+	Done
+	Evaluating the model
+	Mean relative absolute error: 1.28762127713
+Processing feature 20 out of 30
+	Building training set...
+	Done
+	Building regression model
+	Done
+	Building predictions
+	Done
+	Evaluating the model
+	Mean relative absolute error: 2.49847690032
+Processing feature 21 out of 30
+	Building training set...
+	Done
+	Building regression model
+	Done
+	Building predictions
+	Done
+	Evaluating the model
+	Mean relative absolute error: 5.27799618695
+Processing feature 22 out of 30
+	Building training set...
+	Done
+	Building regression model
+	Done
+	Building predictions
+	Done
+	Evaluating the model
+	Mean relative absolute error: 1.99589268057
+Processing feature 23 out of 30
+	Building training set...
+	Done
+	Building regression model
+	Done
+	Building predictions
+	Done
+	Evaluating the model
+	Mean relative absolute error: 3.98926734419
+Processing feature 24 out of 30
+	Building training set...
+	Done
+	Building regression model
+	Done
+	Building predictions
+	Done
+	Evaluating the model
+	Mean relative absolute error: 1.31919148667
+Processing feature 25 out of 30
+	Building training set...
+	Done
+	Building regression model
+	Done
+	Building predictions
+	Done
+	Evaluating the model
+	Mean relative absolute error: 2.66376564064
+Processing feature 26 out of 30
+	Building training set...
+	Done
+	Building regression model
+	Done
+	Building predictions
+	Done
+	Evaluating the model
+	Mean relative absolute error: 3.625830945
+Processing feature 27 out of 30
+	Building training set...
+	Done
+	Building regression model
+	Done
+	Building predictions
+	Done
+	Evaluating the model
+	Mean relative absolute error: 3.86015632544
+Processing feature 28 out of 30
+	Building training set...
+	Done
+	Building regression model
+	Done
+	Building predictions
+	Done
+	Evaluating the model
+	Mean relative absolute error: 3.62398037144
+Processing feature 29 out of 30
+	Building training set...
+	Done
+	Building regression model
+	Done
+	Building predictions
+	Done
+	Evaluating the model
+	Mean relative absolute error: 5.31053200364
++--------------------+-------------------+-------------------+--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+-------------------+--------------------+--------------------+--------------------+--------------------+-------------------+-------------------+-------------------+--------------------+--------------------+-------------------+-------------------+--------------------+--------------------+-------------------+--------------------+--------------------+--------------------+--------------------+--------------------+-------------------+
+|       Genre        | F #4 (MRAE   73%) | F #9 (MRAE  106%) | F #11 (MRAE  117%) | F #19 (MRAE  128%) | F #24 (MRAE  131%) | F #12 (MRAE  141%) | F #17 (MRAE  173%) | F #22 (MRAE  199%) | F #16 (MRAE  220%) | F #5 (MRAE  227%) | F #13 (MRAE  228%) | F #20 (MRAE  249%) | F #18 (MRAE  262%) | F #25 (MRAE  266%) | F #2 (MRAE  274%) | F #1 (MRAE  279%) | F #7 (MRAE  336%) | F #28 (MRAE  362%) | F #26 (MRAE  362%) | F #3 (MRAE  365%) | F #0 (MRAE  368%) | F #27 (MRAE  386%) | F #23 (MRAE  398%) | F #6 (MRAE  438%) | F #14 (MRAE  513%) | F #21 (MRAE  527%) | F #29 (MRAE  531%) | F #15 (MRAE  580%) | F #10 (MRAE  666%) | F #8 (MRAE 9001%) |
++--------------------+-------------------+-------------------+--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+-------------------+--------------------+--------------------+--------------------+--------------------+-------------------+-------------------+-------------------+--------------------+--------------------+-------------------+-------------------+--------------------+--------------------+-------------------+--------------------+--------------------+--------------------+--------------------+--------------------+-------------------+
+| (no genres listed) |        0.04       |       -0.03       |       -0.03        |       -0.01        |       -0.03        |        0.00        |       -0.03        |        0.02        |       -0.00        |        0.02       |        0.00        |        0.00        |        0.00        |       -0.01        |        0.00       |       -0.00       |        0.00       |       -0.00        |        0.00        |       -0.00       |        0.00       |        0.00        |       -0.00        |        0.00       |        0.01        |       -0.00        |        0.00        |        0.00        |        0.00        |       -0.01       |
+|       Action       |        0.15       |       -0.11       |       -0.09        |       -0.12        |       -0.12        |       -0.03        |       -0.16        |        0.06        |        0.00        |        0.04       |       -0.06        |        0.01        |       -0.07        |       -0.15        |        0.03       |        0.00       |        0.05       |       -0.03        |        0.04        |       -0.04       |        0.04       |        0.00        |       -0.00        |        0.05       |        0.03        |       -0.09        |       -0.05        |       -0.05        |       -0.02        |       -0.10       |
+|     Adventure      |        0.17       |       -0.14       |       -0.10        |       -0.12        |       -0.09        |       -0.02        |       -0.12        |        0.09        |        0.00        |        0.07       |       -0.02        |        0.01        |       -0.02        |       -0.14        |        0.01       |       -0.01       |        0.06       |       -0.03        |        0.01        |       -0.03       |        0.03       |        0.02        |       -0.01        |        0.03       |        0.03        |       -0.06        |       -0.03        |       -0.01        |       -0.01        |       -0.06       |
+|     Animation      |        0.16       |       -0.14       |       -0.09        |       -0.07        |       -0.09        |        0.00        |       -0.14        |        0.05        |       -0.01        |        0.08       |       -0.00        |        0.03        |        0.01        |       -0.10        |        0.01       |       -0.01       |        0.04       |       -0.01        |        0.00        |       -0.00       |        0.02       |        0.01        |       -0.02        |        0.01       |        0.03        |       -0.02        |       -0.01        |       -0.01        |        0.02        |       -0.04       |
+|      Children      |        0.12       |       -0.08       |       -0.08        |       -0.11        |       -0.01        |       -0.02        |       -0.07        |        0.10        |        0.01        |        0.04       |       -0.02        |        0.02        |       -0.01        |       -0.13        |       -0.02       |       -0.01       |        0.05       |       -0.01        |       -0.02        |       -0.02       |        0.01       |        0.01        |       -0.01        |        0.01       |        0.01        |       -0.01        |       -0.01        |       -0.01        |       -0.03        |       -0.03       |
+|       Comedy       |        0.41       |       -0.30       |       -0.27        |       -0.21        |       -0.26        |        0.00        |       -0.25        |        0.21        |        0.00        |        0.14       |       -0.05        |        0.01        |       -0.02        |       -0.29        |        0.01       |       -0.04       |        0.06       |       -0.07        |       -0.05        |       -0.05       |        0.02       |        0.05        |       -0.04        |        0.07       |        0.15        |       -0.11        |        0.00        |       -0.09        |        0.03        |       -0.17       |
+|       Crime        |        0.13       |       -0.09       |       -0.09        |       -0.05        |       -0.11        |       -0.01        |       -0.11        |        0.05        |       -0.01        |        0.05       |       -0.00        |        0.00        |       -0.01        |       -0.06        |        0.03       |       -0.01       |        0.00       |       -0.03        |        0.01        |       -0.02       |        0.01       |        0.00        |       -0.01        |        0.03       |        0.04        |       -0.04        |       -0.00        |       -0.02        |        0.02        |       -0.05       |
+|    Documentary     |        0.61       |       -0.46       |       -0.41        |       -0.22        |       -0.40        |        0.02        |       -0.35        |        0.25        |       -0.02        |        0.25       |        0.04        |        0.02        |        0.03        |       -0.21        |        0.04       |       -0.05       |        0.03       |       -0.08        |       -0.01        |       -0.04       |        0.03       |        0.05        |       -0.06        |        0.06       |        0.17        |       -0.08        |        0.04        |       -0.00        |        0.09        |       -0.17       |
+|       Drama        |        0.55       |       -0.46       |       -0.39        |       -0.24        |       -0.40        |        0.02        |       -0.29        |        0.28        |       -0.04        |        0.26       |        0.07        |       -0.00        |        0.02        |       -0.23        |        0.05       |       -0.07       |        0.03       |       -0.12        |       -0.02        |       -0.06       |        0.04       |        0.06        |       -0.10        |        0.07       |        0.16        |       -0.09        |        0.08        |        0.03        |        0.10        |       -0.19       |
+|      Fantasy       |        0.11       |       -0.11       |       -0.05        |       -0.06        |       -0.08        |        0.01        |       -0.08        |        0.05        |        0.00        |        0.07       |       -0.01        |        0.02        |       -0.01        |       -0.11        |       -0.00       |       -0.01       |        0.02       |       -0.01        |        0.00        |        0.00       |        0.02       |        0.01        |       -0.02        |        0.02       |        0.02        |       -0.03        |       -0.01        |       -0.01        |        0.01        |       -0.04       |
+|     Film-Noir      |        0.06       |       -0.04       |       -0.03        |       -0.03        |       -0.05        |        0.00        |       -0.04        |        0.03        |        0.00        |        0.02       |        0.01        |       -0.00        |        0.01        |       -0.01        |        0.01       |       -0.02       |        0.00       |       -0.00        |       -0.00        |       -0.01       |       -0.00       |        0.00        |       -0.00        |        0.00       |        0.02        |       -0.01        |        0.00        |        0.02        |        0.01        |       -0.01       |
+|       Horror       |        0.26       |       -0.14       |       -0.16        |       -0.14        |       -0.25        |        0.08        |       -0.21        |        0.11        |        0.02        |        0.13       |        0.02        |        0.05        |       -0.08        |       -0.13        |       -0.02       |       -0.01       |        0.00       |        0.03        |        0.04        |        0.01       |        0.02       |       -0.04        |       -0.04        |        0.08       |        0.08        |       -0.11        |       -0.02        |       -0.03        |        0.00        |       -0.05       |
+|        IMAX        |        0.03       |       -0.03       |       -0.01        |       -0.03        |       -0.01        |       -0.01        |       -0.03        |        0.02        |       -0.01        |        0.01       |       -0.00        |        0.01        |       -0.01        |       -0.03        |       -0.00       |       -0.00       |        0.01       |       -0.01        |        0.00        |       -0.01       |        0.01       |        0.01        |       -0.00        |        0.00       |       -0.00        |       -0.01        |       -0.00        |       -0.01        |        0.00        |       -0.01       |
+|      Musical       |        0.14       |       -0.12       |       -0.07        |       -0.08        |       -0.06        |        0.00        |       -0.06        |        0.08        |        0.00        |        0.04       |        0.01        |        0.00        |        0.02        |       -0.08        |        0.00       |       -0.02       |        0.03       |       -0.01        |       -0.01        |       -0.01       |        0.01       |        0.01        |       -0.01        |        0.01       |        0.03        |       -0.02        |        0.00        |        0.00        |        0.00        |       -0.02       |
+|      Mystery       |        0.11       |       -0.09       |       -0.06        |       -0.05        |       -0.08        |        0.01        |       -0.07        |        0.05        |       -0.00        |        0.04       |        0.01        |        0.00        |       -0.00        |       -0.06        |        0.01       |       -0.01       |       -0.00       |       -0.02        |        0.01        |       -0.01       |        0.01       |        0.01        |       -0.01        |        0.02       |        0.03        |       -0.03        |        0.00        |       -0.00        |        0.02        |       -0.03       |
+|      Romance       |        0.12       |       -0.12       |       -0.08        |       -0.10        |       -0.07        |       -0.02        |       -0.03        |        0.12        |       -0.02        |        0.03       |       -0.00        |       -0.02        |        0.01        |       -0.10        |       -0.01       |       -0.02       |        0.04       |       -0.04        |       -0.01        |       -0.04       |        0.02       |        0.04        |       -0.03        |       -0.00       |        0.04        |       -0.02        |        0.04        |       -0.02        |       -0.00        |       -0.06       |
+|       Sci-Fi       |        0.17       |       -0.13       |       -0.09        |       -0.09        |       -0.12        |        0.03        |       -0.13        |        0.05        |        0.01        |        0.09       |       -0.02        |        0.02        |       -0.04        |       -0.11        |       -0.00       |       -0.00       |        0.02       |       -0.00        |        0.03        |       -0.01       |        0.02       |        0.00        |       -0.02        |        0.03       |        0.04        |       -0.07        |       -0.03        |       -0.01        |        0.02        |       -0.07       |
+|      Thriller      |        0.21       |       -0.14       |       -0.14        |       -0.12        |       -0.15        |       -0.00        |       -0.16        |        0.11        |       -0.02        |        0.07       |       -0.02        |        0.01        |       -0.06        |       -0.13        |        0.01       |        0.00       |        0.01       |       -0.05        |        0.04        |       -0.05       |        0.03       |        0.00        |       -0.03        |        0.05       |        0.04        |       -0.08        |       -0.01        |       -0.06        |        0.00        |       -0.09       |
+|        War         |        0.13       |       -0.10       |       -0.08        |       -0.05        |       -0.08        |       -0.01        |       -0.08        |        0.05        |       -0.00        |        0.05       |        0.01        |       -0.01        |        0.01        |       -0.04        |        0.02       |       -0.01       |        0.01       |       -0.03        |        0.00        |       -0.02       |        0.01       |        0.01        |        0.00        |        0.01       |        0.02        |       -0.03        |       -0.00        |        0.02        |        0.01        |       -0.03       |
+|      Western       |        0.16       |       -0.11       |       -0.10        |       -0.08        |       -0.10        |       -0.01        |       -0.10        |        0.07        |        0.00        |        0.06       |        0.00        |       -0.01        |        0.01        |       -0.05        |        0.01       |       -0.01       |        0.01       |       -0.03        |       -0.01        |       -0.02       |        0.00       |        0.00        |       -0.00        |        0.01       |        0.03        |       -0.04        |       -0.00        |        0.02        |        0.01        |       -0.03       |
++--------------------+-------------------+-------------------+--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+-------------------+--------------------+--------------------+--------------------+--------------------+-------------------+-------------------+-------------------+--------------------+--------------------+-------------------+-------------------+--------------------+--------------------+-------------------+--------------------+--------------------+--------------------+--------------------+--------------------+-------------------+
