@@ -1524,7 +1524,7 @@ if __name__ == "__main__":
                     map(lambda (pred, obs):
                         abs(pred-obs)/float(abs(obs if obs != 0 else 1))).\
                     sum()/predobs.count()
-            print "Done in", start - time.time(), "seconds"
+            print "Done in", time.time() - start, "seconds"
             print "RMSE: {}, variance explained: {}, mean absolute error: {},".\
                     format(metrics.explainedVariance,\
                     metrics.rootMeanSquaredError,
