@@ -1,0 +1,158 @@
+Rank: 1, lmbda: 0.1, numIter: 20, numPartitions: 4
+qii_iters: 5, num_iters_ls: 5, movieLensHomeDir: datasets/ml-20m/
+ofname: Output.txt, checkpoint_dir: checkpoint, num_users_ls:5
+specific_user: None, max_movies_per_user: 0, prominent_raters:0
+perturb_specific_user: None, recommendations_only:False
+recommendations_and_per_movie_qii: False
+per_movie_qiis_displayed: 3
+genres_correlator: False, gui: False, years_correlator: False
+iterate_rank: False, iterate_from: 5, iterate_to: 40, iterate_step:5
+invert_labels: False, no_threshold: False
+classifier_model: logistic
+genres_regression: False
+regression_model: regression_tree
+mean_error_experiments: False
+internal_feature_influence: False
+compute_mean_error: False
+compute_fast_influence: False
+sample_size: 10000, sample_type: training
+nbins: 32, regression_years: False
+regression_users: False
+regression_tags: True
+Loading ratings
+Done in 10.9479420185 seconds
+Loading movies
+Done in 1.1272559166 seconds
+Loading movie tags
+27278 movies in the data set
+19545 movies have tags
+7733 movies are missing tags
+Adding empty records for them
+Done in 5.43537998199 seconds
+Training model
+Done in 69.8297159672 seconds
+Computing model predictions
+Done in 4.06558394432 seconds
+Computing mean error
+Done in 152.022717953 seconds
+Mean error: 0.660308980152
+Preparing features
+Done in 0.00853705406189 seconds
+Processing feature 0
+Building data set
+Done in 0.024444103241 seconds
+Training decision tree
+Done in 290.958984852 seconds
+Evaluating the model
+Done in 101.274147987 seconds
+RMSE: 0.0223467010781, variance explained: 0.350836390226, mean absolute error: 0.253165901208,
+MRAE: 0.189365223659
+Replacing original feature 0 with predicted values
+Done in 0.091952085495 seconds
+Computing predictions of the model with replaced feature 0
+Done in 82.6751539707 seconds
+Computing replaced mean error relative to the ground truth
+Done in 199.68702507 seconds
+Replaced mean error: 0.847362124243
+Computing replaced mean error relative to the baseline model
+Done in 146.872303963 seconds
+Replaced mean error baseline: 0.459391749313
+Randomizing feature 0
+Done in 0.138772964478 seconds
+Computing the predictions of the perturbed model
+Done in 0.739768028259 seconds
+Computing perturbed mean error relative to the ground truth
+Done in 198.174609184 seconds
+Perturbed mean error: 0.97237540707
+Computing perturbed mean error relative to the baseline model
+Done in 144.544215918 seconds
+Perturbed mean error baseline: 0.642706125238
+DecisionTreeModel regressor of depth 5 with 55 nodes
+  If (feature 38652 in {0.0})
+   If (feature 38651 in {0.0})
+    If (feature 38655 in {1.0})
+     If (feature 24195 in {0.0})
+      If (feature 19388 in {0.0})
+       Predict: 1.4978308306130548
+      Else (feature 19388 not in {0.0})
+       Predict: 1.802460473159264
+     Else (feature 24195 not in {0.0})
+      If (feature 27065 in {0.0})
+       Predict: 1.9099143942197163
+      Else (feature 27065 not in {0.0})
+       Predict: 2.1350618998209634
+    Else (feature 38655 not in {1.0})
+     If (feature 38664 <= 1978.0)
+      If (feature 11979 in {0.0})
+       Predict: 1.8139794628923454
+      Else (feature 11979 not in {0.0})
+       Predict: 2.128625667372415
+     Else (feature 38664 > 1978.0)
+      If (feature 27063 in {1.0})
+       Predict: 1.0168832588840175
+      Else (feature 27063 not in {1.0})
+       Predict: 1.6706390297908056
+   Else (feature 38651 not in {0.0})
+    If (feature 38655 in {1.0})
+     If (feature 38664 <= 1999.0)
+      If (feature 2264 in {0.0})
+       Predict: 0.8964465618133545
+      Else (feature 2264 not in {0.0})
+       Predict: 2.1967997550964355
+     Else (feature 38664 > 1999.0)
+      If (feature 38664 <= 2012.0)
+       Predict: 1.7136443157990773
+      Else (feature 38664 > 2012.0)
+       Predict: 3.0663349628448486
+    Else (feature 38655 not in {1.0})
+     If (feature 26918 in {1.0})
+      Predict: 0.2790801227092743
+     Else (feature 26918 not in {1.0})
+      If (feature 4109 in {1.0})
+       Predict: 0.30754154920578003
+      Else (feature 4109 not in {1.0})
+       Predict: 1.985635446412076
+  Else (feature 38652 not in {0.0})
+   If (feature 4071 in {0.0})
+    If (feature 27065 in {0.0})
+     If (feature 38661 in {1.0})
+      If (feature 38664 <= 1970.0)
+       Predict: 1.9702433628641116
+      Else (feature 38664 > 1970.0)
+       Predict: 1.7572432446085717
+     Else (feature 38661 not in {1.0})
+      If (feature 38645 in {1.0})
+       Predict: 1.7754316418151546
+      Else (feature 38645 not in {1.0})
+       Predict: 1.8771533859946148
+    Else (feature 27065 not in {0.0})
+     If (feature 29950 in {0.0})
+      If (feature 23473 in {0.0})
+       Predict: 2.1712704513754164
+      Else (feature 23473 not in {0.0})
+       Predict: 2.230112614838973
+     Else (feature 29950 not in {0.0})
+      If (feature 20769 in {0.0})
+       Predict: 2.300481176376343
+      Else (feature 20769 not in {0.0})
+       Predict: 2.3252119223276773
+   Else (feature 4071 not in {0.0})
+    If (feature 15508 in {0.0})
+     If (feature 9588 in {1.0})
+      If (feature 20638 in {0.0})
+       Predict: 1.3322443962097168
+      Else (feature 20638 not in {0.0})
+       Predict: 1.3885670900344849
+     Else (feature 9588 not in {1.0})
+      If (feature 38664 <= 1970.0)
+       Predict: 2.129433125782974
+      Else (feature 38664 > 1970.0)
+       Predict: 2.0457466076978874
+    Else (feature 15508 not in {0.0})
+     Predict: 3.1877801418304443
+
++---------+----------------+---------------------+--------------------+------------------+------------------------+----------------------+----------------------+
+| Feature |      MRAE      | Mean absolute error | Replaced MERR RECS | Random MERR RECS | Replaced MERR Baseline | Random MERR Baseline | x better than random |
++---------+----------------+---------------------+--------------------+------------------+------------------------+----------------------+----------------------+
+|    0    | 0.189365223659 |    0.253165901208   |   0.847362124243   |  0.97237540707   |     0.459391749313     |    0.642706125238    |    1.39903715337     |
++---------+----------------+---------------------+--------------------+------------------+------------------------+----------------------+----------------------+
