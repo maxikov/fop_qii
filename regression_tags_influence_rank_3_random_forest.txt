@@ -1,0 +1,134 @@
+Rank: 3, lmbda: 0.1, numIter: 20, numPartitions: 4
+qii_iters: 5, num_iters_ls: 5, movieLensHomeDir: datasets/ml-20m/
+ofname: Output.txt, checkpoint_dir: checkpoint, num_users_ls:5
+specific_user: None, max_movies_per_user: 0, prominent_raters:0
+perturb_specific_user: None, recommendations_only:False
+recommendations_and_per_movie_qii: False
+per_movie_qiis_displayed: 3
+genres_correlator: False, gui: False, years_correlator: False
+iterate_rank: False, iterate_from: 5, iterate_to: 40, iterate_step:5
+invert_labels: False, no_threshold: False
+classifier_model: logistic
+genres_regression: False
+regression_model: random_forest
+mean_error_experiments: False
+internal_feature_influence: False
+compute_mean_error: False
+compute_fast_influence: False
+sample_size: 10000, sample_type: training
+nbins: 32, regression_years: False
+regression_users: False
+regression_tags: True
+Loading ratings
+Done in 11.9718949795 seconds
+Loading movies
+Done in 0.980954885483 seconds
+Loading movie tags
+27278 movies in the data set
+19545 movies have tags
+7733 movies are missing tags
+Adding empty records for them
+Done in 5.35590982437 seconds
+Training model
+Done in 73.3127558231 seconds
+Computing model predictions
+Done in 4.08888888359 seconds
+Computing mean error
+Done in 160.050639868 seconds
+Mean error: 0.609332108969
+Preparing features
+Done in 0.0101799964905 seconds
+Processing feature 0
+Building data set
+Done in 0.0250098705292 seconds
+Training random forest
+Done in 2915.83914518 seconds
+Evaluating the model
+Done in 179.75641489 seconds
+RMSE: 0.014048953343, variance explained: 0.472472826363, mean absolute error: 0.359026169648,
+MRAE: 7.29745645559
+Replacing original feature 0 with predicted values
+Done in 0.117166996002 seconds
+Computing predictions of the model with replaced feature 0
+Done in 135.51969099 seconds
+Computing replaced mean error relative to the ground truth
+Done in 287.150069952 seconds
+Replaced mean error: 0.644502245251
+Computing replaced mean error relative to the baseline model
+Done in 145.085965872 seconds
+Replaced mean error baseline: 0.131553061266
+Randomizing feature 0
+Done in 0.236042022705 seconds
+Computing the predictions of the perturbed model
+Done in 0.739486932755 seconds
+Computing perturbed mean error relative to the ground truth
+Done in 247.605170965 seconds
+Perturbed mean error: 0.667006897763
+Computing perturbed mean error relative to the baseline model
+Done in 144.251443148 seconds
+Perturbed mean error baseline: 0.196851131052
+Processing feature 1
+Building data set
+Done in 0.0229020118713 seconds
+Training random forest
+Done in 2962.65131688 seconds
+Evaluating the model
+Done in 213.050564051 seconds
+RMSE: 0.0361586526147, variance explained: 0.412094470231, mean absolute error: 0.320152267699,
+MRAE: 0.551764876986
+Replacing original feature 1 with predicted values
+Done in 0.544214010239 seconds
+Computing predictions of the model with replaced feature 1
+Done in 148.90197897 seconds
+Computing replaced mean error relative to the ground truth
+Done in 260.424020052 seconds
+Replaced mean error: 0.87557990537
+Computing replaced mean error relative to the baseline model
+Done in 148.502399921 seconds
+Replaced mean error baseline: 0.571631073279
+Randomizing feature 1
+Done in 0.147243022919 seconds
+Computing the predictions of the perturbed model
+Done in 2.2003800869 seconds
+Computing perturbed mean error relative to the ground truth
+Done in 235.796032906 seconds
+Perturbed mean error: 1.02642454149
+Computing perturbed mean error relative to the baseline model
+Done in 149.548424006 seconds
+Perturbed mean error baseline: 0.775351812704
+Processing feature 2
+Building data set
+Done in 0.0218360424042 seconds
+Training random forest
+Done in 2703.62617111 seconds
+Evaluating the model
+Done in 298.734811068 seconds
+RMSE: 0.0209286368623, variance explained: 0.428213225545, mean absolute error: 0.327957473963,
+MRAE: 8.28680338911
+Replacing original feature 2 with predicted values
+Done in 0.398427963257 seconds
+Computing predictions of the model with replaced feature 2
+Done in 170.276738882 seconds
+Computing replaced mean error relative to the ground truth
+Done in 270.080945015 seconds
+Replaced mean error: 0.719320133488
+Computing replaced mean error relative to the baseline model
+Done in 151.640156984 seconds
+Replaced mean error baseline: 0.298164812118
+Randomizing feature 2
+Done in 0.101691961288 seconds
+Computing the predictions of the perturbed model
+Done in 1.50617098808 seconds
+Computing perturbed mean error relative to the ground truth
+Done in 227.296575069 seconds
+Perturbed mean error: 0.793440857723
+Computing perturbed mean error relative to the baseline model
+Done in 171.624893904 seconds
+Perturbed mean error baseline: 0.429413907177
++---------+----------------+---------------------+--------------------+------------------+------------------------+----------------------+----------------------+
+| Feature |      MRAE      | Mean absolute error | Replaced MERR RECS | Random MERR RECS | Replaced MERR Baseline | Random MERR Baseline | x better than random |
++---------+----------------+---------------------+--------------------+------------------+------------------------+----------------------+----------------------+
+|    1    | 0.551764876986 |    0.320152267699   |   0.87557990537    |  1.02642454149   |     0.571631073279     |    0.775351812704    |    1.35638499891     |
+|    0    | 7.29745645559  |    0.359026169648   |   0.644502245251   |  0.667006897763  |     0.131553061266     |    0.196851131052    |    1.49636298203     |
+|    2    | 8.28680338911  |    0.327957473963   |   0.719320133488   |  0.793440857723  |     0.298164812118     |    0.429413907177    |     1.4401897532     |
++---------+----------------+---------------------+--------------------+------------------+------------------------+----------------------+----------------------+
