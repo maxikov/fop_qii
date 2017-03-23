@@ -1469,6 +1469,28 @@ if __name__ == "__main__":
         baseline_mean_error = mean_error(predictionsAndRatings, power)
         print "Done in {} seconds".format(time.time() - start)
         print "Mean error:", baseline_mean_error
+        print "Creating a model with completely randomized features"
+        start = time.time()
+        perturbed_features = model.productFeatures()
+        for f in xrange(rank):
+            print "Perturbing feature", f
+            perturbed_features = perturb_feature(perturbed_features, f)
+        print "Done in", time.time() - start, "seconds"
+        print "Making predictions of the randomized model"
+        start = time.time()
+        perturbed_predictions = manual_predict_all(training,
+                model.userFeatures(), perturbed_features)
+        print "Done in", time.time() - start, "seconds"
+        print "Computing mean error"
+        start = time.time()
+        predictionsAndRatings = perturbed_predictions.map(lambda x: ((x[0], x[1]), x[2])) \
+            .join(training.map(lambda x: ((x[0], x[1]), x[2]))) \
+            .values()
+        perturbed_mean_error = mean_error(predictionsAndRatings, power)
+        print "Done in {} seconds".format(time.time() - start)
+        print "Mean error:", perturbed_mean_error, ", ", perturbed_mean_error-\
+                baseline_mean_error, "(", perturbed_mean_error/\
+                baseline_mean_error, "times) higher"
         print "Preparing features"
         start = time.time()
         features = model.productFeatures()
