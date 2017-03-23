@@ -944,6 +944,37 @@ def feature_global_influence(model, rank, user_product_pairs, power=1.0,
     return res
 
 
+class AverageRatingRecommender:
+    def __init__(self, verbose=True):
+        self.verbose = verbose
+
+    def train(self, training):
+        if self.verbose:
+            print "Training the average rating model"
+            start = time.time()
+        self.ratings = training\
+                .groupBy(lambda x: x[1])\
+                .map(lambda (mid, data):
+                        (mid,
+                        sum(x[2] for x in data)/float(len(data))
+                        ))
+        self.ratings = dict(self.ratings.collect())
+        if self.verbose:
+            print "Done in", time.time() - start, "seconds"
+
+    def predict(self, user_movies):
+        if self.verbose:
+            print "Predicting"
+            start = time.time()
+        res = user_movies\
+                .map(lambda x: (x[0], x[1]))\
+                .map(lambda (user, product):
+                        (user,
+                        product,
+                        self.ratings[product]))
+        print "Done in", time.time() - start, "seconds"
+        return res
+
 if __name__ == "__main__":
 
     parser = argparse.ArgumentParser(description=u"Usage: " +\
@@ -1453,6 +1484,24 @@ if __name__ == "__main__":
         categorical_features = {x: 2 for x in
                 xrange(len(all_tags)+len(all_genres))}
         print "Done in {} seconds".format(time.time() - start)
+
+
+        arc = AverageRatingRecommender()
+        arc.train(training)
+        arc_predictions = arc.predict(training)
+        print "Computing mean error"
+        start = time.time()
+        predictionsAndRatings = arc_predictions.map(lambda x: ((x[0], x[1]), x[2])) \
+            .join(training.map(lambda x: ((x[0], x[1]), x[2]))) \
+            .values()
+        arc_mean_error = mean_error(predictionsAndRatings, power)
+        print "Done in {} seconds".format(time.time() - start)
+        print "Mean error:", arc_mean_error
+
+
+        indicators = indicators.map(
+                lambda (mid, foo): (mid, foo+[arc.ratings[mid]]))
+
         print "Training model"
         start = time.time()
         model = ALS.train(training, rank, numIter, lmbda)
