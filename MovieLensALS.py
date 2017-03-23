@@ -959,6 +959,7 @@ class AverageRatingRecommender:
                         sum(x[2] for x in data)/float(len(data))
                         ))
         self.ratings = dict(self.ratings.collect())
+        self.ratings = defaultdict(lambda: 0.0, self.ratings)
         if self.verbose:
             print "Done in", time.time() - start, "seconds"
 
