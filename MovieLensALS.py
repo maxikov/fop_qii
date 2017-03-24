@@ -40,7 +40,7 @@ lmbda = 0.1
 numIter = 20
 
 # Number of partitions created
-numPartitions = 4
+
 qii_iters = 5
 num_iters_ls = 5
 
@@ -1507,6 +1507,16 @@ if __name__ == "__main__":
         start = time.time()
         model = ALS.train(training, rank, numIter, lmbda)
         print "Done in {} seconds".format(time.time() - start)
+        print "Computing mean feature values"
+        start = time.time()
+        mean_p_feat_vals = model\
+                .productFeatures()\
+                .values()\
+                .reduce(lambda x, y: (map(sum, zip(x, y))))
+        nmovies = float(model.productFeatures().count())
+        mpfv = {x: mean_p_feat_vals[x]/nmovies for x in xrange(len(mean_p_feat_vals))}
+        print "Done in", time.time() - start, "seconds"
+        print "Mean product feature values:", mpfv
         print "Computing model predictions"
         start = time.time()
         baseline_predictions = model.predictAll(training.map(lambda x: (x[0], x[1])))
@@ -1683,6 +1693,7 @@ if __name__ == "__main__":
         table = PrettyTable(["Feature",
             "MRAE",
             "Mean absolute error",
+            "Mean feature value",
             "Replaced MERR RECS",
             "Random MERR RECS",
             "Replaced MERR Baseline",
@@ -1692,6 +1703,7 @@ if __name__ == "__main__":
             table.add_row([f,
                 r["mrae"],
                 r["mre"],
+                mpfv[f],
                 r["replaced_mean_error"],
                 r["perturbed_mean_error"],
                 r["replaced_mean_error_baseline"],

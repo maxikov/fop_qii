@@ -1,0 +1,1450 @@
+Rank: 12, lmbda: 0.1, numIter: 20, numPartitions: 4
+qii_iters: 5, num_iters_ls: 5, movieLensHomeDir: datasets/ml-20m/
+ofname: Output.txt, checkpoint_dir: checkpoint, num_users_ls:5
+specific_user: None, max_movies_per_user: 0, prominent_raters:0
+perturb_specific_user: None, recommendations_only:False
+recommendations_and_per_movie_qii: False
+per_movie_qiis_displayed: 3
+genres_correlator: False, gui: False, years_correlator: False
+iterate_rank: False, iterate_from: 5, iterate_to: 40, iterate_step:5
+invert_labels: False, no_threshold: False
+classifier_model: logistic
+genres_regression: False
+regression_model: regression_tree
+mean_error_experiments: False
+internal_feature_influence: False
+compute_mean_error: False
+compute_fast_influence: False
+sample_size: 10000, sample_type: training
+nbins: 32, regression_years: False
+regression_users: False
+regression_tags: True
+Loading ratings
+Done in 11.3335280418 seconds
+Loading movies
+Done in 0.897070169449 seconds
+Loading movie tags
+27278 movies in the data set
+19545 movies have tags
+7733 movies are missing tags
+Adding empty records for them
+Done in 5.62346100807 seconds
+Training the average rating model
+Done in 53.9075300694 seconds
+Predicting
+Done in 3.2901763916e-05 seconds
+Computing mean error
+Done in 191.669602871 seconds
+Mean error: 0.729649143339
+Training model
+Done in 35.8446650505 seconds
+Computing mean feature values
+Done in 0.510972976685 seconds
+Mean product feature values: {0: -0.19870078049171694, 1: 0.5051711566495113, 2: -0.1286441814174557, 3: -0.2722081223071413, 4: 0.9220352190948925, 5: -0.11202973012851494, 6: 0.29985497741126194, 7: -0.6281165499195579, 8: 0.7297275143300201, 9: -0.09533796723634155, 10: -0.3694384421554428, 11: -0.4019188496687663}
+Computing model predictions
+Done in 4.4642059803 seconds
+Computing mean error
+Done in 154.751634121 seconds
+Mean error: 0.555835137839
+Creating a model with completely randomized features
+Perturbing feature 0
+Perturbing feature 1
+Perturbing feature 2
+Perturbing feature 3
+Perturbing feature 4
+Perturbing feature 5
+Perturbing feature 6
+Perturbing feature 7
+Perturbing feature 8
+Perturbing feature 9
+Perturbing feature 10
+Perturbing feature 11
+Done in 4.74573206902 seconds
+Making predictions of the randomized model
+Done in 1.39249205589 seconds
+Computing mean error
+Done in 192.136425018 seconds
+Mean error: 1.07568348754 ,  0.5198483497 ( 1.93525636346 times) higher
+Preparing features
+Done in 0.00802206993103 seconds
+Processing feature 0
+Building data set
+Done in 0.111619949341 seconds
+Training decision tree
+Done in 299.844040871 seconds
+Evaluating the model
+Done in 121.614689112 seconds
+RMSE: 0.00827789933536, variance explained: 0.286127841067, mean absolute error: 0.218461859218,
+MRAE: 3.12914684662
+Replacing original feature 0 with predicted values
+Done in 0.442870855331 seconds
+Computing predictions of the model with replaced feature 0
+Done in 81.6944129467 seconds
+Computing replaced mean error relative to the ground truth
+Done in 203.182044029 seconds
+Replaced mean error: 0.583860605563
+Computing replaced mean error relative to the baseline model
+Done in 145.228337049 seconds
+Replaced mean error baseline: 0.0960438328456
+Randomizing feature 0
+Done in 0.139964103699 seconds
+Computing the predictions of the perturbed model
+Done in 1.38630223274 seconds
+Computing perturbed mean error relative to the ground truth
+Done in 198.136270046 seconds
+Perturbed mean error: 0.592236673214
+Computing perturbed mean error relative to the baseline model
+Done in 149.130087137 seconds
+Perturbed mean error baseline: 0.124395976712
+DecisionTreeModel regressor of depth 5 with 57 nodes
+  If (feature 38664 <= 1959.0)
+   If (feature 38665 <= 2.9981036662452594)
+    If (feature 8457 in {0.0})
+     If (feature 38664 <= 1952.0)
+      If (feature 38665 <= 2.0)
+       Predict: -0.16154847985793216
+      Else (feature 38665 > 2.0)
+       Predict: -0.27323754522422916
+     Else (feature 38664 > 1952.0)
+      If (feature 17144 in {1.0})
+       Predict: -1.0336534976959229
+      Else (feature 17144 not in {1.0})
+       Predict: -0.1396608681268771
+    Else (feature 8457 not in {0.0})
+     Predict: 0.9390692710876465
+   Else (feature 38665 > 2.9981036662452594)
+    If (feature 38659 in {1.0})
+     If (feature 3045 in {1.0})
+      If (feature 15466 in {1.0})
+       Predict: -1.2854429483413696
+      Else (feature 15466 not in {1.0})
+       Predict: -0.5431149672588398
+     Else (feature 3045 not in {1.0})
+      If (feature 1942 in {1.0})
+       Predict: -0.45342204645210177
+      Else (feature 1942 not in {1.0})
+       Predict: -0.365760440115252
+    Else (feature 38659 not in {1.0})
+     If (feature 727 in {1.0})
+      If (feature 455 in {1.0})
+       Predict: -0.7412908871968588
+      Else (feature 455 not in {1.0})
+       Predict: -0.5765408933162689
+     Else (feature 727 not in {1.0})
+      If (feature 4071 in {0.0})
+       Predict: -0.3456464555648544
+      Else (feature 4071 not in {0.0})
+       Predict: -0.2641447484659563
+  Else (feature 38664 > 1959.0)
+   If (feature 38655 in {0.0})
+    If (feature 21608 in {1.0})
+     If (feature 25634 in {1.0})
+      If (feature 29879 in {1.0})
+       Predict: -1.0797331631183624
+      Else (feature 29879 not in {1.0})
+       Predict: -0.7469692170619965
+     Else (feature 25634 not in {1.0})
+      If (feature 24027 in {0.0})
+       Predict: -0.5640733911678558
+      Else (feature 24027 not in {0.0})
+       Predict: -0.15317355748265982
+    Else (feature 21608 not in {1.0})
+     If (feature 38648 in {1.0})
+      If (feature 38665 <= 2.5)
+       Predict: -0.17800321137425645
+      Else (feature 38665 > 2.5)
+       Predict: -0.3732760283263539
+     Else (feature 38648 not in {1.0})
+      If (feature 38665 <= 2.9981036662452594)
+       Predict: -0.13133694202100968
+      Else (feature 38665 > 2.9981036662452594)
+       Predict: -0.20349288072784694
+   Else (feature 38655 not in {0.0})
+    If (feature 33556 in {1.0})
+     If (feature 23938 in {1.0})
+      If (feature 19432 in {0.0})
+       Predict: -0.6929680506388346
+      Else (feature 19432 not in {0.0})
+       Predict: -0.3815225660800934
+     Else (feature 23938 not in {1.0})
+      If (feature 25177 in {1.0})
+       Predict: -0.4359409445896745
+      Else (feature 25177 not in {1.0})
+       Predict: -0.16969929319308247
+    Else (feature 33556 not in {1.0})
+     If (feature 38661 in {1.0})
+      If (feature 26733 in {1.0})
+       Predict: -0.18507594011544462
+      Else (feature 26733 not in {1.0})
+       Predict: -0.07912948355295266
+     Else (feature 38661 not in {1.0})
+      If (feature 10613 in {0.0})
+       Predict: -0.03194530064942314
+      Else (feature 10613 not in {0.0})
+       Predict: 0.4881286025047302
+
+Processing feature 1
+Building data set
+Done in 0.109031915665 seconds
+Training decision tree
+Done in 165.852308035 seconds
+Evaluating the model
+Done in 122.593262911 seconds
+RMSE: 0.022714136873, variance explained: 0.237402705566, mean absolute error: 0.177477752573,
+MRAE: 1.70796723739
+Replacing original feature 1 with predicted values
+Done in 0.921284914017 seconds
+Computing predictions of the model with replaced feature 1
+Done in 83.8576090336 seconds
+Computing replaced mean error relative to the ground truth
+Done in 199.229161978 seconds
+Replaced mean error: 0.598366221123
+Computing replaced mean error relative to the baseline model
+Done in 151.070110083 seconds
+Replaced mean error baseline: 0.152348777116
+Randomizing feature 1
+Done in 0.156582117081 seconds
+Computing the predictions of the perturbed model
+Done in 1.32155609131 seconds
+Computing perturbed mean error relative to the ground truth
+Done in 200.090807915 seconds
+Perturbed mean error: 0.616568672241
+Computing perturbed mean error relative to the baseline model
+Done in 146.820642948 seconds
+Perturbed mean error baseline: 0.200729608158
+DecisionTreeModel regressor of depth 5 with 61 nodes
+  If (feature 38665 <= 3.07653791130186)
+   If (feature 38665 <= 2.45)
+    If (feature 38655 in {1.0})
+     If (feature 29787 in {1.0})
+      If (feature 1942 in {0.0})
+       Predict: -0.9604113101959229
+      Else (feature 1942 not in {0.0})
+       Predict: -0.42401328682899475
+     Else (feature 29787 not in {1.0})
+      If (feature 30722 in {1.0})
+       Predict: -1.018018126487732
+      Else (feature 30722 not in {1.0})
+       Predict: 0.15953298568374422
+    Else (feature 38655 not in {1.0})
+     If (feature 38665 <= 1.625)
+      If (feature 7019 in {0.0})
+       Predict: 0.16849799729170187
+      Else (feature 7019 not in {0.0})
+       Predict: 0.7799009084701538
+     Else (feature 38665 > 1.625)
+      If (feature 38645 in {1.0})
+       Predict: 0.22348770028598774
+      Else (feature 38645 not in {1.0})
+       Predict: 0.3716864483125526
+   Else (feature 38665 > 2.45)
+    If (feature 38655 in {1.0})
+     If (feature 38660 in {1.0})
+      If (feature 2898 in {0.0})
+       Predict: 0.14076808610139793
+      Else (feature 2898 not in {0.0})
+       Predict: 0.963137686252594
+     Else (feature 38660 not in {1.0})
+      If (feature 20993 in {1.0})
+       Predict: -0.6267773061990738
+      Else (feature 20993 not in {1.0})
+       Predict: 0.2667788214977234
+    Else (feature 38655 not in {1.0})
+     If (feature 38649 in {0.0})
+      If (feature 38645 in {1.0})
+       Predict: 0.3329157378786413
+      Else (feature 38645 not in {1.0})
+       Predict: 0.4461326362768998
+     Else (feature 38649 not in {0.0})
+      If (feature 38664 <= 1982.0)
+       Predict: 0.4439186053281066
+      Else (feature 38664 > 1982.0)
+       Predict: 0.5381173720870986
+  Else (feature 38665 > 3.07653791130186)
+   If (feature 38664 <= 1988.0)
+    If (feature 38655 in {1.0})
+     If (feature 22315 in {0.0})
+      If (feature 25905 in {1.0})
+       Predict: 0.14927994181483012
+      Else (feature 25905 not in {1.0})
+       Predict: 0.33678314304630913
+     Else (feature 22315 not in {0.0})
+      Predict: 1.2230632305145264
+    Else (feature 38655 not in {1.0})
+     If (feature 38665 <= 3.553014553014553)
+      If (feature 38649 in {0.0})
+       Predict: 0.4542435966050182
+      Else (feature 38649 not in {0.0})
+       Predict: 0.5440009735019331
+     Else (feature 38665 > 3.553014553014553)
+      If (feature 38664 <= 1974.0)
+       Predict: 0.5467592912510925
+      Else (feature 38664 > 1974.0)
+       Predict: 0.6115672826708344
+   Else (feature 38664 > 1988.0)
+    If (feature 38665 <= 3.5)
+     If (feature 38655 in {1.0})
+      If (feature 34694 in {1.0})
+       Predict: -0.02242982154712081
+      Else (feature 34694 not in {1.0})
+       Predict: 0.36293956042352643
+     Else (feature 38655 not in {1.0})
+      If (feature 38645 in {1.0})
+       Predict: 0.4779755224730398
+      Else (feature 38645 not in {1.0})
+       Predict: 0.6124158707981511
+    Else (feature 38665 > 3.5)
+     If (feature 38661 in {1.0})
+      If (feature 38665 <= 3.6666666666666665)
+       Predict: 0.533427594229579
+      Else (feature 38665 > 3.6666666666666665)
+       Predict: 0.620254569244252
+     Else (feature 38661 not in {1.0})
+      If (feature 38664 <= 1997.0)
+       Predict: 0.6388920066096687
+      Else (feature 38664 > 1997.0)
+       Predict: 0.7204624225212409
+
+Processing feature 2
+Building data set
+Done in 0.129146099091 seconds
+Training decision tree
+Done in 180.203076124 seconds
+Evaluating the model
+Done in 120.145520926 seconds
+RMSE: 0.00699041935971, variance explained: 0.241935072914, mean absolute error: 0.177189516487,
+MRAE: 9.3476003227
+Replacing original feature 2 with predicted values
+Done in 1.05212402344 seconds
+Computing predictions of the model with replaced feature 2
+Done in 84.3377139568 seconds
+Computing replaced mean error relative to the ground truth
+Done in 200.28730917 seconds
+Replaced mean error: 0.565811107572
+Computing replaced mean error relative to the baseline model
+Done in 147.311818123 seconds
+Replaced mean error baseline: 0.0422269918558
+Randomizing feature 2
+Done in 0.130590200424 seconds
+Computing the predictions of the perturbed model
+Done in 1.83823418617 seconds
+Computing perturbed mean error relative to the ground truth
+Done in 201.113307953 seconds
+Perturbed mean error: 0.567799869341
+Computing perturbed mean error relative to the baseline model
+Done in 147.995706081 seconds
+Perturbed mean error baseline: 0.0573498797865
+DecisionTreeModel regressor of depth 5 with 57 nodes
+  If (feature 38645 in {1.0})
+   If (feature 38665 <= 2.5)
+    If (feature 38665 <= 1.625)
+     If (feature 16769 in {0.0})
+      If (feature 32601 in {1.0})
+       Predict: -0.5791813135147095
+      Else (feature 32601 not in {1.0})
+       Predict: -0.05725183821531064
+     Else (feature 16769 not in {0.0})
+      Predict: 0.5657445788383484
+    Else (feature 38665 > 1.625)
+     If (feature 3495 in {1.0})
+      Predict: -0.9732016921043396
+     Else (feature 3495 not in {1.0})
+      If (feature 11255 in {1.0})
+       Predict: -0.3365729841354646
+      Else (feature 11255 not in {1.0})
+       Predict: -0.15146546496341118
+   Else (feature 38665 > 2.5)
+    If (feature 38664 <= 1959.0)
+     If (feature 5987 in {0.0})
+      If (feature 7975 in {0.0})
+       Predict: -0.08210267578386635
+      Else (feature 7975 not in {0.0})
+       Predict: 0.483672559261322
+     Else (feature 5987 not in {0.0})
+      Predict: 0.6091417670249939
+    Else (feature 38664 > 1959.0)
+     If (feature 38664 <= 2007.0)
+      If (feature 18453 in {1.0})
+       Predict: -0.3267073666231118
+      Else (feature 18453 not in {1.0})
+       Predict: -0.23805323912028986
+     Else (feature 38664 > 2007.0)
+      If (feature 38665 <= 3.0)
+       Predict: -0.26967631304746886
+      Else (feature 38665 > 3.0)
+       Predict: -0.37123177775913135
+  Else (feature 38645 not in {1.0})
+   If (feature 38664 <= 2002.0)
+    If (feature 38648 in {0.0})
+     If (feature 38652 in {0.0})
+      If (feature 38664 <= 1970.0)
+       Predict: -0.07155116963940027
+      Else (feature 38664 > 1970.0)
+       Predict: -0.13324326458776767
+     Else (feature 38652 not in {0.0})
+      If (feature 38661 in {1.0})
+       Predict: -0.1293496556121098
+      Else (feature 38661 not in {1.0})
+       Predict: -0.04855881191894739
+    Else (feature 38648 not in {0.0})
+     If (feature 38664 <= 1993.0)
+      If (feature 38664 <= 1965.0)
+       Predict: 0.07863216912209273
+      Else (feature 38664 > 1965.0)
+       Predict: -0.03640173754003086
+     Else (feature 38664 > 1993.0)
+      If (feature 31625 in {0.0})
+       Predict: 0.07461050543094717
+      Else (feature 31625 not in {0.0})
+       Predict: 0.5940160155296326
+   Else (feature 38664 > 2002.0)
+    If (feature 38665 <= 2.811768754301445)
+     If (feature 38665 <= 2.0)
+      If (feature 6373 in {0.0})
+       Predict: -0.051712701706456934
+      Else (feature 6373 not in {0.0})
+       Predict: 1.2342510223388672
+     Else (feature 38665 > 2.0)
+      If (feature 34349 in {1.0})
+       Predict: -1.0803330838680267
+      Else (feature 34349 not in {1.0})
+       Predict: -0.12284438448027898
+    Else (feature 38665 > 2.811768754301445)
+     If (feature 38649 in {1.0})
+      If (feature 25323 in {1.0})
+       Predict: -0.31667772362165447
+      Else (feature 25323 not in {1.0})
+       Predict: -0.2120149778528841
+     Else (feature 38649 not in {1.0})
+      If (feature 38661 in {1.0})
+       Predict: -0.23944569483660538
+      Else (feature 38661 not in {1.0})
+       Predict: -0.15454120513389064
+
+Processing feature 3
+Building data set
+Done in 0.115615844727 seconds
+Training decision tree
+Done in 180.922972918 seconds
+Evaluating the model
+Done in 117.871582031 seconds
+RMSE: 0.00735899612938, variance explained: 0.242718001778, mean absolute error: 0.178891733934,
+MRAE: 2.88701700261
+Replacing original feature 3 with predicted values
+Done in 0.938786029816 seconds
+Computing predictions of the model with replaced feature 3
+Done in 90.5482079983 seconds
+Computing replaced mean error relative to the ground truth
+Done in 203.984104872 seconds
+Replaced mean error: 0.58811318282
+Computing replaced mean error relative to the baseline model
+Done in 145.980325937 seconds
+Replaced mean error baseline: 0.1064465611
+Randomizing feature 3
+Done in 0.143791913986 seconds
+Computing the predictions of the perturbed model
+Done in 1.57904601097 seconds
+Computing perturbed mean error relative to the ground truth
+Done in 196.06821394 seconds
+Perturbed mean error: 0.600319943865
+Computing perturbed mean error relative to the baseline model
+Done in 144.805733919 seconds
+Perturbed mean error baseline: 0.144642157939
+DecisionTreeModel regressor of depth 5 with 51 nodes
+  If (feature 38665 <= 2.7234513274336285)
+   If (feature 38665 <= 1.625)
+    If (feature 20102 in {0.0})
+     If (feature 1899 in {1.0})
+      Predict: -1.0360535383224487
+     Else (feature 1899 not in {1.0})
+      If (feature 7019 in {0.0})
+       Predict: -0.10112116762368945
+      Else (feature 7019 not in {0.0})
+       Predict: 0.6140756607055664
+    Else (feature 20102 not in {0.0})
+     Predict: 1.005657434463501
+   Else (feature 38665 > 1.625)
+    If (feature 38649 in {1.0})
+     If (feature 29887 in {1.0})
+      Predict: -1.6829341650009155
+     Else (feature 29887 not in {1.0})
+      If (feature 38660 in {1.0})
+       Predict: -0.39768349662190305
+      Else (feature 38660 not in {1.0})
+       Predict: -0.23779527293343805
+    Else (feature 38649 not in {1.0})
+     If (feature 20634 in {0.0})
+      If (feature 31449 in {0.0})
+       Predict: -0.19080591599417607
+      Else (feature 31449 not in {0.0})
+       Predict: 1.3200098276138306
+     Else (feature 20634 not in {0.0})
+      Predict: 1.3701450824737549
+  Else (feature 38665 > 2.7234513274336285)
+   If (feature 38652 in {0.0})
+    If (feature 38646 in {1.0})
+     If (feature 38665 <= 3.25)
+      If (feature 33903 in {1.0})
+       Predict: -0.5639854088425637
+      Else (feature 33903 not in {1.0})
+       Predict: -0.3663077428221403
+     Else (feature 38665 > 3.25)
+      If (feature 33907 in {1.0})
+       Predict: -0.6819962066411972
+      Else (feature 33907 not in {1.0})
+       Predict: -0.47320110864716136
+    Else (feature 38646 not in {1.0})
+     If (feature 38649 in {1.0})
+      If (feature 38665 <= 3.5)
+       Predict: -0.33620710559114864
+      Else (feature 38665 > 3.5)
+       Predict: -0.45671674714251537
+     Else (feature 38649 not in {1.0})
+      If (feature 38647 in {1.0})
+       Predict: -0.43778791713753135
+      Else (feature 38647 not in {1.0})
+       Predict: -0.28254507887734653
+   Else (feature 38652 not in {0.0})
+    If (feature 38664 <= 1993.0)
+     If (feature 38665 <= 3.7853121801432956)
+      If (feature 38647 in {1.0})
+       Predict: -0.5371061492533911
+      Else (feature 38647 not in {1.0})
+       Predict: -0.2757549751198954
+     Else (feature 38665 > 3.7853121801432956)
+      If (feature 38645 in {1.0})
+       Predict: -0.41511744208094714
+      Else (feature 38645 not in {1.0})
+       Predict: -0.32346086658399326
+    Else (feature 38664 > 1993.0)
+     If (feature 38665 <= 3.611111111111111)
+      If (feature 38647 in {1.0})
+       Predict: -0.40083049471889226
+      Else (feature 38647 not in {1.0})
+       Predict: -0.19634525166310487
+     Else (feature 38665 > 3.611111111111111)
+      If (feature 38647 in {1.0})
+       Predict: -0.47816375035204384
+      Else (feature 38647 not in {1.0})
+       Predict: -0.25971704324239037
+
+Processing feature 4
+Building data set
+Done in 0.111873865128 seconds
+Training decision tree
+Done in 192.193111181 seconds
+Evaluating the model
+Done in 113.176474094 seconds
+RMSE: 0.0292435766179, variance explained: 0.235434822492, mean absolute error: 0.179109667259,
+MRAE: 0.489225775491
+Replacing original feature 4 with predicted values
+Done in 0.820232152939 seconds
+Computing predictions of the model with replaced feature 4
+Done in 82.4641330242 seconds
+Computing replaced mean error relative to the ground truth
+Done in 200.762170792 seconds
+Replaced mean error: 0.705103750852
+Computing replaced mean error relative to the baseline model
+Done in 149.003078938 seconds
+Replaced mean error baseline: 0.342999800485
+Randomizing feature 4
+Done in 0.173312902451 seconds
+Computing the predictions of the perturbed model
+Done in 1.9861240387 seconds
+Computing perturbed mean error relative to the ground truth
+Done in 197.931034803 seconds
+Perturbed mean error: 0.733459281297
+Computing perturbed mean error relative to the baseline model
+Done in 149.339869022 seconds
+Perturbed mean error baseline: 0.399276661949
+DecisionTreeModel regressor of depth 5 with 55 nodes
+  If (feature 38665 <= 2.7234513274336285)
+   If (feature 38665 <= 1.625)
+    If (feature 22174 in {1.0})
+     Predict: -0.5874837636947632
+    Else (feature 22174 not in {1.0})
+     If (feature 6154 in {0.0})
+      If (feature 8407 in {0.0})
+       Predict: 0.33597010105173597
+      Else (feature 8407 not in {0.0})
+       Predict: 1.0887064933776855
+     Else (feature 6154 not in {0.0})
+      Predict: 1.1948367357254028
+   Else (feature 38665 > 1.625)
+    If (feature 38665 <= 2.25)
+     If (feature 38665 <= 2.0)
+      If (feature 4976 in {0.0})
+       Predict: 0.6117501488082814
+      Else (feature 4976 not in {0.0})
+       Predict: 1.5014855861663818
+     Else (feature 38665 > 2.0)
+      If (feature 20143 in {0.0})
+       Predict: 0.6843542233772111
+      Else (feature 20143 not in {0.0})
+       Predict: 1.8254057168960571
+    Else (feature 38665 > 2.25)
+     If (feature 38661 in {0.0})
+      If (feature 38665 <= 2.45)
+       Predict: 0.7013797487054642
+      Else (feature 38665 > 2.45)
+       Predict: 0.7680968355312663
+     Else (feature 38661 not in {0.0})
+      If (feature 1170 in {1.0})
+       Predict: 0.06493554264307022
+      Else (feature 1170 not in {1.0})
+       Predict: 0.8491562177502626
+  Else (feature 38665 > 2.7234513274336285)
+   If (feature 38665 <= 3.310810810810811)
+    If (feature 38661 in {0.0})
+     If (feature 38645 in {0.0})
+      If (feature 38665 <= 2.9981036662452594)
+       Predict: 0.8359002889652701
+      Else (feature 38665 > 2.9981036662452594)
+       Predict: 0.8941874010699875
+     Else (feature 38645 not in {0.0})
+      If (feature 12610 in {1.0})
+       Predict: 0.18475377466529608
+      Else (feature 12610 not in {1.0})
+       Predict: 0.9746428874718864
+    Else (feature 38661 not in {0.0})
+     If (feature 38665 <= 3.002314814814815)
+      If (feature 6766 in {1.0})
+       Predict: -0.17060156166553497
+      Else (feature 6766 not in {1.0})
+       Predict: 0.9554877874264323
+     Else (feature 38665 > 3.002314814814815)
+      If (feature 10726 in {1.0})
+       Predict: -0.0020770560950040817
+      Else (feature 10726 not in {1.0})
+       Predict: 1.0432548560793438
+   Else (feature 38665 > 3.310810810810811)
+    If (feature 38665 <= 3.6666666666666665)
+     If (feature 38645 in {0.0})
+      If (feature 38661 in {0.0})
+       Predict: 0.975204566809678
+      Else (feature 38661 not in {0.0})
+       Predict: 1.061060754977779
+     Else (feature 38645 not in {0.0})
+      If (feature 18453 in {0.0})
+       Predict: 1.105848471064176
+      Else (feature 18453 not in {0.0})
+       Predict: 1.2119334794507168
+    Else (feature 38665 > 3.6666666666666665)
+     If (feature 18453 in {0.0})
+      If (feature 38659 in {1.0})
+       Predict: 1.0111953166292356
+      Else (feature 38659 not in {1.0})
+       Predict: 1.0989742227882922
+     Else (feature 18453 not in {0.0})
+      If (feature 29182 in {0.0})
+       Predict: 1.282398511277567
+      Else (feature 29182 not in {0.0})
+       Predict: 1.4612782308033534
+
+Processing feature 5
+Building data set
+Done in 0.107159137726 seconds
+Training decision tree
+Done in 180.755843878 seconds
+Evaluating the model
+Done in 119.39500308 seconds
+RMSE: 0.00807371949989, variance explained: 0.247581018674, mean absolute error: 0.182276482003,
+MRAE: 7.42618335901
+Replacing original feature 5 with predicted values
+Done in 0.982784032822 seconds
+Computing predictions of the model with replaced feature 5
+Done in 87.9872429371 seconds
+Computing replaced mean error relative to the ground truth
+Done in 202.075555086 seconds
+Replaced mean error: 0.566631154928
+Computing replaced mean error relative to the baseline model
+Done in 146.598483086 seconds
+Replaced mean error baseline: 0.0438232824738
+Randomizing feature 5
+Done in 0.153793096542 seconds
+Computing the predictions of the perturbed model
+Done in 1.80658793449 seconds
+Computing perturbed mean error relative to the ground truth
+Done in 196.88216114 seconds
+Perturbed mean error: 0.568866856485
+Computing perturbed mean error relative to the baseline model
+Done in 146.813232899 seconds
+Perturbed mean error baseline: 0.0575095096729
+DecisionTreeModel regressor of depth 5 with 53 nodes
+  If (feature 38665 <= 2.9981036662452594)
+   If (feature 38664 <= 2005.0)
+    If (feature 38664 <= 1974.0)
+     If (feature 6416 in {1.0})
+      Predict: -1.5109087228775024
+     Else (feature 6416 not in {1.0})
+      If (feature 38665 <= 2.5995670995670994)
+       Predict: -0.06412772633264913
+      Else (feature 38665 > 2.5995670995670994)
+       Predict: -0.14225482411679372
+    Else (feature 38664 > 1974.0)
+     If (feature 38647 in {1.0})
+      If (feature 19061 in {1.0})
+       Predict: -0.4964434487952126
+      Else (feature 19061 not in {1.0})
+       Predict: -0.14384269549257375
+     Else (feature 38647 not in {1.0})
+      If (feature 38649 in {0.0})
+       Predict: -0.010342285010296557
+      Else (feature 38649 not in {0.0})
+       Predict: 0.0435708378218655
+   Else (feature 38664 > 2005.0)
+    If (feature 29143 in {1.0})
+     Predict: -1.9886115789413452
+    Else (feature 29143 not in {1.0})
+     If (feature 38656 in {1.0})
+      If (feature 30359 in {1.0})
+       Predict: -0.8385328054428101
+      Else (feature 30359 not in {1.0})
+       Predict: -0.25224836668672246
+     Else (feature 38656 not in {1.0})
+      If (feature 32080 in {1.0})
+       Predict: -0.981861025094986
+      Else (feature 32080 not in {1.0})
+       Predict: -0.07374963635271665
+  Else (feature 38665 > 2.9981036662452594)
+   If (feature 38647 in {1.0})
+    If (feature 38665 <= 3.0)
+     If (feature 38652 in {1.0})
+      If (feature 3343 in {0.0})
+       Predict: -0.7875113189220428
+      Else (feature 3343 not in {0.0})
+       Predict: -0.03705039992928505
+     Else (feature 38652 not in {1.0})
+      If (feature 35740 in {1.0})
+       Predict: -0.5044639706611633
+      Else (feature 35740 not in {1.0})
+       Predict: -0.11186390594995924
+    Else (feature 38665 > 3.0)
+     If (feature 14163 in {1.0})
+      Predict: -1.4001728296279907
+     Else (feature 14163 not in {1.0})
+      If (feature 8352 in {1.0})
+       Predict: -0.5333113695584959
+      Else (feature 8352 not in {1.0})
+       Predict: -0.35491716809609175
+   Else (feature 38647 not in {1.0})
+    If (feature 38664 <= 2000.0)
+     If (feature 38664 <= 1970.0)
+      If (feature 38665 <= 3.0)
+       Predict: -0.10584240971957885
+      Else (feature 38665 > 3.0)
+       Predict: -0.17179960570453373
+     Else (feature 38664 > 1970.0)
+      If (feature 38665 <= 3.49968474148802)
+       Predict: -0.0360170219892656
+      Else (feature 38665 > 3.49968474148802)
+       Predict: -0.10827749927869654
+    Else (feature 38664 > 2000.0)
+     If (feature 38646 in {1.0})
+      If (feature 24669 in {1.0})
+       Predict: -0.4993565829640085
+      Else (feature 24669 not in {1.0})
+       Predict: -0.25920004742820985
+     Else (feature 38646 not in {1.0})
+      If (feature 33600 in {1.0})
+       Predict: -0.3565628400758693
+      Else (feature 33600 not in {1.0})
+       Predict: -0.16598286834683654
+
+Processing feature 6
+Building data set
+Done in 0.126204967499 seconds
+Training decision tree
+Done in 190.902477026 seconds
+Evaluating the model
+Done in 119.625281096 seconds
+RMSE: 0.010340794226, variance explained: 0.251227151455, mean absolute error: 0.188644674259,
+MRAE: 4.0693523102
+Replacing original feature 6 with predicted values
+Done in 0.848994970322 seconds
+Computing predictions of the model with replaced feature 6
+Done in 86.5966451168 seconds
+Computing replaced mean error relative to the ground truth
+Done in 202.023600101 seconds
+Replaced mean error: 0.577203702133
+Computing replaced mean error relative to the baseline model
+Done in 148.032564878 seconds
+Replaced mean error baseline: 0.0856167853139
+Randomizing feature 6
+Done in 0.148089885712 seconds
+Computing the predictions of the perturbed model
+Done in 1.47692918777 seconds
+Computing perturbed mean error relative to the ground truth
+Done in 200.483414888 seconds
+Perturbed mean error: 0.583488468903
+Computing perturbed mean error relative to the baseline model
+Done in 146.038959026 seconds
+Perturbed mean error baseline: 0.115013222238
+DecisionTreeModel regressor of depth 5 with 53 nodes
+  If (feature 38665 <= 2.811768754301445)
+   If (feature 38665 <= 2.45)
+    If (feature 38652 in {0.0})
+     If (feature 3766 in {1.0})
+      Predict: -1.1423516273498535
+     Else (feature 3766 not in {1.0})
+      If (feature 38661 in {0.0})
+       Predict: 0.1033218852335646
+      Else (feature 38661 not in {0.0})
+       Predict: 0.1754819156877215
+    Else (feature 38652 not in {0.0})
+     If (feature 38665 <= 2.25)
+      If (feature 2684 in {1.0})
+       Predict: -1.1782115697860718
+      Else (feature 2684 not in {1.0})
+       Predict: 0.15116215797068216
+     Else (feature 38665 > 2.25)
+      If (feature 26515 in {1.0})
+       Predict: -0.3819846212863922
+      Else (feature 26515 not in {1.0})
+       Predict: 0.274591535667625
+   Else (feature 38665 > 2.45)
+    If (feature 6416 in {1.0})
+     Predict: -1.5787618160247803
+    Else (feature 6416 not in {1.0})
+     If (feature 26326 in {1.0})
+      Predict: -1.34514582157135
+     Else (feature 26326 not in {1.0})
+      If (feature 22135 in {1.0})
+       Predict: 0.05789113061502576
+      Else (feature 22135 not in {1.0})
+       Predict: 0.24086751293002967
+  Else (feature 38665 > 2.811768754301445)
+   If (feature 38664 <= 1978.0)
+    If (feature 38664 <= 1959.0)
+     If (feature 4203 in {1.0})
+      If (feature 17503 in {1.0})
+       Predict: -0.3372907042503357
+      Else (feature 17503 not in {1.0})
+       Predict: 0.131368258397962
+     Else (feature 4203 not in {1.0})
+      If (feature 9758 in {1.0})
+       Predict: -0.6388497948646545
+      Else (feature 9758 not in {1.0})
+       Predict: 0.22485580601602162
+    Else (feature 38664 > 1959.0)
+     If (feature 28689 in {0.0})
+      If (feature 38665 <= 3.25)
+       Predict: 0.2381266481842656
+      Else (feature 38665 > 3.25)
+       Predict: 0.2814160930719286
+     Else (feature 28689 not in {0.0})
+      If (feature 138 in {0.0})
+       Predict: 0.61555748184522
+      Else (feature 138 not in {0.0})
+       Predict: 1.1952216625213623
+   Else (feature 38664 > 1978.0)
+    If (feature 38665 <= 3.209051724137931)
+     If (feature 38652 in {0.0})
+      If (feature 26536 in {1.0})
+       Predict: 0.022006138148052353
+      Else (feature 26536 not in {1.0})
+       Predict: 0.2861449647963531
+     Else (feature 38652 not in {0.0})
+      If (feature 26074 in {1.0})
+       Predict: -1.015839695930481
+      Else (feature 26074 not in {1.0})
+       Predict: 0.34432036922466297
+    Else (feature 38665 > 3.209051724137931)
+     If (feature 38652 in {0.0})
+      If (feature 38665 <= 3.6666666666666665)
+       Predict: 0.34639985019576264
+      Else (feature 38665 > 3.6666666666666665)
+       Predict: 0.40413635499451833
+     Else (feature 38652 not in {0.0})
+      If (feature 38665 <= 3.5)
+       Predict: 0.3903900334083433
+      Else (feature 38665 > 3.5)
+       Predict: 0.4424035714624638
+
+Processing feature 7
+Building data set
+Done in 0.108778953552 seconds
+Training decision tree
+Done in 178.967640877 seconds
+Evaluating the model
+Done in 115.468631983 seconds
+RMSE: 0.0133812428727, variance explained: 0.261983823579, mean absolute error: 0.199777972703,
+MRAE: 14.6922150467
+Replacing original feature 7 with predicted values
+Done in 0.864520072937 seconds
+Computing predictions of the model with replaced feature 7
+Done in 87.2818579674 seconds
+Computing replaced mean error relative to the ground truth
+Done in 200.381429911 seconds
+Replaced mean error: 0.575355830471
+Computing replaced mean error relative to the baseline model
+Done in 145.708886147 seconds
+Replaced mean error baseline: 0.123599721467
+Randomizing feature 7
+Done in 0.148319005966 seconds
+Computing the predictions of the perturbed model
+Done in 1.95398807526 seconds
+Computing perturbed mean error relative to the ground truth
+Done in 199.844110966 seconds
+Perturbed mean error: 0.592428683532
+Computing perturbed mean error relative to the baseline model
+Done in 147.712544918 seconds
+Perturbed mean error baseline: 0.178760117509
+DecisionTreeModel regressor of depth 5 with 61 nodes
+  If (feature 38665 <= 2.0)
+   If (feature 38665 <= 1.625)
+    If (feature 27063 in {1.0})
+     If (feature 30583 in {1.0})
+      If (feature 4064 in {0.0})
+       Predict: -0.9441095590591431
+      Else (feature 4064 not in {0.0})
+       Predict: -0.8477817177772522
+     Else (feature 30583 not in {1.0})
+      If (feature 8295 in {1.0})
+       Predict: -0.937926173210144
+      Else (feature 8295 not in {1.0})
+       Predict: -0.537324791153272
+    Else (feature 27063 not in {1.0})
+     If (feature 20626 in {1.0})
+      If (feature 2494 in {0.0})
+       Predict: -0.9758201241493225
+      Else (feature 2494 not in {0.0})
+       Predict: -0.8524928092956543
+     Else (feature 20626 not in {1.0})
+      If (feature 18179 in {1.0})
+       Predict: -1.0232627391815186
+      Else (feature 18179 not in {1.0})
+       Predict: -0.17959921970960235
+   Else (feature 38665 > 1.625)
+    If (feature 38648 in {1.0})
+     If (feature 38664 <= 1988.0)
+      If (feature 38646 in {0.0})
+       Predict: -0.47859581410884855
+      Else (feature 38646 not in {0.0})
+       Predict: -0.20092695454756418
+     Else (feature 38664 > 1988.0)
+      If (feature 33858 in {1.0})
+       Predict: -1.5336002111434937
+      Else (feature 33858 not in {1.0})
+       Predict: -0.7532413871364391
+    Else (feature 38648 not in {1.0})
+     If (feature 30722 in {0.0})
+      If (feature 24607 in {1.0})
+       Predict: -1.2179970443248749
+      Else (feature 24607 not in {1.0})
+       Predict: -0.42346088354234385
+     Else (feature 30722 not in {0.0})
+      Predict: 0.799471378326416
+  Else (feature 38665 > 2.0)
+   If (feature 38655 in {0.0})
+    If (feature 38659 in {1.0})
+     If (feature 38652 in {0.0})
+      If (feature 38664 <= 1993.0)
+       Predict: -0.7386692094490648
+      Else (feature 38664 > 1993.0)
+       Predict: -0.8002240220236964
+     Else (feature 38652 not in {0.0})
+      If (feature 38665 <= 2.5)
+       Predict: -0.5468259463971481
+      Else (feature 38665 > 2.5)
+       Predict: -0.7096621123492298
+    Else (feature 38659 not in {1.0})
+     If (feature 38648 in {1.0})
+      If (feature 38647 in {0.0})
+       Predict: -0.8254035762139067
+      Else (feature 38647 not in {0.0})
+       Predict: -0.6979249312652874
+     Else (feature 38648 not in {1.0})
+      If (feature 38664 <= 2006.0)
+       Predict: -0.6641792624998972
+      Else (feature 38664 > 2006.0)
+       Predict: -0.6072631500467481
+   Else (feature 38655 not in {0.0})
+    If (feature 34636 in {0.0})
+     If (feature 38653 in {1.0})
+      If (feature 38664 <= 2006.0)
+       Predict: -0.5551040310812884
+      Else (feature 38664 > 2006.0)
+       Predict: -0.742551639676094
+     Else (feature 38653 not in {1.0})
+      If (feature 38664 <= 1959.0)
+       Predict: -0.5675797207901875
+      Else (feature 38664 > 1959.0)
+       Predict: -0.4668036783937244
+    Else (feature 34636 not in {0.0})
+     If (feature 25177 in {0.0})
+      If (feature 26536 in {1.0})
+       Predict: -1.024159550666809
+      Else (feature 26536 not in {1.0})
+       Predict: -0.30959898808404157
+     Else (feature 25177 not in {0.0})
+      If (feature 2997 in {1.0})
+       Predict: -0.4995313584804535
+      Else (feature 2997 not in {1.0})
+       Predict: -0.10499980065505951
+
+Processing feature 8
+Building data set
+Done in 0.103797912598 seconds
+Training decision tree
+Done in 176.891008854 seconds
+Evaluating the model
+Done in 113.464479923 seconds
+RMSE: 0.0863746446307, variance explained: 0.362789816977, mean absolute error: 0.285024965102,
+MRAE: 2.53433686464
+Replacing original feature 8 with predicted values
+Done in 1.0283870697 seconds
+Computing predictions of the model with replaced feature 8
+Done in 95.3232338428 seconds
+Computing replaced mean error relative to the ground truth
+Done in 203.544051886 seconds
+Replaced mean error: 0.677660022892
+Computing replaced mean error relative to the baseline model
+Done in 150.209074974 seconds
+Replaced mean error baseline: 0.333314265987
+Randomizing feature 8
+Done in 0.173891067505 seconds
+Computing the predictions of the perturbed model
+Done in 1.74654817581 seconds
+Computing perturbed mean error relative to the ground truth
+Done in 199.38973999 seconds
+Perturbed mean error: 0.724167175661
+Computing perturbed mean error relative to the baseline model
+Done in 147.841908932 seconds
+Perturbed mean error baseline: 0.411375718157
+DecisionTreeModel regressor of depth 5 with 61 nodes
+  If (feature 38665 <= 3.209051724137931)
+   If (feature 38665 <= 2.45)
+    If (feature 38664 <= 1978.0)
+     If (feature 38665 <= 1.625)
+      If (feature 10613 in {1.0})
+       Predict: -0.39605316519737244
+      Else (feature 10613 not in {1.0})
+       Predict: 0.22072935448827366
+     Else (feature 38665 > 1.625)
+      If (feature 38664 <= 1944.0)
+       Predict: 0.7482464894419536
+      Else (feature 38664 > 1944.0)
+       Predict: 0.5216837653414423
+    Else (feature 38664 > 1978.0)
+     If (feature 38652 in {0.0})
+      If (feature 38651 in {0.0})
+       Predict: 0.18762246683904507
+      Else (feature 38651 not in {0.0})
+       Predict: 0.4851227035180906
+     Else (feature 38652 not in {0.0})
+      If (feature 32886 in {1.0})
+       Predict: -0.49874732494354246
+      Else (feature 32886 not in {1.0})
+       Predict: 0.3582565042883158
+   Else (feature 38665 > 2.45)
+    If (feature 38664 <= 1978.0)
+     If (feature 38665 <= 3.07653791130186)
+      If (feature 38648 in {1.0})
+       Predict: 0.42543207481503487
+      Else (feature 38648 not in {1.0})
+       Predict: 0.7261549171901038
+     Else (feature 38665 > 3.07653791130186)
+      If (feature 4071 in {0.0})
+       Predict: 0.8702704731003775
+      Else (feature 4071 not in {0.0})
+       Predict: 1.198346143183501
+    Else (feature 38664 > 1978.0)
+     If (feature 38652 in {0.0})
+      If (feature 38651 in {0.0})
+       Predict: 0.3917085433653709
+      Else (feature 38651 not in {0.0})
+       Predict: 0.838193100918707
+     Else (feature 38652 not in {0.0})
+      If (feature 38645 in {1.0})
+       Predict: 0.40348692423353594
+      Else (feature 38645 not in {1.0})
+       Predict: 0.6510719304039914
+  Else (feature 38665 > 3.209051724137931)
+   If (feature 4071 in {0.0})
+    If (feature 38665 <= 3.5)
+     If (feature 38664 <= 1982.0)
+      If (feature 38664 <= 1935.0)
+       Predict: 1.0849202317576254
+      Else (feature 38664 > 1935.0)
+       Predict: 0.9125191272004826
+     Else (feature 38664 > 1982.0)
+      If (feature 38645 in {1.0})
+       Predict: 0.5173355464002717
+      Else (feature 38645 not in {1.0})
+       Predict: 0.783500521514914
+    Else (feature 38665 > 3.5)
+     If (feature 38664 <= 2002.0)
+      If (feature 38645 in {1.0})
+       Predict: 0.877967092762419
+      Else (feature 38645 not in {1.0})
+       Predict: 1.0853522253847994
+     Else (feature 38664 > 2002.0)
+      If (feature 38651 in {0.0})
+       Predict: 0.8398430739333941
+      Else (feature 38651 not in {0.0})
+       Predict: 1.0258764751038505
+   Else (feature 4071 not in {0.0})
+    If (feature 38665 <= 3.7344827586206897)
+     If (feature 599 in {1.0})
+      Predict: 0.131569042801857
+     Else (feature 599 not in {1.0})
+      If (feature 38665 <= 3.5)
+       Predict: 1.218394639430108
+      Else (feature 38665 > 3.5)
+       Predict: 1.332982362462924
+    Else (feature 38665 > 3.7344827586206897)
+     If (feature 38665 <= 4.0)
+      If (feature 23088 in {0.0})
+       Predict: 1.389720569795637
+      Else (feature 23088 not in {0.0})
+       Predict: 1.5730062081263616
+     Else (feature 38665 > 4.0)
+      If (feature 6026 in {1.0})
+       Predict: 0.8307589292526245
+      Else (feature 6026 not in {1.0})
+       Predict: 1.5609731368782107
+
+Processing feature 9
+Building data set
+Done in 0.112898826599 seconds
+Training decision tree
+Done in 213.583629847 seconds
+Evaluating the model
+Done in 119.395889044 seconds
+RMSE: 0.0121102931023, variance explained: 0.248648767118, mean absolute error: 0.186582259673,
+MRAE: 3.44091338085
+Replacing original feature 9 with predicted values
+Done in 1.01466488838 seconds
+Computing predictions of the model with replaced feature 9
+Done in 90.2178111076 seconds
+Computing replaced mean error relative to the ground truth
+Done in 204.770397902 seconds
+Replaced mean error: 0.566249440348
+Computing replaced mean error relative to the baseline model
+Done in 150.614173889 seconds
+Replaced mean error baseline: 0.0436839715792
+Randomizing feature 9
+Done in 0.155867815018 seconds
+Computing the predictions of the perturbed model
+Done in 1.54404997826 seconds
+Computing perturbed mean error relative to the ground truth
+Done in 212.569725037 seconds
+Perturbed mean error: 0.568760102167
+Computing perturbed mean error relative to the baseline model
+Done in 146.139369965 seconds
+Perturbed mean error baseline: 0.0597167699232
+DecisionTreeModel regressor of depth 5 with 49 nodes
+  If (feature 38664 <= 1990.0)
+   If (feature 38664 <= 1978.0)
+    If (feature 38665 <= 3.0)
+     If (feature 34410 in {0.0})
+      If (feature 28345 in {0.0})
+       Predict: 0.001134049646239922
+      Else (feature 28345 not in {0.0})
+       Predict: 0.16821110775498183
+     Else (feature 34410 not in {0.0})
+      Predict: 1.1710478067398071
+    Else (feature 38665 > 3.0)
+     If (feature 4850 in {0.0})
+      If (feature 38664 <= 1965.0)
+       Predict: 0.08878019186563138
+      Else (feature 38664 > 1965.0)
+       Predict: 0.038974631121281696
+     Else (feature 4850 not in {0.0})
+      If (feature 38648 in {0.0})
+       Predict: 0.02795544173568487
+      Else (feature 38648 not in {0.0})
+       Predict: 0.33582800489507225
+   Else (feature 38664 > 1978.0)
+    If (feature 38655 in {1.0})
+     If (feature 22013 in {0.0})
+      If (feature 36213 in {0.0})
+       Predict: -0.08503993036890412
+      Else (feature 36213 not in {0.0})
+       Predict: 0.6707798838615417
+     Else (feature 22013 not in {0.0})
+      Predict: 1.1570775508880615
+    Else (feature 38655 not in {1.0})
+     If (feature 6356 in {1.0})
+      Predict: -0.9834877848625183
+     Else (feature 6356 not in {1.0})
+      If (feature 37277 in {0.0})
+       Predict: -0.023527106255772236
+      Else (feature 37277 not in {0.0})
+       Predict: 0.9323987364768982
+  Else (feature 38664 > 1990.0)
+   If (feature 38651 in {0.0})
+    If (feature 38664 <= 1995.0)
+     If (feature 38648 in {0.0})
+      If (feature 6366 in {1.0})
+       Predict: -0.8179488480091095
+      Else (feature 6366 not in {1.0})
+       Predict: -0.10825135400864563
+     Else (feature 38648 not in {0.0})
+      If (feature 32178 in {1.0})
+       Predict: -0.6035391539335251
+      Else (feature 32178 not in {1.0})
+       Predict: 0.06522638017937926
+    Else (feature 38664 > 1995.0)
+     If (feature 38665 <= 2.0)
+      If (feature 38665 <= 1.625)
+       Predict: -0.03947993829975597
+      Else (feature 38665 > 1.625)
+       Predict: -0.12695948964407683
+     Else (feature 38665 > 2.0)
+      If (feature 38665 <= 3.49968474148802)
+       Predict: -0.21802049700087212
+      Else (feature 38665 > 3.49968474148802)
+       Predict: -0.1582772338197637
+   Else (feature 38651 not in {0.0})
+    If (feature 16704 in {0.0})
+     If (feature 10182 in {1.0})
+      Predict: -1.1673823595046997
+     Else (feature 10182 not in {1.0})
+      If (feature 15088 in {1.0})
+       Predict: -1.1543502807617188
+      Else (feature 15088 not in {1.0})
+       Predict: -0.08694846421593054
+    Else (feature 16704 not in {0.0})
+     Predict: 1.0105377435684204
+
+Processing feature 10
+Building data set
+Done in 0.105646848679 seconds
+Training decision tree
+Done in 184.773750067 seconds
+Evaluating the model
+Done in 119.020436049 seconds
+RMSE: 0.00910246143404, variance explained: 0.249590871575, mean absolute error: 0.186126114248,
+MRAE: 5.69690458593
+Replacing original feature 10 with predicted values
+Done in 1.09340810776 seconds
+Computing predictions of the model with replaced feature 10
+Done in 89.9462940693 seconds
+Computing replaced mean error relative to the ground truth
+Done in 203.199178219 seconds
+Replaced mean error: 0.567808654075
+Computing replaced mean error relative to the baseline model
+Done in 149.194905996 seconds
+Replaced mean error baseline: 0.0702734635915
+Randomizing feature 10
+Done in 0.166520833969 seconds
+Computing the predictions of the perturbed model
+Done in 1.78935813904 seconds
+Computing perturbed mean error relative to the ground truth
+Done in 197.201771021 seconds
+Perturbed mean error: 0.574729599561
+Computing perturbed mean error relative to the baseline model
+Done in 148.22517705 seconds
+Perturbed mean error baseline: 0.102492947002
+DecisionTreeModel regressor of depth 5 with 57 nodes
+  If (feature 38655 in {1.0})
+   If (feature 38665 <= 1.625)
+    If (feature 38651 in {1.0})
+     If (feature 38664 <= 1974.0)
+      Predict: -0.06167338788509369
+     Else (feature 38664 > 1974.0)
+      If (feature 29751 in {0.0})
+       Predict: -0.8695113658905029
+      Else (feature 29751 not in {0.0})
+       Predict: -0.21547268331050873
+    Else (feature 38651 not in {1.0})
+     If (feature 20128 in {1.0})
+      If (feature 3045 in {0.0})
+       Predict: -1.0165467262268066
+      Else (feature 3045 not in {0.0})
+       Predict: -0.8252257704734802
+     Else (feature 20128 not in {1.0})
+      If (feature 5507 in {1.0})
+       Predict: -1.1311089992523193
+      Else (feature 5507 not in {1.0})
+       Predict: -0.1902911692412976
+   Else (feature 38665 > 1.625)
+    If (feature 34636 in {1.0})
+     If (feature 38664 <= 1990.0)
+      If (feature 19372 in {0.0})
+       Predict: -1.0490132631399693
+      Else (feature 19372 not in {0.0})
+       Predict: -0.2509770691394806
+     Else (feature 38664 > 1990.0)
+      If (feature 38664 <= 2010.0)
+       Predict: -0.7883225268331068
+      Else (feature 38664 > 2010.0)
+       Predict: -0.4051148208479087
+    Else (feature 34636 not in {1.0})
+     If (feature 38664 <= 1952.0)
+      If (feature 6304 in {0.0})
+       Predict: -0.39009911265401614
+      Else (feature 6304 not in {0.0})
+       Predict: 0.4397987425327301
+     Else (feature 38664 > 1952.0)
+      If (feature 38664 <= 1997.0)
+       Predict: -0.6411607530651997
+      Else (feature 38664 > 1997.0)
+       Predict: -0.5389065720112522
+  Else (feature 38655 not in {1.0})
+   If (feature 38652 in {0.0})
+    If (feature 38665 <= 1.625)
+     If (feature 4245 in {1.0})
+      Predict: -1.0917279720306396
+     Else (feature 4245 not in {1.0})
+      If (feature 12913 in {1.0})
+       Predict: -0.7578992545604706
+      Else (feature 12913 not in {1.0})
+       Predict: -0.16556308466566208
+    Else (feature 38665 > 1.625)
+     If (feature 38664 <= 1959.0)
+      If (feature 38665 <= 2.7234513274336285)
+       Predict: -0.23871407805430428
+      Else (feature 38665 > 2.7234513274336285)
+       Predict: -0.3298554362952077
+     Else (feature 38664 > 1959.0)
+      If (feature 38664 <= 1996.0)
+       Predict: -0.4333277563146965
+      Else (feature 38664 > 1996.0)
+       Predict: -0.3810713126704169
+   Else (feature 38652 not in {0.0})
+    If (feature 38665 <= 2.0)
+     If (feature 38665 <= 1.625)
+      If (feature 24445 in {1.0})
+       Predict: -0.6878325343132019
+      Else (feature 24445 not in {1.0})
+       Predict: -0.12260708452307861
+     Else (feature 38665 > 1.625)
+      If (feature 29956 in {1.0})
+       Predict: -1.006789207458496
+      Else (feature 29956 not in {1.0})
+       Predict: -0.22032210135322722
+    Else (feature 38665 > 2.0)
+     If (feature 29143 in {0.0})
+      If (feature 38662 in {0.0})
+       Predict: -0.3271750253998278
+      Else (feature 38662 not in {0.0})
+       Predict: -0.2666858177873879
+     Else (feature 29143 not in {0.0})
+      Predict: 1.492222785949707
+
+Processing feature 11
+Building data set
+Done in 0.114382982254 seconds
+Training decision tree
+Done in 185.660001993 seconds
+Evaluating the model
+Done in 108.605697155 seconds
+RMSE: 0.00537838696316, variance explained: 0.245493247324, mean absolute error: 0.185742225297,
+MRAE: 2.5386689754
+Replacing original feature 11 with predicted values
+Done in 0.901443004608 seconds
+Computing predictions of the model with replaced feature 11
+Done in 82.076431036 seconds
+Computing replaced mean error relative to the ground truth
+Done in 200.120373964 seconds
+Replaced mean error: 0.564475171725
+Computing replaced mean error relative to the baseline model
+Done in 149.005729914 seconds
+Replaced mean error baseline: 0.0673644496247
+Randomizing feature 11
+Done in 0.132851839066 seconds
+Computing the predictions of the perturbed model
+Done in 1.69191789627 seconds
+Computing perturbed mean error relative to the ground truth
+Done in 197.357217789 seconds
+Perturbed mean error: 0.570742936656
+Computing perturbed mean error relative to the baseline model
+Done in 149.43813014 seconds
+Perturbed mean error baseline: 0.100002904547
+DecisionTreeModel regressor of depth 5 with 51 nodes
+  If (feature 38665 <= 1.625)
+   If (feature 27063 in {1.0})
+    If (feature 38659 in {0.0})
+     If (feature 1927 in {1.0})
+      Predict: -0.8846123814582825
+     Else (feature 1927 not in {1.0})
+      If (feature 2181 in {1.0})
+       Predict: -0.8335921168327332
+      Else (feature 2181 not in {1.0})
+       Predict: -0.5348328815566169
+    Else (feature 38659 not in {0.0})
+     If (feature 2219 in {0.0})
+      If (feature 6684 in {1.0})
+       Predict: -0.4123760014772415
+      Else (feature 6684 not in {1.0})
+       Predict: -0.3070432245731354
+     Else (feature 2219 not in {0.0})
+      Predict: -0.06672714650630951
+   Else (feature 27063 not in {1.0})
+    If (feature 5507 in {1.0})
+     Predict: -1.2144612073898315
+    Else (feature 5507 not in {1.0})
+     If (feature 23036 in {1.0})
+      Predict: -1.1286487579345703
+     Else (feature 23036 not in {1.0})
+      If (feature 3490 in {1.0})
+       Predict: -1.0552680492401123
+      Else (feature 3490 not in {1.0})
+       Predict: -0.16259866290319935
+  Else (feature 38665 > 1.625)
+   If (feature 38655 in {1.0})
+    If (feature 38664 <= 2009.0)
+     If (feature 38664 <= 1970.0)
+      If (feature 4311 in {1.0})
+       Predict: -1.2905679941177368
+      Else (feature 4311 not in {1.0})
+       Predict: -0.4725134934271031
+     Else (feature 38664 > 1970.0)
+      If (feature 38665 <= 2.9981036662452594)
+       Predict: -0.601428954448665
+      Else (feature 38665 > 2.9981036662452594)
+       Predict: -0.5244900315550276
+    Else (feature 38664 > 2009.0)
+     If (feature 32601 in {1.0})
+      If (feature 38665 <= 2.9)
+       Predict: -1.085890543460846
+      Else (feature 38665 > 2.9)
+       Predict: -0.617013829946518
+     Else (feature 32601 not in {1.0})
+      If (feature 22156 in {0.0})
+       Predict: -0.4521540660374113
+      Else (feature 22156 not in {0.0})
+       Predict: 0.7287291884422302
+   Else (feature 38655 not in {1.0})
+    If (feature 38664 <= 1965.0)
+     If (feature 4071 in {1.0})
+      If (feature 17057 in {0.0})
+       Predict: -0.4422220921497556
+      Else (feature 17057 not in {0.0})
+       Predict: -0.2348696240469029
+     Else (feature 4071 not in {1.0})
+      If (feature 38665 <= 2.0)
+       Predict: -0.17455639499058198
+      Else (feature 38665 > 2.0)
+       Predict: -0.342324247961634
+    Else (feature 38664 > 1965.0)
+     If (feature 38665 <= 2.9981036662452594)
+      If (feature 38665 <= 2.0)
+       Predict: -0.3529066127374718
+      Else (feature 38665 > 2.0)
+       Predict: -0.45322714559026084
+     Else (feature 38665 > 2.9981036662452594)
+      If (feature 38651 in {0.0})
+       Predict: -0.39667026082713186
+      Else (feature 38651 not in {0.0})
+       Predict: -0.3456032782368824
+
++---------+----------------+---------------------+--------------------+--------------------+------------------+------------------------+----------------------+----------------------+
+| Feature |      MRAE      | Mean absolute error | Mean feature value | Replaced MERR RECS | Random MERR RECS | Replaced MERR Baseline | Random MERR Baseline | x better than random |
++---------+----------------+---------------------+--------------------+--------------------+------------------+------------------------+----------------------+----------------------+
+|    4    | 0.489225775491 |    0.179109667259   |   0.922035219095   |   0.705103750852   |  0.733459281297  |     0.342999800485     |    0.399276661949    |    1.16407257784     |
+|    1    | 1.70796723739  |    0.177477752573   |   0.50517115665    |   0.598366221123   |  0.616568672241  |     0.152348777116     |    0.200729608158    |    1.31756625789     |
+|    8    | 2.53433686464  |    0.285024965102   |   0.72972751433    |   0.677660022892   |  0.724167175661  |     0.333314265987     |    0.411375718157    |     1.2341977531     |
+|    11   |  2.5386689754  |    0.185742225297   |  -0.401918849669   |   0.564475171725   |  0.570742936656  |    0.0673644496247     |    0.100002904547    |    1.48450562729     |
+|    3    | 2.88701700261  |    0.178891733934   |  -0.272208122307   |   0.58811318282    |  0.600319943865  |      0.1064465611      |    0.144642157939    |    1.35882415029     |
+|    0    | 3.12914684662  |    0.218461859218   |  -0.198700780492   |   0.583860605563   |  0.592236673214  |    0.0960438328456     |    0.124395976712    |    1.29520004592     |
+|    9    | 3.44091338085  |    0.186582259673   |  -0.0953379672363  |   0.566249440348   |  0.568760102167  |    0.0436839715792     |   0.0597167699232    |    1.36701787325     |
+|    6    |  4.0693523102  |    0.188644674259   |   0.299854977411   |   0.577203702133   |  0.583488468903  |    0.0856167853139     |    0.115013222238    |    1.34334899186     |
+|    10   | 5.69690458593  |    0.186126114248   |  -0.369438442155   |   0.567808654075   |  0.574729599561  |    0.0702734635915     |    0.102492947002    |    1.45848719793     |
+|    5    | 7.42618335901  |    0.182276482003   |  -0.112029730129   |   0.566631154928   |  0.568866856485  |    0.0438232824738     |   0.0575095096729    |    1.31230493077     |
+|    2    |  9.3476003227  |    0.177189516487   |  -0.128644181417   |   0.565811107572   |  0.567799869341  |    0.0422269918558     |   0.0573498797865    |     1.358133205      |
+|    7    | 14.6922150467  |    0.199777972703   |   -0.62811654992   |   0.575355830471   |  0.592428683532  |     0.123599721467     |    0.178760117509    |    1.44628252708     |
++---------+----------------+---------------------+--------------------+--------------------+------------------+------------------------+----------------------+----------------------+
