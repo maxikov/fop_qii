@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 
+import logging
 import sys
 import itertools
 import copy
@@ -976,7 +977,107 @@ class AverageRatingRecommender:
         print "Done in", time.time() - start, "seconds"
         return res
 
+def train_regression_model(data, regression_model = "regression_tree",
+    categorical_features = {}, max_bins = 32, max_depth = None, num_trees = 128,
+    logger = None):
+    """
+    Train a regression model on the input data.
+
+    Parameters:
+
+        data (mandatory) - a training set RDD of pyspark.mllib.classification.LabeledPoint.
+
+        regression_model (optional) - string, which model to train. Possible
+            values:
+                "regression_tree"
+                "random_forest"
+                "linear"
+            Default:
+                "regression_tree"
+
+        categorical_features (optional) - dict,
+            {feature_index: number_of_categories}. For "regression_tree" and
+            "random_forest" models, contains information about which of the
+            input features should be treated as taking only a fixed set of
+            possible values with no meaningful order. Otherwise, all features
+            are considered to be ordered.
+            Default:
+                {}
+
+        max_bins (optional) - int, the maximum number of bins into which the
+            target variable is split for "regression_tree" and "random_forest".
+            Default:
+                32
+
+        max_depth (optional) - int, maximum depth of the tree.
+            Default: int(math.ceil(math.log(max_bins, 2)))
+
+        num_trees (optional) - int, number of trees in the random forest.
+            Default:
+                128
+
+        logger (optional) - logging.Logger, the object into which debug
+            information will be send. If None, printing to stdout will be used.
+            Default:
+                None
+    """
+
+    if max_depth is None:
+        max_depth = int(math.ceil(math.log(max_bins, 2)))
+
+    start = time.time()
+
+    if logger is None:
+        print "Training", regression_model
+    else:
+        logger.debug("Training " + regression_model)
+
+    if regression_model == "regression_tree":
+        lr_model = pyspark.\
+                mllib.\
+                tree.\
+                DecisionTree.\
+                trainRegressor(
+                    data,
+                    categoricalFeaturesInfo=categorical_features,
+                    impurity = "variance",
+                    maxDepth = max_depth,
+                    maxBins = max_bins)
+
+    elif regression_model == "random_forest":
+        lr_model = pyspark.\
+                mllib.\
+                tree.\
+                RandomForest.\
+                trainRegressor(
+                    data,
+                    categoricalFeaturesInfo=categorical_features,
+                    numTrees = num_trees,
+                    maxDepth = max_depth,
+                    maxBins = max_bins)
+    elif regression_model == "linear":
+        lr_model = LinearRegressionWithSGD.train(data)
+
+    if logger is None:
+        print "Done in {} seconds".format(time.time() - start)
+    else:
+        logger.debug("Done in {} seconds".format(time.time() - start))
+
+    return lr_model
+
+
 if __name__ == "__main__":
+
+    #http://stackoverflow.com/questions/14058453/making-python-loggers-output-all-messages-to-stdout-in-addition-to-log
+    #http://stackoverflow.com/questions/8269294/python-logging-only-log-from-script
+    logger = logging.getLogger(__name__)
+    logger.setLevel(logging.DEBUG)
+
+    ch = logging.StreamHandler(sys.stdout)
+    ch.setLevel(logging.DEBUG)
+    formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+    ch.setFormatter(formatter)
+    logger.addHandler(ch)
 
     parser = argparse.ArgumentParser(description=u"Usage: " +\
             "/path/to/spark/bin/spark-submit --driver-memory 2g " +\
@@ -1564,36 +1665,13 @@ if __name__ == "__main__":
                 lambda (mid, (ftrs, inds)):
                         LabeledPoint(ftrs[f], inds))
             print "Done in {} seconds".format(time.time() - start)
-            start = time.time()
-            if regression_model == "regression_tree":
-                print "Training decision tree"
-                lr_model = pyspark.\
-                        mllib.\
-                        tree.\
-                        DecisionTree.\
-                        trainRegressor(
-                                data,
-                                categoricalFeaturesInfo=categorical_features,
-                                impurity = "variance",
-                                maxDepth = int(math.ceil(math.log(nbins, 2))),
-                                maxBins = nbins)
-            elif regression_model == "random_forest":
-                print "Training random forest"
-                lr_model = pyspark.\
-                        mllib.\
-                        tree.\
-                        RandomForest.\
-                        trainRegressor(
-                                data,
-                                categoricalFeaturesInfo=categorical_features,
-                                numTrees = 128,
-                                maxDepth = int(math.ceil(math.log(nbins, 2))),
-                                maxBins = nbins)
-            elif regression_model == "linear":
-                print "Building linear regression"
-                start = time.time()
-                lr_model = LinearRegressionWithSGD.train(data)
-            print "Done in {} seconds".format(time.time() - start)
+
+            lr_model = train_regression_model(data,
+                    regression_model = regression_model,
+                    categorical_features = categorical_features,
+                    max_bins = nbins,
+                    logger = logger)
+
             print "Evaluating the model"
             start = time.time()
             observations = data.map(lambda x: x.label)
