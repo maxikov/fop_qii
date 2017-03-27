@@ -1305,11 +1305,35 @@ def evaluate_regression(predictions, observations, logger = None):
     res = {"mre": metrics.meanAbsoluteError, "mrae": mrae}
     return res
 
+def mean_feature_values(features, logger):
+        logger.debug("Computing mean feature values")
+        start = time.time()
+        mean_p_feat_vals = features\
+                .values()\
+                .reduce(lambda x, y: (map(sum, zip(x, y))))
+        nmovies = float(features.count())
+        mpfv = {x: mean_p_feat_vals[x]/nmovies for x in xrange(len(mean_p_feat_vals))}
+        logger.debug("Done in {} seconds".format(time.time() - start))
+        logger.debug("Mean product feature values: {}".format(mpfv))
+        return mpfv
+
+def replace_feature_with_predicted(features, f, predictions, logger):
+    logger.debug("Replacing original feature "+\
+            "{} with predicted values".format(f))
+    start = time.time()
+    joined = features.join(predictions)
+    replaced = joined.map(lambda (mid, (feats, pred)):
+            (mid, set_list_values(feats, f, pred)))
+    logger.debug("Done in {} seconds".format(time.time() - start))
+    return replaced
 
 
 def internal_feature_predictor(sc, training, rank, numIter, lmbda,
         args, all_movies, metadata_sources, user_or_product_features, eval_regression,
         compare_with_replaced_feature, compare_with_randomized_feature, logger):
+
+        results = {}
+        power = 1.0
 
         if "average_rating" in args.metadata_sources:
             arc = AverageRatingRecommender(logger)
@@ -1335,12 +1359,27 @@ def internal_feature_predictor(sc, training, rank, numIter, lmbda,
         else:
             logger.debug("Done in {} seconds".format(time.time() - start))
 
-        if user_or_product_features == "product":
-            features = model.productFeatures()
-        else:
-            features = model.userFeatures()
+        if compare_with_replaced_feature or compare_with_randomized_feature:
+            logger.debug("Computing model predictions")
+            start = time.time()
+            baseline_predictions = model.predictAll(training.map(lambda x: (x[0], x[1])))
+            logger.debug("Done in {} seconds".format(time.time() - start))
+            logger.debug("Computing mean error")
+            start = time.time()
+            predictionsAndRatings = baseline_predictions.map(lambda x: ((x[0], x[1]), x[2])) \
+                .join(training.map(lambda x: ((x[0], x[1]), x[2]))) \
+                .values()
+            baseline_mean_error = mean_error(predictionsAndRatings, power)
+            logger.debug("Done in {} seconds".format(time.time() - start))
+            logger.debug("Mean error: {}".format(baseline_mean_error))
+            results["baseline_mean_error"] = baseline_mean_error
 
-        results = {}
+        features = model.productFeatures()
+        other_features = model.userFeatures()
+        if user_or_product_features == "user":
+            features, other_features = other_features, features
+
+        results["mean_feature_values"] = mean_feature_values(features, logger)
 
         for f in xrange(rank):
             lr_model, observations, predictions = predict_internal_feature(
@@ -1357,113 +1396,41 @@ def internal_feature_predictor(sc, training, rank, numIter, lmbda,
                 reg_eval = evaluate_regression(predictions, observations, logger)
                 results[f]["regression_evaluation"] = reg_eval
 
+            if compare_with_replaced_feature:
+                replaced_features = replace_feature_with_predicted(features, f,
+                        predictions, logger)
+                if user_or_product_features == "product":
+                    uf, pf = other_features, replaced_features
+                else:
+                    uf, pf = replaced_features, other_features
+
+                logger.debug("Computing predictions of the model with replaced "+\
+                    "feature {}".format(f))
+                start = time.time()
+                replaced_predictions = manual_predict_all(
+                    training.map(lambda x: (x[0], x[1])),
+                    uf,
+                    pf)
+                logger.debug("Done in {} seconds".format(time.time() - start))
+
+                logger.debug("Computing replaced mean error relative to the "+\
+                    "baseline model")
+                start = time.time()
+                predictionsAndRatings = replaced_predictions.map(lambda x: ((x[0], x[1]), x[2])) \
+                   .join(baseline_predictions.map(lambda x: ((x[0], x[1]), x[2]))) \
+                   .values()
+                replaced_mean_error_baseline = mean_error(predictionsAndRatings, power)
+                logger.debug("Done in {} seconds".format(time.time() - start))
+                logger.debug("Replaced mean error baseline: "+\
+                    "{}".format(replaced_mean_error_baseline))
+                results[f]["replaced_mean_error_baseline"] =\
+                    replaced_mean_error_baseline
+
         return results
-        print "Computing mean error"
-        start = time.time()
-        predictionsAndRatings = arc_predictions.map(lambda x: ((x[0], x[1]), x[2])) \
-            .join(training.map(lambda x: ((x[0], x[1]), x[2]))) \
-            .values()
-        arc_mean_error = mean_error(predictionsAndRatings, power)
-        print "Done in {} seconds".format(time.time() - start)
-        print "Mean error:", arc_mean_error
 
 
-
-        print "Computing mean feature values"
-        start = time.time()
-        mean_p_feat_vals = model\
-                .productFeatures()\
-                .values()\
-                .reduce(lambda x, y: (map(sum, zip(x, y))))
-        nmovies = float(model.productFeatures().count())
-        mpfv = {x: mean_p_feat_vals[x]/nmovies for x in xrange(len(mean_p_feat_vals))}
-        print "Done in", time.time() - start, "seconds"
-        print "Mean product feature values:", mpfv
-        print "Computing model predictions"
-        start = time.time()
-        baseline_predictions = model.predictAll(training.map(lambda x: (x[0], x[1])))
-        print "Done in", time.time() - start, "seconds"
-        print "Computing mean error"
-        start = time.time()
-        predictionsAndRatings = baseline_predictions.map(lambda x: ((x[0], x[1]), x[2])) \
-            .join(training.map(lambda x: ((x[0], x[1]), x[2]))) \
-            .values()
-        baseline_mean_error = mean_error(predictionsAndRatings, power)
-        print "Done in {} seconds".format(time.time() - start)
-        print "Mean error:", baseline_mean_error
-        print "Creating a model with completely randomized features"
-        start = time.time()
-        perturbed_features = model.productFeatures()
-        for f in xrange(rank):
-            print "Perturbing feature", f
-            perturbed_features = perturb_feature(perturbed_features, f)
-        print "Done in", time.time() - start, "seconds"
-        print "Making predictions of the randomized model"
-        start = time.time()
-        perturbed_predictions = manual_predict_all(training,
-                model.userFeatures(), perturbed_features)
-        print "Done in", time.time() - start, "seconds"
-        print "Computing mean error"
-        start = time.time()
-        predictionsAndRatings = perturbed_predictions.map(lambda x: ((x[0], x[1]), x[2])) \
-            .join(training.map(lambda x: ((x[0], x[1]), x[2]))) \
-            .values()
-        perturbed_mean_error = mean_error(predictionsAndRatings, power)
-        print "Done in {} seconds".format(time.time() - start)
-        print "Mean error:", perturbed_mean_error, ", ", perturbed_mean_error-\
-                baseline_mean_error, "(", perturbed_mean_error/\
-                baseline_mean_error, "times) higher"
-        print "Preparing features"
-        start = time.time()
-        features = model.productFeatures()
-        print "Done in {} seconds".format(time.time() - start)
-        results = {}
-        for f in xrange(rank):
-            print "Processing feature", f
-            print "Building data set"
-            start = time.time()
-            data = features.join(indicators).map(
-                lambda (mid, (ftrs, inds)):
-                        LabeledPoint(ftrs[f], inds))
-            print "Done in {} seconds".format(time.time() - start)
-
-            lr_model = train_regression_model(data,
-                    regression_model = regression_model,
-                    categorical_features = categorical_features,
-                    max_bins = nbins,
-                    logger = logger)
-
-            print "Evaluating the model"
-            start = time.time()
-            observations = data.map(lambda x: x.label)
-            predictions = lr_model.predict(data.map(lambda x:
-                    x.features))
-            predobs = predictions.zip(observations).map(lambda (a, b): (float(a),
-                float(b)))
-            metrics = RegressionMetrics(predobs)
-            mrae = predobs.\
-                    map(lambda (pred, obs):
-                        abs(pred-obs)/float(abs(obs if obs != 0 else 1))).\
-                    sum()/predobs.count()
-            print "Done in", time.time() - start, "seconds"
-            print "RMSE: {}, variance explained: {}, mean absolute error: {},".\
-                    format(metrics.explainedVariance,\
-                    metrics.rootMeanSquaredError,
-                    metrics.meanAbsoluteError)
-            print "MRAE: {}".format(mrae)
-            results[f] = {"mre": metrics.meanAbsoluteError, "mrae": mrae,
-                    "model":lr_model}
-            print "Replacing original feature", f, "with predicted values"
-            start = time.time()
-            product_features = model.productFeatures()
-            user_features = model.userFeatures()
-            joined = indicators.join(product_features)
-            mids = joined.map(lambda (mid, (ind, feats)): mid)
-            mid_preds = mids.zip(predictions)
-            joined = product_features.join(mid_preds)
-            replaced = joined.map(lambda (mid, (feats, pred)):
-                        (mid, set_list_values(feats, f, pred)))
-            print "Done in", time.time() - start, "seconds"
+def aaaaaaa():
+        if True:
             print "Computing predictions of the model with replaced feature", f
             start = time.time()
             replaced_predictions = manual_predict_all(
