@@ -63,10 +63,31 @@ def loadCSV(fname, remove_first_line = True):
             res = res[1:]
         return res
 
+def parseTag(line, sep="::"):
+    """
+    Parses a tag record in MovieLens format.
+    """
+    #Multi-character delimiters aren't supported,
+    #but this data set doesn't have %s anywhere.
+    #Dirty hack, need to fix later
+    if sep == "::":
+        line = line.replace(sep, "%")
+        sep = "%"
+    s = StringIO.StringIO(line)
+    r = csv.reader(s, delimiter=sep, quotechar='"')
+    x = r.next()
+    return (int(x[0]), int(x[1]), x[2])
+
 def parseRating(line, sep="::"):
     """
     Parses a rating record in MovieLens format userId::movieId::rating::timestamp .
     """
+    #Multi-character delimiters aren't supported,
+    #but this data set doesn't have %s anywhere.
+    #Dirty hack, need to fix later
+    if sep == "::":
+        line = line.replace(sep, "%")
+        sep = "%"
     s = StringIO.StringIO(line)
     r = csv.reader(s, delimiter=sep, quotechar='"')
     fields = r.next()
@@ -77,6 +98,12 @@ def parseGenre(line, sep="::"):
     Parses movie genres in MovieLens format
     movieId::movieTitle::movieGenre1[|movieGenre2...]
     """
+    #Multi-character delimiters aren't supported,
+    #but this data set doesn't have %s anywhere.
+    #Dirty hack, need to fix later
+    if sep == "::":
+        line = line.replace(sep, "%")
+        sep = "%"
     s = StringIO.StringIO(line)
     r = csv.reader(s, delimiter=sep, quotechar='"')
     fields = r.next()
@@ -90,6 +117,12 @@ def parseYear(line, sep="::"):
     Parses movie years in MovieLens format
     movieId::movieTitle (movieYear)::movieGenre1[|movieGenre2...]
     """
+    #Multi-character delimiters aren't supported,
+    #but this data set doesn't have %s anywhere.
+    #Dirty hack, need to fix later
+    if sep == "::":
+        line = line.replace(sep, "%")
+        sep = "%"
     s = StringIO.StringIO(line)
     r = csv.reader(s, delimiter=sep, quotechar='"')
     fields = r.next()
@@ -112,6 +145,12 @@ def parseMovie(line, sep="::"):
     """
     Parses a movie record in MovieLens format movieId::movieTitle .
     """
+    #Multi-character delimiters aren't supported,
+    #but this data set doesn't have %s anywhere.
+    #Dirty hack, need to fix later
+    if sep == "::":
+        line = line.replace(sep, "%")
+        sep = "%"
     s = StringIO.StringIO(line)
     r = csv.reader(s, delimiter=sep, quotechar='"')
     fields = r.next()
@@ -161,6 +200,12 @@ def parseUser(line):
         * 19:  "unemployed"
         * 20:  "writer"
     """
+    #Multi-character delimiters aren't supported,
+    #but this data set doesn't have %s anywhere.
+    #Dirty hack, need to fix later
+    if sep == "::":
+        line = line.replace(sep, "%")
+        sep = "%"
     s = StringIO.StringIO(line)
     r = csv.reader(s, delimiter=sep, quotechar='"')
     fields = r.next()
@@ -1020,6 +1065,9 @@ def train_regression_model(data, regression_model = "regression_tree",
             information will be send. If None, printing to stdout will be used.
             Default:
                 None
+
+    Returns:
+        trained_regression_model
     """
 
     if max_depth is None:
@@ -1064,6 +1112,154 @@ def train_regression_model(data, regression_model = "regression_tree",
         logger.debug("Done in {} seconds".format(time.time() - start))
 
     return lr_model
+
+
+def build_meta_data_set(sc, sources, all_ids = None, logger = None):
+    """
+    Load specified types of metadata for users or products, and turn them into
+    an RDD of
+        ID: [features]
+    and dict of categorical feature info (see documentation for
+    train_regression_model for details).
+
+    Parameters:
+
+        sc (mandatory) - SparkContext
+
+        sources (mandatory) - list of dicts:
+            [
+                {
+                    name: str, name of the feature(s) being loaded,
+                    src_rdd: a function that takes no arguments and returns
+                        RDD of parseable strings,
+                    loader: function that takes src_rdd and returns
+                        (RDD(ID: [features],
+                        number_of_features,
+                        categorical_feature_info
+                        )
+                }
+            ]
+
+        all_ids (optional) - set of ints, all user and product IDs for which
+            features should be loaded. If a certain source of data is missing
+            records for some of the passed IDs, empty records of matching
+            dimensionality will be added. If None, it's assumed that all
+            sources will have the same sets of IDs.
+            Default:
+                None
+
+        logger (optional) - logging.Logger, the object into which debug
+            information will be send. If None, printing to stdout will be used.
+            Default:
+                None
+
+    Returns:
+        (RDD (ID: [features]), number_of_features, categorical_features_info)
+    """
+
+    feature_offset = 0
+    categorical_features_info = {}
+    res_rdd = None
+
+    for source in sources:
+        if logger is None:
+            print "Loading", source["name"]
+        else:
+            logger.debug("Loading " + source["name"])
+
+        start = time.time()
+
+        cur_rdd, nof, cfi = source["loader"](source["src_rdd"]())
+        rdd_count = cur_rdd.count()
+
+        if logger is None:
+            print "Done in {} seconds".format(time.time() - start)
+            print rdd_count, "records of", nof, "features loaded"
+        else:
+            logger.debug("Done in {} seconds".format(time.time() - start))
+            logger.debug(str(rdd_count) + " records of " +\
+                    str(nof) + " features loaded")
+
+        if all_ids is not None:
+            cur_ids = set(cur_rdd.keys().collect())
+            missing_ids = all_ids - cur_ids
+            if len(missing_ids) == 0:
+                if logger is None:
+                    print "No missing IDs"
+                else:
+                    logger.debug("No missing IDs")
+            else:
+                if logger is None:
+                    print len(missing_ids), "IDs are missing. "+\
+                            "Adding empty records for them"
+                else:
+                    logger.debug(str(len(missing_ids)) + " IDs are missing. "+\
+                            "Adding empty records for them")
+
+                start = time.time()
+
+                empty_records = [(_id, [0 for _ in xrange(nof)]) for _id in
+                        missing_ids]
+                empty_records = sc.parallelize(empty_records)
+                cur_rdd = cur_rdd.union(empty_records)
+                if logger is None:
+                    print "Done in {} seconds".format(time.time() - start)
+                else:
+                    logger.debug("Done in {} seconds".format(time.time() - start))
+
+        shifted_cfi = {f+feature_offset: v for (f, v) in cfi.items()}
+        categorical_features_info = dict(categorical_features_info,
+                **shifted_cfi)
+
+        if res_rdd is None:
+            res_rdd = cur_rdd
+        else:
+            res_rdd = res_rdd\
+                    .join(cur_rdd)\
+                    .map(lambda (x, (y, z)): (x, y+z))
+
+        feature_offset += nof
+
+    return (res_rdd, feature_offset, categorical_features_info)
+
+def load_years(src_rdd, sep=","):
+    years = src_rdd\
+            .map(lambda x: parseYear(x, sep=sep))\
+            .map(lambda (x, y): (x, [y]))
+    nof = 1
+    cfi = {}
+    return (years, nof, cfi)
+
+def load_genres(src_rdd, sep=","):
+    genres = src_rdd.map(lambda x: parseGenre(x, sep=sep))
+    all_genres = sorted(list(genres.map(lambda (_, x): x).fold(set(), lambda x, y:
+        set(x).union(set(y)))))
+    indicators_genres = genres.map(
+            lambda (mid, cur_genres): (
+                mid, map(lambda g: int(g in cur_genres), all_genres)
+                )
+            )
+    nof = len(all_genres)
+    cfi = {x: 2 for x in xrange(nof)}
+    return (indicators_genres, nof, cfi)
+
+def load_tags(src_rdd, sep=","):
+    tags = src_rdd.map(lambda x: parseTag(x, sep=sep))
+    all_tags = set(tags.map(lambda x: x[2]).collect())
+    all_tags = sorted(list(all_tags))
+    tags = tags\
+            .groupBy(lambda x: (x[1], x[2]))\
+            .map(lambda x: x[0])\
+            .groupBy(lambda x: x[0])\
+            .map(lambda (mid, data): (mid, set(d[1] for d in data)))
+    indicators = tags.map(
+                lambda (mid, cur_tags): (
+                    mid, map(lambda t: int(t in cur_tags), all_tags)
+                     )
+                )
+    nof = len(all_tags)
+    cfi = {x: 2 for x in xrange(nof)}
+    return (indicators, nof, cfi)
 
 
 if __name__ == "__main__":
@@ -1293,24 +1489,66 @@ if __name__ == "__main__":
     ALS.checkpointInterval = 2
 #######################################
 
-    print "Loading ratings"
-    start = time.time()
     if "ml-20m" in movieLensHomeDir:
-        ratings = loadCSV(join(movieLensHomeDir, "ratings.csv"))
-        ratings = sc.parallelize(ratings).map(lambda x: parseRating(x,
-            sep=","))
+        sep = ","
+        extension = ".csv"
+        remove_first_line = True
     else:
-        ratings = sc.textFile(join(movieLensHomeDir, "ratings.dat")).map(parseRating)
-    print "Done in {} seconds".format(time.time() - start)
-    print "Loading movies"
+        sep = "::"
+        extension = ".dat"
+        remove_first_line = False
+
+
+    logger.debug("Loading ratings")
     start = time.time()
-    if "ml-20m" in movieLensHomeDir:
-        movies = loadCSV(join(movieLensHomeDir, "movies.csv"))
-        movies = dict(sc.parallelize(movies).map(lambda x: parseMovie(x,
-            sep=",")).collect())
-    else:
-        movies = dict(sc.textFile(join(movieLensHomeDir, "movies.dat")).map(parseMovie).collect())
-    print "Done in {} seconds".format(time.time() - start)
+    ratings_rdd = sc.parallelize(
+            loadCSV(
+                join(movieLensHomeDir, "ratings" + extension),
+                remove_first_line = remove_first_line
+                )
+            )
+    ratings = ratings_rdd.map(lambda x: parseRating(x,
+         sep=sep))
+    logger.debug("Done in {} seconds".format(time.time() - start))
+
+    logger.debug("Loading movies")
+    start = time.time()
+    movies_rdd = sc.parallelize(
+            loadCSV(
+                join(movieLensHomeDir, "movies" + extension),
+                remove_first_line = remove_first_line
+                )
+            )
+    movies = dict(movies_rdd.map(lambda x: parseMovie(x,
+        sep=sep)).collect())
+    all_movies = set(movies.keys())
+    logger.debug("Done in {} seconds".format(time.time() - start))
+
+    metadata_sources = [
+        {
+            "name": "years",
+            "src_rdd": (lambda: movies_rdd),
+            "loader": (lambda x: load_years(x, sep))
+        },
+        {
+            "name": "genres",
+            "src_rdd": (lambda: movies_rdd),
+            "loader": (lambda x: load_genres(x, sep))
+        },
+        {
+            "name": "tags",
+            "src_rdd": (
+                lambda: sc.parallelize(
+                    loadCSV(
+                        join(movieLensHomeDir, "tags" + extension),
+                        remove_first_line = remove_first_line
+                    )
+                ).cache()
+            ),
+            "loader": (lambda x: load_tags(x, sep))
+        }
+    ]
+
 
     # create the initial training dataset with default ratings
     training = ratings.filter(lambda x: False or x[0] < 3)\
@@ -1537,6 +1775,14 @@ if __name__ == "__main__":
             table.add_row([f, r["mrae"], r["mre"]])
         print table
     elif regression_tags:
+        srcs = set(["years", "genres", "tags"])
+        cur_srcs = filter(lambda x: x["name"] in srcs, metadata_sources)
+        indicators, number_of_features, categorical_features =\
+                build_meta_data_set(sc, cur_srcs, all_movies, logger)
+
+        print indicators, number_of_features, categorical_features
+        print indicators.take(1)
+
         power = 1.0
         print "Loading movie tags"
         start = time.time()
