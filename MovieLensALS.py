@@ -156,7 +156,7 @@ def parseMovie(line, sep="::"):
     fields = r.next()
     return int(fields[0]), fields[1]
 
-def parseUser(line):
+def parseUser(line, sep="::"):
     """
     Parses user metadata from the 1m format:
     UserID::Gender::Age::Occupation::Zip-code
@@ -1526,6 +1526,14 @@ def load_tags(src_rdd, sep=","):
     cfi = {x: 2 for x in xrange(nof)}
     return (indicators, nof, cfi)
 
+def load_users(src_rdd, sep=","):
+    users = src_rdd\
+            .map(lambda x: parseUser(x, sep=sep))\
+            .map(lambda x: (x[0], x[1:]))
+    nof = 4
+    cfi = {}
+    return (users, nof, cfi)
+
 def logger_init():
     #http://stackoverflow.com/questions/14058453/making-python-loggers-output-all-messages-to-stdout-in-addition-to-log
     #http://stackoverflow.com/questions/8269294/python-logging-only-log-from-script
@@ -1895,77 +1903,32 @@ if __name__ == "__main__":
             print lr_model.toDebugString()
 
     elif regression_users:
-        print "Loading user metadata"
+        args.metadata_sources = ["users"]
+        logger.debug("Loading users")
         start = time.time()
-        userdata = sc.textFile(join(movieLensHomeDir, "users.dat")).\
-                map(parseUser).\
-                map(lambda x: (x[0], list(x[1:])))
-        print "Done in {} seconds".format(time.time() - start)
-        print "Training model"
-        start = time.time()
-        model = ALS.train(training, rank, numIter, lmbda)
-        print "Done in {} seconds".format(time.time() - start)
-        print "Preparing features"
-        start = time.time()
-        features = model.userFeatures()
-        results = {}
-        for f in xrange(rank):
-            data = features.join(userdata).map(
-                lambda (uid, (ftrs, ufs)):
-                        LabeledPoint(ftrs[f], list(ufs)))
-            print "Done in {} seconds".format(time.time() - start)
-            if regression_model == "regression_tree":
-                lr_model = pyspark.\
-                        mllib.\
-                        tree.\
-                        DecisionTree.\
-                        trainRegressor(
-                                data,
-                                categoricalFeaturesInfo={},
-                                impurity = "variance",
-                                maxDepth = int(math.ceil(math.log(nbins, 2))),
-                                maxBins = nbins)
-            elif regression_model == "random_forest":
-                lr_model = pyspark.\
-                        mllib.\
-                        tree.\
-                        RandomForest.\
-                        trainRegressor(
-                                data,
-                                categoricalFeaturesInfo={},
-                                numTrees = 128,
-                                maxDepth = int(math.ceil(math.log(nbins, 2))),
-                                maxBins = nbins)
-            elif regression_model == "linear":
-                print "Building linear regression"
-                start = time.time()
-                lr_model = LinearRegressionWithSGD.train(data)
-            print "Done in {} seconds".format(time.time() - start)
-            observations = data.map(lambda x: x.label)
-            predictions = lr_model.predict(data.map(lambda x:
-                    x.features))
-            predobs = predictions.zip(observations).map(lambda (a, b): (float(a),
-                float(b)))
-            metrics = RegressionMetrics(predobs)
-            mrae = predobs.\
-                    map(lambda (pred, obs):
-                        abs(pred-obs)/abs(float(1 if obs == 0 else obs))).\
-                    sum()/predobs.count()
-            print "RMSE: {}, variance explained: {}, mean absolute error: {},".\
-                    format(metrics.explainedVariance,\
-                    metrics.rootMeanSquaredError,
-                    metrics.meanAbsoluteError)
-            print "MRAE: {}".format(mrae)
-            results[f] = {"mre": metrics.meanAbsoluteError, "mrae": mrae}
-            if regression_model == "linear":
-                print "Weights: {}".format(lr_model.weights)
-            elif regression_model == "regression_tree":
-                print lr_model.toDebugString()
-        results = sorted(results.items(), key=lambda x: x[1]["mrae"])
-        table = PrettyTable(["Feature", "MRAE", "Mean absolute error"])
-        for f, r in results:
-            table.add_row([f, r["mrae"], r["mre"]])
-        print table
+        users_rdd = sc.parallelize(
+            loadCSV(
+                join(movieLensHomeDir, "users" + extension),
+                remove_first_line = remove_first_line
+                )
+            )
+        users = load_users(users_rdd, sep)
+        all_users = set(users[0].keys().collect())
+        logger.debug("Done in {} seconds".format(time.time() - start))
+        metadata_sources = [
+            {
+                "name": "users",
+                "src_rdd": (lambda: users),
+                "loader": (lambda x: x)
+            }]
+        results = internal_feature_predictor(sc, training, rank, numIter, lmbda,
+            args, all_users, metadata_sources,
+            user_or_product_features="user", eval_regression = True,
+            compare_with_replaced_feature = True,
+            compare_with_randomized_feature = True, logger = logger)
+
+        display_internal_feature_predictor(results, logger)
+
     elif args.predict_product_features:
         results = internal_feature_predictor(sc, training, rank, numIter, lmbda,
             args, all_movies, metadata_sources,
@@ -1974,215 +1937,6 @@ if __name__ == "__main__":
             compare_with_randomized_feature = True, logger = logger)
 
         display_internal_feature_predictor(results, logger)
-        print results
-        sys.exit(1)
-
-        for f in xrange(rank):
-            lr_model, observations, predictions = predict_internal_feature(
-                    features,
-                    indicators,
-                    regression_model,
-                    categorical_features,
-                    nbins,
-                    logger)
-            reg_eval = evaluate_regression(predictions, observations, logger)
-            print reg_eval
-
-        arc = AverageRatingRecommender()
-        arc.train(training)
-        arc_predictions = arc.predict(training)
-        print "Computing mean error"
-        start = time.time()
-        predictionsAndRatings = arc_predictions.map(lambda x: ((x[0], x[1]), x[2])) \
-            .join(training.map(lambda x: ((x[0], x[1]), x[2]))) \
-            .values()
-        arc_mean_error = mean_error(predictionsAndRatings, power)
-        print "Done in {} seconds".format(time.time() - start)
-        print "Mean error:", arc_mean_error
-
-
-
-        print "Computing mean feature values"
-        start = time.time()
-        mean_p_feat_vals = model\
-                .productFeatures()\
-                .values()\
-                .reduce(lambda x, y: (map(sum, zip(x, y))))
-        nmovies = float(model.productFeatures().count())
-        mpfv = {x: mean_p_feat_vals[x]/nmovies for x in xrange(len(mean_p_feat_vals))}
-        print "Done in", time.time() - start, "seconds"
-        print "Mean product feature values:", mpfv
-        print "Computing model predictions"
-        start = time.time()
-        baseline_predictions = model.predictAll(training.map(lambda x: (x[0], x[1])))
-        print "Done in", time.time() - start, "seconds"
-        print "Computing mean error"
-        start = time.time()
-        predictionsAndRatings = baseline_predictions.map(lambda x: ((x[0], x[1]), x[2])) \
-            .join(training.map(lambda x: ((x[0], x[1]), x[2]))) \
-            .values()
-        baseline_mean_error = mean_error(predictionsAndRatings, power)
-        print "Done in {} seconds".format(time.time() - start)
-        print "Mean error:", baseline_mean_error
-        print "Creating a model with completely randomized features"
-        start = time.time()
-        perturbed_features = model.productFeatures()
-        for f in xrange(rank):
-            print "Perturbing feature", f
-            perturbed_features = perturb_feature(perturbed_features, f)
-        print "Done in", time.time() - start, "seconds"
-        print "Making predictions of the randomized model"
-        start = time.time()
-        perturbed_predictions = manual_predict_all(training,
-                model.userFeatures(), perturbed_features)
-        print "Done in", time.time() - start, "seconds"
-        print "Computing mean error"
-        start = time.time()
-        predictionsAndRatings = perturbed_predictions.map(lambda x: ((x[0], x[1]), x[2])) \
-            .join(training.map(lambda x: ((x[0], x[1]), x[2]))) \
-            .values()
-        perturbed_mean_error = mean_error(predictionsAndRatings, power)
-        print "Done in {} seconds".format(time.time() - start)
-        print "Mean error:", perturbed_mean_error, ", ", perturbed_mean_error-\
-                baseline_mean_error, "(", perturbed_mean_error/\
-                baseline_mean_error, "times) higher"
-        print "Preparing features"
-        start = time.time()
-        features = model.productFeatures()
-        print "Done in {} seconds".format(time.time() - start)
-        results = {}
-        for f in xrange(rank):
-            print "Processing feature", f
-            print "Building data set"
-            start = time.time()
-            data = features.join(indicators).map(
-                lambda (mid, (ftrs, inds)):
-                        LabeledPoint(ftrs[f], inds))
-            print "Done in {} seconds".format(time.time() - start)
-
-            lr_model = train_regression_model(data,
-                    regression_model = regression_model,
-                    categorical_features = categorical_features,
-                    max_bins = nbins,
-                    logger = logger)
-
-            print "Evaluating the model"
-            start = time.time()
-            observations = data.map(lambda x: x.label)
-            predictions = lr_model.predict(data.map(lambda x:
-                    x.features))
-            predobs = predictions.zip(observations).map(lambda (a, b): (float(a),
-                float(b)))
-            metrics = RegressionMetrics(predobs)
-            mrae = predobs.\
-                    map(lambda (pred, obs):
-                        abs(pred-obs)/float(abs(obs if obs != 0 else 1))).\
-                    sum()/predobs.count()
-            print "Done in", time.time() - start, "seconds"
-            print "RMSE: {}, variance explained: {}, mean absolute error: {},".\
-                    format(metrics.explainedVariance,\
-                    metrics.rootMeanSquaredError,
-                    metrics.meanAbsoluteError)
-            print "MRAE: {}".format(mrae)
-            results[f] = {"mre": metrics.meanAbsoluteError, "mrae": mrae,
-                    "model":lr_model}
-            print "Replacing original feature", f, "with predicted values"
-            start = time.time()
-            product_features = model.productFeatures()
-            user_features = model.userFeatures()
-            joined = indicators.join(product_features)
-            mids = joined.map(lambda (mid, (ind, feats)): mid)
-            mid_preds = mids.zip(predictions)
-            joined = product_features.join(mid_preds)
-            replaced = joined.map(lambda (mid, (feats, pred)):
-                        (mid, set_list_values(feats, f, pred)))
-            print "Done in", time.time() - start, "seconds"
-            print "Computing predictions of the model with replaced feature", f
-            start = time.time()
-            replaced_predictions = manual_predict_all(
-                    training.map(lambda x: (x[0], x[1])),
-                    user_features,
-                    replaced)
-            print "Done in", time.time() - start, "seconds"
-            print "Computing replaced mean error relative to the ground truth"
-            start = time.time()
-            predictionsAndRatings = replaced_predictions.map(lambda x: ((x[0], x[1]), x[2])) \
-                .join(training.map(lambda x: ((x[0], x[1]), x[2]))) \
-                .values()
-            replaced_mean_error = mean_error(predictionsAndRatings, power)
-            print "Done in {} seconds".format(time.time() - start)
-            print "Replaced mean error:", replaced_mean_error
-            results[f]["replaced_mean_error"] = replaced_mean_error
-            print "Computing replaced mean error relative to the baseline model"
-            start = time.time()
-            predictionsAndRatings = replaced_predictions.map(lambda x: ((x[0], x[1]), x[2])) \
-                .join(baseline_predictions.map(lambda x: ((x[0], x[1]), x[2]))) \
-                .values()
-            replaced_mean_error_baseline = mean_error(predictionsAndRatings, power)
-            print "Done in {} seconds".format(time.time() - start)
-            print "Replaced mean error baseline:", replaced_mean_error_baseline
-            results[f]["replaced_mean_error_baseline"] =\
-                replaced_mean_error_baseline
-
-            print "Randomizing feature", f
-            start = time.time()
-            perturbed_product_features = perturb_feature(product_features,
-                f)
-            print "Done in", time.time() - start, "seconds"
-
-            perturbed_model = (user_features, perturbed_product_features)
-            print "Computing the predictions of the perturbed model"
-            start = time.time()
-            perturbed_predictions = manual_predict_all(training,
-                *perturbed_model)
-            print "Done in", time.time() - start, "seconds"
-
-            print "Computing perturbed mean error relative to the ground truth"
-            start = time.time()
-            predictionsAndRatings = perturbed_predictions.map(lambda x: ((x[0], x[1]), x[2])) \
-                .join(training.map(lambda x: ((x[0], x[1]), x[2]))) \
-                .values()
-            perturbed_mean_error = mean_error(predictionsAndRatings, power)
-            print "Done in {} seconds".format(time.time() - start)
-            print "Perturbed mean error:", perturbed_mean_error
-            results[f]["perturbed_mean_error"] = perturbed_mean_error
-            print "Computing perturbed mean error relative to the baseline model"
-            start = time.time()
-            predictionsAndRatings = perturbed_predictions.map(lambda x: ((x[0], x[1]), x[2])) \
-                .join(baseline_predictions.map(lambda x: ((x[0], x[1]), x[2]))) \
-                .values()
-            perturbed_mean_error_baseline = mean_error(predictionsAndRatings, power)
-            print "Done in {} seconds".format(time.time() - start)
-            print "Perturbed mean error baseline:", perturbed_mean_error_baseline
-            results[f]["perturbed_mean_error_baseline"] =\
-                perturbed_mean_error_baseline
-
-            if regression_model == "linear":
-                print "Weights: {}".format(lr_model.weights)
-            elif regression_model == "regression_tree":
-                print lr_model.toDebugString()
-        results = sorted(results.items(), key=lambda x: x[1]["mrae"])
-        table = PrettyTable(["Feature",
-            "MRAE",
-            "Mean absolute error",
-            "Mean feature value",
-            "Replaced MERR RECS",
-            "Random MERR RECS",
-            "Replaced MERR Baseline",
-            "Random MERR Baseline",
-            "x better than random"])
-        for f, r in results:
-            table.add_row([f,
-                r["mrae"],
-                r["mre"],
-                mpfv[f],
-                r["replaced_mean_error"],
-                r["perturbed_mean_error"],
-                r["replaced_mean_error_baseline"],
-                r["perturbed_mean_error_baseline"],
-                float(r["perturbed_mean_error_baseline"])/r["replaced_mean_error_baseline"]
-                ])
-        print table
 
     elif genres_correlator:
         print "Loading genres"
