@@ -1327,6 +1327,23 @@ def replace_feature_with_predicted(features, f, predictions, logger):
     logger.debug("Done in {} seconds".format(time.time() - start))
     return replaced
 
+def compare_baseline_to_replaced(baseline_predictions, uf, pf, logger, power):
+                start = time.time()
+                replaced_predictions = manual_predict_all(
+                    training.map(lambda x: (x[0], x[1])),
+                    uf,
+                    pf)
+                logger.debug("Done in {} seconds".format(time.time() - start))
+
+                logger.debug("Computing replaced mean error relative to the "+\
+                    "baseline model")
+                start = time.time()
+                predictionsAndRatings = replaced_predictions.map(lambda x: ((x[0], x[1]), x[2])) \
+                   .join(baseline_predictions.map(lambda x: ((x[0], x[1]), x[2]))) \
+                   .values()
+                replaced_mean_error_baseline = mean_error(predictionsAndRatings, power)
+                logger.debug("Done in {} seconds".format(time.time() - start))
+                return replaced_mean_error_baseline
 
 def internal_feature_predictor(sc, training, rank, numIter, lmbda,
         args, all_movies, metadata_sources, user_or_product_features, eval_regression,
@@ -1381,6 +1398,8 @@ def internal_feature_predictor(sc, training, rank, numIter, lmbda,
 
         results["mean_feature_values"] = mean_feature_values(features, logger)
 
+        results["features"] = {}
+
         for f in xrange(rank):
             lr_model, observations, predictions = predict_internal_feature(
                     features,
@@ -1390,13 +1409,15 @@ def internal_feature_predictor(sc, training, rank, numIter, lmbda,
                     categorical_features,
                     nbins,
                     logger)
-            results[f] = {"model": lr_model}
+            results["features"][f] = {"model": lr_model}
 
             if eval_regression:
                 reg_eval = evaluate_regression(predictions, observations, logger)
-                results[f]["regression_evaluation"] = reg_eval
+                results["features"][f]["regression_evaluation"] = reg_eval
 
             if compare_with_replaced_feature:
+                logger.debug("Computing predictions of the model with replaced "+\
+                    "feature {}".format(f))
                 replaced_features = replace_feature_with_predicted(features, f,
                         predictions, logger)
                 if user_or_product_features == "product":
@@ -1404,152 +1425,61 @@ def internal_feature_predictor(sc, training, rank, numIter, lmbda,
                 else:
                     uf, pf = replaced_features, other_features
 
-                logger.debug("Computing predictions of the model with replaced "+\
-                    "feature {}".format(f))
-                start = time.time()
-                replaced_predictions = manual_predict_all(
-                    training.map(lambda x: (x[0], x[1])),
-                    uf,
-                    pf)
-                logger.debug("Done in {} seconds".format(time.time() - start))
+                replaced_mean_error_baseline = compare_baseline_to_replaced(
+                        baseline_predictions, uf, pf, logger, power)
 
-                logger.debug("Computing replaced mean error relative to the "+\
-                    "baseline model")
-                start = time.time()
-                predictionsAndRatings = replaced_predictions.map(lambda x: ((x[0], x[1]), x[2])) \
-                   .join(baseline_predictions.map(lambda x: ((x[0], x[1]), x[2]))) \
-                   .values()
-                replaced_mean_error_baseline = mean_error(predictionsAndRatings, power)
-                logger.debug("Done in {} seconds".format(time.time() - start))
                 logger.debug("Replaced mean error baseline: "+\
                     "{}".format(replaced_mean_error_baseline))
-                results[f]["replaced_mean_error_baseline"] =\
+                results["features"][f]["replaced_mean_error_baseline"] =\
                     replaced_mean_error_baseline
 
+            if compare_with_randomized_feature:
+                logger.debug("Randomizing feature {}".format(f))
+                start = time.time()
+                replaced_features = perturb_feature(features, f)
+                logger.debug("Done in {} seconds".format(time.time()-start))
+                if user_or_product_features == "product":
+                    uf, pf = other_features, replaced_features
+                else:
+                    uf, pf = replaced_features, other_features
+
+                logger.debug("Computing predictions of the model with randomized"+\
+                    " feature {}".format(f))
+                randomized_mean_error_baseline = compare_baseline_to_replaced(
+                        baseline_predictions, uf, pf, logger, power)
+
+                logger.debug("Radnomized mean error baseline: "+\
+                    "{}".format(replaced_mean_error_baseline))
+                results["features"][f]["randomized_mean_error_baseline"] =\
+                    randomized_mean_error_baseline
         return results
 
+def display_internal_feature_predictor(results, logger):
+    logger.debug("Baseline mean error: {}".format(
+        results["baseline_mean_error"]))
 
-def aaaaaaa():
-        if True:
-            print "Computing predictions of the model with replaced feature", f
-            start = time.time()
-            replaced_predictions = manual_predict_all(
-                    training.map(lambda x: (x[0], x[1])),
-                    user_features,
-                    replaced)
-            print "Done in", time.time() - start, "seconds"
-            print "Computing replaced mean error relative to the ground truth"
-            start = time.time()
-            predictionsAndRatings = replaced_predictions.map(lambda x: ((x[0], x[1]), x[2])) \
-                .join(training.map(lambda x: ((x[0], x[1]), x[2]))) \
-                .values()
-            replaced_mean_error = mean_error(predictionsAndRatings, power)
-            print "Done in {} seconds".format(time.time() - start)
-            print "Replaced mean error:", replaced_mean_error
-            results[f]["replaced_mean_error"] = replaced_mean_error
-            print "Computing replaced mean error relative to the baseline model"
-            start = time.time()
-            predictionsAndRatings = replaced_predictions.map(lambda x: ((x[0], x[1]), x[2])) \
-                .join(baseline_predictions.map(lambda x: ((x[0], x[1]), x[2]))) \
-                .values()
-            replaced_mean_error_baseline = mean_error(predictionsAndRatings, power)
-            print "Done in {} seconds".format(time.time() - start)
-            print "Replaced mean error baseline:", replaced_mean_error_baseline
-            results[f]["replaced_mean_error_baseline"] =\
-                replaced_mean_error_baseline
+    feature_results = sorted(
+        results["features"].items(),
+        key=lambda x:
+            x[1]["regression_evaluation"]["mrae"])
 
-            print "Randomizing feature", f
-            start = time.time()
-            perturbed_product_features = perturb_feature(product_features,
-                f)
-            print "Done in", time.time() - start, "seconds"
-
-            perturbed_model = (user_features, perturbed_product_features)
-            print "Computing the predictions of the perturbed model"
-            start = time.time()
-            perturbed_predictions = manual_predict_all(training,
-                *perturbed_model)
-            print "Done in", time.time() - start, "seconds"
-
-            print "Computing perturbed mean error relative to the ground truth"
-            start = time.time()
-            predictionsAndRatings = perturbed_predictions.map(lambda x: ((x[0], x[1]), x[2])) \
-                .join(training.map(lambda x: ((x[0], x[1]), x[2]))) \
-                .values()
-            perturbed_mean_error = mean_error(predictionsAndRatings, power)
-            print "Done in {} seconds".format(time.time() - start)
-            print "Perturbed mean error:", perturbed_mean_error
-            results[f]["perturbed_mean_error"] = perturbed_mean_error
-            print "Computing perturbed mean error relative to the baseline model"
-            start = time.time()
-            predictionsAndRatings = perturbed_predictions.map(lambda x: ((x[0], x[1]), x[2])) \
-                .join(baseline_predictions.map(lambda x: ((x[0], x[1]), x[2]))) \
-                .values()
-            perturbed_mean_error_baseline = mean_error(predictionsAndRatings, power)
-            print "Done in {} seconds".format(time.time() - start)
-            print "Perturbed mean error baseline:", perturbed_mean_error_baseline
-            results[f]["perturbed_mean_error_baseline"] =\
-                perturbed_mean_error_baseline
-
-            if regression_model == "linear":
-                print "Weights: {}".format(lr_model.weights)
-            elif regression_model == "regression_tree":
-                print lr_model.toDebugString()
-        results = sorted(results.items(), key=lambda x: x[1]["mrae"])
-        table = PrettyTable(["Feature",
+    table = PrettyTable(["Feature",
             "MRAE",
             "Mean absolute error",
             "Mean feature value",
-            "Replaced MERR RECS",
-            "Random MERR RECS",
             "Replaced MERR Baseline",
             "Random MERR Baseline",
             "x better than random"])
-        for f, r in results:
-            table.add_row([f,
-                r["mrae"],
-                r["mre"],
-                mpfv[f],
-                r["replaced_mean_error"],
-                r["perturbed_mean_error"],
-                r["replaced_mean_error_baseline"],
-                r["perturbed_mean_error_baseline"],
-                float(r["perturbed_mean_error_baseline"])/r["replaced_mean_error_baseline"]
-                ])
-        print table
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    for f, r in feature_results:
+        table.add_row([f,
+            r["regression_evaluation"]["mrae"],
+            r["regression_evaluation"]["mre"],
+            results["mean_feature_values"][f],
+            r["replaced_mean_error_baseline"],
+            r["randomized_mean_error_baseline"],
+            float(r["randomized_mean_error_baseline"])/r["replaced_mean_error_baseline"]
+            ])
+    logger.debug("\n" + str(table))
 
 def load_average_ratings(src_rdd):
     ratings = src_rdd.map(lambda (x, y): (x, [y]))
@@ -2043,6 +1973,7 @@ if __name__ == "__main__":
             compare_with_replaced_feature = True,
             compare_with_randomized_feature = True, logger = logger)
 
+        display_internal_feature_predictor(results, logger)
         print results
         sys.exit(1)
 
