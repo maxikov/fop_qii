@@ -1222,6 +1222,156 @@ def build_meta_data_set(sc, sources, all_ids = None, logger = None):
 
     return (res_rdd, feature_offset, categorical_features_info)
 
+def mean_relative_absolute_error(predobs):
+    """
+    Compute mean relative absolute error of regression.
+
+    Parameters:
+        predobs (mandatory) - RDD of (prediction, observation) pairs.
+
+    Returns:
+        MRAE (float)
+    """
+    res = predobs.\
+        map(lambda (pred, obs):
+            abs(pred-obs)/float(abs(obs if obs != 0 else 1))).\
+                sum()/predobs.count()
+    return res
+
+def predict_internal_feature(features, indicators, regression_model,
+        categorical_features, max_bins, logger = None):
+    """
+    Predict the values of an internal feature based on metadata.
+
+    Parameters:
+
+        features (mandatory) - RDD of (ID: [float]) IDs and internal features.
+
+        indicators (mandatory) - RDD of (ID: [float]) IDs and metadata.
+
+        regression_model (mandatory) - string.
+
+        categorical_features (mandatory) - dict.
+
+        max_bins (mandatory) - int.
+
+        logger (optional) - logging.Logger, the object into which debug
+            information will be send. If None, printing to stdout will be used.
+            Default:
+                None
+
+    For more parameter descriptions see documentation for
+    train_regression_model.
+
+    Returns:
+        (model - the model created,
+        observations - RDD of (ID: float) true feature values,
+        predictions - RDD of (ID: float) predicted values)
+    """
+
+    if logger is None:
+        print "Processing feature {}".format(f)
+        print "Building data set"
+    else:
+        logger.debug("Processing feature {}".format(f))
+        logger.debug("Building data set")
+
+    start = time.time()
+
+    joined = features.join(indicators)
+    data = joined.map(
+            lambda (_id, (ftrs, inds)):
+                LabeledPoint(ftrs[f], inds))
+    ids = joined.map(
+            lambda (_id, _): _id)
+
+    if logger is None:
+        print "Done in {} seconds".format(time.time() - start)
+    else:
+        logger.debug("Done in {} seconds".format(time.time() - start))
+
+    lr_model = train_regression_model(data,
+        regression_model = regression_model,
+        categorical_features = categorical_features,
+        max_bins = nbins,
+        logger = logger)
+
+    observations = ids.zip(data.map(lambda x: float(x.label)))
+
+    predictions = ids.zip(
+            lr_model\
+            .predict(
+                    data.map(lambda x: x.features)
+                    )\
+            .map(lambda x: float(x))
+            )
+
+    return (lr_model, observations, predictions)
+
+
+def evaluate_regression(predictions, observations, logger = None):
+    if logger is None:
+        print "Evaluating the model"
+    else:
+        logger.debug("Evaluating the model")
+    start = time.time()
+    predobs = predictions\
+            .join(observations)\
+            .values()
+    metrics = RegressionMetrics(predobs)
+    mrae = mean_relative_absolute_error(predobs)
+    if logger is None:
+        print "Done in {} seconds".format(time.time() - start)
+        print "RMSE: {}, variance explained: {}, mean absolute error: {},".\
+                    format(metrics.explainedVariance,\
+                    metrics.rootMeanSquaredError,
+                    metrics.meanAbsoluteError)
+        print "MRAE: {}".format(mrae)
+    else:
+        logger.debug("Done in {} seconds".format(time.time() - start))
+        logger.debug("RMSE: {}, variance explained: {}, mean absolute error: {},".\
+                    format(metrics.explainedVariance,\
+                    metrics.rootMeanSquaredError,
+                    metrics.meanAbsoluteError))
+        logger.debug("MRAE: {}".format(mrae))
+    res = {"mre": metrics.meanAbsoluteError, "mrae": mrae}
+    return res
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 def load_years(src_rdd, sep=","):
     years = src_rdd\
             .map(lambda x: parseYear(x, sep=sep))\
@@ -1261,9 +1411,7 @@ def load_tags(src_rdd, sep=","):
     cfi = {x: 2 for x in xrange(nof)}
     return (indicators, nof, cfi)
 
-
-if __name__ == "__main__":
-
+def logger_init():
     #http://stackoverflow.com/questions/14058453/making-python-loggers-output-all-messages-to-stdout-in-addition-to-log
     #http://stackoverflow.com/questions/8269294/python-logging-only-log-from-script
     logger = logging.getLogger(__name__)
@@ -1274,6 +1422,11 @@ if __name__ == "__main__":
     formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
     ch.setFormatter(formatter)
     logger.addHandler(ch)
+    return logger
+
+if __name__ == "__main__":
+
+    logger = logger_init()
 
     parser = argparse.ArgumentParser(description=u"Usage: " +\
             "/path/to/spark/bin/spark-submit --driver-memory 2g " +\
@@ -1395,6 +1548,15 @@ if __name__ == "__main__":
     parser.add_argument("--regression-tags", action="store_true", help=\
             "Predict internal features based on movie tags")
 
+    parser.add_argument("--predict-product-features", action="store_true",
+            help = "Use regression to predict product features "+\
+                    "based on product metadata")
+
+    parser.add_argument("--metadata-sources", action = "store", type = str,
+            nargs = "+", help = "Sources for user or product metadata "+\
+                    "for feature explanations. Possible values: years, "+\
+                    "genres, tags.")
+
     args = parser.parse_args()
     rank = args.rank
     lmbda = args.lmbda
@@ -1472,7 +1634,8 @@ if __name__ == "__main__":
     print "nbins: {}, regression_years: {}".format(nbins, regression_years)
     print "regression_users: {}".format(regression_users)
     print "regression_tags: {}".format(regression_tags)
-
+    print "predict_product_features: {}".format(args.predict_product_features)
+    print "metadata_sources: {}".format(args.metadata_sources)
 
     if gui:
         import matplotlib.pyplot as plt
@@ -1627,81 +1790,6 @@ if __name__ == "__main__":
         elif regression_model == "regression_tree":
             print lr_model.toDebugString()
 
-    elif regression_years:
-        print "Loading years"
-        start = time.time()
-        if "ml-20m" in movieLensHomeDir:
-            mv_file = sc.parallelize(loadCSV(join(movieLensHomeDir, "movies.csv")))
-            years = mv_file.map(lambda x: parseYear(x, sep=","))
-        else:
-            years = sc.textFile(join(movieLensHomeDir, "movies.dat")).\
-                map(parseYear)
-        print "Done in {} seconds".format(time.time() - start)
-        print "Training model"
-        start = time.time()
-        model = ALS.train(training, rank, numIter, lmbda)
-        print "Done in {} seconds".format(time.time() - start)
-        print "Preparing features"
-        start = time.time()
-        features = model.productFeatures()
-        results = {}
-        for f in xrange(rank):
-            data = features.join(years).map(
-                lambda (mid, (ftrs, yr)):
-                        LabeledPoint(ftrs[f], [yr]))
-            print "Done in {} seconds".format(time.time() - start)
-            if regression_model == "regression_tree":
-                lr_model = pyspark.\
-                        mllib.\
-                        tree.\
-                        DecisionTree.\
-                        trainRegressor(
-                                data,
-                                categoricalFeaturesInfo={},
-                                impurity = "variance",
-                                maxDepth = int(math.ceil(math.log(nbins, 2))),
-                                maxBins = nbins)
-            elif regression_model == "random_forest":
-                lr_model = pyspark.\
-                        mllib.\
-                        tree.\
-                        RandomForest.\
-                        trainRegressor(
-                                data,
-                                categoricalFeaturesInfo={},
-                                numTrees = 128,
-                                maxDepth = int(math.ceil(math.log(nbins, 2))),
-                                maxBins = nbins)
-            elif regression_model == "linear":
-                print "Building linear regression"
-                start = time.time()
-                lr_model = LinearRegressionWithSGD.train(data)
-            print "Done in {} seconds".format(time.time() - start)
-            observations = data.map(lambda x: x.label)
-            predictions = lr_model.predict(data.map(lambda x:
-                    x.features))
-            predobs = predictions.zip(observations).map(lambda (a, b): (float(a),
-                float(b)))
-            metrics = RegressionMetrics(predobs)
-            mrae = predobs.\
-                    map(lambda (pred, obs):
-                        abs(pred-obs)/abs(float(1 if obs == 0 else obs))).\
-                    sum()/predobs.count()
-            print "RMSE: {}, variance explained: {}, mean absolute error: {},".\
-                    format(metrics.explainedVariance,\
-                    metrics.rootMeanSquaredError,
-                    metrics.meanAbsoluteError)
-            print "MRAE: {}".format(mrae)
-            results[f] = {"mre": metrics.meanAbsoluteError, "mrae": mrae}
-            if regression_model == "linear":
-                print "Weights: {}".format(lr_model.weights)
-            elif regression_model == "regression_tree":
-                print lr_model.toDebugString()
-        results = sorted(results.items(), key=lambda x: x[1]["mrae"])
-        table = PrettyTable(["Feature", "MRAE", "Mean absolute error"])
-        for f, r in results:
-            table.add_row([f, r["mrae"], r["mre"]])
-        print table
     elif regression_users:
         print "Loading user metadata"
         start = time.time()
@@ -1774,65 +1862,35 @@ if __name__ == "__main__":
         for f, r in results:
             table.add_row([f, r["mrae"], r["mre"]])
         print table
-    elif regression_tags:
-        srcs = set(["years", "genres", "tags"])
-        cur_srcs = filter(lambda x: x["name"] in srcs, metadata_sources)
+    elif args.predict_product_features:
+        cur_mtdt_srcs = filter(lambda x: x["name"] in args.metadata_sources, metadata_sources)
         indicators, number_of_features, categorical_features =\
-                build_meta_data_set(sc, cur_srcs, all_movies, logger)
+                build_meta_data_set(sc, cur_mtdt_srcs, all_movies, logger)
 
-        print indicators, number_of_features, categorical_features
-        print indicators.take(1)
-
-        power = 1.0
-        print "Loading movie tags"
+        if logger is None:
+            print "Training ALS recommender"
+        else:
+            logger.debug("Training ALS recommender")
         start = time.time()
-        mv_file = sc.parallelize(loadCSV(join(movieLensHomeDir, "movies.csv")))
-        years = mv_file.map(lambda x: parseYear(x, sep=","))
-        genres = mv_file.map(lambda x: parseGenre(x, sep=","))
-        with open(join(movieLensHomeDir, "tags.csv"), "r") as f:
-            r = csv.reader(f, delimiter=",", quotechar='"')
-            r.next()
-            tags = [x for x in r]
-        tags = sc.parallelize(tags)\
-            .map(lambda x: (int(x[0]), int(x[1]), x[2]))
-        all_tags = set(tags.map(lambda x: x[2]).collect())
-        all_tags = sorted(list(all_tags))
-        all_movies = set(years.map(lambda x: x[0]).collect())
-        print len(all_movies), "movies in the data set"
-        tags = tags\
-                .groupBy(lambda x: (x[1], x[2]))\
-                .map(lambda x: x[0])\
-                .groupBy(lambda x: x[0])\
-                .map(lambda (mid, data): (mid, set(d[1] for d in data)))
-        tagged_movies = set(tags.map(lambda x: x[0]).collect())
-        print len(tagged_movies), "movies have tags"
-        print len(all_movies) - len(tagged_movies), "movies are missing tags"
-        print "Adding empty records for them"
-        tags = tags\
-                .union(sc.parallelize(
-                    [(mid, set()) for mid in all_movies - tagged_movies]
-                    ))
-        indicators = tags.map(
-                    lambda (mid, cur_tags): (
-                        mid, map(lambda t: int(t in cur_tags), all_tags)
-                         )
-                    )
-        all_genres = sorted(list(genres.map(lambda (_, x): x).fold(set(), lambda x, y:
-            set(x).union(set(y)))))
-        indicators_genres = genres.map(
-                lambda (mid, cur_genres): (
-                    mid, map(lambda g: int(g in cur_genres), all_genres)
-                    )
-                )
-        indicators = indicators\
-                .join(indicators_genres)\
-                .map(lambda (mid, (foo, bar)): (mid, foo+bar))\
-                .join(years)\
-                .map(lambda (mid, (foo, year)): (mid, foo+[year]))
-        categorical_features = {x: 2 for x in
-                xrange(len(all_tags)+len(all_genres))}
-        print "Done in {} seconds".format(time.time() - start)
+        model = ALS.train(training, rank, numIter, lmbda)
+        if logger is None:
+            print "Done in {} seconds".format(time.time() - start)
+        else:
+            logger.debug("Done in {} seconds".format(time.time() - start))
 
+        features = model.productFeatures()
+
+
+        for f in xrange(rank):
+            lr_model, observations, predictions = predict_internal_feature(
+                    features,
+                    indicators,
+                    regression_model,
+                    categorical_features,
+                    nbins,
+                    logger)
+            reg_eval = evaluate_regression(predictions, observations, logger)
+            print reg_eval
 
         arc = AverageRatingRecommender()
         arc.train(training)
@@ -1847,13 +1905,7 @@ if __name__ == "__main__":
         print "Mean error:", arc_mean_error
 
 
-        indicators = indicators.map(
-                lambda (mid, foo): (mid, foo+[arc.ratings[mid]]))
 
-        print "Training model"
-        start = time.time()
-        model = ALS.train(training, rank, numIter, lmbda)
-        print "Done in {} seconds".format(time.time() - start)
         print "Computing mean feature values"
         start = time.time()
         mean_p_feat_vals = model\
@@ -2181,105 +2233,7 @@ if __name__ == "__main__":
                         format(avgbetter * (1 if no_threshold else 100)))
                 cbar = fig.colorbar(cax)
                 plt.show()
-    elif genres_regression:
-        print "Loading genres"
-        start = time.time()
-        if "ml-20m" in movieLensHomeDir:
-            mv_file = sc.parallelize(loadCSV(join(movieLensHomeDir, "movies.csv")))
-            genres = mv_file.map(lambda x: parseGenre(x, sep=","))
-        else:
-            genres = sc.textFile(join(movieLensHomeDir, "movies.dat")).map(parseGenre)
-        print "Done in {} seconds".format(time.time() - start)
-        if iterate_rank:
-            pass #TODO
-        else:
-            model, all_genres, models = regression_genres(sc, genres, movies,
-                    training, rank, numIter, lmbda, regression_model)
 
-            if mean_error_experiments:
-                print "Computing mean error"
-                start = time.time()
-                old_mean_error = recommender_mean_error(model, training)
-                print "Mean error:", old_mean_error
-                print "Done in {} seconds".format(time.time() - start)
-
-                product_features = model.productFeatures()
-                user_features = model.userFeatures()
-
-                print "Replacing top feature with predicted one"
-                print "Top feature is", models[0]["f"]
-                indicators = genres.map(
-                    lambda (mid, cur_genres): (
-                        mid, map(lambda g: int(g in cur_genres), all_genres)
-                         )
-                    )
-                joined = indicators.join(product_features)
-                top_feature = models[0]["f"]
-                training_set = joined.map(lambda (mid, (ind, feats)):
-                    LabeledPoint(feats[top_feature], ind))
-                mids = joined.map(lambda (mid, (ind, feats)): mid)
-                features = training_set.map(lambda lp:
-                    lp.features)
-                predictions = models[0]["model"].\
-                        predict(features).\
-                        map(lambda x: float(x))
-                mid_preds = mids.zip(predictions)
-                joined = product_features.join(mid_preds)
-                replaced = joined.map(lambda (mid, (feats, pred)):
-                        (mid, set_list_values(feats, top_feature, pred)))
-
-                print "Done in {} seconds".format(time.time() - start)
-                print "Computing mean error"
-                start = time.time()
-                new_mean_error = manual_recommender_mean_error(user_features,
-                        replaced, training)
-                print "Mean error:", new_mean_error, ",",\
-                        new_mean_error - old_mean_error, "higher"
-                print "Done in {} seconds".format(time.time() - start)
-
-
-            if regression_model == "linear":
-                title = ["Genre"] + ["F #{} (MRAE {:4d}%)".format(
-                        models[i]["f"], int(100*models[i]["mrae"])
-                    ) for i in xrange(rank)]
-                table = PrettyTable(title)
-                for i in xrange(len(all_genres)):
-                    row = [all_genres[i]]
-                    for j in xrange(rank):
-                        row += ["{:2.2f}".format(models[j]["model"].weights[i])]
-                    table.add_row(row)
-                print table
-
-                if gui:
-                    matrix = [list(models[i]["model"].weights) for i in
-                            xrange(rank)]
-                    matrix = numpy.array(matrix).transpose()
-                    fig, ax = plt.subplots()
-                    cax = ax.imshow(matrix, cmap='viridis', interpolation='nearest')
-
-                    ax.set_ylabel("Genre")
-                    ax.set_yticks(range(len(all_genres)))
-                    ax.set_yticklabels(all_genres)
-
-                    ax.set_xlabel("Product Features")
-                    ax.set_xticks(range(rank))
-                    ax.set_xticklabels("F #{} (MRAE {:4d}%)".format(
-                        models[i]["f"], int(100*models[i]["mrae"])) for i in xrange(rank))
-
-                    for tick in ax.get_xticklabels():
-                        tick.set_rotation(90)
-
-                    ax.set_title("Coefficients of linear regression from genre\n"+\
-                            "indicator vectors to product features")
-
-                    cbar = fig.colorbar(cax)
-                    plt.show()
-            elif regression_model in ["regression_tree", "random_forest"]:
-                title = ["Feature", "MRAE, %"]
-                table = PrettyTable(title)
-                for model in models:
-                    table.add_row([model["f"], int(model["mrae"]*100)])
-                print table
     elif internal_feature_influence:
         if sample_type == "training":
             user_product_pairs = training.map(lambda x: (x[0], x[1]))
