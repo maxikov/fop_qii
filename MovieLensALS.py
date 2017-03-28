@@ -1755,6 +1755,7 @@ if __name__ == "__main__":
 
     # set up environment
     conf = SparkConf() \
+      .setMaster("local[*]") \
       .setAppName("MovieLensALS") \
       .set("spark.executor.memory", "2g")
     sc = SparkContext(conf=conf)
