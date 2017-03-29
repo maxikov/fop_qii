@@ -1396,6 +1396,22 @@ def internal_feature_predictor(sc, training, rank, numIter, lmbda,
         else:
             logger.debug("Done in {} seconds".format(time.time() - start))
 
+        logger.debug("Fetching all products from the training set")
+        start = time.time()
+        training_set_products = set(training.map(lambda x: x[1]).collect())
+        logger.debug("Done in {} seconds".format(time.time() - start))
+        logger.debug("{} products collected"\
+                        .format(len(training_set_products)))
+
+        logger.debug("Fetching all products in model")
+        start = time.time()
+        model_products = set(model.productFeatures().keys().collect())
+        logger.debug("Done in {} seconds".format(time.time() - start))
+        logger.debug("{} products collected"\
+                        .format(len(model_products)))
+        logger.debug("{} products are missing"\
+                        .format(len(training_set_products - model_products)))
+
         if compare_with_replaced_feature or compare_with_randomized_feature:
             logger.debug("Computing model predictions")
             start = time.time()
@@ -1443,6 +1459,16 @@ def internal_feature_predictor(sc, training, rank, numIter, lmbda,
                     "feature {}".format(f))
                 replaced_features = replace_feature_with_predicted(features, f,
                         predictions, logger)
+
+                logger.debug("Fetching all replaced product features")
+                start = time.time()
+                replaced_products = set(replaced_features.keys().collect())
+                logger.debug("Done in {} seconds".format(time.time() - start))
+                logger.debug("{} products collected"\
+                        .format(len(replaced_products)))
+                logger.debug("{} products are missing"\
+                        .format(len(training_set_products - replaced_products)))
+
                 if user_or_product_features == "product":
                     uf, pf = other_features, replaced_features
                 else:
