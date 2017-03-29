@@ -1481,7 +1481,7 @@ def display_internal_feature_predictor(results, logger):
     logger.info("Baseline mean error: {}".format(
         results["baseline_mean_error"]))
     logger.info("baseline RMSE: {}".format(
-        resutls["baseline_rmse"]))
+        results["baseline_rmse"]))
 
     feature_results = sorted(
         results["features"].items(),
