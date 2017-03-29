@@ -1389,7 +1389,8 @@ def internal_feature_predictor(sc, training, rank, numIter, lmbda,
         else:
             logger.debug("Training ALS recommender")
         start = time.time()
-        model = ALS.train(training, rank, numIter, lmbda)
+        model = ALS.train(training, rank=rank, iterations=numIter,
+                lambda_=lmbda, nonnegative = args.non_negative)
         if logger is None:
             print "Done in {} seconds".format(time.time() - start)
         else:
@@ -1406,9 +1407,12 @@ def internal_feature_predictor(sc, training, rank, numIter, lmbda,
                 .join(training.map(lambda x: ((x[0], x[1]), x[2]))) \
                 .values()
             baseline_mean_error = mean_error(predictionsAndRatings, power)
+            baseline_rmse = mean_error(predictionsAndRatings, power=2.0)
             logger.debug("Done in {} seconds".format(time.time() - start))
-            logger.debug("Mean error: {}".format(baseline_mean_error))
+            logger.debug("Mean error: {}, RMSE: {}".format(baseline_mean_error,
+                baseline_rmse))
             results["baseline_mean_error"] = baseline_mean_error
+            results["baseline_rmse"] = baseline_rmse
 
         features = model.productFeatures()
         other_features = model.userFeatures()
@@ -1474,8 +1478,10 @@ def internal_feature_predictor(sc, training, rank, numIter, lmbda,
         return results
 
 def display_internal_feature_predictor(results, logger):
-    logger.debug("Baseline mean error: {}".format(
+    logger.info("Baseline mean error: {}".format(
         results["baseline_mean_error"]))
+    logger.info("baseline RMSE: {}".format(
+        resutls["baseline_rmse"])
 
     feature_results = sorted(
         results["features"].items(),
@@ -1498,7 +1504,7 @@ def display_internal_feature_predictor(results, logger):
             r["randomized_mean_error_baseline"],
             float(r["randomized_mean_error_baseline"])/r["replaced_mean_error_baseline"]
             ])
-    logger.debug("\n" + str(table))
+    logger.info("\n" + str(table))
 
 def load_average_ratings(src_rdd):
     ratings = src_rdd.map(lambda (x, y): (x, [y]))
@@ -1574,6 +1580,8 @@ if __name__ == "__main__":
             "/path/to/spark/bin/spark-submit --driver-memory 2g " +\
             "MovieLensALS.py [arguments]")
 
+    parser.add_argument("--non-negative", action="store_true", help=\
+            "Use non-negative factrorization for ALS")
     parser.add_argument("--rank", action="store", default=12, type=int,
             help="Rank for ALS algorithm. 12 by default")
     parser.add_argument("--lmbda", action="store", default=0.1, type=float,
