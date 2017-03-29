@@ -93,6 +93,25 @@ def parseRating(line, sep="::"):
     fields = r.next()
     return long(fields[3]) % 10, (int(fields[0]), int(fields[1]), float(fields[2]))
 
+def parseIMDBKeywords(line, sep="::"):
+    """
+    Parses movie genres in format
+    movieId,title,genres,imdbId,localImdbID,tmdbId,imdb_genres,imdb_keywords
+    """
+    #Multi-character delimiters aren't supported,
+    #but this data set doesn't have %s anywhere.
+    #Dirty hack, need to fix later
+    if sep == "::":
+        line = line.replace(sep, "%")
+        sep = "%"
+    s = StringIO.StringIO(line)
+    r = csv.reader(s, delimiter=sep, quotechar='"')
+    fields = r.next()
+    mid = int(fields[0])
+    keywords = fields[6]
+    genres = genres.split("|")
+    return mid, set(genres)
+
 def parseGenre(line, sep="::"):
     """
     Parses movie genres in MovieLens format
@@ -1672,7 +1691,7 @@ if __name__ == "__main__":
     parser.add_argument("--metadata-sources", action = "store", type = str,
             nargs = "+", help = "Sources for user or product metadata "+\
                     "for feature explanations. Possible values: years, "+\
-                    "genres, tags, average_rating.")
+                    "genres, tags, average_rating, imdb_keywords.")
 
     args = parser.parse_args()
     rank = args.rank
@@ -1818,9 +1837,21 @@ if __name__ == "__main__":
                         join(movieLensHomeDir, "tags" + extension),
                         remove_first_line = remove_first_line
                     )
-                ).cache()
+                )
             ),
             "loader": (lambda x: load_tags(x, sep))
+        },
+        {
+            "name": "imdb_keywords",
+            "src_rdd": (
+                lambda: sc.parallelize(
+                    loadCSV(
+                        join(movieLensHomeDir, "ml-20m.imdb.small.csv"),
+                        remove_first_line = True
+                    )
+                )
+            ),
+            "loader": (lambda x: load_genres(x, sep=","))
         }
     ]
 
