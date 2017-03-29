@@ -1468,7 +1468,7 @@ def internal_feature_predictor(sc, training, rank, numIter, lmbda,
                         baseline_predictions, uf, pf, logger, power)
 
                 logger.debug("Radnomized mean error baseline: "+\
-                    "{}".format(replaced_mean_error_baseline))
+                    "{}".format(randomized_mean_error_baseline))
                 results["features"][f]["randomized_mean_error_baseline"] =\
                     randomized_mean_error_baseline
         return results
