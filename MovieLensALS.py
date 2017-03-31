@@ -1913,6 +1913,10 @@ if __name__ == "__main__":
       .repartition(numPartitions) \
       .cache()
 
+    logger.debug("{} records in the training set".format(training.count()))
+    logger.debug("{} unique movies in the training set"\
+            .format(len(set(training.map(lambda x: x[1]).collect()))))
+
     if prominent_raters > 0:
         UsersWithMostRatingslist =\
             users_with_most_ratings(training,prominent_raters)
