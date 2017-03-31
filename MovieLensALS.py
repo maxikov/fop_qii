@@ -1908,7 +1908,7 @@ if __name__ == "__main__":
 
 
     # create the initial training dataset with default ratings
-    training = ratings.filter(lambda x: False or x[0] < 3)\
+    training = ratings.filter(lambda x: True or x[0] < 3)\
       .values() \
       .repartition(numPartitions) \
       .cache()
