@@ -1263,21 +1263,21 @@ def predict_internal_feature(features, indicators, f, regression_model,
         logger.debug("Processing feature {}".format(f))
         logger.debug("Building data set")
 
-    logger.debug("Features for {} products loaded"\
-            .format(features.count()))
-    logger.debug("Indicator vectors for {} products loaded"\
-            .format(indicators.count()))
+    #logger.debug("Features for {} products loaded"\
+            #        .format(features.count()))
+    #logger.debug("Indicator vectors for {} products loaded"\
+            #        .format(indicators.count()))
 
     start = time.time()
 
     joined = features.join(indicators)
-    logger.debug("{} items in 'joined'"\
-            .format(joined.count()))
+    #logger.debug("{} items in 'joined'"\
+            #        .format(joined.count()))
     data = joined.map(
             lambda (_id, (ftrs, inds)):
                 LabeledPoint(ftrs[f], inds))
-    logger.debug("{} items in 'data'"\
-            .format(data.count()))
+    #logger.debug("{} items in 'data'"\
+            #        .format(data.count()))
     ids = joined.map(
             lambda (_id, _): _id)
 
@@ -1294,8 +1294,8 @@ def predict_internal_feature(features, indicators, f, regression_model,
 
     observations = ids.zip(data.map(lambda x: float(x.label)))
 
-    logger.debug("{} items in 'observations'"\
-            .format(observations.count()))
+    #logger.debug("{} items in 'observations'"\
+            #        .format(observations.count()))
 
     predictions = ids.zip(
             lr_model\
@@ -1304,8 +1304,8 @@ def predict_internal_feature(features, indicators, f, regression_model,
                     )\
             .map(lambda x: float(x))
             )
-    logger.debug("{} items in 'predictions'"\
-            .format(predictions.count()))
+    #logger.debug("{} items in 'predictions'"\
+            #        .format(predictions.count()))
 
     return (lr_model, observations, predictions)
 
@@ -1474,14 +1474,14 @@ def internal_feature_predictor(sc, training, rank, numIter, lmbda,
                 replaced_features = replace_feature_with_predicted(features, f,
                         predictions, logger)
 
-                logger.debug("Fetching all replaced product features")
+                #logger.debug("Fetching all replaced product features")
                 start = time.time()
-                replaced_products = set(replaced_features.keys().collect())
-                logger.debug("Done in {} seconds".format(time.time() - start))
-                logger.debug("{} products collected"\
-                        .format(len(replaced_products)))
-                logger.debug("{} products are missing"\
-                        .format(len(training_set_products - replaced_products)))
+                #replaced_products = set(replaced_features.keys().collect())
+                #logger.debug("Done in {} seconds".format(time.time() - start))
+                #logger.debug("{} products collected"\
+                        #        .format(len(replaced_products)))
+                #logger.debug("{} products are missing"\
+                        #        .format(len(training_set_products - replaced_products)))
 
                 if user_or_product_features == "product":
                     uf, pf = other_features, replaced_features
