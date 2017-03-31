@@ -1866,6 +1866,8 @@ if __name__ == "__main__":
         sep=sep)).collect())
     all_movies = set(movies.keys())
     logger.debug("Done in {} seconds".format(time.time() - start))
+    logger.debug("{} movies loaded".format(len(all_movies)))
+
 
     metadata_sources = [
         {
