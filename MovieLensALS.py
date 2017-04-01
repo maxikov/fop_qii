@@ -107,9 +107,12 @@ def parseIMDBKeywords(line, sep="::"):
     s = StringIO.StringIO(line)
     r = csv.reader(s, delimiter=sep, quotechar='"')
     fields = r.next()
+    print fields
     mid = int(fields[0])
     keywords = fields[6]
+    print keywords
     keywords = keywords.split("|")
+    print keywords
     return mid, set(keywords)
 
 def parseGenre(line, sep="::"):
@@ -1562,6 +1565,7 @@ def load_years(src_rdd, sep=","):
 
 def load_genres(src_rdd, sep=",", parser_function=parseGenre):
     print src_rdd.take(1)
+    print parser_function
     genres = src_rdd.map(lambda x: parser_function(x, sep=sep))
     print genres.take(1)
     all_genres = sorted(list(genres.map(lambda (_, x): x).fold(set(), lambda x, y:
