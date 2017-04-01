@@ -101,6 +101,7 @@ def parseIMDBKeywords(line, sep="::"):
     #Multi-character delimiters aren't supported,
     #but this data set doesn't have %s anywhere.
     #Dirty hack, need to fix later
+    print "Keyword!"
     if sep == "::":
         line = line.replace(sep, "%")
         sep = "%"
@@ -123,6 +124,7 @@ def parseGenre(line, sep="::"):
     #Multi-character delimiters aren't supported,
     #but this data set doesn't have %s anywhere.
     #Dirty hack, need to fix later
+    print "Genre!"
     if sep == "::":
         line = line.replace(sep, "%")
         sep = "%"
@@ -1563,7 +1565,7 @@ def load_years(src_rdd, sep=","):
     cfi = {}
     return (years, nof, cfi)
 
-def load_genres(src_rdd, sep=",", parser_function=parseGenre):
+def load_genres(src_rdd, sep=",", parser_function):
     print src_rdd.take(1)
     print parser_function
     genres = src_rdd.map(lambda x: parser_function(x, sep=sep))
@@ -1885,7 +1887,7 @@ if __name__ == "__main__":
         {
             "name": "genres",
             "src_rdd": (lambda: movies_rdd),
-            "loader": (lambda x: load_genres(x, sep))
+            "loader": (lambda x: load_genres(x, sep, parseGenre))
         },
         {
             "name": "tags",
