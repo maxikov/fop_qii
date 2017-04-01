@@ -109,8 +109,8 @@ def parseIMDBKeywords(line, sep="::"):
     fields = r.next()
     mid = int(fields[0])
     keywords = fields[6]
-    genres = genres.split("|")
-    return mid, set(genres)
+    keywords = keywords.split("|")
+    return mid, set(keywords)
 
 def parseGenre(line, sep="::"):
     """
