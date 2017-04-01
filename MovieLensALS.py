@@ -1562,8 +1562,10 @@ def load_years(src_rdd, sep=","):
 
 def load_genres(src_rdd, sep=","):
     genres = src_rdd.map(lambda x: parseGenre(x, sep=sep))
+    print genres.take(1)
     all_genres = sorted(list(genres.map(lambda (_, x): x).fold(set(), lambda x, y:
         set(x).union(set(y)))))
+    print all_genres
     indicators_genres = genres.map(
             lambda (mid, cur_genres): (
                 mid, map(lambda g: int(g in cur_genres), all_genres)
