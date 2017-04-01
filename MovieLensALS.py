@@ -1562,13 +1562,9 @@ def load_years(src_rdd, sep=","):
     return (years, nof, cfi)
 
 def load_genres(src_rdd, sep=",", parser_function=parseGenre):
-    print src_rdd.take(1)
-    print parser_function
     genres = src_rdd.map(lambda x: parser_function(x, sep=sep))
-    print genres.take(1)
     all_genres = sorted(list(genres.map(lambda (_, x): x).fold(set(), lambda x, y:
         set(x).union(set(y)))))
-    print all_genres
     indicators_genres = genres.map(
             lambda (mid, cur_genres): (
                 mid, map(lambda g: int(g in cur_genres), all_genres)
