@@ -1565,7 +1565,7 @@ def load_years(src_rdd, sep=","):
     cfi = {}
     return (years, nof, cfi)
 
-def load_genres(src_rdd, sep=",", parser_function):
+def load_genres(src_rdd, sep=",", parser_function=None):
     print src_rdd.take(1)
     print parser_function
     genres = src_rdd.map(lambda x: parser_function(x, sep=sep))
