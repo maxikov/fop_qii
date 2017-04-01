@@ -1560,8 +1560,8 @@ def load_years(src_rdd, sep=","):
     cfi = {}
     return (years, nof, cfi)
 
-def load_genres(src_rdd, sep=","):
-    genres = src_rdd.map(lambda x: parseGenre(x, sep=sep))
+def load_genres(src_rdd, sep=",", parser_function=parseGenre):
+    genres = src_rdd.map(lambda x: parser_function(x, sep=sep))
     print genres.take(1)
     all_genres = sorted(list(genres.map(lambda (_, x): x).fold(set(), lambda x, y:
         set(x).union(set(y)))))
@@ -1904,7 +1904,8 @@ if __name__ == "__main__":
                     )
                 )
             ),
-            "loader": (lambda x: load_genres(x, sep=","))
+            "loader": (lambda x: load_genres(x, sep=",",
+                parser_function=parseIMDBKeywords))
         }
     ]
 
