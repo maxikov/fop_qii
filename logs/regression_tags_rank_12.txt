@@ -1,0 +1,706 @@
+Rank: 12, lmbda: 0.1, numIter: 20, numPartitions: 4
+qii_iters: 5, num_iters_ls: 5, movieLensHomeDir: datasets/ml-20m/
+ofname: Output.txt, checkpoint_dir: checkpoint, num_users_ls:5
+specific_user: None, max_movies_per_user: 0, prominent_raters:0
+perturb_specific_user: None, recommendations_only:False
+recommendations_and_per_movie_qii: False
+per_movie_qiis_displayed: 3
+genres_correlator: False, gui: False, years_correlator: False
+iterate_rank: False, iterate_from: 5, iterate_to: 40, iterate_step:5
+invert_labels: False, no_threshold: False
+classifier_model: logistic
+genres_regression: False
+regression_model: regression_tree
+mean_error_experiments: False
+internal_feature_influence: False
+compute_mean_error: False
+compute_fast_influence: False
+sample_size: 10000, sample_type: training
+nbins: 16, regression_years: False
+regression_users: False
+regression_tags: True
+Loading ratings
+Done in 11.1191949844 seconds
+Loading movies
+Done in 1.04336690903 seconds
+Loading movie tags
+Done in 2.41753005981 seconds
+Training model
+Done in 88.2886018753 seconds
+Preparing features
+Done in 0.0202460289001 seconds
+Processing feature 0
+Building data set
+Done in 0.0308010578156 seconds
+Training the model
+Done in 304.556077003 seconds
+RMSE: 0.0108854118421, variance explained: 0.257780076448, mean absolute error: 0.194224446637,
+MRAE: 4.06715682577
+DecisionTreeModel regressor of depth 4 with 31 nodes
+  If (feature 38664 <= 1990.0)
+   If (feature 38652 <= 0.0)
+    If (feature 38660 <= 0.0)
+     If (feature 38655 <= 0.0)
+      Predict: -0.19616672846938046
+     Else (feature 38655 > 0.0)
+      Predict: -0.1112314921896707
+    Else (feature 38660 > 0.0)
+     If (feature 14082 <= 0.0)
+      Predict: -0.05802133403286686
+     Else (feature 14082 > 0.0)
+      Predict: 1.0003596544265747
+   Else (feature 38652 > 0.0)
+    If (feature 38645 <= 0.0)
+     If (feature 38664 <= 1978.0)
+      Predict: -0.2674110045749933
+     Else (feature 38664 > 1978.0)
+      Predict: -0.3405902233707664
+    Else (feature 38645 > 0.0)
+     If (feature 2953 <= 0.0)
+      Predict: -0.16898985078549567
+     Else (feature 2953 > 0.0)
+      Predict: -1.2795042991638184
+  Else (feature 38664 > 1990.0)
+   If (feature 38655 <= 0.0)
+    If (feature 38647 <= 0.0)
+     If (feature 38659 <= 0.0)
+      Predict: -0.38808843339095855
+     Else (feature 38659 > 0.0)
+      Predict: -0.4737053010940819
+    Else (feature 38647 > 0.0)
+     If (feature 38645 <= 0.0)
+      Predict: -0.27378384161116
+     Else (feature 38645 > 0.0)
+      Predict: -0.15541875936133012
+   Else (feature 38655 > 0.0)
+    If (feature 38661 <= 0.0)
+     If (feature 173 <= 0.0)
+      Predict: -0.21302280790257477
+     Else (feature 173 > 0.0)
+      Predict: 0.7975738644599915
+    Else (feature 38661 > 0.0)
+     If (feature 29426 <= 0.0)
+      Predict: -0.30908057071375045
+     Else (feature 29426 > 0.0)
+      Predict: -0.619100651957772
+
+Processing feature 1
+Building data set
+Done in 0.0407991409302 seconds
+Training the model
+Done in 204.332819939 seconds
+RMSE: 0.0151308004726, variance explained: 0.303256230896, mean absolute error: 0.235569819615,
+MRAE: 2.68259444424
+DecisionTreeModel regressor of depth 4 with 31 nodes
+  If (feature 38652 <= 0.0)
+   If (feature 38651 <= 0.0)
+    If (feature 38647 <= 0.0)
+     If (feature 38664 <= 1978.0)
+      Predict: 0.3956005429692458
+     Else (feature 38664 > 1978.0)
+      Predict: 0.2821702964508251
+    Else (feature 38647 > 0.0)
+     If (feature 8352 <= 0.0)
+      Predict: 0.5268723697986893
+     Else (feature 8352 > 0.0)
+      Predict: 0.904395390959347
+   Else (feature 38651 > 0.0)
+    If (feature 23511 <= 0.0)
+     If (feature 14469 <= 0.0)
+      Predict: 0.5909926525994258
+     Else (feature 14469 > 0.0)
+      Predict: 1.8030511140823364
+    Else (feature 23511 > 0.0)
+     If (feature 11461 <= 0.0)
+      Predict: 0.7185513716827079
+     Else (feature 11461 > 0.0)
+      Predict: 1.6610620021820068
+  Else (feature 38652 > 0.0)
+   If (feature 35740 <= 0.0)
+    If (feature 38645 <= 0.0)
+     If (feature 4071 <= 0.0)
+      Predict: 0.5082746479076614
+     Else (feature 4071 > 0.0)
+      Predict: 0.6363527995212752
+    Else (feature 38645 > 0.0)
+     If (feature 19388 <= 0.0)
+      Predict: 0.38196602320393364
+     Else (feature 19388 > 0.0)
+      Predict: 0.7085667673883767
+   Else (feature 35740 > 0.0)
+    If (feature 20226 <= 0.0)
+     If (feature 26229 <= 0.0)
+      Predict: 0.7878012988534007
+     Else (feature 26229 > 0.0)
+      Predict: 0.1025865450501442
+    Else (feature 20226 > 0.0)
+     If (feature 18516 <= 0.0)
+      Predict: 1.0300022406237466
+     Else (feature 18516 > 0.0)
+      Predict: 0.8176899949709574
+
+Processing feature 2
+Building data set
+Done in 0.0251729488373 seconds
+Training the model
+Done in 172.36588788 seconds
+RMSE: 0.0165031197896, variance explained: 0.260334081482, mean absolute error: 0.199649114902,
+MRAE: 2.73457907193
+DecisionTreeModel regressor of depth 4 with 31 nodes
+  If (feature 38655 <= 0.0)
+   If (feature 38645 <= 0.0)
+    If (feature 38652 <= 0.0)
+     If (feature 38651 <= 0.0)
+      Predict: 0.27069293893995394
+     Else (feature 38651 > 0.0)
+      Predict: 0.4449724318439465
+    Else (feature 38652 > 0.0)
+     If (feature 23657 <= 0.0)
+      Predict: 0.3927673267929498
+     Else (feature 23657 > 0.0)
+      Predict: 0.5125420615381373
+   Else (feature 38645 > 0.0)
+    If (feature 38652 <= 0.0)
+     If (feature 38664 <= 1978.0)
+      Predict: 0.22408838346978735
+     Else (feature 38664 > 1978.0)
+      Predict: 0.10206508327559569
+    Else (feature 38652 > 0.0)
+     If (feature 27065 <= 0.0)
+      Predict: 0.21373917200840054
+     Else (feature 27065 > 0.0)
+      Predict: 0.3993365944308393
+  Else (feature 38655 > 0.0)
+   If (feature 38652 <= 0.0)
+    If (feature 38658 <= 0.0)
+     If (feature 35577 <= 0.0)
+      Predict: 0.010034411759543652
+     Else (feature 35577 > 0.0)
+      Predict: -0.23287170656301356
+    Else (feature 38658 > 0.0)
+     If (feature 38664 <= 1969.0)
+      Predict: 0.2594350908245695
+     Else (feature 38664 > 1969.0)
+      Predict: 0.09632512709645966
+   Else (feature 38652 > 0.0)
+    If (feature 20616 <= 0.0)
+     If (feature 38664 <= 2000.0)
+      Predict: 0.2349772642419976
+     Else (feature 38664 > 2000.0)
+      Predict: 0.1315580018387717
+    Else (feature 20616 > 0.0)
+     If (feature 3065 <= 0.0)
+      Predict: -0.654945433139801
+     Else (feature 3065 > 0.0)
+      Predict: -0.3743836581707001
+
+Processing feature 3
+Building data set
+Done in 0.0281009674072 seconds
+Training the model
+Done in 167.753265142 seconds
+RMSE: 0.035570076099, variance explained: 0.327227821996, mean absolute error: 0.256449154853,
+MRAE: 2.87459160812
+DecisionTreeModel regressor of depth 4 with 31 nodes
+  If (feature 38664 <= 1978.0)
+   If (feature 4071 <= 0.0)
+    If (feature 38664 <= 1958.0)
+     If (feature 11979 <= 0.0)
+      Predict: 0.5519449275285598
+     Else (feature 11979 > 0.0)
+      Predict: 0.8506389765331409
+    Else (feature 38664 > 1958.0)
+     If (feature 38645 <= 0.0)
+      Predict: 0.4592337547797083
+     Else (feature 38645 > 0.0)
+      Predict: 0.29943603051512346
+   Else (feature 4071 > 0.0)
+    If (feature 28763 <= 0.0)
+     If (feature 1942 <= 0.0)
+      Predict: 0.70129130198406
+     Else (feature 1942 > 0.0)
+      Predict: 0.8180641926386777
+    Else (feature 28763 > 0.0)
+     If (feature 7230 <= 0.0)
+      Predict: 1.049492075525481
+     Else (feature 7230 > 0.0)
+      Predict: 0.5359877943992615
+  Else (feature 38664 > 1978.0)
+   If (feature 38645 <= 0.0)
+    If (feature 38655 <= 0.0)
+     If (feature 4071 <= 0.0)
+      Predict: 0.26841164835608533
+     Else (feature 4071 > 0.0)
+      Predict: 0.6461560719749003
+    Else (feature 38655 > 0.0)
+     If (feature 25177 <= 0.0)
+      Predict: 0.06347670524671419
+     Else (feature 25177 > 0.0)
+      Predict: -0.18415304169024307
+   Else (feature 38645 > 0.0)
+    If (feature 38661 <= 0.0)
+     If (feature 7683 <= 0.0)
+      Predict: 0.04814331044705045
+     Else (feature 7683 > 0.0)
+      Predict: -1.5459905862808228
+    Else (feature 38661 > 0.0)
+     If (feature 38664 <= 1990.0)
+      Predict: 0.10466703634567397
+     Else (feature 38664 > 1990.0)
+      Predict: -0.06260340701649868
+
+Processing feature 4
+Building data set
+Done in 0.0229880809784 seconds
+Training the model
+Done in 165.468672991 seconds
+RMSE: 0.00974187165554, variance explained: 0.270672769684, mean absolute error: 0.205879599056,
+MRAE: 2.77924803465
+DecisionTreeModel regressor of depth 4 with 29 nodes
+  If (feature 38664 <= 1969.0)
+   If (feature 11979 <= 0.0)
+    If (feature 38664 <= 1958.0)
+     If (feature 34410 <= 0.0)
+      Predict: 0.34224213187312647
+     Else (feature 34410 > 0.0)
+      Predict: 1.5446815490722656
+    Else (feature 38664 > 1958.0)
+     If (feature 10613 <= 0.0)
+      Predict: 0.25514407963137764
+     Else (feature 10613 > 0.0)
+      Predict: -0.44008853286504745
+   Else (feature 11979 > 0.0)
+    If (feature 12623 <= 0.0)
+     If (feature 27065 <= 0.0)
+      Predict: 0.45114346732058236
+     Else (feature 27065 > 0.0)
+      Predict: 0.5699908421798185
+    Else (feature 12623 > 0.0)
+     Predict: 1.4854857921600342
+  Else (feature 38664 > 1969.0)
+   If (feature 38664 <= 2000.0)
+    If (feature 33084 <= 0.0)
+     If (feature 27065 <= 0.0)
+      Predict: 0.1738121013600502
+     Else (feature 27065 > 0.0)
+      Predict: 0.46061163598464594
+    Else (feature 33084 > 0.0)
+     If (feature 1530 <= 0.0)
+      Predict: 0.4186852672231077
+     Else (feature 1530 > 0.0)
+      Predict: 1.3265666961669922
+   Else (feature 38664 > 2000.0)
+    If (feature 38651 <= 0.0)
+     If (feature 13429 <= 0.0)
+      Predict: 0.08521449262066899
+     Else (feature 13429 > 0.0)
+      Predict: 0.5701379901729524
+    Else (feature 38651 > 0.0)
+     If (feature 20005 <= 0.0)
+      Predict: 0.21056624919705821
+     Else (feature 20005 > 0.0)
+      Predict: -0.5581474006175995
+
+Processing feature 5
+Building data set
+Done in 0.0234339237213 seconds
+Training the model
+Done in 166.693572044 seconds
+RMSE: 0.00467484068214, variance explained: 0.239854698775, mean absolute error: 0.179441288856,
+MRAE: 93.475814653
+DecisionTreeModel regressor of depth 4 with 31 nodes
+  If (feature 38664 <= 1997.0)
+   If (feature 38664 <= 1969.0)
+    If (feature 38648 <= 0.0)
+     If (feature 6416 <= 0.0)
+      Predict: 0.3803403765267187
+     Else (feature 6416 > 0.0)
+      Predict: -0.9394882917404175
+    Else (feature 38648 > 0.0)
+     If (feature 35461 <= 0.0)
+      Predict: 0.5166702544697646
+     Else (feature 35461 > 0.0)
+      Predict: -0.08361515402793884
+   Else (feature 38664 > 1969.0)
+    If (feature 38645 <= 0.0)
+     If (feature 727 <= 0.0)
+      Predict: 0.4374675336250137
+     Else (feature 727 > 0.0)
+      Predict: 0.6342406090010296
+    Else (feature 38645 > 0.0)
+     If (feature 38652 <= 0.0)
+      Predict: 0.34054214619465756
+     Else (feature 38652 > 0.0)
+      Predict: 0.4283045023187077
+  Else (feature 38664 > 1997.0)
+   If (feature 38645 <= 0.0)
+    If (feature 38652 <= 0.0)
+     If (feature 38651 <= 0.0)
+      Predict: 0.2824680521670262
+     Else (feature 38651 > 0.0)
+      Predict: 0.38908187362846364
+    Else (feature 38652 > 0.0)
+     If (feature 10833 <= 0.0)
+      Predict: 0.3650163152095686
+     Else (feature 10833 > 0.0)
+      Predict: 1.586188554763794
+   Else (feature 38645 > 0.0)
+    If (feature 38660 <= 0.0)
+     If (feature 38652 <= 0.0)
+      Predict: 0.2322277065064758
+     Else (feature 38652 > 0.0)
+      Predict: 0.31234226483423766
+    Else (feature 38660 > 0.0)
+     If (feature 34015 <= 0.0)
+      Predict: 0.15444358214477283
+     Else (feature 34015 > 0.0)
+      Predict: -0.06742026675915853
+
+Processing feature 6
+Building data set
+Done in 0.0227320194244 seconds
+Training the model
+Done in 161.626160145 seconds
+RMSE: 0.00506329323642, variance explained: 0.281015635036, mean absolute error: 0.218355043698,
+MRAE: 4.74104919809
+DecisionTreeModel regressor of depth 4 with 31 nodes
+  If (feature 18453 <= 0.0)
+   If (feature 38664 <= 2002.0)
+    If (feature 38655 <= 0.0)
+     If (feature 493 <= 0.0)
+      Predict: -0.49956401256821253
+     Else (feature 493 > 0.0)
+      Predict: -0.6574691365375841
+    Else (feature 38655 > 0.0)
+     If (feature 38664 <= 1994.0)
+      Predict: -0.36357503257400176
+     Else (feature 38664 > 1994.0)
+      Predict: -0.47704350172380844
+   Else (feature 38664 > 2002.0)
+    If (feature 33279 <= 0.0)
+     If (feature 38655 <= 0.0)
+      Predict: -0.5670031485829012
+     Else (feature 38655 > 0.0)
+      Predict: -0.4728096024020561
+    Else (feature 33279 > 0.0)
+     If (feature 18516 <= 0.0)
+      Predict: -0.7063699868410381
+     Else (feature 18516 > 0.0)
+      Predict: -0.9104568178837116
+  Else (feature 18453 > 0.0)
+   If (feature 32078 <= 0.0)
+    If (feature 25177 <= 0.0)
+     If (feature 31264 <= 0.0)
+      Predict: -0.6739056846963432
+     Else (feature 31264 > 0.0)
+      Predict: -0.9343182224976389
+    Else (feature 25177 > 0.0)
+     If (feature 20769 <= 0.0)
+      Predict: -0.847132511583029
+     Else (feature 20769 > 0.0)
+      Predict: -1.0496084570884705
+   Else (feature 32078 > 0.0)
+    If (feature 38646 <= 0.0)
+     If (feature 996 <= 0.0)
+      Predict: -0.8658264266120063
+     Else (feature 996 > 0.0)
+      Predict: -0.31311094760894775
+    Else (feature 38646 > 0.0)
+     If (feature 28559 <= 0.0)
+      Predict: -0.989861473441124
+     Else (feature 28559 > 0.0)
+      Predict: -1.2252562940120697
+
+Processing feature 7
+Building data set
+Done in 0.0180270671844 seconds
+Training the model
+Done in 160.166625977 seconds
+RMSE: 0.0140185615669, variance explained: 0.270960179377, mean absolute error: 0.209022241336,
+MRAE: 1.92445847356
+DecisionTreeModel regressor of depth 4 with 31 nodes
+  If (feature 38649 <= 0.0)
+   If (feature 4071 <= 0.0)
+    If (feature 38664 <= 1978.0)
+     If (feature 38657 <= 0.0)
+      Predict: -0.7016710937659917
+     Else (feature 38657 > 0.0)
+      Predict: -0.4873422587759235
+    Else (feature 38664 > 1978.0)
+     If (feature 38648 <= 0.0)
+      Predict: -0.5851960126955722
+     Else (feature 38648 > 0.0)
+      Predict: -0.4153919181332294
+   Else (feature 4071 > 0.0)
+    If (feature 23088 <= 0.0)
+     If (feature 38645 <= 0.0)
+      Predict: -0.8847099092618897
+     Else (feature 38645 > 0.0)
+      Predict: -0.7494562503236991
+    Else (feature 23088 > 0.0)
+     If (feature 25120 <= 0.0)
+      Predict: -1.06942225843668
+     Else (feature 25120 > 0.0)
+      Predict: -0.7853200833002726
+  Else (feature 38649 > 0.0)
+   If (feature 38664 <= 1978.0)
+    If (feature 4071 <= 0.0)
+     If (feature 38652 <= 0.0)
+      Predict: -0.5549319913464316
+     Else (feature 38652 > 0.0)
+      Predict: -0.6627700919778938
+    Else (feature 4071 > 0.0)
+     If (feature 18121 <= 0.0)
+      Predict: -0.8046567768108945
+     Else (feature 18121 > 0.0)
+      Predict: -1.1580769538879394
+   Else (feature 38664 > 1978.0)
+    If (feature 38652 <= 0.0)
+     If (feature 38659 <= 0.0)
+      Predict: -0.4070256414565282
+     Else (feature 38659 > 0.0)
+      Predict: -0.3126129919437243
+    Else (feature 38652 > 0.0)
+     If (feature 38659 <= 0.0)
+      Predict: -0.5427185489812593
+     Else (feature 38659 > 0.0)
+      Predict: -0.4206755149150628
+
+Processing feature 8
+Building data set
+Done in 0.016294002533 seconds
+Training the model
+Done in 162.18920207 seconds
+RMSE: 0.0125448472995, variance explained: 0.281729001777, mean absolute error: 0.213668799062,
+MRAE: 3.18499294023
+DecisionTreeModel regressor of depth 4 with 31 nodes
+  If (feature 38648 <= 0.0)
+   If (feature 38649 <= 0.0)
+    If (feature 38646 <= 0.0)
+     If (feature 19388 <= 0.0)
+      Predict: 0.1009814057976562
+     Else (feature 19388 > 0.0)
+      Predict: 0.28091634322751174
+    Else (feature 38646 > 0.0)
+     If (feature 38664 <= 1990.0)
+      Predict: 0.06523038856154104
+     Else (feature 38664 > 1990.0)
+      Predict: -0.10442558766500006
+   Else (feature 38649 > 0.0)
+    If (feature 38652 <= 0.0)
+     If (feature 38664 <= 1984.0)
+      Predict: 0.04268561183871287
+     Else (feature 38664 > 1984.0)
+      Predict: -0.05234502583739875
+    Else (feature 38652 > 0.0)
+     If (feature 20564 <= 0.0)
+      Predict: 0.07922512082939077
+     Else (feature 20564 > 0.0)
+      Predict: 0.3341272715429763
+  Else (feature 38648 > 0.0)
+   If (feature 38664 <= 1990.0)
+    If (feature 4850 <= 0.0)
+     If (feature 12323 <= 0.0)
+      Predict: -0.14590135886735545
+     Else (feature 12323 > 0.0)
+      Predict: -0.49494885546820505
+    Else (feature 4850 > 0.0)
+     If (feature 1388 <= 0.0)
+      Predict: -0.35261305560376127
+     Else (feature 1388 > 0.0)
+      Predict: 0.13862957060337067
+   Else (feature 38664 > 1990.0)
+    If (feature 38664 <= 2002.0)
+     If (feature 34409 <= 0.0)
+      Predict: -0.4930377328717502
+     Else (feature 34409 > 0.0)
+      Predict: -0.04543813574127853
+    Else (feature 38664 > 2002.0)
+     If (feature 38652 <= 0.0)
+      Predict: -0.3515663826627429
+     Else (feature 38652 > 0.0)
+      Predict: -0.16239307415154244
+
+Processing feature 9
+Building data set
+Done in 0.0234110355377 seconds
+Training the model
+Done in 162.857815027 seconds
+RMSE: 0.00729428221744, variance explained: 0.268439731859, mean absolute error: 0.206409433135,
+MRAE: 0.541918824888
+DecisionTreeModel regressor of depth 4 with 29 nodes
+  If (feature 38655 <= 0.0)
+   If (feature 27065 <= 0.0)
+    If (feature 38651 <= 0.0)
+     If (feature 22135 <= 0.0)
+      Predict: 0.8820038075608064
+     Else (feature 22135 > 0.0)
+      Predict: 1.0328480181460444
+    Else (feature 38651 > 0.0)
+     If (feature 35216 <= 0.0)
+      Predict: 0.9937913932289116
+     Else (feature 35216 > 0.0)
+      Predict: 1.3148711621761322
+   Else (feature 27065 > 0.0)
+    If (feature 38650 <= 0.0)
+     If (feature 16317 <= 0.0)
+      Predict: 1.1226599253548517
+     Else (feature 16317 > 0.0)
+      Predict: 1.3147981882095336
+    Else (feature 38650 > 0.0)
+     If (feature 32691 <= 0.0)
+      Predict: 1.208201066392367
+     Else (feature 32691 > 0.0)
+      Predict: 1.3574960742677962
+  Else (feature 38655 > 0.0)
+   If (feature 24195 <= 0.0)
+    If (feature 1927 <= 0.0)
+     If (feature 37496 <= 0.0)
+      Predict: 0.6759134276726064
+     Else (feature 37496 > 0.0)
+      Predict: 0.8254509482313604
+    Else (feature 1927 > 0.0)
+     Predict: -0.6762537360191345
+   Else (feature 24195 > 0.0)
+    If (feature 18715 <= 0.0)
+     If (feature 25905 <= 0.0)
+      Predict: 0.9148356024424235
+     Else (feature 25905 > 0.0)
+      Predict: 0.8086768651008606
+    Else (feature 18715 > 0.0)
+     If (feature 493 <= 0.0)
+      Predict: 0.5025462508201599
+     Else (feature 493 > 0.0)
+      Predict: 0.6394758224487305
+
+Processing feature 10
+Building data set
+Done in 0.0225291252136 seconds
+Training the model
+Done in 164.347456932 seconds
+RMSE: 0.00390753764016, variance explained: 0.241900612205, mean absolute error: 0.182706839811,
+MRAE: 0.574958676604
+DecisionTreeModel regressor of depth 4 with 31 nodes
+  If (feature 38664 <= 1969.0)
+   If (feature 38663 <= 0.0)
+    If (feature 38652 <= 0.0)
+     If (feature 38664 <= 1958.0)
+      Predict: -0.7722119400791961
+     Else (feature 38664 > 1958.0)
+      Predict: -0.8352375330164022
+    Else (feature 38652 > 0.0)
+     If (feature 20556 <= 0.0)
+      Predict: -0.7466776488675144
+     Else (feature 20556 > 0.0)
+      Predict: -1.3556717038154602
+   Else (feature 38663 > 0.0)
+    If (feature 29364 <= 0.0)
+     If (feature 16442 <= 0.0)
+      Predict: -0.6541004322959931
+     Else (feature 16442 > 0.0)
+      Predict: -0.15108701586723328
+    Else (feature 29364 > 0.0)
+     If (feature 11332 <= 0.0)
+      Predict: -0.9676259756088257
+     Else (feature 11332 > 0.0)
+      Predict: -0.8717564344406128
+  Else (feature 38664 > 1969.0)
+   If (feature 38649 <= 0.0)
+    If (feature 38653 <= 0.0)
+     If (feature 38655 <= 0.0)
+      Predict: -0.8128853665626545
+     Else (feature 38655 > 0.0)
+      Predict: -0.8994288093963139
+    Else (feature 38653 > 0.0)
+     If (feature 22911 <= 0.0)
+      Predict: -0.9428156761582508
+     Else (feature 22911 > 0.0)
+      Predict: -1.1761505323297836
+   Else (feature 38649 > 0.0)
+    If (feature 21193 <= 0.0)
+     If (feature 38664 <= 2010.0)
+      Predict: -0.9012848570143203
+     Else (feature 38664 > 2010.0)
+      Predict: -0.8268067961782737
+    Else (feature 21193 > 0.0)
+     If (feature 34290 <= 0.0)
+      Predict: -1.173797626616591
+     Else (feature 34290 > 0.0)
+      Predict: -1.4814298550287883
+
+Processing feature 11
+Building data set
+Done in 0.0185458660126 seconds
+Training the model
+Done in 176.963839769 seconds
+RMSE: 0.00743263016446, variance explained: 0.269490263846, mean absolute error: 0.207051590207,
+MRAE: 2.89578385139
+DecisionTreeModel regressor of depth 4 with 29 nodes
+  If (feature 38655 <= 0.0)
+   If (feature 38659 <= 0.0)
+    If (feature 38664 <= 2007.0)
+     If (feature 4071 <= 0.0)
+      Predict: 0.04439366205364692
+     Else (feature 4071 > 0.0)
+      Predict: 0.14949779053798892
+    Else (feature 38664 > 2007.0)
+     If (feature 29143 <= 0.0)
+      Predict: 0.11225693086509944
+     Else (feature 29143 > 0.0)
+      Predict: -1.664772868156433
+   Else (feature 38659 > 0.0)
+    If (feature 38664 <= 1978.0)
+     If (feature 4071 <= 0.0)
+      Predict: 0.03326895437820572
+     Else (feature 4071 > 0.0)
+      Predict: 0.1744461703193286
+    Else (feature 38664 > 1978.0)
+     If (feature 38664 <= 2008.0)
+      Predict: -0.047486615595749966
+     Else (feature 38664 > 2008.0)
+      Predict: 0.031495222425530725
+  Else (feature 38655 > 0.0)
+   If (feature 34636 <= 0.0)
+    If (feature 23473 <= 0.0)
+     If (feature 38664 <= 1997.0)
+      Predict: 0.2866736979973922
+     Else (feature 38664 > 1997.0)
+      Predict: 0.20091856214455328
+    Else (feature 23473 > 0.0)
+     If (feature 26733 <= 0.0)
+      Predict: 0.38584275914525445
+     Else (feature 26733 > 0.0)
+      Predict: 0.6196590483836506
+   Else (feature 34636 > 0.0)
+    If (feature 22156 <= 0.0)
+     If (feature 38664 <= 2012.0)
+      Predict: 0.5997704606301881
+     Else (feature 38664 > 2012.0)
+      Predict: -0.619770348072052
+    Else (feature 22156 > 0.0)
+     Predict: -0.8101967573165894
+
++---------+----------------+---------------------+
+| Feature |      MRAE      | Mean absolute error |
++---------+----------------+---------------------+
+|    9    | 0.541918824888 |    0.206409433135   |
+|    10   | 0.574958676604 |    0.182706839811   |
+|    7    | 1.92445847356  |    0.209022241336   |
+|    1    | 2.68259444424  |    0.235569819615   |
+|    2    | 2.73457907193  |    0.199649114902   |
+|    4    | 2.77924803465  |    0.205879599056   |
+|    3    | 2.87459160812  |    0.256449154853   |
+|    11   | 2.89578385139  |    0.207051590207   |
+|    8    | 3.18499294023  |    0.213668799062   |
+|    0    | 4.06715682577  |    0.194224446637   |
+|    6    | 4.74104919809  |    0.218355043698   |
+|    5    |  93.475814653  |    0.179441288856   |
++---------+----------------+---------------------+
+Computing mean error
+Mean error: 0.555730336842
+Done in 165.207507133 seconds
+Computing replaced mean error
+Traceback (most recent call last):
+  File "/mnt/encrypted_data/Dropbox/cmu/foundation_of_privacy/project/fop_qii/MovieLensALS.py", line 1535, in <module>
+    joined = product_features.join(mid_preds)
+NameError: name 'product_features' is not defined
