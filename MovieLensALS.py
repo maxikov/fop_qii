@@ -204,6 +204,19 @@ if __name__ == "__main__":
             ),
             "loader": (lambda x: parsers_and_loaders.load_genres(x, sep=",",
                 parser_function=parsers_and_loaders.parseIMDBKeywords))
+        },
+        {
+            "name": "imdb_genres",
+            "src_rdd": (
+                lambda: sc.parallelize(
+                    parsers_and_loaders.loadCSV(
+                        join(args.data_path, "ml-20m.imdb.small.csv"),
+                        remove_first_line = True
+                    )
+                )
+            ),
+            "loader": (lambda x: parsers_and_loaders.load_genres(x, sep=",",
+                parser_function=parsers_and_loaders.parseIMDBGenres))
         }
     ]
 
