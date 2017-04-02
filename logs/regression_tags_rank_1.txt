@@ -1,0 +1,90 @@
+Rank: 1, lmbda: 0.1, numIter: 20, numPartitions: 4
+qii_iters: 5, num_iters_ls: 5, movieLensHomeDir: datasets/ml-20m/
+ofname: Output.txt, checkpoint_dir: checkpoint, num_users_ls:5
+specific_user: None, max_movies_per_user: 0, prominent_raters:0
+perturb_specific_user: None, recommendations_only:False
+recommendations_and_per_movie_qii: False
+per_movie_qiis_displayed: 3
+genres_correlator: False, gui: False, years_correlator: False
+iterate_rank: False, iterate_from: 5, iterate_to: 40, iterate_step:5
+invert_labels: False, no_threshold: False
+classifier_model: logistic
+genres_regression: False
+regression_model: regression_tree
+mean_error_experiments: False
+internal_feature_influence: False
+compute_mean_error: False
+compute_fast_influence: False
+sample_size: 10000, sample_type: training
+nbins: 16, regression_years: False
+regression_users: False
+regression_tags: True
+Loading ratings
+Done in 6.46332597733 seconds
+Loading movies
+Done in 0.707145929337 seconds
+Loading movie tags
+Done in 2.48510217667 seconds
+Training model
+Done in 75.2191588879 seconds
+Preparing features
+Done in 0.0226438045502 seconds
+Processing feature 0
+Building data set
+Done in 0.0289919376373 seconds
+Training the model
+Done in 285.872488022 seconds
+RMSE: 0.0232645761095, variance explained: 0.300716620771, mean absolute error: 0.219119566629,
+MRAE: 0.156035029642
+DecisionTreeModel regressor of depth 4 with 25 nodes
+  If (feature 38655 <= 0.0)
+   If (feature 38652 <= 0.0)
+    If (feature 38651 <= 0.0)
+     If (feature 38664 <= 1978.0)
+      Predict: -1.8111687012342401
+     Else (feature 38664 > 1978.0)
+      Predict: -1.625563233823058
+    Else (feature 38651 > 0.0)
+     If (feature 26918 <= 0.0)
+      Predict: -1.9492313231917933
+     Else (feature 26918 > 0.0)
+      Predict: -0.2684610188007355
+   Else (feature 38652 > 0.0)
+    If (feature 4071 <= 0.0)
+     If (feature 27065 <= 0.0)
+      Predict: -1.8189554543054942
+     Else (feature 27065 > 0.0)
+      Predict: -2.1024936116384176
+    Else (feature 4071 > 0.0)
+     If (feature 15508 <= 0.0)
+      Predict: -2.019374811668801
+     Else (feature 15508 > 0.0)
+      Predict: -3.0688436031341553
+  Else (feature 38655 > 0.0)
+   If (feature 33052 <= 0.0)
+    If (feature 24195 <= 0.0)
+     If (feature 38652 <= 0.0)
+      Predict: -1.4799963395834856
+     Else (feature 38652 > 0.0)
+      Predict: -1.6768922591761732
+    Else (feature 24195 > 0.0)
+     If (feature 27065 <= 0.0)
+      Predict: -1.8813777829325475
+     Else (feature 27065 > 0.0)
+      Predict: -2.049874857068062
+   Else (feature 33052 > 0.0)
+    Predict: 6.565771579742432
+
++---------+----------------+---------------------+
+| Feature |      MRAE      | Mean absolute error |
++---------+----------------+---------------------+
+|    0    | 0.156035029642 |    0.219119566629   |
++---------+----------------+---------------------+
+Computing mean error
+Mean error: 0.661651659613
+Done in 184.246262074 seconds
+Computing replaced mean error
+Traceback (most recent call last):
+  File "/mnt/encrypted_data/Dropbox/cmu/foundation_of_privacy/project/fop_qii/MovieLensALS.py", line 1531, in <module>
+    predictions = models[0]["model"].\
+TypeError: tuple indices must be integers, not str

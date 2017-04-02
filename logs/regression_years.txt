@@ -1,0 +1,1912 @@
+Rank: 30, lmbda: 0.1, numIter: 20, numPartitions: 4
+qii_iters: 5, num_iters_ls: 5, movieLensHomeDir: datasets/ml-20m/
+ofname: Output.txt, checkpoint_dir: checkpoint, num_users_ls:5
+specific_user: None, max_movies_per_user: 0, prominent_raters:0
+perturb_specific_user: None, recommendations_only:False
+recommendations_and_per_movie_qii: False
+per_movie_qiis_displayed: 3
+genres_correlator: False, gui: False, years_correlator: False
+iterate_rank: False, iterate_from: 5, iterate_to: 40, iterate_step:5
+invert_labels: False, no_threshold: False
+classifier_model: logistic
+genres_regression: False
+regression_model: regression_tree
+mean_error_experiments: False
+internal_feature_influence: False
+compute_mean_error: False
+compute_fast_influence: False
+sample_size: 10000, sample_type: training
+nbins: 32, regression_years: True
+regression_users: False
+regression_tags: False
+Loading ratings
+Done in 11.0607938766 seconds
+Loading movies
+Done in 1.22333192825 seconds
+Loading years
+Done in 0.0131280422211 seconds
+Training model
+Done in 145.90671587 seconds
+Preparing features
+Done in 0.0672929286957 seconds
+Done in 2.82955098152 seconds
+RMSE: 0.00691138597766, variance explained: 0.22710835021, mean absolute error: 0.180276126249,
+MRAE: 2.69719092409
+DecisionTreeModel regressor of depth 5 with 41 nodes
+  If (feature 0 <= 1978.0)
+   If (feature 0 <= 1965.0)
+    If (feature 0 <= 1959.0)
+     If (feature 0 <= 1953.0)
+      If (feature 0 <= 1936.0)
+       Predict: -0.5975327207556617
+      Else (feature 0 > 1936.0)
+       Predict: -0.6063139380279237
+     Else (feature 0 > 1953.0)
+      Predict: -0.5943847414908153
+    Else (feature 0 > 1959.0)
+     Predict: -0.5764355843160908
+   Else (feature 0 > 1965.0)
+    If (feature 0 <= 1970.0)
+     Predict: -0.5300003585725188
+    Else (feature 0 > 1970.0)
+     If (feature 0 <= 1973.0)
+      Predict: -0.49032651728748533
+     Else (feature 0 > 1973.0)
+      Predict: -0.4836846043755754
+  Else (feature 0 > 1978.0)
+   If (feature 0 <= 2004.0)
+    If (feature 0 <= 1985.0)
+     If (feature 0 <= 1982.0)
+      Predict: -0.4554680957073456
+     Else (feature 0 > 1982.0)
+      Predict: -0.4351170870351957
+    Else (feature 0 > 1985.0)
+     If (feature 0 <= 1996.0)
+      If (feature 0 <= 1988.0)
+       Predict: -0.4030760514107203
+      Else (feature 0 > 1988.0)
+       Predict: -0.38726883677990037
+     Else (feature 0 > 1996.0)
+      If (feature 0 <= 2000.0)
+       Predict: -0.41629384598926983
+      Else (feature 0 > 2000.0)
+       Predict: -0.39282462168688564
+   Else (feature 0 > 2004.0)
+    If (feature 0 <= 2011.0)
+     If (feature 0 <= 2006.0)
+      If (feature 0 <= 2005.0)
+       Predict: -0.3814984753680202
+      Else (feature 0 > 2005.0)
+       Predict: -0.37860264514379166
+     Else (feature 0 > 2006.0)
+      If (feature 0 <= 2007.0)
+       Predict: -0.35925614898606467
+      Else (feature 0 > 2007.0)
+       Predict: -0.36597214286039215
+    Else (feature 0 > 2011.0)
+     If (feature 0 <= 2013.0)
+      If (feature 0 <= 2012.0)
+       Predict: -0.35428923885325625
+      Else (feature 0 > 2012.0)
+       Predict: -0.35248275060587886
+     Else (feature 0 > 2013.0)
+      If (feature 0 <= 2014.0)
+       Predict: -0.33210544123134594
+      Else (feature 0 > 2014.0)
+       Predict: -0.3132991002358106
+
+Done in 7.84287405014 seconds
+Done in 9.38345909119 seconds
+RMSE: 0.00105366314524, variance explained: 0.214246852943, mean absolute error: 0.166400830211,
+MRAE: 2.13432166196
+DecisionTreeModel regressor of depth 5 with 39 nodes
+  If (feature 0 <= 1988.0)
+   If (feature 0 <= 1959.0)
+    If (feature 0 <= 1936.0)
+     Predict: 0.3318193678630246
+    Else (feature 0 > 1936.0)
+     If (feature 0 <= 1953.0)
+      If (feature 0 <= 1945.0)
+       Predict: 0.38465122458522333
+      Else (feature 0 > 1945.0)
+       Predict: 0.38341260544027134
+     Else (feature 0 > 1953.0)
+      Predict: 0.35457986950734705
+   Else (feature 0 > 1959.0)
+    If (feature 0 <= 1982.0)
+     If (feature 0 <= 1973.0)
+      If (feature 0 <= 1965.0)
+       Predict: 0.33859641429137627
+      Else (feature 0 > 1965.0)
+       Predict: 0.31975915491418244
+     Else (feature 0 > 1973.0)
+      If (feature 0 <= 1978.0)
+       Predict: 0.335439387471987
+      Else (feature 0 > 1978.0)
+       Predict: 0.33804116337703766
+    Else (feature 0 > 1982.0)
+     If (feature 0 <= 1985.0)
+      Predict: 0.3645023146244826
+     Else (feature 0 > 1985.0)
+      Predict: 0.3641641877124899
+  Else (feature 0 > 1988.0)
+   If (feature 0 <= 2011.0)
+    If (feature 0 <= 1993.0)
+     If (feature 0 <= 1990.0)
+      Predict: 0.38681476284715627
+     Else (feature 0 > 1990.0)
+      Predict: 0.38656300568325414
+    Else (feature 0 > 1993.0)
+     If (feature 0 <= 2007.0)
+      If (feature 0 <= 1996.0)
+       Predict: 0.4082518419379004
+      Else (feature 0 > 1996.0)
+       Predict: 0.41943299602942
+     Else (feature 0 > 2007.0)
+      If (feature 0 <= 2010.0)
+       Predict: 0.39833582456462996
+      Else (feature 0 > 2010.0)
+       Predict: 0.40903657824232437
+   Else (feature 0 > 2011.0)
+    If (feature 0 <= 2013.0)
+     If (feature 0 <= 2012.0)
+      Predict: 0.3901193051938304
+     Else (feature 0 > 2012.0)
+      Predict: 0.39309334586257055
+    Else (feature 0 > 2013.0)
+     If (feature 0 <= 2014.0)
+      Predict: 0.35999202867419566
+     Else (feature 0 > 2014.0)
+      Predict: 0.3824029344194118
+
+Done in 11.9821851254 seconds
+Done in 13.4310801029 seconds
+RMSE: 0.00136180847173, variance explained: 0.165052672139, mean absolute error: 0.123643314759,
+MRAE: 8.51855084635
+DecisionTreeModel regressor of depth 5 with 37 nodes
+  If (feature 0 <= 1970.0)
+   If (feature 0 <= 1953.0)
+    If (feature 0 <= 1936.0)
+     Predict: -0.19300089215797936
+    Else (feature 0 > 1936.0)
+     If (feature 0 <= 1945.0)
+      Predict: -0.22409873415497006
+     Else (feature 0 > 1945.0)
+      Predict: -0.213925825318063
+   Else (feature 0 > 1953.0)
+    If (feature 0 <= 1965.0)
+     If (feature 0 <= 1959.0)
+      Predict: -0.18431563787103822
+     Else (feature 0 > 1959.0)
+      Predict: -0.17368265020751125
+    Else (feature 0 > 1965.0)
+     Predict: -0.15755506393676302
+  Else (feature 0 > 1970.0)
+   If (feature 0 <= 1999.0)
+    If (feature 0 <= 1997.0)
+     If (feature 0 <= 1993.0)
+      If (feature 0 <= 1990.0)
+       Predict: -0.1225766614701407
+      Else (feature 0 > 1990.0)
+       Predict: -0.11772623729045652
+     Else (feature 0 > 1993.0)
+      If (feature 0 <= 1996.0)
+       Predict: -0.1421699323908617
+      Else (feature 0 > 1996.0)
+       Predict: -0.12048552332733811
+    Else (feature 0 > 1997.0)
+     Predict: -0.11247392261294897
+   Else (feature 0 > 1999.0)
+    If (feature 0 <= 2006.0)
+     If (feature 0 <= 2001.0)
+      If (feature 0 <= 2000.0)
+       Predict: -0.10203242067149332
+      Else (feature 0 > 2000.0)
+       Predict: -0.1089467835939141
+     Else (feature 0 > 2001.0)
+      If (feature 0 <= 2005.0)
+       Predict: -0.103888572808973
+      Else (feature 0 > 2005.0)
+       Predict: -0.10223981829940194
+    Else (feature 0 > 2006.0)
+     If (feature 0 <= 2013.0)
+      If (feature 0 <= 2012.0)
+       Predict: -0.09182174708671087
+      Else (feature 0 > 2012.0)
+       Predict: -0.0766730270305287
+     Else (feature 0 > 2013.0)
+      If (feature 0 <= 2014.0)
+       Predict: -0.10471918716993295
+      Else (feature 0 > 2014.0)
+       Predict: -0.11364036382902638
+
+Done in 15.5400099754 seconds
+Done in 16.8075690269 seconds
+RMSE: 0.00129397732051, variance explained: 0.190916584119, mean absolute error: 0.147900474518,
+MRAE: 0.681223668925
+DecisionTreeModel regressor of depth 5 with 31 nodes
+  If (feature 0 <= 1970.0)
+   If (feature 0 <= 1959.0)
+    If (feature 0 <= 1945.0)
+     If (feature 0 <= 1936.0)
+      Predict: 0.45511830304711454
+     Else (feature 0 > 1936.0)
+      Predict: 0.4610244079351553
+    Else (feature 0 > 1945.0)
+     If (feature 0 <= 1953.0)
+      Predict: 0.47066921557232977
+     Else (feature 0 > 1953.0)
+      Predict: 0.4698360714311397
+   Else (feature 0 > 1959.0)
+    If (feature 0 <= 1965.0)
+     Predict: 0.48883041856735365
+    Else (feature 0 > 1965.0)
+     Predict: 0.4991037529925334
+  Else (feature 0 > 1970.0)
+   If (feature 0 <= 1990.0)
+    If (feature 0 <= 1985.0)
+     If (feature 0 <= 1973.0)
+      Predict: 0.5372800720979285
+     Else (feature 0 > 1973.0)
+      If (feature 0 <= 1982.0)
+       Predict: 0.5137728167258796
+      Else (feature 0 > 1982.0)
+       Predict: 0.5285743996743264
+    Else (feature 0 > 1985.0)
+     If (feature 0 <= 1988.0)
+      Predict: 0.5410219931897897
+     Else (feature 0 > 1988.0)
+      Predict: 0.5395527227072541
+   Else (feature 0 > 1990.0)
+    If (feature 0 <= 2014.0)
+     If (feature 0 <= 1996.0)
+      If (feature 0 <= 1993.0)
+       Predict: 0.558842578894608
+      Else (feature 0 > 1993.0)
+       Predict: 0.5469123729720412
+     Else (feature 0 > 1996.0)
+      If (feature 0 <= 2013.0)
+       Predict: 0.5657449715064968
+      Else (feature 0 > 2013.0)
+       Predict: 0.5462414908420737
+    Else (feature 0 > 2014.0)
+     Predict: 0.4635109429457976
+
+Done in 18.9537911415 seconds
+Done in 20.1387851238 seconds
+RMSE: 0.00119598766741, variance explained: 0.180506054523, mean absolute error: 0.137420797306,
+MRAE: 19.8875516718
+DecisionTreeModel regressor of depth 5 with 33 nodes
+  If (feature 0 <= 1978.0)
+   If (feature 0 <= 1936.0)
+    Predict: -0.20179825951376815
+   Else (feature 0 > 1936.0)
+    If (feature 0 <= 1973.0)
+     If (feature 0 <= 1965.0)
+      If (feature 0 <= 1959.0)
+       Predict: -0.17061191706133214
+      Else (feature 0 > 1959.0)
+       Predict: -0.18189366256511577
+     Else (feature 0 > 1965.0)
+      If (feature 0 <= 1970.0)
+       Predict: -0.15840096635221204
+      Else (feature 0 > 1970.0)
+       Predict: -0.16794701130424983
+    Else (feature 0 > 1973.0)
+     Predict: -0.143026842158796
+  Else (feature 0 > 1978.0)
+   If (feature 0 <= 1990.0)
+    If (feature 0 <= 1985.0)
+     If (feature 0 <= 1982.0)
+      Predict: -0.12598492754131746
+     Else (feature 0 > 1982.0)
+      Predict: -0.12492682565480652
+    Else (feature 0 > 1985.0)
+     If (feature 0 <= 1988.0)
+      Predict: -0.11398659011349982
+     Else (feature 0 > 1988.0)
+      Predict: -0.1082455664725735
+   Else (feature 0 > 1990.0)
+    If (feature 0 <= 2007.0)
+     If (feature 0 <= 1996.0)
+      If (feature 0 <= 1994.0)
+       Predict: -0.08931185920074547
+      Else (feature 0 > 1994.0)
+       Predict: -0.06799337471367566
+     Else (feature 0 > 1996.0)
+      If (feature 0 <= 2004.0)
+       Predict: -0.09078505678481597
+      Else (feature 0 > 2004.0)
+       Predict: -0.08354944470945956
+    Else (feature 0 > 2007.0)
+     If (feature 0 <= 2014.0)
+      If (feature 0 <= 2011.0)
+       Predict: -0.106394620264304
+      Else (feature 0 > 2011.0)
+       Predict: -0.11077978524752659
+     Else (feature 0 > 2014.0)
+      Predict: -0.08929174187998738
+
+Done in 22.5286359787 seconds
+Done in 23.6440470219 seconds
+RMSE: 0.00215512990848, variance explained: 0.252656165063, mean absolute error: 0.199466176239,
+MRAE: 4.71042472167
+DecisionTreeModel regressor of depth 5 with 39 nodes
+  If (feature 0 <= 1978.0)
+   If (feature 0 <= 1959.0)
+    If (feature 0 <= 1953.0)
+     If (feature 0 <= 1936.0)
+      Predict: 0.5523751115421374
+     Else (feature 0 > 1936.0)
+      If (feature 0 <= 1945.0)
+       Predict: 0.5340574919412922
+      Else (feature 0 > 1945.0)
+       Predict: 0.5449413727229362
+    Else (feature 0 > 1953.0)
+     Predict: 0.5240458453854829
+   Else (feature 0 > 1959.0)
+    If (feature 0 <= 1973.0)
+     If (feature 0 <= 1965.0)
+      Predict: 0.5138051870406297
+     Else (feature 0 > 1965.0)
+      If (feature 0 <= 1970.0)
+       Predict: 0.5024727719790977
+      Else (feature 0 > 1970.0)
+       Predict: 0.5028512998501355
+    Else (feature 0 > 1973.0)
+     Predict: 0.48632280998974825
+  Else (feature 0 > 1978.0)
+   If (feature 0 <= 1993.0)
+    If (feature 0 <= 1988.0)
+     If (feature 0 <= 1985.0)
+      If (feature 0 <= 1982.0)
+       Predict: 0.4548262057707413
+      Else (feature 0 > 1982.0)
+       Predict: 0.4534303432580356
+     Else (feature 0 > 1985.0)
+      Predict: 0.4501937380807352
+    Else (feature 0 > 1988.0)
+     If (feature 0 <= 1990.0)
+      Predict: 0.4349733804856425
+     Else (feature 0 > 1990.0)
+      Predict: 0.444294898390414
+   Else (feature 0 > 1993.0)
+    If (feature 0 <= 2009.0)
+     If (feature 0 <= 1999.0)
+      If (feature 0 <= 1996.0)
+       Predict: 0.4308686823921001
+      Else (feature 0 > 1996.0)
+       Predict: 0.41707655825000584
+     Else (feature 0 > 1999.0)
+      If (feature 0 <= 2007.0)
+       Predict: 0.3979072257936302
+      Else (feature 0 > 2007.0)
+       Predict: 0.41990085808298266
+    Else (feature 0 > 2009.0)
+     If (feature 0 <= 2014.0)
+      If (feature 0 <= 2010.0)
+       Predict: 0.43455300120781554
+      Else (feature 0 > 2010.0)
+       Predict: 0.44234974776003977
+     Else (feature 0 > 2014.0)
+      Predict: 0.39346691564553055
+
+Done in 25.7401621342 seconds
+Done in 26.873167038 seconds
+RMSE: 0.00189165325772, variance explained: 0.178696498669, mean absolute error: 0.13700826629,
+MRAE: 10.6874329659
+DecisionTreeModel regressor of depth 5 with 37 nodes
+  If (feature 0 <= 1990.0)
+   If (feature 0 <= 1982.0)
+    If (feature 0 <= 1965.0)
+     If (feature 0 <= 1959.0)
+      If (feature 0 <= 1936.0)
+       Predict: -0.44511376454515084
+      Else (feature 0 > 1936.0)
+       Predict: -0.4251178517091428
+     Else (feature 0 > 1959.0)
+      Predict: -0.45471166600046753
+    Else (feature 0 > 1965.0)
+     If (feature 0 <= 1978.0)
+      If (feature 0 <= 1973.0)
+       Predict: -0.42634348363971597
+      Else (feature 0 > 1973.0)
+       Predict: -0.421475207080795
+     Else (feature 0 > 1978.0)
+      Predict: -0.41546521655817764
+   Else (feature 0 > 1982.0)
+    If (feature 0 <= 1988.0)
+     If (feature 0 <= 1985.0)
+      Predict: -0.39529999093326734
+     Else (feature 0 > 1985.0)
+      Predict: -0.40473950935615294
+    Else (feature 0 > 1988.0)
+     Predict: -0.38979985778360976
+  Else (feature 0 > 1990.0)
+   If (feature 0 <= 2013.0)
+    If (feature 0 <= 2008.0)
+     If (feature 0 <= 1994.0)
+      If (feature 0 <= 1993.0)
+       Predict: -0.362741614941981
+      Else (feature 0 > 1993.0)
+       Predict: -0.3570734336248887
+     Else (feature 0 > 1994.0)
+      If (feature 0 <= 1999.0)
+       Predict: -0.33517000177178863
+      Else (feature 0 > 1999.0)
+       Predict: -0.34589872062267
+    Else (feature 0 > 2008.0)
+     If (feature 0 <= 2010.0)
+      If (feature 0 <= 2009.0)
+       Predict: -0.3293779908676247
+      Else (feature 0 > 2009.0)
+       Predict: -0.33062704839138785
+     Else (feature 0 > 2010.0)
+      If (feature 0 <= 2012.0)
+       Predict: -0.32885166378482505
+      Else (feature 0 > 2012.0)
+       Predict: -0.32792312306312055
+   Else (feature 0 > 2013.0)
+    If (feature 0 <= 2014.0)
+     Predict: -0.29218416403605535
+    Else (feature 0 > 2014.0)
+     Predict: -0.22902095413226034
+
+Done in 29.0227251053 seconds
+Done in 30.2351400852 seconds
+RMSE: 0.000253671168058, variance explained: 0.164372136629, mean absolute error: 0.125713946004,
+MRAE: 2.47222366329
+DecisionTreeModel regressor of depth 5 with 41 nodes
+  If (feature 0 <= 2000.0)
+   If (feature 0 <= 1973.0)
+    If (feature 0 <= 1936.0)
+     Predict: -0.24362888795747686
+    Else (feature 0 > 1936.0)
+     If (feature 0 <= 1953.0)
+      If (feature 0 <= 1945.0)
+       Predict: -0.27777892510933877
+      Else (feature 0 > 1945.0)
+       Predict: -0.27388104913391664
+     Else (feature 0 > 1953.0)
+      If (feature 0 <= 1965.0)
+       Predict: -0.25795674128840757
+      Else (feature 0 > 1965.0)
+       Predict: -0.2645982949930956
+   Else (feature 0 > 1973.0)
+    If (feature 0 <= 1999.0)
+     If (feature 0 <= 1994.0)
+      If (feature 0 <= 1993.0)
+       Predict: -0.2876654722641408
+      Else (feature 0 > 1993.0)
+       Predict: -0.2684750628555119
+     Else (feature 0 > 1994.0)
+      If (feature 0 <= 1997.0)
+       Predict: -0.3062345871969916
+      Else (feature 0 > 1997.0)
+       Predict: -0.2893689913511584
+    Else (feature 0 > 1999.0)
+     Predict: -0.273190559217998
+  Else (feature 0 > 2000.0)
+   If (feature 0 <= 2012.0)
+    If (feature 0 <= 2008.0)
+     If (feature 0 <= 2006.0)
+      If (feature 0 <= 2001.0)
+       Predict: -0.26400717385596395
+      Else (feature 0 > 2001.0)
+       Predict: -0.2599438912643842
+     Else (feature 0 > 2006.0)
+      If (feature 0 <= 2007.0)
+       Predict: -0.25354215909564154
+      Else (feature 0 > 2007.0)
+       Predict: -0.2562751098386491
+    Else (feature 0 > 2008.0)
+     If (feature 0 <= 2010.0)
+      If (feature 0 <= 2009.0)
+       Predict: -0.2685291911026387
+      Else (feature 0 > 2009.0)
+       Predict: -0.2603320326369391
+     Else (feature 0 > 2010.0)
+      If (feature 0 <= 2011.0)
+       Predict: -0.26855503073107184
+      Else (feature 0 > 2011.0)
+       Predict: -0.27212933614220597
+   Else (feature 0 > 2012.0)
+    If (feature 0 <= 2014.0)
+     If (feature 0 <= 2013.0)
+      Predict: -0.2930239408275986
+     Else (feature 0 > 2013.0)
+      Predict: -0.2937508838591175
+    Else (feature 0 > 2014.0)
+     Predict: -0.23798716052495425
+
+Done in 32.9325199127 seconds
+Done in 34.9627771378 seconds
+RMSE: 0.00348648622486, variance explained: 0.232518823222, mean absolute error: 0.180045459811,
+MRAE: 3.03976227938
+DecisionTreeModel regressor of depth 5 with 43 nodes
+  If (feature 0 <= 1997.0)
+   If (feature 0 <= 1985.0)
+    If (feature 0 <= 1959.0)
+     If (feature 0 <= 1936.0)
+      Predict: 0.12145417978613875
+     Else (feature 0 > 1936.0)
+      If (feature 0 <= 1945.0)
+       Predict: 0.06159669282885097
+      Else (feature 0 > 1945.0)
+       Predict: 0.10852611370178789
+    Else (feature 0 > 1959.0)
+     If (feature 0 <= 1982.0)
+      If (feature 0 <= 1970.0)
+       Predict: 0.1442237438184331
+      Else (feature 0 > 1970.0)
+       Predict: 0.1616061863425452
+     Else (feature 0 > 1982.0)
+      Predict: 0.10840123072257114
+   Else (feature 0 > 1985.0)
+    If (feature 0 <= 1988.0)
+     Predict: 0.09290476771485308
+    Else (feature 0 > 1988.0)
+     If (feature 0 <= 1993.0)
+      If (feature 0 <= 1990.0)
+       Predict: 0.07781326684868764
+      Else (feature 0 > 1990.0)
+       Predict: 0.05935128916784409
+     Else (feature 0 > 1993.0)
+      If (feature 0 <= 1996.0)
+       Predict: 0.08563210403271157
+      Else (feature 0 > 1996.0)
+       Predict: 0.0677376245038724
+  Else (feature 0 > 1997.0)
+   If (feature 0 <= 2003.0)
+    If (feature 0 <= 2001.0)
+     If (feature 0 <= 2000.0)
+      If (feature 0 <= 1999.0)
+       Predict: 0.03418695707458554
+      Else (feature 0 > 1999.0)
+       Predict: 0.04143437298136035
+     Else (feature 0 > 2000.0)
+      Predict: 0.03227941360592908
+    Else (feature 0 > 2001.0)
+     Predict: 0.023231247719549073
+   Else (feature 0 > 2003.0)
+    If (feature 0 <= 2012.0)
+     If (feature 0 <= 2007.0)
+      If (feature 0 <= 2006.0)
+       Predict: -0.0025739143983531955
+      Else (feature 0 > 2006.0)
+       Predict: -0.011093056152415098
+     Else (feature 0 > 2007.0)
+      If (feature 0 <= 2009.0)
+       Predict: 0.00728392372843358
+      Else (feature 0 > 2009.0)
+       Predict: -0.0038283534903225036
+    Else (feature 0 > 2012.0)
+     If (feature 0 <= 2014.0)
+      If (feature 0 <= 2013.0)
+       Predict: -0.012827545815020821
+      Else (feature 0 > 2013.0)
+       Predict: -0.021740414145310475
+     Else (feature 0 > 2014.0)
+      Predict: -0.06759196898389247
+
+Done in 37.2790501118 seconds
+Done in 38.6119339466 seconds
+RMSE: 0.00109596555322, variance explained: 0.181070245471, mean absolute error: 0.136110212175,
+MRAE: 2.2599152149
+DecisionTreeModel regressor of depth 5 with 33 nodes
+  If (feature 0 <= 1993.0)
+   If (feature 0 <= 1936.0)
+    Predict: 0.03967199143223265
+   Else (feature 0 > 1936.0)
+    If (feature 0 <= 1988.0)
+     If (feature 0 <= 1959.0)
+      If (feature 0 <= 1953.0)
+       Predict: 0.004041249988943535
+      Else (feature 0 > 1953.0)
+       Predict: -0.020395744878135228
+     Else (feature 0 > 1959.0)
+      If (feature 0 <= 1978.0)
+       Predict: 0.019114397853202004
+      Else (feature 0 > 1978.0)
+       Predict: 0.004493262923317036
+    Else (feature 0 > 1988.0)
+     If (feature 0 <= 1990.0)
+      Predict: -0.007020693326875174
+     Else (feature 0 > 1990.0)
+      Predict: -0.021137274652163952
+  Else (feature 0 > 1993.0)
+   If (feature 0 <= 2010.0)
+    If (feature 0 <= 1994.0)
+     Predict: -0.044321066743848024
+    Else (feature 0 > 1994.0)
+     If (feature 0 <= 1999.0)
+      If (feature 0 <= 1997.0)
+       Predict: -0.05500740023106924
+      Else (feature 0 > 1997.0)
+       Predict: -0.056688085529786394
+     Else (feature 0 > 1999.0)
+      If (feature 0 <= 2000.0)
+       Predict: -0.06723549495230999
+      Else (feature 0 > 2000.0)
+       Predict: -0.05971092633876932
+   Else (feature 0 > 2010.0)
+    If (feature 0 <= 2013.0)
+     If (feature 0 <= 2011.0)
+      Predict: -0.04872627438034718
+     Else (feature 0 > 2011.0)
+      If (feature 0 <= 2012.0)
+       Predict: -0.044913827977305774
+      Else (feature 0 > 2012.0)
+       Predict: -0.042102486718659224
+    Else (feature 0 > 2013.0)
+     If (feature 0 <= 2014.0)
+      Predict: -0.056443772985302426
+     Else (feature 0 > 2014.0)
+      Predict: -0.062482796534295046
+
+Done in 40.7277541161 seconds
+Done in 41.8039610386 seconds
+RMSE: 0.000272845231733, variance explained: 0.1736741009, mean absolute error: 0.133684418923,
+MRAE: 1.5725347489
+DecisionTreeModel regressor of depth 5 with 31 nodes
+  If (feature 0 <= 1953.0)
+   If (feature 0 <= 1945.0)
+    If (feature 0 <= 1936.0)
+     Predict: 0.35869137836747356
+    Else (feature 0 > 1936.0)
+     Predict: 0.3646146735332554
+   Else (feature 0 > 1945.0)
+    Predict: 0.3773805433362695
+  Else (feature 0 > 1953.0)
+   If (feature 0 <= 1994.0)
+    If (feature 0 <= 1970.0)
+     If (feature 0 <= 1959.0)
+      Predict: 0.38978775994328774
+     Else (feature 0 > 1959.0)
+      If (feature 0 <= 1965.0)
+       Predict: 0.3969574648666438
+      Else (feature 0 > 1965.0)
+       Predict: 0.3973074607971799
+    Else (feature 0 > 1970.0)
+     If (feature 0 <= 1985.0)
+      If (feature 0 <= 1978.0)
+       Predict: 0.40812035844473993
+      Else (feature 0 > 1978.0)
+       Predict: 0.4008939243109075
+     Else (feature 0 > 1985.0)
+      If (feature 0 <= 1993.0)
+       Predict: 0.4107476251817167
+      Else (feature 0 > 1993.0)
+       Predict: 0.40065760499320985
+   Else (feature 0 > 1994.0)
+    If (feature 0 <= 2003.0)
+     If (feature 0 <= 1996.0)
+      Predict: 0.39067163617107936
+     Else (feature 0 > 1996.0)
+      If (feature 0 <= 2001.0)
+       Predict: 0.3638004860777574
+      Else (feature 0 > 2001.0)
+       Predict: 0.3715177305072454
+    Else (feature 0 > 2003.0)
+     If (feature 0 <= 2014.0)
+      If (feature 0 <= 2009.0)
+       Predict: 0.39941787985361926
+      Else (feature 0 > 2009.0)
+       Predict: 0.3894730305315274
+     Else (feature 0 > 2014.0)
+      Predict: 0.29801287843034635
+
+Done in 43.8684799671 seconds
+Done in 44.9787111282 seconds
+RMSE: 0.00111657026846, variance explained: 0.167791064302, mean absolute error: 0.127212467299,
+MRAE: 2.17860650592
+DecisionTreeModel regressor of depth 5 with 41 nodes
+  If (feature 0 <= 1985.0)
+   If (feature 0 <= 1959.0)
+    If (feature 0 <= 1945.0)
+     If (feature 0 <= 1936.0)
+      Predict: 0.19509565853726732
+     Else (feature 0 > 1936.0)
+      Predict: 0.19245648145384453
+    Else (feature 0 > 1945.0)
+     If (feature 0 <= 1953.0)
+      Predict: 0.2165536974021285
+     Else (feature 0 > 1953.0)
+      Predict: 0.214213687280307
+   Else (feature 0 > 1959.0)
+    If (feature 0 <= 1978.0)
+     If (feature 0 <= 1970.0)
+      If (feature 0 <= 1965.0)
+       Predict: 0.22997364780331778
+      Else (feature 0 > 1965.0)
+       Predict: 0.2323099138619025
+     Else (feature 0 > 1970.0)
+      If (feature 0 <= 1973.0)
+       Predict: 0.24462701652032592
+      Else (feature 0 > 1973.0)
+       Predict: 0.2370469760377992
+    Else (feature 0 > 1978.0)
+     If (feature 0 <= 1982.0)
+      Predict: 0.2572508953485772
+     Else (feature 0 > 1982.0)
+      Predict: 0.25120549913707785
+  Else (feature 0 > 1985.0)
+   If (feature 0 <= 2010.0)
+    If (feature 0 <= 1990.0)
+     If (feature 0 <= 1988.0)
+      Predict: 0.2707214244436887
+     Else (feature 0 > 1988.0)
+      Predict: 0.2733698285026732
+    Else (feature 0 > 1990.0)
+     If (feature 0 <= 1997.0)
+      If (feature 0 <= 1993.0)
+       Predict: 0.2888559686413642
+      Else (feature 0 > 1993.0)
+       Predict: 0.32147795372320076
+     Else (feature 0 > 1997.0)
+      If (feature 0 <= 2007.0)
+       Predict: 0.2877438064815184
+      Else (feature 0 > 2007.0)
+       Predict: 0.29462385418001946
+   Else (feature 0 > 2010.0)
+    If (feature 0 <= 2013.0)
+     If (feature 0 <= 2011.0)
+      Predict: 0.28032582938492434
+     Else (feature 0 > 2011.0)
+      If (feature 0 <= 2012.0)
+       Predict: 0.2682490282494016
+      Else (feature 0 > 2012.0)
+       Predict: 0.278719585025472
+    Else (feature 0 > 2013.0)
+     If (feature 0 <= 2014.0)
+      Predict: 0.2541591776764115
+     Else (feature 0 > 2014.0)
+      Predict: 0.25278705274385793
+
+Done in 47.0468959808 seconds
+Done in 48.1102559566 seconds
+RMSE: 0.0017590164674, variance explained: 0.223572450502, mean absolute error: 0.175398921763,
+MRAE: 0.754859234274
+DecisionTreeModel regressor of depth 5 with 33 nodes
+  If (feature 0 <= 1978.0)
+   If (feature 0 <= 1965.0)
+    If (feature 0 <= 1959.0)
+     If (feature 0 <= 1936.0)
+      Predict: -0.7324694125915607
+     Else (feature 0 > 1936.0)
+      If (feature 0 <= 1945.0)
+       Predict: -0.7210925601897787
+      Else (feature 0 > 1945.0)
+       Predict: -0.7280615108814372
+    Else (feature 0 > 1959.0)
+     Predict: -0.739119896649408
+   Else (feature 0 > 1965.0)
+    If (feature 0 <= 1973.0)
+     If (feature 0 <= 1970.0)
+      Predict: -0.7190315822588986
+     Else (feature 0 > 1970.0)
+      Predict: -0.7179572032327997
+    Else (feature 0 > 1973.0)
+     Predict: -0.7037797661048238
+  Else (feature 0 > 1978.0)
+   If (feature 0 <= 1999.0)
+    If (feature 0 <= 1985.0)
+     If (feature 0 <= 1982.0)
+      Predict: -0.6663875756486005
+     Else (feature 0 > 1982.0)
+      Predict: -0.6507529687045551
+    Else (feature 0 > 1985.0)
+     If (feature 0 <= 1997.0)
+      If (feature 0 <= 1994.0)
+       Predict: -0.6123135711347826
+      Else (feature 0 > 1994.0)
+       Predict: -0.5997826469487912
+     Else (feature 0 > 1997.0)
+      Predict: -0.6303613480671347
+   Else (feature 0 > 1999.0)
+    If (feature 0 <= 2014.0)
+     If (feature 0 <= 2009.0)
+      If (feature 0 <= 2000.0)
+       Predict: -0.6424644915268718
+      Else (feature 0 > 2000.0)
+       Predict: -0.6513294402625265
+     Else (feature 0 > 2009.0)
+      If (feature 0 <= 2010.0)
+       Predict: -0.6420589390146307
+      Else (feature 0 > 2010.0)
+       Predict: -0.6350592759839773
+    Else (feature 0 > 2014.0)
+     Predict: -0.5027770344768802
+
+Done in 50.1894891262 seconds
+Done in 51.2174370289 seconds
+RMSE: 0.000532803773297, variance explained: 0.174656768561, mean absolute error: 0.133217845953,
+MRAE: 5.10096981282
+DecisionTreeModel regressor of depth 5 with 37 nodes
+  If (feature 0 <= 1982.0)
+   If (feature 0 <= 1936.0)
+    Predict: 0.1407099032460972
+   Else (feature 0 > 1936.0)
+    If (feature 0 <= 1959.0)
+     If (feature 0 <= 1953.0)
+      If (feature 0 <= 1945.0)
+       Predict: 0.16725476652554216
+      Else (feature 0 > 1945.0)
+       Predict: 0.17414929516651664
+     Else (feature 0 > 1953.0)
+      Predict: 0.15517372228769918
+    Else (feature 0 > 1959.0)
+     If (feature 0 <= 1973.0)
+      If (feature 0 <= 1970.0)
+       Predict: 0.18187221308698245
+      Else (feature 0 > 1970.0)
+       Predict: 0.15760596103859825
+     Else (feature 0 > 1973.0)
+      If (feature 0 <= 1978.0)
+       Predict: 0.18003490871248592
+      Else (feature 0 > 1978.0)
+       Predict: 0.18350240943640211
+  Else (feature 0 > 1982.0)
+   If (feature 0 <= 2008.0)
+    If (feature 0 <= 2004.0)
+     If (feature 0 <= 1985.0)
+      Predict: 0.2034884643104927
+     Else (feature 0 > 1985.0)
+      If (feature 0 <= 1999.0)
+       Predict: 0.22014968082214048
+      Else (feature 0 > 1999.0)
+       Predict: 0.21183440334710993
+    Else (feature 0 > 2004.0)
+     If (feature 0 <= 2006.0)
+      If (feature 0 <= 2005.0)
+       Predict: 0.20643353608062825
+      Else (feature 0 > 2005.0)
+       Predict: 0.2020859433387502
+     Else (feature 0 > 2006.0)
+      If (feature 0 <= 2007.0)
+       Predict: 0.19377032064049732
+      Else (feature 0 > 2007.0)
+       Predict: 0.19636239423671864
+   Else (feature 0 > 2008.0)
+    If (feature 0 <= 2009.0)
+     Predict: 0.1861789550376661
+    Else (feature 0 > 2009.0)
+     If (feature 0 <= 2014.0)
+      If (feature 0 <= 2013.0)
+       Predict: 0.16911148843454302
+      Else (feature 0 > 2013.0)
+       Predict: 0.16437296551834024
+     Else (feature 0 > 2014.0)
+      Predict: 0.1958684113116995
+
+Done in 53.3565061092 seconds
+Done in 54.4075400829 seconds
+RMSE: 0.0016825142065, variance explained: 0.19450572178, mean absolute error: 0.149146816205,
+MRAE: 2.75601465918
+DecisionTreeModel regressor of depth 5 with 39 nodes
+  If (feature 0 <= 1970.0)
+   If (feature 0 <= 1959.0)
+    If (feature 0 <= 1936.0)
+     Predict: 0.02193465857037159
+    Else (feature 0 > 1936.0)
+     If (feature 0 <= 1945.0)
+      Predict: -0.01497176313649466
+     Else (feature 0 > 1945.0)
+      If (feature 0 <= 1953.0)
+       Predict: 0.006441125020671651
+      Else (feature 0 > 1953.0)
+       Predict: -0.012749889676080007
+   Else (feature 0 > 1959.0)
+    If (feature 0 <= 1965.0)
+     Predict: -0.02990986975294179
+    Else (feature 0 > 1965.0)
+     Predict: -0.04763886732041258
+  Else (feature 0 > 1970.0)
+   If (feature 0 <= 1999.0)
+    If (feature 0 <= 1978.0)
+     If (feature 0 <= 1973.0)
+      Predict: -0.06354479775018262
+     Else (feature 0 > 1973.0)
+      Predict: -0.07496477710373772
+    Else (feature 0 > 1978.0)
+     If (feature 0 <= 1993.0)
+      If (feature 0 <= 1982.0)
+       Predict: -0.11298191053975389
+      Else (feature 0 > 1982.0)
+       Predict: -0.13985260521019288
+     Else (feature 0 > 1993.0)
+      If (feature 0 <= 1996.0)
+       Predict: -0.1141921669101013
+      Else (feature 0 > 1996.0)
+       Predict: -0.12036190650703726
+   Else (feature 0 > 1999.0)
+    If (feature 0 <= 2007.0)
+     If (feature 0 <= 2004.0)
+      If (feature 0 <= 2001.0)
+       Predict: -0.09116143348724068
+      Else (feature 0 > 2001.0)
+       Predict: -0.08626883862021872
+     Else (feature 0 > 2004.0)
+      If (feature 0 <= 2006.0)
+       Predict: -0.10113552728845773
+      Else (feature 0 > 2006.0)
+       Predict: -0.08876430513883983
+    Else (feature 0 > 2007.0)
+     If (feature 0 <= 2013.0)
+      If (feature 0 <= 2010.0)
+       Predict: -0.08513272278231193
+      Else (feature 0 > 2010.0)
+       Predict: -0.0817677637034129
+     Else (feature 0 > 2013.0)
+      If (feature 0 <= 2014.0)
+       Predict: -0.09373593093785612
+      Else (feature 0 > 2014.0)
+       Predict: -0.08102663944385224
+
+Done in 56.5335431099 seconds
+Done in 57.5727720261 seconds
+RMSE: 0.000386201159621, variance explained: 0.223728800665, mean absolute error: 0.173729812463,
+MRAE: 2.21963417611
+DecisionTreeModel regressor of depth 5 with 39 nodes
+  If (feature 0 <= 1973.0)
+   If (feature 0 <= 1959.0)
+    If (feature 0 <= 1936.0)
+     Predict: 0.10812899541195929
+    Else (feature 0 > 1936.0)
+     If (feature 0 <= 1945.0)
+      Predict: 0.0619345366394242
+     Else (feature 0 > 1945.0)
+      If (feature 0 <= 1953.0)
+       Predict: 0.08195793292639261
+      Else (feature 0 > 1953.0)
+       Predict: 0.08421104218471054
+   Else (feature 0 > 1959.0)
+    If (feature 0 <= 1965.0)
+     Predict: 0.10893854646111313
+    Else (feature 0 > 1965.0)
+     If (feature 0 <= 1970.0)
+      Predict: 0.09541379793643437
+     Else (feature 0 > 1970.0)
+      Predict: 0.09916330495553893
+  Else (feature 0 > 1973.0)
+   If (feature 0 <= 1994.0)
+    If (feature 0 <= 1978.0)
+     Predict: 0.07500397830581929
+    Else (feature 0 > 1978.0)
+     If (feature 0 <= 1990.0)
+      If (feature 0 <= 1982.0)
+       Predict: 0.04957270536348487
+      Else (feature 0 > 1982.0)
+       Predict: 0.028184845290337206
+     Else (feature 0 > 1990.0)
+      If (feature 0 <= 1993.0)
+       Predict: 0.05642050212977238
+      Else (feature 0 > 1993.0)
+       Predict: 0.04986957210426118
+   Else (feature 0 > 1994.0)
+    If (feature 0 <= 2003.0)
+     If (feature 0 <= 1999.0)
+      If (feature 0 <= 1997.0)
+       Predict: 0.06736423755018946
+      Else (feature 0 > 1997.0)
+       Predict: 0.07349560069433075
+     Else (feature 0 > 1999.0)
+      If (feature 0 <= 2001.0)
+       Predict: 0.08309469729830271
+      Else (feature 0 > 2001.0)
+       Predict: 0.07772415832734698
+    Else (feature 0 > 2003.0)
+     If (feature 0 <= 2013.0)
+      If (feature 0 <= 2008.0)
+       Predict: 0.06049671612771554
+      Else (feature 0 > 2008.0)
+       Predict: 0.06477936751593903
+     Else (feature 0 > 2013.0)
+      If (feature 0 <= 2014.0)
+       Predict: 0.04066266405594047
+      Else (feature 0 > 2014.0)
+       Predict: 0.028752451627365044
+
+Done in 59.6613469124 seconds
+Done in 60.8024020195 seconds
+RMSE: 0.0021547557362, variance explained: 0.175072380888, mean absolute error: 0.133530625176,
+MRAE: 3.73006565813
+DecisionTreeModel regressor of depth 5 with 37 nodes
+  If (feature 0 <= 1973.0)
+   If (feature 0 <= 1953.0)
+    If (feature 0 <= 1936.0)
+     Predict: -0.06300706943428798
+    Else (feature 0 > 1936.0)
+     If (feature 0 <= 1945.0)
+      Predict: -0.016463999780906326
+     Else (feature 0 > 1945.0)
+      Predict: -0.02876864918816145
+   Else (feature 0 > 1953.0)
+    If (feature 0 <= 1965.0)
+     If (feature 0 <= 1959.0)
+      Predict: -0.007152962451330108
+     Else (feature 0 > 1959.0)
+      Predict: 0.010485021476138218
+    Else (feature 0 > 1965.0)
+     If (feature 0 <= 1970.0)
+      Predict: 0.022272168610261045
+     Else (feature 0 > 1970.0)
+      Predict: 0.03829203237148704
+  Else (feature 0 > 1973.0)
+   If (feature 0 <= 1993.0)
+    If (feature 0 <= 1978.0)
+     Predict: 0.06736332685637945
+    Else (feature 0 > 1978.0)
+     If (feature 0 <= 1990.0)
+      If (feature 0 <= 1985.0)
+       Predict: 0.1191865310673424
+      Else (feature 0 > 1985.0)
+       Predict: 0.13101419025052474
+     Else (feature 0 > 1990.0)
+      Predict: 0.11216643969103075
+   Else (feature 0 > 1993.0)
+    If (feature 0 <= 2003.0)
+     If (feature 0 <= 1996.0)
+      If (feature 0 <= 1994.0)
+       Predict: 0.07874255831182295
+      Else (feature 0 > 1994.0)
+       Predict: 0.09372361795206746
+     Else (feature 0 > 1996.0)
+      If (feature 0 <= 1999.0)
+       Predict: 0.0757010860998224
+      Else (feature 0 > 1999.0)
+       Predict: 0.06919741785392335
+    Else (feature 0 > 2003.0)
+     If (feature 0 <= 2005.0)
+      If (feature 0 <= 2004.0)
+       Predict: 0.09290145975241788
+      Else (feature 0 > 2004.0)
+       Predict: 0.10503888627165713
+     Else (feature 0 > 2005.0)
+      If (feature 0 <= 2011.0)
+       Predict: 0.08974198671955419
+      Else (feature 0 > 2011.0)
+       Predict: 0.08387916780394418
+
+Done in 62.9796030521 seconds
+Done in 64.6517090797 seconds
+RMSE: 0.0015296323502, variance explained: 0.208137333126, mean absolute error: 0.16081439413,
+MRAE: 3.42959741956
+DecisionTreeModel regressor of depth 5 with 45 nodes
+  If (feature 0 <= 1985.0)
+   If (feature 0 <= 1978.0)
+    If (feature 0 <= 1970.0)
+     If (feature 0 <= 1959.0)
+      If (feature 0 <= 1936.0)
+       Predict: -0.29561614800992436
+      Else (feature 0 > 1936.0)
+       Predict: -0.28994153078221285
+     Else (feature 0 > 1959.0)
+      If (feature 0 <= 1965.0)
+       Predict: -0.3060826950132204
+      Else (feature 0 > 1965.0)
+       Predict: -0.3002309412414465
+    Else (feature 0 > 1970.0)
+     If (feature 0 <= 1973.0)
+      Predict: -0.3478656725203564
+     Else (feature 0 > 1973.0)
+      Predict: -0.31004659474893964
+   Else (feature 0 > 1978.0)
+    If (feature 0 <= 1982.0)
+     Predict: -0.2788909524633265
+    Else (feature 0 > 1982.0)
+     Predict: -0.28092736363660814
+  Else (feature 0 > 1985.0)
+   If (feature 0 <= 2005.0)
+    If (feature 0 <= 2000.0)
+     If (feature 0 <= 1993.0)
+      If (feature 0 <= 1990.0)
+       Predict: -0.2495710043742284
+      Else (feature 0 > 1990.0)
+       Predict: -0.23356639605855828
+     Else (feature 0 > 1993.0)
+      If (feature 0 <= 1996.0)
+       Predict: -0.16111227759056942
+      Else (feature 0 > 1996.0)
+       Predict: -0.21539631070158388
+    Else (feature 0 > 2000.0)
+     If (feature 0 <= 2001.0)
+      Predict: -0.24981887266836428
+     Else (feature 0 > 2001.0)
+      If (feature 0 <= 2003.0)
+       Predict: -0.24669857230297668
+      Else (feature 0 > 2003.0)
+       Predict: -0.24514789145666968
+   Else (feature 0 > 2005.0)
+    If (feature 0 <= 2009.0)
+     If (feature 0 <= 2007.0)
+      If (feature 0 <= 2006.0)
+       Predict: -0.26894537240878996
+      Else (feature 0 > 2006.0)
+       Predict: -0.27150468012661605
+     Else (feature 0 > 2007.0)
+      If (feature 0 <= 2008.0)
+       Predict: -0.27807246346664916
+      Else (feature 0 > 2008.0)
+       Predict: -0.28143929782056276
+    Else (feature 0 > 2009.0)
+     If (feature 0 <= 2012.0)
+      If (feature 0 <= 2010.0)
+       Predict: -0.28559364379242824
+      Else (feature 0 > 2010.0)
+       Predict: -0.2889368524701043
+     Else (feature 0 > 2012.0)
+      If (feature 0 <= 2014.0)
+       Predict: -0.3032935700233005
+      Else (feature 0 > 2014.0)
+       Predict: -0.27107511322584843
+
+Done in 67.8920369148 seconds
+Done in 69.4332249165 seconds
+RMSE: 0.00058645281681, variance explained: 0.202365031466, mean absolute error: 0.156113192556,
+MRAE: 6.12035990794
+DecisionTreeModel regressor of depth 5 with 31 nodes
+  If (feature 0 <= 1970.0)
+   If (feature 0 <= 1936.0)
+    Predict: -0.11330838316275349
+   Else (feature 0 > 1936.0)
+    If (feature 0 <= 1953.0)
+     If (feature 0 <= 1945.0)
+      Predict: -0.135844581023004
+     Else (feature 0 > 1945.0)
+      Predict: -0.12645907863614247
+    Else (feature 0 > 1953.0)
+     If (feature 0 <= 1965.0)
+      If (feature 0 <= 1959.0)
+       Predict: -0.13890655196013785
+      Else (feature 0 > 1959.0)
+       Predict: -0.1337590179560229
+     Else (feature 0 > 1965.0)
+      Predict: -0.14079118697827778
+  Else (feature 0 > 1970.0)
+   If (feature 0 <= 1978.0)
+    If (feature 0 <= 1973.0)
+     Predict: -0.1650381495929878
+    Else (feature 0 > 1973.0)
+     Predict: -0.15766681988706924
+   Else (feature 0 > 1978.0)
+    If (feature 0 <= 1993.0)
+     If (feature 0 <= 1985.0)
+      If (feature 0 <= 1982.0)
+       Predict: -0.18784948760949752
+      Else (feature 0 > 1982.0)
+       Predict: -0.18299422677988716
+     Else (feature 0 > 1985.0)
+      If (feature 0 <= 1988.0)
+       Predict: -0.21026823660787092
+      Else (feature 0 > 1988.0)
+       Predict: -0.19636432580765265
+    Else (feature 0 > 1993.0)
+     If (feature 0 <= 2003.0)
+      If (feature 0 <= 1999.0)
+       Predict: -0.17645331552926813
+      Else (feature 0 > 1999.0)
+       Predict: -0.16624652563818923
+     Else (feature 0 > 2003.0)
+      If (feature 0 <= 2012.0)
+       Predict: -0.1890701605933572
+      Else (feature 0 > 2012.0)
+       Predict: -0.20182029616499433
+
+Done in 71.7458879948 seconds
+Done in 72.8844361305 seconds
+RMSE: 0.00319424522825, variance explained: 0.199345862559, mean absolute error: 0.151876809214,
+MRAE: 3.4655340201
+DecisionTreeModel regressor of depth 5 with 35 nodes
+  If (feature 0 <= 1978.0)
+   If (feature 0 <= 1959.0)
+    If (feature 0 <= 1936.0)
+     Predict: -0.20873245432082282
+    Else (feature 0 > 1936.0)
+     If (feature 0 <= 1945.0)
+      Predict: -0.2505249899318695
+     Else (feature 0 > 1945.0)
+      If (feature 0 <= 1953.0)
+       Predict: -0.22937522543046082
+      Else (feature 0 > 1953.0)
+       Predict: -0.22525457041579325
+   Else (feature 0 > 1959.0)
+    If (feature 0 <= 1970.0)
+     If (feature 0 <= 1965.0)
+      Predict: -0.18112688393646895
+     Else (feature 0 > 1965.0)
+      Predict: -0.1697120961072405
+    Else (feature 0 > 1970.0)
+     If (feature 0 <= 1973.0)
+      Predict: -0.15924973248081642
+     Else (feature 0 > 1973.0)
+      Predict: -0.1527682322051295
+  Else (feature 0 > 1978.0)
+   If (feature 0 <= 1997.0)
+    If (feature 0 <= 1996.0)
+     If (feature 0 <= 1993.0)
+      If (feature 0 <= 1985.0)
+       Predict: -0.12763504016390542
+      Else (feature 0 > 1985.0)
+       Predict: -0.12119094034235366
+     Else (feature 0 > 1993.0)
+      If (feature 0 <= 1994.0)
+       Predict: -0.14363031065451545
+      Else (feature 0 > 1994.0)
+       Predict: -0.1360611529815801
+    Else (feature 0 > 1996.0)
+     Predict: -0.10434036044362228
+   Else (feature 0 > 1997.0)
+    If (feature 0 <= 1999.0)
+     Predict: -0.08144449598977119
+    Else (feature 0 > 1999.0)
+     If (feature 0 <= 2009.0)
+      If (feature 0 <= 2000.0)
+       Predict: -0.05650148915334819
+      Else (feature 0 > 2000.0)
+       Predict: -0.06401861759002318
+     Else (feature 0 > 2009.0)
+      If (feature 0 <= 2013.0)
+       Predict: -0.07124934086830986
+      Else (feature 0 > 2013.0)
+       Predict: -0.0692366424525845
+
+Done in 74.947799921 seconds
+Done in 76.0491979122 seconds
+RMSE: 0.00127238959965, variance explained: 0.216330620719, mean absolute error: 0.166395677876,
+MRAE: 9.6938669939
+DecisionTreeModel regressor of depth 5 with 31 nodes
+  If (feature 0 <= 1990.0)
+   If (feature 0 <= 1936.0)
+    Predict: -0.14172113354416907
+   Else (feature 0 > 1936.0)
+    If (feature 0 <= 1988.0)
+     If (feature 0 <= 1953.0)
+      If (feature 0 <= 1945.0)
+       Predict: -0.19152551047359848
+      Else (feature 0 > 1945.0)
+       Predict: -0.19858340322696072
+     Else (feature 0 > 1953.0)
+      If (feature 0 <= 1982.0)
+       Predict: -0.17875506090863982
+      Else (feature 0 > 1982.0)
+       Predict: -0.18711250313248193
+    Else (feature 0 > 1988.0)
+     Predict: -0.20722975175434707
+  Else (feature 0 > 1990.0)
+   If (feature 0 <= 1994.0)
+    If (feature 0 <= 1993.0)
+     Predict: -0.21827578456346872
+    Else (feature 0 > 1993.0)
+     Predict: -0.22612020168799304
+   Else (feature 0 > 1994.0)
+    If (feature 0 <= 2003.0)
+     If (feature 0 <= 1999.0)
+      If (feature 0 <= 1996.0)
+       Predict: -0.24902045962342592
+      Else (feature 0 > 1996.0)
+       Predict: -0.25164864212574845
+     Else (feature 0 > 1999.0)
+      If (feature 0 <= 2000.0)
+       Predict: -0.23566392389316232
+      Else (feature 0 > 2000.0)
+       Predict: -0.24190840845347383
+    Else (feature 0 > 2003.0)
+     If (feature 0 <= 2005.0)
+      If (feature 0 <= 2004.0)
+       Predict: -0.25920014106057826
+      Else (feature 0 > 2004.0)
+       Predict: -0.2685213892828467
+     Else (feature 0 > 2005.0)
+      If (feature 0 <= 2006.0)
+       Predict: -0.25130371789383876
+      Else (feature 0 > 2006.0)
+       Predict: -0.2569275484791781
+
+Done in 78.2123749256 seconds
+Done in 79.2347919941 seconds
+RMSE: 0.000551867618604, variance explained: 0.187771619228, mean absolute error: 0.143257763461,
+MRAE: 2.77801906089
+DecisionTreeModel regressor of depth 5 with 35 nodes
+  If (feature 0 <= 1965.0)
+   If (feature 0 <= 1953.0)
+    If (feature 0 <= 1936.0)
+     Predict: -0.3553227636539428
+    Else (feature 0 > 1936.0)
+     If (feature 0 <= 1945.0)
+      Predict: -0.3420320648303386
+     Else (feature 0 > 1945.0)
+      Predict: -0.34576245410862827
+   Else (feature 0 > 1953.0)
+    If (feature 0 <= 1959.0)
+     Predict: -0.33178750321260264
+    Else (feature 0 > 1959.0)
+     Predict: -0.3225172668210688
+  Else (feature 0 > 1965.0)
+   If (feature 0 <= 1997.0)
+    If (feature 0 <= 1978.0)
+     If (feature 0 <= 1970.0)
+      Predict: -0.3012772678017841
+     Else (feature 0 > 1970.0)
+      If (feature 0 <= 1973.0)
+       Predict: -0.29466459955324353
+      Else (feature 0 > 1973.0)
+       Predict: -0.29423716111490744
+    Else (feature 0 > 1978.0)
+     If (feature 0 <= 1990.0)
+      If (feature 0 <= 1982.0)
+       Predict: -0.2517600193042739
+      Else (feature 0 > 1982.0)
+       Predict: -0.2629521104523023
+     Else (feature 0 > 1990.0)
+      If (feature 0 <= 1994.0)
+       Predict: -0.27522679404667966
+      Else (feature 0 > 1994.0)
+       Predict: -0.28113385671365004
+   Else (feature 0 > 1997.0)
+    If (feature 0 <= 2012.0)
+     If (feature 0 <= 2011.0)
+      If (feature 0 <= 2010.0)
+       Predict: -0.29241273940509
+      Else (feature 0 > 2010.0)
+       Predict: -0.30141264698180553
+     Else (feature 0 > 2011.0)
+      Predict: -0.28525593362363655
+    Else (feature 0 > 2012.0)
+     If (feature 0 <= 2014.0)
+      If (feature 0 <= 2013.0)
+       Predict: -0.3065251739149539
+      Else (feature 0 > 2013.0)
+       Predict: -0.30811566752644864
+     Else (feature 0 > 2014.0)
+      Predict: -0.25231498479092074
+
+Done in 81.266974926 seconds
+Done in 82.3896379471 seconds
+RMSE: 0.00127519075164, variance explained: 0.180874355301, mean absolute error: 0.139189022933,
+MRAE: 1.61927162289
+DecisionTreeModel regressor of depth 5 with 27 nodes
+  If (feature 0 <= 1999.0)
+   If (feature 0 <= 1997.0)
+    If (feature 0 <= 1993.0)
+     If (feature 0 <= 1936.0)
+      Predict: 0.42097485549041247
+     Else (feature 0 > 1936.0)
+      If (feature 0 <= 1959.0)
+       Predict: 0.45054212369705937
+      Else (feature 0 > 1959.0)
+       Predict: 0.4338910325921641
+    Else (feature 0 > 1993.0)
+     If (feature 0 <= 1996.0)
+      If (feature 0 <= 1994.0)
+       Predict: 0.3996681650660176
+      Else (feature 0 > 1994.0)
+       Predict: 0.4031926068519618
+     Else (feature 0 > 1996.0)
+      Predict: 0.4240829670886604
+   Else (feature 0 > 1997.0)
+    Predict: 0.45355275208390344
+  Else (feature 0 > 1999.0)
+   If (feature 0 <= 2001.0)
+    If (feature 0 <= 2000.0)
+     Predict: 0.47685087028681256
+    Else (feature 0 > 2000.0)
+     Predict: 0.47808937652266464
+   Else (feature 0 > 2001.0)
+    If (feature 0 <= 2014.0)
+     If (feature 0 <= 2006.0)
+      If (feature 0 <= 2003.0)
+       Predict: 0.4936941786868753
+      Else (feature 0 > 2003.0)
+       Predict: 0.5005670844473773
+     Else (feature 0 > 2006.0)
+      If (feature 0 <= 2013.0)
+       Predict: 0.5081120051512745
+      Else (feature 0 > 2013.0)
+       Predict: 0.4888275548517087
+    Else (feature 0 > 2014.0)
+     Predict: 0.4088416669157244
+
+Done in 86.0435810089 seconds
+Done in 87.7983510494 seconds
+RMSE: 0.00062347800743, variance explained: 0.173334281704, mean absolute error: 0.129801238399,
+MRAE: 3.90616640785
+DecisionTreeModel regressor of depth 5 with 47 nodes
+  If (feature 0 <= 1996.0)
+   If (feature 0 <= 1959.0)
+    If (feature 0 <= 1936.0)
+     Predict: -0.08682619914603112
+    Else (feature 0 > 1936.0)
+     If (feature 0 <= 1945.0)
+      Predict: -0.12640458796264065
+     Else (feature 0 > 1945.0)
+      If (feature 0 <= 1953.0)
+       Predict: -0.11264893282607122
+      Else (feature 0 > 1953.0)
+       Predict: -0.10382926584594426
+   Else (feature 0 > 1959.0)
+    If (feature 0 <= 1985.0)
+     If (feature 0 <= 1978.0)
+      If (feature 0 <= 1965.0)
+       Predict: -0.0791698663919977
+      Else (feature 0 > 1965.0)
+       Predict: -0.07384827076295755
+     Else (feature 0 > 1978.0)
+      If (feature 0 <= 1982.0)
+       Predict: -0.08711014470402127
+      Else (feature 0 > 1982.0)
+       Predict: -0.09005104205497765
+    Else (feature 0 > 1985.0)
+     If (feature 0 <= 1993.0)
+      If (feature 0 <= 1990.0)
+       Predict: -0.0966964367048566
+      Else (feature 0 > 1990.0)
+       Predict: -0.10206526785121603
+     Else (feature 0 > 1993.0)
+      If (feature 0 <= 1994.0)
+       Predict: -0.11422597917390614
+      Else (feature 0 > 1994.0)
+       Predict: -0.11326660826213684
+  Else (feature 0 > 1996.0)
+   If (feature 0 <= 2008.0)
+    If (feature 0 <= 2000.0)
+     If (feature 0 <= 1997.0)
+      Predict: -0.06475020722378542
+     Else (feature 0 > 1997.0)
+      If (feature 0 <= 1999.0)
+       Predict: -0.06156175159922295
+      Else (feature 0 > 1999.0)
+       Predict: -0.062052694604729564
+    Else (feature 0 > 2000.0)
+     If (feature 0 <= 2003.0)
+      If (feature 0 <= 2001.0)
+       Predict: -0.05182313418689755
+      Else (feature 0 > 2001.0)
+       Predict: -0.04942826175435439
+     Else (feature 0 > 2003.0)
+      If (feature 0 <= 2006.0)
+       Predict: -0.05396685409046176
+      Else (feature 0 > 2006.0)
+       Predict: -0.05764019445179688
+   Else (feature 0 > 2008.0)
+    If (feature 0 <= 2014.0)
+     If (feature 0 <= 2012.0)
+      If (feature 0 <= 2011.0)
+       Predict: -0.045752681929465355
+      Else (feature 0 > 2011.0)
+       Predict: -0.03249666696586807
+     Else (feature 0 > 2012.0)
+      If (feature 0 <= 2013.0)
+       Predict: -0.05004816818715234
+      Else (feature 0 > 2013.0)
+       Predict: -0.04737577472371225
+    Else (feature 0 > 2014.0)
+     Predict: -0.0745626030970485
+
+Done in 90.0897071362 seconds
+Done in 91.2357881069 seconds
+RMSE: 0.000346918169271, variance explained: 0.15692663964, mean absolute error: 0.118844191605,
+MRAE: 5.84771778902
+DecisionTreeModel regressor of depth 5 with 43 nodes
+  If (feature 0 <= 1990.0)
+   If (feature 0 <= 1988.0)
+    If (feature 0 <= 1965.0)
+     If (feature 0 <= 1945.0)
+      If (feature 0 <= 1936.0)
+       Predict: 0.23162375890011305
+      Else (feature 0 > 1936.0)
+       Predict: 0.2247676430216705
+     Else (feature 0 > 1945.0)
+      If (feature 0 <= 1953.0)
+       Predict: 0.2366659915065161
+      Else (feature 0 > 1953.0)
+       Predict: 0.24080498591268093
+    Else (feature 0 > 1965.0)
+     If (feature 0 <= 1982.0)
+      If (feature 0 <= 1978.0)
+       Predict: 0.2287383035231131
+      Else (feature 0 > 1978.0)
+       Predict: 0.21640339387533766
+     Else (feature 0 > 1982.0)
+      If (feature 0 <= 1985.0)
+       Predict: 0.24076372164640408
+      Else (feature 0 > 1985.0)
+       Predict: 0.22252941230674447
+   Else (feature 0 > 1988.0)
+    Predict: 0.24314831323118521
+  Else (feature 0 > 1990.0)
+   If (feature 0 <= 2009.0)
+    If (feature 0 <= 1999.0)
+     If (feature 0 <= 1996.0)
+      If (feature 0 <= 1993.0)
+       Predict: 0.25623822932129015
+      Else (feature 0 > 1993.0)
+       Predict: 0.2664054705722568
+     Else (feature 0 > 1996.0)
+      If (feature 0 <= 1997.0)
+       Predict: 0.2471104456041249
+      Else (feature 0 > 1997.0)
+       Predict: 0.24631512623718788
+    Else (feature 0 > 1999.0)
+     If (feature 0 <= 2004.0)
+      If (feature 0 <= 2000.0)
+       Predict: 0.26864646474745024
+      Else (feature 0 > 2000.0)
+       Predict: 0.2809735964350715
+     Else (feature 0 > 2004.0)
+      If (feature 0 <= 2005.0)
+       Predict: 0.2616930503978348
+      Else (feature 0 > 2005.0)
+       Predict: 0.2660275428564739
+   Else (feature 0 > 2009.0)
+    If (feature 0 <= 2014.0)
+     If (feature 0 <= 2011.0)
+      If (feature 0 <= 2010.0)
+       Predict: 0.2498570117468606
+      Else (feature 0 > 2010.0)
+       Predict: 0.24988386248171152
+     Else (feature 0 > 2011.0)
+      If (feature 0 <= 2013.0)
+       Predict: 0.24673452561240672
+      Else (feature 0 > 2013.0)
+       Predict: 0.24333635622926636
+    Else (feature 0 > 2014.0)
+     Predict: 0.16095329452711607
+
+Done in 93.3843679428 seconds
+Done in 94.470015049 seconds
+RMSE: 0.00135202478555, variance explained: 0.162529297237, mean absolute error: 0.122603022949,
+MRAE: 3.99133059992
+DecisionTreeModel regressor of depth 5 with 43 nodes
+  If (feature 0 <= 2003.0)
+   If (feature 0 <= 1965.0)
+    If (feature 0 <= 1936.0)
+     Predict: -0.23572663507344396
+    Else (feature 0 > 1936.0)
+     If (feature 0 <= 1945.0)
+      Predict: -0.2170296946735946
+     Else (feature 0 > 1945.0)
+      If (feature 0 <= 1953.0)
+       Predict: -0.22039854692978345
+      Else (feature 0 > 1953.0)
+       Predict: -0.21849962635808748
+   Else (feature 0 > 1965.0)
+    If (feature 0 <= 1993.0)
+     If (feature 0 <= 1982.0)
+      If (feature 0 <= 1973.0)
+       Predict: -0.20294667844547742
+      Else (feature 0 > 1973.0)
+       Predict: -0.19545744860128955
+     Else (feature 0 > 1982.0)
+      If (feature 0 <= 1990.0)
+       Predict: -0.17566704563907765
+      Else (feature 0 > 1990.0)
+       Predict: -0.1884615674249581
+    Else (feature 0 > 1993.0)
+     If (feature 0 <= 2000.0)
+      If (feature 0 <= 1997.0)
+       Predict: -0.21701739512696272
+      Else (feature 0 > 1997.0)
+       Predict: -0.20761485556624437
+     Else (feature 0 > 2000.0)
+      If (feature 0 <= 2001.0)
+       Predict: -0.19515751985385715
+      Else (feature 0 > 2001.0)
+       Predict: -0.1822278883304749
+  Else (feature 0 > 2003.0)
+   If (feature 0 <= 2010.0)
+    If (feature 0 <= 2004.0)
+     Predict: -0.16339926748044148
+    Else (feature 0 > 2004.0)
+     If (feature 0 <= 2008.0)
+      If (feature 0 <= 2006.0)
+       Predict: -0.1436972720962444
+      Else (feature 0 > 2006.0)
+       Predict: -0.13978336913085224
+     Else (feature 0 > 2008.0)
+      If (feature 0 <= 2009.0)
+       Predict: -0.1373205740383293
+      Else (feature 0 > 2009.0)
+       Predict: -0.13222551329430693
+   Else (feature 0 > 2010.0)
+    If (feature 0 <= 2013.0)
+     If (feature 0 <= 2011.0)
+      Predict: -0.1158759445145718
+     Else (feature 0 > 2011.0)
+      If (feature 0 <= 2012.0)
+       Predict: -0.12258009399738512
+      Else (feature 0 > 2012.0)
+       Predict: -0.12009619631190789
+    Else (feature 0 > 2013.0)
+     If (feature 0 <= 2014.0)
+      Predict: -0.11084837862625165
+     Else (feature 0 > 2014.0)
+      Predict: -0.10926985633540748
+
+Done in 96.7242050171 seconds
+Done in 97.9213559628 seconds
+RMSE: 0.000745336224624, variance explained: 0.188015520069, mean absolute error: 0.141682675527,
+MRAE: 3.30670547884
+DecisionTreeModel regressor of depth 5 with 39 nodes
+  If (feature 0 <= 1970.0)
+   If (feature 0 <= 1965.0)
+    If (feature 0 <= 1936.0)
+     Predict: -0.01607089973192695
+    Else (feature 0 > 1936.0)
+     If (feature 0 <= 1945.0)
+      Predict: -0.03987179151104922
+     Else (feature 0 > 1945.0)
+      If (feature 0 <= 1953.0)
+       Predict: -0.024397982253490554
+      Else (feature 0 > 1953.0)
+       Predict: -0.020237994398788334
+   Else (feature 0 > 1965.0)
+    Predict: -0.004969583462546419
+  Else (feature 0 > 1970.0)
+   If (feature 0 <= 1993.0)
+    If (feature 0 <= 1982.0)
+     If (feature 0 <= 1973.0)
+      Predict: 0.024335866456681288
+     Else (feature 0 > 1973.0)
+      If (feature 0 <= 1978.0)
+       Predict: 0.015185940668468635
+      Else (feature 0 > 1978.0)
+       Predict: 0.019455359851107107
+    Else (feature 0 > 1982.0)
+     If (feature 0 <= 1988.0)
+      If (feature 0 <= 1985.0)
+       Predict: -0.008602774229229095
+      Else (feature 0 > 1985.0)
+       Predict: -0.00443453036250292
+     Else (feature 0 > 1988.0)
+      If (feature 0 <= 1990.0)
+       Predict: 0.014620933412208966
+      Else (feature 0 > 1990.0)
+       Predict: 0.018963261362527323
+   Else (feature 0 > 1993.0)
+    If (feature 0 <= 2003.0)
+     If (feature 0 <= 1996.0)
+      If (feature 0 <= 1994.0)
+       Predict: 0.0438248485098877
+      Else (feature 0 > 1994.0)
+       Predict: 0.08147427959473608
+     Else (feature 0 > 1996.0)
+      If (feature 0 <= 2001.0)
+       Predict: 0.05370395318340284
+      Else (feature 0 > 2001.0)
+       Predict: 0.04378220991257978
+    Else (feature 0 > 2003.0)
+     If (feature 0 <= 2009.0)
+      If (feature 0 <= 2007.0)
+       Predict: 0.03125648619160093
+      Else (feature 0 > 2007.0)
+       Predict: 0.02450032377839207
+     Else (feature 0 > 2009.0)
+      If (feature 0 <= 2014.0)
+       Predict: 0.011304850360442044
+      Else (feature 0 > 2014.0)
+       Predict: 0.06926659019119406
+
+Done in 100.141407967 seconds
+Done in 101.166203976 seconds
+RMSE: 0.000695507363264, variance explained: 0.157543253515, mean absolute error: 0.117953223501,
+MRAE: 5.42651199112
+DecisionTreeModel regressor of depth 5 with 33 nodes
+  If (feature 0 <= 1965.0)
+   If (feature 0 <= 1953.0)
+    If (feature 0 <= 1936.0)
+     Predict: -0.17924526094376655
+    Else (feature 0 > 1936.0)
+     If (feature 0 <= 1945.0)
+      Predict: -0.19171393537202738
+     Else (feature 0 > 1945.0)
+      Predict: -0.18439989353258757
+   Else (feature 0 > 1953.0)
+    If (feature 0 <= 1959.0)
+     Predict: -0.1618711340531607
+    Else (feature 0 > 1959.0)
+     Predict: -0.1627401071582812
+  Else (feature 0 > 1965.0)
+   If (feature 0 <= 1996.0)
+    If (feature 0 <= 1970.0)
+     Predict: -0.14087043703702562
+    Else (feature 0 > 1970.0)
+     If (feature 0 <= 1990.0)
+      If (feature 0 <= 1978.0)
+       Predict: -0.11331605122448023
+      Else (feature 0 > 1978.0)
+       Predict: -0.09309625210486877
+     Else (feature 0 > 1990.0)
+      If (feature 0 <= 1994.0)
+       Predict: -0.11862237764468267
+      Else (feature 0 > 1994.0)
+       Predict: -0.11244811994603039
+   Else (feature 0 > 1996.0)
+    If (feature 0 <= 2003.0)
+     If (feature 0 <= 2001.0)
+      If (feature 0 <= 1997.0)
+       Predict: -0.1299478001591971
+      Else (feature 0 > 1997.0)
+       Predict: -0.13527863870105622
+     Else (feature 0 > 2001.0)
+      Predict: -0.14015316243037684
+    Else (feature 0 > 2003.0)
+     If (feature 0 <= 2008.0)
+      If (feature 0 <= 2007.0)
+       Predict: -0.15563298983976684
+      Else (feature 0 > 2007.0)
+       Predict: -0.1471390006581412
+     Else (feature 0 > 2008.0)
+      If (feature 0 <= 2009.0)
+       Predict: -0.16213308558427167
+      Else (feature 0 > 2009.0)
+       Predict: -0.15570989882014394
+
+Done in 103.199224949 seconds
+Done in 104.42160511 seconds
+RMSE: 0.0012231243261, variance explained: 0.186617844907, mean absolute error: 0.142331964933,
+MRAE: 2.51684965651
+DecisionTreeModel regressor of depth 5 with 39 nodes
+  If (feature 0 <= 1970.0)
+   If (feature 0 <= 1959.0)
+    If (feature 0 <= 1953.0)
+     If (feature 0 <= 1945.0)
+      If (feature 0 <= 1936.0)
+       Predict: 0.20673214824874014
+      Else (feature 0 > 1936.0)
+       Predict: 0.2025537332444836
+     Else (feature 0 > 1945.0)
+      Predict: 0.1950960859903823
+    Else (feature 0 > 1953.0)
+     Predict: 0.21503566380522032
+   Else (feature 0 > 1959.0)
+    If (feature 0 <= 1965.0)
+     Predict: 0.23989466557387412
+    Else (feature 0 > 1965.0)
+     Predict: 0.23128846883765775
+  Else (feature 0 > 1970.0)
+   If (feature 0 <= 1997.0)
+    If (feature 0 <= 1993.0)
+     If (feature 0 <= 1985.0)
+      If (feature 0 <= 1978.0)
+       Predict: 0.2681186631190812
+      Else (feature 0 > 1978.0)
+       Predict: 0.2826760649400792
+     Else (feature 0 > 1985.0)
+      If (feature 0 <= 1990.0)
+       Predict: 0.29577243934238484
+      Else (feature 0 > 1990.0)
+       Predict: 0.299811370111616
+    Else (feature 0 > 1993.0)
+     If (feature 0 <= 1996.0)
+      If (feature 0 <= 1994.0)
+       Predict: 0.3282785192984268
+      Else (feature 0 > 1994.0)
+       Predict: 0.36203485435541016
+     Else (feature 0 > 1996.0)
+      Predict: 0.30632716709744456
+   Else (feature 0 > 1997.0)
+    If (feature 0 <= 2009.0)
+     If (feature 0 <= 2001.0)
+      If (feature 0 <= 1999.0)
+       Predict: 0.27169695552862555
+      Else (feature 0 > 1999.0)
+       Predict: 0.2570727242037826
+     Else (feature 0 > 2001.0)
+      If (feature 0 <= 2004.0)
+       Predict: 0.2749938352862542
+      Else (feature 0 > 2004.0)
+       Predict: 0.2787792870341408
+    Else (feature 0 > 2009.0)
+     If (feature 0 <= 2014.0)
+      If (feature 0 <= 2012.0)
+       Predict: 0.2567709896908128
+      Else (feature 0 > 2012.0)
+       Predict: 0.24698680796974393
+     Else (feature 0 > 2014.0)
+      Predict: 0.1881169731157922
+
+Done in 106.694208145 seconds
+Done in 107.827609062 seconds
+RMSE: 0.000667218895425, variance explained: 0.178378717179, mean absolute error: 0.133926514,
+MRAE: 4.52432787623
+DecisionTreeModel regressor of depth 5 with 43 nodes
+  If (feature 0 <= 2007.0)
+   If (feature 0 <= 1990.0)
+    If (feature 0 <= 1959.0)
+     If (feature 0 <= 1936.0)
+      Predict: 0.024889240759979496
+     Else (feature 0 > 1936.0)
+      If (feature 0 <= 1953.0)
+       Predict: 0.012034948815381157
+      Else (feature 0 > 1953.0)
+       Predict: 0.024500238260189752
+    Else (feature 0 > 1959.0)
+     If (feature 0 <= 1985.0)
+      If (feature 0 <= 1982.0)
+       Predict: 0.05363311735079744
+      Else (feature 0 > 1982.0)
+       Predict: 0.04177547599703861
+     Else (feature 0 > 1985.0)
+      If (feature 0 <= 1988.0)
+       Predict: 0.0245765796329785
+      Else (feature 0 > 1988.0)
+       Predict: 0.03213642861165689
+   Else (feature 0 > 1990.0)
+    If (feature 0 <= 1999.0)
+     If (feature 0 <= 1993.0)
+      Predict: 0.011802120737945957
+     Else (feature 0 > 1993.0)
+      If (feature 0 <= 1996.0)
+       Predict: -0.054181300863460145
+      Else (feature 0 > 1996.0)
+       Predict: -0.007678672645690229
+    Else (feature 0 > 1999.0)
+     If (feature 0 <= 2003.0)
+      If (feature 0 <= 2001.0)
+       Predict: 0.01448561435822043
+      Else (feature 0 > 2001.0)
+       Predict: 0.021988158624910485
+     Else (feature 0 > 2003.0)
+      If (feature 0 <= 2004.0)
+       Predict: 0.03408070052014931
+      Else (feature 0 > 2004.0)
+       Predict: 0.028064200236031615
+  Else (feature 0 > 2007.0)
+   If (feature 0 <= 2009.0)
+    If (feature 0 <= 2008.0)
+     Predict: 0.034045114100281305
+    Else (feature 0 > 2008.0)
+     Predict: 0.03811094505508829
+   Else (feature 0 > 2009.0)
+    If (feature 0 <= 2013.0)
+     If (feature 0 <= 2011.0)
+      If (feature 0 <= 2010.0)
+       Predict: 0.04760622581449531
+      Else (feature 0 > 2010.0)
+       Predict: 0.043473629956231184
+     Else (feature 0 > 2011.0)
+      If (feature 0 <= 2012.0)
+       Predict: 0.038990448576480555
+      Else (feature 0 > 2012.0)
+       Predict: 0.03987221609777124
+    Else (feature 0 > 2013.0)
+     If (feature 0 <= 2014.0)
+      Predict: 0.04858234982269718
+     Else (feature 0 > 2014.0)
+      Predict: 0.05828897712279051
+
++---------+----------------+---------------------+
+| Feature |      MRAE      | Mean absolute error |
++---------+----------------+---------------------+
+|    3    | 0.681223668925 |    0.147900474518   |
+|    12   | 0.754859234274 |    0.175398921763   |
+|    10   |  1.5725347489  |    0.133684418923   |
+|    22   | 1.61927162289  |    0.139189022933   |
+|    1    | 2.13432166196  |    0.166400830211   |
+|    11   | 2.17860650592  |    0.127212467299   |
+|    15   | 2.21963417611  |    0.173729812463   |
+|    9    |  2.2599152149  |    0.136110212175   |
+|    7    | 2.47222366329  |    0.125713946004   |
+|    28   | 2.51684965651  |    0.142331964933   |
+|    0    | 2.69719092409  |    0.180276126249   |
+|    14   | 2.75601465918  |    0.149146816205   |
+|    21   | 2.77801906089  |    0.143257763461   |
+|    8    | 3.03976227938  |    0.180045459811   |
+|    26   | 3.30670547884  |    0.141682675527   |
+|    17   | 3.42959741956  |    0.16081439413    |
+|    19   |  3.4655340201  |    0.151876809214   |
+|    16   | 3.73006565813  |    0.133530625176   |
+|    23   | 3.90616640785  |    0.129801238399   |
+|    25   | 3.99133059992  |    0.122603022949   |
+|    29   | 4.52432787623  |     0.133926514     |
+|    5    | 4.71042472167  |    0.199466176239   |
+|    13   | 5.10096981282  |    0.133217845953   |
+|    27   | 5.42651199112  |    0.117953223501   |
+|    24   | 5.84771778902  |    0.118844191605   |
+|    18   | 6.12035990794  |    0.156113192556   |
+|    2    | 8.51855084635  |    0.123643314759   |
+|    20   |  9.6938669939  |    0.166395677876   |
+|    6    | 10.6874329659  |    0.13700826629    |
+|    4    | 19.8875516718  |    0.137420797306   |
++---------+----------------+---------------------+
