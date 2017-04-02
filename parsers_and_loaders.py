@@ -1,5 +1,7 @@
+#standard library
 import csv
 import StringIO
+import traceback
 
 def loadCSV(fname, remove_first_line = True):
     """
@@ -57,6 +59,25 @@ def parseIMDBKeywords(line, sep="::"):
     fields = r.next()
     mid = int(fields[0])
     keywords = fields[7]
+    keywords = keywords.split("|")
+    return mid, set(keywords)
+
+def parseIMDBGenres(line, sep="::"):
+    """
+    Parses movie genres in format
+    movieId,title,genres,imdbId,localImdbID,tmdbId,imdb_genres,imdb_keywords
+    """
+    #Multi-character delimiters aren't supported,
+    #but this data set doesn't have %s anywhere.
+    #Dirty hack, need to fix later
+    if sep == "::":
+        line = line.replace(sep, "%")
+        sep = "%"
+    s = StringIO.StringIO(line)
+    r = csv.reader(s, delimiter=sep, quotechar='"')
+    fields = r.next()
+    mid = int(fields[0])
+    keywords = fields[6]
     keywords = keywords.split("|")
     return mid, set(keywords)
 
