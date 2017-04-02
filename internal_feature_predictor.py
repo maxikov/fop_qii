@@ -1,3 +1,26 @@
+#standard library
+import time
+from collections import defaultdict
+import math
+
+#pyspark library
+from pyspark.mllib.recommendation import ALS
+import pyspark.mllib.recommendation
+from pyspark.mllib.classification import LabeledPoint
+import pyspark.mllib.regression
+import pyspark.mllib.tree
+from pyspark.mllib.regression import LinearRegressionWithSGD
+from pyspark.mllib.evaluation import RegressionMetrics,\
+        BinaryClassificationMetrics
+
+#prettytable library
+from prettytable import PrettyTable
+
+#project files
+import AverageRatingRecommender
+import parsers_and_loaders
+import common_utils
+
 def train_regression_model(data, regression_model = "regression_tree",
     categorical_features = {}, max_bins = 32, max_depth = None, num_trees = 128,
     logger = None):
@@ -266,7 +289,7 @@ def predict_internal_feature(features, indicators, f, regression_model,
     lr_model = train_regression_model(data,
         regression_model = regression_model,
         categorical_features = categorical_features,
-        max_bins = nbins,
+        max_bins = max_bins,
         logger = logger)
 
     observations = ids.zip(data.map(lambda x: float(x.label)))
@@ -287,24 +310,20 @@ def predict_internal_feature(features, indicators, f, regression_model,
     return (lr_model, observations, predictions)
 
 
-
-
-
-
 def replace_feature_with_predicted(features, f, predictions, logger):
     logger.debug("Replacing original feature "+\
             "{} with predicted values".format(f))
     start = time.time()
     joined = features.join(predictions)
     replaced = joined.map(lambda (mid, (feats, pred)):
-            (mid, set_list_values(feats, f, pred)))
+            (mid, common_utils.set_list_value(feats, f, pred)))
     logger.debug("Done in {} seconds".format(time.time() - start))
     return replaced
 
 def compare_baseline_to_replaced(baseline_predictions, uf, pf, logger, power):
                 start = time.time()
-                replaced_predictions = manual_predict_all(
-                    training.map(lambda x: (x[0], x[1])),
+                replaced_predictions = common_utils.manual_predict_all(
+                    baseline_predictions.map(lambda x: (x[0], x[1])),
                     uf,
                     pf)
                 logger.debug("Done in {} seconds".format(time.time() - start))
@@ -315,7 +334,7 @@ def compare_baseline_to_replaced(baseline_predictions, uf, pf, logger, power):
                 predictionsAndRatings = replaced_predictions.map(lambda x: ((x[0], x[1]), x[2])) \
                    .join(baseline_predictions.map(lambda x: ((x[0], x[1]), x[2]))) \
                    .values()
-                replaced_mean_error_baseline = mean_error(predictionsAndRatings, power)
+                replaced_mean_error_baseline = common_utils.mean_error(predictionsAndRatings, power)
                 logger.debug("Done in {} seconds".format(time.time() - start))
                 return replaced_mean_error_baseline
 
@@ -327,13 +346,13 @@ def internal_feature_predictor(sc, training, rank, numIter, lmbda,
         power = 1.0
 
         if "average_rating" in args.metadata_sources:
-            arc = AverageRatingRecommender(logger)
+            arc = AverageRatingRecommender.AverageRatingRecommender(logger)
             arc.train(training)
             arc_ratings = sc.parallelize(arc.ratings.items())
             metadata_sources.append(
                     {"name": "average_rating",
                         "src_rdd": lambda: arc_ratings,
-                        "loader": load_average_ratings})
+                        "loader": parsers_and_loaders.load_average_ratings})
 
         cur_mtdt_srcs = filter(lambda x: x["name"] in args.metadata_sources, metadata_sources)
         indicators, number_of_features, categorical_features =\
@@ -377,8 +396,8 @@ def internal_feature_predictor(sc, training, rank, numIter, lmbda,
             predictionsAndRatings = baseline_predictions.map(lambda x: ((x[0], x[1]), x[2])) \
                 .join(training.map(lambda x: ((x[0], x[1]), x[2]))) \
                 .values()
-            baseline_mean_error = mean_error(predictionsAndRatings, power)
-            baseline_rmse = mean_error(predictionsAndRatings, power=2.0)
+            baseline_mean_error = common_utils.mean_error(predictionsAndRatings, power)
+            baseline_rmse = common_utils.mean_error(predictionsAndRatings, power=2.0)
             logger.debug("Done in {} seconds".format(time.time() - start))
             logger.debug("Mean error: {}, RMSE: {}".format(baseline_mean_error,
                 baseline_rmse))
@@ -390,7 +409,7 @@ def internal_feature_predictor(sc, training, rank, numIter, lmbda,
         if user_or_product_features == "user":
             features, other_features = other_features, features
 
-        results["mean_feature_values"] = mean_feature_values(features, logger)
+        results["mean_feature_values"] = common_utils.mean_feature_values(features, logger)
 
         results["features"] = {}
 
@@ -399,14 +418,14 @@ def internal_feature_predictor(sc, training, rank, numIter, lmbda,
                     features,
                     indicators,
                     f,
-                    regression_model,
+                    args.regression_model,
                     categorical_features,
-                    nbins,
+                    args.nbins,
                     logger)
             results["features"][f] = {"model": lr_model}
 
             if eval_regression:
-                reg_eval = evaluate_regression(predictions, observations, logger)
+                reg_eval = common_utils.evaluate_regression(predictions, observations, logger)
                 results["features"][f]["regression_evaluation"] = reg_eval
 
             if compare_with_replaced_feature:
@@ -440,7 +459,7 @@ def internal_feature_predictor(sc, training, rank, numIter, lmbda,
             if compare_with_randomized_feature:
                 logger.debug("Randomizing feature {}".format(f))
                 start = time.time()
-                replaced_features = perturb_feature(features, f)
+                replaced_features = common_utils.perturb_feature(features, f)
                 logger.debug("Done in {} seconds".format(time.time()-start))
                 if user_or_product_features == "product":
                     uf, pf = other_features, replaced_features

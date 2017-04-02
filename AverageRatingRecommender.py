@@ -1,4 +1,6 @@
+#standard library
 import time
+from collections import defaultdict
 
 class AverageRatingRecommender:
     def __init__(self, logger=None):

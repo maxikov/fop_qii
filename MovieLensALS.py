@@ -7,7 +7,6 @@ import itertools
 import copy
 import random
 from math import sqrt
-from operator import add
 from os.path import join, isfile, dirname
 from collections import defaultdict
 import time
@@ -28,15 +27,8 @@ import matplotlib.pyplot as plt
 #pyspark library
 from pyspark import SparkConf, SparkContext
 from pyspark.mllib.recommendation import ALS
-import pyspark.mllib.recommendation
-from pyspark.mllib.classification import LabeledPoint
-import pyspark.mllib.regression
-import pyspark.mllib.tree
-from pyspark.mllib.regression import LinearRegressionWithSGD
-from pyspark.mllib.evaluation import RegressionMetrics,\
-        BinaryClassificationMetrics
 
-#project_files
+#project files
 import qii_ls_legacy
 import parsers_and_loaders
 import internal_feature_predictor
@@ -152,24 +144,24 @@ if __name__ == "__main__":
     logger.debug("Loading ratings")
     start = time.time()
     ratings_rdd = sc.parallelize(
-            loadCSV(
+            parsers_and_loaders.loadCSV(
                 join(args.data_path, "ratings" + extension),
                 remove_first_line = remove_first_line
                 )
             )
-    ratings = ratings_rdd.map(lambda x: parseRating(x,
+    ratings = ratings_rdd.map(lambda x: parsers_and_loaders.parseRating(x,
          sep=sep))
     logger.debug("Done in {} seconds".format(time.time() - start))
 
     logger.debug("Loading movies")
     start = time.time()
     movies_rdd = sc.parallelize(
-            loadCSV(
+            parsers_and_loaders.loadCSV(
                 join(args.data_path, "movies" + extension),
                 remove_first_line = remove_first_line
                 )
             )
-    movies = dict(movies_rdd.map(lambda x: parseMovie(x,
+    movies = dict(movies_rdd.map(lambda x: parsers_and_loaders.parseMovie(x,
         sep=sep)).collect())
     all_movies = set(movies.keys())
     logger.debug("Done in {} seconds".format(time.time() - start))
@@ -180,37 +172,38 @@ if __name__ == "__main__":
         {
             "name": "years",
             "src_rdd": (lambda: movies_rdd),
-            "loader": (lambda x: load_years(x, sep))
+            "loader": (lambda x: parsers_and_loaders.load_years(x, sep))
         },
         {
             "name": "genres",
             "src_rdd": (lambda: movies_rdd),
-            "loader": (lambda x: load_genres(x, sep, parseGenre))
+            "loader": (lambda x: parsers_and_loaders.load_genres(x,
+                sep, parsers_and_loaders.parseGenre))
         },
         {
             "name": "tags",
             "src_rdd": (
                 lambda: sc.parallelize(
-                    loadCSV(
+                    parsers_and_loaders.loadCSV(
                         join(args.data_path, "tags" + extension),
                         remove_first_line = remove_first_line
                     )
                 )
             ),
-            "loader": (lambda x: load_tags(x, sep))
+            "loader": (lambda x: parsers_and_loaders.load_tags(x, sep))
         },
         {
             "name": "imdb_keywords",
             "src_rdd": (
                 lambda: sc.parallelize(
-                    loadCSV(
+                    parsers_and_loaders.loadCSV(
                         join(args.data_path, "ml-20m.imdb.small.csv"),
                         remove_first_line = True
                     )
                 )
             ),
-            "loader": (lambda x: load_genres(x, sep=",",
-                parser_function=parseIMDBKeywords))
+            "loader": (lambda x: parsers_and_loaders.load_genres(x, sep=",",
+                parser_function=parsers_and_loaders.parseIMDBKeywords))
         }
     ]
 
@@ -231,12 +224,12 @@ if __name__ == "__main__":
         logger.debug("Loading users")
         start = time.time()
         users_rdd = sc.parallelize(
-            loadCSV(
+            parsers_and_loaders.loadCSV(
                 join(args.data_path, "users" + extension),
                 remove_first_line = remove_first_line
                 )
             )
-        users = load_users(users_rdd, sep)
+        users = parsers_and_loaders.load_users(users_rdd, sep)
         all_users = set(users[0].keys().collect())
         logger.debug("Done in {} seconds".format(time.time() - start))
         metadata_sources = [
@@ -245,21 +238,27 @@ if __name__ == "__main__":
                 "src_rdd": (lambda: users),
                 "loader": (lambda x: x)
             }]
-        results = internal_feature_predictor(sc, training, rank, numIter, lmbda,
+        results = internal_feature_predictor.internal_feature_predictor(sc,
+            training, args.rank,
+            args.num_iter, args.lmbda,
             args, all_users, metadata_sources,
             user_or_product_features="user", eval_regression = True,
             compare_with_replaced_feature = True,
             compare_with_randomized_feature = True, logger = logger)
 
-        display_internal_feature_predictor(results, logger)
+        internal_feature_predictor.display_internal_feature_predictor(
+            results, logger)
 
     elif args.predict_product_features:
-        results = internal_feature_predictor(sc, training, rank, numIter, lmbda,
+        results = internal_feature_predictor.internal_feature_predictor(
+            sc, training, args.rank,
+            args.num_iter, args.lmbda,
             args, all_movies, metadata_sources,
             user_or_product_features="product", eval_regression = True,
             compare_with_replaced_feature = True,
             compare_with_randomized_feature = True, logger = logger)
 
-        display_internal_feature_predictor(results, logger)
+        internal_feature_predictor.display_internal_feature_predictor(
+           results, logger)
 
     sc.stop()

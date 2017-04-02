@@ -55,7 +55,7 @@ def feature_global_influence(model, rank, user_product_pairs, power=1.0,
             res["feature_data"][f]["rmse"] = error
     return res
 
-def internal_feature_influence()
+def internal_feature_influence():
         if sample_type == "training":
             user_product_pairs = training.map(lambda x: (x[0], x[1]))
         elif sample_type == "random":
