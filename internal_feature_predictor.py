@@ -21,9 +21,9 @@ import AverageRatingRecommender
 import parsers_and_loaders
 import common_utils
 
-def train_regression_model(data, regression_model = "regression_tree",
-    categorical_features = {}, max_bins = 32, max_depth = None, num_trees = 128,
-    logger = None):
+def train_regression_model(data, regression_model="regression_tree",
+                           categorical_features={}, max_bins=32, max_depth=None,
+                           num_trees=128, logger=None):
     """
     Train a regression model on the input data.
 
@@ -87,9 +87,9 @@ def train_regression_model(data, regression_model = "regression_tree",
                 trainRegressor(
                     data,
                     categoricalFeaturesInfo=categorical_features,
-                    impurity = "variance",
-                    maxDepth = max_depth,
-                    maxBins = max_bins)
+                    impurity="variance",
+                    maxDepth=max_depth,
+                    maxBins=max_bins)
 
     elif regression_model == "random_forest":
         lr_model = pyspark.\
@@ -99,9 +99,9 @@ def train_regression_model(data, regression_model = "regression_tree",
                 trainRegressor(
                     data,
                     categoricalFeaturesInfo=categorical_features,
-                    numTrees = num_trees,
-                    maxDepth = max_depth,
-                    maxBins = max_bins)
+                    numTrees=num_trees,
+                    maxDepth=max_depth,
+                    maxBins=max_bins)
     elif regression_model == "linear":
         lr_model = LinearRegressionWithSGD.train(data)
 
@@ -113,7 +113,7 @@ def train_regression_model(data, regression_model = "regression_tree",
     return lr_model
 
 
-def build_meta_data_set(sc, sources, all_ids = None, logger = None):
+def build_meta_data_set(sc, sources, all_ids=None, logger=None):
     """
     Load specified types of metadata for users or products, and turn them into
     an RDD of
@@ -198,7 +198,7 @@ def build_meta_data_set(sc, sources, all_ids = None, logger = None):
                 start = time.time()
 
                 empty_records = [(_id, [0 for _ in xrange(nof)]) for _id in
-                        missing_ids]
+                                 missing_ids]
                 empty_records = sc.parallelize(empty_records)
                 cur_rdd = cur_rdd.union(empty_records)
                 if logger is None:
@@ -208,7 +208,7 @@ def build_meta_data_set(sc, sources, all_ids = None, logger = None):
 
         shifted_cfi = {f+feature_offset: v for (f, v) in cfi.items()}
         categorical_features_info = dict(categorical_features_info,
-                **shifted_cfi)
+                                         **shifted_cfi)
 
         if res_rdd is None:
             res_rdd = cur_rdd
@@ -224,7 +224,7 @@ def build_meta_data_set(sc, sources, all_ids = None, logger = None):
 
 
 def predict_internal_feature(features, indicators, f, regression_model,
-        categorical_features, max_bins, logger = None):
+                             categorical_features, max_bins, logger=None):
     """
     Predict the values of an internal feature based on metadata.
 
@@ -263,23 +263,13 @@ def predict_internal_feature(features, indicators, f, regression_model,
         logger.debug("Processing feature {}".format(f))
         logger.debug("Building data set")
 
-    #logger.debug("Features for {} products loaded"\
-            #        .format(features.count()))
-    #logger.debug("Indicator vectors for {} products loaded"\
-            #        .format(indicators.count()))
-
     start = time.time()
 
     joined = features.join(indicators)
-    #logger.debug("{} items in 'joined'"\
-            #        .format(joined.count()))
     data = joined.map(
-            lambda (_id, (ftrs, inds)):
-                LabeledPoint(ftrs[f], inds))
-    #logger.debug("{} items in 'data'"\
-            #        .format(data.count()))
-    ids = joined.map(
-            lambda (_id, _): _id)
+        lambda (_id, (ftrs, inds)):
+        LabeledPoint(ftrs[f], inds))
+    ids = joined.map(lambda (_id, _): _id)
 
     if logger is None:
         print "Done in {} seconds".format(time.time() - start)
@@ -287,25 +277,19 @@ def predict_internal_feature(features, indicators, f, regression_model,
         logger.debug("Done in {} seconds".format(time.time() - start))
 
     lr_model = train_regression_model(data,
-        regression_model = regression_model,
-        categorical_features = categorical_features,
-        max_bins = max_bins,
-        logger = logger)
+                                      regression_model=regression_model,
+                                      categorical_features=categorical_features,
+                                      max_bins=max_bins,
+                                      logger=logger)
 
     observations = ids.zip(data.map(lambda x: float(x.label)))
-
-    #logger.debug("{} items in 'observations'"\
-            #        .format(observations.count()))
-
     predictions = ids.zip(
-            lr_model\
-            .predict(
-                    data.map(lambda x: x.features)
-                    )\
-            .map(lambda x: float(x))
-            )
-    #logger.debug("{} items in 'predictions'"\
-            #        .format(predictions.count()))
+        lr_model\
+        .predict(
+            data.map(lambda x: x.features)
+            )\
+        .map(lambda x: float(x))
+        )
 
     return (lr_model, observations, predictions)
 
@@ -315,167 +299,154 @@ def replace_feature_with_predicted(features, f, predictions, logger):
             "{} with predicted values".format(f))
     start = time.time()
     joined = features.join(predictions)
-    replaced = joined.map(lambda (mid, (feats, pred)):
+    replaced = joined.map(lambda (mid, (feats, pred)):\
             (mid, common_utils.set_list_value(feats, f, pred)))
     logger.debug("Done in {} seconds".format(time.time() - start))
     return replaced
 
 def compare_baseline_to_replaced(baseline_predictions, uf, pf, logger, power):
-                start = time.time()
-                replaced_predictions = common_utils.manual_predict_all(
-                    baseline_predictions.map(lambda x: (x[0], x[1])),
-                    uf,
-                    pf)
-                logger.debug("Done in {} seconds".format(time.time() - start))
-
-                logger.debug("Computing replaced mean error relative to the "+\
-                    "baseline model")
-                start = time.time()
-                predictionsAndRatings = replaced_predictions.map(lambda x: ((x[0], x[1]), x[2])) \
-                   .join(baseline_predictions.map(lambda x: ((x[0], x[1]), x[2]))) \
-                   .values()
-                replaced_mean_error_baseline = common_utils.mean_error(predictionsAndRatings, power)
-                logger.debug("Done in {} seconds".format(time.time() - start))
-                return replaced_mean_error_baseline
+    start = time.time()
+    replaced_predictions = common_utils.manual_predict_all(\
+        baseline_predictions.map(lambda x: (x[0], x[1])), uf, pf)
+    logger.debug("Done in %f seconds", time.time() - start)
+    logger.debug("Computing replaced mean error relative to the baseline model")
+    start = time.time()
+    predictionsAndRatings = replaced_predictions.map(lambda x: ((x[0], x[1]), x[2])) \
+        .join(baseline_predictions.map(lambda x: ((x[0], x[1]), x[2]))) \
+        .values()
+    replaced_mean_error_baseline = common_utils.mean_error(predictionsAndRatings, power)
+    logger.debug("Done in %f seconds", time.time() - start)
+    return replaced_mean_error_baseline
 
 def internal_feature_predictor(sc, training, rank, numIter, lmbda,
-        args, all_movies, metadata_sources, user_or_product_features, eval_regression,
-        compare_with_replaced_feature, compare_with_randomized_feature, logger):
+    args, all_movies, metadata_sources, user_or_product_features, eval_regression,
+    compare_with_replaced_feature, compare_with_randomized_feature, logger):
 
-        results = {}
-        power = 1.0
+    results = {}
+    power = 1.0
 
-        if "average_rating" in args.metadata_sources:
-            arc = AverageRatingRecommender.AverageRatingRecommender(logger)
-            arc.train(training)
-            arc_ratings = sc.parallelize(arc.ratings.items())
-            metadata_sources.append(
-                    {"name": "average_rating",
-                        "src_rdd": lambda: arc_ratings,
-                        "loader": parsers_and_loaders.load_average_ratings})
+    if "average_rating" in args.metadata_sources:
+        arc = AverageRatingRecommender.AverageRatingRecommender(logger)
+        arc.train(training)
+        arc_ratings = sc.parallelize(arc.ratings.items())
+        metadata_sources.append(
+                {"name": "average_rating",
+                 "src_rdd": lambda: arc_ratings,
+                 "loader": parsers_and_loaders.load_average_ratings})
 
-        cur_mtdt_srcs = filter(lambda x: x["name"] in args.metadata_sources, metadata_sources)
-        indicators, number_of_features, categorical_features =\
-                build_meta_data_set(sc, cur_mtdt_srcs, all_movies, logger)
+    cur_mtdt_srcs = filter(lambda x: x["name"] in args.metadata_sources, metadata_sources)
+    indicators, number_of_features, categorical_features =\
+            build_meta_data_set(sc, cur_mtdt_srcs, all_movies, logger)
 
-        if logger is None:
-            print "Training ALS recommender"
-        else:
-            logger.debug("Training ALS recommender")
+    logger.debug("Training ALS recommender")
+    start = time.time()
+    model = ALS.train(training, rank=rank, iterations=numIter,
+                      lambda_=lmbda, nonnegative=args.non_negative)
+    logger.debug("Done in %f seconds", time.time() - start)
+
+    logger.debug("Fetching all products from the training set")
+    start = time.time()
+    training_set_products = set(training.map(lambda x: x[1]).collect())
+    logger.debug("Done in %f seconds", time.time() - start)
+    logger.debug("%d products collected", len(training_set_products))
+
+    logger.debug("Fetching all products in model")
+    start = time.time()
+    model_products = set(model.productFeatures().keys().collect())
+    logger.debug("Done in %f seconds", time.time() - start)
+    logger.debug("%d products collected", len(model_products))
+    logger.debug("%d products are missing",
+                 len(training_set_products - model_products))
+
+    if compare_with_replaced_feature or compare_with_randomized_feature:
+        logger.debug("Computing model predictions")
         start = time.time()
-        model = ALS.train(training, rank=rank, iterations=numIter,
-                lambda_=lmbda, nonnegative = args.non_negative)
-        if logger is None:
-            print "Done in {} seconds".format(time.time() - start)
-        else:
-            logger.debug("Done in {} seconds".format(time.time() - start))
+        baseline_predictions = model.predictAll(training.map(lambda x:\
+            (x[0], x[1])))
+        logger.debug("Done in %f seconds", time.time() - start)
 
-        logger.debug("Fetching all products from the training set")
+        logger.debug("Computing mean error")
         start = time.time()
-        training_set_products = set(training.map(lambda x: x[1]).collect())
-        logger.debug("Done in {} seconds".format(time.time() - start))
-        logger.debug("{} products collected"\
-                        .format(len(training_set_products)))
+        predictionsAndRatings = baseline_predictions\
+            .map(lambda x: ((x[0], x[1]), x[2])) \
+            .join(training.map(lambda x: ((x[0], x[1]), x[2]))) \
+            .values()
+        baseline_mean_error = common_utils.mean_error(predictionsAndRatings,
+                                                      power)
+        baseline_rmse = common_utils.mean_error(predictionsAndRatings, power=2.0)
+        logger.debug("Done in %f seconds", time.time() - start)
+        logger.debug("Mean error: {}, RMSE: {}".format(baseline_mean_error,
+                                                       baseline_rmse))
+        results["baseline_mean_error"] = baseline_mean_error
+        results["baseline_rmse"] = baseline_rmse
 
-        logger.debug("Fetching all products in model")
-        start = time.time()
-        model_products = set(model.productFeatures().keys().collect())
-        logger.debug("Done in {} seconds".format(time.time() - start))
-        logger.debug("{} products collected"\
-                        .format(len(model_products)))
-        logger.debug("{} products are missing"\
-                        .format(len(training_set_products - model_products)))
+    features = model.productFeatures()
+    other_features = model.userFeatures()
+    if user_or_product_features == "user":
+        features, other_features = other_features, features
 
-        if compare_with_replaced_feature or compare_with_randomized_feature:
-            logger.debug("Computing model predictions")
+    results["mean_feature_values"] = common_utils.mean_feature_values(features, logger)
+
+    results["features"] = {}
+
+    for f in xrange(rank):
+        lr_model, observations, predictions = predict_internal_feature(\
+            features,
+            indicators,
+            f,
+            args.regression_model,
+            categorical_features,
+            args.nbins,
+            logger)
+        results["features"][f] = {"model": lr_model}
+
+        if eval_regression:
+            reg_eval = common_utils.evaluate_regression(predictions,
+                                                        observations, logger)
+            results["features"][f]["regression_evaluation"] = reg_eval
+
+        if compare_with_replaced_feature:
+            logger.debug("Computing predictions of the model with replaced "+\
+                "feature %d", f)
+            replaced_features = replace_feature_with_predicted(features, f,
+                                                               predictions,
+                                                               logger)
+
             start = time.time()
-            baseline_predictions = model.predictAll(training.map(lambda x: (x[0], x[1])))
-            logger.debug("Done in {} seconds".format(time.time() - start))
-            logger.debug("Computing mean error")
-            start = time.time()
-            predictionsAndRatings = baseline_predictions.map(lambda x: ((x[0], x[1]), x[2])) \
-                .join(training.map(lambda x: ((x[0], x[1]), x[2]))) \
-                .values()
-            baseline_mean_error = common_utils.mean_error(predictionsAndRatings, power)
-            baseline_rmse = common_utils.mean_error(predictionsAndRatings, power=2.0)
-            logger.debug("Done in {} seconds".format(time.time() - start))
-            logger.debug("Mean error: {}, RMSE: {}".format(baseline_mean_error,
-                baseline_rmse))
-            results["baseline_mean_error"] = baseline_mean_error
-            results["baseline_rmse"] = baseline_rmse
 
-        features = model.productFeatures()
-        other_features = model.userFeatures()
-        if user_or_product_features == "user":
-            features, other_features = other_features, features
+            if user_or_product_features == "product":
+                uf, pf = other_features, replaced_features
+            else:
+                uf, pf = replaced_features, other_features
 
-        results["mean_feature_values"] = common_utils.mean_feature_values(features, logger)
-
-        results["features"] = {}
-
-        for f in xrange(rank):
-            lr_model, observations, predictions = predict_internal_feature(
-                    features,
-                    indicators,
-                    f,
-                    args.regression_model,
-                    categorical_features,
-                    args.nbins,
-                    logger)
-            results["features"][f] = {"model": lr_model}
-
-            if eval_regression:
-                reg_eval = common_utils.evaluate_regression(predictions, observations, logger)
-                results["features"][f]["regression_evaluation"] = reg_eval
-
-            if compare_with_replaced_feature:
-                logger.debug("Computing predictions of the model with replaced "+\
-                    "feature {}".format(f))
-                replaced_features = replace_feature_with_predicted(features, f,
-                        predictions, logger)
-
-                #logger.debug("Fetching all replaced product features")
-                start = time.time()
-                #replaced_products = set(replaced_features.keys().collect())
-                #logger.debug("Done in {} seconds".format(time.time() - start))
-                #logger.debug("{} products collected"\
-                        #        .format(len(replaced_products)))
-                #logger.debug("{} products are missing"\
-                        #        .format(len(training_set_products - replaced_products)))
-
-                if user_or_product_features == "product":
-                    uf, pf = other_features, replaced_features
-                else:
-                    uf, pf = replaced_features, other_features
-
-                replaced_mean_error_baseline = compare_baseline_to_replaced(
+            replaced_mean_error_baseline = compare_baseline_to_replaced(\
                         baseline_predictions, uf, pf, logger, power)
 
-                logger.debug("Replaced mean error baseline: "+\
-                    "{}".format(replaced_mean_error_baseline))
-                results["features"][f]["replaced_mean_error_baseline"] =\
-                    replaced_mean_error_baseline
+            logger.debug("Replaced mean error baseline: "+\
+                    "%f", replaced_mean_error_baseline)
+            results["features"][f]["replaced_mean_error_baseline"] =\
+                replaced_mean_error_baseline
 
-            if compare_with_randomized_feature:
-                logger.debug("Randomizing feature {}".format(f))
-                start = time.time()
-                replaced_features = common_utils.perturb_feature(features, f)
-                logger.debug("Done in {} seconds".format(time.time()-start))
-                if user_or_product_features == "product":
-                    uf, pf = other_features, replaced_features
-                else:
-                    uf, pf = replaced_features, other_features
+        if compare_with_randomized_feature:
+            logger.debug("Randomizing feature %d", f)
+            start = time.time()
+            replaced_features = common_utils.perturb_feature(features, f)
+            logger.debug("Done in %f seconds", time.time()-start)
+            if user_or_product_features == "product":
+                uf, pf = other_features, replaced_features
+            else:
+                uf, pf = replaced_features, other_features
 
-                logger.debug("Computing predictions of the model with randomized"+\
-                    " feature {}".format(f))
-                randomized_mean_error_baseline = compare_baseline_to_replaced(
-                        baseline_predictions, uf, pf, logger, power)
+            logger.debug("Computing predictions of the model with randomized"+\
+                " feature %d", f)
+            randomized_mean_error_baseline = compare_baseline_to_replaced(\
+                baseline_predictions, uf, pf, logger, power)
 
-                logger.debug("Radnomized mean error baseline: "+\
-                    "{}".format(randomized_mean_error_baseline))
-                results["features"][f]["randomized_mean_error_baseline"] =\
-                    randomized_mean_error_baseline
-        return results
+            logger.debug("Radnomized mean error baseline: "+\
+                "%f", randomized_mean_error_baseline)
+            results["features"][f]["randomized_mean_error_baseline"] =\
+                randomized_mean_error_baseline
+    return results
 
 def display_internal_feature_predictor(results, logger):
     logger.info("Baseline mean error: {}".format(
