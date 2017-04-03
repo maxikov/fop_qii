@@ -3,7 +3,7 @@ import csv
 import StringIO
 import traceback
 
-def loadCSV(fname, remove_first_line = True):
+def loadCSV(fname, remove_first_line=True):
     """
     Probably won't work with very large data sets.
     """
@@ -235,13 +235,16 @@ def load_years(src_rdd, sep=","):
 
 def load_genres(src_rdd, sep=",", parser_function=parseGenre):
     genres = src_rdd.map(lambda x: parser_function(x, sep=sep))
-    all_genres = sorted(list(genres.map(lambda (_, x): x).fold(set(), lambda x, y:
-        set(x).union(set(y)))))
+    all_genres = sorted(
+        list(
+            genres\
+                .map(lambda (_, x): x)\
+                .fold(
+                    set(),
+                    lambda x, y: set(x).union(set(y)))))
     indicators_genres = genres.map(
-            lambda (mid, cur_genres): (
-                mid, map(lambda g: int(g in cur_genres), all_genres)
-                )
-            )
+        lambda (mid, cur_genres): (
+            mid, map(lambda g: int(g in cur_genres), all_genres)))
     nof = len(all_genres)
     cfi = {x: 2 for x in xrange(nof)}
     return (indicators_genres, nof, cfi)
@@ -256,10 +259,8 @@ def load_tags(src_rdd, sep=","):
             .groupBy(lambda x: x[0])\
             .map(lambda (mid, data): (mid, set(d[1] for d in data)))
     indicators = tags.map(
-                lambda (mid, cur_tags): (
-                    mid, map(lambda t: int(t in cur_tags), all_tags)
-                     )
-                )
+        lambda (mid, cur_tags): (
+            mid, map(lambda t: int(t in cur_tags), all_tags)))
     nof = len(all_tags)
     cfi = {x: 2 for x in xrange(nof)}
     return (indicators, nof, cfi)
