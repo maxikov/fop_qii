@@ -1,0 +1,452 @@
+2017-04-02 14:51:06,003 - __main__ - DEBUG - rank: 16, lmbda: 0.02, num_iter: 250, num_partitions: 4
+2017-04-02 14:51:06,003 - __main__ - DEBUG - data_path: /longterm/sophiak/datasets/ml-20m/, checkpoint_dir: checkpoint
+2017-04-02 14:51:06,003 - __main__ - DEBUG - regression_model: regression_tree
+2017-04-02 14:51:06,003 - __main__ - DEBUG - nbins: 32
+2017-04-02 14:51:06,003 - __main__ - DEBUG - regression_users: False
+2017-04-02 14:51:06,003 - __main__ - DEBUG - predict_product_features: True
+2017-04-02 14:51:06,003 - __main__ - DEBUG - metadata_sources: ['years', 'average_rating', 'genres', 'imdb_genres', 'imdb_keywords', 'tags']
+2017-04-02 14:51:07,080 - __main__ - DEBUG - Loading ratings
+2017-04-02 14:51:15,520 - __main__ - DEBUG - Done in 8.43994402885 seconds
+2017-04-02 14:51:15,520 - __main__ - DEBUG - Loading movies
+2017-04-02 14:51:16,109 - __main__ - DEBUG - Done in 0.58811712265 seconds
+2017-04-02 14:51:16,109 - __main__ - DEBUG - 27278 movies loaded
+2017-04-02 14:51:45,738 - __main__ - DEBUG - 20000263 records in the training set
+2017-04-02 14:51:50,383 - __main__ - DEBUG - 26744 unique movies in the training set
+2017-04-02 14:51:50,384 - __main__ - DEBUG - Training the average rating model
+2017-04-02 14:52:34,540 - __main__ - DEBUG - Done in 44.1564860344 seconds
+2017-04-02 14:52:34,560 - __main__ - DEBUG - Loading years
+2017-04-02 14:52:34,656 - __main__ - DEBUG - Done in 0.0961329936981 seconds
+2017-04-02 14:52:34,656 - __main__ - DEBUG - 27278 records of 1 features loaded
+2017-04-02 14:52:34,803 - __main__ - DEBUG - No missing IDs
+2017-04-02 14:52:34,804 - __main__ - DEBUG - Loading genres
+2017-04-02 14:52:35,093 - __main__ - DEBUG - Done in 0.289662122726 seconds
+2017-04-02 14:52:35,093 - __main__ - DEBUG - 27278 records of 20 features loaded
+2017-04-02 14:52:35,230 - __main__ - DEBUG - No missing IDs
+2017-04-02 14:52:35,275 - __main__ - DEBUG - Loading tags
+2017-04-02 14:53:07,594 - __main__ - DEBUG - Done in 32.3185181618 seconds
+2017-04-02 14:53:07,594 - __main__ - DEBUG - 19545 records of 38644 features loaded
+2017-04-02 14:53:37,541 - __main__ - DEBUG - 7733 IDs are missing. Adding empty records for them
+2017-04-02 14:53:52,181 - __main__ - DEBUG - Done in 14.6393399239 seconds
+2017-04-02 14:53:52,204 - __main__ - DEBUG - Loading imdb_keywords
+2017-04-02 14:54:13,789 - __main__ - DEBUG - Done in 21.5848720074 seconds
+2017-04-02 14:54:13,789 - __main__ - DEBUG - 7229 records of 61373 features loaded
+2017-04-02 14:54:31,764 - __main__ - DEBUG - 20049 IDs are missing. Adding empty records for them
+2017-04-02 14:55:40,661 - __main__ - DEBUG - Done in 68.8975830078 seconds
+2017-04-02 14:55:40,711 - __main__ - DEBUG - Loading imdb_genres
+2017-04-02 14:55:40,959 - __main__ - DEBUG - Done in 0.248274803162 seconds
+2017-04-02 14:55:40,959 - __main__ - DEBUG - 7229 records of 28 features loaded
+2017-04-02 14:55:41,052 - __main__ - DEBUG - 20049 IDs are missing. Adding empty records for them
+2017-04-02 14:55:41,149 - __main__ - DEBUG - Done in 0.0966851711273 seconds
+2017-04-02 14:55:41,169 - __main__ - DEBUG - Loading average_rating
+2017-04-02 14:55:41,244 - __main__ - DEBUG - Done in 0.0750889778137 seconds
+2017-04-02 14:55:41,244 - __main__ - DEBUG - 26744 records of 1 features loaded
+2017-04-02 14:55:41,322 - __main__ - DEBUG - 534 IDs are missing. Adding empty records for them
+2017-04-02 14:55:41,335 - __main__ - DEBUG - Done in 0.0136179924011 seconds
+2017-04-02 14:55:41,356 - __main__ - DEBUG - Training ALS recommender
+2017-04-02 15:07:25,727 - __main__ - DEBUG - Done in 704.37114501 seconds
+2017-04-02 15:07:25,727 - __main__ - DEBUG - Fetching all products from the training set
+2017-04-02 15:07:30,369 - __main__ - DEBUG - Done in 4.64199590683 seconds
+2017-04-02 15:07:30,369 - __main__ - DEBUG - 26744 products collected
+2017-04-02 15:07:30,369 - __main__ - DEBUG - Fetching all products in model
+2017-04-02 15:07:30,592 - __main__ - DEBUG - Done in 0.223050117493 seconds
+2017-04-02 15:07:30,593 - __main__ - DEBUG - 26744 products collected
+2017-04-02 15:07:30,595 - __main__ - DEBUG - 0 products are missing
+2017-04-02 15:07:30,595 - __main__ - DEBUG - Computing model predictions
+2017-04-02 15:07:40,746 - __main__ - DEBUG - Done in 10.1511321068 seconds
+2017-04-02 15:07:40,746 - __main__ - DEBUG - Computing mean error
+2017-04-02 15:27:08,103 - __main__ - DEBUG - Done in 1167.35660195 seconds
+2017-04-02 15:27:08,103 - __main__ - DEBUG - Mean error: 0.52292892798, RMSE: 0.684909815207
+2017-04-02 15:27:08,116 - __main__ - DEBUG - Computing mean feature values
+2017-04-02 15:27:08,402 - __main__ - DEBUG - Done in 0.286156177521 seconds
+2017-04-02 15:27:08,402 - __main__ - DEBUG - Mean product feature values: {0: 0.30050910531716585, 1: -0.827059200168907, 2: 0.3345674230617906, 3: 0.19936070542875056, 4: 0.25097006566465807, 5: 0.33646347046992486, 6: 0.43007827530515774, 7: -0.6923216560282992, 8: -0.6363915791219291, 9: -0.2065632197788722, 10: -0.08349126642191808, 11: 0.07266430484084883, 12: 0.30513364058357273, 13: 0.31096986262400916, 14: 0.3798068322457293, 15: -0.12318292530744099}
+2017-04-02 15:27:08,402 - __main__ - DEBUG - Processing feature 0
+2017-04-02 15:27:08,403 - __main__ - DEBUG - Building data set
+2017-04-02 15:27:08,417 - __main__ - DEBUG - Done in 0.0146701335907 seconds
+2017-04-02 15:27:08,418 - __main__ - DEBUG - Training regression_tree
+2017-04-02 15:39:50,228 - __main__ - DEBUG - Done in 761.806159019 seconds
+2017-04-02 15:39:50,402 - __main__ - DEBUG - Evaluating the model
+2017-04-02 15:42:02,804 - __main__ - DEBUG - Done in 132.401752949 seconds
+2017-04-02 15:42:05,357 - __main__ - DEBUG - RMSE: 0.0089840922898, variance explained: 0.35113976201, mean absolute error: 0.260018189484,
+2017-04-02 15:42:05,357 - __main__ - DEBUG - MRAE: 6.54815087788
+2017-04-02 15:42:05,358 - __main__ - DEBUG - Computing predictions of the model with replaced feature 0
+2017-04-02 15:42:05,358 - __main__ - DEBUG - Replacing original feature 0 with predicted values
+2017-04-02 15:42:05,370 - __main__ - DEBUG - Done in 0.0117859840393 seconds
+2017-04-02 15:43:22,719 - __main__ - DEBUG - Done in 77.3492958546 seconds
+2017-04-02 15:43:22,719 - __main__ - DEBUG - Computing replaced mean error relative to the baseline model
+2017-04-02 15:54:13,207 - __main__ - DEBUG - Done in 650.487511873 seconds
+2017-04-02 15:54:13,251 - __main__ - DEBUG - Replaced mean error baseline: 0.0939286631235
+2017-04-02 15:54:13,253 - __main__ - DEBUG - Randomizing feature 0
+2017-04-02 15:54:13,435 - __main__ - DEBUG - Done in 0.181789159775 seconds
+2017-04-02 15:54:13,435 - __main__ - DEBUG - Computing predictions of the model with randomized feature 0
+2017-04-02 15:54:14,261 - __main__ - DEBUG - Done in 0.825316905975 seconds
+2017-04-02 15:54:14,261 - __main__ - DEBUG - Computing replaced mean error relative to the baseline model
+2017-04-02 16:05:20,921 - __main__ - DEBUG - Done in 666.660063028 seconds
+2017-04-02 16:05:20,955 - __main__ - DEBUG - Radnomized mean error baseline: 0.158931681485
+2017-04-02 16:05:20,957 - __main__ - DEBUG - Processing feature 1
+2017-04-02 16:05:20,957 - __main__ - DEBUG - Building data set
+2017-04-02 16:05:20,977 - __main__ - DEBUG - Done in 0.0197370052338 seconds
+2017-04-02 16:05:20,978 - __main__ - DEBUG - Training regression_tree
+2017-04-02 16:12:59,427 - __main__ - DEBUG - Done in 458.446160078 seconds
+2017-04-02 16:12:59,655 - __main__ - DEBUG - Evaluating the model
+2017-04-02 16:15:07,796 - __main__ - DEBUG - Done in 128.114429951 seconds
+2017-04-02 16:15:10,097 - __main__ - DEBUG - RMSE: 0.0371527406083, variance explained: 0.34491361757, mean absolute error: 0.2648648715,
+2017-04-02 16:15:10,098 - __main__ - DEBUG - MRAE: 1.46551951203
+2017-04-02 16:15:10,098 - __main__ - DEBUG - Computing predictions of the model with replaced feature 1
+2017-04-02 16:15:10,098 - __main__ - DEBUG - Replacing original feature 1 with predicted values
+2017-04-02 16:15:10,127 - __main__ - DEBUG - Done in 0.0281388759613 seconds
+2017-04-02 16:16:26,723 - __main__ - DEBUG - Done in 76.4656209946 seconds
+2017-04-02 16:16:26,723 - __main__ - DEBUG - Computing replaced mean error relative to the baseline model
+2017-04-02 16:27:10,002 - __main__ - DEBUG - Done in 643.279016018 seconds
+2017-04-02 16:27:10,160 - __main__ - DEBUG - Replaced mean error baseline: 0.2582387935
+2017-04-02 16:27:10,161 - __main__ - DEBUG - Randomizing feature 1
+2017-04-02 16:27:10,352 - __main__ - DEBUG - Done in 0.191140890121 seconds
+2017-04-02 16:27:10,352 - __main__ - DEBUG - Computing predictions of the model with randomized feature 1
+2017-04-02 16:27:11,209 - __main__ - DEBUG - Done in 0.85705280304 seconds
+2017-04-02 16:27:11,209 - __main__ - DEBUG - Computing replaced mean error relative to the baseline model
+2017-04-02 16:37:37,076 - __main__ - DEBUG - Done in 625.866057158 seconds
+2017-04-02 16:37:37,130 - __main__ - DEBUG - Radnomized mean error baseline: 0.502020872205
+2017-04-02 16:37:37,131 - __main__ - DEBUG - Processing feature 2
+2017-04-02 16:37:37,131 - __main__ - DEBUG - Building data set
+2017-04-02 16:37:37,149 - __main__ - DEBUG - Done in 0.0179979801178 seconds
+2017-04-02 16:37:37,150 - __main__ - DEBUG - Training regression_tree
+2017-04-02 16:45:09,599 - __main__ - DEBUG - Done in 452.446124077 seconds
+2017-04-02 16:45:09,789 - __main__ - DEBUG - Evaluating the model
+2017-04-02 16:47:22,706 - __main__ - DEBUG - Done in 132.917220116 seconds
+2017-04-02 16:47:24,936 - __main__ - DEBUG - RMSE: 0.00960155952755, variance explained: 0.356452483437, mean absolute error: 0.260766060633,
+2017-04-02 16:47:24,937 - __main__ - DEBUG - MRAE: 4.14508363644
+2017-04-02 16:47:24,938 - __main__ - DEBUG - Computing predictions of the model with replaced feature 2
+2017-04-02 16:47:24,939 - __main__ - DEBUG - Replacing original feature 2 with predicted values
+2017-04-02 16:47:24,992 - __main__ - DEBUG - Done in 0.0536248683929 seconds
+2017-04-02 16:48:41,115 - __main__ - DEBUG - Done in 75.9498040676 seconds
+2017-04-02 16:48:41,115 - __main__ - DEBUG - Computing replaced mean error relative to the baseline model
+2017-04-02 16:59:04,257 - __main__ - DEBUG - Done in 623.14178896 seconds
+2017-04-02 16:59:04,327 - __main__ - DEBUG - Replaced mean error baseline: 0.0917377718901
+2017-04-02 16:59:04,329 - __main__ - DEBUG - Randomizing feature 2
+2017-04-02 16:59:04,419 - __main__ - DEBUG - Done in 0.0893950462341 seconds
+2017-04-02 16:59:04,419 - __main__ - DEBUG - Computing predictions of the model with randomized feature 2
+2017-04-02 16:59:05,295 - __main__ - DEBUG - Done in 0.876567840576 seconds
+2017-04-02 16:59:05,296 - __main__ - DEBUG - Computing replaced mean error relative to the baseline model
+2017-04-02 17:09:39,087 - __main__ - DEBUG - Done in 633.790143013 seconds
+2017-04-02 17:09:39,125 - __main__ - DEBUG - Radnomized mean error baseline: 0.162928351775
+2017-04-02 17:09:39,126 - __main__ - DEBUG - Processing feature 3
+2017-04-02 17:09:39,126 - __main__ - DEBUG - Building data set
+2017-04-02 17:09:39,144 - __main__ - DEBUG - Done in 0.017786026001 seconds
+2017-04-02 17:09:39,145 - __main__ - DEBUG - Training regression_tree
+2017-04-02 17:18:32,621 - __main__ - DEBUG - Done in 533.473345995 seconds
+2017-04-02 17:18:32,731 - __main__ - DEBUG - Evaluating the model
+2017-04-02 17:20:44,240 - __main__ - DEBUG - Done in 131.508368969 seconds
+2017-04-02 17:20:46,538 - __main__ - DEBUG - RMSE: 0.0149870250009, variance explained: 0.357986557452, mean absolute error: 0.266928472157,
+2017-04-02 17:20:46,538 - __main__ - DEBUG - MRAE: 4.56051297381
+2017-04-02 17:20:46,538 - __main__ - DEBUG - Computing predictions of the model with replaced feature 3
+2017-04-02 17:20:46,539 - __main__ - DEBUG - Replacing original feature 3 with predicted values
+2017-04-02 17:20:46,565 - __main__ - DEBUG - Done in 0.0264689922333 seconds
+2017-04-02 17:22:02,804 - __main__ - DEBUG - Done in 76.0381100178 seconds
+2017-04-02 17:22:02,805 - __main__ - DEBUG - Computing replaced mean error relative to the baseline model
+2017-04-02 17:32:37,597 - __main__ - DEBUG - Done in 634.792141199 seconds
+2017-04-02 17:32:37,828 - __main__ - DEBUG - Replaced mean error baseline: 0.0703978077872
+2017-04-02 17:32:37,831 - __main__ - DEBUG - Randomizing feature 3
+2017-04-02 17:32:38,007 - __main__ - DEBUG - Done in 0.175702095032 seconds
+2017-04-02 17:32:38,007 - __main__ - DEBUG - Computing predictions of the model with randomized feature 3
+2017-04-02 17:32:38,916 - __main__ - DEBUG - Done in 0.908529996872 seconds
+2017-04-02 17:32:38,916 - __main__ - DEBUG - Computing replaced mean error relative to the baseline model
+2017-04-02 17:43:16,918 - __main__ - DEBUG - Done in 638.002037048 seconds
+2017-04-02 17:43:16,946 - __main__ - DEBUG - Radnomized mean error baseline: 0.108772967225
+2017-04-02 17:43:16,948 - __main__ - DEBUG - Processing feature 4
+2017-04-02 17:43:16,948 - __main__ - DEBUG - Building data set
+2017-04-02 17:43:16,964 - __main__ - DEBUG - Done in 0.0153429508209 seconds
+2017-04-02 17:43:16,965 - __main__ - DEBUG - Training regression_tree
+2017-04-02 17:51:23,039 - __main__ - DEBUG - Done in 486.071493864 seconds
+2017-04-02 17:51:23,290 - __main__ - DEBUG - Evaluating the model
+2017-04-02 17:53:34,469 - __main__ - DEBUG - Done in 131.178373814 seconds
+2017-04-02 17:53:36,695 - __main__ - DEBUG - RMSE: 0.00914303360358, variance explained: 0.350648574255, mean absolute error: 0.258175198666,
+2017-04-02 17:53:36,695 - __main__ - DEBUG - MRAE: 3.65289418937
+2017-04-02 17:53:36,696 - __main__ - DEBUG - Computing predictions of the model with replaced feature 4
+2017-04-02 17:53:36,697 - __main__ - DEBUG - Replacing original feature 4 with predicted values
+2017-04-02 17:53:36,733 - __main__ - DEBUG - Done in 0.0361289978027 seconds
+2017-04-02 17:54:52,422 - __main__ - DEBUG - Done in 75.4750452042 seconds
+2017-04-02 17:54:52,422 - __main__ - DEBUG - Computing replaced mean error relative to the baseline model
+2017-04-02 18:05:25,908 - __main__ - DEBUG - Done in 633.486221075 seconds
+2017-04-02 18:05:26,000 - __main__ - DEBUG - Replaced mean error baseline: 0.0615132127461
+2017-04-02 18:05:26,001 - __main__ - DEBUG - Randomizing feature 4
+2017-04-02 18:05:26,090 - __main__ - DEBUG - Done in 0.0879039764404 seconds
+2017-04-02 18:05:26,091 - __main__ - DEBUG - Computing predictions of the model with randomized feature 4
+2017-04-02 18:05:27,033 - __main__ - DEBUG - Done in 0.942420005798 seconds
+2017-04-02 18:05:27,033 - __main__ - DEBUG - Computing replaced mean error relative to the baseline model
+2017-04-02 18:16:25,475 - __main__ - DEBUG - Done in 658.441403866 seconds
+2017-04-02 18:16:25,500 - __main__ - DEBUG - Radnomized mean error baseline: 0.10380555938
+2017-04-02 18:16:25,501 - __main__ - DEBUG - Processing feature 5
+2017-04-02 18:16:25,501 - __main__ - DEBUG - Building data set
+2017-04-02 18:16:25,514 - __main__ - DEBUG - Done in 0.0125079154968 seconds
+2017-04-02 18:16:25,516 - __main__ - DEBUG - Training regression_tree
+2017-04-02 18:23:51,508 - __main__ - DEBUG - Done in 445.992399931 seconds
+2017-04-02 18:23:51,544 - __main__ - DEBUG - Evaluating the model
+2017-04-02 18:25:56,733 - __main__ - DEBUG - Done in 125.189206123 seconds
+2017-04-02 18:25:59,049 - __main__ - DEBUG - RMSE: 0.0508888733251, variance explained: 0.36722139584, mean absolute error: 0.277646046135,
+2017-04-02 18:25:59,049 - __main__ - DEBUG - MRAE: 3.45794947446
+2017-04-02 18:25:59,050 - __main__ - DEBUG - Computing predictions of the model with replaced feature 5
+2017-04-02 18:25:59,050 - __main__ - DEBUG - Replacing original feature 5 with predicted values
+2017-04-02 18:25:59,063 - __main__ - DEBUG - Done in 0.0129098892212 seconds
+2017-04-02 18:27:13,811 - __main__ - DEBUG - Done in 74.7476990223 seconds
+2017-04-02 18:27:13,811 - __main__ - DEBUG - Computing replaced mean error relative to the baseline model
+2017-04-02 18:37:46,229 - __main__ - DEBUG - Done in 632.417834997 seconds
+2017-04-02 18:37:46,270 - __main__ - DEBUG - Replaced mean error baseline: 0.113921759749
+2017-04-02 18:37:46,270 - __main__ - DEBUG - Randomizing feature 5
+2017-04-02 18:37:46,361 - __main__ - DEBUG - Done in 0.0910179615021 seconds
+2017-04-02 18:37:46,361 - __main__ - DEBUG - Computing predictions of the model with randomized feature 5
+2017-04-02 18:37:47,148 - __main__ - DEBUG - Done in 0.786535978317 seconds
+2017-04-02 18:37:47,148 - __main__ - DEBUG - Computing replaced mean error relative to the baseline model
+2017-04-02 18:48:04,622 - __main__ - DEBUG - Done in 617.473742008 seconds
+2017-04-02 18:48:04,648 - __main__ - DEBUG - Radnomized mean error baseline: 0.223321135302
+2017-04-02 18:48:04,649 - __main__ - DEBUG - Processing feature 6
+2017-04-02 18:48:04,649 - __main__ - DEBUG - Building data set
+2017-04-02 18:48:04,670 - __main__ - DEBUG - Done in 0.0201630592346 seconds
+2017-04-02 18:48:04,670 - __main__ - DEBUG - Training regression_tree
+2017-04-02 18:55:42,098 - __main__ - DEBUG - Done in 457.425526142 seconds
+2017-04-02 18:55:42,268 - __main__ - DEBUG - Evaluating the model
+2017-04-02 18:57:47,538 - __main__ - DEBUG - Done in 125.269854069 seconds
+2017-04-02 18:57:49,838 - __main__ - DEBUG - RMSE: 0.0173867691034, variance explained: 0.355345352541, mean absolute error: 0.265841467675,
+2017-04-02 18:57:49,839 - __main__ - DEBUG - MRAE: 5.0894386352
+2017-04-02 18:57:49,839 - __main__ - DEBUG - Computing predictions of the model with replaced feature 6
+2017-04-02 18:57:49,839 - __main__ - DEBUG - Replacing original feature 6 with predicted values
+2017-04-02 18:57:49,863 - __main__ - DEBUG - Done in 0.023197889328 seconds
+2017-04-02 18:59:04,619 - __main__ - DEBUG - Done in 74.6494948864 seconds
+2017-04-02 18:59:04,619 - __main__ - DEBUG - Computing replaced mean error relative to the baseline model
+2017-04-02 19:09:46,938 - __main__ - DEBUG - Done in 642.31892395 seconds
+2017-04-02 19:09:46,979 - __main__ - DEBUG - Replaced mean error baseline: 0.095195221846
+2017-04-02 19:09:46,980 - __main__ - DEBUG - Randomizing feature 6
+2017-04-02 19:09:47,079 - __main__ - DEBUG - Done in 0.099081993103 seconds
+2017-04-02 19:09:47,079 - __main__ - DEBUG - Computing predictions of the model with randomized feature 6
+2017-04-02 19:09:47,904 - __main__ - DEBUG - Done in 0.825188875198 seconds
+2017-04-02 19:09:47,904 - __main__ - DEBUG - Computing replaced mean error relative to the baseline model
+2017-04-02 19:20:17,304 - __main__ - DEBUG - Done in 629.399220228 seconds
+2017-04-02 19:20:17,331 - __main__ - DEBUG - Radnomized mean error baseline: 0.156046104298
+2017-04-02 19:20:17,332 - __main__ - DEBUG - Processing feature 7
+2017-04-02 19:20:17,333 - __main__ - DEBUG - Building data set
+2017-04-02 19:20:17,348 - __main__ - DEBUG - Done in 0.0142900943756 seconds
+2017-04-02 19:20:17,349 - __main__ - DEBUG - Training regression_tree
+2017-04-02 19:28:33,290 - __main__ - DEBUG - Done in 495.940924883 seconds
+2017-04-02 19:28:33,356 - __main__ - DEBUG - Evaluating the model
+2017-04-02 19:30:41,761 - __main__ - DEBUG - Done in 128.405332804 seconds
+2017-04-02 19:30:44,004 - __main__ - DEBUG - RMSE: 0.0191246143192, variance explained: 0.346197431633, mean absolute error: 0.259099040718,
+2017-04-02 19:30:44,004 - __main__ - DEBUG - MRAE: 1.59893666521
+2017-04-02 19:30:44,005 - __main__ - DEBUG - Computing predictions of the model with replaced feature 7
+2017-04-02 19:30:44,005 - __main__ - DEBUG - Replacing original feature 7 with predicted values
+2017-04-02 19:30:44,021 - __main__ - DEBUG - Done in 0.0153880119324 seconds
+2017-04-02 19:31:58,893 - __main__ - DEBUG - Done in 74.8393599987 seconds
+2017-04-02 19:31:58,893 - __main__ - DEBUG - Computing replaced mean error relative to the baseline model
+2017-04-02 19:42:20,674 - __main__ - DEBUG - Done in 621.781063795 seconds
+2017-04-02 19:42:20,921 - __main__ - DEBUG - Replaced mean error baseline: 0.138134467248
+2017-04-02 19:42:20,921 - __main__ - DEBUG - Randomizing feature 7
+2017-04-02 19:42:21,019 - __main__ - DEBUG - Done in 0.0970680713654 seconds
+2017-04-02 19:42:21,019 - __main__ - DEBUG - Computing predictions of the model with randomized feature 7
+2017-04-02 19:42:21,921 - __main__ - DEBUG - Done in 0.90106010437 seconds
+2017-04-02 19:42:21,921 - __main__ - DEBUG - Computing replaced mean error relative to the baseline model
+2017-04-02 19:53:12,334 - __main__ - DEBUG - Done in 650.413151026 seconds
+2017-04-02 19:53:12,363 - __main__ - DEBUG - Radnomized mean error baseline: 0.246417577969
+2017-04-02 19:53:12,364 - __main__ - DEBUG - Processing feature 8
+2017-04-02 19:53:12,365 - __main__ - DEBUG - Building data set
+2017-04-02 19:53:12,381 - __main__ - DEBUG - Done in 0.0159029960632 seconds
+2017-04-02 19:53:12,382 - __main__ - DEBUG - Training regression_tree
+2017-04-02 20:00:49,209 - __main__ - DEBUG - Done in 456.826749086 seconds
+2017-04-02 20:00:49,264 - __main__ - DEBUG - Evaluating the model
+2017-04-02 20:02:54,543 - __main__ - DEBUG - Done in 125.279533148 seconds
+2017-04-02 20:02:56,913 - __main__ - DEBUG - RMSE: 0.0200445436917, variance explained: 0.320012341868, mean absolute error: 0.239702219159,
+2017-04-02 20:02:56,913 - __main__ - DEBUG - MRAE: 2.91919898779
+2017-04-02 20:02:56,913 - __main__ - DEBUG - Computing predictions of the model with replaced feature 8
+2017-04-02 20:02:56,913 - __main__ - DEBUG - Replacing original feature 8 with predicted values
+2017-04-02 20:02:56,929 - __main__ - DEBUG - Done in 0.0158760547638 seconds
+2017-04-02 20:04:11,341 - __main__ - DEBUG - Done in 74.3971788883 seconds
+2017-04-02 20:04:11,341 - __main__ - DEBUG - Computing replaced mean error relative to the baseline model
+2017-04-02 20:14:52,406 - __main__ - DEBUG - Done in 641.06509304 seconds
+2017-04-02 20:14:52,445 - __main__ - DEBUG - Replaced mean error baseline: 0.186141992237
+2017-04-02 20:14:52,446 - __main__ - DEBUG - Randomizing feature 8
+2017-04-02 20:14:52,540 - __main__ - DEBUG - Done in 0.0941560268402 seconds
+2017-04-02 20:14:52,541 - __main__ - DEBUG - Computing predictions of the model with randomized feature 8
+2017-04-02 20:14:53,293 - __main__ - DEBUG - Done in 0.752377986908 seconds
+2017-04-02 20:14:53,293 - __main__ - DEBUG - Computing replaced mean error relative to the baseline model
+2017-04-02 20:25:41,703 - __main__ - DEBUG - Done in 648.409852982 seconds
+2017-04-02 20:25:41,729 - __main__ - DEBUG - Radnomized mean error baseline: 0.335045639235
+2017-04-02 20:25:41,730 - __main__ - DEBUG - Processing feature 9
+2017-04-02 20:25:41,730 - __main__ - DEBUG - Building data set
+2017-04-02 20:25:41,745 - __main__ - DEBUG - Done in 0.0141820907593 seconds
+2017-04-02 20:25:41,745 - __main__ - DEBUG - Training regression_tree
+2017-04-02 20:32:24,778 - __main__ - DEBUG - Done in 403.033039093 seconds
+2017-04-02 20:32:24,822 - __main__ - DEBUG - Evaluating the model
+2017-04-02 20:34:30,332 - __main__ - DEBUG - Done in 125.510590076 seconds
+2017-04-02 20:34:32,722 - __main__ - DEBUG - RMSE: 0.0437375936104, variance explained: 0.347375575137, mean absolute error: 0.258402514758,
+2017-04-02 20:34:32,722 - __main__ - DEBUG - MRAE: 2.62155857909
+2017-04-02 20:34:32,722 - __main__ - DEBUG - Computing predictions of the model with replaced feature 9
+2017-04-02 20:34:32,723 - __main__ - DEBUG - Replacing original feature 9 with predicted values
+2017-04-02 20:34:32,739 - __main__ - DEBUG - Done in 0.0154240131378 seconds
+2017-04-02 20:35:47,301 - __main__ - DEBUG - Done in 74.5392699242 seconds
+2017-04-02 20:35:47,301 - __main__ - DEBUG - Computing replaced mean error relative to the baseline model
+2017-04-02 20:46:17,855 - __main__ - DEBUG - Done in 630.554006815 seconds
+2017-04-02 20:46:17,895 - __main__ - DEBUG - Replaced mean error baseline: 0.0874578183185
+2017-04-02 20:46:17,896 - __main__ - DEBUG - Randomizing feature 9
+2017-04-02 20:46:17,992 - __main__ - DEBUG - Done in 0.0948219299316 seconds
+2017-04-02 20:46:17,992 - __main__ - DEBUG - Computing predictions of the model with randomized feature 9
+2017-04-02 20:46:18,758 - __main__ - DEBUG - Done in 0.765917062759 seconds
+2017-04-02 20:46:18,758 - __main__ - DEBUG - Computing replaced mean error relative to the baseline model
+2017-04-02 20:56:35,703 - __main__ - DEBUG - Done in 616.945524931 seconds
+2017-04-02 20:56:35,737 - __main__ - DEBUG - Radnomized mean error baseline: 0.18882568332
+2017-04-02 20:56:35,738 - __main__ - DEBUG - Processing feature 10
+2017-04-02 20:56:35,739 - __main__ - DEBUG - Building data set
+2017-04-02 20:56:35,755 - __main__ - DEBUG - Done in 0.0160098075867 seconds
+2017-04-02 20:56:35,756 - __main__ - DEBUG - Training regression_tree
+2017-04-02 21:03:57,424 - __main__ - DEBUG - Done in 441.665343046 seconds
+2017-04-02 21:03:57,609 - __main__ - DEBUG - Evaluating the model
+2017-04-02 21:06:03,118 - __main__ - DEBUG - Done in 125.509526968 seconds
+2017-04-02 21:06:05,343 - __main__ - DEBUG - RMSE: 0.0311528081522, variance explained: 0.371649567407, mean absolute error: 0.278934405725,
+2017-04-02 21:06:05,343 - __main__ - DEBUG - MRAE: 2.83074604764
+2017-04-02 21:06:05,344 - __main__ - DEBUG - Computing predictions of the model with replaced feature 10
+2017-04-02 21:06:05,351 - __main__ - DEBUG - Replacing original feature 10 with predicted values
+2017-04-02 21:06:05,380 - __main__ - DEBUG - Done in 0.0288779735565 seconds
+2017-04-02 21:07:20,422 - __main__ - DEBUG - Done in 74.9263110161 seconds
+2017-04-02 21:07:20,422 - __main__ - DEBUG - Computing replaced mean error relative to the baseline model
+2017-04-02 21:17:58,089 - __main__ - DEBUG - Done in 637.666549921 seconds
+2017-04-02 21:17:58,128 - __main__ - DEBUG - Replaced mean error baseline: 0.0691675988089
+2017-04-02 21:17:58,128 - __main__ - DEBUG - Randomizing feature 10
+2017-04-02 21:17:58,222 - __main__ - DEBUG - Done in 0.0920951366425 seconds
+2017-04-02 21:17:58,222 - __main__ - DEBUG - Computing predictions of the model with randomized feature 10
+2017-04-02 21:17:59,650 - __main__ - DEBUG - Done in 1.4283721447 seconds
+2017-04-02 21:17:59,650 - __main__ - DEBUG - Computing replaced mean error relative to the baseline model
+2017-04-02 21:28:18,255 - __main__ - DEBUG - Done in 618.605025053 seconds
+2017-04-02 21:28:18,288 - __main__ - DEBUG - Radnomized mean error baseline: 0.128098961874
+2017-04-02 21:28:18,289 - __main__ - DEBUG - Processing feature 11
+2017-04-02 21:28:18,289 - __main__ - DEBUG - Building data set
+2017-04-02 21:28:18,303 - __main__ - DEBUG - Done in 0.0133080482483 seconds
+2017-04-02 21:28:18,303 - __main__ - DEBUG - Training regression_tree
+2017-04-02 21:35:29,794 - __main__ - DEBUG - Done in 431.49080801 seconds
+2017-04-02 21:35:29,849 - __main__ - DEBUG - Evaluating the model
+2017-04-02 21:37:34,657 - __main__ - DEBUG - Done in 124.807389021 seconds
+2017-04-02 21:37:36,902 - __main__ - DEBUG - RMSE: 0.0129716494127, variance explained: 0.366331243544, mean absolute error: 0.271963749401,
+2017-04-02 21:37:36,902 - __main__ - DEBUG - MRAE: 4.71488491429
+2017-04-02 21:37:36,902 - __main__ - DEBUG - Computing predictions of the model with replaced feature 11
+2017-04-02 21:37:36,903 - __main__ - DEBUG - Replacing original feature 11 with predicted values
+2017-04-02 21:37:36,924 - __main__ - DEBUG - Done in 0.0212450027466 seconds
+2017-04-02 21:38:51,033 - __main__ - DEBUG - Done in 74.0976688862 seconds
+2017-04-02 21:38:51,033 - __main__ - DEBUG - Computing replaced mean error relative to the baseline model
+2017-04-02 21:49:26,433 - __main__ - DEBUG - Done in 635.400434971 seconds
+2017-04-02 21:49:26,476 - __main__ - DEBUG - Replaced mean error baseline: 0.0715080498822
+2017-04-02 21:49:26,476 - __main__ - DEBUG - Randomizing feature 11
+2017-04-02 21:49:26,575 - __main__ - DEBUG - Done in 0.0981321334839 seconds
+2017-04-02 21:49:26,575 - __main__ - DEBUG - Computing predictions of the model with randomized feature 11
+2017-04-02 21:49:27,314 - __main__ - DEBUG - Done in 0.738842964172 seconds
+2017-04-02 21:49:27,314 - __main__ - DEBUG - Computing replaced mean error relative to the baseline model
+2017-04-02 21:59:51,410 - __main__ - DEBUG - Done in 624.095699787 seconds
+2017-04-02 21:59:51,447 - __main__ - DEBUG - Radnomized mean error baseline: 0.117529211798
+2017-04-02 21:59:51,448 - __main__ - DEBUG - Processing feature 12
+2017-04-02 21:59:51,448 - __main__ - DEBUG - Building data set
+2017-04-02 21:59:51,462 - __main__ - DEBUG - Done in 0.0137770175934 seconds
+2017-04-02 21:59:51,462 - __main__ - DEBUG - Training regression_tree
+2017-04-02 22:08:38,942 - __main__ - DEBUG - Done in 527.477297068 seconds
+2017-04-02 22:08:39,179 - __main__ - DEBUG - Evaluating the model
+2017-04-02 22:10:49,139 - __main__ - DEBUG - Done in 129.96009016 seconds
+2017-04-02 22:10:51,370 - __main__ - DEBUG - RMSE: 0.00893273919947, variance explained: 0.371503551263, mean absolute error: 0.278303965605,
+2017-04-02 22:10:51,370 - __main__ - DEBUG - MRAE: 4.54730567287
+2017-04-02 22:10:51,370 - __main__ - DEBUG - Computing predictions of the model with replaced feature 12
+2017-04-02 22:10:51,371 - __main__ - DEBUG - Replacing original feature 12 with predicted values
+2017-04-02 22:10:51,402 - __main__ - DEBUG - Done in 0.0310010910034 seconds
+2017-04-02 22:12:07,468 - __main__ - DEBUG - Done in 75.8781819344 seconds
+2017-04-02 22:12:07,468 - __main__ - DEBUG - Computing replaced mean error relative to the baseline model
+2017-04-02 22:22:41,545 - __main__ - DEBUG - Done in 634.07664299 seconds
+2017-04-02 22:22:41,695 - __main__ - DEBUG - Replaced mean error baseline: 0.0866038098682
+2017-04-02 22:22:41,698 - __main__ - DEBUG - Randomizing feature 12
+2017-04-02 22:22:41,806 - __main__ - DEBUG - Done in 0.108366966248 seconds
+2017-04-02 22:22:41,806 - __main__ - DEBUG - Computing predictions of the model with randomized feature 12
+2017-04-02 22:22:42,674 - __main__ - DEBUG - Done in 0.867397069931 seconds
+2017-04-02 22:22:42,674 - __main__ - DEBUG - Computing replaced mean error relative to the baseline model
+2017-04-02 22:33:09,258 - __main__ - DEBUG - Done in 626.583492994 seconds
+2017-04-02 22:33:09,306 - __main__ - DEBUG - Radnomized mean error baseline: 0.146938887747
+2017-04-02 22:33:09,307 - __main__ - DEBUG - Processing feature 13
+2017-04-02 22:33:09,308 - __main__ - DEBUG - Building data set
+2017-04-02 22:33:09,345 - __main__ - DEBUG - Done in 0.0369200706482 seconds
+2017-04-02 22:33:09,346 - __main__ - DEBUG - Training regression_tree
+2017-04-02 22:41:15,611 - __main__ - DEBUG - Done in 486.26204896 seconds
+2017-04-02 22:41:15,771 - __main__ - DEBUG - Evaluating the model
+2017-04-02 22:43:22,241 - __main__ - DEBUG - Done in 126.469530106 seconds
+2017-04-02 22:43:24,443 - __main__ - DEBUG - RMSE: 0.0190823553199, variance explained: 0.369414856829, mean absolute error: 0.27787659636,
+2017-04-02 22:43:24,443 - __main__ - DEBUG - MRAE: 3.91402836549
+2017-04-02 22:43:24,444 - __main__ - DEBUG - Computing predictions of the model with replaced feature 13
+2017-04-02 22:43:24,444 - __main__ - DEBUG - Replacing original feature 13 with predicted values
+2017-04-02 22:43:24,460 - __main__ - DEBUG - Done in 0.0156741142273 seconds
+2017-04-02 22:44:38,843 - __main__ - DEBUG - Done in 74.3592970371 seconds
+2017-04-02 22:44:38,843 - __main__ - DEBUG - Computing replaced mean error relative to the baseline model
+2017-04-02 22:55:21,154 - __main__ - DEBUG - Done in 642.310702085 seconds
+2017-04-02 22:55:21,195 - __main__ - DEBUG - Replaced mean error baseline: 0.07020330114
+2017-04-02 22:55:21,196 - __main__ - DEBUG - Randomizing feature 13
+2017-04-02 22:55:21,304 - __main__ - DEBUG - Done in 0.107182025909 seconds
+2017-04-02 22:55:21,304 - __main__ - DEBUG - Computing predictions of the model with randomized feature 13
+2017-04-02 22:55:22,087 - __main__ - DEBUG - Done in 0.782871007919 seconds
+2017-04-02 22:55:22,087 - __main__ - DEBUG - Computing replaced mean error relative to the baseline model
+2017-04-02 23:05:52,194 - __main__ - DEBUG - Done in 630.107463837 seconds
+2017-04-02 23:05:52,222 - __main__ - DEBUG - Radnomized mean error baseline: 0.117714120677
+2017-04-02 23:05:52,222 - __main__ - DEBUG - Processing feature 14
+2017-04-02 23:05:52,222 - __main__ - DEBUG - Building data set
+2017-04-02 23:05:52,239 - __main__ - DEBUG - Done in 0.0157918930054 seconds
+2017-04-02 23:05:52,240 - __main__ - DEBUG - Training regression_tree
+2017-04-02 23:13:34,701 - __main__ - DEBUG - Done in 462.460959911 seconds
+2017-04-02 23:13:34,756 - __main__ - DEBUG - Evaluating the model
+2017-04-02 23:15:39,848 - __main__ - DEBUG - Done in 125.091839075 seconds
+2017-04-02 23:15:42,129 - __main__ - DEBUG - RMSE: 0.0104681206555, variance explained: 0.341785108281, mean absolute error: 0.24829022182,
+2017-04-02 23:15:42,129 - __main__ - DEBUG - MRAE: 10.4302726844
+2017-04-02 23:15:42,129 - __main__ - DEBUG - Computing predictions of the model with replaced feature 14
+2017-04-02 23:15:42,129 - __main__ - DEBUG - Replacing original feature 14 with predicted values
+2017-04-02 23:15:42,146 - __main__ - DEBUG - Done in 0.0167970657349 seconds
+2017-04-02 23:16:56,609 - __main__ - DEBUG - Done in 74.4468028545 seconds
+2017-04-02 23:16:56,609 - __main__ - DEBUG - Computing replaced mean error relative to the baseline model
+2017-04-02 23:27:49,159 - __main__ - DEBUG - Done in 652.550502062 seconds
+2017-04-02 23:27:49,201 - __main__ - DEBUG - Replaced mean error baseline: 0.0860456669292
+2017-04-02 23:27:49,202 - __main__ - DEBUG - Randomizing feature 14
+2017-04-02 23:27:49,314 - __main__ - DEBUG - Done in 0.111956119537 seconds
+2017-04-02 23:27:49,314 - __main__ - DEBUG - Computing predictions of the model with randomized feature 14
+2017-04-02 23:27:50,135 - __main__ - DEBUG - Done in 0.820720911026 seconds
+2017-04-02 23:27:50,135 - __main__ - DEBUG - Computing replaced mean error relative to the baseline model
+2017-04-02 23:38:51,242 - __main__ - DEBUG - Done in 661.106768131 seconds
+2017-04-02 23:38:51,269 - __main__ - DEBUG - Radnomized mean error baseline: 0.159226692475
+2017-04-02 23:38:51,271 - __main__ - DEBUG - Processing feature 15
+2017-04-02 23:38:51,272 - __main__ - DEBUG - Building data set
+2017-04-02 23:38:51,284 - __main__ - DEBUG - Done in 0.0121669769287 seconds
+2017-04-02 23:38:51,285 - __main__ - DEBUG - Training regression_tree
+2017-04-02 23:45:53,623 - __main__ - DEBUG - Done in 422.336390018 seconds
+2017-04-02 23:45:53,795 - __main__ - DEBUG - Evaluating the model
+2017-04-02 23:47:59,191 - __main__ - DEBUG - Done in 125.396148205 seconds
+2017-04-02 23:48:01,450 - __main__ - DEBUG - RMSE: 0.0243396837521, variance explained: 0.356395498907, mean absolute error: 0.265232611424,
+2017-04-02 23:48:01,450 - __main__ - DEBUG - MRAE: 3.25589058352
+2017-04-02 23:48:01,450 - __main__ - DEBUG - Computing predictions of the model with replaced feature 15
+2017-04-02 23:48:01,450 - __main__ - DEBUG - Replacing original feature 15 with predicted values
+2017-04-02 23:48:01,479 - __main__ - DEBUG - Done in 0.028284072876 seconds
+2017-04-02 23:49:16,948 - __main__ - DEBUG - Done in 75.3521778584 seconds
+2017-04-02 23:49:16,948 - __main__ - DEBUG - Computing replaced mean error relative to the baseline model
+2017-04-03 00:00:01,624 - __main__ - DEBUG - Done in 644.676521063 seconds
+2017-04-03 00:00:01,661 - __main__ - DEBUG - Replaced mean error baseline: 0.0641591775467
+2017-04-03 00:00:01,662 - __main__ - DEBUG - Randomizing feature 15
+2017-04-03 00:00:01,787 - __main__ - DEBUG - Done in 0.1245470047 seconds
+2017-04-03 00:00:01,787 - __main__ - DEBUG - Computing predictions of the model with randomized feature 15
+2017-04-03 00:00:02,544 - __main__ - DEBUG - Done in 0.756700992584 seconds
+2017-04-03 00:00:02,544 - __main__ - DEBUG - Computing replaced mean error relative to the baseline model
+2017-04-03 00:11:09,169 - __main__ - DEBUG - Done in 666.625764847 seconds
+2017-04-03 00:11:09,197 - __main__ - DEBUG - Radnomized mean error baseline: 0.115554093349
+2017-04-03 00:11:09,209 - __main__ - INFO - Baseline mean error: 0.52292892798
+2017-04-03 00:11:09,209 - __main__ - INFO - baseline RMSE: 0.684909815207
+2017-04-03 00:11:09,214 - __main__ - INFO - 
++---------+---------------+---------------------+--------------------+------------------------+----------------------+----------------------+
+| Feature |      MRAE     | Mean absolute error | Mean feature value | Replaced MERR Baseline | Random MERR Baseline | x better than random |
++---------+---------------+---------------------+--------------------+------------------------+----------------------+----------------------+
+|    1    | 1.46551951203 |     0.2648648715    |  -0.827059200169   |      0.2582387935      |    0.502020872205    |    1.94401803618     |
+|    7    | 1.59893666521 |    0.259099040718   |  -0.692321656028   |     0.138134467248     |    0.246417577969    |    1.78389639369     |
+|    9    | 2.62155857909 |    0.258402514758   |  -0.206563219779   |    0.0874578183185     |    0.18882568332     |    2.15904863568     |
+|    10   | 2.83074604764 |    0.278934405725   |  -0.0834912664219  |    0.0691675988089     |    0.128098961874    |    1.85200822467     |
+|    8    | 2.91919898779 |    0.239702219159   |  -0.636391579122   |     0.186141992237     |    0.335045639235    |    1.79994656342     |
+|    15   | 3.25589058352 |    0.265232611424   |  -0.123182925307   |    0.0641591775467     |    0.115554093349    |    1.80105322057     |
+|    5    | 3.45794947446 |    0.277646046135   |   0.33646347047    |     0.113921759749     |    0.223321135302    |    1.96030271823     |
+|    4    | 3.65289418937 |    0.258175198666   |   0.250970065665   |    0.0615132127461     |    0.10380555938     |    1.68753272259     |
+|    13   | 3.91402836549 |    0.27787659636    |   0.310969862624   |     0.07020330114      |    0.117714120677    |    1.67676047657     |
+|    2    | 4.14508363644 |    0.260766060633   |   0.334567423062   |    0.0917377718901     |    0.162928351775    |    1.77602255231     |
+|    12   | 4.54730567287 |    0.278303965605   |   0.305133640584   |    0.0866038098682     |    0.146938887747    |    1.69667925661     |
+|    3    | 4.56051297381 |    0.266928472157   |   0.199360705429   |    0.0703978077872     |    0.108772967225    |    1.54511867122     |
+|    11   | 4.71488491429 |    0.271963749401   |  0.0726643048408   |    0.0715080498822     |    0.117529211798    |    1.64358015625     |
+|    6    |  5.0894386352 |    0.265841467675   |   0.430078275305   |     0.095195221846     |    0.156046104298    |    1.63922202472     |
+|    0    | 6.54815087788 |    0.260018189484   |   0.300509105317   |    0.0939286631235     |    0.158931681485    |    1.69204666818     |
+|    14   | 10.4302726844 |    0.24829022182    |   0.379806832246   |    0.0860456669292     |    0.159226692475    |    1.85049053785     |
++---------+---------------+---------------------+--------------------+------------------------+----------------------+----------------------+
