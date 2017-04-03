@@ -7,23 +7,15 @@ class AverageRatingRecommender:
         self.logger = logger
 
     def train(self, training):
-        if self.logger is None:
-            print "Training the average rating model"
-        else:
-            self.logger.debug("Training the average rating model")
+        self.logger.debug("Training the average rating model")
         start = time.time()
         self.ratings = training\
                 .groupBy(lambda x: x[1])\
                 .map(lambda (mid, data):
-                        (mid,
-                        sum(x[2] for x in data)/float(len(data))
-                        ))
+                     (mid, sum(x[2] for x in data)/float(len(data))))
         self.ratings = dict(self.ratings.collect())
         self.ratings = defaultdict(lambda: 0.0, self.ratings)
-        if self.logger is None:
-            print "Done in", time.time() - start, "seconds"
-        else:
-            self.logger.debug("Done in {} seconds".format(time.time() - start))
+        self.logger.debug("Done in %f seconds", time.time() - start)
 
     def predict(self, user_movies):
         if self.logger is None:
@@ -34,11 +26,8 @@ class AverageRatingRecommender:
         res = user_movies\
                 .map(lambda x: (x[0], x[1]))\
                 .map(lambda (user, product):
-                        (user,
-                        product,
-                        self.ratings[product]))
-        if self.logger is None:
-            print "Done in", time.time() - start, "seconds"
-        else:
-            self.logger.debug("Done in {} seconds".format(time.time() - start))
+                     (user,
+                      product,
+                      self.ratings[product]))
+        self.logger.debug("Done in %f seconds", time.time() - start)
         return res
