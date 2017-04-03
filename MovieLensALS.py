@@ -16,6 +16,10 @@ import parsers_and_loaders
 import internal_feature_predictor
 
 def args_init(logger):
+    """
+    Sets up command line arguments and outputs the values.
+    """
+
     parser = argparse.ArgumentParser(description=u"Usage: " +\
             "/path/to/spark/bin/spark-submit --driver-memory 2g " +\
             "MovieLensALS.py [arguments]")
@@ -90,6 +94,9 @@ def args_init(logger):
     return args
 
 def logger_init():
+    """
+    Initializes logger object for logging.
+    """
 
     logger = logging.getLogger(__name__)
     logger.setLevel(logging.DEBUG)
@@ -137,7 +144,7 @@ def main():
         )
     ratings = ratings_rdd.map(lambda x: parsers_and_loaders.parseRating(x,\
          sep=sep))
-    logger.debug("Done in {} seconds".format(time.time() - start))
+    logger.debug("Done in %f seconds", time.time() - start)
 
     logger.debug("Loading movies")
     start = time.time()
@@ -150,8 +157,8 @@ def main():
     movies = dict(movies_rdd.map(lambda x: parsers_and_loaders.parseMovie(x,\
         sep=sep)).collect())
     all_movies = set(movies.keys())
-    logger.debug("Done in {} seconds".format(time.time() - start))
-    logger.debug("{} movies loaded".format(len(all_movies)))
+    logger.debug("Done in %f seconds", time.time() - start)
+    logger.debug("%d movies loaded", len(all_movies))
 
 
     metadata_sources = [
@@ -214,9 +221,9 @@ def main():
       .repartition(args.num_partitions) \
       .cache()
 
-    logger.debug("{} records in the training set".format(training.count()))
-    logger.debug("{} unique movies in the training set"\
-            .format(len(set(training.map(lambda x: x[1]).collect()))))
+    logger.debug("%d records in the training set", training.count())
+    logger.debug("%d unique movies in the training set",
+                 len(set(training.map(lambda x: x[1]).collect())))
 
     if args.regression_users:
         args.metadata_sources = ["users"]
@@ -230,7 +237,7 @@ def main():
             )
         users = parsers_and_loaders.load_users(users_rdd, sep)
         all_users = set(users[0].keys().collect())
-        logger.debug("Done in {} seconds".format(time.time() - start))
+        logger.debug("Done in %f seconds", time.time() - start)
         metadata_sources = [
             {
                 "name": "users",
