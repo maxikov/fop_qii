@@ -74,7 +74,7 @@ def args_init(logger):
                         help="Sources for user or product metadata "+\
                              "for feature explanations. Possible values: "+\
                              "years, genres, tags, average_rating, "+\
-			     "imdb_keywords.")
+                             "imdb_keywords.")
 
     args = parser.parse_args()
 
