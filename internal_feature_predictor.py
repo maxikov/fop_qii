@@ -1,7 +1,9 @@
 #standard library
 import time
-from collections import defaultdict
 import math
+
+#prettytable library
+from prettytable import PrettyTable
 
 #pyspark library
 from pyspark.mllib.recommendation import ALS
@@ -10,11 +12,6 @@ from pyspark.mllib.classification import LabeledPoint
 import pyspark.mllib.regression
 import pyspark.mllib.tree
 from pyspark.mllib.regression import LinearRegressionWithSGD
-from pyspark.mllib.evaluation import RegressionMetrics,\
-        BinaryClassificationMetrics
-
-#prettytable library
-from prettytable import PrettyTable
 
 #project files
 import AverageRatingRecommender
@@ -288,7 +285,7 @@ def predict_internal_feature(features, indicators, f, regression_model,
         .predict(
             data.map(lambda x: x.features)
             )\
-        .map(lambda x: float(x))
+        .map(float)
         )
 
     return (lr_model, observations, predictions)
@@ -319,8 +316,10 @@ def compare_baseline_to_replaced(baseline_predictions, uf, pf, logger, power):
     return replaced_mean_error_baseline
 
 def internal_feature_predictor(sc, training, rank, numIter, lmbda,
-    args, all_movies, metadata_sources, user_or_product_features, eval_regression,
-    compare_with_replaced_feature, compare_with_randomized_feature, logger):
+                               args, all_movies, metadata_sources,
+                               user_or_product_features, eval_regression,
+                               compare_with_replaced_feature,
+                               compare_with_randomized_feature, logger):
 
     results = {}
     power = 1.0
@@ -330,12 +329,12 @@ def internal_feature_predictor(sc, training, rank, numIter, lmbda,
         arc.train(training)
         arc_ratings = sc.parallelize(arc.ratings.items())
         metadata_sources.append(
-                {"name": "average_rating",
-                 "src_rdd": lambda: arc_ratings,
-                 "loader": parsers_and_loaders.load_average_ratings})
+            {"name": "average_rating",
+             "src_rdd": lambda: arc_ratings,
+             "loader": parsers_and_loaders.load_average_ratings})
 
     cur_mtdt_srcs = filter(lambda x: x["name"] in args.metadata_sources, metadata_sources)
-    indicators, number_of_features, categorical_features =\
+    indicators, _, categorical_features =\
             build_meta_data_set(sc, cur_mtdt_srcs, all_movies, logger)
 
     logger.debug("Training ALS recommender")
@@ -456,23 +455,22 @@ def display_internal_feature_predictor(results, logger):
 
     feature_results = sorted(
         results["features"].items(),
-        key=lambda x:
-            x[1]["regression_evaluation"]["mrae"])
+        key=lambda x: x[1]["regression_evaluation"]["mrae"])
 
     table = PrettyTable(["Feature",
-            "MRAE",
-            "Mean absolute error",
-            "Mean feature value",
-            "Replaced MERR Baseline",
-            "Random MERR Baseline",
-            "x better than random"])
+                         "MRAE",
+                         "Mean absolute error",
+                         "Mean feature value",
+                         "Replaced MERR Baseline",
+                         "Random MERR Baseline",
+                         "x better than random"])
     for f, r in feature_results:
         table.add_row([f,
-            r["regression_evaluation"]["mrae"],
-            r["regression_evaluation"]["mre"],
-            results["mean_feature_values"][f],
-            r["replaced_mean_error_baseline"],
-            r["randomized_mean_error_baseline"],
-            float(r["randomized_mean_error_baseline"])/r["replaced_mean_error_baseline"]
-            ])
+                       r["regression_evaluation"]["mrae"],
+                       r["regression_evaluation"]["mre"],
+                       results["mean_feature_values"][f],
+                       r["replaced_mean_error_baseline"],
+                       r["randomized_mean_error_baseline"],
+                       float(r["randomized_mean_error_baseline"])/\
+                             r["replaced_mean_error_baseline"]])
     logger.info("\n" + str(table))
