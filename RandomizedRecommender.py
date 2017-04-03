@@ -1,10 +1,16 @@
-class RandomizedRecommender:
+""" TODO: documentation """
+
+class RandomizedRecommender(object):
+    """ TODO: documentation """
+
     def __init__(self, baseline_model, rank, logger=None):
         self.logger = logger
         self.baseline_model = baseline_model
         self.rank = rank
 
     def randomize(self):
+        """ TODO: documentation """
+
         if self.logger is None:
             print "Creating randomized model"
         else:
@@ -23,13 +29,16 @@ class RandomizedRecommender:
             self.logger.debug("Done in {} seconds".format(time.time() - start))
 
     def predict(self, user_movies):
+        """ TODO: documentation """
+
         if self.logger is None:
             print "Making predictions of the randomized model"
         else:
             self.logger.debug("Making predictions of the randomized model")
         start = time.time()
         perturbed_predictions = manual_predict_all(user_movies,
-                self.baseline_model.userFeatures(), self.perturbed_features)
+                                                   self.baseline_model.userFeatures(),
+                                                   self.perturbed_features)
         if self.logger is None:
             print "Done in", time.time() - start, "seconds"
         else:

@@ -1,8 +1,10 @@
-#standard library
+""" standard library, TODO: documentation"""
+
 import time
 from collections import defaultdict
 
-class AverageRatingRecommender:
+class AverageRatingRecommender(object):
+    """ TODO documentation """
     def __init__(self, logger=None):
         self.logger = logger
 
