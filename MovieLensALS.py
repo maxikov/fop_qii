@@ -101,8 +101,7 @@ def logger_init():
     logger.addHandler(ch)
     return logger
 
-if __name__ == "__main__":
-
+def main():
     logger = logger_init()
     args = args_init(logger)
 
@@ -262,3 +261,7 @@ if __name__ == "__main__":
            results, logger)
 
     sc.stop()
+
+if __name__ == "__main__":
+    main()
+
