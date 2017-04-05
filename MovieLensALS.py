@@ -76,6 +76,12 @@ def args_init(logger):
                              "years, genres, tags, average_rating, "+\
                              "imdb_keywords.")
 
+    parser.add_argument("--movies-file", action="store", type=str,
+                        default="movies", help="File from which to read "+\
+                                "movie metadata. By default looks for "+\
+                                "movies.(csv|dat) in the root data set "+\
+                                "directory.")
+
     args = parser.parse_args()
 
     logger.debug("rank: {}, lmbda: {}, num_iter: {}, num_partitions: {}"\
@@ -146,11 +152,16 @@ def main():
          sep=sep))
     logger.debug("Done in %f seconds", time.time() - start)
 
+    if args.movies_file == "movies":
+        movies_file = join(args.data_path, "movies" + extension)
+    else:
+        movies_file = args.movies_file
+
     logger.debug("Loading movies")
     start = time.time()
     movies_rdd = sc.parallelize(
         parsers_and_loaders.loadCSV(
-            join(args.data_path, "movies" + extension),
+            movies_file,
             remove_first_line=remove_first_line
             )
         )
@@ -187,29 +198,27 @@ def main():
         },
         {
             "name": "imdb_keywords",
-            "src_rdd": (
-                lambda: sc.parallelize(
-                    parsers_and_loaders.loadCSV(
-                        join(args.data_path, "ml-20m.imdb.small.csv"),
-                        remove_first_line=True
-                    )
-                )
-            ),
+            "src_rdd": (lambda: movies_rdd),
             "loader": (lambda x: parsers_and_loaders.load_genres(x, sep=",",\
                 parser_function=parsers_and_loaders.parseIMDBKeywords))
         },
         {
             "name": "imdb_genres",
-            "src_rdd": (
-                lambda: sc.parallelize(
-                    parsers_and_loaders.loadCSV(
-                        join(args.data_path, "ml-20m.imdb.small.csv"),
-                        remove_first_line=True
-                    )
-                )
-            ),
+            "src_rdd": (lambda: movies_rdd),
             "loader": (lambda x: parsers_and_loaders.load_genres(x, sep=",",\
                 parser_function=parsers_and_loaders.parseIMDBGenres))
+        },
+        {
+            "name": "imdb_director",
+            "src_rdd": (lambda: movies_rdd),
+            "loader": (lambda x: parsers_and_loaders.load_genres(x, sep=",",\
+                parser_function=parsers_and_loaders.parseIMDBDirector))
+        },
+        {
+            "name": "imdb_director",
+            "src_rdd": (lambda: movies_rdd),
+            "loader": (lambda x: parsers_and_loaders.load_genres(x, sep=",",\
+                parser_function=parsers_and_loaders.parseIMDBProducer))
         }
     ]
 
