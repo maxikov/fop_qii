@@ -127,9 +127,9 @@ def main():
 
     # set up environment
     conf = SparkConf() \
-      .setMaster("local[*]") \
+      .setMaster("local[2]") \
       .setAppName("MovieLensALS") \
-      .set("spark.executor.memory", "2g")
+      .set("spark.executor.memory", "16g")
     sc = SparkContext(conf=conf)
 
 
