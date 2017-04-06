@@ -1,6 +1,7 @@
 #standard library
 import time
 import math
+import random
 
 #prettytable library
 from prettytable import PrettyTable
@@ -295,9 +296,14 @@ def replace_feature_with_predicted(features, f, predictions, logger):
     logger.debug("Replacing original feature "+\
             "{} with predicted values".format(f))
     start = time.time()
+    features_ids = set(features.keys().collect())
+    predictions_ids = set(predictions.keys().collect())
+    not_predicted_ids = features_ids - predictions_ids
+    features_intact = features.filter(lambda x: x[0] in not_predicted_ids)
     joined = features.join(predictions)
     replaced = joined.map(lambda (mid, (feats, pred)):\
             (mid, common_utils.set_list_value(feats, f, pred)))
+    replaced = replaced.union(features_intact)
     logger.debug("Done in {} seconds".format(time.time() - start))
     return replaced
 
@@ -319,7 +325,8 @@ def internal_feature_predictor(sc, training, rank, numIter, lmbda,
                                args, all_movies, metadata_sources,
                                user_or_product_features, eval_regression,
                                compare_with_replaced_feature,
-                               compare_with_randomized_feature, logger):
+                               compare_with_randomized_feature, logger,
+                               train_ratio = 0):
 
     results = {}
     power = 1.0
@@ -388,10 +395,32 @@ def internal_feature_predictor(sc, training, rank, numIter, lmbda,
 
     results["features"] = {}
 
+    results["train_ratio"] = train_ratio
+
     for f in xrange(rank):
+        if train_ratio > 0:
+            logger.debug("Building training and test sets for regression")
+            all_movies = features.keys().collect()
+            n_movies = len(all_movies)
+            training_size = int(math.floor(n_movies * train_ratio / 100.0)) + 1
+            logger.debug("{} items in training and {} in test set"\
+                    .format(training_size, n_movies - training_size))
+            random.shuffle(all_movies)
+            training_movies = set(all_movies[:training_size])
+            test_movies = set(all_movies[training_size:])
+            features_training = features.filter(lambda x: x[0] in
+                    training_movies)
+            features_test = features.filter(lambda x: x[0] in test_movies)
+            indicators_training = indicators.filter(lambda x: x[0] in
+                    training_movies)
+            indicators_test = indicators.filter(lambda x: x[0] in test_movies)
+        else:
+            features_training = features
+            indicators_training = indicators
+
         lr_model, observations, predictions = predict_internal_feature(\
-            features,
-            indicators,
+            features_training,
+            indicators_training,
             f,
             args.regression_model,
             categorical_features,
@@ -399,16 +428,34 @@ def internal_feature_predictor(sc, training, rank, numIter, lmbda,
             logger)
         results["features"][f] = {"model": lr_model}
 
+        if train_ratio > 0:
+            logger.debug("Computing predictions on the test set")
+            ids_test = indicators_test.keys()
+            input_test = indicators_test.values()
+            predictions_test = ids_test.zip(lr_model\
+                                            .predict(input_test)\
+                                            .map(float))
+            observations_test = features_test.map(lambda (mid, ftrs):
+                    (mid, ftrs[f]))
+
+        predictions_training = predictions
+
         if eval_regression:
             reg_eval = common_utils.evaluate_regression(predictions,
                                                         observations, logger)
             results["features"][f]["regression_evaluation"] = reg_eval
+            if train_ratio > 0:
+                logger.debug("Evaluating regression on the test set")
+                reg_eval_test = common_utils.evaluate_regression(\
+                        predictions_test, observations_test, logger)
+                results["features"][f]["regression_evaluation_test"] =\
+                    reg_eval_test
 
         if compare_with_replaced_feature:
             logger.debug("Computing predictions of the model with replaced "+\
                 "feature %d", f)
             replaced_features = replace_feature_with_predicted(features, f,
-                                                               predictions,
+                                                               predictions_training,
                                                                logger)
 
             start = time.time()
@@ -426,10 +473,37 @@ def internal_feature_predictor(sc, training, rank, numIter, lmbda,
             results["features"][f]["replaced_mean_error_baseline"] =\
                 replaced_mean_error_baseline
 
+            if train_ratio > 0:
+                logger.debug("Computing predictions of the model with replaced "+\
+                    "feature %d test", f)
+                replaced_features_test = replace_feature_with_predicted(features, f,
+                                                                        predictions_test,
+                                                                        logger)
+
+                start = time.time()
+
+                if user_or_product_features == "product":
+                    uf, pf = other_features, replaced_features_test
+                else:
+                    uf, pf = replaced_features_test, other_features
+
+                replaced_mean_error_baseline_test = compare_baseline_to_replaced(\
+                           baseline_predictions, uf, pf, logger, power)
+
+                logger.debug("Replaced mean error baseline test: "+\
+                    "%f", replaced_mean_error_baseline_test)
+                results["features"][f]["replaced_mean_error_baseline_test"] =\
+                    replaced_mean_error_baseline_test
+
         if compare_with_randomized_feature:
             logger.debug("Randomizing feature %d", f)
             start = time.time()
-            replaced_features = common_utils.perturb_feature(features, f)
+            if train_ratio > 0:
+                perturbed_subset = training_movies
+            else:
+                perturbed_subset = None
+            replaced_features = common_utils.perturb_feature(features, f,
+                    perturbed_subset)
             logger.debug("Done in %f seconds", time.time()-start)
             if user_or_product_features == "product":
                 uf, pf = other_features, replaced_features
@@ -445,6 +519,30 @@ def internal_feature_predictor(sc, training, rank, numIter, lmbda,
                 "%f", randomized_mean_error_baseline)
             results["features"][f]["randomized_mean_error_baseline"] =\
                 randomized_mean_error_baseline
+
+            if train_ratio > 0:
+                logger.debug("Randomizing feature %d test", f)
+                start = time.time()
+                perturbed_subset = test_movies
+                replaced_features = common_utils.perturb_feature(features, f,
+                    perturbed_subset)
+                logger.debug("Done in %f seconds", time.time()-start)
+                if user_or_product_features == "product":
+                    uf, pf = other_features, replaced_features
+                else:
+                    uf, pf = replaced_features, other_features
+
+                logger.debug("Computing predictions of the model with randomized"+\
+                    " feature %d test", f)
+                randomized_mean_error_baseline_test = compare_baseline_to_replaced(\
+                    baseline_predictions, uf, pf, logger, power)
+
+                logger.debug("Radnomized mean error baseline test: "+\
+                    "%f", randomized_mean_error_baseline_test)
+                results["features"][f]["randomized_mean_error_baseline_test"] =\
+                    randomized_mean_error_baseline_test
+
+
     return results
 
 def display_internal_feature_predictor(results, logger):
@@ -453,24 +551,38 @@ def display_internal_feature_predictor(results, logger):
     logger.info("baseline RMSE: {}".format(
         results["baseline_rmse"]))
 
+    if results["train_ratio"] > 0:
+        logger.info("Train ratio: %f %%", results["train_ratio"])
+
     feature_results = sorted(
         results["features"].items(),
         key=lambda x: x[1]["regression_evaluation"]["mrae"])
 
-    table = PrettyTable(["Feature",
-                         "MRAE",
-                         "Mean absolute error",
-                         "Mean feature value",
-                         "Replaced MERR Baseline",
-                         "Random MERR Baseline",
-                         "x better than random"])
+    header = ["Feature",
+              "MRAE",
+              "Mean absolute error",
+              "Mean feature value",
+              "Replaced MERR Baseline",
+              "Random MERR Baseline",
+              "x better than random"]
+    if results["train_ratio"] >0:
+        header += ["Replaced MERR Baseline test",
+                   "Random MERR Baseline test",
+                   "x better than random test"]
+    table = PrettyTable(header)
     for f, r in feature_results:
-        table.add_row([f,
-                       r["regression_evaluation"]["mrae"],
-                       r["regression_evaluation"]["mre"],
-                       results["mean_feature_values"][f],
-                       r["replaced_mean_error_baseline"],
-                       r["randomized_mean_error_baseline"],
-                       float(r["randomized_mean_error_baseline"])/\
-                             r["replaced_mean_error_baseline"]])
+        row = [f,
+               r["regression_evaluation"]["mrae"],
+               r["regression_evaluation"]["mre"],
+               results["mean_feature_values"][f],
+               r["replaced_mean_error_baseline"],
+               r["randomized_mean_error_baseline"],
+               float(r["randomized_mean_error_baseline"])/\
+               r["replaced_mean_error_baseline"]]
+        if results["train_ratio"] > 0:
+            row += [r["replaced_mean_error_baseline_test"],
+                    r["randomized_mean_error_baseline_test"],
+                    float(r["randomized_mean_error_baseline_test"])/\
+                            r["replaced_mean_error_baseline_test"]]
+        table.add_row(row)
     logger.info("\n" + str(table))

@@ -54,10 +54,18 @@ def get_feature_distribution(features, f):
     res = features.map(lambda (_, arr): arr[f]).collect()
     return res
 
-def perturb_feature(features, f):
+def perturb_feature(features, f, perturbed_subset=None):
+    if perturbed_subset is not None:
+        features_intact = features.filter(lambda x: x[0] not in
+                perturbed_subset)
+        features_perturbed = features.filter(lambda x: x[0] in
+                perturbed_subset)
+        features = features_perturbed
     dist = get_feature_distribution(features, f)
     res = features.map(lambda (x, arr):\
             (x, set_list_value(arr, f, random.choice(dist))))
+    if perturbed_subset is not None:
+        res = res.union(features_intact)
     return res
 
 def mean_feature_values(features, logger):
@@ -101,7 +109,7 @@ def evaluate_regression(predictions, observations, logger=None):
     mrae = mean_relative_absolute_error(predobs)
     logger.debug("Done in %f seconds", time.time() - start)
     logger.debug("RMSE: {}, variance explained: {}, mean absolute error: {},".\
-    	format(metrics.explainedVariance,\
+        format(metrics.explainedVariance,\
                metrics.rootMeanSquaredError,
             metrics.meanAbsoluteError))
     logger.debug("MRAE: {}".format(mrae))

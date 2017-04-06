@@ -82,6 +82,13 @@ def args_init(logger):
                                 "movies.(csv|dat) in the root data set "+\
                                 "directory.")
 
+    parser.add_argument("--cross-validation", action="store", type=int,
+                        default=0, help="Percent of the data points that "+\
+                                        "is to be used in the training "+\
+                                        "set during cross-valudation. "+\
+                                        "If 0 (default), no cross-"+\
+                                        "validation is performed")
+
     args = parser.parse_args()
 
     logger.debug("rank: {}, lmbda: {}, num_iter: {}, num_partitions: {}"\
@@ -259,7 +266,8 @@ def main():
             args, all_users, metadata_sources,\
             user_or_product_features="user", eval_regression=True,\
             compare_with_replaced_feature=True,\
-            compare_with_randomized_feature=True, logger=logger)
+            compare_with_randomized_feature=True, logger=logger,\
+            train_ratio=args.cross_validation)
 
         internal_feature_predictor.display_internal_feature_predictor(\
             results, logger)
@@ -271,7 +279,8 @@ def main():
             args, all_movies, metadata_sources,\
             user_or_product_features="product", eval_regression=True,\
             compare_with_replaced_feature=True,\
-            compare_with_randomized_feature=True, logger=logger)
+            compare_with_randomized_feature=True, logger=logger,\
+            train_ratio=args.cross_validation)
 
         internal_feature_predictor.display_internal_feature_predictor(\
            results, logger)
