@@ -593,6 +593,7 @@ def internal_feature_predictor(sc, training, rank, numIter, lmbda,
     return results
 
 def display_internal_feature_predictor(results, logger):
+    logger.info("Overall results dict: {}".format(results))
     logger.info("Baseline mean error: {}".format(
         results["baseline_mean_error"]))
     logger.info("baseline RMSE: {}".format(

@@ -116,12 +116,17 @@ def evaluate_regression(predictions, observations, logger=None, nbins=32):
         print "Evaluating the model"
     else:
         logger.debug("Evaluating the model")
+    nbins = nbins * 2
     start = time.time()
     predobs = predictions\
             .join(observations)\
             .values()
     metrics = RegressionMetrics(predobs)
     mrae = mean_relative_absolute_error(predobs)
+    obs = predobs.map(lambda (_, o): o)
+    preds = predobs.map(lambda (p, _): p)
+    preds_histogram = preds.histogram(nbins)
+    obs_histogram = obs.histogram(nbins)
     errors = predobs.map(lambda (p, o): p - o)
     errors_histogram = errors.histogram(nbins)
     abs_errors_histogram = errors\
@@ -139,9 +144,13 @@ def evaluate_regression(predictions, observations, logger=None, nbins=32):
     logger.debug("Errors histogram: {}".format(errors_histogram))
     logger.debug("Absolute errors histogram: {}".format(abs_errors_histogram))
     logger.debug("Squared errors histogram: {}:".format(sq_errors_histogram))
+    logger.debug("Predictions histogram: {}".format(preds_histogram))
+    logger.debug("Observations histogram: {}".format(obs_histogram))
     res = {"mre": metrics.meanAbsoluteError,
            "mrae": mrae,
            "errors_histogram": errors_histogram,
            "abs_errors_histogram": abs_errors_histogram,
-           "sq_errors_histogram": sq_errors_histogram}
+           "sq_errors_histogram": sq_errors_histogram,
+           "preds_histogram": preds_histogram,
+           "obs_histogram": obs_histogram}
     return res

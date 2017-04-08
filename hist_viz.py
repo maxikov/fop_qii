@@ -2,6 +2,7 @@
 
 import argparse
 import math
+import re
 
 from matplotlib import pyplot as plt
 
@@ -14,12 +15,13 @@ def main():
     src = f.readlines()
     f.close()
 
-    src = [x for x in src if  "Evaluation of recommender with replaced feature" in x]
-    src = [x.split("Evaluation of recommender with replaced feature ")[1] for x
-            in src]
-    src = [x.split(" on test set: ") for x in src]
-    src = [(int(x[0]), eval(x[1])) for x in src]
-    src.sort(key=lambda x: x[0])
+    src = [x for x in src if  "Overall results dict" in x]
+    src = [x.split("Overall results dict: ")[1] for x in src]
+    src = src[0]
+    src = re.sub("DecisionTreeModel regressor of depth [0-9]+ with"+\
+            " [0-9]+ nodes", "'model'", src)
+    results = eval(src)
+    print results
 
     nplots = len(src)
     plt_rows = int(round(math.sqrt(nplots)))
