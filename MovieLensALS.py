@@ -103,6 +103,8 @@ def args_init(logger):
     logger.debug("predict_product_features: {}"\
         .format(args.predict_product_features))
     logger.debug("metadata_sources: {}".format(args.metadata_sources))
+    logger.debug("movies_file: {}".format(args.movies_file))
+    logger.debug("cross_validation: {}".format(args.cross_validation))
 
     return args
 
@@ -201,38 +203,43 @@ def main():
                     )
                 )
             ),
-            "loader": (lambda x: parsers_and_loaders.load_tags(x, sep))
+            "loader": (lambda x: parsers_and_loaders.load_tags(x, sep,
+                       prefix="movielens_tags"))
         },
         {
             "name": "imdb_keywords",
             "src_rdd": (lambda: movies_rdd),
             "loader": (lambda x: parsers_and_loaders.load_genres(x, sep=",",\
-                parser_function=parsers_and_loaders.parseIMDBKeywords))
+                parser_function=parsers_and_loaders.parseIMDBKeywords,
+                    prefix="imdb_keywords"))
         },
         {
             "name": "imdb_genres",
             "src_rdd": (lambda: movies_rdd),
             "loader": (lambda x: parsers_and_loaders.load_genres(x, sep=",",\
-                parser_function=parsers_and_loaders.parseIMDBGenres))
+                parser_function=parsers_and_loaders.parseIMDBGenres,
+                    prefix="imdb_genres"))
         },
         {
             "name": "imdb_director",
             "src_rdd": (lambda: movies_rdd),
             "loader": (lambda x: parsers_and_loaders.load_genres(x, sep=",",\
-                parser_function=parsers_and_loaders.parseIMDBDirector))
+                parser_function=parsers_and_loaders.parseIMDBDirector,
+                    prefix="imdb_director"))
         },
         {
-            "name": "imdb_director",
+            "name": "imdb_producer",
             "src_rdd": (lambda: movies_rdd),
             "loader": (lambda x: parsers_and_loaders.load_genres(x, sep=",",\
-                parser_function=parsers_and_loaders.parseIMDBProducer))
+                parser_function=parsers_and_loaders.parseIMDBProducer,
+                    prefix="imdb_producer"))
         }
     ]
 
 
 
     training = ratings\
-      .filter(lambda x: (x[1][1] in all_movies) and (True or x[0] < 3))\
+      .filter(lambda x: (x[1][1] in all_movies) and (True and x[0] < 2))\
       .values() \
       .repartition(args.num_partitions) \
       .cache()

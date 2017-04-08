@@ -260,21 +260,24 @@ def loadRatings(ratingsFile):
     else:
         return ratings
 
-def load_average_ratings(src_rdd):
+def load_average_ratings(src_rdd, prefix="average_rating"):
     ratings = src_rdd.map(lambda (x, y): (x, [y]))
     nof = 1
     cfi = {}
-    return (ratings, nof, cfi)
+    feature_names = {0: prefix}
+    return (ratings, nof, cfi, feature_names)
 
-def load_years(src_rdd, sep=","):
+def load_years(src_rdd, sep=",", prefix="year"):
     years = src_rdd\
             .map(lambda x: parseYear(x, sep=sep))\
             .map(lambda (x, y): (x, [y]))
     nof = 1
     cfi = {}
-    return (years, nof, cfi)
+    feature_names = {0: prefix}
+    return (years, nof, cfi, feature_names)
 
-def load_genres(src_rdd, sep=",", parser_function=parseGenre):
+def load_genres(src_rdd, sep=",", parser_function=parseGenre,
+                prefix="movielens_genre"):
     genres = src_rdd.map(lambda x: parser_function(x, sep=sep))
     all_genres = sorted(
         list(
@@ -288,9 +291,11 @@ def load_genres(src_rdd, sep=",", parser_function=parseGenre):
             mid, map(lambda g: int(g in cur_genres), all_genres)))
     nof = len(all_genres)
     cfi = {x: 2 for x in xrange(nof)}
-    return (indicators_genres, nof, cfi)
+    feature_names = {n: "{}:{}".format(prefix, g) for (n, g) in
+            enumerate(all_genres)}
+    return (indicators_genres, nof, cfi, feature_names)
 
-def load_tags(src_rdd, sep=","):
+def load_tags(src_rdd, sep=",", prefix="tags"):
     tags = src_rdd.map(lambda x: parseTag(x, sep=sep))
     all_tags = set(tags.map(lambda x: x[2]).collect())
     all_tags = sorted(list(all_tags))
@@ -304,12 +309,16 @@ def load_tags(src_rdd, sep=","):
             mid, map(lambda t: int(t in cur_tags), all_tags)))
     nof = len(all_tags)
     cfi = {x: 2 for x in xrange(nof)}
-    return (indicators, nof, cfi)
+    feature_names = {n: "{}:{}".format(prefix, t) for (n, t) in
+            enumerate(all_tags)}
+    return (indicators, nof, cfi, feature_names)
 
-def load_users(src_rdd, sep=","):
+def load_users(src_rdd, sep=",", prefix="user"):
     users = src_rdd\
             .map(lambda x: parseUser(x, sep=sep))\
             .map(lambda x: (x[0], x[1:]))
     nof = 4
     cfi = {}
-    return (users, nof, cfi)
+    feature_names = {n: "{}:{}".format(prefix, u) for (n, u) in
+            enumerate(["Gender","Age","Occupation","Zip-code"])}
+    return (users, nof, cfi, feature_names)

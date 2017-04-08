@@ -6,6 +6,12 @@ import random
 #pyspark library
 from pyspark.mllib.evaluation import RegressionMetrics
 
+def substitute_feature_names(string, feature_names):
+    for fid, fname in feature_names.items():
+        string = string.replace("feature {} ".format(fid),
+                                "{} ".format(fname))
+    return string
+
 def recommender_mean_error(model, data, power=1.0):
     predictions = model.predictAll(data.map(lambda x: (x[0], x[1])))
     predictionsAndRatings = predictions.map(lambda x: ((x[0], x[1]), x[2])) \
@@ -93,10 +99,18 @@ def mean_relative_absolute_error(predobs):
     res = predobs.\
         map(lambda (pred, obs):
             abs(pred-obs)/float(abs(obs if obs != 0 else 1))).\
-                sum()/predobs.count()
+        sum()/predobs.count()
     return res
 
-def evaluate_regression(predictions, observations, logger=None):
+def evaluate_recommender(baseline_predictions, predictions, logger=None,
+                         nbins=32):
+    predictionsAndRatings = predictions.map(lambda x: ((x[0], x[1]), x[2])) \
+        .join(baseline_predictions.map(lambda x: ((x[0], x[1]), x[2])))
+    predictions = predictionsAndRatings.map(lambda x: (x[0], x[1][0]))
+    observations = predictionsAndRatings.map(lambda x: (x[0], x[1][1]))
+    return evaluate_regression(predictions, observations, logger, nbins)
+
+def evaluate_regression(predictions, observations, logger=None, nbins=32):
     if logger is None:
         print "Evaluating the model"
     else:
@@ -107,11 +121,26 @@ def evaluate_regression(predictions, observations, logger=None):
             .values()
     metrics = RegressionMetrics(predobs)
     mrae = mean_relative_absolute_error(predobs)
+    errors = predobs.map(lambda (p, o): p - o)
+    errors_histogram = errors.histogram(nbins)
+    abs_errors_histogram = errors\
+            .map(lambda x: abs(x))\
+            .histogram(nbins)
+    sq_errors_histogram = errors\
+            .map(lambda x: x*x)\
+            .histogram(nbins)
     logger.debug("Done in %f seconds", time.time() - start)
     logger.debug("RMSE: {}, variance explained: {}, mean absolute error: {},".\
         format(metrics.explainedVariance,\
                metrics.rootMeanSquaredError,
             metrics.meanAbsoluteError))
     logger.debug("MRAE: {}".format(mrae))
-    res = {"mre": metrics.meanAbsoluteError, "mrae": mrae}
+    logger.debug("Errors histogram: {}".format(errors_histogram))
+    logger.debug("Absolute errors histogram: {}".format(abs_errors_histogram))
+    logger.debug("Squared errors histogram: {}:".format(sq_errors_histogram))
+    res = {"mre": metrics.meanAbsoluteError,
+           "mrae": mrae,
+           "errors_histogram": errors_histogram,
+           "abs_errors_histogram": abs_errors_histogram,
+           "sq_errors_histogram": sq_errors_histogram}
     return res
