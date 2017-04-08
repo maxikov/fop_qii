@@ -108,7 +108,7 @@ def mean_relative_absolute_error(predobs):
 
 def evaluate_recommender(baseline_predictions, predictions, logger=None,
                          nbins=32):
-    nbins = list(np.linspace(1.0, 5.0, nbins+1))
+    nbins = list(np.linspace(0.0, 5.0, nbins+2))
     predictionsAndRatings = predictions.map(lambda x: ((x[0], x[1]), x[2])) \
         .join(baseline_predictions.map(lambda x: ((x[0], x[1]), x[2])))
     predictions = predictionsAndRatings.map(lambda x: (x[0], x[1][0]))

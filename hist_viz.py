@@ -6,9 +6,35 @@ import re
 
 from matplotlib import pyplot as plt
 
+def edges_to_centers(edges):
+    centers = []
+    for i in xrange(1, len(edges)):
+        centers.append((edges[i-1]+edges[i])/2.0)
+    return centers
+
 def overall_recommender_hist(results):
+    opacity = 0.4
     r = results["baseline_rec_eval"]
     print r
+    ys = r["obs_histogram"][1]
+    bin_edges = r["obs_histogram"][0]
+    bin_centers = edges_to_centers(bin_edges)
+    bin_centers = bin_edges[:-1]
+    print bin_centers
+    width = bin_centers[1] - bin_centers[0]
+    tr, _ = plt.bar(bin_centers, ys, width, label="True rating", color="blue",
+                    alpha=opacity)
+    ys = r["abs_errors_histogram"][1]
+    bin_edges = r["abs_errors_histogram"][0]
+    bin_centers = edges_to_centers(bin_edges)
+    width = bin_centers[1] - bin_centers[0]
+    ar, _ = plt.bar(bin_centers, ys, width, label="Absolute error",
+                    color="red", alpha=opacity)
+    plt.legend([ar, tr], ["Absolute error", "True rating"])
+    plt.xlabel("Star rating")
+    plt.ylabel("Number of observations")
+    plt.title("Original recommender model compared to ground truth")
+    plt.show()
 
 def main():
     parser = argparse.ArgumentParser()
@@ -25,7 +51,6 @@ def main():
     src = re.sub("DecisionTreeModel regressor of depth [0-9]+ with"+\
             " [0-9]+ nodes", "'model'", src)
     results = eval(src)
-    print results
 
     overall_recommender_hist(results)
     return
