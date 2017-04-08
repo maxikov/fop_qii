@@ -391,7 +391,7 @@ def internal_feature_predictor(sc, training, rank, numIter, lmbda,
         results["baseline_rmse"] = baseline_rmse
 
         baseline_rec_eval = common_utils.evaluate_recommender(\
-                baseline_predictions, training, logger, args.nbins)
+               training, baseline_predictions, logger, args.nbins)
         results["baseline_rec_eval"] = baseline_rec_eval
 
     features = model.productFeatures()

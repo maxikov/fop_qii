@@ -6,6 +6,10 @@ import re
 
 from matplotlib import pyplot as plt
 
+def overall_recommender_hist(results):
+    r = results["baseline_rec_eval"]
+    print r
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("fname", type=str, nargs=1, help="Log file name")
@@ -22,6 +26,9 @@ def main():
             " [0-9]+ nodes", "'model'", src)
     results = eval(src)
     print results
+
+    overall_recommender_hist(results)
+    return
 
     nplots = len(src)
     plt_rows = int(round(math.sqrt(nplots)))
