@@ -8,6 +8,7 @@ from pyspark.mllib.evaluation import RegressionMetrics
 
 def substitute_feature_names(string, feature_names):
     for fid, fname in feature_names.items():
+        fname = fname.decode("ascii", errors="ignore")
         string = string.replace("feature {} ".format(fid),
                                 "{} ".format(fname))
     return string
