@@ -239,7 +239,7 @@ def main():
 
 
     training = ratings\
-      .filter(lambda x: (x[1][1] in all_movies) and (True and x[0] < 2))\
+      .filter(lambda x: (x[1][1] in all_movies) and (True or x[0] < 2))\
       .values() \
       .repartition(args.num_partitions) \
       .cache()
