@@ -6,6 +6,9 @@ import random
 #pyspark library
 from pyspark.mllib.evaluation import RegressionMetrics
 
+#numpy library
+import numpy as np
+
 def substitute_feature_names(string, feature_names):
     for fid, fname in feature_names.items():
         fname = fname.decode("ascii", errors="ignore")
@@ -105,6 +108,7 @@ def mean_relative_absolute_error(predobs):
 
 def evaluate_recommender(baseline_predictions, predictions, logger=None,
                          nbins=32):
+    nbins = list(np.linspace(1.0, 5.0, nbins+1))
     predictionsAndRatings = predictions.map(lambda x: ((x[0], x[1]), x[2])) \
         .join(baseline_predictions.map(lambda x: ((x[0], x[1]), x[2])))
     predictions = predictionsAndRatings.map(lambda x: (x[0], x[1][0]))
@@ -116,7 +120,6 @@ def evaluate_regression(predictions, observations, logger=None, nbins=32):
         print "Evaluating the model"
     else:
         logger.debug("Evaluating the model")
-    nbins = nbins * 2
     start = time.time()
     predobs = predictions\
             .join(observations)\

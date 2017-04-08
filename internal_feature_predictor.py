@@ -14,6 +14,9 @@ import pyspark.mllib.regression
 import pyspark.mllib.tree
 from pyspark.mllib.regression import LinearRegressionWithSGD
 
+#numpy library
+import numpy as np
+
 #project files
 import AverageRatingRecommender
 import parsers_and_loaders
@@ -455,15 +458,16 @@ def internal_feature_predictor(sc, training, rank, numIter, lmbda,
         predictions_training = predictions
 
         if eval_regression:
+            bins = list(np.linspace(-1, 1, args.nbins+1))
             reg_eval = common_utils.evaluate_regression(predictions,
                                                         observations,
                                                         logger,
-                                                        args.nbins)
+                                                        bins)
             results["features"][f]["regression_evaluation"] = reg_eval
             if train_ratio > 0:
                 logger.debug("Evaluating regression on the test set")
                 reg_eval_test = common_utils.evaluate_regression(\
-                        predictions_test, observations_test, logger, args.nbins)
+                        predictions_test, observations_test, logger, bins)
                 results["features"][f]["regression_evaluation_test"] =\
                     reg_eval_test
 
