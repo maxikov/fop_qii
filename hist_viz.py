@@ -15,29 +15,74 @@ def edges_to_centers(edges):
 def overall_recommender_hist(results):
     opacity = 0.4
     r = results["baseline_rec_eval"]
-    print r
     ys = r["obs_histogram"][1]
     bin_edges = r["obs_histogram"][0]
-    bin_centers = edges_to_centers(bin_edges)
-    bin_centers = bin_edges[:-1]
-    print bin_centers
-    width = bin_centers[1] - bin_centers[0]
-    tr, _ = plt.bar(bin_centers, ys, width, label="True rating", color="blue",
+    width = bin_edges[1] - bin_edges[0]
+    tr = plt.bar(bin_edges[:-1], ys, width, label="True rating", color="blue",
                     alpha=opacity)
+    ys = r["preds_histogram"][1]
+    bin_edges = r["preds_histogram"][0]
+    width = bin_edges[1] - bin_edges[0]
+    pr = plt.bar(bin_edges[:-1], ys, width, label="Predicted rating",
+            color="green", alpha=opacity)
     ys = r["abs_errors_histogram"][1]
     bin_edges = r["abs_errors_histogram"][0]
-    bin_centers = edges_to_centers(bin_edges)
-    width = bin_centers[1] - bin_centers[0]
-    ar, _ = plt.bar(bin_centers, ys, width, label="Absolute error",
+    width = bin_edges[1] - bin_edges[0]
+    ar = plt.bar(bin_edges[:-1], ys, width, label="Absolute error",
                     color="red", alpha=opacity)
-    plt.legend([ar, tr], ["Absolute error", "True rating"])
+    plt.legend([ar, tr, pr], ["Absolute error", "True rating",
+               "Predicted rating"])
     plt.xlabel("Star rating")
     plt.ylabel("Number of observations")
     plt.title("Original recommender model compared to ground truth")
     plt.show()
 
+def create_axes(nplots):
+    plt_rows = int(round(math.sqrt(nplots)))
+    plt_cols = int(math.ceil(nplots/float(plt_rows)))
+    print nplots, plt_rows, plt_cols
+
+    f, axes = plt.subplots(plt_rows, plt_cols)
+    axes_flat = []
+    for a in axes:
+        try:
+            axes_flat += list(a)
+        except Exception:
+            axes_flat += [a]
+    return f, axes_flat
+
+def feature_regressions(results):
+    opacity = 0.4
+    feats = results["features"]
+    fig, axes = create_axes(len(feats))
+    for f in xrange(len(feats)):
+        ax = axes[f]
+        data = feats[f]["regression_evaluation"]
+
+        xs, ys = data["obs_histogram"]
+        print xs, ys
+        width = xs[1] - xs[0]
+        obs = ax.bar(xs[:-1], ys, width, color="blue", alpha=opacity)
+
+        xs, ys = data["preds_histogram"]
+        width = xs[1] - xs[0]
+        preds = ax.bar(xs[:-1], ys, width, color="green", alpha=opacity)
+
+        xs, ys = data["abs_errors_histogram"]
+        width = xs[1] - xs[0]
+        errs = ax.bar(xs[:-1], ys, width, color="red", alpha=opacity)
+
+        ax.set_title("Feature {}".format(f))
+    fig.suptitle("Performance of regression on internal feature values")
+    fig.legend([obs, preds, errs], ["True value", "Predicted value",
+                  "Absolute error"], loc="lower center")
+
+    plt.show()
+
+
 def main():
     parser = argparse.ArgumentParser()
+    parser.add_argument("--program", type=str, default="overall")
     parser.add_argument("fname", type=str, nargs=1, help="Log file name")
     args = parser.parse_args()
 
@@ -52,27 +97,10 @@ def main():
             " [0-9]+ nodes", "'model'", src)
     results = eval(src)
 
-    overall_recommender_hist(results)
-    return
-
-    nplots = len(src)
-    plt_rows = int(round(math.sqrt(nplots)))
-    plt_cols = int(math.ceil(nplots/float(plt_rows)))
-
-    f, axes = plt.subplots(plt_rows, plt_cols)
-    axes_flat = reduce(lambda x, y: list(x)+list(y), axes, [])
-
-    for d, ax in zip(src, axes_flat):
-        f, data = d
-        ys = data["abs_errors_histogram"][1]
-        bin_borders = data["abs_errors_histogram"][0]
-        bin_centers = []
-        for i in xrange(1, len(bin_borders)):
-            bin_centers.append((bin_borders[i-1]+\
-                    bin_borders[i])/2.0)
-        width = bin_centers[1] - bin_centers[0]
-        ax.bar(bin_centers, ys, width)
-        ax.set_title("Feature {}".format(f))
+    if args.program == "overall":
+        overall_recommender_hist(results)
+    elif args.program == "feature_regressions":
+        feature_regressions(results)
 
     plt.show()
 
