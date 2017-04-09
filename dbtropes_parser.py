@@ -5,13 +5,26 @@ from collections import defaultdict as dd
 
 import pandas
 
+def add_spaces(src):
+    res = []
+    for i in xrange(len(src)):
+        if i == 0:
+            res.append(src[i])
+        else:
+            if src[i].isupper():
+                res.append(" ")
+            res.append(src[i])
+    return "".join(res)
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("tropesfname", type=str, nargs=1)
     parser.add_argument("moviesfname", type=str, nargs=1)
+    parser.add_argument("ofile", type=str, nargs=1)
     args = parser.parse_args()
     fname = args.tropesfname[0]
     moviesfname = args.moviesfname[0]
+    ofile = args.ofile[0]
 
     media_classes = ["Film", "WesternAnimation",
                      "Series", "Anime"]
@@ -34,7 +47,13 @@ def main():
             if "/Main" not in obj:
                 continue
             media = sub.split("/")[-1]
-            trope = obj.split("/")[-1]
+            osplit = obj.split("/")
+            if "int_" in osplit[-1]:
+                trope = osplit[-2]
+            else:
+                trope = osplit[-1].split(">")[0]
+            trope = add_spaces(trope)
+            media = add_spaces(media)
             res.append({"line": line,
                 "media": media, "trope": trope})
             all_media.add(media)
@@ -72,8 +91,15 @@ def main():
         mname = movies_dict["title"][cur_id]
         mname = mname.split(" (")[0]
         if mname in movies_tropes:
-            mids_tropes[mid] = movies_tropes[mname]
+            mids_tropes[mid] = (mname, movies_tropes[mname])
     print len(mids_tropes), "records linked"
+
+    res_arr = [[mid, mname, "|".join(str(t) for t in trs)] for (mid, (mname,
+        trs)) in mids_tropes.items()]
+    res_df = pandas.DataFrame(res_arr, columns=["movieId",
+        "title", "tropes"]).set_index("movieId")
+    print res_df
+    res_df.to_csv(ofile)
 
 if __name__ == "__main__":
     main()
