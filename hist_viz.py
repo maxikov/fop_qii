@@ -57,7 +57,7 @@ def feature_regressions(results):
     fig, axes = create_axes(len(feats))
     for f in xrange(len(feats)):
         ax = axes[f]
-        data = feats[f]["regression_evaluation"]
+        data = feats[f]["regression_evaluation_test"]
 
         xs, ys = data["obs_histogram"]
         print xs, ys
@@ -79,6 +79,38 @@ def feature_regressions(results):
 
     plt.show()
 
+def feature_recommenders(results):
+    opacity = 0.4
+    feats = results["features"]
+    fig, axes = create_axes(len(feats))
+    for f in xrange(len(feats)):
+        ax = axes[f]
+
+        xs, ys = feats[f]\
+                      ["replaced_rec_eval_test"]\
+                      ["obs_histogram"]
+        print xs, ys
+        width = xs[1] - xs[0]
+        obs = ax.bar(xs[:-1], ys, width, color="blue", alpha=opacity)
+
+        xs, ys = feats[f]\
+                      ["replaced_rec_eval_test"]\
+                      ["abs_errors_histogram"]
+        width = xs[1] - xs[0]
+        preds = ax.bar(xs[:-1], ys, width, color="green", alpha=opacity)
+
+        xs, ys = feats[f]\
+                      ["randomized_rec_eval_test"]\
+                      ["abs_errors_histogram"]
+        width = xs[1] - xs[0]
+        errs = ax.bar(xs[:-1], ys, width, color="red", alpha=opacity)
+
+        ax.set_title("Feature {}".format(f))
+    fig.suptitle("Performance of recommenders with substituted features")
+    fig.legend([obs, preds, errs], ["Original recommender output",
+        "Absolute error with regression", "Absolute error randomized"], loc="lower center")
+
+    plt.show()
 
 def main():
     parser = argparse.ArgumentParser()
@@ -101,6 +133,8 @@ def main():
         overall_recommender_hist(results)
     elif args.program == "feature_regressions":
         feature_regressions(results)
+    elif args.program == "feature_recommenders":
+        feature_recommenders(results)
 
     plt.show()
 
