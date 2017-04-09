@@ -83,6 +83,26 @@ def parseIMDBDirector(line, sep="::"):
     keywords = keywords.split("|")
     return mid, set(keywords)
 
+def parseTropes(line, sep="::"):
+    """
+    Parses tropes in format
+    movieId,title,tropes
+    """
+    #Multi-character delimiters aren't supported,
+    #but this data set doesn't have %s anywhere.
+    #Dirty hack, need to fix later
+    if sep == "::":
+        line = line.replace(sep, "%")
+        sep = "%"
+    s = StringIO.StringIO(line)
+    r = csv.reader(s, delimiter=sep, quotechar='"')
+    fields = r.next()
+    mid = int(fields[0])
+    keywords = fields[2]
+    keywords = keywords.split("|")
+    return mid, set(keywords)
+
+
 def parseIMDBProducer(line, sep="::"):
     """
     Parses IMDB producer in format

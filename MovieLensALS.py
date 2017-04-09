@@ -74,7 +74,7 @@ def args_init(logger):
                         help="Sources for user or product metadata "+\
                              "for feature explanations. Possible values: "+\
                              "years, genres, tags, average_rating, "+\
-                             "imdb_keywords.")
+                             "imdb_keywords, tvtropes.")
 
     parser.add_argument("--movies-file", action="store", type=str,
                         default="movies", help="File from which to read "+\
@@ -88,6 +88,8 @@ def args_init(logger):
                                         "set during cross-valudation. "+\
                                         "If 0 (default), no cross-"+\
                                         "validation is performed")
+
+    parser.add_argument("--tvtropes-file", action="store", type=str)
 
     args = parser.parse_args()
 
@@ -105,6 +107,7 @@ def args_init(logger):
     logger.debug("metadata_sources: {}".format(args.metadata_sources))
     logger.debug("movies_file: {}".format(args.movies_file))
     logger.debug("cross_validation: {}".format(args.cross_validation))
+    logger.debug("tvtropes_file: {}".format(args.tvtropes_file))
 
     return args
 
@@ -233,6 +236,20 @@ def main():
             "loader": (lambda x: parsers_and_loaders.load_genres(x, sep=",",\
                 parser_function=parsers_and_loaders.parseIMDBProducer,
                     prefix="imdb_producer"))
+        },
+        {
+            "name": "tvtropes",
+            "src_rdd": (
+                lambda: sc.parallelize(
+                    parsers_and_loaders.loadCSV(
+                        args.tvtropes_file,
+                        remove_first_line=True
+                    )
+                )
+            ),
+            "loader": (lambda x: parsers_and_loaders.load_genres(x, sep=",",\
+                parser_function=parsers_and_loaders.parseTropes,
+                    prefix="tvtropes"))
         }
     ]
 
