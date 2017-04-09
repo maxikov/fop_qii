@@ -3,11 +3,15 @@
 import argparse
 from collections import defaultdict as dd
 
+import pandas
+
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument("fname", type=str, nargs=1)
+    parser.add_argument("tropesfname", type=str, nargs=1)
+    parser.add_argument("moviesfname", type=str, nargs=1)
     args = parser.parse_args()
-    fname = args.fname[0]
+    fname = args.tropesfname[0]
+    moviesfname = args.moviesfname[0]
 
     media_classes = ["Film", "WesternAnimation",
                      "Series", "Anime"]
@@ -55,6 +59,21 @@ def main():
     for r in res:
         movies_tropes[r["media"]].add(r["trope"])
     print "done"
+
+    print "Loading movies"
+    movies_df = pandas.read_csv(moviesfname)
+    movies_dict = movies_df.to_dict()
+    print len(movies_dict["movieId"]), "movies loaded"
+
+    print "Linking records"
+    mids_tropes = {}
+    for cur_id in movies_dict["movieId"].keys():
+        mid = movies_dict["movieId"][cur_id]
+        mname = movies_dict["title"][cur_id]
+        mname = mname.split(" (")[0]
+        if mname in movies_tropes:
+            mids_tropes[mid] = movies_tropes[mname]
+    print len(mids_tropes), "records linked"
 
 if __name__ == "__main__":
     main()
