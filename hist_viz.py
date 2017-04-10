@@ -60,7 +60,7 @@ def feature_regressions(results):
         data = feats[f]["regression_evaluation_test"]
 
         xs, ys = data["obs_histogram"]
-        print xs, ys
+        print "observations:", xs, ys
         width = xs[1] - xs[0]
         obs = ax.bar(xs[:-1], ys, width, color="blue", alpha=opacity)
 
@@ -89,21 +89,23 @@ def feature_recommenders(results):
         xs, ys = feats[f]\
                       ["replaced_rec_eval_test"]\
                       ["obs_histogram"]
-        print xs, ys
+        print "observations:", xs, ys
         width = xs[1] - xs[0]
         obs = ax.bar(xs[:-1], ys, width, color="blue", alpha=opacity)
 
         xs, ys = feats[f]\
-                      ["replaced_rec_eval_test"]\
-                      ["abs_errors_histogram"]
-        width = xs[1] - xs[0]
-        preds = ax.bar(xs[:-1], ys, width, color="green", alpha=opacity)
-
-        xs, ys = feats[f]\
                       ["randomized_rec_eval_test"]\
                       ["abs_errors_histogram"]
+        print "randomized errors:", xs, ys
         width = xs[1] - xs[0]
         errs = ax.bar(xs[:-1], ys, width, color="red", alpha=opacity)
+
+        xs, ys = feats[f]\
+                      ["replaced_rec_eval_test"]\
+                      ["abs_errors_histogram"]
+        print "replaced errors:", xs, ys
+        width = xs[1] - xs[0]
+        preds = ax.bar(xs[:-1], ys, width, color="green", alpha=opacity)
 
         ax.set_title("Feature {}".format(f))
     fig.suptitle("Performance of recommenders with substituted features")
@@ -114,7 +116,8 @@ def feature_recommenders(results):
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument("--program", type=str, default="overall")
+    parser.add_argument("--program", type=str, default="overall", help=\
+            "overall, feature_regressions or feature_recommenders")
     parser.add_argument("fname", type=str, nargs=1, help="Log file name")
     args = parser.parse_args()
 
