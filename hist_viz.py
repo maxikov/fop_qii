@@ -51,13 +51,13 @@ def create_axes(nplots):
             axes_flat += [a]
     return f, axes_flat
 
-def feature_regressions(results):
+def feature_regressions(results, training=False):
     opacity = 0.4
     feats = results["features"]
     fig, axes = create_axes(len(feats))
     for f in xrange(len(feats)):
         ax = axes[f]
-        data = feats[f]["regression_evaluation_test"]
+        data = feats[f]["regression_evaluation" + "" if training else "_test"]
 
         xs, ys = data["obs_histogram"]
         print "observations:", xs, ys
@@ -79,7 +79,7 @@ def feature_regressions(results):
 
     plt.show()
 
-def feature_recommenders(results):
+def feature_recommenders(results, training=False):
     opacity = 0.4
     feats = results["features"]
     fig, axes = create_axes(len(feats))
@@ -87,21 +87,21 @@ def feature_recommenders(results):
         ax = axes[f]
 
         xs, ys = feats[f]\
-                      ["replaced_rec_eval_test"]\
+                      ["replaced_rec_eval" + "" if training else "_test"]\
                       ["obs_histogram"]
         print "observations:", xs, ys
         width = xs[1] - xs[0]
         obs = ax.bar(xs[:-1], ys, width, color="blue", alpha=opacity)
 
         xs, ys = feats[f]\
-                      ["randomized_rec_eval_test"]\
+                      ["randomized_rec_eval" + "" if training else "_test"]\
                       ["abs_errors_histogram"]
         print "randomized errors:", xs, ys
         width = xs[1] - xs[0]
         errs = ax.bar(xs[:-1], ys, width, color="red", alpha=opacity)
 
         xs, ys = feats[f]\
-                      ["replaced_rec_eval_test"]\
+                      ["replaced_rec_eval" + "" if training else "_test"]\
                       ["abs_errors_histogram"]
         print "replaced errors:", xs, ys
         width = xs[1] - xs[0]
@@ -118,6 +118,8 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--program", type=str, default="overall", help=\
             "overall, feature_regressions or feature_recommenders")
+    parser.add_argument("--training", action="store_true", help=\
+            "Show data for training instead of test set")
     parser.add_argument("fname", type=str, nargs=1, help="Log file name")
     args = parser.parse_args()
 
@@ -135,9 +137,9 @@ def main():
     if args.program == "overall":
         overall_recommender_hist(results)
     elif args.program == "feature_regressions":
-        feature_regressions(results)
+        feature_regressions(results, args.training)
     elif args.program == "feature_recommenders":
-        feature_recommenders(results)
+        feature_recommenders(results, args.training)
 
     plt.show()
 
