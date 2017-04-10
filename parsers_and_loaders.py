@@ -150,7 +150,6 @@ def parseGenre(line, sep="::"):
     #Multi-character delimiters aren't supported,
     #but this data set doesn't have %s anywhere.
     #Dirty hack, need to fix later
-    print "Genre!"
     if sep == "::":
         line = line.replace(sep, "%")
         sep = "%"

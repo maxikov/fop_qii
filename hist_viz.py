@@ -57,7 +57,7 @@ def feature_regressions(results, training=False):
     fig, axes = create_axes(len(feats))
     for f in xrange(len(feats)):
         ax = axes[f]
-        data = feats[f]["regression_evaluation" + "" if training else "_test"]
+        data = feats[f]["regression_evaluation" + ("" if training else "_test")]
 
         xs, ys = data["obs_histogram"]
         print "observations:", xs, ys
@@ -87,23 +87,21 @@ def feature_recommenders(results, training=False):
         ax = axes[f]
 
         xs, ys = feats[f]\
-                      ["replaced_rec_eval" + "" if training else "_test"]\
+                      ["replaced_rec_eval" + ("" if training else "_test")]\
                       ["obs_histogram"]
         print "observations:", xs, ys
         width = xs[1] - xs[0]
         obs = ax.bar(xs[:-1], ys, width, color="blue", alpha=opacity)
 
         xs, ys = feats[f]\
-                      ["randomized_rec_eval" + "" if training else "_test"]\
+                      ["randomized_rec_eval" + ("" if training else "_test")]\
                       ["abs_errors_histogram"]
-        print "randomized errors:", xs, ys
         width = xs[1] - xs[0]
         errs = ax.bar(xs[:-1], ys, width, color="red", alpha=opacity)
 
         xs, ys = feats[f]\
-                      ["replaced_rec_eval" + "" if training else "_test"]\
+                      ["replaced_rec_eval" + ("" if training else "_test")]\
                       ["abs_errors_histogram"]
-        print "replaced errors:", xs, ys
         width = xs[1] - xs[0]
         preds = ax.bar(xs[:-1], ys, width, color="green", alpha=opacity)
 

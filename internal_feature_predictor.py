@@ -524,7 +524,7 @@ def internal_feature_predictor(sc, training, rank, numIter, lmbda,
                 logger.debug("Evaluating replaced model test")
                 results["features"][f]["replaced_rec_eval_test"] =\
                     common_utils.evaluate_recommender(baseline_predictions,\
-                        replaced_predictions, logger, args.nbins)
+                        replaced_predictions_test, logger, args.nbins)
 
         if compare_with_randomized_feature:
             logger.debug("Randomizing feature %d", f)
