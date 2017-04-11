@@ -11,10 +11,28 @@ def add_spaces(src):
         if i == 0:
             res.append(src[i])
         else:
-            if src[i].isupper():
+            if src[i].isupper() and res[-1] != " ":
                 res.append(" ")
             res.append(src[i])
     return "".join(res)
+
+def fetch_name(src):
+    spl = src.split("/")
+    if "int_" in spl[-1]:
+        res = spl[-2]
+    else:
+        res = spl[-1].split(">")[0]
+    res = preprocess_name(res)
+    return res
+
+def preprocess_name(name):
+    res = add_spaces(name).lower()
+    res = res.split(" (")[0]
+    if res[:4] == "the ":
+        res = res[4:]
+    if res[-5:] == ", the":
+        res = res[:-5]
+    return res
 
 def main():
     parser = argparse.ArgumentParser()
@@ -46,14 +64,8 @@ def main():
                 continue
             if "/Main" not in obj:
                 continue
-            media = sub.split("/")[-1]
-            osplit = obj.split("/")
-            if "int_" in osplit[-1]:
-                trope = osplit[-2]
-            else:
-                trope = osplit[-1].split(">")[0]
-            trope = add_spaces(trope)
-            media = add_spaces(media)
+            trope = fetch_name(obj)
+            media = fetch_name(sub)
             res.append({"line": line,
                 "media": media, "trope": trope})
             all_media.add(media)
@@ -82,6 +94,9 @@ def main():
     print "Loading movies"
     movies_df = pandas.read_csv(moviesfname)
     movies_dict = movies_df.to_dict()
+    movies_dict["title_lower_spaced"] =\
+        {mid: preprocess_name(movies_dict["title"][mid])
+                for mid in movies_dict["movieId"].keys()}
     print len(movies_dict["movieId"]), "movies loaded"
 
     print "Linking records"
@@ -89,9 +104,9 @@ def main():
     for cur_id in movies_dict["movieId"].keys():
         mid = movies_dict["movieId"][cur_id]
         mname = movies_dict["title"][cur_id]
-        mname = mname.split(" (")[0]
-        if mname in movies_tropes:
-            mids_tropes[mid] = (mname, movies_tropes[mname])
+        mname_lower = movies_dict["title_lower_spaced"][cur_id]
+        if mname_lower in movies_tropes:
+            mids_tropes[mid] = (mname, movies_tropes[mname_lower])
     print len(mids_tropes), "records linked"
 
     res_arr = [[mid, mname, "|".join(str(t) for t in trs)] for (mid, (mname,
