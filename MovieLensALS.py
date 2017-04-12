@@ -24,6 +24,11 @@ def args_init(logger):
             "/path/to/spark/bin/spark-submit --driver-memory 2g " +\
             "MovieLensALS.py [arguments]")
 
+    parser.add_argument("--local-threads", action="store", type=str,
+                        default="*", help="Argument passed to "+\
+                                          ".setMaster(\"local[<ARG>]\"). "+\
+                                          "* by default.")
+
     parser.add_argument("--non-negative", action="store_true", help=\
             "Use non-negative factrorization for ALS")
 
@@ -90,6 +95,15 @@ def args_init(logger):
                                         "validation is performed")
 
     parser.add_argument("--tvtropes-file", action="store", type=str)
+    parser.add_argument("--features-trim-percentile", action="store",
+                        type=int, help="Leave only the specified "+\
+                                       "percentage of the internal "+\
+                                       "feature distribution before "+\
+                                       "running regression. Tails will "+\
+                                       "be trimmed symmerically. If 0 "+\
+                                       "(default) no trimming is done.",
+                        default=0)
+
 
     args = parser.parse_args()
 
@@ -97,6 +111,7 @@ def args_init(logger):
         .format(args.rank, args.lmbda, args.num_iter, args.num_partitions))
     logger.debug("data_path: {}, checkpoint_dir: {}".format(args.data_path,\
         args.checkpoint_dir))
+    logger.debug("local_threads: {}".format(args.local_threads))
 
     logger.debug("regression_model: {}".format(args.regression_model))
 
@@ -108,6 +123,8 @@ def args_init(logger):
     logger.debug("movies_file: {}".format(args.movies_file))
     logger.debug("cross_validation: {}".format(args.cross_validation))
     logger.debug("tvtropes_file: {}".format(args.tvtropes_file))
+    logger.debug("features_trim_percentile: {}"\
+            .format(args.features_trim_percentile))
 
     return args
 
@@ -132,7 +149,7 @@ def main():
 
     # set up environment
     conf = SparkConf() \
-      .setMaster("local[2]") \
+      .setMaster("local[{}]".format(args.local_threads)) \
       .setAppName("MovieLensALS") \
       .set("spark.executor.memory", "16g")
     sc = SparkContext(conf=conf)
@@ -151,6 +168,16 @@ def main():
         extension = ".dat"
         remove_first_line = False
 
+    if args.movies_file == "movies":
+        movies_file = join(args.data_path, "movies" + extension)
+        msep = sep
+        movies_remove_first_line = remove_first_line
+    else:
+        movies_file = args.movies_file
+        if ".csv" in movies_file:
+            msep = ","
+            movies_remove_first_line = True
+    logger.debug("msep: {}".format(msep))
 
     logger.debug("Loading ratings")
     start = time.time()
@@ -164,37 +191,31 @@ def main():
          sep=sep))
     logger.debug("Done in %f seconds", time.time() - start)
 
-    if args.movies_file == "movies":
-        movies_file = join(args.data_path, "movies" + extension)
-    else:
-        movies_file = args.movies_file
-
     logger.debug("Loading movies")
     start = time.time()
     movies_rdd = sc.parallelize(
         parsers_and_loaders.loadCSV(
             movies_file,
-            remove_first_line=remove_first_line
+            remove_first_line=movies_remove_first_line
             )
         )
     movies = dict(movies_rdd.map(lambda x: parsers_and_loaders.parseMovie(x,\
-        sep=sep)).collect())
+        sep=msep)).collect())
     all_movies = set(movies.keys())
     logger.debug("Done in %f seconds", time.time() - start)
     logger.debug("%d movies loaded", len(all_movies))
-
 
     metadata_sources = [
         {
             "name": "years",
             "src_rdd": (lambda: movies_rdd),
-            "loader": (lambda x: parsers_and_loaders.load_years(x, sep))
+            "loader": (lambda x: parsers_and_loaders.load_years(x, msep))
         },
         {
             "name": "genres",
             "src_rdd": (lambda: movies_rdd),
             "loader": (lambda x: parsers_and_loaders.load_genres(x,\
-                sep, parsers_and_loaders.parseGenre))
+                msep, parsers_and_loaders.parseGenre))
         },
         {
             "name": "tags",
@@ -212,28 +233,28 @@ def main():
         {
             "name": "imdb_keywords",
             "src_rdd": (lambda: movies_rdd),
-            "loader": (lambda x: parsers_and_loaders.load_genres(x, sep=",",\
+            "loader": (lambda x: parsers_and_loaders.load_genres(x, sep=msep,\
                 parser_function=parsers_and_loaders.parseIMDBKeywords,
                     prefix="imdb_keywords"))
         },
         {
             "name": "imdb_genres",
             "src_rdd": (lambda: movies_rdd),
-            "loader": (lambda x: parsers_and_loaders.load_genres(x, sep=",",\
+            "loader": (lambda x: parsers_and_loaders.load_genres(x, sep=msep,\
                 parser_function=parsers_and_loaders.parseIMDBGenres,
                     prefix="imdb_genres"))
         },
         {
             "name": "imdb_director",
             "src_rdd": (lambda: movies_rdd),
-            "loader": (lambda x: parsers_and_loaders.load_genres(x, sep=",",\
+            "loader": (lambda x: parsers_and_loaders.load_genres(x, sep=msep,\
                 parser_function=parsers_and_loaders.parseIMDBDirector,
                     prefix="imdb_director"))
         },
         {
             "name": "imdb_producer",
             "src_rdd": (lambda: movies_rdd),
-            "loader": (lambda x: parsers_and_loaders.load_genres(x, sep=",",\
+            "loader": (lambda x: parsers_and_loaders.load_genres(x, sep=msep,\
                 parser_function=parsers_and_loaders.parseIMDBProducer,
                     prefix="imdb_producer"))
         },

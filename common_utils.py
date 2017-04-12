@@ -108,14 +108,19 @@ def mean_relative_absolute_error(predobs):
 
 def evaluate_recommender(baseline_predictions, predictions, logger=None,
                          nbins=32):
-    nbins = list(np.linspace(0.0, 5.0, nbins+2))
-    predictionsAndRatings = predictions.map(lambda x: ((x[0], x[1]), x[2])) \
-        .join(baseline_predictions.map(lambda x: ((x[0], x[1]), x[2])))
+    predictionsAndRatings = predictions.map(lambda x: ((x[0], x[1]),
+        float(x[2]))) \
+        .join(baseline_predictions.map(lambda x: ((x[0], x[1]), float(x[2]))))
     predictions = predictionsAndRatings.map(lambda x: (x[0], x[1][0]))
     observations = predictionsAndRatings.map(lambda x: (x[0], x[1][1]))
-    return evaluate_regression(predictions, observations, logger, nbins)
+    return evaluate_regression(predictions, observations, logger, nbins,
+                               (0.0, 5.5))
 
-def evaluate_regression(predictions, observations, logger=None, nbins=32):
+def make_bins(bin_range, nbins):
+    return map(float, list(np.linspace(bin_range[0], bin_range[1], nbins+2)))
+
+def evaluate_regression(predictions, observations, logger=None, nbins=32,
+                        bin_range=None):
     if logger is None:
         print "Evaluating the model"
     else:
@@ -124,20 +129,37 @@ def evaluate_regression(predictions, observations, logger=None, nbins=32):
     predobs = predictions\
             .join(observations)\
             .values()
+
+    if bin_range is None:
+        bin_range = (-1, 1)
+    normal_bins = make_bins(bin_range, nbins)
+    max_magnitude = max(map(abs, bin_range))
+    total_min = min(map(lambda x: -abs(x), bin_range))
+    abs_bins = make_bins((0, max_magnitude), nbins)
+    err_bins = make_bins(
+                         ( total_min,
+                           max_magnitude
+                         ),
+                         nbins)
+    sq_bins = make_bins((0, max_magnitude**2), nbins)
+
     metrics = RegressionMetrics(predobs)
     mrae = mean_relative_absolute_error(predobs)
+
     obs = predobs.map(lambda (_, o): o)
     preds = predobs.map(lambda (p, _): p)
-    preds_histogram = preds.histogram(nbins)
-    obs_histogram = obs.histogram(nbins)
     errors = predobs.map(lambda (p, o): p - o)
-    errors_histogram = errors.histogram(nbins)
+
+    preds_histogram = preds.histogram(normal_bins)
+    obs_histogram = obs.histogram(normal_bins)
+    errors_histogram = errors.histogram(err_bins)
     abs_errors_histogram = errors\
             .map(lambda x: abs(x))\
-            .histogram(nbins)
+            .histogram(abs_bins)
     sq_errors_histogram = errors\
             .map(lambda x: x*x)\
-            .histogram(nbins)
+            .histogram(sq_bins)
+
     logger.debug("Done in %f seconds", time.time() - start)
     logger.debug("RMSE: {}, variance explained: {}, mean absolute error: {},".\
         format(metrics.explainedVariance,\

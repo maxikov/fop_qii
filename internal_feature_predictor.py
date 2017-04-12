@@ -21,6 +21,7 @@ import numpy as np
 import AverageRatingRecommender
 import parsers_and_loaders
 import common_utils
+import TrimmedFeatureRecommender
 
 def train_regression_model(data, regression_model="regression_tree",
                            categorical_features={}, max_bins=32, max_depth=None,
@@ -371,7 +372,8 @@ def internal_feature_predictor(sc, training, rank, numIter, lmbda,
     logger.debug("%d products are missing",
                  len(training_set_products - model_products))
 
-    if compare_with_replaced_feature or compare_with_randomized_feature:
+    if compare_with_replaced_feature or compare_with_randomized_feature or\
+            args.features_trim_percentile:
         logger.debug("Computing model predictions")
         start = time.time()
         baseline_predictions = model.predictAll(training.map(lambda x:\
@@ -396,6 +398,18 @@ def internal_feature_predictor(sc, training, rank, numIter, lmbda,
         baseline_rec_eval = common_utils.evaluate_recommender(\
                training, baseline_predictions, logger, args.nbins)
         results["baseline_rec_eval"] = baseline_rec_eval
+
+    if args.features_trim_percentile:
+        old_model = model
+        old_productFeatures = old_model.productFeatures()
+        old_userFeatures = old_model.userFeatures()
+        model = TrimmedFeatureRecommender.TrimmedFeatureRecommender(\
+                rank, old_userFeatures, old_productFeatures,\
+                args.features_trim_percentile, logger).train()
+        logger.debug("Computing trimmed predictions")
+        trimmed_predictions = model.predictAll(training)
+        results["trimmed_rec_eval"] = common_utils.evaluate_recommender(\
+                baseline_predictions, trimmed_predictions, logger, args.nbins)
 
     features = model.productFeatures()
     other_features = model.userFeatures()
@@ -458,16 +472,22 @@ def internal_feature_predictor(sc, training, rank, numIter, lmbda,
         predictions_training = predictions
 
         if eval_regression:
-            bins = list(np.linspace(-1, 1, args.nbins+1))
+            if args.features_trim_percentile:
+                bin_range = model.feature_threshold(f)
+            else:
+                bin_range = None
+            logger.debug("Bin range: {}".format(bin_range))
             reg_eval = common_utils.evaluate_regression(predictions,
                                                         observations,
                                                         logger,
-                                                        bins)
+                                                        args.nbins,
+                                                        bin_range)
             results["features"][f]["regression_evaluation"] = reg_eval
             if train_ratio > 0:
                 logger.debug("Evaluating regression on the test set")
                 reg_eval_test = common_utils.evaluate_regression(\
-                        predictions_test, observations_test, logger, bins)
+                        predictions_test, observations_test, logger,\
+                        args.nbins, bin_range)
                 results["features"][f]["regression_evaluation_test"] =\
                     reg_eval_test
 
