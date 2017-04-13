@@ -29,6 +29,9 @@ def args_init(logger):
                                           ".setMaster(\"local[<ARG>]\"). "+\
                                           "* by default.")
 
+    parser.add_argument("--spark-executor-memory", action="store",
+                        type=str, default="16g")
+
     parser.add_argument("--non-negative", action="store_true", help=\
             "Use non-negative factrorization for ALS")
 
@@ -112,6 +115,8 @@ def args_init(logger):
     logger.debug("data_path: {}, checkpoint_dir: {}".format(args.data_path,\
         args.checkpoint_dir))
     logger.debug("local_threads: {}".format(args.local_threads))
+    logger.debug("spark_executor_memory: {}"\
+            .format(args.spark_executor_memory))
 
     logger.debug("regression_model: {}".format(args.regression_model))
 
@@ -151,7 +156,7 @@ def main():
     conf = SparkConf() \
       .setMaster("local[{}]".format(args.local_threads)) \
       .setAppName("MovieLensALS") \
-      .set("spark.executor.memory", "16g")
+      .set("spark.executor.memory", args.spark_executor_memory)
     sc = SparkContext(conf=conf)
 
 
