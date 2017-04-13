@@ -1,12 +1,19 @@
 """ TODO: documentation """
 
+#standard library
+import time
+
+#project files
+from common_utils import perturb_feature, manual_predict_all
+
 class RandomizedRecommender(object):
     """ TODO: documentation """
 
-    def __init__(self, baseline_model, rank, logger=None):
+    def __init__(self, baseline_model, rank, perturbed_subset=None, logger=None):
         self.logger = logger
         self.baseline_model = baseline_model
         self.rank = rank
+        self.perturbed_subset = perturbed_subset
 
     def randomize(self):
         """ TODO: documentation """
@@ -22,13 +29,14 @@ class RandomizedRecommender(object):
                 print "Perturbing feature", f
             else:
                 self.logger.debug("Perturbing feature {}".format(f))
-            self.perturbed_features = perturb_feature(self.perturbed_features, f)
+            self.perturbed_features = perturb_feature(self.perturbed_features,
+                    f, self.perturbed_subset)
         if self.logger is None:
             print "Done in", time.time() - start, "seconds"
         else:
             self.logger.debug("Done in {} seconds".format(time.time() - start))
 
-    def predict(self, user_movies):
+    def predictAll(self, user_movies):
         """ TODO: documentation """
 
         if self.logger is None:

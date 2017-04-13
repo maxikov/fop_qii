@@ -82,7 +82,7 @@ def feature_regressions(results, training=False):
 def feature_recommenders(results, training=False):
     opacity = 0.4
     feats = results["features"]
-    fig, axes = create_axes(len(feats))
+    fig, axes = create_axes(len(feats)+1)
     for f in xrange(len(feats)):
         ax = axes[f]
 
@@ -106,6 +106,26 @@ def feature_recommenders(results, training=False):
         preds = ax.bar(xs[:-1], ys, width, color="green", alpha=opacity)
 
         ax.set_title("Feature {}".format(f))
+
+    ax = axes[len(feats)]
+    xs, ys = results["all_replaced_rec_eval" + ("" if training else "_test")]\
+                      ["obs_histogram"]
+    print "observations:", xs, ys
+    width = xs[1] - xs[0]
+    obs = ax.bar(xs[:-1], ys, width, color="blue", alpha=opacity)
+
+    xs, ys = results["all_random_rec_eval" + ("" if training else "_test")]\
+                      ["abs_errors_histogram"]
+    width = xs[1] - xs[0]
+    errs = ax.bar(xs[:-1], ys, width, color="red", alpha=opacity)
+
+    xs, ys = results["all_replaced_rec_eval" + ("" if training else "_test")]\
+                      ["abs_errors_histogram"]
+    width = xs[1] - xs[0]
+    preds = ax.bar(xs[:-1], ys, width, color="green", alpha=opacity)
+
+    ax.set_title("All features")
+
     fig.suptitle("Performance of recommenders with substituted features")
     fig.legend([obs, preds, errs], ["Original recommender output",
         "Absolute error with regression", "Absolute error randomized"], loc="lower center")

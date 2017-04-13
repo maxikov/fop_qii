@@ -19,6 +19,7 @@ import numpy as np
 
 #project files
 import AverageRatingRecommender
+import RandomizedRecommender
 import parsers_and_loaders
 import common_utils
 import TrimmedFeatureRecommender
@@ -164,38 +165,24 @@ def build_meta_data_set(sc, sources, all_ids=None, logger=None):
     res_rdd = None
 
     for source in sources:
-        if logger is None:
-            print "Loading", source["name"]
-        else:
-            logger.debug("Loading " + source["name"])
+        logger.debug("Loading " + source["name"])
 
         start = time.time()
 
         cur_rdd, nof, cfi, fnames = source["loader"](source["src_rdd"]())
         rdd_count = cur_rdd.count()
 
-        if logger is None:
-            print "Done in {} seconds".format(time.time() - start)
-            print rdd_count, "records of", nof, "features loaded"
-        else:
-            logger.debug("Done in {} seconds".format(time.time() - start))
-            logger.debug(str(rdd_count) + " records of " +\
+        logger.debug("Done in {} seconds".format(time.time() - start))
+        logger.debug(str(rdd_count) + " records of " +\
                     str(nof) + " features loaded")
 
         if all_ids is not None:
             cur_ids = set(cur_rdd.keys().collect())
             missing_ids = all_ids - cur_ids
             if len(missing_ids) == 0:
-                if logger is None:
-                    print "No missing IDs"
-                else:
-                    logger.debug("No missing IDs")
+                logger.debug("No missing IDs")
             else:
-                if logger is None:
-                    print len(missing_ids), "IDs are missing. "+\
-                            "Adding empty records for them"
-                else:
-                    logger.debug(str(len(missing_ids)) + " IDs are missing. "+\
+                logger.debug(str(len(missing_ids)) + " IDs are missing. "+\
                             "Adding empty records for them")
 
                 start = time.time()
@@ -204,10 +191,7 @@ def build_meta_data_set(sc, sources, all_ids=None, logger=None):
                                  missing_ids]
                 empty_records = sc.parallelize(empty_records)
                 cur_rdd = cur_rdd.union(empty_records)
-                if logger is None:
-                    print "Done in {} seconds".format(time.time() - start)
-                else:
-                    logger.debug("Done in {} seconds".format(time.time() - start))
+                logger.debug("Done in {} seconds".format(time.time() - start))
 
         shifted_cfi = {f+feature_offset: v for (f, v) in cfi.items()}
         shifted_fnames = {f+feature_offset: v for (f, v) in fnames.items()}
@@ -329,6 +313,53 @@ def compare_baseline_to_replaced(baseline_predictions, uf, pf, logger, power):
     logger.debug("Done in %f seconds", time.time() - start)
     return replaced_mean_error_baseline, replaced_predictions
 
+def compare_with_all_replaced_features(features, other_features,
+                                       user_or_product_features,
+                                       all_predicted_features, rank,
+                                       baseline_predictions, logger, power,
+                                       args):
+    logger.debug("Computing predictions of the model with all "+\
+        "replaced features")
+    start = time.time()
+    for f in xrange(rank):
+        logger.debug("Replacing feature %d", f)
+        features = replace_feature_with_predicted(features, f,
+                                                   all_predicted_features[f],
+                                                   logger)
+
+    if user_or_product_features == "product":
+        uf, pf = other_features, features
+    else:
+        uf, pf = features, other_features
+
+    replaced_mean_error_baseline, replaced_predictions = compare_baseline_to_replaced(\
+                        baseline_predictions, uf, pf, logger, power)
+
+    logger.debug("Replaced mean error baseline: "+\
+                 "%f", replaced_mean_error_baseline)
+
+    logger.debug("Evaluating replaced model")
+    replaced_rec_eval =\
+                    common_utils.evaluate_recommender(baseline_predictions,\
+                        replaced_predictions, logger, args.nbins)
+    logger.debug("Done in %f seconds", time.time() - start)
+    return replaced_mean_error_baseline, replaced_rec_eval
+
+def compare_with_all_randomized(baseline_model, rank, perturbed_subset,
+                                baseline_predictions, logger, power,
+                                args):
+    logger.debug("Evaluating a completely randomized model")
+    start = time.time()
+    model = RandomizedRecommender.RandomizedRecommender(\
+        baseline_model, rank, perturbed_subset, logger)
+    model.randomize()
+    randomized_predictions = model.predictAll(baseline_predictions)
+    replaced_rec_eval =\
+                    common_utils.evaluate_recommender(baseline_predictions,\
+                        randomized_predictions, logger, args.nbins)
+    logger.debug("Done in %f seconds", time.time() - start)
+    return replaced_rec_eval
+
 def internal_feature_predictor(sc, training, rank, numIter, lmbda,
                                args, all_movies, metadata_sources,
                                user_or_product_features, eval_regression,
@@ -349,7 +380,18 @@ def internal_feature_predictor(sc, training, rank, numIter, lmbda,
              "loader": parsers_and_loaders.load_average_ratings})
 
     cur_mtdt_srcs = filter(lambda x: x["name"] in args.metadata_sources, metadata_sources)
-    indicators, _, categorical_features, feature_names =\
+    if args.drop_missing_movies:
+        indicators, _, categorical_features, feature_names =\
+            build_meta_data_set(sc, cur_mtdt_srcs, None, logger)
+        old_all_movies = all_movies
+        all_movies = set(indicators.keys().collect())
+        logger.debug("{} movies loaded, data for {} is missing, purging them"\
+                .format(len(all_movies), len(old_all_movies - all_movies)))
+        training = training.filter(lambda x: x[1] in all_movies)
+        logger.debug("{} items left in the training set"\
+                .format(training.count()))
+    else:
+        indicators, _, categorical_features, feature_names =\
             build_meta_data_set(sc, cur_mtdt_srcs, all_movies, logger)
 
     logger.debug("Training ALS recommender")
@@ -422,6 +464,9 @@ def internal_feature_predictor(sc, training, rank, numIter, lmbda,
 
     results["train_ratio"] = train_ratio
 
+    all_predicted_features = {}
+    all_predicted_features_test = {}
+
     for f in xrange(rank):
         if train_ratio > 0:
             logger.debug("Building training and test sets for regression")
@@ -452,6 +497,7 @@ def internal_feature_predictor(sc, training, rank, numIter, lmbda,
             args.nbins,
             logger)
         results["features"][f] = {"model": lr_model}
+        all_predicted_features[f] = predictions
 
         if args.regression_model == "regression_tree":
             model_debug_string = lr_model.toDebugString()
@@ -468,6 +514,7 @@ def internal_feature_predictor(sc, training, rank, numIter, lmbda,
                                             .map(float))
             observations_test = features_test.map(lambda (mid, ftrs):
                     (mid, ftrs[f]))
+            all_predicted_features_test[f] = predictions_test
 
         predictions_training = predictions
 
@@ -613,6 +660,30 @@ def internal_feature_predictor(sc, training, rank, numIter, lmbda,
                 results["features"][f]["randomized_rec_eval_test"] =\
                     common_utils.evaluate_recommender(baseline_predictions,\
                         randomized_predictions_test, logger, args.nbins)
+
+    if train_ratio <= 0:
+        training_movies = all_movies
+
+    replaced_mean_error_baseline, replaced_rec_eval =\
+        compare_with_all_replaced_features(features, other_features,\
+            user_or_product_features, all_predicted_features, rank,\
+            baseline_predictions, logger, power, args)
+    results["all_replaced_mean_error_baseline"] = replaced_mean_error_baseline
+    results["all_replaced_rec_eval"] = replaced_rec_eval
+    results["all_random_rec_eval"] = compare_with_all_randomized(\
+        model, rank, training_movies, baseline_predictions,\
+        logger, power, args)
+
+    if train_ratio > 0:
+        replaced_mean_error_baseline, replaced_rec_eval =\
+            compare_with_all_replaced_features(features, other_features,\
+                user_or_product_features, all_predicted_featuresi_test, rank,\
+                baseline_predictions, logger, power, args)
+        results["all_replaced_mean_error_baseline_test"] = replaced_mean_error_baseline
+        results["all_replaced_rec_eval_test"] = replaced_rec_eval
+        results["all_random_rec_eval_test"] = compare_with_all_randomized(\
+            baseline_model, rank, test_movies, baseline_predictions,\
+            logger, power, args)
 
     return results
 

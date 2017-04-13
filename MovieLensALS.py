@@ -107,6 +107,12 @@ def args_init(logger):
                                        "(default) no trimming is done.",
                         default=0)
 
+    parser.add_argument("--drop-missing-movies", action="store_true",
+                        help="When there's no metadata for a given movie "+\
+                             "(even in just one source), drop it from "+\
+                             "the data set entirely instead of adding "+\
+                             "empty records for it.")
+
 
     args = parser.parse_args()
 
@@ -156,7 +162,12 @@ def main():
     conf = SparkConf() \
       .setMaster("local[{}]".format(args.local_threads)) \
       .setAppName("MovieLensALS") \
-      .set("spark.executor.memory", args.spark_executor_memory)
+      .set("spark.executor.memory", args.spark_executor_memory)\
+      .set("spark.driver.maxResultSize", "4g")\
+      .set("spark.python.worker.memory", "4g")\
+      .set("spark.network.timeout", "360000s")\
+      .set("spark.rpc.numRetries", "50")\
+      .set("spark.cores.max", "8")
     sc = SparkContext(conf=conf)
 
 
