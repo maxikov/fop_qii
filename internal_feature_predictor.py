@@ -677,12 +677,12 @@ def internal_feature_predictor(sc, training, rank, numIter, lmbda,
     if train_ratio > 0:
         replaced_mean_error_baseline, replaced_rec_eval =\
             compare_with_all_replaced_features(features, other_features,\
-                user_or_product_features, all_predicted_featuresi_test, rank,\
+                user_or_product_features, all_predicted_features_test, rank,\
                 baseline_predictions, logger, power, args)
         results["all_replaced_mean_error_baseline_test"] = replaced_mean_error_baseline
         results["all_replaced_rec_eval_test"] = replaced_rec_eval
         results["all_random_rec_eval_test"] = compare_with_all_randomized(\
-            baseline_model, rank, test_movies, baseline_predictions,\
+            model, rank, test_movies, baseline_predictions,\
             logger, power, args)
 
     return results
