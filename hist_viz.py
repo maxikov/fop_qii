@@ -12,7 +12,7 @@ def edges_to_centers(edges):
         centers.append((edges[i-1]+edges[i])/2.0)
     return centers
 
-def overall_recommender_hist(results):
+def overall_recommender_hist(results, signed=False):
     opacity = 0.4
     r = results["baseline_rec_eval"]
     ys = r["obs_histogram"][1]
@@ -25,12 +25,12 @@ def overall_recommender_hist(results):
     width = bin_edges[1] - bin_edges[0]
     pr = plt.bar(bin_edges[:-1], ys, width, label="Predicted rating",
             color="green", alpha=opacity)
-    ys = r["abs_errors_histogram"][1]
+    ys = r[("" if signed else "abs_") + "errors_histogram"][1]
     bin_edges = r["abs_errors_histogram"][0]
     width = bin_edges[1] - bin_edges[0]
     ar = plt.bar(bin_edges[:-1], ys, width, label="Absolute error",
                     color="red", alpha=opacity)
-    plt.legend([ar, tr, pr], ["Absolute error", "True rating",
+    plt.legend([ar, tr, pr], ["Error" if signed else "Absolute error", "True rating",
                "Predicted rating"])
     plt.xlabel("Star rating")
     plt.ylabel("Number of observations")
@@ -51,7 +51,7 @@ def create_axes(nplots):
             axes_flat += [a]
     return f, axes_flat
 
-def feature_regressions(results, training=False):
+def feature_regressions(results, training=False, signed=False):
     opacity = 0.4
     feats = results["features"]
     fig, axes = create_axes(len(feats))
@@ -68,18 +68,18 @@ def feature_regressions(results, training=False):
         width = xs[1] - xs[0]
         preds = ax.bar(xs[:-1], ys, width, color="green", alpha=opacity)
 
-        xs, ys = data["abs_errors_histogram"]
+        xs, ys = data[("" if signed else "abs_") + "errors_histogram"]
         width = xs[1] - xs[0]
         errs = ax.bar(xs[:-1], ys, width, color="red", alpha=opacity)
 
         ax.set_title("Feature {}".format(f))
     fig.suptitle("Performance of regression on internal feature values")
     fig.legend([obs, preds, errs], ["True value", "Predicted value",
-                  "Absolute error"], loc="lower center")
+                  "Error" if signed else "Absolute error"], loc="lower center")
 
     plt.show()
 
-def feature_recommenders(results, training=False):
+def feature_recommenders(results, training=False, signed=False):
     opacity = 0.4
     feats = results["features"]
     fig, axes = create_axes(len(feats)+1)
@@ -95,13 +95,13 @@ def feature_recommenders(results, training=False):
 
         xs, ys = feats[f]\
                       ["randomized_rec_eval" + ("" if training else "_test")]\
-                      ["abs_errors_histogram"]
+                      [("" if signed else "abs_") + "errors_histogram"]
         width = xs[1] - xs[0]
         errs = ax.bar(xs[:-1], ys, width, color="red", alpha=opacity)
 
         xs, ys = feats[f]\
                       ["replaced_rec_eval" + ("" if training else "_test")]\
-                      ["abs_errors_histogram"]
+                      [("" if signed else "abs_") + "errors_histogram"]
         width = xs[1] - xs[0]
         preds = ax.bar(xs[:-1], ys, width, color="green", alpha=opacity)
 
@@ -115,12 +115,12 @@ def feature_recommenders(results, training=False):
     obs = ax.bar(xs[:-1], ys, width, color="blue", alpha=opacity)
 
     xs, ys = results["all_random_rec_eval" + ("" if training else "_test")]\
-                      ["abs_errors_histogram"]
+                      [("" if signed else "abs_") + "errors_histogram"]
     width = xs[1] - xs[0]
     errs = ax.bar(xs[:-1], ys, width, color="red", alpha=opacity)
 
     xs, ys = results["all_replaced_rec_eval" + ("" if training else "_test")]\
-                      ["abs_errors_histogram"]
+                      [("" if signed else "abs_") + "errors_histogram"]
     width = xs[1] - xs[0]
     preds = ax.bar(xs[:-1], ys, width, color="green", alpha=opacity)
 
@@ -128,16 +128,20 @@ def feature_recommenders(results, training=False):
 
     fig.suptitle("Performance of recommenders with substituted features")
     fig.legend([obs, preds, errs], ["Original recommender output",
-        "Absolute error with regression", "Absolute error randomized"], loc="lower center")
+        ("" if signed else "Absolute ") + "error with regression",
+        ("" if signed else "Absolute ") + "error randomized"], loc="lower center")
 
     plt.show()
 
 def main():
+    all_programs = ["overall", "feature_regressions", "feature_recommenders"]
     parser = argparse.ArgumentParser()
-    parser.add_argument("--program", type=str, default="overall", help=\
-            "overall, feature_regressions or feature_recommenders")
+    parser.add_argument("--program", type=str, default="overall", choices=\
+            all_programs)
     parser.add_argument("--training", action="store_true", help=\
             "Show data for training instead of test set")
+    parser.add_argument("--signed", action="store_true", help=\
+            "Display signed rather than absolute error histograms")
     parser.add_argument("fname", type=str, nargs=1, help="Log file name")
     args = parser.parse_args()
 
@@ -153,11 +157,11 @@ def main():
     results = eval(src)
 
     if args.program == "overall":
-        overall_recommender_hist(results)
+        overall_recommender_hist(results, args.signed)
     elif args.program == "feature_regressions":
-        feature_regressions(results, args.training)
+        feature_regressions(results, args.training, args.signed)
     elif args.program == "feature_recommenders":
-        feature_recommenders(results, args.training)
+        feature_recommenders(results, args.training, args.signed)
 
     plt.show()
 
