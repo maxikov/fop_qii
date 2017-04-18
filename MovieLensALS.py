@@ -175,7 +175,8 @@ def main():
       .set("spark.network.timeout", "360000s")\
       .set("spark.rpc.numRetries", "50")\
       .set("spark.cores.max", "8")\
-      .set("spark.default.parallelism", str(args.num_partitions))
+      .set("spark.default.parallelism", str(args.num_partitions))\
+      .set("spark.local.dir", args.checkpoint_dir)
     sc = SparkContext(conf=conf)
 
 

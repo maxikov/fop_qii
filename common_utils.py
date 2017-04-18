@@ -49,8 +49,8 @@ def manual_recommender_mean_error(user_features, product_features, data, power=1
       .values()
     return mean_error(predictionsAndRatings, power)
 
-def mean_error(predictionsAndRatings, power):
-    return (predictionsAndRatings.map(lambda x: abs(x[0] - x[1]) **\
+def mean_error(predictionsAndRatings, power, abs_function=abs):
+    return (predictionsAndRatings.map(lambda x: abs_function(x[0] - x[1]) **\
         power).reduce(add) / float(predictionsAndRatings.count())) ** (1.0/power)
 
 def manual_diff_models(model_1, model_2, user_product_pairs, power=1.0):
@@ -154,6 +154,8 @@ def evaluate_regression(predictions, observations, logger=None, nbins=32,
 
     metrics = RegressionMetrics(predobs)
     mrae = mean_relative_absolute_error(predobs)
+    mean_abs_err = mean_error(predobs, power=1.0, abs_function=abs)
+    mean_err = mean_error(predobs, power=1.0, abs_function=float)
 
     obs = predobs.map(lambda (_, o): o)
     preds = predobs.map(lambda (p, _): p)
@@ -170,6 +172,8 @@ def evaluate_regression(predictions, observations, logger=None, nbins=32,
             .histogram(sq_bins)
 
     logger.debug("Done in %f seconds", time.time() - start)
+    logger.debug("Mean error: {}, mean absolute error: {}".\
+            format(mean_err, mean_abs_err))
     logger.debug("RMSE: {}, variance explained: {}, mean absolute error: {},".\
         format(metrics.explainedVariance,\
                metrics.rootMeanSquaredError,
@@ -186,5 +190,7 @@ def evaluate_regression(predictions, observations, logger=None, nbins=32,
            "abs_errors_histogram": abs_errors_histogram,
            "sq_errors_histogram": sq_errors_histogram,
            "preds_histogram": preds_histogram,
-           "obs_histogram": obs_histogram}
+           "obs_histogram": obs_histogram,
+           "mean_err": mean_err,
+           "mean_abs_err": mean_abs_err}
     return res

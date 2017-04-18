@@ -2,6 +2,7 @@
 import time
 import math
 import random
+from collections import defaultdict
 
 #prettytable library
 from prettytable import PrettyTable
@@ -383,6 +384,23 @@ def compare_with_all_randomized(baseline_model, rank, perturbed_subset,
     logger.debug("Done in %f seconds", time.time() - start)
     return replaced_rec_eval
 
+def measure_associativity(input_features, target_features, f, logger):
+    logger.debug("Measuring associativity")
+    start = time.time()
+    joined = input_features\
+             .join(target_features)\
+             .map(lambda (mid, (inds, ftrs)): (inds, ftrs[f]))
+    res = defaultdict(set)
+    for inds, ftr in joined.collect():
+        res[tuple(inds)].add(ftr)
+    avg_card = float(
+                    sum(
+                        (0.0 if len(x) <= 1 else np.var(list(x))) for x in res.values()
+                       )
+                    )/len(res)
+    logger.debug("Done in %f seconds", time.time() - start)
+    return avg_card
+
 def internal_feature_predictor(sc, training, rank, numIter, lmbda,
                                args, all_movies, metadata_sources,
                                user_or_product_features, eval_regression,
@@ -498,6 +516,7 @@ def internal_feature_predictor(sc, training, rank, numIter, lmbda,
     all_predicted_features_test = {}
 
     for f in xrange(rank):
+        results["features"][f] = {}
         if train_ratio > 0:
             logger.debug("Building training and test sets for regression")
             all_movies = features.keys().collect()
@@ -518,6 +537,10 @@ def internal_feature_predictor(sc, training, rank, numIter, lmbda,
             features_training = features
             indicators_training = indicators
 
+        assoc = measure_associativity(indicators_training, features_training, f, logger)
+        logger.debug("Associativity: %f", assoc)
+        results["features"][f]["assoc"] = assoc
+
         lr_model, observations, predictions = predict_internal_feature(\
             features_training,
             indicators_training,
@@ -526,7 +549,7 @@ def internal_feature_predictor(sc, training, rank, numIter, lmbda,
             categorical_features,
             args.nbins,
             logger)
-        results["features"][f] = {"model": lr_model}
+        results["features"][f]["model"] = lr_model
         all_predicted_features[f] = predictions
 
         if args.regression_model == "regression_tree":
@@ -536,6 +559,9 @@ def internal_feature_predictor(sc, training, rank, numIter, lmbda,
             logger.info(model_debug_string)
 
         if train_ratio > 0:
+            assoc = measure_associativity(indicators_test, features_test, f, logger)
+            logger.debug("Associativity test: %f", assoc)
+            results["features"][f]["assoc_test"] = assoc
             logger.debug("Computing predictions on the test set")
             ids_test = indicators_test.keys()
             input_test = indicators_test.values()
@@ -739,10 +765,14 @@ def display_internal_feature_predictor(results, logger):
 
     header = ["Feature",
               "MRAE",
-              "Mean absolute error"]
+              "Mean absolute error",
+              "Mean error",
+              "Associativity"]
     if results["train_ratio"] > 0:
         header += ["MRAE test",
-                   "Mean absolute error test"]
+                   "Mean absolute error test",
+                   "Mean error test",
+                   "Associativity test"]
     header += ["Mean feature value",
                "Replaced MERR Baseline",
                "Random MERR Baseline",
@@ -755,10 +785,14 @@ def display_internal_feature_predictor(results, logger):
     for f, r in feature_results:
         row = [f,
                r["regression_evaluation"]["mrae"],
-               r["regression_evaluation"]["mre"]]
+               r["regression_evaluation"]["mre"],
+               r["regression_evaluation"]["mean_err"],
+               r["assoc"]]
         if results["train_ratio"] > 0:
             row +=  [r["regression_evaluation_test"]["mrae"],
-                     r["regression_evaluation_test"]["mre"]]
+                     r["regression_evaluation_test"]["mre"],
+                     r["regression_evaluation_test"]["mean_err"],
+                     r["assoc_test"]]
         row += [results["mean_feature_values"][f],
                 r["replaced_mean_error_baseline"],
                 r["randomized_mean_error_baseline"],
