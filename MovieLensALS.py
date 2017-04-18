@@ -174,7 +174,8 @@ def main():
       .set("spark.python.worker.memory", "4g")\
       .set("spark.network.timeout", "360000s")\
       .set("spark.rpc.numRetries", "50")\
-      .set("spark.cores.max", "8")
+      .set("spark.cores.max", "8")\
+      .set("spark.default.parallelism", str(args.num_partitions))
     sc = SparkContext(conf=conf)
 
 
