@@ -26,7 +26,7 @@ def overall_recommender_hist(results, signed=False):
     pr = plt.bar(bin_edges[:-1], ys, width, label="Predicted rating",
             color="green", alpha=opacity)
     ys = r[("" if signed else "abs_") + "errors_histogram"][1]
-    bin_edges = r["abs_errors_histogram"][0]
+    bin_edges = r[("" if signed else "abs_") + "errors_histogram"][0]
     width = bin_edges[1] - bin_edges[0]
     ar = plt.bar(bin_edges[:-1], ys, width, label="Absolute error",
                     color="red", alpha=opacity)
