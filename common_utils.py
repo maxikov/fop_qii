@@ -2,12 +2,21 @@
 from operator import add
 import time
 import random
+import bisect
 
 #pyspark library
 from pyspark.mllib.evaluation import RegressionMetrics
 
 #numpy library
 import numpy as np
+
+def shift_drop_dict(src, ids_to_drop):
+    ids_to_drop = sorted(list(ids_to_drop))
+    res = {}
+    for key, value in src.items():
+        key_offset = bisect.bisect_left(ids_to_drop, key)
+        res[key - key_offset] = value
+    return res
 
 def substitute_feature_names(string, feature_names):
     for fid, fname in feature_names.items():

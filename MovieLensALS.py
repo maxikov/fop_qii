@@ -113,6 +113,11 @@ def args_init(logger):
                              "the data set entirely instead of adding "+\
                              "empty records for it.")
 
+    parser.add_argument("--drop-rare-features", action="store", type=int,
+                        default=0, help="Drop features from the meta "+\
+                                        "data set that have fewer than "+\
+                                        "the specified value of non-zero "+\
+                                        "values. 0 by default (no dropping).")
 
     args = parser.parse_args()
 
@@ -136,6 +141,8 @@ def args_init(logger):
     logger.debug("tvtropes_file: {}".format(args.tvtropes_file))
     logger.debug("features_trim_percentile: {}"\
             .format(args.features_trim_percentile))
+    logger.debug("drop_missing_movies: {}".format(args.drop_missing_movies))
+    logger.debug("drop_rare_features: {}".format(args.drop_rare_features))
 
     return args
 

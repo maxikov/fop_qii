@@ -211,7 +211,30 @@ def build_meta_data_set(sc, sources, all_ids=None, logger=None):
 
     return (res_rdd, feature_offset, categorical_features_info, feature_names)
 
-
+def drop_rare_features(indicators, nof, categorical_features, feature_names,
+                       drop_threshold, logger):
+    logger.debug("Dropping features with less than %d" +\
+                 " non-zero values", drop_threshold)
+    start = time.time()
+    feature_counts = indicators\
+                     .map(lambda (mid, ind_lst):
+                             (mid, [1 if x > 0 else 0 for x in ind_lst]))\
+                     .values()\
+                     .reduce(lambda a, b: map(sum, zip(a, b)))
+    features_to_drop = set(x[0] for x in enumerate(feature_counts) if x[1] <=
+                           drop_threshold)
+    logger.debug("Dropping %d features", len(features_to_drop))
+    res_rdd = indicators.map(lambda (mid, ind_list): (mid,
+        [x[1] for x in enumerate(ind_list) if x[0] not in features_to_drop]))
+    features_to_drop = sorted(list(features_to_drop))
+    categorical_features = common_utils.shift_drop_dict(categorical_features,
+                                                        features_to_drop)
+    feature_names = common_utils.shift_drop_dict(feature_names,
+                                                 features_to_drop)
+    nof = nof - len(features_to_drop)
+    logger.debug("%d features remaining", nof)
+    logger.debug("Done in %f seconds", time.time() - start)
+    return (res_rdd, nof, categorical_features, feature_names)
 
 def predict_internal_feature(features, indicators, f, regression_model,
                              categorical_features, max_bins, logger=None):
@@ -381,7 +404,7 @@ def internal_feature_predictor(sc, training, rank, numIter, lmbda,
 
     cur_mtdt_srcs = filter(lambda x: x["name"] in args.metadata_sources, metadata_sources)
     if args.drop_missing_movies:
-        indicators, _, categorical_features, feature_names =\
+        indicators, nof, categorical_features, feature_names =\
             build_meta_data_set(sc, cur_mtdt_srcs, None, logger)
         old_all_movies = all_movies
         all_movies = set(indicators.keys().collect())
@@ -391,8 +414,15 @@ def internal_feature_predictor(sc, training, rank, numIter, lmbda,
         logger.debug("{} items left in the training set"\
                 .format(training.count()))
     else:
-        indicators, _, categorical_features, feature_names =\
+        indicators, nof, categorical_features, feature_names =\
             build_meta_data_set(sc, cur_mtdt_srcs, all_movies, logger)
+    logger.debug("%d features loaded", nof)
+
+    if args.drop_rare_features > 0:
+        indicators, nof, categorical_features, feature_names =\
+            drop_rare_features(indicators, nof, categorical_features,
+                               feature_names, args.drop_rare_features,
+                               logger)
 
     logger.debug("Training ALS recommender")
     start = time.time()
