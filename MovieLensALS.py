@@ -10,6 +10,7 @@ import argparse
 #pyspark library
 from pyspark import SparkConf, SparkContext
 from pyspark.mllib.recommendation import ALS
+from pyspark.sql import SQLContext
 
 #project files
 import parsers_and_loaders
@@ -76,6 +77,9 @@ def args_init(logger):
     parser.add_argument("--predict-product-features", action="store_true",
                         help="Use regression to predict product features "+\
                              "based on product metadata")
+    parser.add_argument("--output-model", type=str, default=None,
+                        help="Output the trained recommendation model to a "+\
+                             "csv file.")
 
     parser.add_argument("--metadata-sources", action="store", type=str,
                         nargs="+",
@@ -178,7 +182,7 @@ def main():
       .set("spark.default.parallelism", str(args.num_partitions))\
       .set("spark.local.dir", args.checkpoint_dir)
     sc = SparkContext(conf=conf)
-
+    sql = SQLContext(sparkContext=sc)
 
     sc.setCheckpointDir(args.checkpoint_dir)
     ALS.checkpointInterval = 2
@@ -355,7 +359,48 @@ def main():
         internal_feature_predictor.display_internal_feature_predictor(\
            results, logger)
 
+    elif args.output_model:
+        task_output_model(training, args, logger, sql)
+
     sc.stop()
+
+def task_output_model(training, args, logger, sql):
+    """ Train the recommender system and write the latent features to
+    2 csv files, one for users and one for products."""
+
+    logger.debug("Training ALS recommender")
+    start = time.time()
+    model = ALS.train(training, rank=args.rank, iterations=args.num_iter,
+                      lambda_=args.lmbda, nonnegative=args.non_negative)
+    logger.debug("Done in %f seconds", time.time() - start)
+
+    products = model.productFeatures().collect()
+    users = model.userFeatures().collect()
+
+    users_rows = [[user[0]] + list(user[1]) for user in users]
+    products_rows = [[product[0]] + list(product[1]) for product in products]
+
+    filename_users = "%s_users" % args.output_model
+    filename_products = "%s_products" % args.output_model
+
+    logger.debug("Writing latent features to %s and %s" % (filename_users,
+                                                           filename_products))
+
+    df_users = sql.createDataFrame(
+        users_rows,
+        ['user_id'] + ["latent_%d" % i for i in range(model.rank)])
+    df_products = sql.createDataFrame(
+        products_rows,
+        ['product_id'] + ["latent_%d" % i for i in range(model.rank)])
+
+    options = {'header':True}
+
+    df_users.coalesce(1).write\
+        .format("com.databricks.spark.csv").options(**options)\
+        .save(filename_users)
+    df_products.coalesce(1).write\
+        .format("com.databricks.spark.csv").options(**options)\
+        .save(args.filename_products)
 
 if __name__ == "__main__":
     main()
