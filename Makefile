@@ -17,5 +17,7 @@ conf1: *.py
 
 clean:
 	rm -Rf *.pyc
+	rm -Rf latents_users
+	rm -Rf latents_products
 
 .PHONY: active ypylint modules_check conf1
