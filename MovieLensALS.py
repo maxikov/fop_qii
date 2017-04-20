@@ -382,33 +382,33 @@ def task_output_model(training, args, logger, sql):
                       lambda_=args.lmbda, nonnegative=args.non_negative)
     logger.debug("Done in %f seconds", time.time() - start)
 
-    products = model.productFeatures().collect()
+    movies = model.productFeatures().collect()
     users = model.userFeatures().collect()
 
     users_rows = [[user[0]] + list(user[1]) for user in users]
-    products_rows = [[product[0]] + list(product[1]) for product in products]
+    movies_rows = [[movie[0]] + list(movie[1]) for movie in movies]
 
     filename_users = "%s_users" % args.output_model
-    filename_products = "%s_products" % args.output_model
+    filename_movies = "%s_movies" % args.output_model
 
     logger.debug("Writing latent features to %s and %s" % (filename_users,
-                                                           filename_products))
+                                                           filename_movies))
 
     df_users = sql.createDataFrame(
         users_rows,
-        ['user_id'] + ["latent_%d" % i for i in range(model.rank)])
-    df_products = sql.createDataFrame(
-        products_rows,
-        ['product_id'] + ["latent_%d" % i for i in range(model.rank)])
+        ['userId'] + ["latent_%d" % i for i in range(model.rank)])
+    df_movies = sql.createDataFrame(
+        movies_rows,
+        ['movieId'] + ["latent_%d" % i for i in range(model.rank)])
 
     options = {'header':True}
 
     df_users.coalesce(1).write\
         .format("com.databricks.spark.csv").options(**options)\
         .save(filename_users)
-    df_products.coalesce(1).write\
+    df_movies.coalesce(1).write\
         .format("com.databricks.spark.csv").options(**options)\
-        .save(args.filename_products)
+        .save(filename_movies)
 
 if __name__ == "__main__":
     main()
