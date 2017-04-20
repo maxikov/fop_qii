@@ -10,7 +10,7 @@ from prettytable import PrettyTable
 #pyspark library
 from pyspark.mllib.recommendation import ALS
 import pyspark.mllib.recommendation
-from pyspark.mllib.classification import LabeledPoint
+from pyspark.mllib.classification import LabeledPoint, NaiveBayes
 import pyspark.mllib.regression
 import pyspark.mllib.tree
 from pyspark.mllib.regression import LinearRegressionWithSGD
@@ -24,6 +24,67 @@ import RandomizedRecommender
 import parsers_and_loaders
 import common_utils
 import TrimmedFeatureRecommender
+import HashTableRegression
+
+regression_models = ["regression_tree", "random_forest", "linear",
+                     "naive_bayes"]
+metadata_sources = ["name", "genres", "tags", "imdb_keywords",
+                    "imdb_genres", "imdb_director", "imdb_producer",
+                    "tvtropes", "average_rating", "users", "years"]
+
+def discretize_single_feature(data, nbins, logger):
+    """
+    data: RDD of ID: value
+    """
+    cur_f_values = data.values()
+    _max = cur_f_values.max()
+    _min = cur_f_values.min()
+    logger.debug("Range from {} to {}".format(_min, _max))
+    bin_step = (_max - _min)/float(nbins)
+    logger.debug("{} bins, step: {}".format(nbins, bin_step))
+    bin_edges = np.linspace(_min, _max, nbins+1)
+    bin_centers = (bin_edges[1:] + bin_edges[:-1])/2.0
+    bin_centers = np.insert(bin_centers,
+                            [0, len(bin_centers)],
+                            [bin_centers[0]-bin_step,
+                                bin_centers[-1]+bin_step])
+    data = data.map(lambda (mid, val):
+                           (mid, int(np.digitize(val, bin_edges))))
+    return data, bin_centers
+
+def undiscretize_signle_feature(data, bin_centers):
+    """
+    data: RDD of ID: bin_n
+    """
+    data = data.map(lambda (mid, bin_n):
+                           (mid, float(bin_centers[bin_n])))
+    return data
+
+def discretize_features(data, nbins, dont_discretize, logger):
+    """
+    data: RDD of ID: [values]
+    dont_discretize: set of feature IDs to be left intact
+    """
+    logger.debug("Discretizing features")
+    start = time.time()
+    rank = len(data.take(1)[0][1])
+    logger.debug("{} features found".format(rank))
+    all_bin_centers = {}
+    for f in set(xrange(rank)) - dont_discretize:
+        logger.debug("Processing feature {}".format(f))
+        cur_f_data = data.map(lambda (mid, ftrs):
+                                     (mid, ftrs[f]))
+        cur_f_data, bin_centers = discretize_single_feature(cur_f_data,
+                                                            nbins,
+                                                            logger)
+        data = data\
+               .join(cur_f_data)\
+               .map(lambda (mid, (ftrs, new_f_val)):
+                           (mid, common_utils.set_list_value(ftrs, f,
+                                                             new_f_val)))
+        all_bin_centers[f] = bin_centers
+    logger.debug("Done in %f seconds", time.time() - start)
+    return data, all_bin_centers
 
 def train_regression_model(data, regression_model="regression_tree",
                            categorical_features={}, max_bins=32, max_depth=None,
@@ -108,6 +169,10 @@ def train_regression_model(data, regression_model="regression_tree",
                     maxBins=max_bins)
     elif regression_model == "linear":
         lr_model = LinearRegressionWithSGD.train(data)
+    elif regression_model == "naive_bayes":
+        lr_model = NaiveBayes.train(data)
+    elif regression_model == "hash_table":
+        lr_model = HashTableRegression.train(data)
 
     if logger is None:
         print "Done in {} seconds".format(time.time() - start)
@@ -392,7 +457,8 @@ def measure_associativity(input_features, target_features, f, logger):
              .map(lambda (mid, (inds, ftrs)): (inds, ftrs[f]))
     res = defaultdict(set)
     for inds, ftr in joined.collect():
-        res[tuple(inds)].add(ftr)
+        inds = tuple(inds)
+        res[inds].add(ftr)
     avg_card = float(
                     sum(
                         (0.0 if len(x) <= 1 else np.var(list(x))) for x in res.values()
@@ -505,6 +571,14 @@ def internal_feature_predictor(sc, training, rank, numIter, lmbda,
     other_features = model.userFeatures()
     if user_or_product_features == "user":
         features, other_features = other_features, features
+    if args.regression_model == "naive_bayes":
+        features, feature_bin_centers = discretize_features(features,
+                                                            args.nbins,
+                                                            set([]),
+                                                            logger)
+        indicators, _ = discretize_features(indicators, args.nbins,
+                                            set(categorical_features.keys()),
+                                            logger)
 
     results["mean_feature_values"] = common_utils.mean_feature_values(features, logger)
 
@@ -537,9 +611,24 @@ def internal_feature_predictor(sc, training, rank, numIter, lmbda,
             features_training = features
             indicators_training = indicators
 
-        assoc = measure_associativity(indicators_training, features_training, f, logger)
-        logger.debug("Associativity: %f", assoc)
-        results["features"][f]["assoc"] = assoc
+        ht_model, observations_ht, predictions_ht = predict_internal_feature(\
+            features_training,
+            indicators_training,
+            f,
+            "hash_table",
+            categorical_features,
+            args.nbins,
+            logger)
+        #logger.debug("Hash table: {}".format(ht_model.table))
+        _min = features_training.map(lambda x: x[1][f]).min()
+        _max = features_training.map(lambda x: x[1][f]).max()
+        bin_range = (_min, _max)
+        reg_eval = common_utils.evaluate_regression(predictions_ht,
+                                                    observations_ht,
+                                                    logger,
+                                                    args.nbins,
+                                                    bin_range)
+        results["features"][f]["regression_evaluation_ht"] = reg_eval
 
         lr_model, observations, predictions = predict_internal_feature(\
             features_training,
@@ -550,6 +639,11 @@ def internal_feature_predictor(sc, training, rank, numIter, lmbda,
             args.nbins,
             logger)
         results["features"][f]["model"] = lr_model
+        if args.regression_model == "naive_bayes":
+            predictions = undiscretize_signle_feature(predictions,
+                                                      feature_bin_centers[f])
+            observations = undiscretize_signle_feature(observations,
+                                                       feature_bin_centers[f])
         all_predicted_features[f] = predictions
 
         if args.regression_model == "regression_tree":
@@ -559,9 +653,23 @@ def internal_feature_predictor(sc, training, rank, numIter, lmbda,
             logger.info(model_debug_string)
 
         if train_ratio > 0:
-            assoc = measure_associativity(indicators_test, features_test, f, logger)
-            logger.debug("Associativity test: %f", assoc)
-            results["features"][f]["assoc_test"] = assoc
+            _, observations_ht, predictions_ht = predict_internal_feature(\
+                features_test,
+                indicators_test,
+                f,
+                "hash_table",
+                categorical_features,
+                args.nbins,
+                logger)
+            _min = features_test.map(lambda x: x[1][f]).min()
+            _max = features_test.map(lambda x: x[1][f]).max()
+            bin_range = (_min, _max)
+            reg_eval = common_utils.evaluate_regression(predictions_ht,
+                                                    observations_ht,
+                                                    logger,
+                                                    args.nbins,
+                                                    bin_range)
+            results["features"][f]["regression_evaluation_ht_test"] = reg_eval
             logger.debug("Computing predictions on the test set")
             ids_test = indicators_test.keys()
             input_test = indicators_test.values()
@@ -570,6 +678,13 @@ def internal_feature_predictor(sc, training, rank, numIter, lmbda,
                                             .map(float))
             observations_test = features_test.map(lambda (mid, ftrs):
                     (mid, ftrs[f]))
+            if args.regression_model == "naive_bayes":
+                predictionsi_test =\
+                    undiscretize_signle_feature(predictions_test,
+                                                feature_bin_centers[f])
+                observations_test =\
+                        undiscretize_signle_feature(observations_test,
+                                                    feature_bin_centers[f])
             all_predicted_features_test[f] = predictions_test
 
         predictions_training = predictions
@@ -578,7 +693,9 @@ def internal_feature_predictor(sc, training, rank, numIter, lmbda,
             if args.features_trim_percentile:
                 bin_range = model.feature_threshold(f)
             else:
-                bin_range = None
+                _min = features_training.map(lambda x: x[1][f]).min()
+                _max = features_training.map(lambda x: x[1][f]).max()
+                bin_range = (_min, _max)
             logger.debug("Bin range: {}".format(bin_range))
             reg_eval = common_utils.evaluate_regression(predictions,
                                                         observations,
@@ -767,12 +884,14 @@ def display_internal_feature_predictor(results, logger):
               "MRAE",
               "Mean absolute error",
               "Mean error",
-              "Associativity"]
+              "Mean absolute error HT",
+              "MRAE HT"]
     if results["train_ratio"] > 0:
         header += ["MRAE test",
                    "Mean absolute error test",
                    "Mean error test",
-                   "Associativity test"]
+                   "Mean absolute error HT test",
+                   "MRAE HT test"]
     header += ["Mean feature value",
                "Replaced MERR Baseline",
                "Random MERR Baseline",
@@ -787,12 +906,14 @@ def display_internal_feature_predictor(results, logger):
                r["regression_evaluation"]["mrae"],
                r["regression_evaluation"]["mre"],
                r["regression_evaluation"]["mean_err"],
-               r["assoc"]]
+               r["regression_evaluation_ht"]["mre"],
+               r["regression_evaluation_ht"]["mrae"]]
         if results["train_ratio"] > 0:
             row +=  [r["regression_evaluation_test"]["mrae"],
                      r["regression_evaluation_test"]["mre"],
                      r["regression_evaluation_test"]["mean_err"],
-                     r["assoc_test"]]
+                     r["regression_evaluation_ht_test"]["mre"],
+                     r["regression_evaluation_ht_test"]["mrae"]]
         row += [results["mean_feature_values"][f],
                 r["replaced_mean_error_baseline"],
                 r["randomized_mean_error_baseline"],

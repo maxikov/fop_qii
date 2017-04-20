@@ -58,6 +58,9 @@ def args_init(logger):
                         default="checkpoint", type=str,
                         help="Path to checkpoint " +\
                              "directory. checkpoint by default")
+    parser.add_argument("--temp-dir", action="store", default="", type=str,
+                        help="Directory for temporary files. If none "+\
+                             "specified, system defaults are used")
 
     parser.add_argument("--regression-model", action="store", type=str,
                         default="linear",
@@ -65,7 +68,8 @@ def args_init(logger):
                              "Possible values: linear, "+\
                              "regression_tree, "+\
                              "random_forest, "+\
-                             "linear by default")
+                             "linear by default",
+                        choices=internal_feature_predictor.regression_models)
     parser.add_argument("--nbins", action="store", type=int, default=32, help=\
             "Number of bins for a regression tree. 32 by default. "+\
             "Maximum depth is ceil(log(nbins, 2)).")
@@ -82,7 +86,8 @@ def args_init(logger):
                         help="Sources for user or product metadata "+\
                              "for feature explanations. Possible values: "+\
                              "years, genres, tags, average_rating, "+\
-                             "imdb_keywords, tvtropes.")
+                             "imdb_keywords, tvtropes.",
+                        choices=internal_feature_predictor.metadata_sources)
 
     parser.add_argument("--movies-file", action="store", type=str,
                         default="movies", help="File from which to read "+\
@@ -125,6 +130,7 @@ def args_init(logger):
         .format(args.rank, args.lmbda, args.num_iter, args.num_partitions))
     logger.debug("data_path: {}, checkpoint_dir: {}".format(args.data_path,\
         args.checkpoint_dir))
+    logger.debug("Temp dir: {}".format(args.temp_dir))
     logger.debug("local_threads: {}".format(args.local_threads))
     logger.debug("spark_executor_memory: {}"\
             .format(args.spark_executor_memory))
@@ -176,7 +182,9 @@ def main():
       .set("spark.rpc.numRetries", "50")\
       .set("spark.cores.max", "8")\
       .set("spark.default.parallelism", str(args.num_partitions))\
-      .set("spark.local.dir", args.checkpoint_dir)
+      .set("spark.executor.heartbeatInterval", 100)
+    if args.temp_dir != "":
+        conf.set("spark.local.dir", args.checkpoint_dir)
     sc = SparkContext(conf=conf)
 
 
