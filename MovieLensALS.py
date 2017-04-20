@@ -408,7 +408,7 @@ def task_output_model(training, args, logger, sql):
         .save(filename_users)
     df_products.coalesce(1).write\
         .format("com.databricks.spark.csv").options(**options)\
-        .save(args.filename_products)
+        .save(filename_products)
 
 if __name__ == "__main__":
     main()
