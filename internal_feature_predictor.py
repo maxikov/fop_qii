@@ -264,7 +264,7 @@ def build_meta_data_set(sc, sources, all_ids=None, logger=None):
                 empty_records = [(_id, [0 for _ in xrange(nof)]) for _id in
                                  missing_ids]
                 empty_records = sc.parallelize(empty_records)
-                cur_rdd = cur_rdd.union(empty_records)
+                cur_rdd = cur_rdd.union(empty_records).cache()
                 logger.debug("Done in {} seconds".format(time.time() - start))
 
         shifted_cfi = {f+feature_offset: v for (f, v) in cfi.items()}
@@ -279,7 +279,8 @@ def build_meta_data_set(sc, sources, all_ids=None, logger=None):
         else:
             res_rdd = res_rdd\
                     .join(cur_rdd)\
-                    .map(lambda (x, (y, z)): (x, y+z))
+                    .map(lambda (x, (y, z)): (x, y+z))\
+                    .cache()
         feature_offset += nof
     return (res_rdd, feature_offset, categorical_features_info, feature_names)
 
@@ -298,6 +299,7 @@ def drop_rare_features(indicators, nof, categorical_features, feature_names,
     logger.debug("Dropping %d features", len(features_to_drop))
     res_rdd = indicators.map(lambda (mid, ind_list): (mid,
         [x[1] for x in enumerate(ind_list) if x[0] not in features_to_drop]))
+    res_rdd = res_rdd.cache()
     features_to_drop = sorted(list(features_to_drop))
     categorical_features = common_utils.shift_drop_dict(categorical_features,
                                                         features_to_drop)
@@ -354,7 +356,8 @@ def predict_internal_feature(features, indicators, f, regression_model,
     joined = features.join(indicators)
     data = joined.map(
         lambda (_id, (ftrs, inds)):
-        LabeledPoint(float(ftrs[f]), inds))
+        LabeledPoint(float(ftrs[f]), inds))\
+                .cache()
     ids = joined.map(lambda (_id, _): _id)
 
     if logger is None:
@@ -371,14 +374,14 @@ def predict_internal_feature(features, indicators, f, regression_model,
     if no_threshold and regression_model == "logistic":
         lr_model.clearThreshold()
 
-    observations = ids.zip(data.map(lambda x: float(x.label)))
+    observations = ids.zip(data.map(lambda x: float(x.label))).cache()
     predictions = ids.zip(
         lr_model\
         .predict(
             data.map(lambda x: x.features)
             )\
         .map(float)
-        )
+        ).cache()
 
     return (lr_model, observations, predictions)
 
@@ -394,7 +397,7 @@ def replace_feature_with_predicted(features, f, predictions, logger):
     joined = features.join(predictions)
     replaced = joined.map(lambda (mid, (feats, pred)):\
             (mid, common_utils.set_list_value(feats, f, pred)))
-    replaced = replaced.union(features_intact)
+    replaced = replaced.union(features_intact).cache()
     logger.debug("Done in {} seconds".format(time.time() - start))
     return replaced
 
@@ -407,7 +410,7 @@ def compare_baseline_to_replaced(baseline_predictions, uf, pf, logger, power):
     start = time.time()
     predictionsAndRatings = replaced_predictions.map(lambda x: ((x[0], x[1]), x[2])) \
         .join(baseline_predictions.map(lambda x: ((x[0], x[1]), x[2]))) \
-        .values()
+        .values().cache()
     replaced_mean_error_baseline = common_utils.mean_error(predictionsAndRatings, power)
     logger.debug("Done in %f seconds", time.time() - start)
     return replaced_mean_error_baseline, replaced_predictions
@@ -543,7 +546,7 @@ def internal_feature_predictor(sc, training, rank, numIter, lmbda,
         logger.debug("Computing model predictions")
         start = time.time()
         baseline_predictions = model.predictAll(training.map(lambda x:\
-            (x[0], x[1])))
+            (x[0], x[1]))).cache()
         logger.debug("Done in %f seconds", time.time() - start)
 
         logger.debug("Computing mean error")
@@ -551,7 +554,7 @@ def internal_feature_predictor(sc, training, rank, numIter, lmbda,
         predictionsAndRatings = baseline_predictions\
             .map(lambda x: ((x[0], x[1]), x[2])) \
             .join(training.map(lambda x: ((x[0], x[1]), x[2]))) \
-            .values()
+            .values().cache()
         baseline_mean_error = common_utils.mean_error(predictionsAndRatings,
                                                       power)
         baseline_rmse = common_utils.mean_error(predictionsAndRatings, power=2.0)
@@ -612,11 +615,13 @@ def internal_feature_predictor(sc, training, rank, numIter, lmbda,
             training_movies = set(all_movies[:training_size])
             test_movies = set(all_movies[training_size:])
             features_training = features.filter(lambda x: x[0] in
-                    training_movies)
-            features_test = features.filter(lambda x: x[0] in test_movies)
+                    training_movies).cache()
+            features_test = features.filter(lambda x: x[0] in
+                    test_movies).cache()
             indicators_training = indicators.filter(lambda x: x[0] in
-                    training_movies)
-            indicators_test = indicators.filter(lambda x: x[0] in test_movies)
+                    training_movies).cache()
+            indicators_test = indicators.filter(lambda x: x[0] in
+                    test_movies).cache()
         else:
             features_training = features
             indicators_training = indicators

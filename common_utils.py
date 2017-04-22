@@ -162,7 +162,8 @@ def evaluate_regression(predictions, observations, logger=None, nbins=32,
     predobs = predictions\
             .join(observations)\
             .values()\
-            .map(lambda (a, b): (float(a), float(b)))
+            .map(lambda (a, b): (float(a), float(b)))\
+            .cache()
 
     if bin_range is None:
         bin_range = (-1.0, 1.0)
@@ -184,9 +185,9 @@ def evaluate_regression(predictions, observations, logger=None, nbins=32,
     mean_abs_err = mean_error(predobs, power=1.0, abs_function=abs)
     mean_err = mean_error(predobs, power=1.0, abs_function=float)
 
-    obs = predobs.map(lambda (_, o): o)
-    preds = predobs.map(lambda (p, _): p)
-    errors = predobs.map(lambda (p, o): p - o)
+    obs = predobs.map(lambda (_, o): o).cache()
+    preds = predobs.map(lambda (p, _): p).cache()
+    errors = predobs.map(lambda (p, o): p - o).cache()
 
     preds_histogram = preds.histogram(normal_bins)
     obs_histogram = obs.histogram(normal_bins)

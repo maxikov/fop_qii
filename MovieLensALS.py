@@ -227,7 +227,7 @@ def main():
             join(args.data_path, "ratings" + extension),
             remove_first_line=remove_first_line
             )
-        )
+        ).cache()
     ratings = ratings_rdd.map(lambda x: parsers_and_loaders.parseRating(x,\
          sep=sep))
     logger.debug("Done in %f seconds", time.time() - start)
@@ -239,7 +239,7 @@ def main():
             movies_file,
             remove_first_line=movies_remove_first_line
             )
-        )
+        ).cache()
     movies = dict(movies_rdd.map(lambda x: parsers_and_loaders.parseMovie(x,\
         sep=msep)).collect())
     all_movies = set(movies.keys())
@@ -266,7 +266,7 @@ def main():
                         join(args.data_path, "tags" + extension),
                         remove_first_line=remove_first_line
                     )
-                )
+                ).cache()
             ),
             "loader": (lambda x: parsers_and_loaders.load_tags(x, sep,
                        prefix="movielens_tags"))
@@ -307,7 +307,7 @@ def main():
                         args.tvtropes_file,
                         remove_first_line=True
                     )
-                )
+                ).cache()
             ),
             "loader": (lambda x: parsers_and_loaders.load_genres(x, sep=",",\
                 parser_function=parsers_and_loaders.parseTropes,
@@ -320,7 +320,7 @@ def main():
                     parsers_and_loaders.loadCSV(
                     join(args.data_path, "users" + extension),
                     remove_first_line=remove_first_line
-                ))),
+                )).cache()),
             "loader": (lambda x: parsers_and_loaders.load_users(x, sep=sep))
         }
     ]
@@ -346,7 +346,7 @@ def main():
                 join(args.data_path, "users" + extension),
                 remove_first_line=remove_first_line
                 )
-            )
+            ).cache()
         users = parsers_and_loaders.load_users(users_rdd, sep)
         all_users = set(users[0].keys().collect())
         logger.debug("Done in %f seconds", time.time() - start)
