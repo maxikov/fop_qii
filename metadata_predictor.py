@@ -31,6 +31,9 @@ def metadata_predictor(sc, training, rank, numIter, lmbda,
              "src_rdd": lambda: arc_ratings,
              "loader": parsers_and_loaders.load_average_ratings})
 
+    use_user_features = ("users" in args.metadata_sources)
+
+
     cur_mtdt_srcs = filter(lambda x: x["name"] in args.metadata_sources, metadata_sources)
     if args.drop_missing_movies:
         indicators, nof, categorical_features, feature_names =\
@@ -54,6 +57,9 @@ def metadata_predictor(sc, training, rank, numIter, lmbda,
     logger.debug("Done in %f seconds", time.time() - start)
 
     features = model.productFeatures()
+    other_features = model.userFeatures()
+    if use_user_features:
+        features, other_features = other_features, features
 
     results["train_ratio"] = train_ratio
     results["features"] = {}

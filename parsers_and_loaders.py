@@ -260,7 +260,8 @@ def parseUser(line, sep="::"):
     fields = r.next()
     fields[1] = 0 if fields[1] == "M" else 1
     fields[4] = fields[4].split("-")[0]
-    fields = map(int, fields)
+    fields = map(float, fields)
+    fields[0] = int(fields[0])
     return tuple(fields)
 
 def loadRatings(ratingsFile):
@@ -333,11 +334,12 @@ def load_tags(src_rdd, sep=",", prefix="tags"):
     return (indicators, nof, cfi, feature_names)
 
 def load_users(src_rdd, sep=",", prefix="user"):
+    #UserID::Gender::Age::Occupation::Zip-code
     users = src_rdd\
             .map(lambda x: parseUser(x, sep=sep))\
             .map(lambda x: (x[0], x[1:]))
     nof = 4
-    cfi = {}
+    cfi = {0:2}
     feature_names = {n: "{}:{}".format(prefix, u) for (n, u) in
             enumerate(["Gender","Age","Occupation","Zip-code"])}
     return (users, nof, cfi, feature_names)

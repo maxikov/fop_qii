@@ -83,7 +83,7 @@ def args_init(logger):
                         help="Use regression to predict product features "+\
                              "based on product metadata")
     parser.add_argument("--predict-metadata", action="store_true",
-                        help="Predict metadata based on product features")
+                        help="Predict metadata based on product or user features")
 
     parser.add_argument("--output-model", type=str, default=None,
                         help="Output the trained recommendation model to a "+\
@@ -312,6 +312,16 @@ def main():
             "loader": (lambda x: parsers_and_loaders.load_genres(x, sep=",",\
                 parser_function=parsers_and_loaders.parseTropes,
                     prefix="tvtropes"))
+        },
+        {
+            "name": "users",
+            "src_rdd": (
+                lambda: sc.parallelize(
+                    parsers_and_loaders.loadCSV(
+                    join(args.data_path, "users" + extension),
+                    remove_first_line=remove_first_line
+                ))),
+            "loader": (lambda x: parsers_and_loaders.load_users(x, sep=sep))
         }
     ]
 
