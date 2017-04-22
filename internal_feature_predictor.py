@@ -27,7 +27,7 @@ import TrimmedFeatureRecommender
 import HashTableRegression
 
 regression_models = ["regression_tree", "random_forest", "linear",
-                     "naive_bayes"]
+                     "naive_bayes", "logistic"]
 metadata_sources = ["name", "genres", "tags", "imdb_keywords",
                     "imdb_genres", "imdb_director", "imdb_producer",
                     "tvtropes", "average_rating", "users", "years"]
@@ -173,6 +173,14 @@ def train_regression_model(data, regression_model="regression_tree",
         lr_model = NaiveBayes.train(data)
     elif regression_model == "hash_table":
         lr_model = HashTableRegression.train(data)
+    elif regression_model == "logistic":
+        lr_model = pyspark.\
+                   mllib.\
+                   classification.\
+                   LogisticRegressionWithLBFGS.\
+                   train(data)
+
+
 
     if logger is None:
         print "Done in {} seconds".format(time.time() - start)
@@ -272,9 +280,7 @@ def build_meta_data_set(sc, sources, all_ids=None, logger=None):
             res_rdd = res_rdd\
                     .join(cur_rdd)\
                     .map(lambda (x, (y, z)): (x, y+z))
-
         feature_offset += nof
-
     return (res_rdd, feature_offset, categorical_features_info, feature_names)
 
 def drop_rare_features(indicators, nof, categorical_features, feature_names,
@@ -303,7 +309,8 @@ def drop_rare_features(indicators, nof, categorical_features, feature_names,
     return (res_rdd, nof, categorical_features, feature_names)
 
 def predict_internal_feature(features, indicators, f, regression_model,
-                             categorical_features, max_bins, logger=None):
+                             categorical_features, max_bins, logger=None,
+                             no_threshold=False):
     """
     Predict the values of an internal feature based on metadata.
 
@@ -347,7 +354,7 @@ def predict_internal_feature(features, indicators, f, regression_model,
     joined = features.join(indicators)
     data = joined.map(
         lambda (_id, (ftrs, inds)):
-        LabeledPoint(ftrs[f], inds))
+        LabeledPoint(float(ftrs[f]), inds))
     ids = joined.map(lambda (_id, _): _id)
 
     if logger is None:
@@ -360,6 +367,9 @@ def predict_internal_feature(features, indicators, f, regression_model,
                                       categorical_features=categorical_features,
                                       max_bins=max_bins,
                                       logger=logger)
+
+    if no_threshold and regression_model == "logistic":
+        lr_model.clearThreshold()
 
     observations = ids.zip(data.map(lambda x: float(x.label)))
     predictions = ids.zip(

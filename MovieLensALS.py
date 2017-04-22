@@ -15,6 +15,7 @@ from pyspark.sql import SQLContext
 #project files
 import parsers_and_loaders
 import internal_feature_predictor
+import metadata_predictor
 
 def args_init(logger):
     """
@@ -81,6 +82,9 @@ def args_init(logger):
     parser.add_argument("--predict-product-features", action="store_true",
                         help="Use regression to predict product features "+\
                              "based on product metadata")
+    parser.add_argument("--predict-metadata", action="store_true",
+                        help="Predict metadata based on product features")
+
     parser.add_argument("--output-model", type=str, default=None,
                         help="Output the trained recommendation model to a "+\
                              "csv file.")
@@ -366,6 +370,13 @@ def main():
 
         internal_feature_predictor.display_internal_feature_predictor(\
            results, logger)
+
+    elif args.predict_metadata:
+        results = metadata_predictor.metadata_predictor(\
+            sc, training, args.rank, args.num_iter, args.lmbda,\
+            args, all_movies, metadata_sources,\
+            logger, args.cross_validation)
+        metadata_predictor.display_metadata_predictor(results, logger)
 
     elif args.output_model:
         task_output_model(training, args, logger, sql)

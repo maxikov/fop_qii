@@ -5,7 +5,8 @@ import random
 import bisect
 
 #pyspark library
-from pyspark.mllib.evaluation import RegressionMetrics
+from pyspark.mllib.evaluation import RegressionMetrics,\
+     BinaryClassificationMetrics
 
 #numpy library
 import numpy as np
@@ -128,6 +129,26 @@ def evaluate_recommender(baseline_predictions, predictions, logger=None,
 def make_bins(bin_range, nbins):
     return map(float, list(np.linspace(bin_range[0], bin_range[1], nbins+2)))
 
+def evaluate_binary_classifier(predictions, observations, logger,
+                               no_threshold=True):
+    logger.debug("Evaluating the model")
+    predobs = predictions\
+            .join(observations)\
+            .values()
+    n_pos = predobs.filter(lambda x: x[1] == 1).count()
+    prate = float(n_pos)/float(predobs.count())
+    if no_threshold:
+        metrics = BinaryClassificationMetrics(predobs)
+        auroc = metrics.areaUnderROC
+        aupr = metrics.areaUnderPR
+        better = (1.0 - prate)/(1.0 - aupr)
+        res = {"auroc": auroc, "auprc": aupr, "prate": prate, "better": better}
+    else:
+        pass #TODO
+    logger.debug("{}".format(res))
+    return res
+
+
 def evaluate_regression(predictions, observations, logger=None, nbins=32,
                         bin_range=None):
     if logger is None:
@@ -137,10 +158,13 @@ def evaluate_regression(predictions, observations, logger=None, nbins=32,
     start = time.time()
     predobs = predictions\
             .join(observations)\
-            .values()
+            .values()\
+            .map(lambda (a, b): (float(a), float(b)))
 
     if bin_range is None:
-        bin_range = (-1, 1)
+        bin_range = (-1.0, 1.0)
+    else:
+        bin_range = (float(bin_range[0]), float(bin_range[1]))
     normal_bins = make_bins(bin_range, nbins)
     max_magnitude = max(map(abs, bin_range))
     total_min = min(map(lambda x: -abs(x), bin_range))

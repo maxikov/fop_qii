@@ -180,14 +180,14 @@ def parseYear(line, sep="::"):
     try:
         year = mtitle.split("(")[-1]
         year = year.split(")")[0]
-        year = int(year)
+        year = float(year)
         return mid, year
     except Exception as e: #Dirty hack, but this isn't even supposed to happen!
         print e
         traceback.print_exc()
         print "mid:", mid
         print "Setting the year to 2000, and continuing"
-        return mid, 2000
+        return mid, 2000.0
 
 
 def parseMovie(line, sep="::"):
@@ -289,7 +289,7 @@ def load_average_ratings(src_rdd, prefix="average_rating"):
 def load_years(src_rdd, sep=",", prefix="year"):
     years = src_rdd\
             .map(lambda x: parseYear(x, sep=sep))\
-            .map(lambda (x, y): (x, [y]))
+            .map(lambda (x, y): (x, [float(y)]))
     nof = 1
     cfi = {}
     feature_names = {0: prefix}
