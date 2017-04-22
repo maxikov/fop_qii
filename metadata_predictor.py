@@ -37,7 +37,7 @@ def metadata_predictor(sc, training, rank, numIter, lmbda,
     cur_mtdt_srcs = filter(lambda x: x["name"] in args.metadata_sources, metadata_sources)
     if args.drop_missing_movies:
         indicators, nof, categorical_features, feature_names =\
-            build_meta_data_set(sc, cur_mtdt_srcs, None, logger)
+            internal_feature_predictor.build_meta_data_set(sc, cur_mtdt_srcs, None, logger)
         old_all_movies = all_movies
         all_movies = set(indicators.keys().collect())
         logger.debug("{} movies loaded, data for {} is missing, purging them"\
