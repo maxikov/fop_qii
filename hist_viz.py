@@ -73,6 +73,9 @@ def feature_regressions(results, training=False, signed=False):
         errs = ax.bar(xs[:-1], ys, width, color="red", alpha=opacity)
 
         ax.set_title("Feature {}".format(f))
+        err = data["mean_" + ("" if signed else "abs_") + "err"]
+        _abs = "" if signed else "abs "
+        ax.set_title("Feature {} (mean {}err: {})".format(f, _abs, err))
     fig.suptitle("Performance of regression on internal feature values")
     fig.legend([obs, preds, errs], ["True value", "Predicted value",
                   "Error" if signed else "Absolute error"], loc="lower center")
@@ -105,7 +108,11 @@ def feature_recommenders(results, training=False, signed=False):
         width = xs[1] - xs[0]
         preds = ax.bar(xs[:-1], ys, width, color="green", alpha=opacity)
 
-        ax.set_title("Feature {}".format(f))
+        err = feats[f]\
+                      ["replaced_rec_eval" + ("" if training else "_test")]\
+                      ["mean_" + ("" if signed else "abs_") + "err"]
+        _abs = "" if signed else "abs "
+        ax.set_title("Feature {} (mean {}err: {})".format(f, _abs, err))
 
     ax = axes[len(feats)]
     xs, ys = results["all_replaced_rec_eval" + ("" if training else "_test")]\
@@ -123,8 +130,10 @@ def feature_recommenders(results, training=False, signed=False):
                       [("" if signed else "abs_") + "errors_histogram"]
     width = xs[1] - xs[0]
     preds = ax.bar(xs[:-1], ys, width, color="green", alpha=opacity)
-
-    ax.set_title("All features")
+    err = results["all_replaced_rec_eval"]\
+                 ["mean_" + ("" if signed else "abs_") + "err"]
+    _abs = "" if signed else "abs "
+    ax.set_title("All features (mean {}err: {})".format(_abs, err))
 
     fig.suptitle("Performance of recommenders with substituted features")
     fig.legend([obs, preds, errs], ["Original recommender output",
