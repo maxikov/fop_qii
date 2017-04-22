@@ -141,7 +141,10 @@ def evaluate_binary_classifier(predictions, observations, logger,
         metrics = BinaryClassificationMetrics(predobs)
         auroc = metrics.areaUnderROC
         aupr = metrics.areaUnderPR
-        better = (1.0 - prate)/(1.0 - aupr)
+        if aupr == 1:
+            better = 0
+        else:
+            better = (1.0 - prate)/(1.0 - aupr)
         res = {"auroc": auroc, "auprc": aupr, "prate": prate, "better": better}
     else:
         pass #TODO
