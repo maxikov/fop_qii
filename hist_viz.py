@@ -75,7 +75,7 @@ def feature_regressions(results, training=False, signed=False):
         ax.set_title("Feature {}".format(f))
         err = data["mean_" + ("" if signed else "abs_") + "err"]
         _abs = "" if signed else "abs "
-        ax.set_title("Feature {} (mean {}err: {})".format(f, _abs, err))
+        ax.set_title("Feature {} (mean {}err: {:1.3f})".format(f, _abs, err))
     fig.suptitle("Performance of regression on internal feature values")
     fig.legend([obs, preds, errs], ["True value", "Predicted value",
                   "Error" if signed else "Absolute error"], loc="lower center")
@@ -112,7 +112,7 @@ def feature_recommenders(results, training=False, signed=False):
                       ["replaced_rec_eval" + ("" if training else "_test")]\
                       ["mean_" + ("" if signed else "abs_") + "err"]
         _abs = "" if signed else "abs "
-        ax.set_title("Feature {} (mean {}err: {})".format(f, _abs, err))
+        ax.set_title("Feature {} (mean {}err: {:1.3f})".format(f, _abs, err))
 
     ax = axes[len(feats)]
     xs, ys = results["all_replaced_rec_eval" + ("" if training else "_test")]\
@@ -133,7 +133,7 @@ def feature_recommenders(results, training=False, signed=False):
     err = results["all_replaced_rec_eval"]\
                  ["mean_" + ("" if signed else "abs_") + "err"]
     _abs = "" if signed else "abs "
-    ax.set_title("All features (mean {}err: {})".format(_abs, err))
+    ax.set_title("All features (mean {}err: {:1.3f})".format(_abs, err))
 
     fig.suptitle("Performance of recommenders with substituted features")
     fig.legend([obs, preds, errs], ["Original recommender output",
@@ -163,6 +163,8 @@ def main():
     src = src[0]
     src = re.sub("DecisionTreeModel regressor of depth [0-9]+ with"+\
             " [0-9]+ nodes", "'model'", src)
+    src = re.sub("<pyspark.mllib.classification.NaiveBayesModel "+\
+            "object at 0x[0-9a-f]+>", "'model'", src)
     results = eval(src)
 
     if args.program == "overall":
