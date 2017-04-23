@@ -125,7 +125,8 @@ def metadata_predictor(sc, training, rank, numIter, lmbda,
 
         if args.regression_model == "regression_tree":
             logger.info(lr_model.toDebugString())
-        if args.regression_model in ["linear", "logistic"]:
+        if args.regression_model in ["linear", "logistic"]\
+                and not args.force_qii:
             weights = list(lr_model.weights)
         else:
              weights = common_utils\

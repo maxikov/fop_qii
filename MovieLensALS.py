@@ -85,6 +85,9 @@ def args_init(logger):
     parser.add_argument("--predict-metadata", action="store_true",
                         help="Predict metadata based on product or user features")
 
+    parser.add_argument("--force-qii", action="store_true", help=\
+                        "Compute QII instead of model weights even for "+\
+                        "linear regression")
     parser.add_argument("--output-model", type=str, default=None,
                         help="Output the trained recommendation model to a "+\
                              "csv file.")
