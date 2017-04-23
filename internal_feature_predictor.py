@@ -147,6 +147,8 @@ def train_regression_model(data, regression_model="regression_tree",
         print "Training", regression_model
     else:
         logger.debug("Training " + regression_model)
+    if is_classifier:
+        logger.debug("Actually training a classifier")
 
     if regression_model == "regression_tree":
         if is_classifier:

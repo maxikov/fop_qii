@@ -16,7 +16,7 @@ def extract_and_sort(src, training=False, top_results=0, coeff_threshold=None):
     new_regs = []
     for f, info in regs:
         info["title"] = "{} ({}: {:1.3f})".format(\
-                mrae[1], info["name"], info["eval"+tr][mrae[0]])
+                info["name"], mrae[1], info["eval"+tr][mrae[0]])
         if coeff_threshold is not None:
             info["weights"] = [x if abs(x) < coeff_threshold else
                     coeff_threshold for x in info["weights"]]

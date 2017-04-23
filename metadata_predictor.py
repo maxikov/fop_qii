@@ -123,6 +123,8 @@ def metadata_predictor(sc, training, rank, numIter, lmbda,
             num_classes=(categorical_features[f] if f in categorical_features
                 else None))
 
+        if args.regression_model == "regression_tree":
+            logger.info(lr_model.toDebugString())
         if args.regression_model in ["linear", "logistic"]:
             weights = list(lr_model.weights)
         else:

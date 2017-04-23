@@ -111,8 +111,11 @@ def perturb_feature(features, f, perturbed_subset=None):
                 perturbed_subset)
         features = features_perturbed
     dist = get_feature_distribution(features, f)
+    random.shuffle(dist)
+    all_xs = features.keys().collect()
+    ddist = {k: v for (k, v) in zip(all_xs, dist)}
     res = features.map(lambda (x, arr):\
-            (x, set_list_value(arr, f, random.choice(dist))))
+            (x, set_list_value(arr, f, ddist[x])))
     if perturbed_subset is not None:
         res = res.union(features_intact)
     return res
