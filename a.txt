@@ -1,0 +1,26 @@
+2017-04-23 09:02:04,033 - __main__ - DEBUG - rank: 3, lmbda: 0.2, num_iter: 2, num_partitions: 8
+2017-04-23 09:02:04,033 - __main__ - DEBUG - data_path: /Users/piotrm/data-movies/movielens/ml-20m/, checkpoint_dir: checkpoint
+2017-04-23 09:02:04,033 - __main__ - DEBUG - Temp dir: tmp
+2017-04-23 09:02:04,033 - __main__ - DEBUG - local_threads: *
+2017-04-23 09:02:04,033 - __main__ - DEBUG - spark_executor_memory: 32g
+2017-04-23 09:02:04,033 - __main__ - DEBUG - regression_model: naive_bayes
+2017-04-23 09:02:04,033 - __main__ - DEBUG - nbins: 32
+2017-04-23 09:02:04,033 - __main__ - DEBUG - regression_users: False
+2017-04-23 09:02:04,033 - __main__ - DEBUG - predict_product_features: True
+2017-04-23 09:02:04,033 - __main__ - DEBUG - metadata_sources: ['years', 'genres']
+2017-04-23 09:02:04,033 - __main__ - DEBUG - movies_file: /Users/piotrm/data-movies/movielens/ml-20m.imdb.medium.csv
+2017-04-23 09:02:04,033 - __main__ - DEBUG - cross_validation: 70
+2017-04-23 09:02:04,033 - __main__ - DEBUG - tvtropes_file: None
+2017-04-23 09:02:04,033 - __main__ - DEBUG - features_trim_percentile: 0
+2017-04-23 09:02:04,033 - __main__ - DEBUG - drop_missing_movies: False
+2017-04-23 09:02:04,033 - __main__ - DEBUG - drop_rare_features: 0
+2017-04-23 09:02:05,482 - __main__ - DEBUG - msep: ,
+2017-04-23 09:02:05,482 - __main__ - DEBUG - Loading ratings
+Traceback (most recent call last):
+  File "/Users/piotrm/Dropbox/github/cmu/fop_qii/MovieLensALS.py", line 438, in <module>
+    main()
+  File "/Users/piotrm/Dropbox/github/cmu/fop_qii/MovieLensALS.py", line 231, in main
+    remove_first_line=remove_first_line
+  File "/Users/piotrm/Dropbox/github/cmu/fop_qii/parsers_and_loaders.py", line 10, in loadCSV
+    with open(fname, "r") as f:
+IOError: [Errno 2] No such file or directory: '/Users/piotrm/data-movies/movielens/ml-20m/ratings.csv'
