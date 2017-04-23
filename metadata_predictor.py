@@ -125,18 +125,20 @@ def metadata_predictor(sc, training, rank, numIter, lmbda,
 
         if args.regression_model == "regression_tree":
             logger.info(lr_model.toDebugString())
+        qii = common_utils\
+                  .compute_regression_qii(lr_model,
+                                          features_training,
+                                          indicators_training\
+                                                  .map(lambda (mid, ftrs):
+                                                       (ftrs[f])),
+                                          logger,
+                                          predictions)
+        results["features"][f]["qii"] = qii
         if args.regression_model in ["linear", "logistic"]\
                 and not args.force_qii:
             weights = list(lr_model.weights)
         else:
-             weights = common_utils\
-                       .compute_regression_qii(lr_model,
-                                               features_training,
-                                               indicators_training\
-                                                       .map(lambda (mid, ftrs):
-                                                            (ftrs[f])),
-                                               logger,
-                                               predictions)
+            weights = qii
 
         logger.debug("Model weights: {}".format(weights))
         results["features"][f]["weights"] = weights
