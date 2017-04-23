@@ -97,24 +97,49 @@ def metadata_predictor(sc, training, rank, numIter, lmbda,
             features_training = features
             indicators_training = indicators
 
+        linlog = args.regression_model in ["logistic", "linear"]
+        if not linlog:
+            results["not_linlog"] = True #ONLY SET IF TRUE!!!
+        regression_model = args.regression_model
         if f in categorical_features:
-            regression_model = "logistic"
+            if linlog:
+               regression_model = "logistic"
             results["features"][f]["type"] = "classification"
         else:
-            regression_model = "linear"
+            if linlog:
+               regression_model = "linear"
             results["features"][f]["type"] = "regression"
 
         lr_model, observations, predictions = internal_feature_predictor.predict_internal_feature(\
-            indicators_training,
-            features_training,
-            f,
-            regression_model,
-            {},
-            args.nbins,
-            logger,
-            True)
+            features=indicators_training,
+            indicators=features_training,
+            f=f,
+            regression_model=regression_model,
+            categorical_features={},
+            max_bins=args.nbins,
+            logger=logger,
+            no_threshold=linlog,
+            is_classifier=(f in categorical_features),
+            num_classes=(categorical_features[f] if f in categorical_features
+                else None))
 
-        weights = list(lr_model.weights)
+        if args.regression_model == "regression_tree":
+            logger.info(lr_model.toDebugString())
+        qii = common_utils\
+                  .compute_regression_qii(lr_model,
+                                          features_training,
+                                          indicators_training\
+                                                  .map(lambda (mid, ftrs):
+                                                       (ftrs[f])),
+                                          logger,
+                                          predictions)
+        results["features"][f]["qii"] = qii
+        if args.regression_model in ["linear", "logistic"]\
+                and not args.force_qii:
+            weights = list(lr_model.weights)
+        else:
+            weights = qii
+
         logger.debug("Model weights: {}".format(weights))
         results["features"][f]["weights"] = weights
 
@@ -122,7 +147,8 @@ def metadata_predictor(sc, training, rank, numIter, lmbda,
             results["features"][f]["eval"] =\
                 common_utils.evaluate_binary_classifier(predictions,
                                                         observations,
-                                                        logger)
+                                                        logger,
+                                                        linlog)
         else:
             _min = indicators_training.map(lambda x: x[1][f]).min()
             _max = indicators_training.map(lambda x: x[1][f]).max()
@@ -149,7 +175,8 @@ def metadata_predictor(sc, training, rank, numIter, lmbda,
                 results["features"][f]["eval_test"] =\
                     common_utils.evaluate_binary_classifier(predictions,
                                                             observations,
-                                                            logger)
+                                                            logger,
+                                                            linlog)
             else:
                 _min = indicators_test.map(lambda x: x[1][f]).min()
                 _max = indicators_test.map(lambda x: x[1][f]).max()
@@ -186,6 +213,28 @@ def display_regression_results(results, logger):
         table.add_row(row)
     logger.info("\n{}".format(table))
 
+def display_classification_results_threshold(results, logger):
+    rf = results["features"]
+    rf = [(f, info) for (f, info) in rf.items() if
+            info["type"]=="classification"]
+    rf.sort(key=lambda x: -x[1]["eval"]["recall"])
+
+    header = ["Feature",
+              "Precision",
+              "Recall"]
+    if results["train_ratio"] > 0:
+        header += ["Precision test",
+                   "Recall test"]
+    table = PrettyTable(header)
+    for f, info in rf:
+        row = [info["name"], info["eval"]["precision"],
+                info["eval"]["recall"]]
+        if results["train_ratio"] > 0:
+            row += [info["eval_test"]["precision"],
+                info["eval_test"]["recall"]]
+        table.add_row(row)
+    logger.info("\n{}".format(table))
+
 def display_classification_results_no_threshold(results, logger):
     rf = results["features"]
     rf = [(f, info) for (f, info) in rf.items() if
@@ -217,7 +266,10 @@ def display_metadata_predictor(results, logger):
     if results["train_ratio"] > 0:
         logger.info("Train ratio: %f %%", results["train_ratio"])
     if len(results["categorical_features"]) > 0:
-        display_classification_results_no_threshold(results, logger)
+        if "not_linlog" in results:
+            display_classification_results_threshold(results, logger)
+        else:
+            display_classification_results_no_threshold(results, logger)
     if len(results["categorical_features"]) < results["nof"]:
         display_regression_results(results, logger)
 

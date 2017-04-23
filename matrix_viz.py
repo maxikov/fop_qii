@@ -9,25 +9,31 @@ def extract_and_sort(src, training=False, top_results=0, coeff_threshold=None):
     tr = "" if training else "_test"
     rf = src["features"]
     regs = [x for x in rf.items() if x[1]["type"] == "regression"]
-    regs.sort(key = lambda x: -x[1]["eval"+tr]["mrae"])
+    mrae = ("mrae", "MRAE")
+    regs.sort(key = lambda x: -x[1]["eval"+tr][mrae[0]])
     if top_results > 0:
         regs = regs[:top_results]
     new_regs = []
     for f, info in regs:
-        info["title"] = "{} (MRAE: {:1.3f})".format(\
-                info["name"], info["eval"+tr]["mrae"])
+        info["title"] = "{} ({}: {:1.3f})".format(\
+                info["name"], mrae[1], info["eval"+tr][mrae[0]])
         if coeff_threshold is not None:
             info["weights"] = [x if abs(x) < coeff_threshold else
                     coeff_threshold for x in info["weights"]]
         new_regs.append(info)
     clss = [x for x in rf.items() if x[1]["type"] == "classification"]
-    clss.sort(key = lambda x: -x[1]["eval"+tr]["better"])
+    if "not_linlog" in src:
+        better = ("recall", " recall")
+    else:
+        better = ("better", "x better")
+    clss.sort(key = lambda x: -x[1]["eval"+tr][better[0]])
     if top_results > 0:
         clss = clss[:top_results]
     new_clss = []
     for f, info in clss:
-        info["title"] = "{} ({:2.1f}x better)".format(\
-                info["name"], info["eval"+tr]["better"])
+        info["title"] = "{} ({:2.3f}{})".format(\
+                info["name"], info["eval"+tr][better[0]],
+                better[1])
         if coeff_threshold is not None:
             info["weights"] = [x if abs(x) < coeff_threshold else
                     coeff_threshold for x in info["weights"]]
