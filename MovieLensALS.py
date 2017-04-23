@@ -15,6 +15,7 @@ from pyspark.sql import SQLContext
 #project files
 import parsers_and_loaders
 import internal_feature_predictor
+import metadata_predictor
 
 def args_init(logger):
     """
@@ -81,6 +82,12 @@ def args_init(logger):
     parser.add_argument("--predict-product-features", action="store_true",
                         help="Use regression to predict product features "+\
                              "based on product metadata")
+    parser.add_argument("--predict-metadata", action="store_true",
+                        help="Predict metadata based on product or user features")
+
+    parser.add_argument("--force-qii", action="store_true", help=\
+                        "Compute QII instead of model weights even for "+\
+                        "linear regression")
     parser.add_argument("--output-model", type=str, default=None,
                         help="Output the trained recommendation model to a "+\
                              "csv file.")
@@ -223,7 +230,7 @@ def main():
             join(args.data_path, "ratings" + extension),
             remove_first_line=remove_first_line
             )
-        )
+        ).cache()
     ratings = ratings_rdd.map(lambda x: parsers_and_loaders.parseRating(x,\
          sep=sep))
     logger.debug("Done in %f seconds", time.time() - start)
@@ -235,7 +242,7 @@ def main():
             movies_file,
             remove_first_line=movies_remove_first_line
             )
-        )
+        ).cache()
     movies = dict(movies_rdd.map(lambda x: parsers_and_loaders.parseMovie(x,\
         sep=msep)).collect())
     all_movies = set(movies.keys())
@@ -262,7 +269,7 @@ def main():
                         join(args.data_path, "tags" + extension),
                         remove_first_line=remove_first_line
                     )
-                )
+                ).cache()
             ),
             "loader": (lambda x: parsers_and_loaders.load_tags(x, sep,
                        prefix="movielens_tags"))
@@ -303,11 +310,21 @@ def main():
                         args.tvtropes_file,
                         remove_first_line=True
                     )
-                )
+                ).cache()
             ),
             "loader": (lambda x: parsers_and_loaders.load_genres(x, sep=",",\
                 parser_function=parsers_and_loaders.parseTropes,
                     prefix="tvtropes"))
+        },
+        {
+            "name": "users",
+            "src_rdd": (
+                lambda: sc.parallelize(
+                    parsers_and_loaders.loadCSV(
+                    join(args.data_path, "users" + extension),
+                    remove_first_line=remove_first_line
+                )).cache()),
+            "loader": (lambda x: parsers_and_loaders.load_users(x, sep=sep))
         }
     ]
 
@@ -332,7 +349,7 @@ def main():
                 join(args.data_path, "users" + extension),
                 remove_first_line=remove_first_line
                 )
-            )
+            ).cache()
         users = parsers_and_loaders.load_users(users_rdd, sep)
         all_users = set(users[0].keys().collect())
         logger.debug("Done in %f seconds", time.time() - start)
@@ -366,6 +383,13 @@ def main():
 
         internal_feature_predictor.display_internal_feature_predictor(\
            results, logger)
+
+    elif args.predict_metadata:
+        results = metadata_predictor.metadata_predictor(\
+            sc, training, args.rank, args.num_iter, args.lmbda,\
+            args, all_movies, metadata_sources,\
+            logger, args.cross_validation)
+        metadata_predictor.display_metadata_predictor(results, logger)
 
     elif args.output_model:
         task_output_model(training, args, logger, sql)

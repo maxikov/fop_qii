@@ -180,14 +180,14 @@ def parseYear(line, sep="::"):
     try:
         year = mtitle.split("(")[-1]
         year = year.split(")")[0]
-        year = int(year)
+        year = float(year)
         return mid, year
     except Exception as e: #Dirty hack, but this isn't even supposed to happen!
         print e
         traceback.print_exc()
         print "mid:", mid
         print "Setting the year to 2000, and continuing"
-        return mid, 2000
+        return mid, 2000.0
 
 
 def parseMovie(line, sep="::"):
@@ -260,7 +260,8 @@ def parseUser(line, sep="::"):
     fields = r.next()
     fields[1] = 0 if fields[1] == "M" else 1
     fields[4] = fields[4].split("-")[0]
-    fields = map(int, fields)
+    fields = map(float, fields)
+    fields[0] = int(fields[0])
     return tuple(fields)
 
 def loadRatings(ratingsFile):
@@ -289,7 +290,7 @@ def load_average_ratings(src_rdd, prefix="average_rating"):
 def load_years(src_rdd, sep=",", prefix="year"):
     years = src_rdd\
             .map(lambda x: parseYear(x, sep=sep))\
-            .map(lambda (x, y): (x, [y]))
+            .map(lambda (x, y): (x, [float(y)]))
     nof = 1
     cfi = {}
     feature_names = {0: prefix}
@@ -333,11 +334,12 @@ def load_tags(src_rdd, sep=",", prefix="tags"):
     return (indicators, nof, cfi, feature_names)
 
 def load_users(src_rdd, sep=",", prefix="user"):
+    #UserID::Gender::Age::Occupation::Zip-code
     users = src_rdd\
             .map(lambda x: parseUser(x, sep=sep))\
             .map(lambda x: (x[0], x[1:]))
     nof = 4
-    cfi = {}
+    cfi = {0:2}
     feature_names = {n: "{}:{}".format(prefix, u) for (n, u) in
             enumerate(["Gender","Age","Occupation","Zip-code"])}
     return (users, nof, cfi, feature_names)

@@ -17,7 +17,7 @@ class HashTableRegression(object):
         for lp in data.collect():
             self.table[tuple(lp.features)].append(lp.label)
         self.table = {k: np.median(v) for k, v in self.table.items()}
-        all_median = np.median(self.table.values())
+        all_median = np.mean(self.table.values())
         self.table = defaultdict(lambda: all_median, self.table)
         return self
 

@@ -27,7 +27,7 @@ import TrimmedFeatureRecommender
 import HashTableRegression
 
 regression_models = ["regression_tree", "random_forest", "linear",
-                     "naive_bayes"]
+                     "naive_bayes", "logistic"]
 metadata_sources = ["name", "genres", "tags", "imdb_keywords",
                     "imdb_genres", "imdb_director", "imdb_producer",
                     "tvtropes", "average_rating", "users", "years"]
@@ -88,7 +88,8 @@ def discretize_features(data, nbins, dont_discretize, logger):
 
 def train_regression_model(data, regression_model="regression_tree",
                            categorical_features={}, max_bins=32, max_depth=None,
-                           num_trees=128, logger=None):
+                           num_trees=128, logger=None, is_classifier=False,
+                           num_classes=None):
     """
     Train a regression model on the input data.
 
@@ -134,6 +135,9 @@ def train_regression_model(data, regression_model="regression_tree",
         trained_regression_model
     """
 
+    if num_classes is None:
+        num_classes = max_bins
+
     if max_depth is None:
         max_depth = int(math.ceil(math.log(max_bins, 2)))
 
@@ -143,36 +147,73 @@ def train_regression_model(data, regression_model="regression_tree",
         print "Training", regression_model
     else:
         logger.debug("Training " + regression_model)
+    if is_classifier:
+        logger.debug("Actually training a classifier")
 
     if regression_model == "regression_tree":
-        lr_model = pyspark.\
-                mllib.\
-                tree.\
-                DecisionTree.\
-                trainRegressor(
-                    data,
-                    categoricalFeaturesInfo=categorical_features,
-                    impurity="variance",
-                    maxDepth=max_depth,
-                    maxBins=max_bins)
+        if is_classifier:
+            lr_model = pyspark.\
+                    mllib.\
+                    tree.\
+                    DecisionTree.\
+                    trainClassifier(
+                        data,
+                        numClasses=num_classes,
+                        categoricalFeaturesInfo=categorical_features,
+                        impurity="gini",
+                        maxDepth=max_depth,
+                        maxBins=max_bins)
+        else:
+            lr_model = pyspark.\
+                    mllib.\
+                    tree.\
+                    DecisionTree.\
+                    trainRegressor(
+                        data,
+                        categoricalFeaturesInfo=categorical_features,
+                        impurity="variance",
+                        maxDepth=max_depth,
+                        maxBins=max_bins)
 
     elif regression_model == "random_forest":
-        lr_model = pyspark.\
-                mllib.\
-                tree.\
-                RandomForest.\
-                trainRegressor(
-                    data,
-                    categoricalFeaturesInfo=categorical_features,
-                    numTrees=num_trees,
-                    maxDepth=max_depth,
-                    maxBins=max_bins)
+        if is_classifier:
+            lr_model = pyspark.\
+                    mllib.\
+                    tree.\
+                    RandomForest.\
+                    trainClassifier(
+                        data,
+                        numClasses=num_classes,
+                        categoricalFeaturesInfo=categorical_features,
+                        impurity="gini",
+                        maxDepth=max_depth,
+                        maxBins=max_bins,
+                        numTrees=num_trees)
+        else:
+            lr_model = pyspark.\
+                    mllib.\
+                    tree.\
+                    RandomForest.\
+                    trainRegressor(
+                        data,
+                        categoricalFeaturesInfo=categorical_features,
+                        numTrees=num_trees,
+                        maxDepth=max_depth,
+                        maxBins=max_bins)
     elif regression_model == "linear":
         lr_model = LinearRegressionWithSGD.train(data)
     elif regression_model == "naive_bayes":
         lr_model = NaiveBayes.train(data)
     elif regression_model == "hash_table":
         lr_model = HashTableRegression.train(data)
+    elif regression_model == "logistic":
+        lr_model = pyspark.\
+                   mllib.\
+                   classification.\
+                   LogisticRegressionWithLBFGS.\
+                   train(data)
+
+
 
     if logger is None:
         print "Done in {} seconds".format(time.time() - start)
@@ -256,7 +297,7 @@ def build_meta_data_set(sc, sources, all_ids=None, logger=None):
                 empty_records = [(_id, [0 for _ in xrange(nof)]) for _id in
                                  missing_ids]
                 empty_records = sc.parallelize(empty_records)
-                cur_rdd = cur_rdd.union(empty_records)
+                cur_rdd = cur_rdd.union(empty_records).cache()
                 logger.debug("Done in {} seconds".format(time.time() - start))
 
         shifted_cfi = {f+feature_offset: v for (f, v) in cfi.items()}
@@ -271,10 +312,9 @@ def build_meta_data_set(sc, sources, all_ids=None, logger=None):
         else:
             res_rdd = res_rdd\
                     .join(cur_rdd)\
-                    .map(lambda (x, (y, z)): (x, y+z))
-
+                    .map(lambda (x, (y, z)): (x, y+z))\
+                    .cache()
         feature_offset += nof
-
     return (res_rdd, feature_offset, categorical_features_info, feature_names)
 
 def drop_rare_features(indicators, nof, categorical_features, feature_names,
@@ -292,18 +332,29 @@ def drop_rare_features(indicators, nof, categorical_features, feature_names,
     logger.debug("Dropping %d features", len(features_to_drop))
     res_rdd = indicators.map(lambda (mid, ind_list): (mid,
         [x[1] for x in enumerate(ind_list) if x[0] not in features_to_drop]))
+    res_rdd = res_rdd.cache()
     features_to_drop = sorted(list(features_to_drop))
+    #logger.debug("Old catf: {}".format(sorted(categorical_features.items(),
+    #    key=lambda x: x[0])))
     categorical_features = common_utils.shift_drop_dict(categorical_features,
                                                         features_to_drop)
+    #logger.debug("New catf: {}".format(sorted(categorical_features.items(),
+    #    key=lambda x: x[0])))
+    #logger.debug("Old fn: {}".format(sorted(feature_names.items(),
+    #    key=lambda x: x[0])))
     feature_names = common_utils.shift_drop_dict(feature_names,
                                                  features_to_drop)
+    #logger.debug("New fn: {}".format(sorted(feature_names.items(),
+    #    key=lambda x: x[0])))
     nof = nof - len(features_to_drop)
     logger.debug("%d features remaining", nof)
     logger.debug("Done in %f seconds", time.time() - start)
     return (res_rdd, nof, categorical_features, feature_names)
 
 def predict_internal_feature(features, indicators, f, regression_model,
-                             categorical_features, max_bins, logger=None):
+                             categorical_features, max_bins, logger=None,
+                             no_threshold=False, is_classifier=False,
+                             num_classes=None):
     """
     Predict the values of an internal feature based on metadata.
 
@@ -347,7 +398,8 @@ def predict_internal_feature(features, indicators, f, regression_model,
     joined = features.join(indicators)
     data = joined.map(
         lambda (_id, (ftrs, inds)):
-        LabeledPoint(ftrs[f], inds))
+        LabeledPoint(float(ftrs[f]), inds))\
+                .cache()
     ids = joined.map(lambda (_id, _): _id)
 
     if logger is None:
@@ -359,16 +411,21 @@ def predict_internal_feature(features, indicators, f, regression_model,
                                       regression_model=regression_model,
                                       categorical_features=categorical_features,
                                       max_bins=max_bins,
-                                      logger=logger)
+                                      logger=logger,
+                                      is_classifier=is_classifier,
+                                      num_classes=num_classes)
 
-    observations = ids.zip(data.map(lambda x: float(x.label)))
+    if no_threshold and regression_model == "logistic":
+        lr_model.clearThreshold()
+
+    observations = ids.zip(data.map(lambda x: float(x.label))).cache()
     predictions = ids.zip(
         lr_model\
         .predict(
             data.map(lambda x: x.features)
             )\
         .map(float)
-        )
+        ).cache()
 
     return (lr_model, observations, predictions)
 
@@ -384,7 +441,7 @@ def replace_feature_with_predicted(features, f, predictions, logger):
     joined = features.join(predictions)
     replaced = joined.map(lambda (mid, (feats, pred)):\
             (mid, common_utils.set_list_value(feats, f, pred)))
-    replaced = replaced.union(features_intact)
+    replaced = replaced.union(features_intact).cache()
     logger.debug("Done in {} seconds".format(time.time() - start))
     return replaced
 
@@ -397,7 +454,7 @@ def compare_baseline_to_replaced(baseline_predictions, uf, pf, logger, power):
     start = time.time()
     predictionsAndRatings = replaced_predictions.map(lambda x: ((x[0], x[1]), x[2])) \
         .join(baseline_predictions.map(lambda x: ((x[0], x[1]), x[2]))) \
-        .values()
+        .values().cache()
     replaced_mean_error_baseline = common_utils.mean_error(predictionsAndRatings, power)
     logger.debug("Done in %f seconds", time.time() - start)
     return replaced_mean_error_baseline, replaced_predictions
@@ -533,7 +590,7 @@ def internal_feature_predictor(sc, training, rank, numIter, lmbda,
         logger.debug("Computing model predictions")
         start = time.time()
         baseline_predictions = model.predictAll(training.map(lambda x:\
-            (x[0], x[1])))
+            (x[0], x[1]))).cache()
         logger.debug("Done in %f seconds", time.time() - start)
 
         logger.debug("Computing mean error")
@@ -541,7 +598,7 @@ def internal_feature_predictor(sc, training, rank, numIter, lmbda,
         predictionsAndRatings = baseline_predictions\
             .map(lambda x: ((x[0], x[1]), x[2])) \
             .join(training.map(lambda x: ((x[0], x[1]), x[2]))) \
-            .values()
+            .values().cache()
         baseline_mean_error = common_utils.mean_error(predictionsAndRatings,
                                                       power)
         baseline_rmse = common_utils.mean_error(predictionsAndRatings, power=2.0)
@@ -602,11 +659,13 @@ def internal_feature_predictor(sc, training, rank, numIter, lmbda,
             training_movies = set(all_movies[:training_size])
             test_movies = set(all_movies[training_size:])
             features_training = features.filter(lambda x: x[0] in
-                    training_movies)
-            features_test = features.filter(lambda x: x[0] in test_movies)
+                    training_movies).cache()
+            features_test = features.filter(lambda x: x[0] in
+                    test_movies).cache()
             indicators_training = indicators.filter(lambda x: x[0] in
-                    training_movies)
-            indicators_test = indicators.filter(lambda x: x[0] in test_movies)
+                    training_movies).cache()
+            indicators_test = indicators.filter(lambda x: x[0] in
+                    test_movies).cache()
         else:
             features_training = features
             indicators_training = indicators

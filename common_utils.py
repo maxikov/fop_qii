@@ -5,17 +5,47 @@ import random
 import bisect
 
 #pyspark library
-from pyspark.mllib.evaluation import RegressionMetrics
+from pyspark.mllib.evaluation import RegressionMetrics,\
+     BinaryClassificationMetrics
 
 #numpy library
 import numpy as np
 
+def compute_regression_qii(lr_model, input_features, target_variable,
+                           logger, original_predictions=None):
+    logger.debug("Measuring model QII")
+    if original_predictions is None:
+        original_predictions = lr_model\
+                               .predict(\
+                                   input_features\
+                                   .values())\
+                               .cache()
+    else:
+        original_predictions = original_predictions.values().cache()
+    rank = len(input_features.take(1)[0][1])
+    logger.debug("%d features detected", rank)
+    res = []
+    for f in xrange(rank):
+        logger.debug("Processing feature %d", f)
+        perturbed_features = perturb_feature(input_features, f,
+                                             None).values()
+        new_predictions = lr_model.predict(perturbed_features)
+        predobs = new_predictions.zip(original_predictions)
+        cur_qii = mean_error(predobs, 1.0, abs)
+        logger.debug("QII: %f", cur_qii)
+        res.append(cur_qii)
+    return res
+
 def shift_drop_dict(src, ids_to_drop):
-    ids_to_drop = sorted(list(ids_to_drop))
+    ids_to_drop = set(ids_to_drop)
     res = {}
-    for key, value in src.items():
-        key_offset = bisect.bisect_left(ids_to_drop, key)
-        res[key - key_offset] = value
+    items = src.items()
+    offset = 0
+    for key, value in items:
+        if key in ids_to_drop:
+            offset += 1
+        else:
+            res[key-offset] = value
     return res
 
 def substitute_feature_names(string, feature_names):
@@ -81,8 +111,11 @@ def perturb_feature(features, f, perturbed_subset=None):
                 perturbed_subset)
         features = features_perturbed
     dist = get_feature_distribution(features, f)
+    random.shuffle(dist)
+    all_xs = features.keys().collect()
+    ddist = {k: v for (k, v) in zip(all_xs, dist)}
     res = features.map(lambda (x, arr):\
-            (x, set_list_value(arr, f, random.choice(dist))))
+            (x, set_list_value(arr, f, ddist[x])))
     if perturbed_subset is not None:
         res = res.union(features_intact)
     return res
@@ -128,6 +161,45 @@ def evaluate_recommender(baseline_predictions, predictions, logger=None,
 def make_bins(bin_range, nbins):
     return map(float, list(np.linspace(bin_range[0], bin_range[1], nbins+2)))
 
+def evaluate_binary_classifier(predictions, observations, logger,
+                               no_threshold=True):
+    logger.debug("Evaluating the model, no_threshold: {}".\
+            format(no_threshold))
+    predobs = predictions\
+            .join(observations)\
+            .values()
+    n_pos = predobs.filter(lambda x: int(x[1]) == 1).count()
+    prate = float(n_pos)/float(predobs.count())
+    if no_threshold:
+        metrics = BinaryClassificationMetrics(predobs)
+        auroc = metrics.areaUnderROC
+        aupr = metrics.areaUnderPR
+        if aupr == 1:
+            better = 0
+        else:
+            better = (1.0 - prate)/(1.0 - aupr)
+        res = {"auroc": auroc, "auprc": aupr, "prate": prate, "better": better}
+    else:
+        relevants = predobs.filter(lambda x: int(x[1]) == 1)
+        true_positives = predobs.filter(lambda x: int(x[0]) == 1\
+                and int(x[1]) == 1)
+        all_positives = predobs.filter(lambda x: int(x[0]) == 1)
+        rcount = float(relevants.count())
+        tpcount = float(true_positives.count())
+        apcount = float(all_positives.count())
+        if rcount != 0:
+            recall = tpcount/rcount
+        else:
+            recall = 0
+        if apcount != 0:
+            precision = tpcount/apcount
+        else:
+            precision = 0
+        res = {"recall": recall, "precision": precision}
+    logger.debug("{}".format(res))
+    return res
+
+
 def evaluate_regression(predictions, observations, logger=None, nbins=32,
                         bin_range=None):
     if logger is None:
@@ -137,10 +209,14 @@ def evaluate_regression(predictions, observations, logger=None, nbins=32,
     start = time.time()
     predobs = predictions\
             .join(observations)\
-            .values()
+            .values()\
+            .map(lambda (a, b): (float(a), float(b)))\
+            .cache()
 
     if bin_range is None:
-        bin_range = (-1, 1)
+        bin_range = (-1.0, 1.0)
+    else:
+        bin_range = (float(bin_range[0]), float(bin_range[1]))
     normal_bins = make_bins(bin_range, nbins)
     max_magnitude = max(map(abs, bin_range))
     total_min = min(map(lambda x: -abs(x), bin_range))
@@ -157,9 +233,9 @@ def evaluate_regression(predictions, observations, logger=None, nbins=32,
     mean_abs_err = mean_error(predobs, power=1.0, abs_function=abs)
     mean_err = mean_error(predobs, power=1.0, abs_function=float)
 
-    obs = predobs.map(lambda (_, o): o)
-    preds = predobs.map(lambda (p, _): p)
-    errors = predobs.map(lambda (p, o): p - o)
+    obs = predobs.map(lambda (_, o): o).cache()
+    preds = predobs.map(lambda (p, _): p).cache()
+    errors = predobs.map(lambda (p, o): p - o).cache()
 
     preds_histogram = preds.histogram(normal_bins)
     obs_histogram = obs.histogram(normal_bins)
