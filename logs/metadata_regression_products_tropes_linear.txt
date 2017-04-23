@@ -1,0 +1,56 @@
+2017-04-23 11:27:20,635 - __main__ - DEBUG - rank: 12, lmbda: 0.02, num_iter: 300, num_partitions: 7
+2017-04-23 11:27:20,635 - __main__ - DEBUG - data_path: datasets/ml-20m/, checkpoint_dir: /home/maxikov/spark_dir
+2017-04-23 11:27:20,635 - __main__ - DEBUG - Temp dir: /home/maxikov/spark_dir
+2017-04-23 11:27:20,635 - __main__ - DEBUG - local_threads: *
+2017-04-23 11:27:20,635 - __main__ - DEBUG - spark_executor_memory: 7g
+2017-04-23 11:27:20,636 - __main__ - DEBUG - regression_model: linear
+2017-04-23 11:27:20,636 - __main__ - DEBUG - nbins: 32
+2017-04-23 11:27:20,636 - __main__ - DEBUG - regression_users: False
+2017-04-23 11:27:20,636 - __main__ - DEBUG - predict_product_features: False
+2017-04-23 11:27:20,636 - __main__ - DEBUG - metadata_sources: ['years', 'genres', 'average_rating', 'imdb_director', 'imdb_producer', 'tvtropes']
+2017-04-23 11:27:20,636 - __main__ - DEBUG - movies_file: datasets/ml-20m/ml-20m.imdb.medium.csv
+2017-04-23 11:27:20,636 - __main__ - DEBUG - cross_validation: 70
+2017-04-23 11:27:20,636 - __main__ - DEBUG - tvtropes_file: datasets/dbtropes/tropes.csv
+2017-04-23 11:27:20,636 - __main__ - DEBUG - features_trim_percentile: 0
+2017-04-23 11:27:20,636 - __main__ - DEBUG - drop_missing_movies: True
+2017-04-23 11:27:20,636 - __main__ - DEBUG - drop_rare_features: 10
+2017-04-23 11:27:29,094 - __main__ - DEBUG - msep: ,
+2017-04-23 11:27:29,094 - __main__ - DEBUG - Loading ratings
+2017-04-23 11:27:37,596 - __main__ - DEBUG - Done in 8.500998 seconds
+2017-04-23 11:27:37,596 - __main__ - DEBUG - Loading movies
+2017-04-23 11:27:39,105 - __main__ - DEBUG - Done in 1.509421 seconds
+2017-04-23 11:27:39,105 - __main__ - DEBUG - 26804 movies loaded
+2017-04-23 11:28:31,904 - __main__ - DEBUG - 19912669 records in the training set
+2017-04-23 11:28:38,191 - __main__ - DEBUG - 26284 unique movies in the training set
+2017-04-23 11:28:38,191 - __main__ - DEBUG - Training the average rating model
+2017-04-23 11:29:00,658 - __main__ - DEBUG - Done in 22.465942 seconds
+2017-04-23 11:29:00,694 - __main__ - DEBUG - Loading years
+2017-04-23 11:29:01,118 - __main__ - DEBUG - Done in 0.424016952515 seconds
+2017-04-23 11:29:01,118 - __main__ - DEBUG - 26804 records of 1 features loaded
+2017-04-23 11:29:01,118 - __main__ - DEBUG - Loading genres
+2017-04-23 11:29:01,632 - __main__ - DEBUG - Done in 0.513731002808 seconds
+2017-04-23 11:29:01,632 - __main__ - DEBUG - 26804 records of 20 features loaded
+2017-04-23 11:29:01,681 - __main__ - DEBUG - Loading imdb_director
+2017-04-23 11:29:21,955 - __main__ - DEBUG - Done in 20.2731239796 seconds
+2017-04-23 11:29:21,955 - __main__ - DEBUG - 26804 records of 12893 features loaded
+2017-04-23 11:29:22,042 - __main__ - DEBUG - Loading imdb_producer
+Traceback (most recent call last):
+  File "/mnt/data/Dropbox/cmu/foundation_of_privacy/project/fop_qii/MovieLensALS.py", line 438, in <module>
+    main()
+  File "/mnt/data/Dropbox/cmu/foundation_of_privacy/project/fop_qii/MovieLensALS.py", line 391, in main
+    logger, args.cross_validation)
+  File "/mnt/data/Dropbox/cmu/foundation_of_privacy/project/fop_qii/metadata_predictor.py", line 40, in metadata_predictor
+    internal_feature_predictor.build_meta_data_set(sc, cur_mtdt_srcs, None, logger)
+  File "/mnt/data/Dropbox/cmu/foundation_of_privacy/project/fop_qii/internal_feature_predictor.py", line 280, in build_meta_data_set
+    rdd_count = cur_rdd.count()
+  File "/opt/spark/python/lib/pyspark.zip/pyspark/rdd.py", line 1008, in count
+  File "/opt/spark/python/lib/pyspark.zip/pyspark/rdd.py", line 999, in sum
+  File "/opt/spark/python/lib/pyspark.zip/pyspark/rdd.py", line 873, in fold
+  File "/opt/spark/python/lib/pyspark.zip/pyspark/rdd.py", line 776, in collect
+  File "/opt/spark/python/lib/py4j-0.10.3-src.zip/py4j/java_gateway.py", line 1131, in __call__
+  File "/opt/spark/python/lib/py4j-0.10.3-src.zip/py4j/java_gateway.py", line 883, in send_command
+  File "/opt/spark/python/lib/py4j-0.10.3-src.zip/py4j/java_gateway.py", line 1028, in send_command
+  File "/usr/lib/python2.7/socket.py", line 451, in readline
+    data = self._sock.recv(self._rbufsize)
+  File "/opt/spark/python/lib/pyspark.zip/pyspark/context.py", line 223, in signal_handler
+KeyboardInterrupt

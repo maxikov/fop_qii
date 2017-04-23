@@ -1,0 +1,44 @@
+2017-04-23 09:40:42,231 - __main__ - DEBUG - rank: 12, lmbda: 0.02, num_iter: 300, num_partitions: 7
+2017-04-23 09:40:42,231 - __main__ - DEBUG - data_path: datasets/ml-20m/, checkpoint_dir: /home/maxikov/spark_dir
+2017-04-23 09:40:42,231 - __main__ - DEBUG - Temp dir: /home/maxikov/spark_dir
+2017-04-23 09:40:42,231 - __main__ - DEBUG - local_threads: *
+2017-04-23 09:40:42,231 - __main__ - DEBUG - spark_executor_memory: 7g
+2017-04-23 09:40:42,231 - __main__ - DEBUG - regression_model: regression_tree
+2017-04-23 09:40:42,231 - __main__ - DEBUG - nbins: 8
+2017-04-23 09:40:42,231 - __main__ - DEBUG - regression_users: False
+2017-04-23 09:40:42,231 - __main__ - DEBUG - predict_product_features: False
+2017-04-23 09:40:42,231 - __main__ - DEBUG - metadata_sources: ['years', 'genres', 'average_rating', 'imdb_director', 'imdb_producer', 'tvtropes']
+2017-04-23 09:40:42,231 - __main__ - DEBUG - movies_file: datasets/ml-20m/ml-20m.imdb.medium.csv
+2017-04-23 09:40:42,231 - __main__ - DEBUG - cross_validation: 70
+2017-04-23 09:40:42,231 - __main__ - DEBUG - tvtropes_file: datasets/dbtropes/tropes.csv
+2017-04-23 09:40:42,231 - __main__ - DEBUG - features_trim_percentile: 0
+2017-04-23 09:40:42,231 - __main__ - DEBUG - drop_missing_movies: True
+2017-04-23 09:40:42,231 - __main__ - DEBUG - drop_rare_features: 10
+2017-04-23 09:40:50,754 - __main__ - DEBUG - msep: ,
+2017-04-23 09:40:50,755 - __main__ - DEBUG - Loading ratings
+2017-04-23 09:40:59,418 - __main__ - DEBUG - Done in 8.663342 seconds
+2017-04-23 09:40:59,418 - __main__ - DEBUG - Loading movies
+2017-04-23 09:41:00,874 - __main__ - DEBUG - Done in 1.455378 seconds
+2017-04-23 09:41:00,874 - __main__ - DEBUG - 26804 movies loaded
+2017-04-23 09:41:54,012 - __main__ - DEBUG - 19912669 records in the training set
+2017-04-23 09:42:00,448 - __main__ - DEBUG - 26284 unique movies in the training set
+2017-04-23 09:42:00,449 - __main__ - DEBUG - Training the average rating model
+2017-04-23 09:42:22,384 - __main__ - DEBUG - Done in 21.934893 seconds
+2017-04-23 09:42:22,418 - __main__ - DEBUG - Loading years
+2017-04-23 09:42:22,687 - __main__ - DEBUG - Done in 0.268764972687 seconds
+2017-04-23 09:42:22,688 - __main__ - DEBUG - 26804 records of 1 features loaded
+2017-04-23 09:42:22,688 - __main__ - DEBUG - Loading genres
+2017-04-23 09:42:23,164 - __main__ - DEBUG - Done in 0.47602891922 seconds
+2017-04-23 09:42:23,164 - __main__ - DEBUG - 26804 records of 20 features loaded
+2017-04-23 09:42:23,214 - __main__ - DEBUG - Loading imdb_director
+2017-04-23 09:42:43,628 - __main__ - DEBUG - Done in 20.4140529633 seconds
+2017-04-23 09:42:43,628 - __main__ - DEBUG - 26804 records of 12893 features loaded
+2017-04-23 09:42:43,714 - __main__ - DEBUG - Loading imdb_producer
+2017-04-23 09:44:07,620 - __main__ - DEBUG - Done in 83.9051730633 seconds
+2017-04-23 09:44:07,620 - __main__ - DEBUG - 26804 records of 51285 features loaded
+2017-04-23 09:44:07,901 - __main__ - DEBUG - Loading tvtropes
+2017-04-23 09:44:19,557 - __main__ - DEBUG - Done in 11.656265974 seconds
+2017-04-23 09:44:19,557 - __main__ - DEBUG - 6084 records of 23852 features loaded
+2017-04-23 09:44:19,720 - __main__ - DEBUG - Loading average_rating
+2017-04-23 09:44:19,757 - __main__ - DEBUG - Done in 0.0374710559845 seconds
+2017-04-23 09:44:19,757 - __main__ - DEBUG - 26284 records of 1 features loaded
