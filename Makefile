@@ -10,14 +10,18 @@ pylint: *.py
 modules_check: modules_check.py
 	$(PYTHON) modules_check.py
 
-COMMON := --local-threads '4' --num-partitions 4
+SUBMIT := spark-submit --driver-memory 32g
+
+COMMON := --spark-executor-memory 32g --local-threads '2' --num-partitions 8 \
+          --checkpoint-dir checkpoint --temp-dir tmp \
+	  --data-path ~/data-movies/movielens/ml-20m/ --movies-file ~/data-movies/movielens/ml-20m.imdb.medium.csv
 
 conf1: *.py
-	$(PYTHON) MovieLensALS.py --rank 16 --lmbda 0.02 --num-iter 250 $(COMMON) --output-model latents
+	$(SUBMIT) MovieLensALS.py --rank 16 --lmbda 0.02 --num-iter 250 $(COMMON) --output-model latents
 
 clean:
 	rm -Rf *.pyc
 	rm -Rf latents_users
-	rm -Rf latents_products
+	rm -Rf latents_movies
 
 .PHONY: active ypylint modules_check conf1
