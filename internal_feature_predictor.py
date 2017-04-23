@@ -301,10 +301,18 @@ def drop_rare_features(indicators, nof, categorical_features, feature_names,
         [x[1] for x in enumerate(ind_list) if x[0] not in features_to_drop]))
     res_rdd = res_rdd.cache()
     features_to_drop = sorted(list(features_to_drop))
+    #logger.debug("Old catf: {}".format(sorted(categorical_features.items(),
+    #    key=lambda x: x[0])))
     categorical_features = common_utils.shift_drop_dict(categorical_features,
                                                         features_to_drop)
+    #logger.debug("New catf: {}".format(sorted(categorical_features.items(),
+    #    key=lambda x: x[0])))
+    #logger.debug("Old fn: {}".format(sorted(feature_names.items(),
+    #    key=lambda x: x[0])))
     feature_names = common_utils.shift_drop_dict(feature_names,
                                                  features_to_drop)
+    #logger.debug("New fn: {}".format(sorted(feature_names.items(),
+    #    key=lambda x: x[0])))
     nof = nof - len(features_to_drop)
     logger.debug("%d features remaining", nof)
     logger.debug("Done in %f seconds", time.time() - start)

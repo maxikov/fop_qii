@@ -12,11 +12,15 @@ from pyspark.mllib.evaluation import RegressionMetrics,\
 import numpy as np
 
 def shift_drop_dict(src, ids_to_drop):
-    ids_to_drop = sorted(list(ids_to_drop))
+    ids_to_drop = set(ids_to_drop)
     res = {}
-    for key, value in src.items():
-        key_offset = bisect.bisect_left(ids_to_drop, key)
-        res[key - key_offset] = value
+    items = src.items()
+    offset = 0
+    for key, value in items:
+        if key in ids_to_drop:
+            offset += 1
+        else:
+            res[key-offset] = value
     return res
 
 def substitute_feature_names(string, feature_names):
