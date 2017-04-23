@@ -11,6 +11,31 @@ from pyspark.mllib.evaluation import RegressionMetrics,\
 #numpy library
 import numpy as np
 
+def compute_regression_qii(lr_model, input_features, target_variable,
+                           logger, original_predictions=None):
+    logger.debug("Measuring model QII")
+    if original_predictions is None:
+        original_predictions = lr_model\
+                               .predict(\
+                                   input_features\
+                                   .values())\
+                               .cache()
+    else:
+        original_predictions = original_predictions.values().cache()
+    rank = len(input_features.take(1)[0][1])
+    logger.debug("%d features detected", rank)
+    res = []
+    for f in xrange(rank):
+        logger.debug("Processing feature %d", f)
+        perturbed_features = perturb_feature(input_features, f,
+                                             None).values()
+        new_predictions = lr_model.predict(perturbed_features)
+        predobs = new_predictions.zip(original_predictions)
+        cur_qii = mean_error(predobs, 1.0, abs)
+        logger.debug("QII: %f", cur_qii)
+        res.append(cur_qii)
+    return res
+
 def shift_drop_dict(src, ids_to_drop):
     ids_to_drop = set(ids_to_drop)
     res = {}
@@ -135,11 +160,12 @@ def make_bins(bin_range, nbins):
 
 def evaluate_binary_classifier(predictions, observations, logger,
                                no_threshold=True):
-    logger.debug("Evaluating the model")
+    logger.debug("Evaluating the model, no_threshold: {}".\
+            format(no_threshold))
     predobs = predictions\
             .join(observations)\
             .values()
-    n_pos = predobs.filter(lambda x: x[1] == 1).count()
+    n_pos = predobs.filter(lambda x: int(x[1]) == 1).count()
     prate = float(n_pos)/float(predobs.count())
     if no_threshold:
         metrics = BinaryClassificationMetrics(predobs)
@@ -151,7 +177,22 @@ def evaluate_binary_classifier(predictions, observations, logger,
             better = (1.0 - prate)/(1.0 - aupr)
         res = {"auroc": auroc, "auprc": aupr, "prate": prate, "better": better}
     else:
-        pass #TODO
+        relevants = predobs.filter(lambda x: int(x[1]) == 1)
+        true_positives = predobs.filter(lambda x: int(x[0]) == 1\
+                and int(x[1]) == 1)
+        all_positives = predobs.filter(lambda x: int(x[0]) == 1)
+        rcount = float(relevants.count())
+        tpcount = float(true_positives.count())
+        apcount = float(all_positives.count())
+        if rcount != 0:
+            recall = tpcount/rcount
+        else:
+            recall = 0
+        if apcount != 0:
+            precision = tpcount/apcount
+        else:
+            precision = 0
+        res = {"recall": recall, "precision": precision}
     logger.debug("{}".format(res))
     return res
 

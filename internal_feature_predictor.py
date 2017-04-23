@@ -88,7 +88,8 @@ def discretize_features(data, nbins, dont_discretize, logger):
 
 def train_regression_model(data, regression_model="regression_tree",
                            categorical_features={}, max_bins=32, max_depth=None,
-                           num_trees=128, logger=None):
+                           num_trees=128, logger=None, is_classifier=False,
+                           num_classes=None):
     """
     Train a regression model on the input data.
 
@@ -134,6 +135,9 @@ def train_regression_model(data, regression_model="regression_tree",
         trained_regression_model
     """
 
+    if num_classes is None:
+        num_classes = max_bins
+
     if max_depth is None:
         max_depth = int(math.ceil(math.log(max_bins, 2)))
 
@@ -145,28 +149,55 @@ def train_regression_model(data, regression_model="regression_tree",
         logger.debug("Training " + regression_model)
 
     if regression_model == "regression_tree":
-        lr_model = pyspark.\
-                mllib.\
-                tree.\
-                DecisionTree.\
-                trainRegressor(
-                    data,
-                    categoricalFeaturesInfo=categorical_features,
-                    impurity="variance",
-                    maxDepth=max_depth,
-                    maxBins=max_bins)
+        if is_classifier:
+            lr_model = pyspark.\
+                    mllib.\
+                    tree.\
+                    DecisionTree.\
+                    trainClassifier(
+                        data,
+                        numClasses=num_classes,
+                        categoricalFeaturesInfo=categorical_features,
+                        impurity="gini",
+                        maxDepth=max_depth,
+                        maxBins=max_bins)
+        else:
+            lr_model = pyspark.\
+                    mllib.\
+                    tree.\
+                    DecisionTree.\
+                    trainRegressor(
+                        data,
+                        categoricalFeaturesInfo=categorical_features,
+                        impurity="variance",
+                        maxDepth=max_depth,
+                        maxBins=max_bins)
 
     elif regression_model == "random_forest":
-        lr_model = pyspark.\
-                mllib.\
-                tree.\
-                RandomForest.\
-                trainRegressor(
-                    data,
-                    categoricalFeaturesInfo=categorical_features,
-                    numTrees=num_trees,
-                    maxDepth=max_depth,
-                    maxBins=max_bins)
+        if is_classifier:
+            lr_model = pyspark.\
+                    mllib.\
+                    tree.\
+                    RandomForest.\
+                    trainClassifier(
+                        data,
+                        numClasses=num_classes,
+                        categoricalFeaturesInfo=categorical_features,
+                        impurity="gini",
+                        maxDepth=max_depth,
+                        maxBins=max_bins,
+                        numTrees=num_trees)
+        else:
+            lr_model = pyspark.\
+                    mllib.\
+                    tree.\
+                    RandomForest.\
+                    trainRegressor(
+                        data,
+                        categoricalFeaturesInfo=categorical_features,
+                        numTrees=num_trees,
+                        maxDepth=max_depth,
+                        maxBins=max_bins)
     elif regression_model == "linear":
         lr_model = LinearRegressionWithSGD.train(data)
     elif regression_model == "naive_bayes":
@@ -320,7 +351,8 @@ def drop_rare_features(indicators, nof, categorical_features, feature_names,
 
 def predict_internal_feature(features, indicators, f, regression_model,
                              categorical_features, max_bins, logger=None,
-                             no_threshold=False):
+                             no_threshold=False, is_classifier=False,
+                             num_classes=None):
     """
     Predict the values of an internal feature based on metadata.
 
@@ -377,7 +409,9 @@ def predict_internal_feature(features, indicators, f, regression_model,
                                       regression_model=regression_model,
                                       categorical_features=categorical_features,
                                       max_bins=max_bins,
-                                      logger=logger)
+                                      logger=logger,
+                                      is_classifier=is_classifier,
+                                      num_classes=num_classes)
 
     if no_threshold and regression_model == "logistic":
         lr_model.clearThreshold()
