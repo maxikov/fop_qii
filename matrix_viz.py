@@ -86,7 +86,7 @@ def main():
     src = src[0]
     results = eval(src)
 
-    is_qii = args.qii or ("linlog" not in results)
+    is_qii = args.qii or ("not_linlog" in results)
 
     reg_models_res = extract_and_sort(results, args.training, args.top_results,
                                       args.coeff_threshold, is_qii)
