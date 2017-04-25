@@ -11,7 +11,7 @@ def extract_and_sort(src, training=False, top_results=0, coeff_threshold=None,
     rf = src["features"]
     regs = [x for x in rf.items() if x[1]["type"] == "regression"]
     mrae = ("mrae", "MRAE")
-    regs.sort(key = lambda x: -x[1]["eval"+tr][mrae[0]])
+    regs.sort(key = lambda x: x[1]["eval"+tr][mrae[0]])
     if top_results > 0:
         regs = regs[:top_results]
     new_regs = []
