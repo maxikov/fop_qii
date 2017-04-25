@@ -5,7 +5,8 @@ import numpy
 
 from matplotlib import pyplot as plt
 
-def extract_and_sort(src, training=False, top_results=0, coeff_threshold=None):
+def extract_and_sort(src, training=False, top_results=0, coeff_threshold=None,
+        is_qii=False):
     tr = "" if training else "_test"
     rf = src["features"]
     regs = [x for x in rf.items() if x[1]["type"] == "regression"]
@@ -18,8 +19,8 @@ def extract_and_sort(src, training=False, top_results=0, coeff_threshold=None):
         info["title"] = "{} ({}: {:1.3f})".format(\
                 info["name"], mrae[1], info["eval"+tr][mrae[0]])
         if coeff_threshold is not None:
-            info["weights"] = [x if abs(x) < coeff_threshold else
-                    coeff_threshold for x in info["weights"]]
+            info["qii" if is_qii else "weights"] = [x if abs(x) < coeff_threshold else
+                    coeff_threshold for x in info["qii" if is_qii else "weights"]]
         new_regs.append(info)
     clss = [x for x in rf.items() if x[1]["type"] == "classification"]
     if "not_linlog" in src:
@@ -35,15 +36,15 @@ def extract_and_sort(src, training=False, top_results=0, coeff_threshold=None):
                 info["name"], info["eval"+tr][better[0]],
                 better[1])
         if coeff_threshold is not None:
-            info["weights"] = [x if abs(x) < coeff_threshold else
-                    coeff_threshold for x in info["weights"]]
+            info["qii" if is_qii else "weights"] = [x if abs(x) < coeff_threshold else
+                    coeff_threshold for x in info["qii" if is_qii else "weights"]]
         new_clss.append(info)
     res = new_regs + new_clss
     return res
 
 
-def display_matrix(reg_models_res):
-    matrix = [x["weights"] for x in reg_models_res]
+def display_matrix(reg_models_res, is_qii=False):
+    matrix = [x["qii" if is_qii else "weights"] for x in reg_models_res]
     matrix = numpy.array(matrix)
     fig, ax = plt.subplots()
     cax = ax.imshow(matrix, cmap='viridis', interpolation='nearest')
@@ -53,7 +54,10 @@ def display_matrix(reg_models_res):
     ax.set_xticks(range(len(reg_models_res[0]["weights"])))
     ax.set_xticklabels(range(len(reg_models_res[0]["weights"])))
     ax.set_xlabel("Internal features")
-    ax.set_title("Coefficients for regression")
+    if is_qii:
+        ax.set_title("Feature global influence")
+    else:
+        ax.set_title("Coefficients for regression")
     cbar = fig.colorbar(cax)
 
 def main():
@@ -68,6 +72,8 @@ def main():
                         help="If specified, regression coefficients whose "+\
                              "absolute value exceeds the specified number "+\
                              "are thresholded")
+    parser.add_argument("--qii", action="store_true", help="Display QII "+\
+                        "instead of coefficients")
     parser.add_argument("fname", type=str, nargs=1, help="Log file name")
     args = parser.parse_args()
 
@@ -80,9 +86,11 @@ def main():
     src = src[0]
     results = eval(src)
 
+    is_qii = args.qii or ("linlog" not in results)
+
     reg_models_res = extract_and_sort(results, args.training, args.top_results,
-                                      args.coeff_threshold)
-    display_matrix(reg_models_res)
+                                      args.coeff_threshold, is_qii)
+    display_matrix(reg_models_res, is_qii)
 
     plt.show()
 
