@@ -73,6 +73,10 @@ def metadata_predictor(sc, training, rank, numIter, lmbda,
     results["categorical_features"] = categorical_features
     results["mean_feature_values"] = common_utils.mean_feature_values(features,
             logger)
+    results["feature_ranges"] = common_utils.feature_ranges(features, logger)
+    results["mean_indicator_values"] = common_utils.mean_feature_values(\
+            indicators, logger)
+    results["indicator_ranges"] = common_utils.feature_ranges(indicators, logger)
 
     for f in xrange(nof):
         logger.debug("Processing {} ({} out of {})"\
