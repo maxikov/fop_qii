@@ -132,6 +132,21 @@ def mean_feature_values(features, logger):
     logger.debug("Mean product feature values: {}".format(mpfv))
     return mpfv
 
+def feature_ranges(features, logger):
+    logger.debug("Computing feature ranges")
+    res = {}
+    rank = len(features.take(1)[0][1])
+    logger.debug("Detected %d features", rank)
+    for f in rank:
+        vals = features\
+                .values()\
+                .map(lambda x: x[f])
+        _min = vals.min()
+        _max = vals.max()
+        res[f] = {"min": _min, "_max": _max}
+    logger.debug("Feature ranges: {}".format(res))
+    return res
+
 def mean_relative_absolute_error(predobs):
     """
     Compute mean relative absolute error of regression.
@@ -214,9 +229,11 @@ def evaluate_regression(predictions, observations, logger=None, nbins=32,
             .cache()
 
     if bin_range is None:
-        bin_range = (-1.0, 1.0)
+        _min = min(predictions.values().min(), observations.values().min())
+        _max = max(predictions.values().max(), observations.values().max())
     else:
         bin_range = (float(bin_range[0]), float(bin_range[1]))
+    logger.debug("Bin range: {}".format(bin_range))
     normal_bins = make_bins(bin_range, nbins)
     max_magnitude = max(map(abs, bin_range))
     total_min = min(map(lambda x: -abs(x), bin_range))

@@ -134,6 +134,11 @@ def args_init(logger):
                                         "data set that have fewer than "+\
                                         "the specified value of non-zero "+\
                                         "values. 0 by default (no dropping).")
+    parser.add_argument("--filter-data-set", action="store", type=int,
+                        default=10, help="Drop ratings from the data set "+\
+                                "whose last digit of the time stamp is "+\
+                                "less than the specified value. If 10 "+\
+                                "(default), nothing is dropped")
 
     args = parser.parse_args()
 
@@ -331,7 +336,8 @@ def main():
 
 
     training = ratings\
-      .filter(lambda x: (x[1][1] in all_movies) and (True or x[0] < 2))\
+      .filter(lambda x: (x[1][1] in all_movies) and (x[0] <
+          args.filter_data_set))\
       .values() \
       .repartition(args.num_partitions) \
       .cache()

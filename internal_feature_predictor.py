@@ -628,17 +628,19 @@ def internal_feature_predictor(sc, training, rank, numIter, lmbda,
     other_features = model.userFeatures()
     if user_or_product_features == "user":
         features, other_features = other_features, features
+    original_features = features
+    results["mean_feature_values"] = common_utils.mean_feature_values(features, logger)
     if args.regression_model == "naive_bayes":
+        logger.debug("Discretizing features for naive bayes")
         features, feature_bin_centers = discretize_features(features,
                                                             args.nbins,
                                                             set([]),
                                                             logger)
+        logger.debug("Feature bin centers: {}".format(feature_bin_centers))
+        results["mean_discrete_feature_values"] = common_utils.mean_feature_values(features, logger)
         indicators, _ = discretize_features(indicators, args.nbins,
                                             set(categorical_features.keys()),
                                             logger)
-
-    results["mean_feature_values"] = common_utils.mean_feature_values(features, logger)
-
     results["features"] = {}
 
     results["train_ratio"] = train_ratio
@@ -678,15 +680,18 @@ def internal_feature_predictor(sc, training, rank, numIter, lmbda,
             categorical_features,
             args.nbins,
             logger)
+        if args.regression_model == "naive_bayes":
+            logger.debug("Undiscretizing values for hast table")
+            predictions_ht = undiscretize_signle_feature(predictions_ht,
+                                                      feature_bin_centers[f])
+            observations_ht = undiscretize_signle_feature(observations_ht,
+                                                       feature_bin_centers[f])
         #logger.debug("Hash table: {}".format(ht_model.table))
-        _min = features_training.map(lambda x: x[1][f]).min()
-        _max = features_training.map(lambda x: x[1][f]).max()
-        bin_range = (_min, _max)
         reg_eval = common_utils.evaluate_regression(predictions_ht,
                                                     observations_ht,
                                                     logger,
                                                     args.nbins,
-                                                    bin_range)
+                                                    bin_range=None)
         results["features"][f]["regression_evaluation_ht"] = reg_eval
 
         lr_model, observations, predictions = predict_internal_feature(\
@@ -699,6 +704,7 @@ def internal_feature_predictor(sc, training, rank, numIter, lmbda,
             logger)
         results["features"][f]["model"] = lr_model
         if args.regression_model == "naive_bayes":
+            logger.debug("Undiscretizing values for training predictions")
             predictions = undiscretize_signle_feature(predictions,
                                                       feature_bin_centers[f])
             observations = undiscretize_signle_feature(observations,
@@ -712,7 +718,7 @@ def internal_feature_predictor(sc, training, rank, numIter, lmbda,
             logger.info(model_debug_string)
 
         if train_ratio > 0:
-            _, observations_ht, predictions_ht = predict_internal_feature(\
+            _, observations_ht_test, predictions_ht_test = predict_internal_feature(\
                 features_test,
                 indicators_test,
                 f,
@@ -720,14 +726,19 @@ def internal_feature_predictor(sc, training, rank, numIter, lmbda,
                 categorical_features,
                 args.nbins,
                 logger)
-            _min = features_test.map(lambda x: x[1][f]).min()
-            _max = features_test.map(lambda x: x[1][f]).max()
-            bin_range = (_min, _max)
-            reg_eval = common_utils.evaluate_regression(predictions_ht,
-                                                    observations_ht,
+            if args.regression_model == "naive_bayes":
+                logger.debug("Undiscretizing values for hash table test")
+                predictions_ht_test =\
+                    undiscretize_signle_feature(predictions_ht_test,
+                                                      feature_bin_centers[f])
+                observations_ht_test =\
+                    undiscretize_signle_feature(observations_ht_test,
+                                                       feature_bin_centers[f])
+            reg_eval = common_utils.evaluate_regression(predictions_ht_test,
+                                                    observations_ht_test,
                                                     logger,
                                                     args.nbins,
-                                                    bin_range)
+                                                    bin_range=None)
             results["features"][f]["regression_evaluation_ht_test"] = reg_eval
             logger.debug("Computing predictions on the test set")
             ids_test = indicators_test.keys()
@@ -738,7 +749,8 @@ def internal_feature_predictor(sc, training, rank, numIter, lmbda,
             observations_test = features_test.map(lambda (mid, ftrs):
                     (mid, ftrs[f]))
             if args.regression_model == "naive_bayes":
-                predictionsi_test =\
+                logger.debug("Undiscretizing values for test predictions")
+                predictions_test =\
                     undiscretize_signle_feature(predictions_test,
                                                 feature_bin_centers[f])
                 observations_test =\
@@ -747,26 +759,20 @@ def internal_feature_predictor(sc, training, rank, numIter, lmbda,
             all_predicted_features_test[f] = predictions_test
 
         predictions_training = predictions
+        observations_training = observations
 
         if eval_regression:
-            if args.features_trim_percentile:
-                bin_range = model.feature_threshold(f)
-            else:
-                _min = features_training.map(lambda x: x[1][f]).min()
-                _max = features_training.map(lambda x: x[1][f]).max()
-                bin_range = (_min, _max)
-            logger.debug("Bin range: {}".format(bin_range))
             reg_eval = common_utils.evaluate_regression(predictions,
                                                         observations,
                                                         logger,
                                                         args.nbins,
-                                                        bin_range)
+                                                        bin_range=None)
             results["features"][f]["regression_evaluation"] = reg_eval
             if train_ratio > 0:
                 logger.debug("Evaluating regression on the test set")
                 reg_eval_test = common_utils.evaluate_regression(\
                         predictions_test, observations_test, logger,\
-                        args.nbins, bin_range)
+                        args.nbins, bin_range=None)
                 results["features"][f]["regression_evaluation_test"] =\
                     reg_eval_test
 
@@ -832,7 +838,7 @@ def internal_feature_predictor(sc, training, rank, numIter, lmbda,
                 perturbed_subset = training_movies
             else:
                 perturbed_subset = None
-            replaced_features = common_utils.perturb_feature(features, f,
+            replaced_features = common_utils.perturb_feature(features_original, f,
                     perturbed_subset)
             logger.debug("Done in %f seconds", time.time()-start)
             if user_or_product_features == "product":
@@ -864,7 +870,8 @@ def internal_feature_predictor(sc, training, rank, numIter, lmbda,
                 logger.debug("Randomizing feature %d test", f)
                 start = time.time()
                 perturbed_subset = test_movies
-                replaced_features = common_utils.perturb_feature(features, f,
+                replaced_features =\
+                    common_utils.perturb_feature(features_original, f,
                     perturbed_subset)
                 logger.debug("Done in %f seconds", time.time()-start)
                 if user_or_product_features == "product":
@@ -897,7 +904,7 @@ def internal_feature_predictor(sc, training, rank, numIter, lmbda,
         training_movies = all_movies
 
     replaced_mean_error_baseline, replaced_rec_eval =\
-        compare_with_all_replaced_features(features, other_features,\
+        compare_with_all_replaced_features(features_original, other_features,\
             user_or_product_features, all_predicted_features, rank,\
             baseline_predictions, logger, power, args)
     results["all_replaced_mean_error_baseline"] = replaced_mean_error_baseline
@@ -908,7 +915,7 @@ def internal_feature_predictor(sc, training, rank, numIter, lmbda,
 
     if train_ratio > 0:
         replaced_mean_error_baseline, replaced_rec_eval =\
-            compare_with_all_replaced_features(features, other_features,\
+            compare_with_all_replaced_features(features_original, other_features,\
                 user_or_product_features, all_predicted_features_test, rank,\
                 baseline_predictions, logger, power, args)
         results["all_replaced_mean_error_baseline_test"] = replaced_mean_error_baseline
