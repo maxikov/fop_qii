@@ -487,7 +487,8 @@ def compare_with_all_replaced_features(features, other_features,
     logger.debug("Evaluating replaced model")
     replaced_rec_eval =\
                     common_utils.evaluate_recommender(baseline_predictions,\
-                        replaced_predictions, logger, args.nbins)
+                        replaced_predictions, logger, args.nbins,
+                        "All replaced features")
     logger.debug("Done in %f seconds", time.time() - start)
     return replaced_mean_error_baseline, replaced_rec_eval
 
@@ -502,7 +503,8 @@ def compare_with_all_randomized(baseline_model, rank, perturbed_subset,
     randomized_predictions = model.predictAll(baseline_predictions)
     replaced_rec_eval =\
                     common_utils.evaluate_recommender(baseline_predictions,\
-                        randomized_predictions, logger, args.nbins)
+                        randomized_predictions, logger, args.nbins,
+                        "All randomized features")
     logger.debug("Done in %f seconds", time.time() - start)
     return replaced_rec_eval
 
@@ -609,7 +611,8 @@ def internal_feature_predictor(sc, training, rank, numIter, lmbda,
         results["baseline_rmse"] = baseline_rmse
 
         baseline_rec_eval = common_utils.evaluate_recommender(\
-               training, baseline_predictions, logger, args.nbins)
+               training, baseline_predictions, logger, args.nbins,
+               "Original recommender")
         results["baseline_rec_eval"] = baseline_rec_eval
 
     if args.features_trim_percentile:
@@ -622,13 +625,16 @@ def internal_feature_predictor(sc, training, rank, numIter, lmbda,
         logger.debug("Computing trimmed predictions")
         trimmed_predictions = model.predictAll(training)
         results["trimmed_rec_eval"] = common_utils.evaluate_recommender(\
-                baseline_predictions, trimmed_predictions, logger, args.nbins)
+                baseline_predictions, trimmed_predictions, logger, args.nbins,
+                "Thresholded features recommender")
 
     features = model.productFeatures()
     other_features = model.userFeatures()
+    logger.debug("user_or_product_features: {}"\
+            .format(user_or_product_features))
     if user_or_product_features == "user":
         features, other_features = other_features, features
-    original_features = features
+    features_original = features
     results["mean_feature_values"] = common_utils.mean_feature_values(features, logger)
     if args.regression_model == "naive_bayes":
         logger.debug("Discretizing features for naive bayes")
@@ -691,7 +697,8 @@ def internal_feature_predictor(sc, training, rank, numIter, lmbda,
                                                     observations_ht,
                                                     logger,
                                                     args.nbins,
-                                                    bin_range=None)
+                                                    bin_range=None,
+                     model_name = "Hash table training feature {}".format(f))
         results["features"][f]["regression_evaluation_ht"] = reg_eval
 
         lr_model, observations, predictions = predict_internal_feature(\
@@ -738,7 +745,8 @@ def internal_feature_predictor(sc, training, rank, numIter, lmbda,
                                                     observations_ht_test,
                                                     logger,
                                                     args.nbins,
-                                                    bin_range=None)
+                                                    bin_range=None,
+                     model_name = "Hash table test feature {}".format(f))
             results["features"][f]["regression_evaluation_ht_test"] = reg_eval
             logger.debug("Computing predictions on the test set")
             ids_test = indicators_test.keys()
@@ -762,17 +770,19 @@ def internal_feature_predictor(sc, training, rank, numIter, lmbda,
         observations_training = observations
 
         if eval_regression:
-            reg_eval = common_utils.evaluate_regression(predictions,
-                                                        observations,
+            reg_eval = common_utils.evaluate_regression(predictions_training,
+                                                        observations_training,
                                                         logger,
                                                         args.nbins,
-                                                        bin_range=None)
+                                                        bin_range=None,
+                     model_name = "Training feature {}".format(f))
             results["features"][f]["regression_evaluation"] = reg_eval
             if train_ratio > 0:
                 logger.debug("Evaluating regression on the test set")
                 reg_eval_test = common_utils.evaluate_regression(\
                         predictions_test, observations_test, logger,\
-                        args.nbins, bin_range=None)
+                        args.nbins, bin_range=None,
+                     model_name = "Test feature {}".format(f))
                 results["features"][f]["regression_evaluation_test"] =\
                     reg_eval_test
 
@@ -801,7 +811,8 @@ def internal_feature_predictor(sc, training, rank, numIter, lmbda,
             logger.debug("Evaluating replaced model")
             results["features"][f]["replaced_rec_eval"] =\
                     common_utils.evaluate_recommender(baseline_predictions,\
-                        replaced_predictions, logger, args.nbins)
+                        replaced_predictions, logger, args.nbins,
+                        "Replaced feature {} training".format(f))
 
 
             if train_ratio > 0:
@@ -829,7 +840,8 @@ def internal_feature_predictor(sc, training, rank, numIter, lmbda,
                 logger.debug("Evaluating replaced model test")
                 results["features"][f]["replaced_rec_eval_test"] =\
                     common_utils.evaluate_recommender(baseline_predictions,\
-                        replaced_predictions_test, logger, args.nbins)
+                        replaced_predictions_test, logger, args.nbins,
+                        "Replaced feature {} test".format(f))
 
         if compare_with_randomized_feature:
             logger.debug("Randomizing feature %d", f)
@@ -864,7 +876,8 @@ def internal_feature_predictor(sc, training, rank, numIter, lmbda,
             logger.debug("Evaluating randomized model")
             results["features"][f]["randomized_rec_eval"] =\
                     common_utils.evaluate_recommender(baseline_predictions,\
-                        randomized_predictions, logger, args.nbins)
+                        randomized_predictions, logger, args.nbins,
+                        "Randomized feature {} training".format(f))
 
             if train_ratio > 0:
                 logger.debug("Randomizing feature %d test", f)
@@ -898,7 +911,8 @@ def internal_feature_predictor(sc, training, rank, numIter, lmbda,
                 logger.debug("Evaluating randomized model test")
                 results["features"][f]["randomized_rec_eval_test"] =\
                     common_utils.evaluate_recommender(baseline_predictions,\
-                        randomized_predictions_test, logger, args.nbins)
+                        randomized_predictions_test, logger, args.nbins,
+                        "Randomized feature {} test".format(f))
 
     if train_ratio <= 0:
         training_movies = all_movies

@@ -165,6 +165,7 @@ def args_init(logger):
             .format(args.features_trim_percentile))
     logger.debug("drop_missing_movies: {}".format(args.drop_missing_movies))
     logger.debug("drop_rare_features: {}".format(args.drop_rare_features))
+    logger.debug("filter_data_set: {}".format(args.filter_data_set))
 
     return args
 

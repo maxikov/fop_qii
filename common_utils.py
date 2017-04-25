@@ -164,14 +164,14 @@ def mean_relative_absolute_error(predobs):
     return res
 
 def evaluate_recommender(baseline_predictions, predictions, logger=None,
-                         nbins=32):
+                         nbins=32, model_name=""):
     predictionsAndRatings = predictions.map(lambda x: ((x[0], x[1]),
         float(x[2]))) \
         .join(baseline_predictions.map(lambda x: ((x[0], x[1]), float(x[2]))))
     predictions = predictionsAndRatings.map(lambda x: (x[0], x[1][0]))
     observations = predictionsAndRatings.map(lambda x: (x[0], x[1][1]))
     return evaluate_regression(predictions, observations, logger, nbins,
-                               (0.0, 5.5))
+                               (0.0, 5.5), model_name)
 
 def make_bins(bin_range, nbins):
     return map(float, list(np.linspace(bin_range[0], bin_range[1], nbins+2)))
@@ -216,11 +216,8 @@ def evaluate_binary_classifier(predictions, observations, logger,
 
 
 def evaluate_regression(predictions, observations, logger=None, nbins=32,
-                        bin_range=None):
-    if logger is None:
-        print "Evaluating the model"
-    else:
-        logger.debug("Evaluating the model")
+                        bin_range=None, model_name=""):
+    logger.debug("{} Evaluating the model".format(model_name))
     start = time.time()
     predobs = predictions\
             .join(observations)\
@@ -231,9 +228,10 @@ def evaluate_regression(predictions, observations, logger=None, nbins=32,
     if bin_range is None:
         _min = min(predictions.values().min(), observations.values().min())
         _max = max(predictions.values().max(), observations.values().max())
+        bin_range = (_min, _max)
     else:
         bin_range = (float(bin_range[0]), float(bin_range[1]))
-    logger.debug("Bin range: {}".format(bin_range))
+    logger.debug("{} Bin range: {}".format(model_name, bin_range))
     normal_bins = make_bins(bin_range, nbins)
     max_magnitude = max(map(abs, bin_range))
     total_min = min(map(lambda x: -abs(x), bin_range))
@@ -265,18 +263,18 @@ def evaluate_regression(predictions, observations, logger=None, nbins=32,
             .histogram(sq_bins)
 
     logger.debug("Done in %f seconds", time.time() - start)
-    logger.debug("Mean error: {}, mean absolute error: {}".\
-            format(mean_err, mean_abs_err))
-    logger.debug("RMSE: {}, variance explained: {}, mean absolute error: {},".\
-        format(metrics.explainedVariance,\
+    logger.debug("{} Mean error: {}, mean absolute error: {}".\
+            format(model_name, mean_err, mean_abs_err))
+    logger.debug("{} RMSE: {}, variance explained: {}, mean absolute error: {},".\
+        format(model_name, metrics.explainedVariance,\
                metrics.rootMeanSquaredError,
             metrics.meanAbsoluteError))
-    logger.debug("MRAE: {}".format(mrae))
-    logger.debug("Errors histogram: {}".format(errors_histogram))
-    logger.debug("Absolute errors histogram: {}".format(abs_errors_histogram))
-    logger.debug("Squared errors histogram: {}:".format(sq_errors_histogram))
-    logger.debug("Predictions histogram: {}".format(preds_histogram))
-    logger.debug("Observations histogram: {}".format(obs_histogram))
+    logger.debug("{} MRAE: {}".format(model_name, mrae))
+    logger.debug("{} Errors histogram: {}".format(model_name, errors_histogram))
+    logger.debug("{} Absolute errors histogram: {}".format(model_name, abs_errors_histogram))
+    logger.debug("{} Squared errors histogram: {}:".format(model_name, sq_errors_histogram))
+    logger.debug("{} Predictions histogram: {}".format(model_name, preds_histogram))
+    logger.debug("{} Observations histogram: {}".format(model_name, obs_histogram))
     res = {"mre": metrics.meanAbsoluteError,
            "mrae": mrae,
            "errors_histogram": errors_histogram,

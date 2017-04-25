@@ -43,6 +43,8 @@ def create_axes(nplots):
     print nplots, plt_rows, plt_cols
 
     f, axes = plt.subplots(plt_rows, plt_cols)
+    if nplots == 1:
+        return f, [axes]
     axes_flat = []
     for a in axes:
         try:
