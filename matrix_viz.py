@@ -6,7 +6,7 @@ import numpy
 from matplotlib import pyplot as plt
 
 def extract_and_sort(src, training=False, top_results=0, coeff_threshold=None,
-        is_qii=False):
+        is_qii=False, norm_input=False, norm_output=False):
     tr = "" if training else "_test"
     rf = src["features"]
     regs = [x for x in rf.items() if x[1]["type"] == "regression"]
@@ -16,11 +16,23 @@ def extract_and_sort(src, training=False, top_results=0, coeff_threshold=None,
         regs = regs[:top_results]
     new_regs = []
     for f, info in regs:
+        factor = 1.0
+        if norm_output:
+            factor = factor / src["mean_indicator_values"][f]
         info["title"] = "{} ({}: {:1.3f})".format(\
                 info["name"], mrae[1], info["eval"+tr][mrae[0]])
-        if coeff_threshold is not None:
-            info["qii" if is_qii else "weights"] = [x if abs(x) < coeff_threshold else
-                    coeff_threshold for x in info["qii" if is_qii else "weights"]]
+        cur_qii_or_weights = []
+        for i in xrange(len(info["qii" if is_qii else "weights"])):
+            x = info["qii" if is_qii else "weights"][i]
+            cur_factor = factor
+            if norm_input:
+                cur_factor = cur_factor / src["mean_feature_values"][i]
+            x = x * cur_factor
+            if coeff_threshold is not None:
+                if abs(x) >= coeff_threshold:
+                    x = coeff_threshold*x/abs(x)
+            cur_qii_or_weights.append(x)
+        info["qii" if is_qii else "weights"] = cur_qii_or_weights
         new_regs.append(info)
     clss = [x for x in rf.items() if x[1]["type"] == "classification"]
     if "not_linlog" in src:
@@ -32,12 +44,24 @@ def extract_and_sort(src, training=False, top_results=0, coeff_threshold=None,
         clss = clss[:top_results]
     new_clss = []
     for f, info in clss:
+        factor = 1.0
+        if norm_output:
+            factor = factor / src["mean_indicator_values"][f]
         info["title"] = "{} ({:2.3f}{})".format(\
                 info["name"], info["eval"+tr][better[0]],
                 better[1])
-        if coeff_threshold is not None:
-            info["qii" if is_qii else "weights"] = [x if abs(x) < coeff_threshold else
-                    coeff_threshold for x in info["qii" if is_qii else "weights"]]
+        cur_qii_or_weights = []
+        for i in xrange(len(info["qii" if is_qii else "weights"])):
+            x = info["qii" if is_qii else "weights"][i]
+            cur_factor = factor
+            if norm_input:
+                cur_factor = cur_factor / src["mean_feature_values"][i]
+            x = x * cur_factor
+            if coeff_threshold is not None:
+                if abs(x) >= coeff_threshold:
+                    x = coeff_threshold*x/abs(x)
+            cur_qii_or_weights.append(x)
+        info["qii" if is_qii else "weights"] = cur_qii_or_weights
         new_clss.append(info)
     res = new_regs + new_clss
     return res
@@ -74,6 +98,10 @@ def main():
                              "are thresholded")
     parser.add_argument("--qii", action="store_true", help="Display QII "+\
                         "instead of coefficients")
+    parser.add_argument("--norm-input", action="store_true", help="Norm "+\
+            "the columns by the mean value of input features")
+    parser.add_argument("--norm-output", action="store_true", help="Norm "+\
+            "the rows by the mean value of outpur features")
     parser.add_argument("fname", type=str, nargs=1, help="Log file name")
     args = parser.parse_args()
 
@@ -89,7 +117,8 @@ def main():
     is_qii = args.qii or ("not_linlog" in results)
 
     reg_models_res = extract_and_sort(results, args.training, args.top_results,
-                                      args.coeff_threshold, is_qii)
+                                      args.coeff_threshold, is_qii,
+                                      args.norm_input, args.norm_output)
     display_matrix(reg_models_res, is_qii)
 
     plt.show()
