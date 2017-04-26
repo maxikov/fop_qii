@@ -654,31 +654,41 @@ def internal_feature_predictor(sc, training, rank, numIter, lmbda,
     all_predicted_features = {}
     all_predicted_features_test = {}
 
+    if train_ratio > 0:
+         logger.debug("Building training and test sets for regression")
+         all_movies = features.keys().collect()
+         n_movies = len(all_movies)
+         training_size = int(math.floor(n_movies * train_ratio / 100.0)) + 1
+         logger.debug("{} items in training and {} in test set"\
+                 .format(training_size, n_movies - training_size))
+         random.shuffle(all_movies)
+         training_movies = set(all_movies[:training_size])
+         test_movies = set(all_movies[training_size:])
+         features_training = features.filter(lambda x: x[0] in
+                 training_movies).cache()
+         features_test = features.filter(lambda x: x[0] in
+                 test_movies).cache()
+         indicators_training = indicators.filter(lambda x: x[0] in
+                 training_movies).cache()
+         indicators_test = indicators.filter(lambda x: x[0] in
+                 test_movies).cache()
+         features_original_training = features_original.filter(lambda x: x[0] in
+                 training_movies).cache()
+         features_original_test = features_original.filter(lambda x: x[0] in
+                 test_movies).cache()
+    else:
+         features_training = features
+         indicators_training = indicators
+         features_original_training = features_original
+
     for f in xrange(rank):
         results["features"][f] = {}
-        if train_ratio > 0:
-            logger.debug("Building training and test sets for regression")
-            all_movies = features.keys().collect()
-            n_movies = len(all_movies)
-            training_size = int(math.floor(n_movies * train_ratio / 100.0)) + 1
-            logger.debug("{} items in training and {} in test set"\
-                    .format(training_size, n_movies - training_size))
-            random.shuffle(all_movies)
-            training_movies = set(all_movies[:training_size])
-            test_movies = set(all_movies[training_size:])
-            features_training = features.filter(lambda x: x[0] in
-                    training_movies).cache()
-            features_test = features.filter(lambda x: x[0] in
-                    test_movies).cache()
-            indicators_training = indicators.filter(lambda x: x[0] in
-                    training_movies).cache()
-            indicators_test = indicators.filter(lambda x: x[0] in
-                    test_movies).cache()
-        else:
-            features_training = features
-            indicators_training = indicators
+        observations_training = features_original_training.map(\
+                lambda (mid, ftrs): (mid, ftrs[f]))
+        observations_test = features_original_test.map(\
+                lambda (mid, ftrs): (mid, ftrs[f]))
 
-        ht_model, observations_ht, predictions_ht = predict_internal_feature(\
+        ht_model, _, predictions_ht = predict_internal_feature(\
             features_training,
             indicators_training,
             f,
@@ -690,18 +700,16 @@ def internal_feature_predictor(sc, training, rank, numIter, lmbda,
             logger.debug("Undiscretizing values for hast table")
             predictions_ht = undiscretize_signle_feature(predictions_ht,
                                                       feature_bin_centers[f])
-            observations_ht = undiscretize_signle_feature(observations_ht,
-                                                       feature_bin_centers[f])
         #logger.debug("Hash table: {}".format(ht_model.table))
         reg_eval = common_utils.evaluate_regression(predictions_ht,
-                                                    observations_ht,
+                                                    observations_training,
                                                     logger,
                                                     args.nbins,
                                                     bin_range=None,
                      model_name = "Hash table training feature {}".format(f))
         results["features"][f]["regression_evaluation_ht"] = reg_eval
 
-        lr_model, observations, predictions = predict_internal_feature(\
+        lr_model, _, predictions = predict_internal_feature(\
             features_training,
             indicators_training,
             f,
@@ -714,9 +722,8 @@ def internal_feature_predictor(sc, training, rank, numIter, lmbda,
             logger.debug("Undiscretizing values for training predictions")
             predictions = undiscretize_signle_feature(predictions,
                                                       feature_bin_centers[f])
-            observations = undiscretize_signle_feature(observations,
-                                                       feature_bin_centers[f])
         all_predicted_features[f] = predictions
+        predictions_training = predictions
 
         if args.regression_model == "regression_tree":
             model_debug_string = lr_model.toDebugString()
@@ -725,7 +732,7 @@ def internal_feature_predictor(sc, training, rank, numIter, lmbda,
             logger.info(model_debug_string)
 
         if train_ratio > 0:
-            _, observations_ht_test, predictions_ht_test = predict_internal_feature(\
+            _, _, predictions_ht_test = predict_internal_feature(\
                 features_test,
                 indicators_test,
                 f,
@@ -738,11 +745,8 @@ def internal_feature_predictor(sc, training, rank, numIter, lmbda,
                 predictions_ht_test =\
                     undiscretize_signle_feature(predictions_ht_test,
                                                       feature_bin_centers[f])
-                observations_ht_test =\
-                    undiscretize_signle_feature(observations_ht_test,
-                                                       feature_bin_centers[f])
             reg_eval = common_utils.evaluate_regression(predictions_ht_test,
-                                                    observations_ht_test,
+                                                    observations_test,
                                                     logger,
                                                     args.nbins,
                                                     bin_range=None,
@@ -754,20 +758,12 @@ def internal_feature_predictor(sc, training, rank, numIter, lmbda,
             predictions_test = ids_test.zip(lr_model\
                                             .predict(input_test)\
                                             .map(float))
-            observations_test = features_test.map(lambda (mid, ftrs):
-                    (mid, ftrs[f]))
             if args.regression_model == "naive_bayes":
                 logger.debug("Undiscretizing values for test predictions")
                 predictions_test =\
                     undiscretize_signle_feature(predictions_test,
                                                 feature_bin_centers[f])
-                observations_test =\
-                        undiscretize_signle_feature(observations_test,
-                                                    feature_bin_centers[f])
             all_predicted_features_test[f] = predictions_test
-
-        predictions_training = predictions
-        observations_training = observations
 
         if eval_regression:
             reg_eval = common_utils.evaluate_regression(predictions_training,
@@ -789,7 +785,8 @@ def internal_feature_predictor(sc, training, rank, numIter, lmbda,
         if compare_with_replaced_feature:
             logger.debug("Computing predictions of the model with replaced "+\
                 "feature %d", f)
-            replaced_features = replace_feature_with_predicted(features, f,
+            replaced_features =\
+                replace_feature_with_predicted(features_original, f,
                                                                predictions_training,
                                                                logger)
 
@@ -818,7 +815,8 @@ def internal_feature_predictor(sc, training, rank, numIter, lmbda,
             if train_ratio > 0:
                 logger.debug("Computing predictions of the model with replaced "+\
                     "feature %d test", f)
-                replaced_features_test = replace_feature_with_predicted(features, f,
+                replaced_features_test =\
+                    replace_feature_with_predicted(features_original, f,
                                                                         predictions_test,
                                                                         logger)
 

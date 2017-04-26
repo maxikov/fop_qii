@@ -132,7 +132,7 @@ def feature_recommenders(results, training=False, signed=False):
                       [("" if signed else "abs_") + "errors_histogram"]
     width = xs[1] - xs[0]
     preds = ax.bar(xs[:-1], ys, width, color="green", alpha=opacity)
-    err = results["all_replaced_rec_eval"]\
+    err = results["all_replaced_rec_eval" + ("" if training else "_test")]\
                  ["mean_" + ("" if signed else "abs_") + "err"]
     _abs = "" if signed else "abs "
     ax.set_title("All features (mean {}err: {:1.3f})".format(_abs, err))
