@@ -1,4 +1,4 @@
-Rank: 30, lmbda: 0.1, numIter: 20, numPartitions: 4
+Rank: 12, lmbda: 0.1, numIter: 20, numPartitions: 4
 qii_iters: 5, num_iters_ls: 5, movieLensHomeDir: datasets/ml-20m/
 ofname: Output.txt, checkpoint_dir: checkpoint, num_users_ls:5
 specific_user: None, max_movies_per_user: 0, prominent_raters:0
@@ -11,26 +11,26 @@ invert_labels: False, no_threshold: False
 classifier_model: logistic
 genres_regression: True
 regression_model: regression_tree
-mean_error_experiments: False
+mean_error_experiments: True
 internal_feature_influence: False
 compute_mean_error: False
 compute_fast_influence: False
 sample_size: 10000, sample_type: training
-nbins: 32, regression_years: False
+nbins: 16, regression_years: False
 regression_users: False
 regression_tags: False
 Loading ratings
-Done in 6.47957992554 seconds
+Done in 6.43278694153 seconds
 Loading movies
-Done in 0.944838047028 seconds
+Done in 0.746286869049 seconds
 Loading genres
-Done in 0.0134840011597 seconds
+Done in 0.015524148941 seconds
 Building indicator vectors
-Done in 0.151921033859 seconds
+Done in 0.197453975677 seconds
 Training model
-Done in 124.60661602 seconds
+Done in 99.678511858 seconds
 Training models
-Processing feature 0 out of 30
+Processing feature 0 out of 12
 	Building training set...
 	Done
 	Building regression model
@@ -38,8 +38,8 @@ Processing feature 0 out of 30
 	Building predictions
 	Done
 	Evaluating the model
-	Mean relative absolute error: 2.24718817188
-Processing feature 1 out of 30
+	Mean relative absolute error: 3.25670698242
+Processing feature 1 out of 12
 	Building training set...
 	Done
 	Building regression model
@@ -47,8 +47,8 @@ Processing feature 1 out of 30
 	Building predictions
 	Done
 	Evaluating the model
-	Mean relative absolute error: 4.57149955335
-Processing feature 2 out of 30
+	Mean relative absolute error: 1.33459250908
+Processing feature 2 out of 12
 	Building training set...
 	Done
 	Building regression model
@@ -56,8 +56,8 @@ Processing feature 2 out of 30
 	Building predictions
 	Done
 	Evaluating the model
-	Mean relative absolute error: 6.96199970172
-Processing feature 3 out of 30
+	Mean relative absolute error: 8.4718923131
+Processing feature 3 out of 12
 	Building training set...
 	Done
 	Building regression model
@@ -65,8 +65,8 @@ Processing feature 3 out of 30
 	Building predictions
 	Done
 	Evaluating the model
-	Mean relative absolute error: 2.44169153646
-Processing feature 4 out of 30
+	Mean relative absolute error: 3.78234717415
+Processing feature 4 out of 12
 	Building training set...
 	Done
 	Building regression model
@@ -74,8 +74,8 @@ Processing feature 4 out of 30
 	Building predictions
 	Done
 	Evaluating the model
-	Mean relative absolute error: 2.22493090144
-Processing feature 5 out of 30
+	Mean relative absolute error: 8.8014548935
+Processing feature 5 out of 12
 	Building training set...
 	Done
 	Building regression model
@@ -83,8 +83,8 @@ Processing feature 5 out of 30
 	Building predictions
 	Done
 	Evaluating the model
-	Mean relative absolute error: 4.80591191582
-Processing feature 6 out of 30
+	Mean relative absolute error: 2.47511093076
+Processing feature 6 out of 12
 	Building training set...
 	Done
 	Building regression model
@@ -92,8 +92,8 @@ Processing feature 6 out of 30
 	Building predictions
 	Done
 	Evaluating the model
-	Mean relative absolute error: 2.64918574541
-Processing feature 7 out of 30
+	Mean relative absolute error: 3.15256984527
+Processing feature 7 out of 12
 	Building training set...
 	Done
 	Building regression model
@@ -101,8 +101,8 @@ Processing feature 7 out of 30
 	Building predictions
 	Done
 	Evaluating the model
-	Mean relative absolute error: 3.19103564049
-Processing feature 8 out of 30
+	Mean relative absolute error: 6.30621794665
+Processing feature 8 out of 12
 	Building training set...
 	Done
 	Building regression model
@@ -110,8 +110,8 @@ Processing feature 8 out of 30
 	Building predictions
 	Done
 	Evaluating the model
-	Mean relative absolute error: 4.38860662556
-Processing feature 9 out of 30
+	Mean relative absolute error: 3.68545519734
+Processing feature 9 out of 12
 	Building training set...
 	Done
 	Building regression model
@@ -119,8 +119,8 @@ Processing feature 9 out of 30
 	Building predictions
 	Done
 	Evaluating the model
-	Mean relative absolute error: 7.64242312885
-Processing feature 10 out of 30
+	Mean relative absolute error: 2.74430527336
+Processing feature 10 out of 12
 	Building training set...
 	Done
 	Building regression model
@@ -128,8 +128,8 @@ Processing feature 10 out of 30
 	Building predictions
 	Done
 	Evaluating the model
-	Mean relative absolute error: 2.64491181401
-Processing feature 11 out of 30
+	Mean relative absolute error: 5.26948874775
+Processing feature 11 out of 12
 	Building training set...
 	Done
 	Building regression model
@@ -137,200 +137,29 @@ Processing feature 11 out of 30
 	Building predictions
 	Done
 	Evaluating the model
-	Mean relative absolute error: 2.49741431951
-Processing feature 12 out of 30
-	Building training set...
-	Done
-	Building regression model
-	Done
-	Building predictions
-	Done
-	Evaluating the model
-	Mean relative absolute error: 2.93686956141
-Processing feature 13 out of 30
-	Building training set...
-	Done
-	Building regression model
-	Done
-	Building predictions
-	Done
-	Evaluating the model
-	Mean relative absolute error: 3.45696057238
-Processing feature 14 out of 30
-	Building training set...
-	Done
-	Building regression model
-	Done
-	Building predictions
-	Done
-	Evaluating the model
-	Mean relative absolute error: 5.43263106265
-Processing feature 15 out of 30
-	Building training set...
-	Done
-	Building regression model
-	Done
-	Building predictions
-	Done
-	Evaluating the model
-	Mean relative absolute error: 3.6295563931
-Processing feature 16 out of 30
-	Building training set...
-	Done
-	Building regression model
-	Done
-	Building predictions
-	Done
-	Evaluating the model
-	Mean relative absolute error: 3.7948257601
-Processing feature 17 out of 30
-	Building training set...
-	Done
-	Building regression model
-	Done
-	Building predictions
-	Done
-	Evaluating the model
-	Mean relative absolute error: 7.63917783174
-Processing feature 18 out of 30
-	Building training set...
-	Done
-	Building regression model
-	Done
-	Building predictions
-	Done
-	Evaluating the model
-	Mean relative absolute error: 3.82107215672
-Processing feature 19 out of 30
-	Building training set...
-	Done
-	Building regression model
-	Done
-	Building predictions
-	Done
-	Evaluating the model
-	Mean relative absolute error: 8.03667476943
-Processing feature 20 out of 30
-	Building training set...
-	Done
-	Building regression model
-	Done
-	Building predictions
-	Done
-	Evaluating the model
-	Mean relative absolute error: 2.14056260621
-Processing feature 21 out of 30
-	Building training set...
-	Done
-	Building regression model
-	Done
-	Building predictions
-	Done
-	Evaluating the model
-	Mean relative absolute error: 2.84640971884
-Processing feature 22 out of 30
-	Building training set...
-	Done
-	Building regression model
-	Done
-	Building predictions
-	Done
-	Evaluating the model
-	Mean relative absolute error: 9.4674367129
-Processing feature 23 out of 30
-	Building training set...
-	Done
-	Building regression model
-	Done
-	Building predictions
-	Done
-	Evaluating the model
-	Mean relative absolute error: 3.93596334559
-Processing feature 24 out of 30
-	Building training set...
-	Done
-	Building regression model
-	Done
-	Building predictions
-	Done
-	Evaluating the model
-	Mean relative absolute error: 3.95197859899
-Processing feature 25 out of 30
-	Building training set...
-	Done
-	Building regression model
-	Done
-	Building predictions
-	Done
-	Evaluating the model
-	Mean relative absolute error: 0.399921112365
-Processing feature 26 out of 30
-	Building training set...
-	Done
-	Building regression model
-	Done
-	Building predictions
-	Done
-	Evaluating the model
-	Mean relative absolute error: 2.83542043353
-Processing feature 27 out of 30
-	Building training set...
-	Done
-	Building regression model
-	Done
-	Building predictions
-	Done
-	Evaluating the model
-	Mean relative absolute error: 4.11850221895
-Processing feature 28 out of 30
-	Building training set...
-	Done
-	Building regression model
-	Done
-	Building predictions
-	Done
-	Evaluating the model
-	Mean relative absolute error: 3.52188644122
-Processing feature 29 out of 30
-	Building training set...
-	Done
-	Building regression model
-	Done
-	Building predictions
-	Done
-	Evaluating the model
-	Mean relative absolute error: 3.0656672569
+	Mean relative absolute error: 0.628231328294
+Computing mean error
+Mean error: <function mean_error at 0x7fa81ba321b8>
+Done in 172.688305855 seconds
+Replacing top feature with predicted one
+Top feature is 11
+Done in 172.772475004 seconds
+Computing mean error
+Mean error: 0.597089539901 , 0.0407897931629 higher
+Done in 216.845350027 seconds
 +---------+---------+
 | Feature | MRAE, % |
 +---------+---------+
-|    25   |    39   |
-|    20   |   214   |
-|    4    |   222   |
-|    0    |   224   |
-|    3    |   244   |
-|    11   |   249   |
-|    10   |   264   |
-|    6    |   264   |
-|    26   |   283   |
-|    21   |   284   |
-|    12   |   293   |
-|    29   |   306   |
-|    7    |   319   |
-|    13   |   345   |
-|    28   |   352   |
-|    15   |   362   |
-|    16   |   379   |
-|    18   |   382   |
-|    23   |   393   |
-|    24   |   395   |
-|    27   |   411   |
-|    8    |   438   |
-|    1    |   457   |
-|    5    |   480   |
-|    14   |   543   |
-|    2    |   696   |
-|    17   |   763   |
-|    9    |   764   |
-|    19   |   803   |
-|    22   |   946   |
+|    11   |    62   |
+|    1    |   133   |
+|    5    |   247   |
+|    9    |   274   |
+|    6    |   315   |
+|    0    |   325   |
+|    8    |   368   |
+|    3    |   378   |
+|    10   |   526   |
+|    7    |   630   |
+|    2    |   847   |
+|    4    |   880   |
 +---------+---------+

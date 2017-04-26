@@ -1,336 +1,52 @@
-Rank: 30, lmbda: 0.1, numIter: 20, numPartitions: 4
-qii_iters: 5, num_iters_ls: 5, movieLensHomeDir: datasets/ml-20m/
-ofname: Output.txt, checkpoint_dir: checkpoint, num_users_ls:5
-specific_user: None, max_movies_per_user: 0, prominent_raters:0
-perturb_specific_user: None, recommendations_only:False
-recommendations_and_per_movie_qii: False
-per_movie_qiis_displayed: 3
-genres_correlator: False, gui: False, years_correlator: False
-iterate_rank: False, iterate_from: 5, iterate_to: 40, iterate_step:5
-invert_labels: False, no_threshold: False
-classifier_model: logistic
-genres_regression: True
-regression_model: regression_tree
-mean_error_experiments: False
-internal_feature_influence: False
-compute_mean_error: False
-compute_fast_influence: False
-sample_size: 10000, sample_type: training
-nbins: 32, regression_years: False
-regression_users: False
-regression_tags: False
-Loading ratings
-Done in 6.47957992554 seconds
-Loading movies
-Done in 0.944838047028 seconds
-Loading genres
-Done in 0.0134840011597 seconds
-Building indicator vectors
-Done in 0.151921033859 seconds
-Training model
-Done in 124.60661602 seconds
-Training models
-Processing feature 0 out of 30
-	Building training set...
-	Done
-	Building regression model
-	Done
-	Building predictions
-	Done
-	Evaluating the model
-	Mean relative absolute error: 2.24718817188
-Processing feature 1 out of 30
-	Building training set...
-	Done
-	Building regression model
-	Done
-	Building predictions
-	Done
-	Evaluating the model
-	Mean relative absolute error: 4.57149955335
-Processing feature 2 out of 30
-	Building training set...
-	Done
-	Building regression model
-	Done
-	Building predictions
-	Done
-	Evaluating the model
-	Mean relative absolute error: 6.96199970172
-Processing feature 3 out of 30
-	Building training set...
-	Done
-	Building regression model
-	Done
-	Building predictions
-	Done
-	Evaluating the model
-	Mean relative absolute error: 2.44169153646
-Processing feature 4 out of 30
-	Building training set...
-	Done
-	Building regression model
-	Done
-	Building predictions
-	Done
-	Evaluating the model
-	Mean relative absolute error: 2.22493090144
-Processing feature 5 out of 30
-	Building training set...
-	Done
-	Building regression model
-	Done
-	Building predictions
-	Done
-	Evaluating the model
-	Mean relative absolute error: 4.80591191582
-Processing feature 6 out of 30
-	Building training set...
-	Done
-	Building regression model
-	Done
-	Building predictions
-	Done
-	Evaluating the model
-	Mean relative absolute error: 2.64918574541
-Processing feature 7 out of 30
-	Building training set...
-	Done
-	Building regression model
-	Done
-	Building predictions
-	Done
-	Evaluating the model
-	Mean relative absolute error: 3.19103564049
-Processing feature 8 out of 30
-	Building training set...
-	Done
-	Building regression model
-	Done
-	Building predictions
-	Done
-	Evaluating the model
-	Mean relative absolute error: 4.38860662556
-Processing feature 9 out of 30
-	Building training set...
-	Done
-	Building regression model
-	Done
-	Building predictions
-	Done
-	Evaluating the model
-	Mean relative absolute error: 7.64242312885
-Processing feature 10 out of 30
-	Building training set...
-	Done
-	Building regression model
-	Done
-	Building predictions
-	Done
-	Evaluating the model
-	Mean relative absolute error: 2.64491181401
-Processing feature 11 out of 30
-	Building training set...
-	Done
-	Building regression model
-	Done
-	Building predictions
-	Done
-	Evaluating the model
-	Mean relative absolute error: 2.49741431951
-Processing feature 12 out of 30
-	Building training set...
-	Done
-	Building regression model
-	Done
-	Building predictions
-	Done
-	Evaluating the model
-	Mean relative absolute error: 2.93686956141
-Processing feature 13 out of 30
-	Building training set...
-	Done
-	Building regression model
-	Done
-	Building predictions
-	Done
-	Evaluating the model
-	Mean relative absolute error: 3.45696057238
-Processing feature 14 out of 30
-	Building training set...
-	Done
-	Building regression model
-	Done
-	Building predictions
-	Done
-	Evaluating the model
-	Mean relative absolute error: 5.43263106265
-Processing feature 15 out of 30
-	Building training set...
-	Done
-	Building regression model
-	Done
-	Building predictions
-	Done
-	Evaluating the model
-	Mean relative absolute error: 3.6295563931
-Processing feature 16 out of 30
-	Building training set...
-	Done
-	Building regression model
-	Done
-	Building predictions
-	Done
-	Evaluating the model
-	Mean relative absolute error: 3.7948257601
-Processing feature 17 out of 30
-	Building training set...
-	Done
-	Building regression model
-	Done
-	Building predictions
-	Done
-	Evaluating the model
-	Mean relative absolute error: 7.63917783174
-Processing feature 18 out of 30
-	Building training set...
-	Done
-	Building regression model
-	Done
-	Building predictions
-	Done
-	Evaluating the model
-	Mean relative absolute error: 3.82107215672
-Processing feature 19 out of 30
-	Building training set...
-	Done
-	Building regression model
-	Done
-	Building predictions
-	Done
-	Evaluating the model
-	Mean relative absolute error: 8.03667476943
-Processing feature 20 out of 30
-	Building training set...
-	Done
-	Building regression model
-	Done
-	Building predictions
-	Done
-	Evaluating the model
-	Mean relative absolute error: 2.14056260621
-Processing feature 21 out of 30
-	Building training set...
-	Done
-	Building regression model
-	Done
-	Building predictions
-	Done
-	Evaluating the model
-	Mean relative absolute error: 2.84640971884
-Processing feature 22 out of 30
-	Building training set...
-	Done
-	Building regression model
-	Done
-	Building predictions
-	Done
-	Evaluating the model
-	Mean relative absolute error: 9.4674367129
-Processing feature 23 out of 30
-	Building training set...
-	Done
-	Building regression model
-	Done
-	Building predictions
-	Done
-	Evaluating the model
-	Mean relative absolute error: 3.93596334559
-Processing feature 24 out of 30
-	Building training set...
-	Done
-	Building regression model
-	Done
-	Building predictions
-	Done
-	Evaluating the model
-	Mean relative absolute error: 3.95197859899
-Processing feature 25 out of 30
-	Building training set...
-	Done
-	Building regression model
-	Done
-	Building predictions
-	Done
-	Evaluating the model
-	Mean relative absolute error: 0.399921112365
-Processing feature 26 out of 30
-	Building training set...
-	Done
-	Building regression model
-	Done
-	Building predictions
-	Done
-	Evaluating the model
-	Mean relative absolute error: 2.83542043353
-Processing feature 27 out of 30
-	Building training set...
-	Done
-	Building regression model
-	Done
-	Building predictions
-	Done
-	Evaluating the model
-	Mean relative absolute error: 4.11850221895
-Processing feature 28 out of 30
-	Building training set...
-	Done
-	Building regression model
-	Done
-	Building predictions
-	Done
-	Evaluating the model
-	Mean relative absolute error: 3.52188644122
-Processing feature 29 out of 30
-	Building training set...
-	Done
-	Building regression model
-	Done
-	Building predictions
-	Done
-	Evaluating the model
-	Mean relative absolute error: 3.0656672569
-+---------+---------+
-| Feature | MRAE, % |
-+---------+---------+
-|    25   |    39   |
-|    20   |   214   |
-|    4    |   222   |
-|    0    |   224   |
-|    3    |   244   |
-|    11   |   249   |
-|    10   |   264   |
-|    6    |   264   |
-|    26   |   283   |
-|    21   |   284   |
-|    12   |   293   |
-|    29   |   306   |
-|    7    |   319   |
-|    13   |   345   |
-|    28   |   352   |
-|    15   |   362   |
-|    16   |   379   |
-|    18   |   382   |
-|    23   |   393   |
-|    24   |   395   |
-|    27   |   411   |
-|    8    |   438   |
-|    1    |   457   |
-|    5    |   480   |
-|    14   |   543   |
-|    2    |   696   |
-|    17   |   763   |
-|    9    |   764   |
-|    19   |   803   |
-|    22   |   946   |
-+---------+---------+
+2017-04-01 19:31:05,970 - __main__ - DEBUG - rank: 16, lmbda: 0.02, num_iter: 2, num_partitions: 4
+2017-04-01 19:31:05,971 - __main__ - DEBUG - data_path: datasets/ml-1m/, checkpoint_dir: checkpoint
+2017-04-01 19:31:05,971 - __main__ - DEBUG - regression_model: regression_tree
+2017-04-01 19:31:05,971 - __main__ - DEBUG - nbins: 32
+2017-04-01 19:31:05,971 - __main__ - DEBUG - regression_users: False
+2017-04-01 19:31:05,971 - __main__ - DEBUG - predict_product_features: True
+2017-04-01 19:31:05,971 - __main__ - DEBUG - metadata_sources: ['years', 'average_rating', 'genres']
+2017-04-01 19:31:07,357 - __main__ - DEBUG - Loading ratings
+2017-04-01 19:31:08,087 - __main__ - DEBUG - Done in 0.730684041977 seconds
+2017-04-01 19:31:08,088 - __main__ - DEBUG - Loading movies
+2017-04-01 19:31:08,751 - __main__ - DEBUG - Done in 0.663034915924 seconds
+2017-04-01 19:31:08,751 - __main__ - DEBUG - 3883 movies loaded
+2017-04-01 19:31:12,243 - __main__ - DEBUG - 1000209 records in the training set
+2017-04-01 19:31:12,658 - __main__ - DEBUG - 3706 unique movies in the training set
+2017-04-01 19:31:12,658 - __main__ - DEBUG - Training the average rating model
+2017-04-01 19:31:13,972 - __main__ - DEBUG - Done in 1.31440997124 seconds
+2017-04-01 19:31:13,976 - __main__ - DEBUG - Loading years
+2017-04-01 19:31:14,064 - __main__ - DEBUG - Done in 0.0875627994537 seconds
+2017-04-01 19:31:14,064 - __main__ - DEBUG - 3883 records of 1 features loaded
+2017-04-01 19:31:14,162 - __main__ - DEBUG - No missing IDs
+2017-04-01 19:31:14,162 - __main__ - DEBUG - Loading genres
+2017-04-01 19:31:14,380 - __main__ - DEBUG - Done in 0.218163013458 seconds
+2017-04-01 19:31:14,381 - __main__ - DEBUG - 3883 records of 18 features loaded
+2017-04-01 19:31:14,487 - __main__ - DEBUG - No missing IDs
+2017-04-01 19:31:14,510 - __main__ - DEBUG - Loading average_rating
+2017-04-01 19:31:14,597 - __main__ - DEBUG - Done in 0.0868520736694 seconds
+2017-04-01 19:31:14,597 - __main__ - DEBUG - 3706 records of 1 features loaded
+2017-04-01 19:31:14,681 - __main__ - DEBUG - 177 IDs are missing. Adding empty records for them
+2017-04-01 19:31:14,692 - __main__ - DEBUG - Done in 0.0104370117188 seconds
+2017-04-01 19:31:14,709 - __main__ - DEBUG - Training ALS recommender
+2017-04-01 19:31:20,682 - __main__ - DEBUG - Done in 5.97236084938 seconds
+2017-04-01 19:31:20,682 - __main__ - DEBUG - Fetching all products from the training set
+2017-04-01 19:31:21,108 - __main__ - DEBUG - Done in 0.426640987396 seconds
+2017-04-01 19:31:21,109 - __main__ - DEBUG - 3706 products collected
+2017-04-01 19:31:21,109 - __main__ - DEBUG - Fetching all products in model
+2017-04-01 19:31:21,276 - __main__ - DEBUG - Done in 0.166977882385 seconds
+2017-04-01 19:31:21,276 - __main__ - DEBUG - 3706 products collected
+2017-04-01 19:31:21,276 - __main__ - DEBUG - 0 products are missing
+2017-04-01 19:31:21,276 - __main__ - DEBUG - Computing model predictions
+2017-04-01 19:31:22,208 - __main__ - DEBUG - Done in 0.931407928467 seconds
+2017-04-01 19:31:22,208 - __main__ - DEBUG - Computing mean error
+2017-04-01 19:31:50,100 - __main__ - DEBUG - Done in 27.8924050331 seconds
+2017-04-01 19:31:50,101 - __main__ - DEBUG - Mean error: 0.658604278648, RMSE: 0.828286792898
+2017-04-01 19:31:50,126 - __main__ - DEBUG - Computing mean feature values
+Traceback (most recent call last):
+  File "/mnt/encrypted_data/Dropbox/cmu/foundation_of_privacy/project/fop_qii/MovieLensALS.py", line 259, in <module>
+    compare_with_randomized_feature = True, logger = logger)
+  File "/mnt/encrypted_data/Dropbox/cmu/foundation_of_privacy/project/fop_qii/internal_feature_predictor.py", line 412, in internal_feature_predictor
+    results["mean_feature_values"] = common_utils.mean_feature_values(features, logger)
+  File "/mnt/encrypted_data/Dropbox/cmu/foundation_of_privacy/project/fop_qii/common_utils.py", line 60, in mean_feature_values
+    start = time.time()
+NameError: global name 'time' is not defined
