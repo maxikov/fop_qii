@@ -137,7 +137,7 @@ def feature_ranges(features, logger):
     res = {}
     rank = len(features.take(1)[0][1])
     logger.debug("Detected %d features", rank)
-    for f in rank:
+    for f in xrange(rank):
         vals = features\
                 .values()\
                 .map(lambda x: x[f])
