@@ -278,7 +278,7 @@ def display_classification_results_no_threshold(results, logger):
     rf = results["features"]
     rf = [(f, info) for (f, info) in rf.items() if
             info["type"]=="classification"]
-    rf.sort(key=lambda x: -x[1]["eval"]["better"])
+    rf.sort(key=lambda x: -x[1]["eval_nt"]["better"])
 
     header = ["Feature",
               "AUPRC",
