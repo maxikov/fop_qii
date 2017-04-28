@@ -290,13 +290,13 @@ def display_classification_results_no_threshold(results, logger):
                    "x better test"]
     table = PrettyTable(header)
     for f, info in rf:
-        row = [info["name"], info["eval"]["auprc"],
-                info["eval"]["prate"],
-                info["eval"]["better"]]
+        row = [info["name"], info["eval_nt"]["auprc"],
+                info["eval_nt"]["prate"],
+                info["eval_nt"]["better"]]
         if results["train_ratio"] > 0:
-            row += [info["eval_test"]["auprc"],
-                info["eval_test"]["prate"],
-                info["eval_test"]["better"]]
+            row += [info["eval_test_nt"]["auprc"],
+                info["eval_test_nt"]["prate"],
+                info["eval_test_nt"]["better"]]
         table.add_row(row)
     logger.info("\n{}".format(table))
 
