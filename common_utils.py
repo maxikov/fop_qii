@@ -32,6 +32,9 @@ def compute_regression_qii(lr_model, input_features, target_variable,
         new_predictions = lr_model.predict(perturbed_features)
         predobs = new_predictions.zip(original_predictions)
         cur_qii = mean_error(predobs, 1.0, abs)
+        signed_error = mean_error(predobs, 1.0, float)
+        sign = signed_error/abs(signed_error)
+        cur_qii = cur_qii * sign
         logger.debug("QII: %f", cur_qii)
         res.append(cur_qii)
     return res
