@@ -131,7 +131,7 @@ def metadata_predictor(sc, training, rank, numIter, lmbda,
 
         if args.regression_model == "regression_tree":
             logger.info(lr_model.toDebugString())
-        elif linlog:
+        elif regression_model == "logistic":
             threshold = lr_model.threshold
             logger.debug("Model threshold %f", threshold)
             logger.debug("Clearing")
@@ -167,7 +167,7 @@ def metadata_predictor(sc, training, rank, numIter, lmbda,
                                                         observations,
                                                         logger,
                                                         False)
-            if linlog:
+            if regression_model == "logistic":
                 results["features"][f]["eval_nt"] =\
                     common_utils.evaluate_binary_classifier(predictions_nt,
                                                             observations,
@@ -202,7 +202,7 @@ def metadata_predictor(sc, training, rank, numIter, lmbda,
                                                             observations,
                                                             logger,
                                                             False)
-                if linlog:
+                if regression_model == "logistic"
                     logger.debug("Clearing threshold")
                     lr_model.clearThreshold()
                     logger.debug("Making no-threshold test predictions")
