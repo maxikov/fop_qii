@@ -202,7 +202,7 @@ def metadata_predictor(sc, training, rank, numIter, lmbda,
                                                             observations,
                                                             logger,
                                                             False)
-                if regression_model == "logistic"
+                    if regression_model == "logistic":
                     logger.debug("Clearing threshold")
                     lr_model.clearThreshold()
                     logger.debug("Making no-threshold test predictions")
