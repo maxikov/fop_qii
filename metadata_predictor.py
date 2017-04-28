@@ -124,13 +124,26 @@ def metadata_predictor(sc, training, rank, numIter, lmbda,
             categorical_features={},
             max_bins=args.nbins,
             logger=logger,
-            no_threshold=linlog,
+            no_threshold=False,
             is_classifier=(f in categorical_features),
             num_classes=(categorical_features[f] if f in categorical_features
                 else None))
 
         if args.regression_model == "regression_tree":
             logger.info(lr_model.toDebugString())
+        elif linlog:
+            threshold = lr_model.threshold
+            logger.debug("Model threshold %f", threshold)
+            logger.debug("Clearing")
+            lr_model.clearThreshold()
+            logger.debug("Making no-threshold predictions")
+            input_training = features_training.values()
+            ids_training = features_training.keys()
+            predictions_nt = ids_training.zip(lr_model\
+                                            .predict(input_training)\
+                                            .map(float))
+            logger.debug("Restoring threshold")
+            lr_model.setThreshold(threshold)
         qii = common_utils\
                   .compute_regression_qii(lr_model,
                                           features_training,
@@ -140,8 +153,7 @@ def metadata_predictor(sc, training, rank, numIter, lmbda,
                                           logger,
                                           predictions)
         results["features"][f]["qii"] = qii
-        if args.regression_model in ["linear", "logistic"]\
-                and not args.force_qii:
+        if linlog and not args.force_qii:
             weights = list(lr_model.weights)
         else:
             weights = qii
@@ -154,7 +166,13 @@ def metadata_predictor(sc, training, rank, numIter, lmbda,
                 common_utils.evaluate_binary_classifier(predictions,
                                                         observations,
                                                         logger,
-                                                        linlog)
+                                                        False)
+            if linlog:
+                results["features"][f]["eval_nt"] =\
+                    common_utils.evaluate_binary_classifier(predictions_nt,
+                                                            observations,
+                                                            logger,
+                                                            True)
         else:
             _min = indicators_training.map(lambda x: x[1][f]).min()
             _max = indicators_training.map(lambda x: x[1][f]).max()
@@ -177,12 +195,27 @@ def metadata_predictor(sc, training, rank, numIter, lmbda,
                                             .map(float))
             observations = indicators_test.map(lambda (mid, ftrs):
                     (mid, float(ftrs[f])))
+
             if f in categorical_features:
                 results["features"][f]["eval_test"] =\
                     common_utils.evaluate_binary_classifier(predictions,
                                                             observations,
                                                             logger,
-                                                            linlog)
+                                                            False)
+                if linlog:
+                    logger.debug("Clearing threshold")
+                    lr_model.clearThreshold()
+                    logger.debug("Making no-threshold test predictions")
+                    predictions_nt_test = ids_test.zip(lr_model\
+                                            .predict(input_test)\
+                                            .map(float))
+                    logger.debug("Restoring threshold")
+                    lr_model.setThreshold(threshold)
+                    results["features"][f]["eval_test_nt"] =\
+                        common_utils.evaluate_binary_classifier(predictions_nt_test,
+                                                               observations,
+                                                                logger,
+                                                                True)
             else:
                 _min = indicators_test.map(lambda x: x[1][f]).min()
                 _max = indicators_test.map(lambda x: x[1][f]).max()
