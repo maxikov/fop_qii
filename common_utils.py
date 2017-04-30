@@ -143,12 +143,15 @@ def feature_ranges(features, logger):
     res = {}
     rank = len(features.take(1)[0][1])
     logger.debug("Detected %d features", rank)
+    maxes = features\
+       .values()\
+       .reduce(lambda x, y: (map(max, zip(x, y))))
+    mins = features\
+       .values()\
+       .reduce(lambda x, y: (map(min, zip(x, y))))
     for f in xrange(rank):
-        vals = features\
-                .values()\
-                .map(lambda x: x[f])
-        _min = vals.min()
-        _max = vals.max()
+        _min = mins[f]
+        _max = maxes[f]
         res[f] = {"min": _min, "_max": _max}
     logger.debug("Feature ranges: {}".format(res))
     return res
