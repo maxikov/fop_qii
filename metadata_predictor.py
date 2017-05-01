@@ -46,7 +46,7 @@ def metadata_predictor(sc, training, rank, numIter, lmbda,
         logger.debug("{} items left in the training set"\
                 .format(training.count()))
     else:
-        andicators, nof, categorical_features, feature_names =\
+        indicators, nof, categorical_features, feature_names =\
             internal_feature_predictor.\
             build_meta_data_set(sc, cur_mtdt_srcs, all_movies, logger)
     logger.debug("%d features loaded", nof)

@@ -12,7 +12,7 @@ from pyspark.mllib.evaluation import RegressionMetrics,\
 import numpy as np
 
 def compute_regression_qii(lr_model, input_features, target_variable,
-                           logger, original_predictions=None):
+                           logger, original_predictions=None, rank=None):
     logger.debug("Measuring model QII")
     if original_predictions is None:
         original_predictions = lr_model\
@@ -22,7 +22,8 @@ def compute_regression_qii(lr_model, input_features, target_variable,
                                .cache()
     else:
         original_predictions = original_predictions.values().cache()
-    rank = len(input_features.take(1)[0][1])
+    if rank is None:
+        rank = len(input_features.take(1)[0][1])
     logger.debug("%d features detected", rank)
     res = []
     for f in xrange(rank):
