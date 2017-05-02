@@ -19,7 +19,6 @@ import parsers_and_loaders
 def metadata_predictor(sc, training, rank, numIter, lmbda,
                        args, all_movies, metadata_sources,
                        logger, train_ratio = 0):
-    results = {}
     power = 1.0
 
     if "average_rating" in args.metadata_sources:
@@ -55,11 +54,15 @@ def metadata_predictor(sc, training, rank, numIter, lmbda,
             internal_feature_predictor.drop_rare_features(indicators, nof, categorical_features,
                                feature_names, args.drop_rare_features,
                                logger)
-
+    if args.persist_dir is not None:
+        seed = 7
+    else:
+        seed = None
     logger.debug("Training ALS recommender")
     start = time.time()
     model = ALS.train(training, rank=rank, iterations=numIter,
-                      lambda_=lmbda, nonnegative=args.non_negative)
+                      lambda_=lmbda, nonnegative=args.non_negative,
+                      seed=seed)
     logger.debug("Done in %f seconds", time.time() - start)
 
     features = model.productFeatures()
@@ -67,20 +70,32 @@ def metadata_predictor(sc, training, rank, numIter, lmbda,
     if use_user_features:
         features, other_features = other_features, features
 
-    results["train_ratio"] = train_ratio
-    results["features"] = {}
-    results["nof"] = nof
-    results["categorical_features"] = categorical_features
-    results["mean_feature_values"] = common_utils.mean_feature_values(features,
+    results, store = common_utils.load_if_available(args.persist_dir,
+                                                    "results.pkl",
+                                                    logger)
+    if args.persist_dir is not None:
+        store = True
+    if results is None:
+        results = {}
+        results["train_ratio"] = train_ratio
+        results["features"] = {}
+        results["nof"] = nof
+        results["categorical_features"] = categorical_features
+        results["mean_feature_values"] = common_utils.mean_feature_values(features,
             logger)
-    results["feature_ranges"] = common_utils.feature_ranges(features, logger)
-    results["mean_indicator_values"] = common_utils.mean_feature_values(\
+        results["feature_ranges"] = common_utils.feature_ranges(features, logger)
+        results["mean_indicator_values"] = common_utils.mean_feature_values(\
             indicators, logger)
-    results["indicator_ranges"] = common_utils.feature_ranges(indicators, logger)
+        results["indicator_ranges"] = common_utils.feature_ranges(indicators, logger)
+    common_utils.save_if_needed(args.persist_dir, "results.pkl",
+                    results, store, logger)
 
     for f in xrange(nof):
         logger.debug("Processing {} ({} out of {})"\
                 .format(feature_names[f], f, nof))
+        if f in results["features"]:
+            logger.debug("Already computed, skipping")
+            continue
         results["features"][f] = {}
         results["features"][f]["name"] = feature_names[f]
         if train_ratio > 0:
@@ -228,6 +243,8 @@ def metadata_predictor(sc, training, rank, numIter, lmbda,
                                                      args.nbins,
                                                      bin_range)
                 results["features"][f]["eval_test"] = reg_eval
+        common_utils.save_if_needed(args.persist_dir, "results.pkl",
+                    results, store, logger)
 
     return results
 

@@ -3,6 +3,8 @@ from operator import add
 import time
 import random
 import bisect
+import os.path
+import pickle
 
 #pyspark library
 from pyspark.mllib.evaluation import RegressionMetrics,\
@@ -10,6 +12,32 @@ from pyspark.mllib.evaluation import RegressionMetrics,\
 
 #numpy library
 import numpy as np
+
+def load_if_available(persist_dir, fname, logger):
+    if persist_dir is not None:
+        fname = os.path.join(persist_dir, fname)
+        if not os.path.isfile(fname):
+            logger.debug("%s not found, loading new", fname)
+            objects = None
+            store = True
+        else:
+            ifile = open(fname, "rb")
+            objects = pickle.load(ifile)
+            ifile.close()
+            store = False
+    else:
+        objects = None
+        store = False
+    return objects, store
+
+def save_if_needed(persist_dir, fname, objects, store, logger):
+    if store:
+        fname = os.path.join(persist_dir, fname)
+        logger.debug("Storing in %s", fname)
+        ofile = open(fname, "wb")
+        pickle.dump(objects, ofile)
+        ofile.close()
+
 
 def compute_regression_qii(lr_model, input_features, target_variable,
                            logger, original_predictions=None, rank=None):

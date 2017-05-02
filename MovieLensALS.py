@@ -16,6 +16,7 @@ from pyspark.sql import SQLContext
 import parsers_and_loaders
 import internal_feature_predictor
 import metadata_predictor
+import common_utils
 
 def args_init(logger):
     """
@@ -140,6 +141,17 @@ def args_init(logger):
                                 "less than the specified value. If 10 "+\
                                 "(default), nothing is dropped")
 
+    parser.add_argument("--persist-dir", action="store", type=str,
+                        help="Path to a directory for saving and loading" +\
+                             "state persistence files. If not specified, "+\
+                             "state persistence is not used")
+    parser.add_argument("--override-args", action="store_true", help=\
+                        "If specified, passed command line arguments "+\
+                        "are used instead of the ones recovered from "+\
+                        "persistence files (if persistence is used). "+\
+                        "Warning: can lead to unpredictable behavior "+\
+                        "if arguments are mismatched!")
+
     args = parser.parse_args()
 
     logger.debug("rank: {}, lmbda: {}, num_iter: {}, num_partitions: {}"\
@@ -166,6 +178,8 @@ def args_init(logger):
     logger.debug("drop_missing_movies: {}".format(args.drop_missing_movies))
     logger.debug("drop_rare_features: {}".format(args.drop_rare_features))
     logger.debug("filter_data_set: {}".format(args.filter_data_set))
+    logger.debug("persist_dir: {}, override_args: {}".format(
+                    args.persist_dir, args.override_args))
 
     return args
 
@@ -187,6 +201,16 @@ def logger_init():
 def main():
     logger = logger_init()
     args = args_init(logger)
+    if args.override_args:
+        logger.debug("override_args is set, ignoring stored version")
+        store = True
+    else:
+        args_new, store = common_utils.load_if_available(args.persist_dir,
+                                                     "args.pkl",
+                                                     logger)
+        if args_new is not None:
+            args = args_new
+    common_utils.save_if_needed(args.persist_dir, "args.pkl", args, store, logger)
 
     # set up environment
     conf = SparkConf() \
@@ -240,14 +264,13 @@ def main():
     ratings = ratings_rdd.map(lambda x: parsers_and_loaders.parseRating(x,\
          sep=sep))
     logger.debug("Done in %f seconds", time.time() - start)
-
     logger.debug("Loading movies")
     start = time.time()
     movies_rdd = sc.parallelize(
         parsers_and_loaders.loadCSV(
             movies_file,
             remove_first_line=movies_remove_first_line
-            )
+           )
         ).cache()
     movies = dict(movies_rdd.map(lambda x: parsers_and_loaders.parseMovie(x,\
         sep=msep)).collect())
