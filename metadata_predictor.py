@@ -118,12 +118,16 @@ def metadata_predictor(sc, training, rank, numIter, lmbda,
 
     if write_model:
         logger.debug("Writing %s", fname_indicators_rdd)
+        indicators.collect()
+        indicators.cache()
         indicators.saveAsPickleFile(fname_indicators_rdd)
         logger.debug("Writing %s", fname_indicators_python)
         ofile = open(fname_indicators_python, "wb")
         pickle.dump((nof, categorical_features, feature_names), ofile)
         ofile.close()
         logger.debug("Writing %s", fname_features_rdd)
+        features.collect()
+        features.cache()
         features.saveAsPickleFile(fname_features_rdd)
 
     results, store = common_utils.load_if_available(args.persist_dir,
