@@ -2,12 +2,14 @@
 import time
 import math
 import random
+import os.path
+import pickle
 
 #prettytable library
 from prettytable import PrettyTable
 
 #pyspark library
-from pyspark.mllib.recommendation import ALS
+from pyspark.mllib.recommendation import ALS, MatrixFactorizationModel
 
 #project files
 import internal_feature_predictor
@@ -32,43 +34,97 @@ def metadata_predictor(sc, training, rank, numIter, lmbda,
 
     use_user_features = ("users" in args.metadata_sources)
 
-
-    cur_mtdt_srcs = filter(lambda x: x["name"] in args.metadata_sources, metadata_sources)
-    if args.drop_missing_movies:
-        indicators, nof, categorical_features, feature_names =\
-            internal_feature_predictor.build_meta_data_set(sc, cur_mtdt_srcs, None, logger)
-        old_all_movies = all_movies
-        all_movies = set(indicators.keys().collect())
-        logger.debug("{} movies loaded, data for {} is missing, purging them"\
-                .format(len(all_movies), len(old_all_movies - all_movies)))
-        training = training.filter(lambda x: x[1] in all_movies)
-        logger.debug("{} items left in the training set"\
-                .format(training.count()))
-    else:
-        indicators, nof, categorical_features, feature_names =\
-            internal_feature_predictor.\
-            build_meta_data_set(sc, cur_mtdt_srcs, all_movies, logger)
-    logger.debug("%d features loaded", nof)
-    if args.drop_rare_features > 0:
-        indicators, nof, categorical_features, feature_names =\
-            internal_feature_predictor.drop_rare_features(indicators, nof, categorical_features,
-                               feature_names, args.drop_rare_features,
-                               logger)
     if args.persist_dir is not None:
-        seed = 7
+        fname = os.path.join(args.persist_dir, "als_model.pkl")
+        if not os.path.exists(fname):
+            logger.debug("%s not found, bulding a new model", fname)
+            need_new_model = True
+            write_model = True
+        else:
+            need_new_model = False
+            write_model = False
+            logger.debug("Loading %s", fname)
+            model = MatrixFactorizationModel.load(sc, fname)
     else:
-        seed = None
-    logger.debug("Training ALS recommender")
-    start = time.time()
-    model = ALS.train(training, rank=rank, iterations=numIter,
-                      lambda_=lmbda, nonnegative=args.non_negative,
-                      seed=seed)
-    logger.debug("Done in %f seconds", time.time() - start)
+        need_new_model = True
+        write_model = False
+    if need_new_model:
+        logger.debug("Training ALS recommender")
+        start = time.time()
+        model = ALS.train(training, rank=rank, iterations=numIter,
+                      lambda_=lmbda, nonnegative=args.non_negative)
+        logger.debug("Done in %f seconds", time.time() - start)
+    if write_model:
+        logger.debug("Saving model to %s", fname)
+        model.save(sc, fname)
 
     features = model.productFeatures()
     other_features = model.userFeatures()
     if use_user_features:
         features, other_features = other_features, features
+
+    if args.persist_dir is not None:
+        fname_indicators_rdd = os.path.join(args.persist_dir, "indicators_rdd.pkl")
+        fname_indicators_python = os.path.join(args.persist_dir,
+                                               "indicators_python.pkl")
+        fname_features_rdd = os.path.join(args.persist_dir,
+                                          "features_rdd.pkl")
+        if os.path.exists(fname_indicators_rdd)\
+                and os.path.exists(fname_indicators_python)\
+                and os.path.exists(fname_features_rdd):
+            logger.debug("Loading %s", fname_indicators_rdd)
+            indicators = sc.pickleFile(fname_indicators_rdd)
+            logger.debug("Loading %s", fname_indicators_python)
+            ifile = open(fname_indicators_python, "rb")
+            nof, categorical_features, feature_names =\
+                    pickle.load(ifile)
+            ifile.close()
+            logger.debug("Loading %s", fname_features_rdd)
+            features = sc.pickleFile(fname_features_rdd)
+            need_new_model = False
+            write_model = False
+        else:
+            logger.debug("{} or {} or {} not found, building new features".\
+                    format(fname_indicators_rdd, fname_indicators_python,
+                           fname_features_rdd))
+            need_new_model = True
+            write_model = True
+    else:
+        need_new_model = True
+        write_model = False
+
+    if need_new_model:
+        cur_mtdt_srcs = filter(lambda x: x["name"] in args.metadata_sources, metadata_sources)
+        if args.drop_missing_movies:
+            indicators, nof, categorical_features, feature_names =\
+                internal_feature_predictor.build_meta_data_set(sc, cur_mtdt_srcs, None, logger)
+            old_all_movies = all_movies
+            all_movies = set(indicators.keys().collect())
+            logger.debug("{} movies loaded, data for {} is missing, purging them"\
+                .format(len(all_movies), len(old_all_movies - all_movies)))
+            training = training.filter(lambda x: x[1] in all_movies)
+            logger.debug("{} items left in the training set"\
+                .format(training.count()))
+        else:
+            indicators, nof, categorical_features, feature_names =\
+                internal_feature_predictor.\
+                build_meta_data_set(sc, cur_mtdt_srcs, all_movies, logger)
+        logger.debug("%d features loaded", nof)
+        if args.drop_rare_features > 0:
+            indicators, nof, categorical_features, feature_names =\
+                internal_feature_predictor.drop_rare_features(indicators, nof, categorical_features,
+                               feature_names, args.drop_rare_features,
+                               logger)
+
+    if write_model:
+        logger.debug("Writing %s", fname_indicators_rdd)
+        indicators.saveAsPickleFile(fname_indicators_rdd)
+        logger.debug("Writing %s", fname_indicators_python)
+        ofile = open(fname_indicators_python, "wb")
+        pickle.dump((nof, categorical_features, feature_names), ofile)
+        ofile.close()
+        logger.debug("Writing %s", fname_features_rdd)
+        features.saveAsPickleFile(fname_features_rdd)
 
     results, store = common_utils.load_if_available(args.persist_dir,
                                                     "results.pkl",

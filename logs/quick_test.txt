@@ -1,0 +1,160 @@
+2017-05-02 21:19:16,672 - __main__ - DEBUG - rank: 3, lmbda: 0.2, num_iter: 2, num_partitions: 7
+2017-05-02 21:19:16,672 - __main__ - DEBUG - data_path: datasets/ml-1m/, checkpoint_dir: /home/maxikov/spark_dir
+2017-05-02 21:19:16,672 - __main__ - DEBUG - Temp dir: /home/maxikov/spark_dir
+2017-05-02 21:19:16,672 - __main__ - DEBUG - local_threads: *
+2017-05-02 21:19:16,672 - __main__ - DEBUG - spark_executor_memory: 5g
+2017-05-02 21:19:16,672 - __main__ - DEBUG - regression_model: linear
+2017-05-02 21:19:16,672 - __main__ - DEBUG - nbins: 32
+2017-05-02 21:19:16,672 - __main__ - DEBUG - regression_users: False
+2017-05-02 21:19:16,672 - __main__ - DEBUG - predict_product_features: False
+2017-05-02 21:19:16,672 - __main__ - DEBUG - metadata_sources: ['years', 'genres']
+2017-05-02 21:19:16,672 - __main__ - DEBUG - movies_file: datasets/ml-20m/ml-20m.imdb.medium.csv
+2017-05-02 21:19:16,673 - __main__ - DEBUG - cross_validation: 70
+2017-05-02 21:19:16,673 - __main__ - DEBUG - tvtropes_file: datasets/dbtropes/tropes.csv
+2017-05-02 21:19:16,673 - __main__ - DEBUG - features_trim_percentile: 0
+2017-05-02 21:19:16,673 - __main__ - DEBUG - drop_missing_movies: False
+2017-05-02 21:19:16,673 - __main__ - DEBUG - drop_rare_features: 0
+2017-05-02 21:19:16,673 - __main__ - DEBUG - filter_data_set: 10
+2017-05-02 21:19:16,673 - __main__ - DEBUG - persist_dir: /home/maxikov/quick_test.state, override_args: False
+2017-05-02 21:19:25,107 - __main__ - DEBUG - msep: ,
+2017-05-02 21:19:25,107 - __main__ - DEBUG - Loading ratings
+2017-05-02 21:19:25,589 - __main__ - DEBUG - Done in 0.481944 seconds
+2017-05-02 21:19:25,590 - __main__ - DEBUG - Loading movies
+2017-05-02 21:19:26,761 - __main__ - DEBUG - Done in 1.171036 seconds
+2017-05-02 21:19:26,761 - __main__ - DEBUG - 26804 movies loaded
+2017-05-02 21:19:30,798 - __main__ - DEBUG - 992075 records in the training set
+2017-05-02 21:19:31,301 - __main__ - DEBUG - 3619 unique movies in the training set
+2017-05-02 21:19:31,301 - __main__ - DEBUG - Loading /home/maxikov/quick_test.state/als_model.pkl
+2017-05-02 21:19:33,924 - __main__ - DEBUG - Loading /home/maxikov/quick_test.state/indicators_rdd.pkl
+2017-05-02 21:19:33,951 - __main__ - DEBUG - Loading /home/maxikov/quick_test.state/indicators_python.pkl
+2017-05-02 21:19:33,953 - __main__ - DEBUG - Loading /home/maxikov/quick_test.state/features_rdd.pkl
+2017-05-02 21:19:33,986 - __main__ - DEBUG - Storing in /home/maxikov/quick_test.state/results.pkl
+2017-05-02 21:19:33,994 - __main__ - DEBUG - Processing year (0 out of 21)
+2017-05-02 21:19:33,994 - __main__ - DEBUG - Already computed, skipping
+2017-05-02 21:19:33,995 - __main__ - DEBUG - Processing movielens_genre:(no genres listed) (1 out of 21)
+2017-05-02 21:19:33,995 - __main__ - DEBUG - Already computed, skipping
+2017-05-02 21:19:33,995 - __main__ - DEBUG - Processing movielens_genre:Action (2 out of 21)
+2017-05-02 21:19:33,995 - __main__ - DEBUG - Already computed, skipping
+2017-05-02 21:19:33,995 - __main__ - DEBUG - Processing movielens_genre:Adventure (3 out of 21)
+2017-05-02 21:19:33,995 - __main__ - DEBUG - Already computed, skipping
+2017-05-02 21:19:33,995 - __main__ - DEBUG - Processing movielens_genre:Animation (4 out of 21)
+2017-05-02 21:19:33,995 - __main__ - DEBUG - Building training and test sets for regression
+2017-05-02 21:19:34,179 - __main__ - DEBUG - 2534 items in training and 1085 in test set
+2017-05-02 21:19:34,182 - __main__ - DEBUG - Processing feature 4
+2017-05-02 21:19:34,183 - __main__ - DEBUG - Building data set
+2017-05-02 21:19:34,295 - __main__ - DEBUG - Done in 0.111967086792 seconds
+2017-05-02 21:19:34,295 - __main__ - DEBUG - Training logistic
+2017-05-02 21:19:34,295 - __main__ - DEBUG - Actually training a classifier
+2017-05-02 21:19:37,747 - __main__ - DEBUG - Done in 3.45212006569 seconds
+2017-05-02 21:19:37,801 - __main__ - DEBUG - Model threshold 0.500000
+2017-05-02 21:19:37,801 - __main__ - DEBUG - Clearing
+2017-05-02 21:19:37,801 - __main__ - DEBUG - Making no-threshold predictions
+2017-05-02 21:19:37,837 - __main__ - DEBUG - Restoring threshold
+2017-05-02 21:19:37,837 - __main__ - DEBUG - Measuring model QII
+2017-05-02 21:19:37,845 - __main__ - DEBUG - 3 features detected
+2017-05-02 21:19:37,846 - __main__ - DEBUG - Processing feature 0
+Traceback (most recent call last):
+  File "/mnt/data/Dropbox/cmu/foundation_of_privacy/project/fop_qii/MovieLensALS.py", line 468, in <module>
+    main()
+  File "/mnt/data/Dropbox/cmu/foundation_of_privacy/project/fop_qii/MovieLensALS.py", line 421, in main
+    logger, args.cross_validation)
+  File "/mnt/data/Dropbox/cmu/foundation_of_privacy/project/fop_qii/metadata_predictor.py", line 225, in metadata_predictor
+    predictions, rank)
+  File "/mnt/data/Dropbox/cmu/foundation_of_privacy/project/fop_qii/common_utils.py", line 63, in compute_regression_qii
+    cur_qii = mean_error(predobs, 1.0, abs)
+  File "/mnt/data/Dropbox/cmu/foundation_of_privacy/project/fop_qii/common_utils.py", line 119, in mean_error
+    power).reduce(add) / float(predictionsAndRatings.count())) ** (1.0/power)
+  File "/opt/spark/python/lib/pyspark.zip/pyspark/rdd.py", line 802, in reduce
+  File "/opt/spark/python/lib/pyspark.zip/pyspark/rdd.py", line 776, in collect
+  File "/opt/spark/python/lib/py4j-0.10.3-src.zip/py4j/java_gateway.py", line 1133, in __call__
+  File "/opt/spark/python/lib/pyspark.zip/pyspark/sql/utils.py", line 63, in deco
+  File "/opt/spark/python/lib/py4j-0.10.3-src.zip/py4j/protocol.py", line 319, in get_return_value
+py4j.protocol.Py4JJavaError: An error occurred while calling z:org.apache.spark.api.python.PythonRDD.collectAndServe.
+: org.apache.spark.SparkException: Job aborted due to stage failure: Task 4 in stage 87.0 failed 1 times, most recent failure: Lost task 4.0 in stage 87.0 (TID 275, localhost): org.apache.spark.api.python.PythonException: Traceback (most recent call last):
+  File "/opt/spark/python/lib/pyspark.zip/pyspark/worker.py", line 172, in main
+    process()
+  File "/opt/spark/python/lib/pyspark.zip/pyspark/worker.py", line 167, in process
+    serializer.dump_stream(func(split_index, iterator), outfile)
+  File "/opt/spark/python/lib/pyspark.zip/pyspark/serializers.py", line 263, in dump_stream
+    vs = list(itertools.islice(iterator, batch))
+  File "/opt/spark/python/lib/pyspark.zip/pyspark/rdd.py", line 800, in func
+  File "/opt/spark/python/lib/pyspark.zip/pyspark/serializers.py", line 322, in load_stream
+    " in pair: (%d, %d)" % (len(keys), len(vals)))
+ValueError: Can not deserialize RDD with different number of items in pair: (73, 48)
+
+	at org.apache.spark.api.python.PythonRunner$$anon$1.read(PythonRDD.scala:193)
+	at org.apache.spark.api.python.PythonRunner$$anon$1.<init>(PythonRDD.scala:234)
+	at org.apache.spark.api.python.PythonRunner.compute(PythonRDD.scala:152)
+	at org.apache.spark.api.python.PythonRDD.compute(PythonRDD.scala:63)
+	at org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:319)
+	at org.apache.spark.rdd.RDD.iterator(RDD.scala:283)
+	at org.apache.spark.scheduler.ResultTask.runTask(ResultTask.scala:70)
+	at org.apache.spark.scheduler.Task.run(Task.scala:86)
+	at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:274)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(java.base@9-internal/ThreadPoolExecutor.java:1158)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(java.base@9-internal/ThreadPoolExecutor.java:632)
+	at java.lang.Thread.run(java.base@9-internal/Thread.java:804)
+
+Driver stacktrace:
+	at org.apache.spark.scheduler.DAGScheduler.org$apache$spark$scheduler$DAGScheduler$$failJobAndIndependentStages(DAGScheduler.scala:1454)
+	at org.apache.spark.scheduler.DAGScheduler$$anonfun$abortStage$1.apply(DAGScheduler.scala:1442)
+	at org.apache.spark.scheduler.DAGScheduler$$anonfun$abortStage$1.apply(DAGScheduler.scala:1441)
+	at scala.collection.mutable.ResizableArray$class.foreach(ResizableArray.scala:59)
+	at scala.collection.mutable.ArrayBuffer.foreach(ArrayBuffer.scala:48)
+	at org.apache.spark.scheduler.DAGScheduler.abortStage(DAGScheduler.scala:1441)
+	at org.apache.spark.scheduler.DAGScheduler$$anonfun$handleTaskSetFailed$1.apply(DAGScheduler.scala:811)
+	at org.apache.spark.scheduler.DAGScheduler$$anonfun$handleTaskSetFailed$1.apply(DAGScheduler.scala:811)
+	at scala.Option.foreach(Option.scala:257)
+	at org.apache.spark.scheduler.DAGScheduler.handleTaskSetFailed(DAGScheduler.scala:811)
+	at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.doOnReceive(DAGScheduler.scala:1667)
+	at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.onReceive(DAGScheduler.scala:1622)
+	at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.onReceive(DAGScheduler.scala:1611)
+	at org.apache.spark.util.EventLoop$$anon$1.run(EventLoop.scala:48)
+	at org.apache.spark.scheduler.DAGScheduler.runJob(DAGScheduler.scala:632)
+	at org.apache.spark.SparkContext.runJob(SparkContext.scala:1873)
+	at org.apache.spark.SparkContext.runJob(SparkContext.scala:1886)
+	at org.apache.spark.SparkContext.runJob(SparkContext.scala:1899)
+	at org.apache.spark.SparkContext.runJob(SparkContext.scala:1913)
+	at org.apache.spark.rdd.RDD$$anonfun$collect$1.apply(RDD.scala:912)
+	at org.apache.spark.rdd.RDDOperationScope$.withScope(RDDOperationScope.scala:151)
+	at org.apache.spark.rdd.RDDOperationScope$.withScope(RDDOperationScope.scala:112)
+	at org.apache.spark.rdd.RDD.withScope(RDD.scala:358)
+	at org.apache.spark.rdd.RDD.collect(RDD.scala:911)
+	at org.apache.spark.api.python.PythonRDD$.collectAndServe(PythonRDD.scala:453)
+	at org.apache.spark.api.python.PythonRDD.collectAndServe(PythonRDD.scala)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(java.base@9-internal/Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(java.base@9-internal/NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(java.base@9-internal/DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(java.base@9-internal/Method.java:531)
+	at py4j.reflection.MethodInvoker.invoke(MethodInvoker.java:237)
+	at py4j.reflection.ReflectionEngine.invoke(ReflectionEngine.java:357)
+	at py4j.Gateway.invoke(Gateway.java:280)
+	at py4j.commands.AbstractCommand.invokeMethod(AbstractCommand.java:132)
+	at py4j.commands.CallCommand.execute(CallCommand.java:79)
+	at py4j.GatewayConnection.run(GatewayConnection.java:214)
+	at java.lang.Thread.run(java.base@9-internal/Thread.java:804)
+Caused by: org.apache.spark.api.python.PythonException: Traceback (most recent call last):
+  File "/opt/spark/python/lib/pyspark.zip/pyspark/worker.py", line 172, in main
+    process()
+  File "/opt/spark/python/lib/pyspark.zip/pyspark/worker.py", line 167, in process
+    serializer.dump_stream(func(split_index, iterator), outfile)
+  File "/opt/spark/python/lib/pyspark.zip/pyspark/serializers.py", line 263, in dump_stream
+    vs = list(itertools.islice(iterator, batch))
+  File "/opt/spark/python/lib/pyspark.zip/pyspark/rdd.py", line 800, in func
+  File "/opt/spark/python/lib/pyspark.zip/pyspark/serializers.py", line 322, in load_stream
+    " in pair: (%d, %d)" % (len(keys), len(vals)))
+ValueError: Can not deserialize RDD with different number of items in pair: (73, 48)
+
+	at org.apache.spark.api.python.PythonRunner$$anon$1.read(PythonRDD.scala:193)
+	at org.apache.spark.api.python.PythonRunner$$anon$1.<init>(PythonRDD.scala:234)
+	at org.apache.spark.api.python.PythonRunner.compute(PythonRDD.scala:152)
+	at org.apache.spark.api.python.PythonRDD.compute(PythonRDD.scala:63)
+	at org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:319)
+	at org.apache.spark.rdd.RDD.iterator(RDD.scala:283)
+	at org.apache.spark.scheduler.ResultTask.runTask(ResultTask.scala:70)
+	at org.apache.spark.scheduler.Task.run(Task.scala:86)
+	at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:274)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(java.base@9-internal/ThreadPoolExecutor.java:1158)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(java.base@9-internal/ThreadPoolExecutor.java:632)
+	... 1 more
+
