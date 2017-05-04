@@ -134,6 +134,13 @@ def metadata_predictor(sc, training, rank, numIter, lmbda,
                 internal_feature_predictor.drop_rare_features(indicators, nof, categorical_features,
                                feature_names, args.drop_rare_features,
                                logger)
+        if args.drop_rare_movies > 0:
+            logger.debug("Dropping movies with fewer than %d non-zero "+\
+                    "features", args.drop_rare_movies)
+            features, indicators = common_utils.drop_rare_movies(features,
+                                                                 indicators,
+                                                                 args.drop_rare_movies)
+            logger.debug("%d movies left", features.count())
         all_movies = features.keys().collect()
         n_movies = len(all_movies)
         if train_ratio > 0:
