@@ -6,7 +6,8 @@ import numpy
 from matplotlib import pyplot as plt
 
 def extract_and_sort(src, training=False, top_results=0, coeff_threshold=None,
-        is_qii=False, norm_input=False, norm_output=False):
+        is_qii=False, norm_input=False, norm_output=False,
+        force_threshold=False):
     tr = "" if training else "_test"
     rf = src["features"]
     regs = [x for x in rf.items() if x[1]["type"] == "regression"]
@@ -35,11 +36,11 @@ def extract_and_sort(src, training=False, top_results=0, coeff_threshold=None,
         info["qii" if is_qii else "weights"] = cur_qii_or_weights
         new_regs.append(info)
     clss = [x for x in rf.items() if x[1]["type"] == "classification"]
-    if "not_linlog" in src:
-        better = ("recall", " recall")
+    if "not_linlog" in src or force_threshold:
+        better = ("recall", " recall", "")
     else:
-        better = ("better", "x better")
-    clss.sort(key = lambda x: -x[1]["eval"+tr][better[0]])
+        better = ("better", "x better", "_nt")
+    clss.sort(key = lambda x: -x[1]["eval"+tr+better[2]][better[0]])
     if top_results > 0:
         clss = clss[:top_results]
     new_clss = []
@@ -48,7 +49,7 @@ def extract_and_sort(src, training=False, top_results=0, coeff_threshold=None,
         if norm_output:
             factor = factor / src["mean_indicator_values"][f]
         info["title"] = "{} ({:2.3f}{})".format(\
-                info["name"], info["eval"+tr][better[0]],
+                info["name"], info["eval"+tr+better[2]][better[0]],
                 better[1])
         cur_qii_or_weights = []
         for i in xrange(len(info["qii" if is_qii else "weights"])):
@@ -102,6 +103,9 @@ def main():
             "the columns by the mean value of input features")
     parser.add_argument("--norm-output", action="store_true", help="Norm "+\
             "the rows by the mean value of outpur features")
+    parser.add_argument("--force-threshold", action="store_true", help="Use "+\
+                        "thresholded classifier evaulation even if "+\
+                        "model-wide is available")
     parser.add_argument("fname", type=str, nargs=1, help="Log file name")
     args = parser.parse_args()
 
@@ -118,7 +122,8 @@ def main():
 
     reg_models_res = extract_and_sort(results, args.training, args.top_results,
                                       args.coeff_threshold, is_qii,
-                                      args.norm_input, args.norm_output)
+                                      args.norm_input, args.norm_output,
+                                      args.force_threshold)
     display_matrix(reg_models_res, is_qii)
 
     plt.show()
