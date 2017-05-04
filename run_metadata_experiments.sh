@@ -1,48 +1,25 @@
 #!/usr/bin/env sh
 
-#until spark-submit --driver-memory 20g MovieLensALS.py --checkpoint-dir /home/maxikov/spark_dir --temp-dir /home/maxikov/spark_dir --spark-executor-memory 20g --local-threads "*" --lmbda 0.02 --num-iter 200 --non-negative --data-path datasets/ml-1m/ --movies-file datasets/ml-20m/ml-20m.imdb.medium.csv --tvtropes-file datasets/dbtropes/tropes.csv --num-partitions 7 --rank 12 --predict-metadata --metadata-sources users --cross-validation 70 --regression-model regression_tree --nbins 32 > logs/metadata_regression_users_toy_size_tree.txt
-#do
-#  echo "Try again"
-#  sleep 100000000000000000000
-#done
-
-#echo "First done"
-
-#until spark-submit --driver-memory 20g MovieLensALS.py --checkpoint-dir /home/maxikov/spark_dir --temp-dir /home/maxikov/spark_dir --spark-executor-memory 20g --local-threads "*" --lmbda 0.02 --num-iter 200 --non-negative --data-path datasets/ml-1m/ --movies-file datasets/ml-20m/ml-20m.imdb.medium.csv --tvtropes-file datasets/dbtropes/tropes.csv --num-partitions 7 --rank 12 --predict-metadata --metadata-sources users --cross-validation 70 --regression-model linear > logs/metadata_regression_users_toy_size_linear.txt
-#do
-#  echo "Try again"
-#  sleep 1000000
-#done
-
-#echo "Second done"
-
-#until spark-submit --driver-memory 20g MovieLensALS.py --checkpoint-dir /home/maxikov/spark_dir --temp-dir /home/maxikov/spark_dir --spark-executor-memory 20g --local-threads "*" --lmbda 0.02 --num-iter 200 --non-negative --data-path datasets/ml-1m/ --movies-file datasets/ml-20m/ml-20m.imdb.medium.csv --tvtropes-file datasets/dbtropes/tropes.csv --num-partitions 7 --rank 12 --predict-metadata --metadata-sources years genres average_rating --cross-validation 70 --regression-model regression_tree --nbins 8 > logs/metadata_regression_products_toy_size_tree.txt
-#do
-#  echo "Try again"
-#done
-
-#echo "Third done"
-
-#until spark-submit --driver-memory 20g MovieLensALS.py --checkpoint-dir /home/maxikov/spark_dir --temp-dir /home/maxikov/spark_dir --spark-executor-memory 20g --local-threads "*" --lmbda 0.02 --num-iter 200 --non-negative --data-path datasets/ml-1m/ --movies-file datasets/ml-20m/ml-20m.imdb.medium.csv --tvtropes-file datasets/dbtropes/tropes.csv --num-partitions 7 --rank 12 --predict-metadata --metadata-sources years genres average_rating --cross-validation 70 --regression-model linear > logs/metadata_regression_products_toy_size_linear.txt
-#do
-#  echo "Try again"
-#  sleep 70000
-#done
-
-#echo "Fourth done"
-
-
-until spark-submit --driver-memory 20g MovieLensALS.py --checkpoint-dir /home/maxikov/spark_dir --temp-dir /home/maxikov/spark_dir --spark-executor-memory 20g --local-threads "*" --lmbda 0.02 --num-iter 300 --non-negative --data-path datasets/ml-20m/ --movies-file datasets/ml-20m/ml-20m.imdb.medium.csv --tvtropes-file datasets/dbtropes/tropes.csv --num-partitions 7 --rank 12 --predict-metadata --metadata-sources years genres average_rating tvtropes --cross-validation 70 --regression-model linear --drop-rare-features 10  --persist-dir logs/metadata_regression_products_tropes_linear.state > logs/metadata_regression_products_tropes_linear.txt
+iteration=0
+start=$SECONDS
+iteration_start=$SECONDS
+until spark-submit --driver-memory 20g MovieLensALS.py --checkpoint-dir /home/maxikov/spark_dir --temp-dir /home/maxikov/spark_dir --spark-executor-memory 20g --local-threads "*" --lmbda 0.02 --num-iter 300 --non-negative --data-path datasets/ml-20m/ --movies-file datasets/ml-20m/ml-20m.imdb.medium.csv --tvtropes-file datasets/dbtropes/tropes.csv --num-partitions 7 --rank 12 --predict-metadata --metadata-sources years genres average_rating tvtropes imdb_keywords imdb_producer imdb_director tags --cross-validation 70 --regression-model linear --drop-rare-features 100 --drop-rare-movies 10 --persist-dir ~/all_linear.state > logs/metadata_regression_all_linear.txt
 do
-  echo "Try again"
+    echo "Iteration $iteration of linear regression failed after $(($SECONDS - $start)) ($(($SECONDS - $iteration_start)) total, trying again"
+    iteration_start=$SECONDS
+    iteration=$(($iteration + 1))
 done
 
-echo "Fifth done"
+echo "Linear regression done after $(($SECONDS - $start))"
 
-until spark-submit --driver-memory 20g MovieLensALS.py --checkpoint-dir /home/maxikov/spark_dir --temp-dir /home/maxikov/spark_dir --spark-executor-memory 20g --local-threads "*" --lmbda 0.02 --num-iter 300 --non-negative --data-path datasets/ml-20m/ --movies-file datasets/ml-20m/ml-20m.imdb.medium.csv --tvtropes-file datasets/dbtropes/tropes.csv --num-partitions 7 --rank 12 --predict-metadata --metadata-sources years genres average_rating  tvtropes --cross-validation 70 --regression-model regression_tree --nbins 32 --drop-rare-features 10  --persist-dir logs/metadata_regression_products_tropes_tree.state  > logs/metadata_regression_products_tropes_tree.txt
+iteration=0
+start=$SECONDS
+iteration_start=$SECONDS
+until spark-submit --driver-memory 20g MovieLensALS.py --checkpoint-dir /home/maxikov/spark_dir --temp-dir /home/maxikov/spark_dir --spark-executor-memory 20g --local-threads "*" --lmbda 0.02 --num-iter 300 --non-negative --data-path datasets/ml-20m/ --movies-file datasets/ml-20m/ml-20m.imdb.medium.csv --tvtropes-file datasets/dbtropes/tropes.csv --num-partitions 7 --rank 12 --predict-metadata --metadata-sources years genres average_rating tvtropes imdb_keywords imdb_producer imdb_director tags --cross-validation 70 --regression-model regression_tree --nbins 32 --drop-rare-features 100 --drop-rare-movies 10 --persist-dir ~/all_tree.state  > logs/metadata_regression_all_tree.txt
 do
-  echo "Try again"
+    echo "Iteration $iteration of tree regression failed after $(($SECONDS - $start)) ($(($SECONDS - $iteration_start)) total, trying again"
+    iteration_start=$SECONDS
+    iteration=$(($iteration + 1))
 done
 
-echo "Sicth done"
-
+echo "Tree regression done after $(($SECONDS - $start))"
