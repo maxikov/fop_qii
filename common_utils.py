@@ -13,6 +13,18 @@ from pyspark.mllib.evaluation import RegressionMetrics,\
 #numpy library
 import numpy as np
 
+def safe_zip(foo, bar):
+    foo = foo\
+            .zipWithIndex()\
+            .map(lambda (x, y): (y, x))
+    bar = bar\
+            .zipWithIndex()\
+            .map(lambda (x, y): (y, x))
+    res = foo\
+            .join(bar)\
+            .values()
+    return res
+
 def load_if_available(persist_dir, fname, logger):
     if persist_dir is not None:
         fname = os.path.join(persist_dir, fname)
@@ -59,7 +71,7 @@ def compute_regression_qii(lr_model, input_features, target_variable,
         perturbed_features = perturb_feature(input_features, f,
                                              None).values()
         new_predictions = lr_model.predict(perturbed_features)
-        predobs = new_predictions.zip(original_predictions)
+        predobs = safe_zip(new_predictions, original_predictions)
         cur_qii = mean_error(predobs, 1.0, abs)
         signed_error = mean_error(predobs, 1.0, float)
         if signed_error == 0:

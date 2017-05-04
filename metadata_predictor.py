@@ -64,29 +64,48 @@ def metadata_predictor(sc, training, rank, numIter, lmbda,
         features, other_features = other_features, features
 
     if args.persist_dir is not None:
-        fname_indicators_rdd = os.path.join(args.persist_dir, "indicators_rdd.pkl")
-        fname_indicators_python = os.path.join(args.persist_dir,
-                                               "indicators_python.pkl")
-        fname_features_rdd = os.path.join(args.persist_dir,
-                                          "features_rdd.pkl")
-        if os.path.exists(fname_indicators_rdd)\
-                and os.path.exists(fname_indicators_python)\
-                and os.path.exists(fname_features_rdd):
-            logger.debug("Loading %s", fname_indicators_rdd)
-            indicators = sc.pickleFile(fname_indicators_rdd)
-            logger.debug("Loading %s", fname_indicators_python)
-            ifile = open(fname_indicators_python, "rb")
-            nof, categorical_features, feature_names =\
-                    pickle.load(ifile)
+        fname = os.path.join(args.persist_dir, "features_indicators.pkl")
+        if os.path.exists(fname):
+            logger.debug("Loading %s", fname)
+            ifile = open(fname, "rb")
+            objects = pickle.load(ifile)
             ifile.close()
-            logger.debug("Loading %s", fname_features_rdd)
-            features = sc.pickleFile(fname_features_rdd)
+            (indicators_c, nof, categorical_features, feature_names,
+                  features_c, other_features_c, features_training_c,
+                  indicators_training_c, features_test_c, indicators_test_c,
+                  all_movies, n_movies, train_ratio, training_movies,
+                  test_movies) = objects
+            indicators = sc.parallelize(indicators_c)\
+                    .repartition(args.num_partitions)\
+                    .cache()
+            features = sc.parallelize(features_c)\
+                    .repartition(args.num_partitions)\
+                    .cache()
+            other_features = sc.parallelize(other_features_c)\
+                    .repartition(args.num_partitions)\
+                    .cache()
+            indicators_training = sc.parallelize(indicators_training_c)\
+                    .repartition(args.num_partitions)\
+                    .cache()
+            features_training = sc.parallelize(features_training_c)\
+                    .repartition(args.num_partitions)\
+                    .cache()
+            if features_test_c is not None:
+                features_test = sc.parallelize(features_test_c)\
+                    .repartition(args.num_partitions)\
+                    .cache()
+            else:
+                features_test = None
+            if indicators_test_c is not None:
+                indicators_test = sc.parallelize(indicators_test_c)\
+                    .repartition(args.num_partitions)\
+                    .cache()
+            else:
+                indicators_test = None
             need_new_model = False
             write_model = False
         else:
-            logger.debug("{} or {} or {} not found, building new features".\
-                    format(fname_indicators_rdd, fname_indicators_python,
-                           fname_features_rdd))
+            logger.debug("{} not found, building new features".format(fname))
             need_new_model = True
             write_model = True
     else:
@@ -115,20 +134,54 @@ def metadata_predictor(sc, training, rank, numIter, lmbda,
                 internal_feature_predictor.drop_rare_features(indicators, nof, categorical_features,
                                feature_names, args.drop_rare_features,
                                logger)
+        all_movies = features.keys().collect()
+        n_movies = len(all_movies)
+        if train_ratio > 0:
+            logger.debug("Building training and test sets for regression")
+            training_size = int(math.floor(n_movies * train_ratio / 100.0)) + 1
+            logger.debug("{} items in training and {} in test set"\
+                    .format(training_size, n_movies - training_size))
+            random.shuffle(all_movies)
+            training_movies = set(all_movies[:training_size])
+            test_movies = set(all_movies[training_size:])
+            features_training = features.filter(lambda x: x[0] in
+                    training_movies)
+            features_test = features.filter(lambda x: x[0] in test_movies)
+            indicators_training = indicators.filter(lambda x: x[0] in
+                    training_movies)
+            indicators_test = indicators.filter(lambda x: x[0] in test_movies)
+        else:
+            features_training = features
+            indicators_training = indicators
+            features_test = None
+            indicators_test = None
+            test_movies = None
+            training_movies = all_movies
+
 
     if write_model:
-        logger.debug("Writing %s", fname_indicators_rdd)
-        indicators.collect()
-        indicators.cache()
-        indicators.saveAsPickleFile(fname_indicators_rdd)
-        logger.debug("Writing %s", fname_indicators_python)
-        ofile = open(fname_indicators_python, "wb")
-        pickle.dump((nof, categorical_features, feature_names), ofile)
+        logger.debug("Writing %s", fname)
+        indicators_c = indicators.collect()
+        features_c = features.collect()
+        other_features_c = other_features.collect()
+        features_training_c = features_training.collect()
+        indicators_training_c = indicators_training.collect()
+        if features_test is not None:
+            features_test_c = features_test.collect()
+        else:
+            features_test_c = None
+        if indicators_test is not None:
+            indicators_test_c = indicators_test.collect()
+        else:
+            indicators_test_c = None
+        objects = (indicators_c, nof, categorical_features, feature_names,
+                  features_c, other_features_c, features_training_c,
+                  indicators_training_c, features_test_c, indicators_test_c,
+                  all_movies, n_movies, train_ratio, training_movies,
+                  test_movies)
+        ofile = open(fname, "wb")
+        pickle.dump(objects, ofile)
         ofile.close()
-        logger.debug("Writing %s", fname_features_rdd)
-        features.collect()
-        features.cache()
-        features.saveAsPickleFile(fname_features_rdd)
 
     results, store = common_utils.load_if_available(args.persist_dir,
                                                     "results.pkl",
@@ -158,26 +211,6 @@ def metadata_predictor(sc, training, rank, numIter, lmbda,
             continue
         results["features"][f] = {}
         results["features"][f]["name"] = feature_names[f]
-        if train_ratio > 0:
-            logger.debug("Building training and test sets for regression")
-            all_movies = features.keys().collect()
-            n_movies = len(all_movies)
-            training_size = int(math.floor(n_movies * train_ratio / 100.0)) + 1
-            logger.debug("{} items in training and {} in test set"\
-                    .format(training_size, n_movies - training_size))
-            random.shuffle(all_movies)
-            training_movies = set(all_movies[:training_size])
-            test_movies = set(all_movies[training_size:])
-            features_training = features.filter(lambda x: x[0] in
-                    training_movies)
-            features_test = features.filter(lambda x: x[0] in test_movies)
-            indicators_training = indicators.filter(lambda x: x[0] in
-                    training_movies)
-            indicators_test = indicators.filter(lambda x: x[0] in test_movies)
-        else:
-            features_training = features
-            indicators_training = indicators
-
         linlog = args.regression_model in ["logistic", "linear"]
         if not linlog:
             results["not_linlog"] = True #ONLY SET IF TRUE!!!
@@ -214,7 +247,7 @@ def metadata_predictor(sc, training, rank, numIter, lmbda,
             logger.debug("Making no-threshold predictions")
             input_training = features_training.values()
             ids_training = features_training.keys()
-            predictions_nt = ids_training.zip(lr_model\
+            predictions_nt = common_utils.safe_zip(ids_training, lr_model\
                                             .predict(input_training)\
                                             .map(float))
             logger.debug("Restoring threshold")
@@ -265,7 +298,7 @@ def metadata_predictor(sc, training, rank, numIter, lmbda,
             logger.debug("Computing predictions on the test set")
             input_test = features_test.values()
             ids_test = features_test.keys()
-            predictions = ids_test.zip(lr_model\
+            predictions = common_utils.safe_zip(ids_test, lr_model\
                                             .predict(input_test)\
                                             .map(float))
             observations = indicators_test.map(lambda (mid, ftrs):
@@ -281,7 +314,7 @@ def metadata_predictor(sc, training, rank, numIter, lmbda,
                     logger.debug("Clearing threshold")
                     lr_model.clearThreshold()
                     logger.debug("Making no-threshold test predictions")
-                    predictions_nt_test = ids_test.zip(lr_model\
+                    predictions_nt_test = common_utils.safe_zip(ids_test, lr_model\
                                             .predict(input_test)\
                                             .map(float))
                     logger.debug("Restoring threshold")

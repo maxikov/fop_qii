@@ -418,8 +418,8 @@ def predict_internal_feature(features, indicators, f, regression_model,
     if no_threshold and regression_model == "logistic":
         lr_model.clearThreshold()
 
-    observations = ids.zip(data.map(lambda x: float(x.label))).cache()
-    predictions = ids.zip(
+    observations = common_utils.safe_zip(ids, data.map(lambda x: float(x.label))).cache()
+    predictions = common_utils.safe_zip(ids,
         lr_model\
         .predict(
             data.map(lambda x: x.features)
@@ -755,7 +755,7 @@ def internal_feature_predictor(sc, training, rank, numIter, lmbda,
             logger.debug("Computing predictions on the test set")
             ids_test = indicators_test.keys()
             input_test = indicators_test.values()
-            predictions_test = ids_test.zip(lr_model\
+            predictions_test = common_utils.safe_zip(ids_test, lr_model\
                                             .predict(input_test)\
                                             .map(float))
             if args.regression_model == "naive_bayes":
