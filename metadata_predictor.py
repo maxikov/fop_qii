@@ -74,8 +74,11 @@ def metadata_predictor(sc, training, rank, numIter, lmbda,
                   features_c, other_features_c, features_training_c,
                   indicators_training_c, features_test_c, indicators_test_c,
                   all_movies, n_movies, train_ratio, training_movies,
-                  test_movies) = objects
+                  test_movies, training_c) = objects
             indicators = sc.parallelize(indicators_c)\
+                    .repartition(args.num_partitions)\
+                    .cache()
+            training = sc.parallelize(training_c)\
                     .repartition(args.num_partitions)\
                     .cache()
             features = sc.parallelize(features_c)\
@@ -141,6 +144,9 @@ def metadata_predictor(sc, training, rank, numIter, lmbda,
                                                                  indicators,
                                                                  args.drop_rare_movies)
             logger.debug("%d movies left", features.count())
+            training = training.filter(lambda x: x[1] in all_movies)
+            logger.debug("{} items left in the training set"\
+                .format(training.count()))
         all_movies = features.keys().collect()
         n_movies = len(all_movies)
         if train_ratio > 0:
@@ -173,6 +179,7 @@ def metadata_predictor(sc, training, rank, numIter, lmbda,
         other_features_c = other_features.collect()
         features_training_c = features_training.collect()
         indicators_training_c = indicators_training.collect()
+        training_c = training.collect()
         if features_test is not None:
             features_test_c = features_test.collect()
         else:
@@ -185,7 +192,7 @@ def metadata_predictor(sc, training, rank, numIter, lmbda,
                   features_c, other_features_c, features_training_c,
                   indicators_training_c, features_test_c, indicators_test_c,
                   all_movies, n_movies, train_ratio, training_movies,
-                  test_movies)
+                  test_movies, training_c)
         ofile = open(fname, "wb")
         pickle.dump(objects, ofile)
         ofile.close()
