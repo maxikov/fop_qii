@@ -2,6 +2,7 @@
 import csv
 import StringIO
 import traceback
+from collections import defaultdict
 
 def loadCSV(fname, remove_first_line=True):
     """
@@ -297,15 +298,17 @@ def load_years(src_rdd, sep=",", prefix="year"):
     return (years, nof, cfi, feature_names)
 
 def load_genres(src_rdd, sep=",", parser_function=parseGenre,
-                prefix="movielens_genre"):
+                prefix="movielens_genre", drop_threshold=0):
     genres = src_rdd.map(lambda x: parser_function(x, sep=sep))
-    all_genres = sorted(
-        list(
-            genres\
-                .map(lambda (_, x): x)\
-                .fold(
-                    set(),
-                    lambda x, y: set(x).union(set(y)))))
+    genres_counts = defaultdict(lambda: 0)
+    for item in genres.values().collect():
+        for g in item:
+            genres_counts[g] += 1
+    if drop_threshold > 0:
+        for genre, count in genres_counts.items():
+            if count < drop_threshold:
+                del genres_counts[genre]
+    all_genres = sorted(genres_counts.keys())
     indicators_genres = genres.map(
         lambda (mid, cur_genres): (
             mid, map(lambda g: int(g in cur_genres), all_genres)))
@@ -315,15 +318,22 @@ def load_genres(src_rdd, sep=",", parser_function=parseGenre,
             enumerate(all_genres)}
     return (indicators_genres, nof, cfi, feature_names)
 
-def load_tags(src_rdd, sep=",", prefix="tags"):
+def load_tags(src_rdd, sep=",", prefix="tags", drop_threshold=0):
     tags = src_rdd.map(lambda x: parseTag(x, sep=sep))
-    all_tags = set(tags.map(lambda x: x[2]).collect())
-    all_tags = sorted(list(all_tags))
     tags = tags\
             .groupBy(lambda x: (x[1], x[2]))\
             .map(lambda x: x[0])\
             .groupBy(lambda x: x[0])\
             .map(lambda (mid, data): (mid, set(d[1] for d in data)))
+    tags_counts = defaultdict(lambda: 0)
+    for item in tags.values().collect():
+        for t in item:
+            tags_counts[t] += 1
+    if drop_threshold > 0:
+        for tag, count in tags_counts.items():
+            if count < drop_threshold:
+                del tags_counts[tag]
+    all_tags = sorted(tags_counts.keys())
     indicators = tags.map(
         lambda (mid, cur_tags): (
             mid, map(lambda t: int(t in cur_tags), all_tags)))

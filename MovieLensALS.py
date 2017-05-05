@@ -297,7 +297,8 @@ def main():
             "name": "genres",
             "src_rdd": (lambda: movies_rdd),
             "loader": (lambda x: parsers_and_loaders.load_genres(x,\
-                msep, parsers_and_loaders.parseGenre))
+                msep, parsers_and_loaders.parseGenre,
+                drop_threshold=args.drop_rare_features))
         },
         {
             "name": "tags",
@@ -310,35 +311,40 @@ def main():
                 ).cache()
             ),
             "loader": (lambda x: parsers_and_loaders.load_tags(x, sep,
-                       prefix="movielens_tags"))
+                       prefix="movielens_tags",
+                       drop_threshold=args.drop_rare_features))
         },
         {
             "name": "imdb_keywords",
             "src_rdd": (lambda: movies_rdd),
             "loader": (lambda x: parsers_and_loaders.load_genres(x, sep=msep,\
                 parser_function=parsers_and_loaders.parseIMDBKeywords,
-                    prefix="imdb_keywords"))
+                    prefix="imdb_keywords",
+                    drop_threshold=args.drop_rare_features))
         },
         {
             "name": "imdb_genres",
             "src_rdd": (lambda: movies_rdd),
             "loader": (lambda x: parsers_and_loaders.load_genres(x, sep=msep,\
                 parser_function=parsers_and_loaders.parseIMDBGenres,
-                    prefix="imdb_genres"))
+                    prefix="imdb_genres",
+                    drop_threshold=args.drop_rare_features))
         },
         {
             "name": "imdb_director",
             "src_rdd": (lambda: movies_rdd),
             "loader": (lambda x: parsers_and_loaders.load_genres(x, sep=msep,\
                 parser_function=parsers_and_loaders.parseIMDBDirector,
-                    prefix="imdb_director"))
+                    prefix="imdb_director",
+                    drop_threshold=args.drop_rare_features))
         },
         {
             "name": "imdb_producer",
             "src_rdd": (lambda: movies_rdd),
             "loader": (lambda x: parsers_and_loaders.load_genres(x, sep=msep,\
                 parser_function=parsers_and_loaders.parseIMDBProducer,
-                    prefix="imdb_producer"))
+                    prefix="imdb_producer",
+                    drop_threshold=args.drop_rare_features))
         },
         {
             "name": "tvtropes",
@@ -352,7 +358,7 @@ def main():
             ),
             "loader": (lambda x: parsers_and_loaders.load_genres(x, sep=",",\
                 parser_function=parsers_and_loaders.parseTropes,
-                    prefix="tvtropes"))
+                    prefix="tvtropes", drop_threshold=args.drop_rare_features))
         },
         {
             "name": "users",
