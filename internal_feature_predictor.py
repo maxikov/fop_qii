@@ -223,7 +223,8 @@ def train_regression_model(data, regression_model="regression_tree",
     return lr_model
 
 
-def build_meta_data_set(sc, sources, all_ids=None, logger=None):
+def build_meta_data_set(sc, sources, all_ids=None, logger=None,
+                        drop_threshold=None):
     """
     Load specified types of metadata for users or products, and turn them into
     an RDD of
@@ -299,6 +300,11 @@ def build_meta_data_set(sc, sources, all_ids=None, logger=None):
                 empty_records = sc.parallelize(empty_records)
                 cur_rdd = cur_rdd.union(empty_records).cache()
                 logger.debug("Done in {} seconds".format(time.time() - start))
+
+        if drop_threshold is not None:
+            cur_rdd, nof, cfi, fnames =\
+                    drop_rare_features(cur_rdd, nof, cfi, fnames,
+                                       drop_threshold, logger)
 
         shifted_cfi = {f+feature_offset: v for (f, v) in cfi.items()}
         shifted_fnames = {f+feature_offset: v for (f, v) in fnames.items()}

@@ -117,9 +117,12 @@ def metadata_predictor(sc, training, rank, numIter, lmbda,
 
     if need_new_model:
         cur_mtdt_srcs = filter(lambda x: x["name"] in args.metadata_sources, metadata_sources)
+        if args.drop_rare_features <= 0:
+            args.drop_rare_features = None
         if args.drop_missing_movies:
             indicators, nof, categorical_features, feature_names =\
-                internal_feature_predictor.build_meta_data_set(sc, cur_mtdt_srcs, None, logger)
+                internal_feature_predictor.build_meta_data_set(sc,
+                        cur_mtdt_srcs, None, logger, args.drop_rare_features)
             old_all_movies = all_movies
             all_movies = set(indicators.keys().collect())
             logger.debug("{} movies loaded, data for {} is missing, purging them"\
@@ -130,13 +133,9 @@ def metadata_predictor(sc, training, rank, numIter, lmbda,
         else:
             indicators, nof, categorical_features, feature_names =\
                 internal_feature_predictor.\
-                build_meta_data_set(sc, cur_mtdt_srcs, all_movies, logger)
+                build_meta_data_set(sc, cur_mtdt_srcs, all_movies, logger,
+                        args.drop_rare_features)
         logger.debug("%d features loaded", nof)
-        if args.drop_rare_features > 0:
-            indicators, nof, categorical_features, feature_names =\
-                internal_feature_predictor.drop_rare_features(indicators, nof, categorical_features,
-                               feature_names, args.drop_rare_features,
-                               logger)
         if args.drop_rare_movies > 0:
             logger.debug("Dropping movies with fewer than %d non-zero "+\
                     "features", args.drop_rare_movies)

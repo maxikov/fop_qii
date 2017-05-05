@@ -3,7 +3,7 @@
 iteration=0
 _start=$SECONDS
 iteration_start=$SECONDS
-until spark-submit --driver-memory 15g MovieLensALS.py --checkpoint-dir /home/maxikov/spark_dir --temp-dir /home/maxikov/spark_dir --spark-executor-memory 15g --local-threads "*" --lmbda 0.02 --num-iter 300 --non-negative --data-path datasets/ml-20m/ --movies-file datasets/ml-20m/ml-20m.imdb.medium.csv --tvtropes-file datasets/dbtropes/tropes.csv --num-partitions 7 --rank 12 --predict-metadata --metadata-sources years genres average_rating tvtropes imdb_keywords imdb_producer imdb_director tags --cross-validation 70 --regression-model linear --drop-rare-features 100 --drop-rare-movies 10 --persist-dir ~/all_linear.state > logs/metadata_regression_all_linear.txt
+until spark-submit --driver-memory 15g MovieLensALS.py --checkpoint-dir /home/maxikov/spark_dir --temp-dir /home/maxikov/spark_dir --spark-executor-memory 15g --local-threads "*" --lmbda 0.02 --num-iter 300 --non-negative --data-path datasets/ml-20m/ --movies-file datasets/ml-20m/ml-20m.imdb.medium.csv --tvtropes-file datasets/dbtropes/tropes.csv --num-partitions 7 --rank 12 --predict-metadata --metadata-sources years genres average_rating imdb_keywords imdb_producer imdb_director tags tvtropes --cross-validation 70 --regression-model linear --drop-rare-features 100 --drop-rare-movies 10 --persist-dir ~/all_linear.state > logs/metadata_regression_all_linear.txt
 do
     echo "Iteration $iteration of linear regression failed after $(($SECONDS - $_start)) ( $(($SECONDS - $iteration_start)) ) total, trying again"
     iteration_start=$SECONDS
