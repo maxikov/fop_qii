@@ -607,6 +607,16 @@ def load_metadata_process_training(cs, args, metadata_sources, training, logger)
                 internal_feature_predictor.drop_rare_features(indicators, nof, categorical_features,
                                feature_names, args.drop_rare_features,
                                logger)
+        if args.drop_rare_movies > 0:
+            logger.debug("Dropping movies with fewer than %d non-zero "+\
+                    "features", args.drop_rare_movies)
+            features, indicators = common_utils.drop_rare_movies(features,
+                                                                 indicators,
+                                                                 args.drop_rare_movies)
+            logger.debug("%d movies left", features.count())
+            training = training.filter(lambda x: x[1] in all_movies)
+            logger.debug("{} items left in the training set"\
+                .format(training.count()))
 
     if write_model:
         logger.debug("Writing %s", fname)
