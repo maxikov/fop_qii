@@ -13,6 +13,15 @@ from pyspark.mllib.evaluation import RegressionMetrics,\
 #numpy library
 import numpy as np
 
+def drop_rare_movies(features, indicators, nmovies):
+    joined = features\
+            .join(indicators)\
+            .filter(lambda (mid, (ftrs, inds)):
+                    sum(1 for x in inds if abs(x) > 0) >= nmovies)
+    features = joined.map(lambda (mid, (ftrs, inds)): (mid, ftrs))
+    indicators = joined.map(lambda (mid, (ftrs, inds)): (mid, inds))
+    return features, indicators
+
 def safe_zip(foo, bar):
     foo = foo\
             .zipWithIndex()\
@@ -78,9 +87,9 @@ def compute_regression_qii(lr_model, input_features, target_variable,
             sign = 1
         else:
             sign = signed_error/abs(signed_error)
-        cur_qii = cur_qii * sign
-        logger.debug("QII: %f", cur_qii)
-        res.append(cur_qii)
+        signed_cur_qii = cur_qii * sign
+        logger.debug("QII: {}, signed QII: {}".format(cur_qii, signed_cur_qii))
+        res.append(signed_cur_qii)
     return res
 
 def shift_drop_dict(src, ids_to_drop):

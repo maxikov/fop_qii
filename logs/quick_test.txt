@@ -1,662 +1,989 @@
-2017-05-04 10:40:54,532 - __main__ - DEBUG - rank: 3, lmbda: 0.2, num_iter: 2, num_partitions: 7
-2017-05-04 10:40:54,532 - __main__ - DEBUG - data_path: datasets/ml-1m/, checkpoint_dir: /home/maxikov/spark_dir
-2017-05-04 10:40:54,532 - __main__ - DEBUG - Temp dir: /home/maxikov/spark_dir
-2017-05-04 10:40:54,532 - __main__ - DEBUG - local_threads: *
-2017-05-04 10:40:54,533 - __main__ - DEBUG - spark_executor_memory: 5g
-2017-05-04 10:40:54,533 - __main__ - DEBUG - regression_model: linear
-2017-05-04 10:40:54,533 - __main__ - DEBUG - nbins: 32
-2017-05-04 10:40:54,533 - __main__ - DEBUG - regression_users: False
-2017-05-04 10:40:54,533 - __main__ - DEBUG - predict_product_features: False
-2017-05-04 10:40:54,533 - __main__ - DEBUG - metadata_sources: ['years', 'genres']
-2017-05-04 10:40:54,533 - __main__ - DEBUG - movies_file: datasets/ml-20m/ml-20m.imdb.medium.csv
-2017-05-04 10:40:54,533 - __main__ - DEBUG - cross_validation: 70
-2017-05-04 10:40:54,533 - __main__ - DEBUG - tvtropes_file: datasets/dbtropes/tropes.csv
-2017-05-04 10:40:54,533 - __main__ - DEBUG - features_trim_percentile: 0
-2017-05-04 10:40:54,533 - __main__ - DEBUG - drop_missing_movies: False
-2017-05-04 10:40:54,533 - __main__ - DEBUG - drop_rare_features: 0
-2017-05-04 10:40:54,533 - __main__ - DEBUG - filter_data_set: 10
-2017-05-04 10:40:54,533 - __main__ - DEBUG - persist_dir: /home/maxikov/quick_test.state, override_args: False
-2017-05-04 10:40:55,929 - __main__ - DEBUG - msep: ,
-2017-05-04 10:40:55,929 - __main__ - DEBUG - Loading ratings
-2017-05-04 10:40:56,532 - __main__ - DEBUG - Done in 0.602903 seconds
-2017-05-04 10:40:56,532 - __main__ - DEBUG - Loading movies
-2017-05-04 10:40:57,706 - __main__ - DEBUG - Done in 1.173844 seconds
-2017-05-04 10:40:57,706 - __main__ - DEBUG - 26804 movies loaded
-2017-05-04 10:41:01,314 - __main__ - DEBUG - 992075 records in the training set
-2017-05-04 10:41:01,755 - __main__ - DEBUG - 3619 unique movies in the training set
-2017-05-04 10:41:01,756 - __main__ - DEBUG - Loading /home/maxikov/quick_test.state/als_model.pkl
-2017-05-04 10:41:04,346 - __main__ - DEBUG - Loading /home/maxikov/quick_test.state/features_indicators.pkl
-2017-05-04 10:41:06,091 - __main__ - DEBUG - Storing in /home/maxikov/quick_test.state/results.pkl
-2017-05-04 10:41:06,094 - __main__ - DEBUG - Processing year (0 out of 21)
-2017-05-04 10:41:06,094 - __main__ - DEBUG - Already computed, skipping
-2017-05-04 10:41:06,094 - __main__ - DEBUG - Processing movielens_genre:(no genres listed) (1 out of 21)
-2017-05-04 10:41:06,094 - __main__ - DEBUG - Already computed, skipping
-2017-05-04 10:41:06,094 - __main__ - DEBUG - Processing movielens_genre:Action (2 out of 21)
-2017-05-04 10:41:06,094 - __main__ - DEBUG - Already computed, skipping
-2017-05-04 10:41:06,094 - __main__ - DEBUG - Processing movielens_genre:Adventure (3 out of 21)
-2017-05-04 10:41:06,094 - __main__ - DEBUG - Processing feature 3
-2017-05-04 10:41:06,094 - __main__ - DEBUG - Building data set
-2017-05-04 10:41:06,137 - __main__ - DEBUG - Done in 0.0427150726318 seconds
-2017-05-04 10:41:06,137 - __main__ - DEBUG - Training logistic
-2017-05-04 10:41:06,137 - __main__ - DEBUG - Actually training a classifier
-2017-05-04 10:41:09,247 - __main__ - DEBUG - Done in 3.10962200165 seconds
-2017-05-04 10:41:09,720 - __main__ - DEBUG - Model threshold 0.500000
-2017-05-04 10:41:09,720 - __main__ - DEBUG - Clearing
-2017-05-04 10:41:09,720 - __main__ - DEBUG - Making no-threshold predictions
-2017-05-04 10:41:09,926 - __main__ - DEBUG - Restoring threshold
-2017-05-04 10:41:09,926 - __main__ - DEBUG - Measuring model QII
-2017-05-04 10:41:09,932 - __main__ - DEBUG - 3 features detected
-2017-05-04 10:41:09,932 - __main__ - DEBUG - Processing feature 0
-2017-05-04 10:41:11,285 - __main__ - DEBUG - QII: 0.000000
-2017-05-04 10:41:11,285 - __main__ - DEBUG - Processing feature 1
-2017-05-04 10:41:12,215 - __main__ - DEBUG - QII: 0.000000
-2017-05-04 10:41:12,215 - __main__ - DEBUG - Processing feature 2
-2017-05-04 10:41:13,055 - __main__ - DEBUG - QII: 0.000000
-2017-05-04 10:41:13,055 - __main__ - DEBUG - Model weights: [0.086213268368598869, -0.57570634405203647, -4.3105824028165243]
-2017-05-04 10:41:13,055 - __main__ - DEBUG - Evaluating the model, no_threshold: False
-2017-05-04 10:41:13,955 - __main__ - DEBUG - {'recall': 0.0, 'precision': 0}
-2017-05-04 10:41:13,955 - __main__ - DEBUG - Evaluating the model, no_threshold: True
-2017-05-04 10:41:15,205 - __main__ - DEBUG - {'better': 1.0510257058225951, 'auprc': 0.15555861996761008, 'auroc': 0.648455063849041, 'prate': 0.11247040252565114}
-2017-05-04 10:41:15,205 - __main__ - DEBUG - Computing predictions on the test set
-2017-05-04 10:41:15,462 - __main__ - DEBUG - Evaluating the model, no_threshold: False
-2017-05-04 10:41:16,295 - __main__ - DEBUG - {'recall': 0.0, 'precision': 0}
-2017-05-04 10:41:16,295 - __main__ - DEBUG - Clearing threshold
-2017-05-04 10:41:16,295 - __main__ - DEBUG - Making no-threshold test predictions
-2017-05-04 10:41:16,455 - __main__ - DEBUG - Restoring threshold
-2017-05-04 10:41:16,456 - __main__ - DEBUG - Evaluating the model, no_threshold: True
-2017-05-04 10:41:17,268 - __main__ - DEBUG - {'better': 1.0443309461606782, 'auprc': 0.14570577277497923, 'auroc': 0.6251765910856818, 'prate': 0.10783410138248847}
-2017-05-04 10:41:17,268 - __main__ - DEBUG - Storing in /home/maxikov/quick_test.state/results.pkl
-2017-05-04 10:41:17,272 - __main__ - DEBUG - Processing movielens_genre:Animation (4 out of 21)
-2017-05-04 10:41:17,272 - __main__ - DEBUG - Processing feature 4
-2017-05-04 10:41:17,272 - __main__ - DEBUG - Building data set
-2017-05-04 10:41:17,291 - __main__ - DEBUG - Done in 0.018611907959 seconds
-2017-05-04 10:41:17,291 - __main__ - DEBUG - Training logistic
-2017-05-04 10:41:17,291 - __main__ - DEBUG - Actually training a classifier
-2017-05-04 10:41:18,452 - __main__ - DEBUG - Done in 1.16087985039 seconds
-2017-05-04 10:41:18,798 - __main__ - DEBUG - Model threshold 0.500000
-2017-05-04 10:41:18,798 - __main__ - DEBUG - Clearing
-2017-05-04 10:41:18,798 - __main__ - DEBUG - Making no-threshold predictions
-2017-05-04 10:41:18,969 - __main__ - DEBUG - Restoring threshold
-2017-05-04 10:41:18,969 - __main__ - DEBUG - Measuring model QII
-2017-05-04 10:41:18,975 - __main__ - DEBUG - 3 features detected
-2017-05-04 10:41:18,975 - __main__ - DEBUG - Processing feature 0
-2017-05-04 10:41:20,142 - __main__ - DEBUG - QII: 0.000000
-2017-05-04 10:41:20,143 - __main__ - DEBUG - Processing feature 1
-2017-05-04 10:41:20,960 - __main__ - DEBUG - QII: 0.000000
-2017-05-04 10:41:20,960 - __main__ - DEBUG - Processing feature 2
-2017-05-04 10:41:21,761 - __main__ - DEBUG - QII: 0.000000
-2017-05-04 10:41:21,761 - __main__ - DEBUG - Model weights: [-2.0708339963872651, -1.6791238323903379, -2.1015038462821889]
-2017-05-04 10:41:21,761 - __main__ - DEBUG - Evaluating the model, no_threshold: False
-2017-05-04 10:41:22,641 - __main__ - DEBUG - {'recall': 0.0, 'precision': 0}
-2017-05-04 10:41:22,641 - __main__ - DEBUG - Evaluating the model, no_threshold: True
-2017-05-04 10:41:23,546 - __main__ - DEBUG - {'better': 0.9975463118308923, 'auprc': 0.02681494871083677, 'auroc': 0.4909360580092287, 'prate': 0.02920284135753749}
-2017-05-04 10:41:23,546 - __main__ - DEBUG - Computing predictions on the test set
-2017-05-04 10:41:23,737 - __main__ - DEBUG - Evaluating the model, no_threshold: False
-2017-05-04 10:41:24,557 - __main__ - DEBUG - {'recall': 0.0, 'precision': 0}
-2017-05-04 10:41:24,558 - __main__ - DEBUG - Clearing threshold
-2017-05-04 10:41:24,558 - __main__ - DEBUG - Making no-threshold test predictions
-2017-05-04 10:41:24,722 - __main__ - DEBUG - Restoring threshold
-2017-05-04 10:41:24,722 - __main__ - DEBUG - Evaluating the model, no_threshold: True
-2017-05-04 10:41:25,540 - __main__ - DEBUG - {'better': 1.0016673661616482, 'auprc': 0.03110858431842268, 'auroc': 0.514066951566952, 'prate': 0.029493087557603687}
-2017-05-04 10:41:25,541 - __main__ - DEBUG - Storing in /home/maxikov/quick_test.state/results.pkl
-2017-05-04 10:41:25,544 - __main__ - DEBUG - Processing movielens_genre:Children (5 out of 21)
-2017-05-04 10:41:25,544 - __main__ - DEBUG - Processing feature 5
-2017-05-04 10:41:25,544 - __main__ - DEBUG - Building data set
-2017-05-04 10:41:25,572 - __main__ - DEBUG - Done in 0.0276529788971 seconds
-2017-05-04 10:41:25,572 - __main__ - DEBUG - Training logistic
-2017-05-04 10:41:25,572 - __main__ - DEBUG - Actually training a classifier
-2017-05-04 10:41:26,623 - __main__ - DEBUG - Done in 1.05167889595 seconds
-2017-05-04 10:41:26,956 - __main__ - DEBUG - Model threshold 0.500000
-2017-05-04 10:41:26,956 - __main__ - DEBUG - Clearing
-2017-05-04 10:41:26,956 - __main__ - DEBUG - Making no-threshold predictions
-2017-05-04 10:41:27,140 - __main__ - DEBUG - Restoring threshold
-2017-05-04 10:41:27,140 - __main__ - DEBUG - Measuring model QII
-2017-05-04 10:41:27,144 - __main__ - DEBUG - 3 features detected
-2017-05-04 10:41:27,144 - __main__ - DEBUG - Processing feature 0
-2017-05-04 10:41:28,346 - __main__ - DEBUG - QII: 0.000000
-2017-05-04 10:41:28,346 - __main__ - DEBUG - Processing feature 1
-2017-05-04 10:41:29,172 - __main__ - DEBUG - QII: 0.000000
-2017-05-04 10:41:29,172 - __main__ - DEBUG - Processing feature 2
-2017-05-04 10:41:30,028 - __main__ - DEBUG - QII: 0.000000
-2017-05-04 10:41:30,028 - __main__ - DEBUG - Model weights: [-0.86774875456927647, -1.0377558360756209, -3.3806970172896329]
-2017-05-04 10:41:30,028 - __main__ - DEBUG - Evaluating the model, no_threshold: False
-2017-05-04 10:41:30,947 - __main__ - DEBUG - {'recall': 0.0, 'precision': 0}
-2017-05-04 10:41:30,947 - __main__ - DEBUG - Evaluating the model, no_threshold: True
-2017-05-04 10:41:31,821 - __main__ - DEBUG - {'better': 1.0625213931042947, 'auprc': 0.12346813386068232, 'auroc': 0.6829510033119036, 'prate': 0.06866614048934491}
-2017-05-04 10:41:31,821 - __main__ - DEBUG - Computing predictions on the test set
-2017-05-04 10:41:31,985 - __main__ - DEBUG - Evaluating the model, no_threshold: False
-2017-05-04 10:41:32,794 - __main__ - DEBUG - {'recall': 0.0, 'precision': 0}
-2017-05-04 10:41:32,794 - __main__ - DEBUG - Clearing threshold
-2017-05-04 10:41:32,794 - __main__ - DEBUG - Making no-threshold test predictions
-2017-05-04 10:41:32,961 - __main__ - DEBUG - Restoring threshold
-2017-05-04 10:41:32,961 - __main__ - DEBUG - Evaluating the model, no_threshold: True
-2017-05-04 10:41:33,803 - __main__ - DEBUG - {'better': 1.087239931647933, 'auprc': 0.15907640285072278, 'auroc': 0.7012010058966346, 'prate': 0.08571428571428572}
-2017-05-04 10:41:33,804 - __main__ - DEBUG - Storing in /home/maxikov/quick_test.state/results.pkl
-2017-05-04 10:41:33,809 - __main__ - DEBUG - Processing movielens_genre:Comedy (6 out of 21)
-2017-05-04 10:41:33,809 - __main__ - DEBUG - Processing feature 6
-2017-05-04 10:41:33,809 - __main__ - DEBUG - Building data set
-2017-05-04 10:41:33,836 - __main__ - DEBUG - Done in 0.0270261764526 seconds
-2017-05-04 10:41:33,837 - __main__ - DEBUG - Training logistic
-2017-05-04 10:41:33,837 - __main__ - DEBUG - Actually training a classifier
-2017-05-04 10:41:35,046 - __main__ - DEBUG - Done in 1.20932888985 seconds
-2017-05-04 10:41:35,449 - __main__ - DEBUG - Model threshold 0.500000
-2017-05-04 10:41:35,449 - __main__ - DEBUG - Clearing
-2017-05-04 10:41:35,449 - __main__ - DEBUG - Making no-threshold predictions
-2017-05-04 10:41:35,647 - __main__ - DEBUG - Restoring threshold
-2017-05-04 10:41:35,647 - __main__ - DEBUG - Measuring model QII
-2017-05-04 10:41:35,652 - __main__ - DEBUG - 3 features detected
-2017-05-04 10:41:35,652 - __main__ - DEBUG - Processing feature 0
-2017-05-04 10:41:36,821 - __main__ - DEBUG - QII: 0.000000
-2017-05-04 10:41:36,821 - __main__ - DEBUG - Processing feature 1
-2017-05-04 10:41:37,663 - __main__ - DEBUG - QII: 0.000000
-2017-05-04 10:41:37,663 - __main__ - DEBUG - Processing feature 2
-2017-05-04 10:41:38,504 - __main__ - DEBUG - QII: 0.000000
-2017-05-04 10:41:38,504 - __main__ - DEBUG - Model weights: [-0.8100234041032327, -0.039230993567313903, -0.89244373262424759]
-2017-05-04 10:41:38,504 - __main__ - DEBUG - Evaluating the model, no_threshold: False
-2017-05-04 10:41:39,386 - __main__ - DEBUG - {'recall': 0.0, 'precision': 0}
-2017-05-04 10:41:39,386 - __main__ - DEBUG - Evaluating the model, no_threshold: True
-2017-05-04 10:41:40,286 - __main__ - DEBUG - {'better': 1.0573409199269854, 'auprc': 0.38566086730625554, 'auroc': 0.5795588267489845, 'prate': 0.35043409629044986}
-2017-05-04 10:41:40,287 - __main__ - DEBUG - Computing predictions on the test set
-2017-05-04 10:41:40,452 - __main__ - DEBUG - Evaluating the model, no_threshold: False
-2017-05-04 10:41:41,337 - __main__ - DEBUG - {'recall': 0.0, 'precision': 0}
-2017-05-04 10:41:41,337 - __main__ - DEBUG - Clearing threshold
-2017-05-04 10:41:41,337 - __main__ - DEBUG - Making no-threshold test predictions
-2017-05-04 10:41:41,493 - __main__ - DEBUG - Restoring threshold
-2017-05-04 10:41:41,494 - __main__ - DEBUG - Evaluating the model, no_threshold: True
-2017-05-04 10:41:42,311 - __main__ - DEBUG - {'better': 1.0754306313473683, 'auprc': 0.3880920842801669, 'auroc': 0.574248567351469, 'prate': 0.3419354838709677}
-2017-05-04 10:41:42,311 - __main__ - DEBUG - Storing in /home/maxikov/quick_test.state/results.pkl
-2017-05-04 10:41:42,316 - __main__ - DEBUG - Processing movielens_genre:Crime (7 out of 21)
-2017-05-04 10:41:42,316 - __main__ - DEBUG - Processing feature 7
-2017-05-04 10:41:42,316 - __main__ - DEBUG - Building data set
-2017-05-04 10:41:42,340 - __main__ - DEBUG - Done in 0.0242309570312 seconds
-2017-05-04 10:41:42,341 - __main__ - DEBUG - Training logistic
-2017-05-04 10:41:42,341 - __main__ - DEBUG - Actually training a classifier
-2017-05-04 10:41:43,447 - __main__ - DEBUG - Done in 1.10635685921 seconds
-2017-05-04 10:41:43,784 - __main__ - DEBUG - Model threshold 0.500000
-2017-05-04 10:41:43,784 - __main__ - DEBUG - Clearing
-2017-05-04 10:41:43,785 - __main__ - DEBUG - Making no-threshold predictions
-2017-05-04 10:41:43,957 - __main__ - DEBUG - Restoring threshold
-2017-05-04 10:41:43,957 - __main__ - DEBUG - Measuring model QII
-2017-05-04 10:41:43,961 - __main__ - DEBUG - 3 features detected
-2017-05-04 10:41:43,961 - __main__ - DEBUG - Processing feature 0
-2017-05-04 10:41:45,081 - __main__ - DEBUG - QII: 0.000000
-2017-05-04 10:41:45,081 - __main__ - DEBUG - Processing feature 1
-2017-05-04 10:41:45,891 - __main__ - DEBUG - QII: 0.000000
-2017-05-04 10:41:45,891 - __main__ - DEBUG - Processing feature 2
-2017-05-04 10:41:46,692 - __main__ - DEBUG - QII: 0.000000
-2017-05-04 10:41:46,693 - __main__ - DEBUG - Model weights: [-1.6688947584140139, -0.78604303368306927, -1.8921734123295149]
-2017-05-04 10:41:46,693 - __main__ - DEBUG - Evaluating the model, no_threshold: False
-2017-05-04 10:41:47,595 - __main__ - DEBUG - {'recall': 0.0, 'precision': 0}
-2017-05-04 10:41:47,595 - __main__ - DEBUG - Evaluating the model, no_threshold: True
-2017-05-04 10:41:48,504 - __main__ - DEBUG - {'better': 0.9901363008799133, 'auprc': 0.08609203774451628, 'auroc': 0.48423127939444055, 'prate': 0.09510655090765588}
-2017-05-04 10:41:48,504 - __main__ - DEBUG - Computing predictions on the test set
-2017-05-04 10:41:48,667 - __main__ - DEBUG - Evaluating the model, no_threshold: False
-2017-05-04 10:41:49,479 - __main__ - DEBUG - {'recall': 0.0, 'precision': 0}
-2017-05-04 10:41:49,479 - __main__ - DEBUG - Clearing threshold
-2017-05-04 10:41:49,479 - __main__ - DEBUG - Making no-threshold test predictions
-2017-05-04 10:41:49,642 - __main__ - DEBUG - Restoring threshold
-2017-05-04 10:41:49,642 - __main__ - DEBUG - Evaluating the model, no_threshold: True
-2017-05-04 10:41:50,433 - __main__ - DEBUG - {'better': 0.9982360288066127, 'auprc': 0.10718085311264967, 'auroc': 0.4811753983138486, 'prate': 0.10875576036866359}
-2017-05-04 10:41:50,433 - __main__ - DEBUG - Storing in /home/maxikov/quick_test.state/results.pkl
-2017-05-04 10:41:50,437 - __main__ - DEBUG - Processing movielens_genre:Documentary (8 out of 21)
-2017-05-04 10:41:50,437 - __main__ - DEBUG - Processing feature 8
-2017-05-04 10:41:50,437 - __main__ - DEBUG - Building data set
-2017-05-04 10:41:50,463 - __main__ - DEBUG - Done in 0.0257070064545 seconds
-2017-05-04 10:41:50,463 - __main__ - DEBUG - Training logistic
-2017-05-04 10:41:50,463 - __main__ - DEBUG - Actually training a classifier
-2017-05-04 10:41:51,457 - __main__ - DEBUG - Done in 0.993903875351 seconds
-2017-05-04 10:41:51,801 - __main__ - DEBUG - Model threshold 0.500000
-2017-05-04 10:41:51,801 - __main__ - DEBUG - Clearing
-2017-05-04 10:41:51,801 - __main__ - DEBUG - Making no-threshold predictions
-2017-05-04 10:41:51,972 - __main__ - DEBUG - Restoring threshold
-2017-05-04 10:41:51,972 - __main__ - DEBUG - Measuring model QII
-2017-05-04 10:41:51,976 - __main__ - DEBUG - 3 features detected
-2017-05-04 10:41:51,976 - __main__ - DEBUG - Processing feature 0
-2017-05-04 10:41:53,157 - __main__ - DEBUG - QII: 0.000000
-2017-05-04 10:41:53,157 - __main__ - DEBUG - Processing feature 1
-2017-05-04 10:41:53,941 - __main__ - DEBUG - QII: 0.000000
-2017-05-04 10:41:53,942 - __main__ - DEBUG - Processing feature 2
-2017-05-04 10:41:54,729 - __main__ - DEBUG - QII: 0.000000
-2017-05-04 10:41:54,730 - __main__ - DEBUG - Model weights: [-3.7208509969134207, -1.2084251991234873, -2.2244532675819446]
-2017-05-04 10:41:54,730 - __main__ - DEBUG - Evaluating the model, no_threshold: False
-2017-05-04 10:41:55,598 - __main__ - DEBUG - {'recall': 0.0, 'precision': 0}
-2017-05-04 10:41:55,599 - __main__ - DEBUG - Evaluating the model, no_threshold: True
-2017-05-04 10:41:56,446 - __main__ - DEBUG - {'better': 0.997284520192949, 'auprc': 0.02497665318257928, 'auroc': 0.44066268552875726, 'prate': 0.027624309392265192}
-2017-05-04 10:41:56,446 - __main__ - DEBUG - Computing predictions on the test set
-2017-05-04 10:41:56,640 - __main__ - DEBUG - Evaluating the model, no_threshold: False
-2017-05-04 10:41:57,439 - __main__ - DEBUG - {'recall': 0.0, 'precision': 0}
-2017-05-04 10:41:57,439 - __main__ - DEBUG - Clearing threshold
-2017-05-04 10:41:57,440 - __main__ - DEBUG - Making no-threshold test predictions
-2017-05-04 10:41:57,647 - __main__ - DEBUG - Restoring threshold
-2017-05-04 10:41:57,647 - __main__ - DEBUG - Evaluating the model, no_threshold: True
-2017-05-04 10:41:58,475 - __main__ - DEBUG - {'better': 0.9926077252831039, 'auprc': 0.020408359065087527, 'auroc': 0.37823064770932036, 'prate': 0.027649769585253458}
-2017-05-04 10:41:58,476 - __main__ - DEBUG - Storing in /home/maxikov/quick_test.state/results.pkl
-2017-05-04 10:41:58,480 - __main__ - DEBUG - Processing movielens_genre:Drama (9 out of 21)
-2017-05-04 10:41:58,480 - __main__ - DEBUG - Processing feature 9
-2017-05-04 10:41:58,480 - __main__ - DEBUG - Building data set
-2017-05-04 10:41:58,504 - __main__ - DEBUG - Done in 0.0244998931885 seconds
-2017-05-04 10:41:58,505 - __main__ - DEBUG - Training logistic
-2017-05-04 10:41:58,505 - __main__ - DEBUG - Actually training a classifier
-2017-05-04 10:41:59,406 - __main__ - DEBUG - Done in 0.901844978333 seconds
-2017-05-04 10:41:59,743 - __main__ - DEBUG - Model threshold 0.500000
-2017-05-04 10:41:59,743 - __main__ - DEBUG - Clearing
-2017-05-04 10:41:59,743 - __main__ - DEBUG - Making no-threshold predictions
-2017-05-04 10:41:59,924 - __main__ - DEBUG - Restoring threshold
-2017-05-04 10:41:59,924 - __main__ - DEBUG - Measuring model QII
-2017-05-04 10:41:59,928 - __main__ - DEBUG - 3 features detected
-2017-05-04 10:41:59,928 - __main__ - DEBUG - Processing feature 0
-2017-05-04 10:42:01,057 - __main__ - DEBUG - QII: 0.493291
-2017-05-04 10:42:01,057 - __main__ - DEBUG - Processing feature 1
-2017-05-04 10:42:01,853 - __main__ - DEBUG - QII: 0.500789
-2017-05-04 10:42:01,854 - __main__ - DEBUG - Processing feature 2
-2017-05-04 10:42:02,726 - __main__ - DEBUG - QII: 0.499211
-2017-05-04 10:42:02,726 - __main__ - DEBUG - Model weights: [-3.0772557818334088, 0.6089977662995848, 0.8497735665518974]
-2017-05-04 10:42:02,726 - __main__ - DEBUG - Evaluating the model, no_threshold: False
-2017-05-04 10:42:03,635 - __main__ - DEBUG - {'recall': 0.6036636136552873, 'precision': 0.5908720456397718}
-2017-05-04 10:42:03,635 - __main__ - DEBUG - Evaluating the model, no_threshold: True
-2017-05-04 10:42:04,473 - __main__ - DEBUG - {'better': 1.2611733350586947, 'auprc': 0.582891770065444, 'auroc': 0.6421155663603664, 'prate': 0.4739542225730071}
-2017-05-04 10:42:04,473 - __main__ - DEBUG - Computing predictions on the test set
-2017-05-04 10:42:04,621 - __main__ - DEBUG - Evaluating the model, no_threshold: False
-2017-05-04 10:42:05,463 - __main__ - DEBUG - {'recall': 0.5887850467289719, 'precision': 0.5943396226415094}
-2017-05-04 10:42:05,463 - __main__ - DEBUG - Clearing threshold
-2017-05-04 10:42:05,463 - __main__ - DEBUG - Making no-threshold test predictions
-2017-05-04 10:42:05,665 - __main__ - DEBUG - Restoring threshold
-2017-05-04 10:42:05,665 - __main__ - DEBUG - Evaluating the model, no_threshold: True
-2017-05-04 10:42:06,411 - __main__ - DEBUG - {'better': 1.2402120371626626, 'auprc': 0.5912695352030128, 'auroc': 0.6249753610875106, 'prate': 0.4930875576036866}
-2017-05-04 10:42:06,411 - __main__ - DEBUG - Storing in /home/maxikov/quick_test.state/results.pkl
-2017-05-04 10:42:06,416 - __main__ - DEBUG - Processing movielens_genre:Fantasy (10 out of 21)
-2017-05-04 10:42:06,416 - __main__ - DEBUG - Processing feature 10
-2017-05-04 10:42:06,416 - __main__ - DEBUG - Building data set
-2017-05-04 10:42:06,434 - __main__ - DEBUG - Done in 0.0182881355286 seconds
-2017-05-04 10:42:06,434 - __main__ - DEBUG - Training logistic
-2017-05-04 10:42:06,434 - __main__ - DEBUG - Actually training a classifier
-2017-05-04 10:42:07,428 - __main__ - DEBUG - Done in 0.993921995163 seconds
-2017-05-04 10:42:07,754 - __main__ - DEBUG - Model threshold 0.500000
-2017-05-04 10:42:07,755 - __main__ - DEBUG - Clearing
-2017-05-04 10:42:07,755 - __main__ - DEBUG - Making no-threshold predictions
-2017-05-04 10:42:07,924 - __main__ - DEBUG - Restoring threshold
-2017-05-04 10:42:07,924 - __main__ - DEBUG - Measuring model QII
-2017-05-04 10:42:07,928 - __main__ - DEBUG - 3 features detected
-2017-05-04 10:42:07,929 - __main__ - DEBUG - Processing feature 0
-2017-05-04 10:42:09,031 - __main__ - DEBUG - QII: 0.000000
-2017-05-04 10:42:09,031 - __main__ - DEBUG - Processing feature 1
-2017-05-04 10:42:09,818 - __main__ - DEBUG - QII: 0.000000
-2017-05-04 10:42:09,818 - __main__ - DEBUG - Processing feature 2
-2017-05-04 10:42:10,647 - __main__ - DEBUG - QII: 0.000000
-2017-05-04 10:42:10,647 - __main__ - DEBUG - Model weights: [-0.80160077367312188, -1.6803967186704978, -1.7083819944724425]
-2017-05-04 10:42:10,647 - __main__ - DEBUG - Evaluating the model, no_threshold: False
-2017-05-04 10:42:11,556 - __main__ - DEBUG - {'recall': 0.0, 'precision': 0}
-2017-05-04 10:42:11,556 - __main__ - DEBUG - Evaluating the model, no_threshold: True
-2017-05-04 10:42:12,441 - __main__ - DEBUG - {'better': 1.0038296532368518, 'auprc': 0.05374222903287572, 'auroc': 0.5166100186791149, 'prate': 0.05011838989739542}
-2017-05-04 10:42:12,441 - __main__ - DEBUG - Computing predictions on the test set
-2017-05-04 10:42:12,627 - __main__ - DEBUG - Evaluating the model, no_threshold: False
-2017-05-04 10:42:13,408 - __main__ - DEBUG - {'recall': 0.0, 'precision': 0}
-2017-05-04 10:42:13,408 - __main__ - DEBUG - Clearing threshold
-2017-05-04 10:42:13,408 - __main__ - DEBUG - Making no-threshold test predictions
-2017-05-04 10:42:13,579 - __main__ - DEBUG - Restoring threshold
-2017-05-04 10:42:13,579 - __main__ - DEBUG - Evaluating the model, no_threshold: True
-2017-05-04 10:42:14,326 - __main__ - DEBUG - {'better': 1.0230660272918133, 'auprc': 0.08560753068490842, 'auroc': 0.604883884588318, 'prate': 0.06451612903225806}
-2017-05-04 10:42:14,326 - __main__ - DEBUG - Storing in /home/maxikov/quick_test.state/results.pkl
-2017-05-04 10:42:14,330 - __main__ - DEBUG - Processing movielens_genre:Film-Noir (11 out of 21)
-2017-05-04 10:42:14,330 - __main__ - DEBUG - Processing feature 11
-2017-05-04 10:42:14,330 - __main__ - DEBUG - Building data set
-2017-05-04 10:42:14,353 - __main__ - DEBUG - Done in 0.0223078727722 seconds
-2017-05-04 10:42:14,353 - __main__ - DEBUG - Training logistic
-2017-05-04 10:42:14,353 - __main__ - DEBUG - Actually training a classifier
-2017-05-04 10:42:15,288 - __main__ - DEBUG - Done in 0.935510158539 seconds
-2017-05-04 10:42:15,630 - __main__ - DEBUG - Model threshold 0.500000
-2017-05-04 10:42:15,630 - __main__ - DEBUG - Clearing
-2017-05-04 10:42:15,630 - __main__ - DEBUG - Making no-threshold predictions
-2017-05-04 10:42:15,799 - __main__ - DEBUG - Restoring threshold
-2017-05-04 10:42:15,799 - __main__ - DEBUG - Measuring model QII
-2017-05-04 10:42:15,804 - __main__ - DEBUG - 3 features detected
-2017-05-04 10:42:15,804 - __main__ - DEBUG - Processing feature 0
-2017-05-04 10:42:16,950 - __main__ - DEBUG - QII: 0.000000
-2017-05-04 10:42:16,950 - __main__ - DEBUG - Processing feature 1
-2017-05-04 10:42:17,749 - __main__ - DEBUG - QII: 0.000000
-2017-05-04 10:42:17,749 - __main__ - DEBUG - Processing feature 2
-2017-05-04 10:42:18,534 - __main__ - DEBUG - QII: 0.000000
-2017-05-04 10:42:18,534 - __main__ - DEBUG - Model weights: [-2.3488854155447516, -2.262185715711921, -1.7112134511469679]
-2017-05-04 10:42:18,535 - __main__ - DEBUG - Evaluating the model, no_threshold: False
-2017-05-04 10:42:19,392 - __main__ - DEBUG - {'recall': 0.0, 'precision': 0}
-2017-05-04 10:42:19,392 - __main__ - DEBUG - Evaluating the model, no_threshold: True
-2017-05-04 10:42:20,208 - __main__ - DEBUG - {'better': 0.994587146914328, 'auprc': 0.008841793933353758, 'auroc': 0.2770327373009514, 'prate': 0.014206787687450671}
-2017-05-04 10:42:20,208 - __main__ - DEBUG - Computing predictions on the test set
-2017-05-04 10:42:20,356 - __main__ - DEBUG - Evaluating the model, no_threshold: False
-2017-05-04 10:42:21,139 - __main__ - DEBUG - {'recall': 0.0, 'precision': 0}
-2017-05-04 10:42:21,139 - __main__ - DEBUG - Clearing threshold
-2017-05-04 10:42:21,139 - __main__ - DEBUG - Making no-threshold test predictions
-2017-05-04 10:42:21,291 - __main__ - DEBUG - Restoring threshold
-2017-05-04 10:42:21,291 - __main__ - DEBUG - Evaluating the model, no_threshold: True
-2017-05-04 10:42:22,059 - __main__ - DEBUG - {'better': 0.9948092560173228, 'auprc': 0.006826256185820156, 'auroc': 0.18864810562571757, 'prate': 0.011981566820276499}
-2017-05-04 10:42:22,059 - __main__ - DEBUG - Storing in /home/maxikov/quick_test.state/results.pkl
-2017-05-04 10:42:22,064 - __main__ - DEBUG - Processing movielens_genre:Horror (12 out of 21)
-2017-05-04 10:42:22,064 - __main__ - DEBUG - Processing feature 12
-2017-05-04 10:42:22,064 - __main__ - DEBUG - Building data set
-2017-05-04 10:42:22,089 - __main__ - DEBUG - Done in 0.0241320133209 seconds
-2017-05-04 10:42:22,089 - __main__ - DEBUG - Training logistic
-2017-05-04 10:42:22,089 - __main__ - DEBUG - Actually training a classifier
-2017-05-04 10:42:22,921 - __main__ - DEBUG - Done in 0.832109928131 seconds
-2017-05-04 10:42:23,246 - __main__ - DEBUG - Model threshold 0.500000
-2017-05-04 10:42:23,246 - __main__ - DEBUG - Clearing
-2017-05-04 10:42:23,246 - __main__ - DEBUG - Making no-threshold predictions
-2017-05-04 10:42:23,418 - __main__ - DEBUG - Restoring threshold
-2017-05-04 10:42:23,419 - __main__ - DEBUG - Measuring model QII
-2017-05-04 10:42:23,422 - __main__ - DEBUG - 3 features detected
-2017-05-04 10:42:23,423 - __main__ - DEBUG - Processing feature 0
-2017-05-04 10:42:24,559 - __main__ - DEBUG - QII: -0.070639
-2017-05-04 10:42:24,559 - __main__ - DEBUG - Processing feature 1
-2017-05-04 10:42:25,395 - __main__ - DEBUG - QII: -0.070639
-2017-05-04 10:42:25,395 - __main__ - DEBUG - Processing feature 2
-2017-05-04 10:42:26,190 - __main__ - DEBUG - QII: -0.073007
-2017-05-04 10:42:26,191 - __main__ - DEBUG - Model weights: [4.2557272557028298, -4.0949790146214102, 2.7019487941068787]
-2017-05-04 10:42:26,191 - __main__ - DEBUG - Evaluating the model, no_threshold: False
-2017-05-04 10:42:27,111 - __main__ - DEBUG - {'recall': 0.2462686567164179, 'precision': 0.6346153846153846}
-2017-05-04 10:42:27,111 - __main__ - DEBUG - Evaluating the model, no_threshold: True
-2017-05-04 10:42:27,948 - __main__ - DEBUG - {'better': 1.5953745523292233, 'auprc': 0.43948061787673537, 'auroc': 0.8380801201406909, 'prate': 0.10576164167324388}
-2017-05-04 10:42:27,949 - __main__ - DEBUG - Computing predictions on the test set
-2017-05-04 10:42:28,103 - __main__ - DEBUG - Evaluating the model, no_threshold: False
-2017-05-04 10:42:28,869 - __main__ - DEBUG - {'recall': 0.2840909090909091, 'precision': 0.5681818181818182}
-2017-05-04 10:42:28,869 - __main__ - DEBUG - Clearing threshold
-2017-05-04 10:42:28,869 - __main__ - DEBUG - Making no-threshold test predictions
-2017-05-04 10:42:29,027 - __main__ - DEBUG - Restoring threshold
-2017-05-04 10:42:29,027 - __main__ - DEBUG - Evaluating the model, no_threshold: True
-2017-05-04 10:42:29,787 - __main__ - DEBUG - {'better': 1.5071854290178375, 'auprc': 0.3903245138089012, 'auroc': 0.8382989878727092, 'prate': 0.08110599078341015}
-2017-05-04 10:42:29,787 - __main__ - DEBUG - Storing in /home/maxikov/quick_test.state/results.pkl
-2017-05-04 10:42:29,792 - __main__ - DEBUG - Processing movielens_genre:IMAX (13 out of 21)
-2017-05-04 10:42:29,792 - __main__ - DEBUG - Processing feature 13
-2017-05-04 10:42:29,792 - __main__ - DEBUG - Building data set
-2017-05-04 10:42:29,814 - __main__ - DEBUG - Done in 0.0223832130432 seconds
-2017-05-04 10:42:29,815 - __main__ - DEBUG - Training logistic
-2017-05-04 10:42:29,815 - __main__ - DEBUG - Actually training a classifier
-2017-05-04 10:42:30,719 - __main__ - DEBUG - Done in 0.903997898102 seconds
-2017-05-04 10:42:31,104 - __main__ - DEBUG - Model threshold 0.500000
-2017-05-04 10:42:31,104 - __main__ - DEBUG - Clearing
-2017-05-04 10:42:31,104 - __main__ - DEBUG - Making no-threshold predictions
-2017-05-04 10:42:31,273 - __main__ - DEBUG - Restoring threshold
-2017-05-04 10:42:31,273 - __main__ - DEBUG - Measuring model QII
-2017-05-04 10:42:31,277 - __main__ - DEBUG - 3 features detected
-2017-05-04 10:42:31,277 - __main__ - DEBUG - Processing feature 0
-2017-05-04 10:42:32,414 - __main__ - DEBUG - QII: 0.000000
-2017-05-04 10:42:32,414 - __main__ - DEBUG - Processing feature 1
-2017-05-04 10:42:33,233 - __main__ - DEBUG - QII: 0.000000
-2017-05-04 10:42:33,234 - __main__ - DEBUG - Processing feature 2
-2017-05-04 10:42:34,049 - __main__ - DEBUG - QII: 0.000000
-2017-05-04 10:42:34,049 - __main__ - DEBUG - Model weights: [-1.9346979720250785, -2.0917959388536507, -12.984034267030266]
-2017-05-04 10:42:34,049 - __main__ - DEBUG - Evaluating the model, no_threshold: False
-2017-05-04 10:42:34,940 - __main__ - DEBUG - {'recall': 0.0, 'precision': 0}
-2017-05-04 10:42:34,941 - __main__ - DEBUG - Evaluating the model, no_threshold: True
-2017-05-04 10:42:35,840 - __main__ - DEBUG - {'better': 1.0054457386561064, 'auprc': 0.0073787210263709406, 'auroc': 0.716093317516805, 'prate': 0.001973164956590371}
-2017-05-04 10:42:35,840 - __main__ - DEBUG - Computing predictions on the test set
-2017-05-04 10:42:36,005 - __main__ - DEBUG - Evaluating the model, no_threshold: False
-2017-05-04 10:42:36,826 - __main__ - DEBUG - {'recall': 0.0, 'precision': 0}
-2017-05-04 10:42:36,826 - __main__ - DEBUG - Clearing threshold
-2017-05-04 10:42:36,826 - __main__ - DEBUG - Making no-threshold test predictions
-2017-05-04 10:42:36,996 - __main__ - DEBUG - Restoring threshold
-2017-05-04 10:42:36,996 - __main__ - DEBUG - Evaluating the model, no_threshold: True
-2017-05-04 10:42:37,763 - __main__ - DEBUG - {'better': 0.9998150023664404, 'auprc': 0.0016586271808940872, 'auroc': 0.47645429362880887, 'prate': 0.0018433179723502304}
-2017-05-04 10:42:37,763 - __main__ - DEBUG - Storing in /home/maxikov/quick_test.state/results.pkl
-2017-05-04 10:42:37,768 - __main__ - DEBUG - Processing movielens_genre:Musical (14 out of 21)
-2017-05-04 10:42:37,768 - __main__ - DEBUG - Processing feature 14
-2017-05-04 10:42:37,768 - __main__ - DEBUG - Building data set
-2017-05-04 10:42:37,794 - __main__ - DEBUG - Done in 0.0259790420532 seconds
-2017-05-04 10:42:37,794 - __main__ - DEBUG - Training logistic
-2017-05-04 10:42:37,794 - __main__ - DEBUG - Actually training a classifier
-2017-05-04 10:42:38,594 - __main__ - DEBUG - Done in 0.799804925919 seconds
-2017-05-04 10:42:38,929 - __main__ - DEBUG - Model threshold 0.500000
-2017-05-04 10:42:38,929 - __main__ - DEBUG - Clearing
-2017-05-04 10:42:38,929 - __main__ - DEBUG - Making no-threshold predictions
-2017-05-04 10:42:39,095 - __main__ - DEBUG - Restoring threshold
-2017-05-04 10:42:39,095 - __main__ - DEBUG - Measuring model QII
-2017-05-04 10:42:39,098 - __main__ - DEBUG - 3 features detected
-2017-05-04 10:42:39,098 - __main__ - DEBUG - Processing feature 0
-2017-05-04 10:42:40,192 - __main__ - DEBUG - QII: 0.000000
-2017-05-04 10:42:40,193 - __main__ - DEBUG - Processing feature 1
-2017-05-04 10:42:40,957 - __main__ - DEBUG - QII: 0.000000
-2017-05-04 10:42:40,957 - __main__ - DEBUG - Processing feature 2
-2017-05-04 10:42:41,761 - __main__ - DEBUG - QII: 0.000000
-2017-05-04 10:42:41,761 - __main__ - DEBUG - Model weights: [-2.867711281611657, -1.2037275951923816, -1.8990301575578785]
-2017-05-04 10:42:41,761 - __main__ - DEBUG - Evaluating the model, no_threshold: False
-2017-05-04 10:42:42,664 - __main__ - DEBUG - {'recall': 0.0, 'precision': 0}
-2017-05-04 10:42:42,664 - __main__ - DEBUG - Evaluating the model, no_threshold: True
-2017-05-04 10:42:43,503 - __main__ - DEBUG - {'better': 0.9994948801321988, 'auprc': 0.041741694762572945, 'auroc': 0.5237091289966092, 'prate': 0.04222573007103394}
-2017-05-04 10:42:43,503 - __main__ - DEBUG - Computing predictions on the test set
-2017-05-04 10:42:43,654 - __main__ - DEBUG - Evaluating the model, no_threshold: False
-2017-05-04 10:42:44,463 - __main__ - DEBUG - {'recall': 0.0, 'precision': 0}
-2017-05-04 10:42:44,463 - __main__ - DEBUG - Clearing threshold
-2017-05-04 10:42:44,463 - __main__ - DEBUG - Making no-threshold test predictions
-2017-05-04 10:42:44,627 - __main__ - DEBUG - Restoring threshold
-2017-05-04 10:42:44,627 - __main__ - DEBUG - Evaluating the model, no_threshold: True
-2017-05-04 10:42:45,394 - __main__ - DEBUG - {'better': 0.9985482907318595, 'auprc': 0.02808214540020989, 'auroc': 0.46634615384615374, 'prate': 0.029493087557603687}
-2017-05-04 10:42:45,394 - __main__ - DEBUG - Storing in /home/maxikov/quick_test.state/results.pkl
-2017-05-04 10:42:45,399 - __main__ - DEBUG - Processing movielens_genre:Mystery (15 out of 21)
-2017-05-04 10:42:45,399 - __main__ - DEBUG - Processing feature 15
-2017-05-04 10:42:45,399 - __main__ - DEBUG - Building data set
-2017-05-04 10:42:45,421 - __main__ - DEBUG - Done in 0.0219688415527 seconds
-2017-05-04 10:42:45,421 - __main__ - DEBUG - Training logistic
-2017-05-04 10:42:45,422 - __main__ - DEBUG - Actually training a classifier
-2017-05-04 10:42:46,367 - __main__ - DEBUG - Done in 0.945502996445 seconds
-2017-05-04 10:42:46,722 - __main__ - DEBUG - Model threshold 0.500000
-2017-05-04 10:42:46,722 - __main__ - DEBUG - Clearing
-2017-05-04 10:42:46,722 - __main__ - DEBUG - Making no-threshold predictions
-2017-05-04 10:42:46,891 - __main__ - DEBUG - Restoring threshold
-2017-05-04 10:42:46,891 - __main__ - DEBUG - Measuring model QII
-2017-05-04 10:42:46,895 - __main__ - DEBUG - 3 features detected
-2017-05-04 10:42:46,896 - __main__ - DEBUG - Processing feature 0
-2017-05-04 10:42:48,027 - __main__ - DEBUG - QII: 0.000000
-2017-05-04 10:42:48,027 - __main__ - DEBUG - Processing feature 1
-2017-05-04 10:42:48,834 - __main__ - DEBUG - QII: 0.000000
-2017-05-04 10:42:48,834 - __main__ - DEBUG - Processing feature 2
-2017-05-04 10:42:49,613 - __main__ - DEBUG - QII: 0.000000
-2017-05-04 10:42:49,614 - __main__ - DEBUG - Model weights: [-1.7324798131404333, -1.4523013231963626, -1.3005299682113116]
-2017-05-04 10:42:49,614 - __main__ - DEBUG - Evaluating the model, no_threshold: False
-2017-05-04 10:42:50,482 - __main__ - DEBUG - {'recall': 0.0, 'precision': 0}
-2017-05-04 10:42:50,482 - __main__ - DEBUG - Evaluating the model, no_threshold: True
-2017-05-04 10:42:51,327 - __main__ - DEBUG - {'better': 0.9881277037962329, 'auprc': 0.03990374170878791, 'auroc': 0.40542365288621507, 'prate': 0.05130228887134965}
-2017-05-04 10:42:51,327 - __main__ - DEBUG - Computing predictions on the test set
-2017-05-04 10:42:51,519 - __main__ - DEBUG - Evaluating the model, no_threshold: False
-2017-05-04 10:42:52,341 - __main__ - DEBUG - {'recall': 0.0, 'precision': 0}
-2017-05-04 10:42:52,341 - __main__ - DEBUG - Clearing threshold
-2017-05-04 10:42:52,341 - __main__ - DEBUG - Making no-threshold test predictions
-2017-05-04 10:42:52,506 - __main__ - DEBUG - Restoring threshold
-2017-05-04 10:42:52,507 - __main__ - DEBUG - Evaluating the model, no_threshold: True
-2017-05-04 10:42:53,260 - __main__ - DEBUG - {'better': 0.9922396456039153, 'auprc': 0.038622317786290876, 'auroc': 0.4258743961352658, 'prate': 0.04608294930875576}
-2017-05-04 10:42:53,260 - __main__ - DEBUG - Storing in /home/maxikov/quick_test.state/results.pkl
-2017-05-04 10:42:53,265 - __main__ - DEBUG - Processing movielens_genre:Romance (16 out of 21)
-2017-05-04 10:42:53,265 - __main__ - DEBUG - Processing feature 16
-2017-05-04 10:42:53,266 - __main__ - DEBUG - Building data set
-2017-05-04 10:42:53,289 - __main__ - DEBUG - Done in 0.0234079360962 seconds
-2017-05-04 10:42:53,289 - __main__ - DEBUG - Training logistic
-2017-05-04 10:42:53,289 - __main__ - DEBUG - Actually training a classifier
-2017-05-04 10:42:54,219 - __main__ - DEBUG - Done in 0.930164813995 seconds
-2017-05-04 10:42:54,540 - __main__ - DEBUG - Model threshold 0.500000
-2017-05-04 10:42:54,540 - __main__ - DEBUG - Clearing
-2017-05-04 10:42:54,540 - __main__ - DEBUG - Making no-threshold predictions
-2017-05-04 10:42:54,712 - __main__ - DEBUG - Restoring threshold
-2017-05-04 10:42:54,712 - __main__ - DEBUG - Measuring model QII
-2017-05-04 10:42:54,716 - __main__ - DEBUG - 3 features detected
-2017-05-04 10:42:54,716 - __main__ - DEBUG - Processing feature 0
-2017-05-04 10:42:55,847 - __main__ - DEBUG - QII: 0.000000
-2017-05-04 10:42:55,847 - __main__ - DEBUG - Processing feature 1
-2017-05-04 10:42:56,651 - __main__ - DEBUG - QII: 0.000000
-2017-05-04 10:42:56,651 - __main__ - DEBUG - Processing feature 2
-2017-05-04 10:42:57,456 - __main__ - DEBUG - QII: 0.000000
-2017-05-04 10:42:57,456 - __main__ - DEBUG - Model weights: [-4.4266161335592615, -0.012068721296989103, -0.36536327879138253]
-2017-05-04 10:42:57,456 - __main__ - DEBUG - Evaluating the model, no_threshold: False
-2017-05-04 10:42:58,320 - __main__ - DEBUG - {'recall': 0.0, 'precision': 0}
-2017-05-04 10:42:58,320 - __main__ - DEBUG - Evaluating the model, no_threshold: True
-2017-05-04 10:42:59,159 - __main__ - DEBUG - {'better': 1.0734682038743208, 'auprc': 0.21879837379040962, 'auroc': 0.6278020998130304, 'prate': 0.16140489344909234}
-2017-05-04 10:42:59,159 - __main__ - DEBUG - Computing predictions on the test set
-2017-05-04 10:42:59,363 - __main__ - DEBUG - Evaluating the model, no_threshold: False
-2017-05-04 10:43:00,132 - __main__ - DEBUG - {'recall': 0.0, 'precision': 0}
-2017-05-04 10:43:00,133 - __main__ - DEBUG - Clearing threshold
-2017-05-04 10:43:00,133 - __main__ - DEBUG - Making no-threshold test predictions
-2017-05-04 10:43:00,286 - __main__ - DEBUG - Restoring threshold
-2017-05-04 10:43:00,286 - __main__ - DEBUG - Evaluating the model, no_threshold: True
-2017-05-04 10:43:01,087 - __main__ - DEBUG - {'better': 1.0430280177118225, 'auprc': 0.21886418203206162, 'auroc': 0.5918315661511444, 'prate': 0.18525345622119815}
-2017-05-04 10:43:01,088 - __main__ - DEBUG - Storing in /home/maxikov/quick_test.state/results.pkl
-2017-05-04 10:43:01,093 - __main__ - DEBUG - Processing movielens_genre:Sci-Fi (17 out of 21)
-2017-05-04 10:43:01,093 - __main__ - DEBUG - Processing feature 17
-2017-05-04 10:43:01,093 - __main__ - DEBUG - Building data set
-2017-05-04 10:43:01,118 - __main__ - DEBUG - Done in 0.024640083313 seconds
-2017-05-04 10:43:01,118 - __main__ - DEBUG - Training logistic
-2017-05-04 10:43:01,118 - __main__ - DEBUG - Actually training a classifier
-2017-05-04 10:43:02,042 - __main__ - DEBUG - Done in 0.923633098602 seconds
-2017-05-04 10:43:02,376 - __main__ - DEBUG - Model threshold 0.500000
-2017-05-04 10:43:02,376 - __main__ - DEBUG - Clearing
-2017-05-04 10:43:02,376 - __main__ - DEBUG - Making no-threshold predictions
-2017-05-04 10:43:02,539 - __main__ - DEBUG - Restoring threshold
-2017-05-04 10:43:02,539 - __main__ - DEBUG - Measuring model QII
-2017-05-04 10:43:02,543 - __main__ - DEBUG - 3 features detected
-2017-05-04 10:43:02,543 - __main__ - DEBUG - Processing feature 0
-2017-05-04 10:43:03,682 - __main__ - DEBUG - QII: 0.000000
-2017-05-04 10:43:03,682 - __main__ - DEBUG - Processing feature 1
-2017-05-04 10:43:04,469 - __main__ - DEBUG - QII: 0.000000
-2017-05-04 10:43:04,469 - __main__ - DEBUG - Processing feature 2
-2017-05-04 10:43:05,249 - __main__ - DEBUG - QII: 0.000000
-2017-05-04 10:43:05,249 - __main__ - DEBUG - Model weights: [0.36433264077110505, -1.5935532554789136, -1.683048058273527]
-2017-05-04 10:43:05,249 - __main__ - DEBUG - Evaluating the model, no_threshold: False
-2017-05-04 10:43:06,149 - __main__ - DEBUG - {'recall': 0.0, 'precision': 0}
-2017-05-04 10:43:06,149 - __main__ - DEBUG - Evaluating the model, no_threshold: True
-2017-05-04 10:43:06,961 - __main__ - DEBUG - {'better': 1.013490738468301, 'auprc': 0.09469157438855083, 'auroc': 0.5688244070587025, 'prate': 0.0824782951854775}
-2017-05-04 10:43:06,961 - __main__ - DEBUG - Computing predictions on the test set
-2017-05-04 10:43:07,109 - __main__ - DEBUG - Evaluating the model, no_threshold: False
-2017-05-04 10:43:07,925 - __main__ - DEBUG - {'recall': 0.0, 'precision': 0}
-2017-05-04 10:43:07,926 - __main__ - DEBUG - Clearing threshold
-2017-05-04 10:43:07,926 - __main__ - DEBUG - Making no-threshold test predictions
-2017-05-04 10:43:08,091 - __main__ - DEBUG - Restoring threshold
-2017-05-04 10:43:08,091 - __main__ - DEBUG - Evaluating the model, no_threshold: True
-2017-05-04 10:43:08,846 - __main__ - DEBUG - {'better': 1.0339887456920571, 'auprc': 0.1068545881228544, 'auroc': 0.6356323497583152, 'prate': 0.07649769585253456}
-2017-05-04 10:43:08,846 - __main__ - DEBUG - Storing in /home/maxikov/quick_test.state/results.pkl
-2017-05-04 10:43:08,852 - __main__ - DEBUG - Processing movielens_genre:Thriller (18 out of 21)
-2017-05-04 10:43:08,852 - __main__ - DEBUG - Processing feature 18
-2017-05-04 10:43:08,852 - __main__ - DEBUG - Building data set
-2017-05-04 10:43:08,875 - __main__ - DEBUG - Done in 0.0223507881165 seconds
-2017-05-04 10:43:08,875 - __main__ - DEBUG - Training logistic
-2017-05-04 10:43:08,875 - __main__ - DEBUG - Actually training a classifier
-2017-05-04 10:43:09,809 - __main__ - DEBUG - Done in 0.934720039368 seconds
-2017-05-04 10:43:10,139 - __main__ - DEBUG - Model threshold 0.500000
-2017-05-04 10:43:10,139 - __main__ - DEBUG - Clearing
-2017-05-04 10:43:10,139 - __main__ - DEBUG - Making no-threshold predictions
-2017-05-04 10:43:10,303 - __main__ - DEBUG - Restoring threshold
-2017-05-04 10:43:10,303 - __main__ - DEBUG - Measuring model QII
-2017-05-04 10:43:10,307 - __main__ - DEBUG - 3 features detected
-2017-05-04 10:43:10,307 - __main__ - DEBUG - Processing feature 0
-2017-05-04 10:43:11,410 - __main__ - DEBUG - QII: 0.000000
-2017-05-04 10:43:11,411 - __main__ - DEBUG - Processing feature 1
-2017-05-04 10:43:12,188 - __main__ - DEBUG - QII: 0.000000
-2017-05-04 10:43:12,188 - __main__ - DEBUG - Processing feature 2
-2017-05-04 10:43:12,972 - __main__ - DEBUG - QII: 0.000000
-2017-05-04 10:43:12,972 - __main__ - DEBUG - Model weights: [0.11685554281756129, -0.99832871822654368, -0.97080333346546266]
-2017-05-04 10:43:12,972 - __main__ - DEBUG - Evaluating the model, no_threshold: False
-2017-05-04 10:43:13,826 - __main__ - DEBUG - {'recall': 0.0, 'precision': 0}
-2017-05-04 10:43:13,826 - __main__ - DEBUG - Evaluating the model, no_threshold: True
-2017-05-04 10:43:14,631 - __main__ - DEBUG - {'better': 1.0011003591677226, 'auprc': 0.1737584127026528, 'auroc': 0.5275965962564048, 'prate': 0.1728492501973165}
-2017-05-04 10:43:14,632 - __main__ - DEBUG - Computing predictions on the test set
-2017-05-04 10:43:14,801 - __main__ - DEBUG - Evaluating the model, no_threshold: False
-2017-05-04 10:43:15,604 - __main__ - DEBUG - {'recall': 0.0, 'precision': 0}
-2017-05-04 10:43:15,605 - __main__ - DEBUG - Clearing threshold
-2017-05-04 10:43:15,605 - __main__ - DEBUG - Making no-threshold test predictions
-2017-05-04 10:43:15,764 - __main__ - DEBUG - Restoring threshold
-2017-05-04 10:43:15,764 - __main__ - DEBUG - Evaluating the model, no_threshold: True
-2017-05-04 10:43:16,500 - __main__ - DEBUG - {'better': 0.9959880908380335, 'auprc': 0.16901639969523996, 'auroc': 0.5199433083620164, 'prate': 0.17235023041474654}
-2017-05-04 10:43:16,500 - __main__ - DEBUG - Storing in /home/maxikov/quick_test.state/results.pkl
-2017-05-04 10:43:16,506 - __main__ - DEBUG - Processing movielens_genre:War (19 out of 21)
-2017-05-04 10:43:16,506 - __main__ - DEBUG - Processing feature 19
-2017-05-04 10:43:16,506 - __main__ - DEBUG - Building data set
-2017-05-04 10:43:16,532 - __main__ - DEBUG - Done in 0.0251541137695 seconds
-2017-05-04 10:43:16,532 - __main__ - DEBUG - Training logistic
-2017-05-04 10:43:16,532 - __main__ - DEBUG - Actually training a classifier
-2017-05-04 10:43:17,323 - __main__ - DEBUG - Done in 0.791115999222 seconds
-2017-05-04 10:43:17,656 - __main__ - DEBUG - Model threshold 0.500000
-2017-05-04 10:43:17,656 - __main__ - DEBUG - Clearing
-2017-05-04 10:43:17,657 - __main__ - DEBUG - Making no-threshold predictions
-2017-05-04 10:43:17,831 - __main__ - DEBUG - Restoring threshold
-2017-05-04 10:43:17,831 - __main__ - DEBUG - Measuring model QII
-2017-05-04 10:43:17,837 - __main__ - DEBUG - 3 features detected
-2017-05-04 10:43:17,837 - __main__ - DEBUG - Processing feature 0
-2017-05-04 10:43:18,939 - __main__ - DEBUG - QII: 0.000000
-2017-05-04 10:43:18,939 - __main__ - DEBUG - Processing feature 1
-2017-05-04 10:43:19,806 - __main__ - DEBUG - QII: 0.000000
-2017-05-04 10:43:19,807 - __main__ - DEBUG - Processing feature 2
-2017-05-04 10:43:20,599 - __main__ - DEBUG - QII: 0.000000
-2017-05-04 10:43:20,600 - __main__ - DEBUG - Model weights: [-0.37780226865311728, -1.6016349261958767, -3.0447413148438724]
-2017-05-04 10:43:20,600 - __main__ - DEBUG - Evaluating the model, no_threshold: False
-2017-05-04 10:43:21,464 - __main__ - DEBUG - {'recall': 0.0, 'precision': 0}
-2017-05-04 10:43:21,465 - __main__ - DEBUG - Evaluating the model, no_threshold: True
-2017-05-04 10:43:22,300 - __main__ - DEBUG - {'better': 0.9899246035404962, 'auprc': 0.028889711991583487, 'auroc': 0.37230236922355153, 'prate': 0.03867403314917127}
-2017-05-04 10:43:22,301 - __main__ - DEBUG - Computing predictions on the test set
-2017-05-04 10:43:22,448 - __main__ - DEBUG - Evaluating the model, no_threshold: False
-2017-05-04 10:43:23,212 - __main__ - DEBUG - {'recall': 0.0, 'precision': 0}
-2017-05-04 10:43:23,212 - __main__ - DEBUG - Clearing threshold
-2017-05-04 10:43:23,212 - __main__ - DEBUG - Making no-threshold test predictions
-2017-05-04 10:43:23,367 - __main__ - DEBUG - Restoring threshold
-2017-05-04 10:43:23,367 - __main__ - DEBUG - Evaluating the model, no_threshold: True
-2017-05-04 10:43:24,096 - __main__ - DEBUG - {'better': 0.9927050598796325, 'auprc': 0.030717158142126985, 'auroc': 0.42059153350154216, 'prate': 0.03778801843317972}
-2017-05-04 10:43:24,097 - __main__ - DEBUG - Storing in /home/maxikov/quick_test.state/results.pkl
-2017-05-04 10:43:24,104 - __main__ - DEBUG - Processing movielens_genre:Western (20 out of 21)
-2017-05-04 10:43:24,104 - __main__ - DEBUG - Processing feature 20
-2017-05-04 10:43:24,104 - __main__ - DEBUG - Building data set
-2017-05-04 10:43:24,126 - __main__ - DEBUG - Done in 0.0221071243286 seconds
-2017-05-04 10:43:24,126 - __main__ - DEBUG - Training logistic
-2017-05-04 10:43:24,126 - __main__ - DEBUG - Actually training a classifier
-2017-05-04 10:43:25,082 - __main__ - DEBUG - Done in 0.955660104752 seconds
-2017-05-04 10:43:25,414 - __main__ - DEBUG - Model threshold 0.500000
-2017-05-04 10:43:25,414 - __main__ - DEBUG - Clearing
-2017-05-04 10:43:25,414 - __main__ - DEBUG - Making no-threshold predictions
-2017-05-04 10:43:25,575 - __main__ - DEBUG - Restoring threshold
-2017-05-04 10:43:25,575 - __main__ - DEBUG - Measuring model QII
-2017-05-04 10:43:25,579 - __main__ - DEBUG - 3 features detected
-2017-05-04 10:43:25,579 - __main__ - DEBUG - Processing feature 0
-2017-05-04 10:43:26,703 - __main__ - DEBUG - QII: 0.000000
-2017-05-04 10:43:26,703 - __main__ - DEBUG - Processing feature 1
-2017-05-04 10:43:27,520 - __main__ - DEBUG - QII: 0.000000
-2017-05-04 10:43:27,521 - __main__ - DEBUG - Processing feature 2
-2017-05-04 10:43:28,322 - __main__ - DEBUG - QII: 0.000000
-2017-05-04 10:43:28,323 - __main__ - DEBUG - Model weights: [-1.1017416910087821, -1.9536006019561678, -3.032458621054352]
-2017-05-04 10:43:28,323 - __main__ - DEBUG - Evaluating the model, no_threshold: False
-2017-05-04 10:43:29,215 - __main__ - DEBUG - {'recall': 0.0, 'precision': 0}
-2017-05-04 10:43:29,215 - __main__ - DEBUG - Evaluating the model, no_threshold: True
-2017-05-04 10:43:30,081 - __main__ - DEBUG - {'better': 0.9979348255980977, 'auprc': 0.020075733001804555, 'auroc': 0.46457036204312213, 'prate': 0.022099447513812154}
-2017-05-04 10:43:30,082 - __main__ - DEBUG - Computing predictions on the test set
-2017-05-04 10:43:30,229 - __main__ - DEBUG - Evaluating the model, no_threshold: False
-2017-05-04 10:43:31,014 - __main__ - DEBUG - {'recall': 0.0, 'precision': 0}
-2017-05-04 10:43:31,014 - __main__ - DEBUG - Clearing threshold
-2017-05-04 10:43:31,014 - __main__ - DEBUG - Making no-threshold test predictions
-2017-05-04 10:43:31,167 - __main__ - DEBUG - Restoring threshold
-2017-05-04 10:43:31,167 - __main__ - DEBUG - Evaluating the model, no_threshold: True
-2017-05-04 10:43:31,922 - __main__ - DEBUG - {'better': 0.9939380250785482, 'auprc': 0.01522849652459932, 'auroc': 0.37169409645459783, 'prate': 0.02119815668202765}
-2017-05-04 10:43:31,922 - __main__ - DEBUG - Storing in /home/maxikov/quick_test.state/results.pkl
-2017-05-04 10:43:31,936 - __main__ - INFO - Overall results dict: {'feature_ranges': {0: {'min': 0.0, '_max': 1.6815940141677856}, 1: {'min': 0.29685813188552856, '_max': 2.478330612182617}, 2: {'min': 0.0, '_max': 1.487393856048584}}, 'nof': 21, 'categorical_features': {1: 2, 2: 2, 3: 2, 4: 2, 5: 2, 6: 2, 7: 2, 8: 2, 9: 2, 10: 2, 11: 2, 12: 2, 13: 2, 14: 2, 15: 2, 16: 2, 17: 2, 18: 2, 19: 2, 20: 2}, 'indicator_ranges': {0: {'min': 1891.0, '_max': 2015.0}, 1: {'min': 0, '_max': 1}, 2: {'min': 0, '_max': 1}, 3: {'min': 0, '_max': 1}, 4: {'min': 0, '_max': 1}, 5: {'min': 0, '_max': 1}, 6: {'min': 0, '_max': 1}, 7: {'min': 0, '_max': 1}, 8: {'min': 0, '_max': 1}, 9: {'min': 0, '_max': 1}, 10: {'min': 0, '_max': 1}, 11: {'min': 0, '_max': 1}, 12: {'min': 0, '_max': 1}, 13: {'min': 0, '_max': 1}, 14: {'min': 0, '_max': 1}, 15: {'min': 0, '_max': 1}, 16: {'min': 0, '_max': 1}, 17: {'min': 0, '_max': 1}, 18: {'min': 0, '_max': 1}, 19: {'min': 0, '_max': 1}, 20: {'min': 0, '_max': 1}}, 'mean_feature_values': {0: 0.3554054407194136, 1: 1.2494621806610484, 2: 0.34576165983422513}, 'mean_indicator_values': {0: 1989.5668183853156, 1: 0.008767348156991494, 2: 0.12960752126548275, 3: 0.08573347261602746, 4: 0.037419788091329655, 5: 0.04182211610207432, 6: 0.3077152663781525, 7: 0.10808088345023131, 8: 0.09024772422026563, 9: 0.4892553350246232, 10: 0.051820623787494406, 11: 0.012162363826294582, 12: 0.09506043874048649, 13: 0.007275033577078048, 14: 0.03801671392329503, 15: 0.055775257424265035, 16: 0.15229070288016713, 17: 0.06424414266527384, 18: 0.15415609610505895, 19: 0.04379943292045963, 20: 0.024809729891061037}, 'train_ratio': 70, 'features': {0: {'qii': [383.76322129121593, 380.6397348403076, -378.79018138916325], 'name': 'year', 'eval_test': {'preds_histogram': ([1919.0, 1921.4545454545455, 1923.909090909091, 1926.3636363636363, 1928.8181818181818, 1931.2727272727273, 1933.7272727272727, 1936.1818181818182, 1938.6363636363637, 1941.090909090909, 1943.5454545454545, 1946.0, 1948.4545454545455, 1950.909090909091, 1953.3636363636363, 1955.8181818181818, 1958.2727272727273, 1960.7272727272727, 1963.1818181818182, 1965.6363636363637, 1968.090909090909, 1970.5454545454545, 1973.0, 1975.4545454545455, 1977.909090909091, 1980.3636363636363, 1982.8181818181818, 1985.2727272727273, 1987.7272727272727, 1990.1818181818182, 1992.6363636363637, 1995.090909090909, 1997.5454545454545, 2000.0], [1, 5, 1, 2, 6, 1, 0, 1, 4, 2, 3, 2, 5, 1, 4, 4, 3, 1, 3, 5, 5, 1, 1, 2, 3, 1, 5, 3, 1, 8, 3, 4, 5]), 'errors_histogram': ([-2000.0, -1878.7878787878788, -1757.5757575757575, -1636.3636363636365, -1515.151515151515, -1393.939393939394, -1272.7272727272727, -1151.5151515151515, -1030.3030303030303, -909.090909090909, -787.8787878787878, -666.6666666666665, -545.4545454545455, -424.24242424242425, -303.030303030303, -181.81818181818176, -60.60606060606051, 60.60606060606051, 181.81818181818198, 303.030303030303, 424.2424242424245, 545.4545454545455, 666.666666666667, 787.878787878788, 909.090909090909, 1030.3030303030305, 1151.5151515151515, 1272.727272727273, 1393.939393939394, 1515.1515151515155, 1636.3636363636365, 1757.575757575758, 1878.787878787879, 2000.0], [0, 0, 0, 0, 1, 2, 2, 7, 10, 16, 22, 35, 68, 101, 114, 142, 141, 155, 130, 72, 53, 10, 1, 2, 1, 0, 0, 0, 0, 0, 0, 0, 0]), 'mean_err': -71.80882289620816, 'sq_errors_histogram': ([0.0, 121212.12121212122, 242424.24242424243, 363636.36363636365, 484848.48484848486, 606060.6060606061, 727272.7272727273, 848484.8484848485, 969696.9696969697, 1090909.0909090908, 1212121.2121212122, 1333333.3333333335, 1454545.4545454546, 1575757.5757575757, 1696969.696969697, 1818181.8181818184, 1939393.9393939395, 2060606.0606060605, 2181818.1818181816, 2303030.303030303, 2424242.4242424243, 2545454.5454545454, 2666666.666666667, 2787878.787878788, 2909090.909090909, 3030303.0303030303, 3151515.1515151514, 3272727.272727273, 3393939.393939394, 3515151.515151515, 3636363.6363636367, 3757575.757575758, 3878787.878787879, 4000000.0], [757, 170, 70, 32, 11, 16, 6, 6, 6, 4, 2, 2, 0, 2, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]), 'mean_abs_err': 278.4766353707131, 'obs_histogram': ([1919.0, 1921.4545454545455, 1923.909090909091, 1926.3636363636363, 1928.8181818181818, 1931.2727272727273, 1933.7272727272727, 1936.1818181818182, 1938.6363636363637, 1941.090909090909, 1943.5454545454545, 1946.0, 1948.4545454545455, 1950.909090909091, 1953.3636363636363, 1955.8181818181818, 1958.2727272727273, 1960.7272727272727, 1963.1818181818182, 1965.6363636363637, 1968.090909090909, 1970.5454545454545, 1973.0, 1975.4545454545455, 1977.909090909091, 1980.3636363636363, 1982.8181818181818, 1985.2727272727273, 1987.7272727272727, 1990.1818181818182, 1992.6363636363637, 1995.090909090909, 1997.5454545454545, 2000.0], [3, 2, 5, 4, 4, 4, 2, 5, 11, 5, 4, 7, 10, 13, 12, 22, 10, 15, 9, 17, 7, 10, 25, 6, 40, 33, 41, 45, 50, 39, 199, 193, 233]), 'abs_errors_histogram': ([0.0, 60.60606060606061, 121.21212121212122, 181.8181818181818, 242.42424242424244, 303.03030303030306, 363.6363636363636, 424.24242424242425, 484.8484848484849, 545.4545454545455, 606.0606060606061, 666.6666666666667, 727.2727272727273, 787.8787878787879, 848.4848484848485, 909.0909090909091, 969.6969696969697, 1030.3030303030303, 1090.909090909091, 1151.5151515151515, 1212.1212121212122, 1272.7272727272727, 1333.3333333333335, 1393.939393939394, 1454.5454545454545, 1515.1515151515152, 1575.7575757575758, 1636.3636363636365, 1696.969696969697, 1757.5757575757577, 1818.1818181818182, 1878.787878787879, 1939.3939393939395, 2000.0], [141, 150, 147, 135, 109, 102, 71, 63, 58, 22, 23, 13, 10, 9, 9, 6, 5, 5, 2, 2, 0, 2, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0]), 'mre': 278.4766353707131, 'mrae': 0.14021597324099444}, 'weights': [563.44695978304117, 1246.5953544212534, 464.96019923627011], 'eval': {'preds_histogram': ([1918.0, 1920.4848484848485, 1922.969696969697, 1925.4545454545455, 1927.939393939394, 1930.4242424242425, 1932.909090909091, 1935.3939393939395, 1937.878787878788, 1940.3636363636363, 1942.8484848484848, 1945.3333333333333, 1947.8181818181818, 1950.3030303030303, 1952.7878787878788, 1955.2727272727273, 1957.7575757575758, 1960.2424242424242, 1962.7272727272727, 1965.2121212121212, 1967.6969696969697, 1970.1818181818182, 1972.6666666666667, 1975.1515151515152, 1977.6363636363637, 1980.121212121212, 1982.6060606060605, 1985.090909090909, 1987.5757575757575, 1990.060606060606, 1992.5454545454545, 1995.030303030303, 1997.5151515151515, 2000.0], [5, 4, 5, 7, 8, 5, 8, 9, 7, 4, 7, 12, 11, 12, 6, 5, 9, 9, 9, 7, 4, 3, 4, 9, 10, 10, 10, 10, 5, 11, 7, 4, 9]), 'errors_histogram': ([-2000.0, -1878.7878787878788, -1757.5757575757575, -1636.3636363636365, -1515.151515151515, -1393.939393939394, -1272.7272727272727, -1151.5151515151515, -1030.3030303030303, -909.090909090909, -787.8787878787878, -666.6666666666665, -545.4545454545455, -424.24242424242425, -303.030303030303, -181.81818181818176, -60.60606060606051, 60.60606060606051, 181.81818181818198, 303.030303030303, 424.2424242424245, 545.4545454545455, 666.666666666667, 787.878787878788, 909.090909090909, 1030.3030303030305, 1151.5151515151515, 1272.727272727273, 1393.939393939394, 1515.1515151515155, 1636.3636363636365, 1757.575757575758, 1878.787878787879, 2000.0], [0, 0, 0, 0, 3, 4, 10, 10, 16, 50, 58, 86, 145, 204, 249, 334, 353, 374, 312, 183, 100, 30, 6, 4, 1, 0, 0, 1, 0, 0, 0, 0, 1]), 'mean_err': -65.78318944111307, 'sq_errors_histogram': ([0.0, 121212.12121212122, 242424.24242424243, 363636.36363636365, 484848.48484848486, 606060.6060606061, 727272.7272727273, 848484.8484848485, 969696.9696969697, 1090909.0909090908, 1212121.2121212122, 1333333.3333333335, 1454545.4545454546, 1575757.5757575757, 1696969.696969697, 1818181.8181818184, 1939393.9393939395, 2060606.0606060605, 2181818.1818181816, 2303030.303030303, 2424242.4242424243, 2545454.5454545454, 2666666.666666667, 2787878.787878788, 2909090.909090909, 3030303.0303030303, 3151515.1515151514, 3272727.272727273, 3393939.393939394, 3515151.515151515, 3636363.6363636367, 3757575.757575758, 3878787.878787879, 4000000.0], [1783, 374, 164, 65, 42, 40, 21, 10, 9, 5, 2, 4, 2, 6, 0, 3, 1, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1]), 'mean_abs_err': 276.16996115105286, 'obs_histogram': ([1918.0, 1920.4848484848485, 1922.969696969697, 1925.4545454545455, 1927.939393939394, 1930.4242424242425, 1932.909090909091, 1935.3939393939395, 1937.878787878788, 1940.3636363636363, 1942.8484848484848, 1945.3333333333333, 1947.8181818181818, 1950.3030303030303, 1952.7878787878788, 1955.2727272727273, 1957.7575757575758, 1960.2424242424242, 1962.7272727272727, 1965.2121212121212, 1967.6969696969697, 1970.1818181818182, 1972.6666666666667, 1975.1515151515152, 1977.6363636363637, 1980.121212121212, 1982.6060606060605, 1985.090909090909, 1987.5757575757575, 1990.060606060606, 1992.5454545454545, 1995.030303030303, 1997.5151515151515, 2000.0], [2, 0, 4, 3, 7, 8, 14, 15, 23, 18, 26, 19, 20, 12, 33, 25, 35, 27, 39, 26, 36, 36, 49, 34, 58, 58, 121, 116, 146, 118, 494, 414, 498]), 'abs_errors_histogram': ([0.0, 60.60606060606061, 121.21212121212122, 181.8181818181818, 242.42424242424244, 303.03030303030306, 363.6363636363636, 424.24242424242425, 484.8484848484849, 545.4545454545455, 606.0606060606061, 666.6666666666667, 727.2727272727273, 787.8787878787879, 848.4848484848485, 909.0909090909091, 969.6969696969697, 1030.3030303030303, 1090.909090909091, 1151.5151515151515, 1212.1212121212122, 1272.7272727272727, 1333.3333333333335, 1393.939393939394, 1454.5454545454545, 1515.1515151515152, 1575.7575757575758, 1636.3636363636365, 1696.969696969697, 1757.5757575757577, 1818.1818181818182, 1878.787878787879, 1939.3939393939395, 2000.0], [353, 374, 334, 301, 260, 207, 180, 134, 111, 70, 46, 32, 32, 31, 23, 7, 10, 8, 2, 5, 5, 2, 3, 1, 2, 0, 0, 0, 0, 0, 0, 0, 1]), 'mre': 276.16996115105286, 'mrae': 0.13906237412741998}, 'type': 'regression'}, 1: {'qii': [0.0, 0.0, 0.0], 'name': 'movielens_genre:(no genres listed)', 'type': 'classification', 'eval_nt': {'better': 1.0, 'auprc': 0.0, 'auroc': 0.0, 'prate': 0.0}, 'eval_test_nt': {'better': 1.0, 'auprc': 0.0, 'auroc': 0.0, 'prate': 0.0}, 'weights': [0.0, 0.0, 0.0], 'eval': {'recall': 0, 'precision': 0}, 'eval_test': {'recall': 0, 'precision': 0}}, 2: {'qii': [0.0, 0.0, 0.0], 'name': 'movielens_genre:Action', 'type': 'classification', 'eval_nt': {'better': 1.0919699714188051, 'auprc': 0.21649464035540886, 'auroc': 0.6767373923739232, 'prate': 0.14443567482241515}, 'eval_test_nt': {'better': 1.107000448285768, 'auprc': 0.21321825724261423, 'auroc': 0.7092290249433109, 'prate': 0.12903225806451613}, 'weights': [0.051151729602222563, -0.3165510912311541, -4.4324504676163574], 'eval': {'recall': 0.0, 'precision': 0}, 'eval_test': {'recall': 0.0, 'precision': 0}}, 3: {'qii': [0.0, 0.0, 0.0], 'name': 'movielens_genre:Adventure', 'eval_test': {'recall': 0.0, 'precision': 0}, 'eval_nt': {'better': 1.0510257058225951, 'auprc': 0.15555861996761008, 'auroc': 0.648455063849041, 'prate': 0.11247040252565114}, 'eval_test_nt': {'better': 1.0443309461606782, 'auprc': 0.14570577277497923, 'auroc': 0.6251765910856818, 'prate': 0.10783410138248847}, 'weights': [0.086213268368598869, -0.57570634405203647, -4.3105824028165243], 'eval': {'recall': 0.0, 'precision': 0}, 'type': 'classification'}, 4: {'qii': [0.0, 0.0, 0.0], 'name': 'movielens_genre:Animation', 'eval_test': {'recall': 0.0, 'precision': 0}, 'eval_nt': {'better': 0.9975463118308923, 'auprc': 0.02681494871083677, 'auroc': 0.4909360580092287, 'prate': 0.02920284135753749}, 'eval_test_nt': {'better': 1.0016673661616482, 'auprc': 0.03110858431842268, 'auroc': 0.514066951566952, 'prate': 0.029493087557603687}, 'weights': [-2.0708339963872651, -1.6791238323903379, -2.1015038462821889], 'eval': {'recall': 0.0, 'precision': 0}, 'type': 'classification'}, 5: {'qii': [0.0, 0.0, 0.0], 'name': 'movielens_genre:Children', 'eval_test': {'recall': 0.0, 'precision': 0}, 'eval_nt': {'better': 1.0625213931042947, 'auprc': 0.12346813386068232, 'auroc': 0.6829510033119036, 'prate': 0.06866614048934491}, 'eval_test_nt': {'better': 1.087239931647933, 'auprc': 0.15907640285072278, 'auroc': 0.7012010058966346, 'prate': 0.08571428571428572}, 'weights': [-0.86774875456927647, -1.0377558360756209, -3.3806970172896329], 'eval': {'recall': 0.0, 'precision': 0}, 'type': 'classification'}, 6: {'qii': [0.0, 0.0, 0.0], 'name': 'movielens_genre:Comedy', 'eval_test': {'recall': 0.0, 'precision': 0}, 'eval_nt': {'better': 1.0573409199269854, 'auprc': 0.38566086730625554, 'auroc': 0.5795588267489845, 'prate': 0.35043409629044986}, 'eval_test_nt': {'better': 1.0754306313473683, 'auprc': 0.3880920842801669, 'auroc': 0.574248567351469, 'prate': 0.3419354838709677}, 'weights': [-0.8100234041032327, -0.039230993567313903, -0.89244373262424759], 'eval': {'recall': 0.0, 'precision': 0}, 'type': 'classification'}, 7: {'qii': [0.0, 0.0, 0.0], 'name': 'movielens_genre:Crime', 'eval_test': {'recall': 0.0, 'precision': 0}, 'eval_nt': {'better': 0.9901363008799133, 'auprc': 0.08609203774451628, 'auroc': 0.48423127939444055, 'prate': 0.09510655090765588}, 'eval_test_nt': {'better': 0.9982360288066127, 'auprc': 0.10718085311264967, 'auroc': 0.4811753983138486, 'prate': 0.10875576036866359}, 'weights': [-1.6688947584140139, -0.78604303368306927, -1.8921734123295149], 'eval': {'recall': 0.0, 'precision': 0}, 'type': 'classification'}, 8: {'qii': [0.0, 0.0, 0.0], 'name': 'movielens_genre:Documentary', 'eval_test': {'recall': 0.0, 'precision': 0}, 'eval_nt': {'better': 0.997284520192949, 'auprc': 0.02497665318257928, 'auroc': 0.44066268552875726, 'prate': 0.027624309392265192}, 'eval_test_nt': {'better': 0.9926077252831039, 'auprc': 0.020408359065087527, 'auroc': 0.37823064770932036, 'prate': 0.027649769585253458}, 'weights': [-3.7208509969134207, -1.2084251991234873, -2.2244532675819446], 'eval': {'recall': 0.0, 'precision': 0}, 'type': 'classification'}, 9: {'qii': [0.49329123914759276, 0.5007892659826362, 0.4992107340173639], 'name': 'movielens_genre:Drama', 'eval_test': {'recall': 0.5887850467289719, 'precision': 0.5943396226415094}, 'eval_nt': {'better': 1.2611733350586947, 'auprc': 0.582891770065444, 'auroc': 0.6421155663603664, 'prate': 0.4739542225730071}, 'eval_test_nt': {'better': 1.2402120371626626, 'auprc': 0.5912695352030128, 'auroc': 0.6249753610875106, 'prate': 0.4930875576036866}, 'weights': [-3.0772557818334088, 0.6089977662995848, 0.8497735665518974], 'eval': {'recall': 0.6036636136552873, 'precision': 0.5908720456397718}, 'type': 'classification'}, 10: {'qii': [0.0, 0.0, 0.0], 'name': 'movielens_genre:Fantasy', 'eval_test': {'recall': 0.0, 'precision': 0}, 'eval_nt': {'better': 1.0038296532368518, 'auprc': 0.05374222903287572, 'auroc': 0.5166100186791149, 'prate': 0.05011838989739542}, 'eval_test_nt': {'better': 1.0230660272918133, 'auprc': 0.08560753068490842, 'auroc': 0.604883884588318, 'prate': 0.06451612903225806}, 'weights': [-0.80160077367312188, -1.6803967186704978, -1.7083819944724425], 'eval': {'recall': 0.0, 'precision': 0}, 'type': 'classification'}, 11: {'qii': [0.0, 0.0, 0.0], 'name': 'movielens_genre:Film-Noir', 'eval_test': {'recall': 0.0, 'precision': 0}, 'eval_nt': {'better': 0.994587146914328, 'auprc': 0.008841793933353758, 'auroc': 0.2770327373009514, 'prate': 0.014206787687450671}, 'eval_test_nt': {'better': 0.9948092560173228, 'auprc': 0.006826256185820156, 'auroc': 0.18864810562571757, 'prate': 0.011981566820276499}, 'weights': [-2.3488854155447516, -2.262185715711921, -1.7112134511469679], 'eval': {'recall': 0.0, 'precision': 0}, 'type': 'classification'}, 12: {'qii': [-0.07063930544593527, -0.07063930544593527, -0.07300710339384373], 'name': 'movielens_genre:Horror', 'eval_test': {'recall': 0.2840909090909091, 'precision': 0.5681818181818182}, 'eval_nt': {'better': 1.5953745523292233, 'auprc': 0.43948061787673537, 'auroc': 0.8380801201406909, 'prate': 0.10576164167324388}, 'eval_test_nt': {'better': 1.5071854290178375, 'auprc': 0.3903245138089012, 'auroc': 0.8382989878727092, 'prate': 0.08110599078341015}, 'weights': [4.2557272557028298, -4.0949790146214102, 2.7019487941068787], 'eval': {'recall': 0.2462686567164179, 'precision': 0.6346153846153846}, 'type': 'classification'}, 13: {'qii': [0.0, 0.0, 0.0], 'name': 'movielens_genre:IMAX', 'eval_test': {'recall': 0.0, 'precision': 0}, 'eval_nt': {'better': 1.0054457386561064, 'auprc': 0.0073787210263709406, 'auroc': 0.716093317516805, 'prate': 0.001973164956590371}, 'eval_test_nt': {'better': 0.9998150023664404, 'auprc': 0.0016586271808940872, 'auroc': 0.47645429362880887, 'prate': 0.0018433179723502304}, 'weights': [-1.9346979720250785, -2.0917959388536507, -12.984034267030266], 'eval': {'recall': 0.0, 'precision': 0}, 'type': 'classification'}, 14: {'qii': [0.0, 0.0, 0.0], 'name': 'movielens_genre:Musical', 'eval_test': {'recall': 0.0, 'precision': 0}, 'eval_nt': {'better': 0.9994948801321988, 'auprc': 0.041741694762572945, 'auroc': 0.5237091289966092, 'prate': 0.04222573007103394}, 'eval_test_nt': {'better': 0.9985482907318595, 'auprc': 0.02808214540020989, 'auroc': 0.46634615384615374, 'prate': 0.029493087557603687}, 'weights': [-2.867711281611657, -1.2037275951923816, -1.8990301575578785], 'eval': {'recall': 0.0, 'precision': 0}, 'type': 'classification'}, 15: {'qii': [0.0, 0.0, 0.0], 'name': 'movielens_genre:Mystery', 'eval_test': {'recall': 0.0, 'precision': 0}, 'eval_nt': {'better': 0.9881277037962329, 'auprc': 0.03990374170878791, 'auroc': 0.40542365288621507, 'prate': 0.05130228887134965}, 'eval_test_nt': {'better': 0.9922396456039153, 'auprc': 0.038622317786290876, 'auroc': 0.4258743961352658, 'prate': 0.04608294930875576}, 'weights': [-1.7324798131404333, -1.4523013231963626, -1.3005299682113116], 'eval': {'recall': 0.0, 'precision': 0}, 'type': 'classification'}, 16: {'qii': [0.0, 0.0, 0.0], 'name': 'movielens_genre:Romance', 'eval_test': {'recall': 0.0, 'precision': 0}, 'eval_nt': {'better': 1.0734682038743208, 'auprc': 0.21879837379040962, 'auroc': 0.6278020998130304, 'prate': 0.16140489344909234}, 'eval_test_nt': {'better': 1.0430280177118225, 'auprc': 0.21886418203206162, 'auroc': 0.5918315661511444, 'prate': 0.18525345622119815}, 'weights': [-4.4266161335592615, -0.012068721296989103, -0.36536327879138253], 'eval': {'recall': 0.0, 'precision': 0}, 'type': 'classification'}, 17: {'qii': [0.0, 0.0, 0.0], 'name': 'movielens_genre:Sci-Fi', 'eval_test': {'recall': 0.0, 'precision': 0}, 'eval_nt': {'better': 1.013490738468301, 'auprc': 0.09469157438855083, 'auroc': 0.5688244070587025, 'prate': 0.0824782951854775}, 'eval_test_nt': {'better': 1.0339887456920571, 'auprc': 0.1068545881228544, 'auroc': 0.6356323497583152, 'prate': 0.07649769585253456}, 'weights': [0.36433264077110505, -1.5935532554789136, -1.683048058273527], 'eval': {'recall': 0.0, 'precision': 0}, 'type': 'classification'}, 18: {'qii': [0.0, 0.0, 0.0], 'name': 'movielens_genre:Thriller', 'eval_test': {'recall': 0.0, 'precision': 0}, 'eval_nt': {'better': 1.0011003591677226, 'auprc': 0.1737584127026528, 'auroc': 0.5275965962564048, 'prate': 0.1728492501973165}, 'eval_test_nt': {'better': 0.9959880908380335, 'auprc': 0.16901639969523996, 'auroc': 0.5199433083620164, 'prate': 0.17235023041474654}, 'weights': [0.11685554281756129, -0.99832871822654368, -0.97080333346546266], 'eval': {'recall': 0.0, 'precision': 0}, 'type': 'classification'}, 19: {'qii': [0.0, 0.0, 0.0], 'name': 'movielens_genre:War', 'eval_test': {'recall': 0.0, 'precision': 0}, 'eval_nt': {'better': 0.9899246035404962, 'auprc': 0.028889711991583487, 'auroc': 0.37230236922355153, 'prate': 0.03867403314917127}, 'eval_test_nt': {'better': 0.9927050598796325, 'auprc': 0.030717158142126985, 'auroc': 0.42059153350154216, 'prate': 0.03778801843317972}, 'weights': [-0.37780226865311728, -1.6016349261958767, -3.0447413148438724], 'eval': {'recall': 0.0, 'precision': 0}, 'type': 'classification'}, 20: {'qii': [0.0, 0.0, 0.0], 'name': 'movielens_genre:Western', 'eval_test': {'recall': 0.0, 'precision': 0}, 'eval_nt': {'better': 0.9979348255980977, 'auprc': 0.020075733001804555, 'auroc': 0.46457036204312213, 'prate': 0.022099447513812154}, 'eval_test_nt': {'better': 0.9939380250785482, 'auprc': 0.01522849652459932, 'auroc': 0.37169409645459783, 'prate': 0.02119815668202765}, 'weights': [-1.1017416910087821, -1.9536006019561678, -3.032458621054352], 'eval': {'recall': 0.0, 'precision': 0}, 'type': 'classification'}}}
-2017-05-04 10:43:31,936 - __main__ - INFO - Train ratio: 70.000000 %
-2017-05-04 10:43:31,942 - __main__ - INFO - 
-+------------------------------------+------------------+------------------+----------------+------------------+------------------+----------------+
-|              Feature               |      AUPRC       |      Prate       |    x better    |    AUPRC test    |    Prate test    | x better test  |
-+------------------------------------+------------------+------------------+----------------+------------------+------------------+----------------+
-|       movielens_genre:Horror       |  0.439480617877  |  0.105761641673  | 1.59537455233  |  0.390324513809  | 0.0811059907834  | 1.50718542902  |
-|       movielens_genre:Drama        |  0.582891770065  |  0.473954222573  | 1.26117333506  |  0.591269535203  |  0.493087557604  | 1.24021203716  |
-|       movielens_genre:Action       |  0.216494640355  |  0.144435674822  | 1.09196997142  |  0.213218257243  |  0.129032258065  | 1.10700044829  |
-|      movielens_genre:Romance       |  0.21879837379   |  0.161404893449  | 1.07346820387  |  0.218864182032  |  0.185253456221  | 1.04302801771  |
-|      movielens_genre:Children      |  0.123468133861  | 0.0686661404893  |  1.0625213931  |  0.159076402851  | 0.0857142857143  | 1.08723993165  |
-|       movielens_genre:Comedy       |  0.385660867306  |  0.35043409629   | 1.05734091993  |  0.38809208428   |  0.341935483871  | 1.07543063135  |
-|     movielens_genre:Adventure      |  0.155558619968  |  0.112470402526  | 1.05102570582  |  0.145705772775  |  0.107834101382  | 1.04433094616  |
-|       movielens_genre:Sci-Fi       | 0.0946915743886  | 0.0824782951855  | 1.01349073847  |  0.106854588123  | 0.0764976958525  | 1.03398874569  |
-|        movielens_genre:IMAX        | 0.00737872102637 | 0.00197316495659 | 1.00544573866  | 0.00165862718089 | 0.00184331797235 | 0.999815002366 |
-|      movielens_genre:Fantasy       | 0.0537422290329  | 0.0501183898974  | 1.00382965324  | 0.0856075306849  | 0.0645161290323  | 1.02306602729  |
-|      movielens_genre:Thriller      |  0.173758412703  |  0.172849250197  | 1.00110035917  |  0.169016399695  |  0.172350230415  | 0.995988090838 |
-| movielens_genre:(no genres listed) |       0.0        |       0.0        |      1.0       |       0.0        |       0.0        |      1.0       |
-|      movielens_genre:Musical       | 0.0417416947626  |  0.042225730071  | 0.999494880132 | 0.0280821454002  | 0.0294930875576  | 0.998548290732 |
-|      movielens_genre:Western       | 0.0200757330018  | 0.0220994475138  | 0.997934825598 | 0.0152284965246  |  0.021198156682  | 0.993938025079 |
-|     movielens_genre:Animation      | 0.0268149487108  | 0.0292028413575  | 0.997546311831 | 0.0311085843184  | 0.0294930875576  | 1.00166736616  |
-|    movielens_genre:Documentary     | 0.0249766531826  | 0.0276243093923  | 0.997284520193 | 0.0204083590651  | 0.0276497695853  | 0.992607725283 |
-|     movielens_genre:Film-Noir      | 0.00884179393335 | 0.0142067876875  | 0.994587146914 | 0.00682625618582 | 0.0119815668203  | 0.994809256017 |
-|       movielens_genre:Crime        | 0.0860920377445  | 0.0951065509077  | 0.99013630088  |  0.107180853113  |  0.108755760369  | 0.998236028807 |
-|        movielens_genre:War         | 0.0288897119916  | 0.0386740331492  | 0.98992460354  | 0.0307171581421  | 0.0377880184332  | 0.99270505988  |
-|      movielens_genre:Mystery       | 0.0399037417088  | 0.0513022888713  | 0.988127703796 | 0.0386223177863  | 0.0460829493088  | 0.992239645604 |
-+------------------------------------+------------------+------------------+----------------+------------------+------------------+----------------+
-2017-05-04 10:43:31,942 - __main__ - INFO - 
+2017-05-04 20:02:54,815 - __main__ - DEBUG - rank: 3, lmbda: 0.2, num_iter: 2, num_partitions: 7
+2017-05-04 20:02:54,815 - __main__ - DEBUG - data_path: datasets/ml-20m/, checkpoint_dir: /home/maxikov/spark_dir
+2017-05-04 20:02:54,815 - __main__ - DEBUG - Temp dir: /home/maxikov/spark_dir
+2017-05-04 20:02:54,815 - __main__ - DEBUG - local_threads: *
+2017-05-04 20:02:54,815 - __main__ - DEBUG - spark_executor_memory: 5g
+2017-05-04 20:02:54,815 - __main__ - DEBUG - regression_model: linear
+2017-05-04 20:02:54,816 - __main__ - DEBUG - nbins: 32
+2017-05-04 20:02:54,816 - __main__ - DEBUG - regression_users: False
+2017-05-04 20:02:54,816 - __main__ - DEBUG - predict_product_features: False
+2017-05-04 20:02:54,816 - __main__ - DEBUG - metadata_sources: ['years', 'genres', 'tags']
+2017-05-04 20:02:54,816 - __main__ - DEBUG - movies_file: datasets/ml-20m/ml-20m.imdb.medium.csv
+2017-05-04 20:02:54,816 - __main__ - DEBUG - cross_validation: 70
+2017-05-04 20:02:54,816 - __main__ - DEBUG - tvtropes_file: datasets/dbtropes/tropes.csv
+2017-05-04 20:02:54,816 - __main__ - DEBUG - features_trim_percentile: 0
+2017-05-04 20:02:54,816 - __main__ - DEBUG - drop_missing_movies: False
+2017-05-04 20:02:54,816 - __main__ - DEBUG - drop_rare_features: 1000
+2017-05-04 20:02:54,816 - __main__ - DEBUG - filter_data_set: 1
+2017-05-04 20:02:54,816 - __main__ - DEBUG - persist_dir: /home/maxikov/quick_test.state, override_args: False
+2017-05-04 20:02:54,816 - __main__ - DEBUG - drop_rare_movies: 4
+2017-05-04 20:02:54,816 - __main__ - DEBUG - /home/maxikov/quick_test.state/args.pkl not found, loading new
+2017-05-04 20:02:54,816 - __main__ - DEBUG - Storing in /home/maxikov/quick_test.state/args.pkl
+2017-05-04 20:02:56,056 - __main__ - DEBUG - msep: ,
+2017-05-04 20:02:56,056 - __main__ - DEBUG - Loading ratings
+2017-05-04 20:03:03,829 - __main__ - DEBUG - Done in 7.773572 seconds
+2017-05-04 20:03:03,830 - __main__ - DEBUG - Loading movies
+2017-05-04 20:03:05,010 - __main__ - DEBUG - Done in 1.179854 seconds
+2017-05-04 20:03:05,010 - __main__ - DEBUG - 26804 movies loaded
+2017-05-04 20:03:54,903 - __main__ - DEBUG - 1990951 records in the training set
+2017-05-04 20:03:55,730 - __main__ - DEBUG - 17517 unique movies in the training set
+2017-05-04 20:03:55,730 - __main__ - DEBUG - /home/maxikov/quick_test.state/als_model.pkl not found, bulding a new model
+2017-05-04 20:03:55,730 - __main__ - DEBUG - Training ALS recommender
+2017-05-04 20:04:02,592 - __main__ - DEBUG - Done in 6.861684 seconds
+2017-05-04 20:04:02,592 - __main__ - DEBUG - Saving model to /home/maxikov/quick_test.state/als_model.pkl
+May 4, 2017 8:04:05 PM INFO: org.apache.parquet.hadoop.codec.CodecConfig: Compression: SNAPPY
+May 4, 2017 8:04:05 PM INFO: org.apache.parquet.hadoop.codec.CodecConfig: Compression: SNAPPY
+May 4, 2017 8:04:05 PM INFO: org.apache.parquet.hadoop.codec.CodecConfig: Compression: SNAPPY
+May 4, 2017 8:04:05 PM INFO: org.apache.parquet.hadoop.codec.CodecConfig: Compression: SNAPPY
+May 4, 2017 8:04:05 PM INFO: org.apache.parquet.hadoop.codec.CodecConfig: Compression: SNAPPY
+May 4, 2017 8:04:05 PM INFO: org.apache.parquet.hadoop.codec.CodecConfig: Compression: SNAPPY
+May 4, 2017 8:04:05 PM INFO: org.apache.parquet.hadoop.codec.CodecConfig: Compression: SNAPPY
+May 4, 2017 8:04:05 PM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Parquet block size to 134217728
+May 4, 2017 8:04:05 PM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Parquet block size to 134217728
+May 4, 2017 8:04:05 PM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Parquet block size to 134217728
+May 4, 2017 8:04:05 PM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Parquet block size to 134217728
+May 4, 2017 8:04:05 PM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Parquet page size to 1048576
+May 4, 2017 8:04:05 PM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Parquet page size to 1048576
+May 4, 2017 8:04:05 PM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Parquet dictionary page size to 1048576
+May 4, 2017 8:04:05 PM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Parquet block size to 134217728
+May 4, 2017 8:04:05 PM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Dictionary is on
+May 4, 2017 8:04:05 PM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Parquet page size to 1048576
+May 4, 2017 8:04:05 PM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Validation is off
+May 4, 2017 8:04:05 PM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Parquet dictionary page size to 1048576
+May 4, 2017 8:04:05 PM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Dictionary is on
+May 4, 2017 8:04:05 PM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Validation is off
+May 4, 2017 8:04:05 PM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Parquet block size to 134217728
+May 4, 2017 8:04:05 PM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Parquet page size to 1048576
+May 4, 2017 8:04:05 PM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Writer version is: PARQUET_1_0
+May 4, 2017 8:04:05 PM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Parquet dictionary page size to 1048576
+May 4, 2017 8:04:05 PM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Dictionary is on
+May 4, 2017 8:04:05 PM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Validation is off
+May 4, 2017 8:04:05 PM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Writer version is: PARQUET_1_0
+May 4, 2017 8:04:05 PM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Parquet block size to 134217728
+May 4, 2017 8:04:05 PM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Parquet page size to 1048576
+May 4, 2017 8:04:05 PM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Parquet dictionary page size to 1048576
+May 4, 2017 8:04:05 PM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Dictionary is on
+May 4, 2017 8:04:05 PM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Validation is off
+May 4, 2017 8:04:05 PM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Writer version is: PARQUET_1_0
+May 4, 2017 8:04:05 PM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Writer version is: PARQUET_1_0
+May 4, 2017 8:04:05 PM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Parquet page size to 1048576
+May 4, 2017 8:04:05 PM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Parquet dictionary page size to 1048576
+May 4, 2017 8:04:05 PM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Dictionary is on
+May 4, 2017 8:04:05 PM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Validation is off
+May 4, 2017 8:04:05 PM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Writer version is: PARQUET_1_0
+May 4, 2017 8:04:05 PM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Parquet page size to 1048576
+May 4, 2017 8:04:05 PM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Parquet dictionary page size to 1048576
+May 4, 2017 8:04:05 PM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Dictionary is on
+May 4, 2017 8:04:05 PM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Validation is off
+May 4, 2017 8:04:05 PM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Writer version is: PARQUET_1_0
+May 4, 2017 8:04:05 PM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Parquet dictionary page size to 1048576
+May 4, 2017 8:04:05 PM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Dictionary is on
+May 4, 2017 8:04:05 PM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Validation is off
+May 4, 2017 8:04:05 PM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Writer version is: PARQUET_1_0
+May 4, 2017 8:04:05 PM INFO: org.apache.parquet.hadoop.InternalParquetRecordWriter: Flushing mem columnStore to file. allocated memory: 807,918
+May 4, 2017 8:04:05 PM INFO: org.apache.parquet.hadoop.InternalParquetRecordWriter: Flushing mem columnStore to file. allocated memory: 804,938
+May 4, 2017 8:04:05 PM INFO: org.apache.parquet.hadoop.InternalParquetRecordWriter: Flushing mem columnStore to file. allocated memory: 809,238
+May 4, 2017 8:04:05 PM INFO: org.apache.parquet.hadoop.InternalParquetRecordWriter: Flushing mem columnStore to file. allocated memory: 808,734
+May 4, 2017 8:04:05 PM INFO: org.apache.parquet.hadoop.InternalParquetRecordWriter: Flushing mem columnStore to file. allocated memory: 808,054
+May 4, 2017 8:04:05 PM INFO: org.apache.parquet.hadoop.InternalParquetRecordWriter: Flushing mem columnStore to file. allocated memory: 808,174
+May 4, 2017 8:04:05 PM INFO: org.apache.parquet.hadoop.InternalParquetRecordWriter: Flushing mem columnStore to file. allocated memory: 810,670
+May 4, 2017 8:04:05 PM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 73,468B for [id] INT32: 18,355 values, 73,420B raw, 73,429B comp, 1 pages, encodings: [PLAIN, BIT_PACKED]
+May 4, 2017 8:04:05 PM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 73,716B for [id] INT32: 18,417 values, 73,668B raw, 73,677B comp, 1 pages, encodings: [PLAIN, BIT_PACKED]
+May 4, 2017 8:04:05 PM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 73,089B for [id] INT32: 18,260 values, 73,040B raw, 73,050B comp, 1 pages, encodings: [PLAIN, BIT_PACKED]
+May 4, 2017 8:04:05 PM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 73,364B for [id] INT32: 18,329 values, 73,316B raw, 73,325B comp, 1 pages, encodings: [PLAIN, BIT_PACKED]
+May 4, 2017 8:04:05 PM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 73,452B for [id] INT32: 18,351 values, 73,404B raw, 73,413B comp, 1 pages, encodings: [PLAIN, BIT_PACKED]
+May 4, 2017 8:04:05 PM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 323,733B for [features, list, element] DOUBLE: 55,251 values, 449,037B raw, 323,686B comp, 1 pages, encodings: [PLAIN, RLE]
+May 4, 2017 8:04:05 PM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 322,837B for [features, list, element] DOUBLE: 55,065 values, 447,526B raw, 322,790B comp, 1 pages, encodings: [PLAIN, RLE]
+May 4, 2017 8:04:05 PM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 321,106B for [features, list, element] DOUBLE: 54,780 values, 445,209B raw, 321,059B comp, 1 pages, encodings: [PLAIN, RLE]
+May 4, 2017 8:04:05 PM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 73,388B for [id] INT32: 18,335 values, 73,340B raw, 73,349B comp, 1 pages, encodings: [PLAIN, BIT_PACKED]
+May 4, 2017 8:04:05 PM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 73,556B for [id] INT32: 18,377 values, 73,508B raw, 73,517B comp, 1 pages, encodings: [PLAIN, BIT_PACKED]
+May 4, 2017 8:04:05 PM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 322,289B for [features, list, element] DOUBLE: 54,987 values, 446,892B raw, 322,242B comp, 1 pages, encodings: [PLAIN, RLE]
+May 4, 2017 8:04:05 PM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 322,417B for [features, list, element] DOUBLE: 55,053 values, 447,428B raw, 322,370B comp, 1 pages, encodings: [PLAIN, RLE]
+May 4, 2017 8:04:05 PM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 322,313B for [features, list, element] DOUBLE: 55,005 values, 447,038B raw, 322,266B comp, 1 pages, encodings: [PLAIN, RLE]
+May 4, 2017 8:04:05 PM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 322,768B for [features, list, element] DOUBLE: 55,131 values, 448,062B raw, 322,721B comp, 1 pages, encodings: [PLAIN, RLE]
+May 4, 2017 8:04:06 PM INFO: org.apache.parquet.hadoop.codec.CodecConfig: Compression: SNAPPY
+May 4, 2017 8:04:06 PM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Parquet block size to 134217728
+May 4, 2017 8:04:06 PM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Parquet page size to 1048576
+May 4, 2017 8:04:06 PM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Parquet dictionary page size to 1048576
+May 4, 2017 8:04:06 PM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Dictionary is on
+May 4, 2017 8:04:06 PM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Validation is off
+May 4, 2017 8:04:06 PM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Writer version is: PARQUET_1_0
+May 4, 2017 8:04:06 PM INFO: org.apache.parquet.hadoop.codec.CodecConfig: Compression: SNAPPY
+May 4, 2017 8:04:06 PM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Parquet block size to 134217728
+May 4, 2017 8:04:06 PM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Parquet page size to 1048576
+May 4, 2017 8:04:06 PM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Parquet dictionary page size to 1048576
+May 4, 2017 8:04:06 PM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Dictionary is on
+May 4, 2017 8:04:06 PM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Validation is off
+May 4, 2017 8:04:06 PM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Writer version is: PARQUET_1_0
+May 4, 2017 8:04:06 PM INFO: org.apache.parquet.hadoop.codec.CodecConfig: Compression: SNAPPY
+May 4, 2017 8:04:06 PM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Parquet block size to 134217728
+May 4, 2017 8:04:06 PM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Parquet page size to 1048576
+May 4, 2017 8:04:06 PM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Parquet dictionary page size to 1048576
+May 4, 2017 8:04:06 PM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Dictionary is on
+May 4, 2017 8:04:06 PM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Validation is off
+May 4, 2017 8:04:06 PM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Writer version is: PARQUET_1_0
+May 4, 2017 8:04:06 PM INFO: org.apache.parquet.hadoop.codec.CodecConfig: Compression: SNAPPY
+May 4, 2017 8:04:06 PM INFO: org.apache.parquet.hadoop.codec.CodecConfig: Compression: SNAPPY
+May 4, 2017 8:04:06 PM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Parquet block size to 134217728
+May 4, 2017 8:04:06 PM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Parquet page size to 1048576
+May 4, 2017 8:04:06 PM INFO: org.apache.parquet.hadoop.codec.CodecConfig: Compression: SNAPPY
+May 4, 2017 8:04:06 PM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Parquet dictionary page size to 1048576
+May 4, 2017 8:04:06 PM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Dictionary is on
+May 4, 2017 8:04:06 PM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Parquet block size to 134217728
+May 4, 2017 8:04:06 PM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Validation is off
+May 4, 2017 8:04:06 PM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Parquet page size to 1048576
+May 4, 2017 8:04:06 PM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Writer version is: PARQUET_1_0
+May 4, 2017 8:04:06 PM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Parquet dictionary page size to 1048576
+May 4, 2017 8:04:06 PM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Dictionary is on
+May 4, 2017 8:04:06 PM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Validation is off
+May 4, 2017 8:04:06 PM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Writer version is: PARQUET_1_0
+May 4, 2017 8:04:06 PM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Parquet block size to 134217728
+May 4, 2017 8:04:06 PM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Parquet page size to 1048576
+May 4, 2017 8:04:06 PM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Parquet dictionary page size to 1048576
+May 4, 2017 8:04:06 PM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Dictionary is on
+May 4, 2017 8:04:06 PM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Validation is off
+May 4, 2017 8:04:06 PM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Writer version is: PARQUET_1_0
+May 4, 2017 8:04:06 PM INFO: org.apache.parquet.hadoop.codec.CodecConfig: Compression: SNAPPY
+May 4, 2017 8:04:06 PM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Parquet block size to 134217728
+May 4, 2017 8:04:06 PM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Parquet page size to 1048576
+May 4, 2017 8:04:06 PM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Parquet dictionary page size to 1048576
+May 4, 2017 8:04:06 PM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Dictionary is on
+May 4, 2017 8:04:06 PM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Validation is off
+May 4, 2017 8:04:06 PM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Writer version is: PARQUET_1_0
+May 4, 2017 8:04:06 PM INFO: org.apache.parquet.hadoop.InternalParquetRecordWriter: Flushing mem columnStore to file. allocated memory: 109,925
+May 4, 2017 8:04:06 PM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 10,151B for [id] INT32: 2,527 values, 10,108B raw, 10,113B comp, 1 pages, encodings: [PLAIN, BIT_PACKED]
+May 4, 2017 8:04:06 PM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 43,574B for [features, list, element] DOUBLE: 7,581 values, 61,623B raw, 43,528B comp, 1 pages, encodings: [PLAIN, RLE]
+May 4, 2017 8:04:06 PM INFO: org.apache.parquet.hadoop.InternalParquetRecordWriter: Flushing mem columnStore to file. allocated memory: 111,785
+May 4, 2017 8:04:06 PM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 10,310B for [id] INT32: 2,566 values, 10,264B raw, 10,272B comp, 1 pages, encodings: [PLAIN, BIT_PACKED]
+May 4, 2017 8:04:06 PM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 44,378B for [features, list, element] DOUBLE: 7,698 values, 62,574B raw, 44,332B comp, 1 pages, encodings: [PLAIN, RLE]
+May 4, 2017 8:04:06 PM INFO: org.apache.parquet.hadoop.InternalParquetRecordWriter: Flushing mem columnStore to file. allocated memory: 108,589
+May 4, 2017 8:04:06 PM INFO: org.apache.parquet.hadoop.InternalParquetRecordWriter: Flushing mem columnStore to file. allocated memory: 108,013
+May 4, 2017 8:04:06 PM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 10,007B for [id] INT32: 2,491 values, 9,964B raw, 9,969B comp, 1 pages, encodings: [PLAIN, BIT_PACKED]
+May 4, 2017 8:04:06 PM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 43,105B for [features, list, element] DOUBLE: 7,473 values, 60,745B raw, 43,059B comp, 1 pages, encodings: [PLAIN, RLE]
+May 4, 2017 8:04:06 PM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 9,960B for [id] INT32: 2,479 values, 9,916B raw, 9,922B comp, 1 pages, encodings: [PLAIN, BIT_PACKED]
+May 4, 2017 8:04:06 PM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 42,909B for [features, list, element] DOUBLE: 7,437 values, 60,452B raw, 42,863B comp, 1 pages, encodings: [PLAIN, RLE]
+May 4, 2017 8:04:06 PM INFO: org.apache.parquet.hadoop.InternalParquetRecordWriter: Flushing mem columnStore to file. allocated memory: 107,853
+May 4, 2017 8:04:06 PM INFO: org.apache.parquet.hadoop.InternalParquetRecordWriter: Flushing mem columnStore to file. allocated memor2017-05-04 20:04:06,207 - __main__ - DEBUG - /home/maxikov/quick_test.state/features_indicators.pkl not found, building new features
+2017-05-04 20:04:06,207 - __main__ - DEBUG - Loading years
+2017-05-04 20:04:06,448 - __main__ - DEBUG - Done in 0.241568088531 seconds
+2017-05-04 20:04:06,448 - __main__ - DEBUG - 26804 records of 1 features loaded
+2017-05-04 20:04:06,662 - __main__ - DEBUG - No missing IDs
+2017-05-04 20:04:06,662 - __main__ - DEBUG - Dropping features with less than 1000 non-zero values
+2017-05-04 20:04:06,877 - __main__ - DEBUG - Dropping 0 features
+2017-05-04 20:04:06,885 - __main__ - DEBUG - 1 features remaining
+2017-05-04 20:04:06,885 - __main__ - DEBUG - Done in 0.223139 seconds
+2017-05-04 20:04:06,885 - __main__ - DEBUG - Loading genres
+2017-05-04 20:04:07,377 - __main__ - DEBUG - Done in 0.49144411087 seconds
+2017-05-04 20:04:07,377 - __main__ - DEBUG - 26804 records of 16 features loaded
+2017-05-04 20:04:07,577 - __main__ - DEBUG - No missing IDs
+2017-05-04 20:04:07,577 - __main__ - DEBUG - Dropping features with less than 1000 non-zero values
+2017-05-04 20:04:07,807 - __main__ - DEBUG - Dropping 0 features
+2017-05-04 20:04:07,814 - __main__ - DEBUG - 16 features remaining
+2017-05-04 20:04:07,814 - __main__ - DEBUG - Done in 0.237643 seconds
+2017-05-04 20:04:07,853 - __main__ - DEBUG - Loading tags
+2017-05-04 20:04:11,258 - __main__ - DEBUG - Done in 3.40434408188 seconds
+2017-05-04 20:04:11,258 - __main__ - DEBUG - 19545 records of 5 features loaded
+2017-05-04 20:04:11,387 - __main__ - DEBUG - 7555 IDs are missing. Adding empty records for them
+2017-05-04 20:04:11,414 - __main__ - DEBUG - Done in 0.0277509689331 seconds
+2017-05-04 20:04:11,415 - __main__ - DEBUG - Dropping features with less than 1000 non-zero values
+2017-05-04 20:04:11,666 - __main__ - DEBUG - Dropping 0 features
+2017-05-04 20:04:11,672 - __main__ - DEBUG - 5 features remaining
+2017-05-04 20:04:11,672 - __main__ - DEBUG - Done in 0.257088 seconds
+2017-05-04 20:04:11,693 - __main__ - DEBUG - 22 features loaded
+2017-05-04 20:04:11,694 - __main__ - DEBUG - Dropping movies with fewer than 4 non-zero features
+2017-05-04 20:04:13,545 - __main__ - DEBUG - 7215 movies left
+2017-05-04 20:04:14,002 - __main__ - DEBUG - 1990951 items left in the training set
+2017-05-04 20:04:14,116 - __main__ - DEBUG - Building training and test sets for regression
+2017-05-04 20:04:14,116 - __main__ - DEBUG - 5051 items in training and 2164 in test set
+2017-05-04 20:04:14,122 - __main__ - DEBUG - Writing /home/maxikov/quick_test.state/features_indicators.pkl
+2017-05-04 20:05:02,377 - __main__ - DEBUG - /home/maxikov/quick_test.state/results.pkl not found, loading new
+2017-05-04 20:05:02,377 - __main__ - DEBUG - Computing mean feature values
+2017-05-04 20:05:02,616 - __main__ - DEBUG - Done in 0.239065 seconds
+2017-05-04 20:05:02,616 - __main__ - DEBUG - Mean product feature values: {0: 0.9181957112691719, 1: 0.9369361551439781, 2: 0.9467278134561682}
+2017-05-04 20:05:02,617 - __main__ - DEBUG - Computing feature ranges
+2017-05-04 20:05:02,651 - __main__ - DEBUG - Detected 3 features
+2017-05-04 20:05:02,903 - __main__ - DEBUG - Feature ranges: {0: {'_max': 2.610203981399536, 'min': 0.0}, 1: {'_max': 3.9039804935455322, 'min': 0.0}, 2: {'_max': 3.113786220550537, 'min': 0.0}}
+2017-05-04 20:05:02,903 - __main__ - DEBUG - Computing mean feature values
+2017-05-04 20:05:03,132 - __main__ - DEBUG - Done in 0.228745 seconds
+2017-05-04 20:05:03,132 - __main__ - DEBUG - Mean product feature values: {0: 1988.7722799722799, 1: 0.27151767151767153, 2: 0.19611919611919612, 3: 0.07775467775467776, 4: 0.08745668745668746, 5: 0.36313236313236313, 6: 0.21094941094941094, 7: 0.008177408177408177, 8: 0.5392931392931393, 9: 0.12529452529452528, 10: 0.13970893970893972, 11: 0.06652806652806653, 12: 0.11850311850311851, 13: 0.25557865557865556, 14: 0.13832293832293832, 15: 0.3024255024255024, 16: 0.07124047124047124, 17: 0.176992376992377, 18: 0.10990990990990991, 19: 0.13513513513513514, 20: 0.12778932778932778, 21: 0.10602910602910603}
+2017-05-04 20:05:03,132 - __main__ - DEBUG - Computing feature ranges
+2017-05-04 20:05:03,168 - __main__ - DEBUG - Detected 22 features
+2017-05-04 20:05:03,379 - __main__ - DEBUG - Feature ranges: {0: {'_max': 2015.0, 'min': 1902.0}, 1: {'_max': 1, 'min': 0}, 2: {'_max': 1, 'min': 0}, 3: {'_max': 1, 'min': 0}, 4: {'_max': 1, 'min': 0}, 5: {'_max': 1, 'min': 0}, 6: {'_max': 1, 'min': 0}, 7: {'_max': 1, 'min': 0}, 8: {'_max': 1, 'min': 0}, 9: {'_max': 1, 'min': 0}, 10: {'_max': 1, 'min': 0}, 11: {'_max': 1, 'min': 0}, 12: {'_max': 1, 'min': 0}, 13: {'_max': 1, 'min': 0}, 14: {'_max': 1, 'min': 0}, 15: {'_max': 1, 'min': 0}, 16: {'_max': 1, 'min': 0}, 17: {'_max': 1, 'min': 0}, 18: {'_max': 1, 'min': 0}, 19: {'_max': 1, 'min': 0}, 20: {'_max': 1, 'min': 0}, 21: {'_max': 1, 'min': 0}}
+2017-05-04 20:05:03,379 - __main__ - DEBUG - Storing in /home/maxikov/quick_test.state/results.pkl
+2017-05-04 20:05:03,380 - __main__ - DEBUG - Processing year (0 out of 22)
+2017-05-04 20:05:03,380 - __main__ - DEBUG - Processing feature 0
+2017-05-04 20:05:03,380 - __main__ - DEBUG - Building data set
+2017-05-04 20:05:03,429 - __main__ - DEBUG - Done in 0.0486488342285 seconds
+2017-05-04 20:05:03,429 - __main__ - DEBUG - Training linear
+/opt/spark-2.0.1/python/lib/pyspark.zip/pyspark/mllib/regression.py:281: UserWarning: Deprecated in 2.0.0. Use ml.regression.LinearRegression.
+2017-05-04 20:05:04,659 - __main__ - DEBUG - Done in 1.22961306572 seconds
+2017-05-04 20:05:05,023 - __main__ - DEBUG - Measuring model QII
+2017-05-04 20:05:05,027 - __main__ - DEBUG - 3 features detected
+2017-05-04 20:05:05,027 - __main__ - DEBUG - Processing feature 0
+2017-05-04 20:05:06,545 - __main__ - DEBUG - QII: 413.675492648, signed QII: -413.675492648
+2017-05-04 20:05:06,546 - __main__ - DEBUG - Processing feature 1
+2017-05-04 20:05:07,586 - __main__ - DEBUG - QII: 415.9347091, signed QII: 415.9347091
+2017-05-04 20:05:07,587 - __main__ - DEBUG - Processing feature 2
+2017-05-04 20:05:08,603 - __main__ - DEBUG - QII: 418.328661601, signed QII: 418.328661601
+2017-05-04 20:05:08,603 - __main__ - DEBUG - Model weights: [662.23894269902939, 676.4654407628941, 700.74195686536893]
+2017-05-04 20:05:08,819 - __main__ - DEBUG - Bin range: (1902.0, 2015.0)
+2017-05-04 20:05:08,819 - __main__ - DEBUG -  Evaluating the model
+2017-05-04 20:05:08,847 - __main__ - DEBUG -  Bin range: (1902.0, 2015.0)
+2017-05-04 20:05:10,531 - __main__ - DEBUG - Done in 1.712268 seconds
+2017-05-04 20:05:10,531 - __main__ - DEBUG -  Mean error: -81.3470208957, mean absolute error: 290.721104024
+2017-05-04 20:05:10,827 - __main__ - DEBUG -  RMSE: 160908.727044, variance explained: 403.900566483, mean absolute error: 290.721104024,
+2017-05-04 20:05:10,827 - __main__ - DEBUG -  MRAE: 0.146054542608
+2017-05-04 20:05:10,827 - __main__ - DEBUG -  Errors histogram: ([-2015.0, -1892.878787878788, -1770.7575757575758, -1648.6363636363635, -1526.5151515151515, -1404.3939393939395, -1282.2727272727273, -1160.151515151515, -1038.030303030303, -915.909090909091, -793.7878787878788, -671.6666666666665, -549.5454545454545, -427.4242424242425, -305.30303030303025, -183.18181818181802, -61.060606060606005, 61.060606060606005, 183.18181818181802, 305.3030303030305, 427.4242424242425, 549.5454545454545, 671.666666666667, 793.787878787879, 915.909090909091, 1038.030303030303, 1160.151515151515, 1282.2727272727275, 1404.3939393939395, 1526.5151515151515, 1648.636363636364, 1770.757575757576, 1892.878787878788, 2015.0], [0, 1, 18, 10, 18, 18, 14, 26, 37, 67, 122, 191, 239, 382, 586, 755, 806, 706, 416, 282, 162, 85, 45, 22, 14, 7, 7, 7, 4, 1, 1, 0, 0])
+2017-05-04 20:05:10,827 - __main__ - DEBUG -  Absolute errors histogram: ([0.0, 61.06060606060606, 122.12121212121212, 183.1818181818182, 244.24242424242425, 305.3030303030303, 366.3636363636364, 427.42424242424244, 488.4848484848485, 549.5454545454545, 610.6060606060606, 671.6666666666667, 732.7272727272727, 793.7878787878788, 854.8484848484849, 915.909090909091, 976.969696969697, 1038.030303030303, 1099.090909090909, 1160.1515151515152, 1221.2121212121212, 1282.2727272727273, 1343.3333333333335, 1404.3939393939395, 1465.4545454545455, 1526.5151515151515, 1587.5757575757575, 1648.6363636363637, 1709.6969696969697, 1770.7575757575758, 1831.818181818182, 1892.878787878788, 1953.939393939394, 2015.0], [806, 795, 666, 573, 429, 363, 301, 218, 183, 153, 123, 88, 79, 58, 31, 26, 25, 17, 16, 8, 13, 12, 13, 14, 8, 8, 3, 12, 7, 1, 0, 0, 0])
+2017-05-04 20:05:10,827 - __main__ - DEBUG -  Squared errors histogram: ([0.0, 123037.12121212122, 246074.24242424243, 369111.36363636365, 492148.48484848486, 615185.6060606061, 738222.7272727273, 861259.8484848485, 984296.9696969697, 1107334.0909090908, 1230371.2121212122, 1353408.3333333335, 1476445.4545454546, 1599482.5757575757, 1722519.696969697, 1845556.8181818184, 1968593.9393939395, 2091631.0606060605, 2214668.1818181816, 2337705.303030303, 2460742.4242424243, 2583779.5454545454, 2706816.666666667, 2829853.787878788, 2952890.909090909, 3075928.0303030303, 3198965.1515151514, 3322002.272727273, 3445039.393939394, 3568076.515151515, 3691113.6363636367, 3814150.757575758, 3937187.878787879, 4060225.0], [3543, 636, 301, 179, 107, 73, 32, 29, 22, 17, 11, 8, 6, 13, 11, 8, 12, 4, 6, 4, 5, 2, 8, 5, 4, 2, 1, 0, 0, 0, 0, 0, 0]):
+2017-05-04 20:05:10,827 - __main__ - DEBUG -  Predictions histogram: ([1902.0, 1905.4242424242425, 1908.8484848484848, 1912.2727272727273, 1915.6969696969697, 1919.121212121212, 1922.5454545454545, 1925.969696969697, 1929.3939393939395, 1932.8181818181818, 1936.2424242424242, 1939.6666666666667, 1943.090909090909, 1946.5151515151515, 1949.939393939394, 1953.3636363636363, 1956.7878787878788, 1960.2121212121212, 1963.6363636363637, 1967.060606060606, 1970.4848484848485, 1973.909090909091, 1977.3333333333333, 1980.7575757575758, 1984.1818181818182, 1987.6060606060605, 1991.030303030303, 1994.4545454545455, 1997.878787878788, 2001.3030303030303, 2004.7272727272727, 2008.1515151515152, 2011.5757575757575, 2015.0], [20, 27, 18, 18, 25, 33, 28, 22, 25, 46, 17, 27, 25, 23, 28, 21, 21, 28, 19, 16, 24, 23, 28, 22, 26, 19, 27, 23, 29, 23, 32, 36, 15])
+2017-05-04 20:05:10,828 - __main__ - DEBUG -  Observations histogram: ([1902.0, 1905.4242424242425, 1908.8484848484848, 1912.2727272727273, 1915.6969696969697, 1919.121212121212, 1922.5454545454545, 1925.969696969697, 1929.3939393939395, 1932.8181818181818, 1936.2424242424242, 1939.6666666666667, 1943.090909090909, 1946.5151515151515, 1949.939393939394, 1953.3636363636363, 1956.7878787878788, 1960.2121212121212, 1963.6363636363637, 1967.060606060606, 1970.4848484848485, 1973.909090909091, 1977.3333333333333, 1980.7575757575758, 1984.1818181818182, 1987.6060606060605, 1991.030303030303, 1994.4545454545455, 1997.878787878788, 2001.3030303030303, 2004.7272727272727, 2008.1515151515152, 2011.5757575757575, 2015.0], [1, 0, 1, 2, 6, 10, 15, 21, 41, 90, 58, 86, 54, 47, 84, 78, 107, 72, 144, 83, 111, 136, 120, 253, 244, 300, 260, 302, 392, 417, 697, 456, 363])
+2017-05-04 20:05:10,828 - __main__ - DEBUG - Computing predictions on the test set
+2017-05-04 20:05:11,302 - __main__ - DEBUG - Bin range: (1920.0, 2015.0)
+2017-05-04 20:05:11,302 - __main__ - DEBUG -  Evaluating the model
+2017-05-04 20:05:11,334 - __main__ - DEBUG -  Bin range: (1920.0, 2015.0)
+2017-05-04 20:05:12,779 - __main__ - DEBUG - Done in 1.477592 seconds
+2017-05-04 20:05:12,780 - __main__ - DEBUG -  Mean error: -88.4935793477, mean absolute error: 284.535350876
+2017-05-04 20:05:12,933 - __main__ - DEBUG -  RMSE: 160972.968109, variance explained: 403.827109315, mean absolute error: 284.535350876,
+2017-05-04 20:05:12,933 - __main__ - DEBUG -  MRAE: 0.142889440728
+2017-05-04 20:05:12,933 - __main__ - DEBUG -  Errors histogram: ([-2015.0, -1892.878787878788, -1770.7575757575758, -1648.6363636363635, -1526.5151515151515, -1404.3939393939395, -1282.2727272727273, -1160.151515151515, -1038.030303030303, -915.909090909091, -793.7878787878788, -671.6666666666665, -549.5454545454545, -427.4242424242425, -305.30303030303025, -183.18181818181802, -61.060606060606005, 61.060606060606005, 183.18181818181802, 305.3030303030305, 427.4242424242425, 549.5454545454545, 671.666666666667, 793.787878787879, 915.909090909091, 1038.030303030303, 1160.151515151515, 1282.2727272727275, 1404.3939393939395, 1526.5151515151515, 1648.636363636364, 1770.757575757576, 1892.878787878788, 2015.0], [0, 1, 8, 5, 10, 11, 6, 6, 14, 34, 41, 65, 119, 164, 269, 306, 387, 291, 186, 109, 60, 27, 13, 14, 7, 3, 0, 3, 2, 0, 1, 1, 0])
+2017-05-04 20:05:12,933 - __main__ - DEBUG -  Absolute errors histogram: ([0.0, 61.06060606060606, 122.12121212121212, 183.1818181818182, 244.24242424242425, 305.3030303030303, 366.3636363636364, 427.42424242424244, 488.4848484848485, 549.5454545454545, 610.6060606060606, 671.6666666666667, 732.7272727272727, 793.7878787878788, 854.8484848484849, 915.909090909091, 976.969696969697, 1038.030303030303, 1099.090909090909, 1160.1515151515152, 1221.2121212121212, 1282.2727272727273, 1343.3333333333335, 1404.3939393939395, 1465.4545454545455, 1526.5151515151515, 1587.5757575757575, 1648.6363636363637, 1709.6969696969697, 1770.7575757575758, 1831.818181818182, 1892.878787878788, 1953.939393939394, 2015.0], [387, 324, 273, 245, 210, 167, 106, 106, 73, 51, 41, 28, 26, 23, 25, 7, 14, 4, 5, 2, 4, 8, 6, 5, 7, 0, 5, 6, 3, 2, 0, 0, 0])
+2017-05-04 20:05:12,933 - __main__ - DEBUG -  Squared errors histogram: ([0.0, 123037.12121212122, 246074.24242424243, 369111.36363636365, 492148.48484848486, 615185.6060606061, 738222.7272727273, 861259.8484848485, 984296.9696969697, 1107334.0909090908, 1230371.2121212122, 1353408.3333333335, 1476445.4545454546, 1599482.5757575757, 1722519.696969697, 1845556.8181818184, 1968593.9393939395, 2091631.0606060605, 2214668.1818181816, 2337705.303030303, 2460742.4242424243, 2583779.5454545454, 2706816.666666667, 2829853.787878788, 2952890.909090909, 3075928.0303030303, 3198965.1515151514, 3322002.272727273, 3445039.393939394, 3568076.515151515, 3691113.6363636367, 3814150.757575758, 3937187.878787879, 4060225.0], [1584, 240, 115, 55, 42, 25, 27, 8, 11, 4, 4, 1, 5, 4, 7, 3, 4, 5, 3, 0, 1, 3, 4, 4, 0, 3, 1, 0, 0, 0, 0, 0, 0]):
+2017-05-04 20:05:12,933 - __main__ - DEBUG -  Predictions histogram: ([1920.0, 1922.878787878788, 1925.7575757575758, 1928.6363636363637, 1931.5151515151515, 1934.3939393939395, 1937.2727272727273, 1940.1515151515152, 1943.030303030303, 1945.909090909091, 1948.7878787878788, 1951.6666666666667, 1954.5454545454545, 1957.4242424242425, 1960.3030303030303, 1963.1818181818182, 1966.060606060606, 1968.939393939394, 1971.8181818181818, 1974.6969696969697, 1977.5757575757575, 1980.4545454545455, 1983.3333333333333, 1986.2121212121212, 1989.090909090909, 1991.969696969697, 1994.8484848484848, 1997.7272727272727, 2000.6060606060605, 2003.4848484848485, 2006.3636363636365, 2009.2424242424242, 2012.121212121212, 2015.0], [6, 12, 4, 7, 16, 10, 8, 10, 8, 12, 7, 11, 5, 16, 10, 7, 10, 9, 13, 2, 14, 16, 7, 2, 9, 7, 8, 5, 15, 9, 9, 7, 7])
+2017-05-04 20:05:12,933 - __main__ - DEBUG -  Observations histogram: ([1920.0, 1922.878787878788, 1925.7575757575758, 1928.6363636363637, 1931.5151515151515, 1934.3939393939395, 1937.2727272727273, 1940.1515151515152, 1943.030303030303, 1945.909090909091, 1948.7878787878788, 1951.6666666666667, 1954.5454545454545, 1957.4242424242425, 1960.3030303030303, 1963.1818181818182, 1966.060606060606, 1968.939393939394, 1971.8181818181818, 1974.6969696969697, 1977.5757575757575, 1980.4545454545455, 1983.3333333333333, 1986.2121212121212, 1989.090909090909, 1991.969696969697, 1994.8484848484848, 1997.7272727272727, 2000.6060606060605, 2003.4848484848485, 2006.3636363636365, 2009.2424242424242, 2012.121212121212, 2015.0], [3, 5, 7, 9, 23, 22, 22, 26, 21, 29, 28, 27, 27, 42, 36, 41, 25, 39, 52, 55, 45, 71, 92, 98, 64, 125, 119, 125, 171, 206, 225, 174, 110])
+2017-05-04 20:05:12,935 - __main__ - DEBUG - Storing in /home/maxikov/quick_test.state/results.pkl
+2017-05-04 20:05:12,940 - __main__ - DEBUG - Processing movielens_genre:Action (1 out of 22)
+2017-05-04 20:05:12,940 - __main__ - DEBUG - Processing feature 1
+2017-05-04 20:05:12,940 - __main__ - DEBUG - Building data set
+2017-05-04 20:05:13,000 - __main__ - DEBUG - Done in 0.0599009990692 seconds
+2017-05-04 20:05:13,000 - __main__ - DEBUG - Training logistic
+2017-05-04 20:05:13,000 - __main__ - DEBUG - Actually training a classifier
+2017-05-04 20:05:14,355 - __main__ - DEBUG - Done in 1.35453081131 seconds
+2017-05-04 20:05:14,719 - __main__ - DEBUG - Model threshold 0.500000
+2017-05-04 20:05:14,720 - __main__ - DEBUG - Clearing
+2017-05-04 20:05:14,720 - __main__ - DEBUG - Making no-threshold predictions
+2017-05-04 20:05:15,017 - __main__ - DEBUG - Restoring threshold
+2017-05-04 20:05:15,017 - __main__ - DEBUG - Measuring model QII
+2017-05-04 20:05:15,021 - __main__ - DEBUG - 3 features detected
+2017-05-04 20:05:15,021 - __main__ - DEBUG - Processing feature 0
+2017-05-04 20:05:16,366 - __main__ - DEBUG - QII: 0.000791922391606, signed QII: 0.000791922391606
+2017-05-04 20:05:16,366 - __main__ - DEBUG - Processing feature 1
+2017-05-04 20:05:17,428 - __main__ - DEBUG - QII: 0.000395961195803, signed QII: -0.000395961195803
+2017-05-04 20:05:17,428 - __main__ - DEBUG - Processing feature 2
+2017-05-04 20:05:18,456 - __main__ - DEBUG - QII: 0.000395961195803, signed QII: -0.000395961195803
+2017-05-04 20:05:18,456 - __main__ - DEBUG - Model weights: [0.022844550796055157, -0.70995405059087979, -0.37223026617246563]
+2017-05-04 20:05:18,456 - __main__ - DEBUG - Evaluating the model, no_threshold: False
+2017-05-04 20:05:19,338 - __main__ - DEBUG - {'recall': 0.0014803849000740192, 'precision': 1.0}
+2017-05-04 20:05:19,338 - __main__ - DEBUG - Evaluating the model, no_threshold: True
+2017-05-04 20:05:20,564 - __main__ - DEBUG - {'better': 1.0644079001879994, 'auprc': 0.31179746776980966, 'auroc': 0.5527807229879764, 'prate': 0.2674717877647991}
+2017-05-04 20:05:20,564 - __main__ - DEBUG - Computing predictions on the test set
+2017-05-04 20:05:20,856 - __main__ - DEBUG - Evaluating the model, no_threshold: False
+2017-05-04 20:05:21,801 - __main__ - DEBUG - {'recall': 0.001644736842105263, 'precision': 1.0}
+2017-05-04 20:05:21,801 - __main__ - DEBUG - Clearing threshold
+2017-05-04 20:05:21,801 - __main__ - DEBUG - Making no-threshold test predictions
+2017-05-04 20:05:22,063 - __main__ - DEBUG - Restoring threshold
+2017-05-04 20:05:22,063 - __main__ - DEBUG - Evaluating the model, no_threshold: True
+2017-05-04 20:05:23,051 - __main__ - DEBUG - {'better': 1.0694721133613783, 'auprc': 0.3276694099619038, 'auroc': 0.558318922507103, 'prate': 0.2809611829944547}
+2017-05-04 20:05:23,052 - __main__ - DEBUG - Storing in /home/maxikov/quick_test.state/results.pkl
+2017-05-04 20:05:23,056 - __main__ - DEBUG - Processing movielens_genre:Adventure (2 out of 22)
+2017-05-04 20:05:23,057 - __main__ - DEBUG - Processing feature 2
+2017-05-04 20:05:23,057 - __main__ - DEBUG - Building data set
+2017-05-04 20:05:23,112 - __main__ - DEBUG - Done in 0.0550701618195 seconds
+2017-05-04 20:05:23,112 - __main__ - DEBUG - Training logistic
+2017-05-04 20:05:23,112 - __main__ - DEBUG - Actually training a classifier
+2017-05-04 20:05:24,369 - __main__ - DEBUG - Done in 1.25720715523 seconds
+2017-05-04 20:05:24,703 - __main__ - DEBUG - Model threshold 0.500000
+2017-05-04 20:05:24,703 - __main__ - DEBUG - Clearing
+2017-05-04 20:05:24,703 - __main__ - DEBUG - Making no-threshold predictions
+2017-05-04 20:05:25,057 - __main__ - DEBUG - Restoring threshold
+2017-05-04 20:05:25,057 - __main__ - DEBUG - Measuring model QII
+2017-05-04 20:05:25,061 - __main__ - DEBUG - 3 features detected
+2017-05-04 20:05:25,061 - __main__ - DEBUG - Processing feature 0
+2017-05-04 20:05:26,615 - __main__ - DEBUG - QII: 0.000791922391606, signed QII: 0.000791922391606
+2017-05-04 20:05:26,615 - __main__ - DEBUG - Processing feature 1
+2017-05-04 20:05:27,844 - __main__ - DEBUG - QII: 0.000395961195803, signed QII: -0.000395961195803
+2017-05-04 20:05:27,844 - __main__ - DEBUG - Processing feature 2
+2017-05-04 20:05:28,966 - __main__ - DEBUG - QII: 0.000593941793704, signed QII: -0.000593941793704
+2017-05-04 20:05:28,967 - __main__ - DEBUG - Model weights: [0.028786696239523967, -1.0041762084422248, -0.47643856535946194]
+2017-05-04 20:05:28,967 - __main__ - DEBUG - Evaluating the model, no_threshold: False
+2017-05-04 20:05:29,965 - __main__ - DEBUG - {'recall': 0.000999000999000999, 'precision': 0.5}
+2017-05-04 20:05:29,965 - __main__ - DEBUG - Evaluating the model, no_threshold: True
+2017-05-04 20:05:31,016 - __main__ - DEBUG - {'better': 1.0266945498778655, 'auprc': 0.21902631937017994, 'auroc': 0.5325657058990394, 'prate': 0.19817857849930706}
+2017-05-04 20:05:31,017 - __main__ - DEBUG - Computing predictions on the test set
+2017-05-04 20:05:31,277 - __main__ - DEBUG - Evaluating the model, no_threshold: False
+2017-05-04 20:05:32,285 - __main__ - DEBUG - {'recall': 0.0, 'precision': 0.0}
+2017-05-04 20:05:32,285 - __main__ - DEBUG - Clearing threshold
+2017-05-04 20:05:32,285 - __main__ - DEBUG - Making no-threshold test predictions
+2017-05-04 20:05:32,573 - __main__ - DEBUG - Restoring threshold
+2017-05-04 20:05:32,573 - __main__ - DEBUG - Evaluating the model, no_threshold: True
+2017-05-04 20:05:33,600 - __main__ - DEBUG - {'better': 1.0175629701759135, 'auprc': 0.2052702002442181, 'auroc': 0.5340924775707384, 'prate': 0.1913123844731978}
+2017-05-04 20:05:33,600 - __main__ - DEBUG - Storing in /home/maxikov/quick_test.state/results.pkl
+2017-05-04 20:05:33,607 - __main__ - DEBUG - Processing movielens_genre:Animation (3 out of 22)
+2017-05-04 20:05:33,607 - __main__ - DEBUG - Processing feature 3
+2017-05-04 20:05:33,607 - __main__ - DEBUG - Building data set
+2017-05-04 20:05:33,706 - __main__ - DEBUG - Done in 0.0984330177307 seconds
+2017-05-04 20:05:33,706 - __main__ - DEBUG - Training logistic
+2017-05-04 20:05:33,706 - __main__ - DEBUG - Actually training a classifier
+2017-05-04 20:05:34,851 - __main__ - DEBUG - Done in 1.14541506767 seconds
+2017-05-04 20:05:35,162 - __main__ - DEBUG - Model threshold 0.500000
+2017-05-04 20:05:35,162 - __main__ - DEBUG - Clearing
+2017-05-04 20:05:35,162 - __main__ - DEBUG - Making no-threshold predictions
+2017-05-04 20:05:35,470 - __main__ - DEBUG - Restoring threshold
+2017-05-04 20:05:35,470 - __main__ - DEBUG - Measuring model QII
+2017-05-04 20:05:35,474 - __main__ - DEBUG - 3 features detected
+2017-05-04 20:05:35,474 - __main__ - DEBUG - Processing feature 0
+2017-05-04 20:05:36,944 - __main__ - DEBUG - QII: 0.0, signed QII: 0.0
+2017-05-04 20:05:36,945 - __main__ - DEBUG - Processing feature 1
+2017-05-04 20:05:38,067 - __main__ - DEBUG - QII: 0.0, signed QII: 0.0
+2017-05-04 20:05:38,067 - __main__ - DEBUG - Processing feature 2
+2017-05-04 20:05:39,232 - __main__ - DEBUG - QII: 0.0, signed QII: 0.0
+2017-05-04 20:05:39,232 - __main__ - DEBUG - Model weights: [-0.61786375825854545, -1.2012593725863405, -0.7603966602757255]
+2017-05-04 20:05:39,232 - __main__ - DEBUG - Evaluating the model, no_threshold: False
+2017-05-04 20:05:40,124 - __main__ - DEBUG - {'recall': 0.0, 'precision': 0}
+2017-05-04 20:05:40,124 - __main__ - DEBUG - Evaluating the model, no_threshold: True
+2017-05-04 20:05:41,144 - __main__ - DEBUG - {'better': 0.9883040045359059, 'auprc': 0.06649210972914564, 'auroc': 0.42694230705904285, 'prate': 0.07741041377944961}
+2017-05-04 20:05:41,144 - __main__ - DEBUG - Computing predictions on the test set
+2017-05-04 20:05:41,420 - __main__ - DEBUG - Evaluating the model, no_threshold: False
+2017-05-04 20:05:42,301 - __main__ - DEBUG - {'recall': 0.0, 'precision': 0}
+2017-05-04 20:05:42,301 - __main__ - DEBUG - Clearing threshold
+2017-05-04 20:05:42,301 - __main__ - DEBUG - Making no-threshold test predictions
+2017-05-04 20:05:42,555 - __main__ - DEBUG - Restoring threshold
+2017-05-04 20:05:42,555 - __main__ - DEBUG - Evaluating the model, no_threshold: True
+2017-05-04 20:05:43,528 - __main__ - DEBUG - {'better': 0.9954639326050647, 'auprc': 0.07435945762461871, 'auroc': 0.4217564458080124, 'prate': 0.07855822550831792}
+2017-05-04 20:05:43,528 - __main__ - DEBUG - Storing in /home/maxikov/quick_test.state/results.pkl
+2017-05-04 20:05:43,532 - __main__ - DEBUG - Processing movielens_genre:Children (4 out of 22)
+2017-05-04 20:05:43,532 - __main__ - DEBUG - Processing feature 4
+2017-05-04 20:05:43,532 - __main__ - DEBUG - Building data set
+2017-05-04 20:05:43,596 - __main__ - DEBUG - Done in 0.0642488002777 seconds
+2017-05-04 20:05:43,596 - __main__ - DEBUG - Training logistic
+2017-05-04 20:05:43,596 - __main__ - DEBUG - Actually training a classifier
+2017-05-04 20:05:44,696 - __main__ - DEBUG - Done in 1.09969902039 seconds
+2017-05-04 20:05:44,996 - __main__ - DEBUG - Model threshold 0.500000
+2017-05-04 20:05:44,996 - __main__ - DEBUG - Clearing
+2017-05-04 20:05:44,996 - __main__ - DEBUG - Making no-threshold predictions
+2017-05-04 20:05:45,331 - __main__ - DEBUG - Restoring threshold
+2017-05-04 20:05:45,331 - __main__ - DEBUG - Measuring model QII
+2017-05-04 20:05:45,335 - __main__ - DEBUG - 3 features detected
+2017-05-04 20:05:45,335 - __main__ - DEBUG - Processing feature 0
+2017-05-04 20:05:46,771 - __main__ - DEBUG - QII: 0.0, signed QII: 0.0
+2017-05-04 20:05:46,771 - __main__ - DEBUG - Processing feature 1
+2017-05-04 20:05:47,958 - __main__ - DEBUG - QII: 0.0, signed QII: 0.0
+2017-05-04 20:05:47,958 - __main__ - DEBUG - Processing feature 2
+2017-05-04 20:05:49,092 - __main__ - DEBUG - QII: 0.0, signed QII: 0.0
+2017-05-04 20:05:49,092 - __main__ - DEBUG - Model weights: [-0.59154743591260017, -0.99974602098070275, -0.88268179813613756]
+2017-05-04 20:05:49,092 - __main__ - DEBUG - Evaluating the model, no_threshold: False
+2017-05-04 20:05:49,960 - __main__ - DEBUG - {'recall': 0.0, 'precision': 0}
+2017-05-04 20:05:49,960 - __main__ - DEBUG - Evaluating the model, no_threshold: True
+2017-05-04 20:05:51,253 - __main__ - DEBUG - {'better': 1.0149763226385327, 'auprc': 0.10350733543277614, 'auroc': 0.5448380818485263, 'prate': 0.09008117204513957}
+2017-05-04 20:05:51,253 - __main__ - DEBUG - Computing predictions on the test set
+2017-05-04 20:05:51,680 - __main__ - DEBUG - Evaluating the model, no_threshold: False
+2017-05-04 20:05:52,939 - __main__ - DEBUG - {'recall': 0.0, 'precision': 0}
+2017-05-04 20:05:52,939 - __main__ - DEBUG - Clearing threshold
+2017-05-04 20:05:52,939 - __main__ - DEBUG - Making no-threshold test predictions
+2017-05-04 20:05:53,376 - __main__ - DEBUG - Restoring threshold
+2017-05-04 20:05:53,376 - __main__ - DEBUG - Evaluating the model, no_threshold: True
+2017-05-04 20:05:54,579 - __main__ - DEBUG - {'better': 1.0163690922528297, 'auprc': 0.09612645815293906, 'auroc': 0.5334278397658677, 'prate': 0.08133086876155268}
+2017-05-04 20:05:54,579 - __main__ - DEBUG - Storing in /home/maxikov/quick_test.state/results.pkl
+2017-05-04 20:05:54,582 - __main__ - DEBUG - Processing movielens_genre:Comedy (5 out of 22)
+2017-05-04 20:05:54,582 - __main__ - DEBUG - Processing feature 5
+2017-05-04 20:05:54,582 - __main__ - DEBUG - Building data set
+2017-05-04 20:05:54,636 - __main__ - DEBUG - Done in 0.0541660785675 seconds
+2017-05-04 20:05:54,636 - __main__ - DEBUG - Training logistic
+2017-05-04 20:05:54,637 - __main__ - DEBUG - Actually training a classifier
+2017-05-04 20:05:55,529 - __main__ - DEBUG - Done in 0.892550945282 seconds
+2017-05-04 20:05:55,833 - __main__ - DEBUG - Model threshold 0.500000
+2017-05-04 20:05:55,833 - __main__ - DEBUG - Clearing
+2017-05-04 20:05:55,833 - __main__ - DEBUG - Making no-threshold predictions
+2017-05-04 20:05:56,182 - __main__ - DEBUG - Restoring threshold
+2017-05-04 20:05:56,182 - __main__ - DEBUG - Measuring model QII
+2017-05-04 20:05:56,187 - __main__ - DEBUG - 3 features detected
+2017-05-04 20:05:56,187 - __main__ - DEBUG - Processing feature 0
+2017-05-04 20:05:57,643 - __main__ - DEBUG - QII: 0.0, signed QII: 0.0
+2017-05-04 20:05:57,644 - __main__ - DEBUG - Processing feature 1
+2017-05-04 20:05:58,661 - __main__ - DEBUG - QII: 0.0, signed QII: 0.0
+2017-05-04 20:05:58,661 - __main__ - DEBUG - Processing feature 2
+2017-05-04 20:05:59,658 - __main__ - DEBUG - QII: 0.0, signed QII: 0.0
+2017-05-04 20:05:59,658 - __main__ - DEBUG - Model weights: [-0.20137736967154454, -0.18774404440291306, -0.22987266782786317]
+2017-05-04 20:05:59,658 - __main__ - DEBUG - Evaluating the model, no_threshold: False
+2017-05-04 20:06:00,510 - __main__ - DEBUG - {'recall': 0.0, 'precision': 0}
+2017-05-04 20:06:00,510 - __main__ - DEBUG - Evaluating the model, no_threshold: True
+2017-05-04 20:06:01,467 - __main__ - DEBUG - {'better': 1.0183731556235658, 'auprc': 0.36778291845179056, 'auroc': 0.5176409164036053, 'prate': 0.3561670956246288}
+2017-05-04 20:06:01,467 - __main__ - DEBUG - Computing predictions on the test set
+2017-05-04 20:06:01,719 - __main__ - DEBUG - Evaluating the model, no_threshold: False
+2017-05-04 20:06:02,575 - __main__ - DEBUG - {'recall': 0.0, 'precision': 0}
+2017-05-04 20:06:02,575 - __main__ - DEBUG - Clearing threshold
+2017-05-04 20:06:02,576 - __main__ - DEBUG - Making no-threshold test predictions
+2017-05-04 20:06:02,812 - __main__ - DEBUG - Restoring threshold
+2017-05-04 20:06:02,812 - __main__ - DEBUG - Evaluating the model, no_threshold: True
+2017-05-04 20:06:03,660 - __main__ - DEBUG - {'better': 1.0283434988547224, 'auprc': 0.39649544903342904, 'auroc': 0.5326073845255275, 'prate': 0.3793900184842883}
+2017-05-04 20:06:03,660 - __main__ - DEBUG - Storing in /home/maxikov/quick_test.state/results.pkl
+2017-05-04 20:06:03,664 - __main__ - DEBUG - Processing movielens_genre:Crime (6 out of 22)
+2017-05-04 20:06:03,664 - __main__ - DEBUG - Processing feature 6
+2017-05-04 20:06:03,664 - __main__ - DEBUG - Building data set
+2017-05-04 20:06:03,715 - __main__ - DEBUG - Done in 0.0507998466492 seconds
+2017-05-04 20:06:03,715 - __main__ - DEBUG - Training logistic
+2017-05-04 20:06:03,715 - __main__ - DEBUG - Actually training a classifier
+2017-05-04 20:06:04,666 - __main__ - DEBUG - Done in 0.950661897659 seconds
+2017-05-04 20:06:04,952 - __main__ - DEBUG - Model threshold 0.500000
+2017-05-04 20:06:04,952 - __main__ - DEBUG - Clearing
+2017-05-04 20:06:04,952 - __main__ - DEBUG - Making no-threshold predictions
+2017-05-04 20:06:05,235 - __main__ - DEBUG - Restoring threshold
+2017-05-04 20:06:05,235 - __main__ - DEBUG - Measuring model QII
+2017-05-04 20:06:05,239 - __main__ - DEBUG - 3 features detected
+2017-05-04 20:06:05,239 - __main__ - DEBUG - Processing feature 0
+2017-05-04 20:06:06,577 - __main__ - DEBUG - QII: 0.0, signed QII: 0.0
+2017-05-04 20:06:06,577 - __main__ - DEBUG - Processing feature 1
+2017-05-04 20:06:07,622 - __main__ - DEBUG - QII: 0.0, signed QII: 0.0
+2017-05-04 20:06:07,623 - __main__ - DEBUG - Processing feature 2
+2017-05-04 20:06:08,603 - __main__ - DEBUG - QII: 0.0, signed QII: 0.0
+2017-05-04 20:06:08,603 - __main__ - DEBUG - Model weights: [-0.5104020694968201, -0.18283583042245666, -0.68989473510792254]
+2017-05-04 20:06:08,603 - __main__ - DEBUG - Evaluating the model, no_threshold: False
+2017-05-04 20:06:09,451 - __main__ - DEBUG - {'recall': 0.0, 'precision': 0}
+2017-05-04 20:06:09,451 - __main__ - DEBUG - Evaluating the model, no_threshold: True
+2017-05-04 20:06:10,362 - __main__ - DEBUG - {'better': 0.9941860615554039, 'auprc': 0.2016542499650566, 'auroc': 0.49482187151845036, 'prate': 0.2062957830132647}
+2017-05-04 20:06:10,363 - __main__ - DEBUG - Computing predictions on the test set
+2017-05-04 20:06:10,613 - __main__ - DEBUG - Evaluating the model, no_threshold: False
+2017-05-04 20:06:11,490 - __main__ - DEBUG - {'recall': 0.0, 'precision': 0}
+2017-05-04 20:06:11,490 - __main__ - DEBUG - Clearing threshold
+2017-05-04 20:06:11,490 - __main__ - DEBUG - Making no-threshold test predictions
+2017-05-04 20:06:11,796 - __main__ - DEBUG - Restoring threshold
+2017-05-04 20:06:11,796 - __main__ - DEBUG - Evaluating the model, no_threshold: True
+2017-05-04 20:06:12,705 - __main__ - DEBUG - {'better': 1.0005798574753937, 'auprc': 0.22226243719846495, 'auroc': 0.49948164093428354, 'prate': 0.22181146025878004}
+2017-05-04 20:06:12,705 - __main__ - DEBUG - Storing in /home/maxikov/quick_test.state/results.pkl
+2017-05-04 20:06:12,709 - __main__ - DEBUG - Processing movielens_genre:Documentary (7 out of 22)
+2017-05-04 20:06:12,709 - __main__ - DEBUG - Processing feature 7
+2017-05-04 20:06:12,709 - __main__ - DEBUG - Building data set
+2017-05-04 20:06:12,762 - __main__ - DEBUG - Done in 0.0526039600372 seconds
+2017-05-04 20:06:12,762 - __main__ - DEBUG - Training logistic
+2017-05-04 20:06:12,762 - __main__ - DEBUG - Actually training a classifier
+2017-05-04 20:06:13,715 - __main__ - DEBUG - Done in 0.953515052795 seconds
+2017-05-04 20:06:13,985 - __main__ - DEBUG - Model threshold 0.500000
+2017-05-04 20:06:13,985 - __main__ - DEBUG - Clearing
+2017-05-04 20:06:13,985 - __main__ - DEBUG - Making no-threshold predictions
+2017-05-04 20:06:14,295 - __main__ - DEBUG - Restoring threshold
+2017-05-04 20:06:14,295 - __main__ - DEBUG - Measuring model QII
+2017-05-04 20:06:14,301 - __main__ - DEBUG - 3 features detected
+2017-05-04 20:06:14,301 - __main__ - DEBUG - Processing feature 0
+2017-05-04 20:06:15,669 - __main__ - DEBUG - QII: 0.0, signed QII: 0.0
+2017-05-04 20:06:15,669 - __main__ - DEBUG - Processing feature 1
+2017-05-04 20:06:16,663 - __main__ - DEBUG - QII: 0.0, signed QII: 0.0
+2017-05-04 20:06:16,663 - __main__ - DEBUG - Processing feature 2
+2017-05-04 20:06:17,710 - __main__ - DEBUG - QII: 0.0, signed QII: 0.0
+2017-05-04 20:06:17,711 - __main__ - DEBUG - Model weights: [-1.8597694108535263, -1.470604138153764, -1.9119455918922015]
+2017-05-04 20:06:17,711 - __main__ - DEBUG - Evaluating the model, no_threshold: False
+2017-05-04 20:06:18,578 - __main__ - DEBUG - {'recall': 0.0, 'precision': 0}
+2017-05-04 20:06:18,578 - __main__ - DEBUG - Evaluating the model, no_threshold: True
+2017-05-04 20:06:19,481 - __main__ - DEBUG - {'better': 0.9977061204533672, 'auprc': 0.006432021042542081, 'auroc': 0.3712620513099841, 'prate': 0.008711146307661849}
+2017-05-04 20:06:19,481 - __main__ - DEBUG - Computing predictions on the test set
+2017-05-04 20:06:19,724 - __main__ - DEBUG - Evaluating the model, no_threshold: False
+2017-05-04 20:06:20,578 - __main__ - DEBUG - {'recall': 0.0, 'precision': 0}
+2017-05-04 20:06:20,578 - __main__ - DEBUG - Clearing threshold
+2017-05-04 20:06:20,578 - __main__ - DEBUG - Making no-threshold test predictions
+2017-05-04 20:06:20,864 - __main__ - DEBUG - Restoring threshold
+2017-05-04 20:06:20,864 - __main__ - DEBUG - Evaluating the model, no_threshold: True
+2017-05-04 20:06:21,793 - __main__ - DEBUG - {'better': 0.9996822186362243, 'auprc': 0.0066159291883112845, 'auroc': 0.4002481774468748, 'prate': 0.006931608133086876}
+2017-05-04 20:06:21,793 - __main__ - DEBUG - Storing in /home/maxikov/quick_test.state/results.pkl
+2017-05-04 20:06:21,797 - __main__ - DEBUG - Processing movielens_genre:Drama (8 out of 22)
+2017-05-04 20:06:21,797 - __main__ - DEBUG - Processing feature 8
+2017-05-04 20:06:21,797 - __main__ - DEBUG - Building data set
+2017-05-04 20:06:21,848 - __main__ - DEBUG - Done in 0.0508830547333 seconds
+2017-05-04 20:06:21,848 - __main__ - DEBUG - Training logistic
+2017-05-04 20:06:21,848 - __main__ - DEBUG - Actually training a classifier
+2017-05-04 20:06:22,755 - __main__ - DEBUG - Done in 0.906294107437 seconds
+2017-05-04 20:06:23,067 - __main__ - DEBUG - Model threshold 0.500000
+2017-05-04 20:06:23,067 - __main__ - DEBUG - Clearing
+2017-05-04 20:06:23,067 - __main__ - DEBUG - Making no-threshold predictions
+2017-05-04 20:06:23,376 - __main__ - DEBUG - Restoring threshold
+2017-05-04 20:06:23,376 - __main__ - DEBUG - Measuring model QII
+2017-05-04 20:06:23,381 - __main__ - DEBUG - 3 features detected
+2017-05-04 20:06:23,382 - __main__ - DEBUG - Processing feature 0
+2017-05-04 20:06:24,743 - __main__ - DEBUG - QII: 0.167293605227, signed QII: -0.167293605227
+2017-05-04 20:06:24,743 - __main__ - DEBUG - Processing feature 1
+2017-05-04 20:06:25,831 - __main__ - DEBUG - QII: 0.180954266482, signed QII: -0.180954266482
+2017-05-04 20:06:25,831 - __main__ - DEBUG - Processing feature 2
+2017-05-04 20:06:26,834 - __main__ - DEBUG - QII: 0.17640071273, signed QII: -0.17640071273
+2017-05-04 20:06:26,835 - __main__ - DEBUG - Model weights: [-0.09211056484767538, 0.53616768676113558, -0.22183838414014115]
+2017-05-04 20:06:26,835 - __main__ - DEBUG - Evaluating the model, no_threshold: False
+2017-05-04 20:06:27,744 - __main__ - DEBUG - {'recall': 0.9247351114358787, 'precision': 0.5497393570807994}
+2017-05-04 20:06:27,744 - __main__ - DEBUG - Evaluating the model, no_threshold: True
+2017-05-04 20:06:28,711 - __main__ - DEBUG - {'better': 1.1382820770399535, 'auprc': 0.5975276139503227, 'auroc': 0.5798678533455391, 'prate': 0.5418728964561473}
+2017-05-04 20:06:28,711 - __main__ - DEBUG - Computing predictions on the test set
+2017-05-04 20:06:28,972 - __main__ - DEBUG - Evaluating the model, no_threshold: False
+2017-05-04 20:06:29,862 - __main__ - DEBUG - {'recall': 0.9263431542461005, 'precision': 0.5369161225514817}
+2017-05-04 20:06:29,863 - __main__ - DEBUG - Clearing threshold
+2017-05-04 20:06:29,863 - __main__ - DEBUG - Making no-threshold test predictions
+2017-05-04 20:06:30,147 - __main__ - DEBUG - Restoring threshold
+2017-05-04 20:06:30,147 - __main__ - DEBUG - Evaluating the model, no_threshold: True
+2017-05-04 20:06:31,072 - __main__ - DEBUG - {'better': 1.0668879349096845, 'auprc': 0.5625329843094597, 'auroc': 0.5538432829418126, 'prate': 0.533271719038817}
+2017-05-04 20:06:31,073 - __main__ - DEBUG - Storing in /home/maxikov/quick_test.state/results.pkl
+2017-05-04 20:06:31,077 - __main__ - DEBUG - Processing movielens_genre:Fantasy (9 out of 22)
+2017-05-04 20:06:31,077 - __main__ - DEBUG - Processing feature 9
+2017-05-04 20:06:31,077 - __main__ - DEBUG - Building data set
+2017-05-04 20:06:31,129 - __main__ - DEBUG - Done in 0.0524549484253 seconds
+2017-05-04 20:06:31,129 - __main__ - DEBUG - Training logistic
+2017-05-04 20:06:31,129 - __main__ - DEBUG - Actually training a classifier
+2017-05-04 20:06:32,089 - __main__ - DEBUG - Done in 0.959482908249 seconds
+2017-05-04 20:06:32,368 - __main__ - DEBUG - Model threshold 0.500000
+2017-05-04 20:06:32,368 - __main__ - DEBUG - Clearing
+2017-05-04 20:06:32,368 - __main__ - DEBUG - Making no-threshold predictions
+2017-05-04 20:06:32,655 - __main__ - DEBUG - Restoring threshold
+2017-05-04 20:06:32,655 - __main__ - DEBUG - Measuring model QII
+2017-05-04 20:06:32,660 - __main__ - DEBUG - 3 features detected
+2017-05-04 20:06:32,660 - __main__ - DEBUG - Processing feature 0
+2017-05-04 20:06:33,982 - __main__ - DEBUG - QII: 0.0, signed QII: 0.0
+2017-05-04 20:06:33,982 - __main__ - DEBUG - Processing feature 1
+2017-05-04 20:06:34,990 - __main__ - DEBUG - QII: 0.0, signed QII: 0.0
+2017-05-04 20:06:34,990 - __main__ - DEBUG - Processing feature 2
+2017-05-04 20:06:35,944 - __main__ - DEBUG - QII: 0.0, signed QII: 0.0
+2017-05-04 20:06:35,944 - __main__ - DEBUG - Model weights: [-0.39891086348494581, -1.1010392960594018, -0.56468998141508298]
+2017-05-04 20:06:35,944 - __main__ - DEBUG - Evaluating the model, no_threshold: False
+2017-05-04 20:06:36,809 - __main__ - DEBUG - {'recall': 0.0, 'precision': 0}
+2017-05-04 20:06:36,809 - __main__ - DEBUG - Evaluating the model, no_threshold: True
+2017-05-04 20:06:37,738 - __main__ - DEBUG - {'better': 1.0125954535481232, 'auprc': 0.13502854269511744, 'auroc': 0.5267848130106624, 'prate': 0.12413383488418135}
+2017-05-04 20:06:37,738 - __main__ - DEBUG - Computing predictions on the test set
+2017-05-04 20:06:38,001 - __main__ - DEBUG - Evaluating the model, no_threshold: False
+2017-05-04 20:06:38,899 - __main__ - DEBUG - {'recall': 0.0, 'precision': 0}
+2017-05-04 20:06:38,900 - __main__ - DEBUG - Clearing threshold
+2017-05-04 20:06:38,900 - __main__ - DEBUG - Making no-threshold test predictions
+2017-05-04 20:06:39,254 - __main__ - DEBUG - Restoring threshold
+2017-05-04 20:06:39,254 - __main__ - DEBUG - Evaluating the model, no_threshold: True
+2017-05-04 20:06:40,218 - __main__ - DEBUG - {'better': 1.0185855079922401, 'auprc': 0.14391448111102315, 'auroc': 0.5171599716088995, 'prate': 0.128003696857671}
+2017-05-04 20:06:40,218 - __main__ - DEBUG - Storing in /home/maxikov/quick_test.state/results.pkl
+2017-05-04 20:06:40,223 - __main__ - DEBUG - Processing movielens_genre:Horror (10 out of 22)
+2017-05-04 20:06:40,223 - __main__ - DEBUG - Processing feature 10
+2017-05-04 20:06:40,223 - __main__ - DEBUG - Building data set
+2017-05-04 20:06:40,278 - __main__ - DEBUG - Done in 0.0548899173737 seconds
+2017-05-04 20:06:40,278 - __main__ - DEBUG - Training logistic
+2017-05-04 20:06:40,278 - __main__ - DEBUG - Actually training a classifier
+2017-05-04 20:06:41,246 - __main__ - DEBUG - Done in 0.968199968338 seconds
+2017-05-04 20:06:41,555 - __main__ - DEBUG - Model threshold 0.500000
+2017-05-04 20:06:41,555 - __main__ - DEBUG - Clearing
+2017-05-04 20:06:41,555 - __main__ - DEBUG - Making no-threshold predictions
+2017-05-04 20:06:41,888 - __main__ - DEBUG - Restoring threshold
+2017-05-04 20:06:41,888 - __main__ - DEBUG - Measuring model QII
+2017-05-04 20:06:41,893 - __main__ - DEBUG - 3 features detected
+2017-05-04 20:06:41,893 - __main__ - DEBUG - Processing feature 0
+2017-05-04 20:06:43,732 - __main__ - DEBUG - QII: 0.0, signed QII: 0.0
+2017-05-04 20:06:43,732 - __main__ - DEBUG - Processing feature 1
+2017-05-04 20:06:45,325 - __main__ - DEBUG - QII: 0.0, signed QII: 0.0
+2017-05-04 20:06:45,325 - __main__ - DEBUG - Processing feature 2
+2017-05-04 20:06:46,796 - __main__ - DEBUG - QII: 0.0, signed QII: 0.0
+2017-05-04 20:06:46,796 - __main__ - DEBUG - Model weights: [-0.76578033210160557, -0.91652683151406522, -0.31611046098318946]
+2017-05-04 20:06:46,796 - __main__ - DEBUG - Evaluating the model, no_threshold: False
+2017-05-04 20:06:47,679 - __main__ - DEBUG - {'recall': 0.0, 'precision': 0}
+2017-05-04 20:06:47,680 - __main__ - DEBUG - Evaluating the model, no_threshold: True
+2017-05-04 20:06:48,563 - __main__ - DEBUG - {'better': 1.0936996930830793, 'auprc': 0.21564398698096093, 'auroc': 0.6329614277164242, 'prate': 0.14215006929320925}
+2017-05-04 20:06:48,563 - __main__ - DEBUG - Computing predictions on the test set
+2017-05-04 20:06:48,836 - __main__ - DEBUG - Evaluating the model, no_threshold: False
+2017-05-04 20:06:49,694 - __main__ - DEBUG - {'recall': 0.0, 'precision': 0}
+2017-05-04 20:06:49,695 - __main__ - DEBUG - Clearing threshold
+2017-05-04 20:06:49,695 - __main__ - DEBUG - Making no-threshold test predictions
+2017-05-04 20:06:50,028 - __main__ - DEBUG - Restoring threshold
+2017-05-04 20:06:50,028 - __main__ - DEBUG - Evaluating the model, no_threshold: True
+2017-05-04 20:06:50,920 - __main__ - DEBUG - {'better': 1.108325617077739, 'auprc': 0.21865118329549, 'auroc': 0.6300206086924525, 'prate': 0.13401109057301294}
+2017-05-04 20:06:50,920 - __main__ - DEBUG - Storing in /home/maxikov/quick_test.state/results.pkl
+2017-05-04 20:06:50,927 - __main__ - DEBUG - Processing movielens_genre:Musical (11 out of 22)
+2017-05-04 20:06:50,927 - __main__ - DEBUG - Processing feature 11
+2017-05-04 20:06:50,927 - __main__ - DEBUG - Building data set
+2017-05-04 20:06:50,979 - __main__ - DEBUG - Done in 0.0518460273743 seconds
+2017-05-04 20:06:50,979 - __main__ - DEBUG - Training logistic
+2017-05-04 20:06:50,979 - __main__ - DEBUG - Actually training a classifier
+2017-05-04 20:06:51,852 - __main__ - DEBUG - Done in 0.872948169708 seconds
+2017-05-04 20:06:52,132 - __main__ - DEBUG - Model threshold 0.500000
+2017-05-04 20:06:52,132 - __main__ - DEBUG - Clearing
+2017-05-04 20:06:52,132 - __main__ - DEBUG - Making no-threshold predictions
+2017-05-04 20:06:52,433 - __main__ - DEBUG - Restoring threshold
+2017-05-04 20:06:52,433 - __main__ - DEBUG - Measuring model QII
+2017-05-04 20:06:52,437 - __main__ - DEBUG - 3 features detected
+2017-05-04 20:06:52,437 - __main__ - DEBUG - Processing feature 0
+2017-05-04 20:06:53,807 - __main__ - DEBUG - QII: 0.0, signed QII: 0.0
+2017-05-04 20:06:53,808 - __main__ - DEBUG - Processing feature 1
+2017-05-04 20:06:54,793 - __main__ - DEBUG - QII: 0.0, signed QII: 0.0
+2017-05-04 20:06:54,793 - __main__ - DEBUG - Processing feature 2
+2017-05-04 20:06:55,828 - __main__ - DEBUG - QII: 0.0, signed QII: 0.0
+2017-05-04 20:06:55,829 - __main__ - DEBUG - Model weights: [-1.1578174279888735, -0.62925978069244271, -1.0281314455520461]
+2017-05-04 20:06:55,829 - __main__ - DEBUG - Evaluating the model, no_threshold: False
+2017-05-04 20:06:56,728 - __main__ - DEBUG - {'recall': 0.0, 'precision': 0}
+2017-05-04 20:06:56,728 - __main__ - DEBUG - Evaluating the model, no_threshold: True
+2017-05-04 20:06:57,680 - __main__ - DEBUG - {'better': 0.9921238467590494, 'auprc': 0.05771402799727088, 'auroc': 0.46032861764565697, 'prate': 0.06513561670956246}
+2017-05-04 20:06:57,680 - __main__ - DEBUG - Computing predictions on the test set
+2017-05-04 20:06:57,968 - __main__ - DEBUG - Evaluating the model, no_threshold: False
+2017-05-04 20:06:58,840 - __main__ - DEBUG - {'recall': 0.0, 'precision': 0}
+2017-05-04 20:06:58,840 - __main__ - DEBUG - Clearing threshold
+2017-05-04 20:06:58,840 - __main__ - DEBUG - Making no-threshold test predictions
+2017-05-04 20:06:59,081 - __main__ - DEBUG - Restoring threshold
+2017-05-04 20:06:59,081 - __main__ - DEBUG - Evaluating the model, no_threshold: True
+2017-05-04 20:06:59,918 - __main__ - DEBUG - {'better': 1.0044229056325333, 'auprc': 0.07387435487201141, 'auroc': 0.5150314347469924, 'prate': 0.06977818853974121}
+2017-05-04 20:06:59,919 - __main__ - DEBUG - Storing in /home/maxikov/quick_test.state/results.pkl
+2017-05-04 20:06:59,923 - __main__ - DEBUG - Processing movielens_genre:Mystery (12 out of 22)
+2017-05-04 20:06:59,923 - __main__ - DEBUG - Processing feature 12
+2017-05-04 20:06:59,923 - __main__ - DEBUG - Building data set
+2017-05-04 20:06:59,970 - __main__ - DEBUG - Done in 0.0467629432678 seconds
+2017-05-04 20:06:59,970 - __main__ - DEBUG - Training logistic
+2017-05-04 20:06:59,970 - __main__ - DEBUG - Actually training a classifier
+2017-05-04 20:07:00,866 - __main__ - DEBUG - Done in 0.895878076553 seconds
+2017-05-04 20:07:01,132 - __main__ - DEBUG - Model threshold 0.500000
+2017-05-04 20:07:01,132 - __main__ - DEBUG - Clearing
+2017-05-04 20:07:01,132 - __main__ - DEBUG - Making no-threshold predictions
+2017-05-04 20:07:01,414 - __main__ - DEBUG - Restoring threshold
+2017-05-04 20:07:01,414 - __main__ - DEBUG - Measuring model QII
+2017-05-04 20:07:01,419 - __main__ - DEBUG - 3 features detected
+2017-05-04 20:07:01,419 - __main__ - DEBUG - Processing feature 0
+2017-05-04 20:07:02,777 - __main__ - DEBUG - QII: 0.0, signed QII: 0.0
+2017-05-04 20:07:02,778 - __main__ - DEBUG - Processing feature 1
+2017-05-04 20:07:03,809 - __main__ - DEBUG - QII: 0.0, signed QII: 0.0
+2017-05-04 20:07:03,809 - __main__ - DEBUG - Processing feature 2
+2017-05-04 20:07:04,794 - __main__ - DEBUG - QII: 0.0, signed QII: 0.0
+2017-05-04 20:07:04,794 - __main__ - DEBUG - Model weights: [-0.88565724955826075, -0.72151554281821939, -0.54153897854368827]
+2017-05-04 20:07:04,794 - __main__ - DEBUG - Evaluating the model, no_threshold: False
+2017-05-04 20:07:05,644 - __main__ - DEBUG - {'recall': 0.0, 'precision': 0}
+2017-05-04 20:07:05,644 - __main__ - DEBUG - Evaluating the model, no_threshold: True
+2017-05-04 20:07:06,535 - __main__ - DEBUG - {'better': 1.0023884053846133, 'auprc': 0.11792540149302716, 'auroc': 0.5025941491458732, 'prate': 0.11581864977232231}
+2017-05-04 20:07:06,536 - __main__ - DEBUG - Computing predictions on the test set
+2017-05-04 20:07:06,781 - __main__ - DEBUG - Evaluating the model, no_threshold: False
+2017-05-04 20:07:07,600 - __main__ - DEBUG - {'recall': 0.0, 'precision': 0}
+2017-05-04 20:07:07,600 - __main__ - DEBUG - Clearing threshold
+2017-05-04 20:07:07,600 - __main__ - DEBUG - Making no-threshold test predictions
+2017-05-04 20:07:07,897 - __main__ - DEBUG - Restoring threshold
+2017-05-04 20:07:07,897 - __main__ - DEBUG - Evaluating the model, no_threshold: True
+2017-05-04 20:07:08,743 - __main__ - DEBUG - {'better': 0.992467682669223, 'auprc': 0.11812639455370585, 'auroc': 0.47607552113887924, 'prate': 0.12476894639556377}
+2017-05-04 20:07:08,743 - __main__ - DEBUG - Storing in /home/maxikov/quick_test.state/results.pkl
+2017-05-04 20:07:08,747 - __main__ - DEBUG - Processing movielens_genre:Romance (13 out of 22)
+2017-05-04 20:07:08,748 - __main__ - DEBUG - Processing feature 13
+2017-05-04 20:07:08,748 - __main__ - DEBUG - Building data set
+2017-05-04 20:07:08,795 - __main__ - DEBUG - Done in 0.0472691059113 seconds
+2017-05-04 20:07:08,795 - __main__ - DEBUG - Training logistic
+2017-05-04 20:07:08,795 - __main__ - DEBUG - Actually training a classifier
+2017-05-04 20:07:09,744 - __main__ - DEBUG - Done in 0.949146032333 seconds
+2017-05-04 20:07:10,012 - __main__ - DEBUG - Model threshold 0.500000
+2017-05-04 20:07:10,012 - __main__ - DEBUG - Clearing
+2017-05-04 20:07:10,012 - __main__ - DEBUG - Making no-threshold predictions
+2017-05-04 20:07:10,300 - __main__ - DEBUG - Restoring threshold
+2017-05-04 20:07:10,300 - __main__ - DEBUG - Measuring model QII
+2017-05-04 20:07:10,304 - __main__ - DEBUG - 3 features detected
+2017-05-04 20:07:10,304 - __main__ - DEBUG - Processing feature 0
+2017-05-04 20:07:11,723 - __main__ - DEBUG - QII: 0.00158384478321, signed QII: -0.00158384478321
+2017-05-04 20:07:11,723 - __main__ - DEBUG - Processing feature 1
+2017-05-04 20:07:12,713 - __main__ - DEBUG - QII: 0.00217778657692, signed QII: -0.00217778657692
+2017-05-04 20:07:12,713 - __main__ - DEBUG - Processing feature 2
+2017-05-04 20:07:13,717 - __main__ - DEBUG - QII: 0.00138586418531, signed QII: -0.00138586418531
+2017-05-04 20:07:13,718 - __main__ - DEBUG - Model weights: [-0.62674244689527814, 0.13088916801012596, -0.58402795976295507]
+2017-05-04 20:07:13,718 - __main__ - DEBUG - Evaluating the model, no_threshold: False
+2017-05-04 20:07:14,603 - __main__ - DEBUG - {'recall': 0.0030698388334612432, 'precision': 0.6666666666666666}
+2017-05-04 20:07:14,603 - __main__ - DEBUG - Evaluating the model, no_threshold: True
+2017-05-04 20:07:15,483 - __main__ - DEBUG - {'better': 1.012411134022544, 'auprc': 0.26706527022652704, 'auroc': 0.5102874001462843, 'prate': 0.2579687190655316}
+2017-05-04 20:07:15,483 - __main__ - DEBUG - Computing predictions on the test set
+2017-05-04 20:07:15,718 - __main__ - DEBUG - Evaluating the model, no_threshold: False
+2017-05-04 20:07:16,559 - __main__ - DEBUG - {'recall': 0.0, 'precision': 0.0}
+2017-05-04 20:07:16,559 - __main__ - DEBUG - Clearing threshold
+2017-05-04 20:07:16,559 - __main__ - DEBUG - Making no-threshold test predictions
+2017-05-04 20:07:16,805 - __main__ - DEBUG - Restoring threshold
+2017-05-04 20:07:16,805 - __main__ - DEBUG - Evaluating the model, no_threshold: True
+2017-05-04 20:07:17,606 - __main__ - DEBUG - {'better': 0.9828270674993309, 'auprc': 0.2368952537008647, 'auroc': 0.4946084645057247, 'prate': 0.25}
+2017-05-04 20:07:17,607 - __main__ - DEBUG - Storing in /home/maxikov/quick_test.state/results.pkl
+2017-05-04 20:07:17,611 - __main__ - DEBUG - Processing movielens_genre:Sci-Fi (14 out of 22)
+2017-05-04 20:07:17,611 - __main__ - DEBUG - Processing feature 14
+2017-05-04 20:07:17,612 - __main__ - DEBUG - Building data set
+2017-05-04 20:07:17,663 - __main__ - DEBUG - Done in 0.0510771274567 seconds
+2017-05-04 20:07:17,663 - __main__ - DEBUG - Training logistic
+2017-05-04 20:07:17,663 - __main__ - DEBUG - Actually training a classifier
+2017-05-04 20:07:18,625 - __main__ - DEBUG - Done in 0.96176815033 seconds
+2017-05-04 20:07:18,905 - __main__ - DEBUG - Model threshold 0.500000
+2017-05-04 20:07:18,906 - __main__ - DEBUG - Clearing
+2017-05-04 20:07:18,906 - __main__ - DEBUG - Making no-threshold predictions
+2017-05-04 20:07:19,194 - __main__ - DEBUG - Restoring threshold
+2017-05-04 20:07:19,194 - __main__ - DEBUG - Measuring model QII
+2017-05-04 20:07:19,198 - __main__ - DEBUG - 3 features detected
+2017-05-04 20:07:19,198 - __main__ - DEBUG - Processing feature 0
+2017-05-04 20:07:20,500 - __main__ - DEBUG - QII: 0.0, signed QII: 0.0
+2017-05-04 20:07:20,500 - __main__ - DEBUG - Processing feature 1
+2017-05-04 20:07:21,428 - __main__ - DEBUG - QII: 0.0, signed QII: 0.0
+2017-05-04 20:07:21,428 - __main__ - DEBUG - Processing feature 2
+2017-05-04 20:07:22,372 - __main__ - DEBUG - QII: 0.0, signed QII: 0.0
+2017-05-04 20:07:22,372 - __main__ - DEBUG - Model weights: [-0.37332690606446206, -1.2565567567989295, -0.34208188694737474]
+2017-05-04 20:07:22,373 - __main__ - DEBUG - Evaluating the model, no_threshold: False
+2017-05-04 20:07:23,252 - __main__ - DEBUG - {'recall': 0.0, 'precision': 0}
+2017-05-04 20:07:23,252 - __main__ - DEBUG - Evaluating the model, no_threshold: True
+2017-05-04 20:07:24,141 - __main__ - DEBUG - {'better': 1.0446078537774925, 'auprc': 0.17480275478923132, 'auroc': 0.5702988198651759, 'prate': 0.13799247673727974}
+2017-05-04 20:07:24,141 - __main__ - DEBUG - Computing predictions on the test set
+2017-05-04 20:07:24,405 - __main__ - DEBUG - Evaluating the model, no_threshold: False
+2017-05-04 20:07:25,370 - __main__ - DEBUG - {'recall': 0.0, 'precision': 0}
+2017-05-04 20:07:25,370 - __main__ - DEBUG - Clearing threshold
+2017-05-04 20:07:25,370 - __main__ - DEBUG - Making no-threshold test predictions
+2017-05-04 20:07:25,626 - __main__ - DEBUG - Restoring threshold
+2017-05-04 20:07:25,626 - __main__ - DEBUG - Evaluating the model, no_threshold: True
+2017-05-04 20:07:26,455 - __main__ - DEBUG - {'better': 1.025452307213114, 'auprc': 0.16046243782016026, 'auroc': 0.5428853187531988, 'prate': 0.13909426987061}
+2017-05-04 20:07:26,456 - __main__ - DEBUG - Storing in /home/maxikov/quick_test.state/results.pkl
+2017-05-04 20:07:26,463 - __main__ - DEBUG - Processing movielens_genre:Thriller (15 out of 22)
+2017-05-04 20:07:26,463 - __main__ - DEBUG - Processing feature 15
+2017-05-04 20:07:26,463 - __main__ - DEBUG - Building data set
+2017-05-04 20:07:26,512 - __main__ - DEBUG - Done in 0.0488820075989 seconds
+2017-05-04 20:07:26,512 - __main__ - DEBUG - Training logistic
+2017-05-04 20:07:26,512 - __main__ - DEBUG - Actually training a classifier
+2017-05-04 20:07:27,373 - __main__ - DEBUG - Done in 0.860804796219 seconds
+2017-05-04 20:07:27,647 - __main__ - DEBUG - Model threshold 0.500000
+2017-05-04 20:07:27,647 - __main__ - DEBUG - Clearing
+2017-05-04 20:07:27,647 - __main__ - DEBUG - Making no-threshold predictions
+2017-05-04 20:07:27,946 - __main__ - DEBUG - Restoring threshold
+2017-05-04 20:07:27,946 - __main__ - DEBUG - Measuring model QII
+2017-05-04 20:07:27,951 - __main__ - DEBUG - 3 features detected
+2017-05-04 20:07:27,951 - __main__ - DEBUG - Processing feature 0
+2017-05-04 20:07:29,259 - __main__ - DEBUG - QII: 0.0, signed QII: 0.0
+2017-05-04 20:07:29,259 - __main__ - DEBUG - Processing feature 1
+2017-05-04 20:07:30,261 - __main__ - DEBUG - QII: 0.0, signed QII: 0.0
+2017-05-04 20:07:30,261 - __main__ - DEBUG - Processing feature 2
+2017-05-04 20:07:31,245 - __main__ - DEBUG - QII: 0.0, signed QII: 0.0
+2017-05-04 20:07:31,245 - __main__ - DEBUG - Model weights: [-0.22578532237973481, -0.47617364034224424, -0.19790654133170943]
+2017-05-04 20:07:31,245 - __main__ - DEBUG - Evaluating the model, no_threshold: False
+2017-05-04 20:07:32,097 - __main__ - DEBUG - {'recall': 0.0, 'precision': 0}
+2017-05-04 20:07:32,097 - __main__ - DEBUG - Evaluating the model, no_threshold: True
+2017-05-04 20:07:33,024 - __main__ - DEBUG - {'better': 1.037311692977571, 'auprc': 0.32569404440253397, 'auroc': 0.5434606404437439, 'prate': 0.3005345476143338}
+2017-05-04 20:07:33,024 - __main__ - DEBUG - Computing predictions on the test set
+2017-05-04 20:07:33,317 - __main__ - DEBUG - Evaluating the model, no_threshold: False
+2017-05-04 20:07:34,128 - __main__ - DEBUG - {'recall': 0.0, 'precision': 0}
+2017-05-04 20:07:34,128 - __main__ - DEBUG - Clearing threshold
+2017-05-04 20:07:34,128 - __main__ - DEBUG - Making no-threshold test predictions
+2017-05-04 20:07:34,371 - __main__ - DEBUG - Restoring threshold
+2017-05-04 20:07:34,372 - __main__ - DEBUG - Evaluating the model, no_threshold: True
+2017-05-04 20:07:35,173 - __main__ - DEBUG - {'better': 1.0339476842591782, 'auprc': 0.3295977892679008, 'auroc': 0.5249558232931726, 'prate': 0.3068391866913124}
+2017-05-04 20:07:35,173 - __main__ - DEBUG - Storing in /home/maxikov/quick_test.state/results.pkl
+2017-05-04 20:07:35,179 - __main__ - DEBUG - Processing movielens_genre:War (16 out of 22)
+2017-05-04 20:07:35,179 - __main__ - DEBUG - Processing feature 16
+2017-05-04 20:07:35,179 - __main__ - DEBUG - Building data set
+2017-05-04 20:07:35,229 - __main__ - DEBUG - Done in 0.0504469871521 seconds
+2017-05-04 20:07:35,230 - __main__ - DEBUG - Training logistic
+2017-05-04 20:07:35,230 - __main__ - DEBUG - Actually training a classifier
+2017-05-04 20:07:36,116 - __main__ - DEBUG - Done in 0.886453151703 seconds
+2017-05-04 20:07:36,384 - __main__ - DEBUG - Model threshold 0.500000
+2017-05-04 20:07:36,384 - __main__ - DEBUG - Clearing
+2017-05-04 20:07:36,384 - __main__ - DEBUG - Making no-threshold predictions
+2017-05-04 20:07:36,680 - __main__ - DEBUG - Restoring threshold
+2017-05-04 20:07:36,680 - __main__ - DEBUG - Measuring model QII
+2017-05-04 20:07:36,684 - __main__ - DEBUG - 3 features detected
+2017-05-04 20:07:36,684 - __main__ - DEBUG - Processing feature 0
+2017-05-04 20:07:37,977 - __main__ - DEBUG - QII: 0.0, signed QII: 0.0
+2017-05-04 20:07:37,977 - __main__ - DEBUG - Processing feature 1
+2017-05-04 20:07:38,982 - __main__ - DEBUG - QII: 0.0, signed QII: 0.0
+2017-05-04 20:07:38,982 - __main__ - DEBUG - Processing feature 2
+2017-05-04 20:07:40,027 - __main__ - DEBUG - QII: 0.0, signed QII: 0.0
+2017-05-04 20:07:40,027 - __main__ - DEBUG - Model weights: [-0.80117914058075013, -0.80432715965364732, -1.0249841982096295]
+2017-05-04 20:07:40,027 - __main__ - DEBUG - Evaluating the model, no_threshold: False
+2017-05-04 20:07:40,874 - __main__ - DEBUG - {'recall': 0.0, 'precision': 0}
+2017-05-04 20:07:40,874 - __main__ - DEBUG - Evaluating the model, no_threshold: True
+2017-05-04 20:07:41,824 - __main__ - DEBUG - {'better': 0.9836994562571945, 'auprc': 0.05829853652122315, 'auroc': 0.4035647723642807, 'prate': 0.0736487824193229}
+2017-05-04 20:07:41,824 - __main__ - DEBUG - Computing predictions on the test set
+2017-05-04 20:07:42,070 - __main__ - DEBUG - Evaluating the model, no_threshold: False
+2017-05-04 20:07:42,879 - __main__ - DEBUG - {'recall': 0.0, 'precision': 0}
+2017-05-04 20:07:42,879 - __main__ - DEBUG - Clearing threshold
+2017-05-04 20:07:42,879 - __main__ - DEBUG - Making no-threshold test predictions
+2017-05-04 20:07:43,136 - __main__ - DEBUG - Restoring threshold
+2017-05-04 20:07:43,136 - __main__ - DEBUG - Evaluating the model, no_threshold: True
+2017-05-04 20:07:43,916 - __main__ - DEBUG - {'better': 0.9851300748767233, 'auprc': 0.05151532760073651, 'auroc': 0.3998168038896087, 'prate': 0.06561922365988909}
+2017-05-04 20:07:43,916 - __main__ - DEBUG - Storing in /home/maxikov/quick_test.state/results.pkl
+2017-05-04 20:07:43,922 - __main__ - DEBUG - Processing movielens_tags:BD-R (17 out of 22)
+2017-05-04 20:07:43,922 - __main__ - DEBUG - Processing feature 17
+2017-05-04 20:07:43,922 - __main__ - DEBUG - Building data set
+2017-05-04 20:07:43,976 - __main__ - DEBUG - Done in 0.0537910461426 seconds
+2017-05-04 20:07:43,976 - __main__ - DEBUG - Training logistic
+2017-05-04 20:07:43,976 - __main__ - DEBUG - Actually training a classifier
+2017-05-04 20:07:44,797 - __main__ - DEBUG - Done in 0.82115316391 seconds
+2017-05-04 20:07:45,063 - __main__ - DEBUG - Model threshold 0.500000
+2017-05-04 20:07:45,063 - __main__ - DEBUG - Clearing
+2017-05-04 20:07:45,063 - __main__ - DEBUG - Making no-threshold predictions
+2017-05-04 20:07:45,343 - __main__ - DEBUG - Restoring threshold
+2017-05-04 20:07:45,343 - __main__ - DEBUG - Measuring model QII
+2017-05-04 20:07:45,347 - __main__ - DEBUG - 3 features detected
+2017-05-04 20:07:45,347 - __main__ - DEBUG - Processing feature 0
+2017-05-04 20:07:46,742 - __main__ - DEBUG - QII: 0.0, signed QII: 0.0
+2017-05-04 20:07:46,742 - __main__ - DEBUG - Processing feature 1
+2017-05-04 20:07:47,738 - __main__ - DEBUG - QII: 0.0, signed QII: 0.0
+2017-05-04 20:07:47,738 - __main__ - DEBUG - Processing feature 2
+2017-05-04 20:07:48,714 - __main__ - DEBUG - QII: 0.0, signed QII: 0.0
+2017-05-04 20:07:48,715 - __main__ - DEBUG - Model weights: [-0.69566008130488444, -0.16882918869448904, -0.69161338919720483]
+2017-05-04 20:07:48,715 - __main__ - DEBUG - Evaluating the model, no_threshold: False
+2017-05-04 20:07:49,561 - __main__ - DEBUG - {'recall': 0.0, 'precision': 0}
+2017-05-04 20:07:49,561 - __main__ - DEBUG - Evaluating the model, no_threshold: True
+2017-05-04 20:07:50,408 - __main__ - DEBUG - {'better': 0.9735332629833218, 'auprc': 0.15645047650611243, 'auroc': 0.4610946742402645, 'prate': 0.1787764799049693}
+2017-05-04 20:07:50,408 - __main__ - DEBUG - Computing predictions on the test set
+2017-05-04 20:07:50,654 - __main__ - DEBUG - Evaluating the model, no_threshold: False
+2017-05-04 20:07:51,538 - __main__ - DEBUG - {'recall': 0.0, 'precision': 0}
+2017-05-04 20:07:51,538 - __main__ - DEBUG - Clearing threshold
+2017-05-04 20:07:51,538 - __main__ - DEBUG - Making no-threshold test predictions
+2017-05-04 20:07:51,802 - __main__ - DEBUG - Restoring threshold
+2017-05-04 20:07:51,802 - __main__ - DEBUG - Evaluating the model, no_threshold: True
+2017-05-04 20:07:52,614 - __main__ - DEBUG - {'better': 0.9807932850084976, 'auprc': 0.15662972358692895, 'auroc': 0.4750664714844799, 'prate': 0.17282809611829944}
+2017-05-04 20:07:52,614 - __main__ - DEBUG - Storing in /home/maxikov/quick_test.state/results.pkl
+2017-05-04 20:07:52,620 - __main__ - DEBUG - Processing movielens_tags:Betamax (18 out of 22)
+2017-05-04 20:07:52,620 - __main__ - DEBUG - Processing feature 18
+2017-05-04 20:07:52,620 - __main__ - DEBUG - Building data set
+2017-05-04 20:07:52,670 - __main__ - DEBUG - Done in 0.050183057785 seconds
+2017-05-04 20:07:52,670 - __main__ - DEBUG - Training logistic
+2017-05-04 20:07:52,671 - __main__ - DEBUG - Actually training a classifier
+2017-05-04 20:07:53,501 - __main__ - DEBUG - Done in 0.830442905426 seconds
+2017-05-04 20:07:53,775 - __main__ - DEBUG - Model threshold 0.500000
+2017-05-04 20:07:53,775 - __main__ - DEBUG - Clearing
+2017-05-04 20:07:53,775 - __main__ - DEBUG - Making no-threshold predictions
+2017-05-04 20:07:54,073 - __main__ - DEBUG - Restoring threshold
+2017-05-04 20:07:54,073 - __main__ - DEBUG - Measuring model QII
+2017-05-04 20:07:54,077 - __main__ - DEBUG - 3 features detected
+2017-05-04 20:07:54,077 - __main__ - DEBUG - Processing feature 0
+2017-05-04 20:07:55,842 - __main__ - DEBUG - QII: 0.0, signed QII: 0.0
+2017-05-04 20:07:55,843 - __main__ - DEBUG - Processing feature 1
+2017-05-04 20:07:57,382 - __main__ - DEBUG - QII: 0.0, signed QII: 0.0
+2017-05-04 20:07:57,382 - __main__ - DEBUG - Processing feature 2
+2017-05-04 20:07:58,775 - __main__ - DEBUG - QII: 0.0, signed QII: 0.0
+2017-05-04 20:07:58,776 - __main__ - DEBUG - Model weights: [-0.47024546455434391, -1.2133188679816875, -0.52737209835379339]
+2017-05-04 20:07:58,776 - __main__ - DEBUG - Evaluating the model, no_threshold: False
+2017-05-04 20:07:59,650 - __main__ - DEBUG - {'recall': 0.0, 'precision': 0}
+2017-05-04 20:07:59,650 - __main__ - DEBUG - Evaluating the model, no_threshold: True
+2017-05-04 20:08:00,589 - __main__ - DEBUG - {'better': 1.0108536103845074, 'auprc': 0.12178678310084548, 'auroc': 0.545436881595073, 'prate': 0.11225499901009701}
+2017-05-04 20:08:00,589 - __main__ - DEBUG - Computing predictions on the test set
+2017-05-04 20:08:00,870 - __main__ - DEBUG - Evaluating the model, no_threshold: False
+2017-05-04 20:08:01,777 - __main__ - DEBUG - {'recall': 0.0, 'precision': 0}
+2017-05-04 20:08:01,777 - __main__ - DEBUG - Clearing threshold
+2017-05-04 20:08:01,777 - __main__ - DEBUG - Making no-threshold test predictions
+2017-05-04 20:08:02,108 - __main__ - DEBUG - Restoring threshold
+2017-05-04 20:08:02,108 - __main__ - DEBUG - Evaluating the model, no_threshold: True
+2017-05-04 20:08:03,002 - __main__ - DEBUG - {'better': 1.004221741528, 'auprc': 0.10820117334628121, 'auroc': 0.5316058887458103, 'prate': 0.1044362292051756}
+2017-05-04 20:08:03,003 - __main__ - DEBUG - Storing in /home/maxikov/quick_test.state/results.pkl
+2017-05-04 20:08:03,009 - __main__ - DEBUG - Processing movielens_tags:CLV (19 out of 22)
+2017-05-04 20:08:03,009 - __main__ - DEBUG - Processing feature 19
+2017-05-04 20:08:03,009 - __main__ - DEBUG - Building data set
+2017-05-04 20:08:03,061 - __main__ - DEBUG - Done in 0.0525360107422 seconds
+2017-05-04 20:08:03,061 - __main__ - DEBUG - Training logistic
+2017-05-04 20:08:03,062 - __main__ - DEBUG - Actually training a classifier
+2017-05-04 20:08:03,947 - __main__ - DEBUG - Done in 0.885545015335 seconds
+2017-05-04 20:08:04,222 - __main__ - DEBUG - Model threshold 0.500000
+2017-05-04 20:08:04,222 - __main__ - DEBUG - Clearing
+2017-05-04 20:08:04,222 - __main__ - DEBUG - Making no-threshold predictions
+2017-05-04 20:08:04,519 - __main__ - DEBUG - Restoring threshold
+2017-05-04 20:08:04,519 - __main__ - DEBUG - Measuring model QII
+2017-05-04 20:08:04,526 - __main__ - DEBUG - 3 features detected
+2017-05-04 20:08:04,526 - __main__ - DEBUG - Processing feature 0
+2017-05-04 20:08:05,861 - __main__ - DEBUG - QII: 0.0, signed QII: 0.0
+2017-05-04 20:08:05,861 - __main__ - DEBUG - Processing feature 1
+2017-05-04 20:08:06,898 - __main__ - DEBUG - QII: 0.0, signed QII: 0.0
+2017-05-04 20:08:06,898 - __main__ - DEBUG - Processing feature 2
+2017-05-04 20:08:07,948 - __main__ - DEBUG - QII: 0.0, signed QII: 0.0
+2017-05-04 20:08:07,948 - __main__ - DEBUG - Model weights: [-0.46670094574258475, -0.77567740847181288, -0.67231834213319153]
+2017-05-04 20:08:07,948 - __main__ - DEBUG - Evaluating the model, no_threshold: False
+2017-05-04 20:08:08,781 - __main__ - DEBUG - {'recall': 0.0, 'precision': 0}
+2017-05-04 20:08:08,781 - __main__ - DEBUG - Evaluating the model, no_threshold: True
+2017-05-04 20:08:09,646 - __main__ - DEBUG - {'better': 0.970144222465358, 'auprc': 0.10534235931013329, 'auroc': 0.417038344422679, 'prate': 0.13205305880023757}
+2017-05-04 20:08:09,646 - __main__ - DEBUG - Computing predictions on the test set
+2017-05-04 20:08:09,890 - __main__ - DEBUG - Evaluating the model, no_threshold: False
+2017-05-04 20:08:10,718 - __main__ - DEBUG - {'recall': 0.0, 'precision': 0}
+2017-05-04 20:08:10,718 - __main__ - DEBUG - Clearing threshold
+2017-05-04 20:08:10,718 - __main__ - DEBUG - Making no-threshold test predictions
+2017-05-04 20:08:10,985 - __main__ - DEBUG - Restoring threshold
+2017-05-04 20:08:10,985 - __main__ - DEBUG - Evaluating the model, no_threshold: True
+2017-05-04 20:08:11,808 - __main__ - DEBUG - {'better': 0.9645197825737194, 'auprc': 0.11077927569439987, 'auroc': 0.4039889932266012, 'prate': 0.1423290203327172}
+2017-05-04 20:08:11,808 - __main__ - DEBUG - Storing in /home/maxikov/quick_test.state/results.pkl
+2017-05-04 20:08:11,814 - __main__ - DEBUG - Processing movielens_tags:based on a book (20 out of 22)
+2017-05-04 20:08:11,814 - __main__ - DEBUG - Processing feature 20
+2017-05-04 20:08:11,814 - __main__ - DEBUG - Building data set
+2017-05-04 20:08:11,865 - __main__ - DEBUG - Done in 0.0507099628448 seconds
+2017-05-04 20:08:11,865 - __main__ - DEBUG - Training logistic
+2017-05-04 20:08:11,865 - __main__ - DEBUG - Actually training a classifier
+2017-05-04 20:08:12,814 - __main__ - DEBUG - Done in 0.948697090149 seconds
+2017-05-04 20:08:13,104 - __main__ - DEBUG - Model threshold 0.500000
+2017-05-04 20:08:13,105 - __main__ - DEBUG - Clearing
+2017-05-04 20:08:13,105 - __main__ - DEBUG - Making no-threshold predictions
+2017-05-04 20:08:13,418 - __main__ - DEBUG - Restoring threshold
+2017-05-04 20:08:13,418 - __main__ - DEBUG - Measuring model QII
+2017-05-04 20:08:13,422 - __main__ - DEBUG - 3 features detected
+2017-05-04 20:08:13,422 - __main__ - DEBUG - Processing feature 0
+2017-05-04 20:08:14,808 - __main__ - DEBUG - QII: 0.0, signed QII: 0.0
+2017-05-04 20:08:14,809 - __main__ - DEBUG - Processing feature 1
+2017-05-04 20:08:15,791 - __main__ - DEBUG - QII: 0.0, signed QII: 0.0
+2017-05-04 20:08:15,791 - __main__ - DEBUG - Processing feature 2
+2017-05-04 20:08:16,805 - __main__ - DEBUG - QII: 0.0, signed QII: 0.0
+2017-05-04 20:08:16,805 - __main__ - DEBUG - Model weights: [-0.40613369107905756, -0.7530232534421536, -0.78306787101201458]
+2017-05-04 20:08:16,806 - __main__ - DEBUG - Evaluating the model, no_threshold: False
+2017-05-04 20:08:17,748 - __main__ - DEBUG - {'recall': 0.0, 'precision': 0}
+2017-05-04 20:08:17,748 - __main__ - DEBUG - Evaluating the model, no_threshold: True
+2017-05-04 20:08:18,671 - __main__ - DEBUG - {'better': 0.968721220721294, 'auprc': 0.10014506349842413, 'auroc': 0.4092688627002352, 'prate': 0.12829142744011088}
+2017-05-04 20:08:18,671 - __main__ - DEBUG - Computing predictions on the test set
+2017-05-04 20:08:18,929 - __main__ - DEBUG - Evaluating the model, no_threshold: False
+2017-05-04 20:08:19,734 - __main__ - DEBUG - {'recall': 0.0, 'precision': 0}
+2017-05-04 20:08:19,734 - __main__ - DEBUG - Clearing threshold
+2017-05-04 20:08:19,734 - __main__ - DEBUG - Making no-threshold test predictions
+2017-05-04 20:08:20,014 - __main__ - DEBUG - Restoring threshold
+2017-05-04 20:08:20,014 - __main__ - DEBUG - Evaluating the model, no_threshold: True
+2017-05-04 20:08:20,865 - __main__ - DEBUG - {'better': 0.966444210155476, 'auprc': 0.09629276517840409, 'auroc': 0.38910419804580393, 'prate': 0.1266173752310536}
+2017-05-04 20:08:20,865 - __main__ - DEBUG - Storing in /home/maxikov/quick_test.state/results.pkl
+2017-05-04 20:08:20,871 - __main__ - DEBUG - Processing movielens_tags:nudity (topless) (21 out of 22)
+2017-05-04 20:08:20,871 - __main__ - DEBUG - Processing feature 21
+2017-05-04 20:08:20,871 - __main__ - DEBUG - Building data set
+2017-05-04 20:08:20,927 - __main__ - DEBUG - Done in 0.056049823761 seconds
+2017-05-04 20:08:20,927 - __main__ - DEBUG - Training logistic
+2017-05-04 20:08:20,927 - __main__ - DEBUG - Actually training a classifier
+2017-05-04 20:08:21,901 - __main__ - DEBUG - Done in 0.973909854889 seconds
+2017-05-04 20:08:22,188 - __main__ - DEBUG - Model threshold 0.500000
+2017-05-04 20:08:22,188 - __main__ - DEBUG - Clearing
+2017-05-04 20:08:22,188 - __main__ - DEBUG - Making no-threshold predictions
+2017-05-04 20:08:22,495 - __main__ - DEBUG - Restoring threshold
+2017-05-04 20:08:22,495 - __main__ - DEBUG - Measuring model QII
+2017-05-04 20:08:22,501 - __main__ - DEBUG - 3 features detected
+2017-05-04 20:08:22,501 - __main__ - DEBUG - Processing feature 0
+2017-05-04 20:08:23,886 - __main__ - DEBUG - QII: 0.0, signed QII: 0.0
+2017-05-04 20:08:23,887 - __main__ - DEBUG - Processing feature 1
+2017-05-04 20:08:24,833 - __main__ - DEBUG - QII: 0.0, signed QII: 0.0
+2017-05-04 20:08:24,833 - __main__ - DEBUG - Processing feature 2
+2017-05-04 20:08:25,814 - __main__ - DEBUG - QII: 0.0, signed QII: 0.0
+2017-05-04 20:08:25,814 - __main__ - DEBUG - Model weights: [-0.83163721160361326, -0.64560801127906997, -0.82154455046860553]
+2017-05-04 20:08:25,814 - __main__ - DEBUG - Evaluating the model, no_threshold: False
+2017-05-04 20:08:26,673 - __main__ - DEBUG - {'recall': 0.0, 'precision': 0}
+2017-05-04 20:08:26,674 - __main__ - DEBUG - Evaluating the model, no_threshold: True
+2017-05-04 20:08:27,631 - __main__ - DEBUG - {'better': 1.0267536066053033, 'auprc': 0.12998751405941394, 'auroc': 0.5680329675390463, 'prate': 0.10671154226885765}
+2017-05-04 20:08:27,631 - __main__ - DEBUG - Computing predictions on the test set
+2017-05-04 20:08:27,874 - __main__ - DEBUG - Evaluating the model, no_threshold: False
+2017-05-04 20:08:28,702 - __main__ - DEBUG - {'recall': 0.0, 'precision': 0}
+2017-05-04 20:08:28,703 - __main__ - DEBUG - Clearing threshold
+2017-05-04 20:08:28,703 - __main__ - DEBUG - Making no-threshold test predictions
+2017-05-04 20:08:28,956 - __main__ - DEBUG - Restoring threshold
+2017-05-04 20:08:28,956 - __main__ - DEBUG - Evaluating the model, no_threshold: True
+2017-05-04 20:08:29,725 - __main__ - DEBUG - {'better': 1.0117399839081722, 'auprc': 0.11482813268343882, 'auroc': 0.5417226042722634, 'prate': 0.1044362292051756}
+2017-05-04 20:08:29,725 - __main__ - DEBUG - Storing in /home/maxikov/quick_test.state/results.pkl
+2017-05-04 20:08:29,823 - __main__ - INFO - Overall results dict: {'feature_ranges': {0: {'_max': 2.610203981399536, 'min': 0.0}, 1: {'_max': 3.9039804935455322, 'min': 0.0}, 2: {'_max': 3.113786220550537, 'min': 0.0}}, 'nof': 22, 'categorical_features': {1: 2, 2: 2, 3: 2, 4: 2, 5: 2, 6: 2, 7: 2, 8: 2, 9: 2, 10: 2, 11: 2, 12: 2, 13: 2, 14: 2, 15: 2, 16: 2, 17: 2, 18: 2, 19: 2, 20: 2, 21: 2}, 'indicator_ranges': {0: {'_max': 2015.0, 'min': 1902.0}, 1: {'_max': 1, 'min': 0}, 2: {'_max': 1, 'min': 0}, 3: {'_max': 1, 'min': 0}, 4: {'_max': 1, 'min': 0}, 5: {'_max': 1, 'min': 0}, 6: {'_max': 1, 'min': 0}, 7: {'_max': 1, 'min': 0}, 8: {'_max': 1, 'min': 0}, 9: {'_max': 1, 'min': 0}, 10: {'_max': 1, 'min': 0}, 11: {'_max': 1, 'min': 0}, 12: {'_max': 1, 'min': 0}, 13: {'_max': 1, 'min': 0}, 14: {'_max': 1, 'min': 0}, 15: {'_max': 1, 'min': 0}, 16: {'_max': 1, 'min': 0}, 17: {'_max': 1, 'min': 0}, 18: {'_max': 1, 'min': 0}, 19: {'_max': 1, 'min': 0}, 20: {'_max': 1, 'min': 0}, 21: {'_max': 1, 'min': 0}}, 'mean_feature_values': {0: 0.9181957112691719, 1: 0.9369361551439781, 2: 0.9467278134561682}, 'mean_indicator_values': {0: 1988.7722799722799, 1: 0.27151767151767153, 2: 0.19611919611919612, 3: 0.07775467775467776, 4: 0.08745668745668746, 5: 0.36313236313236313, 6: 0.21094941094941094, 7: 0.008177408177408177, 8: 0.5392931392931393, 9: 0.12529452529452528, 10: 0.13970893970893972, 11: 0.06652806652806653, 12: 0.11850311850311851, 13: 0.25557865557865556, 14: 0.13832293832293832, 15: 0.3024255024255024, 16: 0.07124047124047124, 17: 0.176992376992377, 18: 0.10990990990990991, 19: 0.13513513513513514, 20: 0.12778932778932778, 21: 0.10602910602910603}, 'train_ratio': 70, 'features': {0: {'qii': [-413.67549264839084, 415.93470910022086, 418.32866160064629], 'name': 'year', 'type': 'regression', 'weights': [662.23894269902939, 676.4654407628941, 700.74195686536893], 'eval': {'preds_histogram': ([1902.0, 1905.4242424242425, 1908.8484848484848, 1912.2727272727273, 1915.6969696969697, 1919.121212121212, 1922.5454545454545, 1925.969696969697, 1929.3939393939395, 1932.8181818181818, 1936.2424242424242, 1939.6666666666667, 1943.090909090909, 1946.5151515151515, 1949.939393939394, 1953.3636363636363, 1956.7878787878788, 1960.2121212121212, 1963.6363636363637, 1967.060606060606, 1970.4848484848485, 1973.909090909091, 1977.3333333333333, 1980.7575757575758, 1984.1818181818182, 1987.6060606060605, 1991.030303030303, 1994.4545454545455, 1997.878787878788, 2001.3030303030303, 2004.7272727272727, 2008.1515151515152, 2011.5757575757575, 2015.0], [20, 27, 18, 18, 25, 33, 28, 22, 25, 46, 17, 27, 25, 23, 28, 21, 21, 28, 19, 16, 24, 23, 28, 22, 26, 19, 27, 23, 29, 23, 32, 36, 15]), 'obs_histogram': ([1902.0, 1905.4242424242425, 1908.8484848484848, 1912.2727272727273, 1915.6969696969697, 1919.121212121212, 1922.5454545454545, 1925.969696969697, 1929.3939393939395, 1932.8181818181818, 1936.2424242424242, 1939.6666666666667, 1943.090909090909, 1946.5151515151515, 1949.939393939394, 1953.3636363636363, 1956.7878787878788, 1960.2121212121212, 1963.6363636363637, 1967.060606060606, 1970.4848484848485, 1973.909090909091, 1977.3333333333333, 1980.7575757575758, 1984.1818181818182, 1987.6060606060605, 1991.030303030303, 1994.4545454545455, 1997.878787878788, 2001.3030303030303, 2004.7272727272727, 2008.1515151515152, 2011.5757575757575, 2015.0], [1, 0, 1, 2, 6, 10, 15, 21, 41, 90, 58, 86, 54, 47, 84, 78, 107, 72, 144, 83, 111, 136, 120, 253, 244, 300, 260, 302, 392, 417, 697, 456, 363]), 'abs_errors_histogram': ([0.0, 61.06060606060606, 122.12121212121212, 183.1818181818182, 244.24242424242425, 305.3030303030303, 366.3636363636364, 427.42424242424244, 488.4848484848485, 549.5454545454545, 610.6060606060606, 671.6666666666667, 732.7272727272727, 793.7878787878788, 854.8484848484849, 915.909090909091, 976.969696969697, 1038.030303030303, 1099.090909090909, 1160.1515151515152, 1221.2121212121212, 1282.2727272727273, 1343.3333333333335, 1404.3939393939395, 1465.4545454545455, 1526.5151515151515, 1587.5757575757575, 1648.6363636363637, 1709.6969696969697, 1770.7575757575758, 1831.818181818182, 1892.878787878788, 1953.939393939394, 2015.0], [806, 795, 666, 573, 429, 363, 301, 218, 183, 153, 123, 88, 79, 58, 31, 26, 25, 17, 16, 8, 13, 12, 13, 14, 8, 8, 3, 12, 7, 1, 0, 0, 0]), 'errors_histogram': ([-2015.0, -1892.878787878788, -1770.7575757575758, -1648.6363636363635, -1526.5151515151515, -1404.3939393939395, -1282.2727272727273, -1160.151515151515, -1038.030303030303, -915.909090909091, -793.7878787878788, -671.6666666666665, -549.5454545454545, -427.4242424242425, -305.30303030303025, -183.18181818181802, -61.060606060606005, 61.060606060606005, 183.18181818181802, 305.3030303030305, 427.4242424242425, 549.5454545454545, 671.666666666667, 793.787878787879, 915.909090909091, 1038.030303030303, 1160.151515151515, 1282.2727272727275, 1404.3939393939395, 1526.5151515151515, 1648.636363636364, 1770.757575757576, 1892.878787878788, 2015.0], [0, 1, 18, 10, 18, 18, 14, 26, 37, 67, 122, 191, 239, 382, 586, 755, 806, 706, 416, 282, 162, 85, 45, 22, 14, 7, 7, 7, 4, 1, 1, 0, 0]), 'mean_err': -81.34702089568424, 'mre': 290.7211040244106, 'sq_errors_histogram': ([0.0, 123037.12121212122, 246074.24242424243, 369111.36363636365, 492148.48484848486, 615185.6060606061, 738222.7272727273, 861259.8484848485, 984296.9696969697, 1107334.0909090908, 1230371.2121212122, 1353408.3333333335, 1476445.4545454546, 1599482.5757575757, 1722519.696969697, 1845556.8181818184, 1968593.9393939395, 2091631.0606060605, 2214668.1818181816, 2337705.303030303, 2460742.4242424243, 2583779.5454545454, 2706816.666666667, 2829853.787878788, 2952890.909090909, 3075928.0303030303, 3198965.1515151514, 3322002.272727273, 3445039.393939394, 3568076.515151515, 3691113.6363636367, 3814150.757575758, 3937187.878787879, 4060225.0], [3543, 636, 301, 179, 107, 73, 32, 29, 22, 17, 11, 8, 6, 13, 11, 8, 12, 4, 6, 4, 5, 2, 8, 5, 4, 2, 1, 0, 0, 0, 0, 0, 0]), 'mrae': 0.14605454260810627, 'mean_abs_err': 290.7211040244106}, 'eval_test': {'preds_histogram': ([1920.0, 1922.878787878788, 1925.7575757575758, 1928.6363636363637, 1931.5151515151515, 1934.3939393939395, 1937.2727272727273, 1940.1515151515152, 1943.030303030303, 1945.909090909091, 1948.7878787878788, 1951.6666666666667, 1954.5454545454545, 1957.4242424242425, 1960.3030303030303, 1963.1818181818182, 1966.060606060606, 1968.939393939394, 1971.8181818181818, 1974.6969696969697, 1977.5757575757575, 1980.4545454545455, 1983.3333333333333, 1986.2121212121212, 1989.090909090909, 1991.969696969697, 1994.8484848484848, 1997.7272727272727, 2000.6060606060605, 2003.4848484848485, 2006.3636363636365, 2009.2424242424242, 2012.121212121212, 2015.0], [6, 12, 4, 7, 16, 10, 8, 10, 8, 12, 7, 11, 5, 16, 10, 7, 10, 9, 13, 2, 14, 16, 7, 2, 9, 7, 8, 5, 15, 9, 9, 7, 7]), 'obs_histogram': ([1920.0, 1922.878787878788, 1925.7575757575758, 1928.6363636363637, 1931.5151515151515, 1934.3939393939395, 1937.2727272727273, 1940.1515151515152, 1943.030303030303, 1945.909090909091, 1948.7878787878788, 1951.6666666666667, 1954.5454545454545, 1957.4242424242425, 1960.3030303030303, 1963.1818181818182, 1966.060606060606, 1968.939393939394, 1971.8181818181818, 1974.6969696969697, 1977.5757575757575, 1980.4545454545455, 1983.3333333333333, 1986.2121212121212, 1989.090909090909, 1991.969696969697, 1994.8484848484848, 1997.7272727272727, 2000.6060606060605, 2003.4848484848485, 2006.3636363636365, 2009.2424242424242, 2012.121212121212, 2015.0], [3, 5, 7, 9, 23, 22, 22, 26, 21, 29, 28, 27, 27, 42, 36, 41, 25, 39, 52, 55, 45, 71, 92, 98, 64, 125, 119, 125, 171, 206, 225, 174, 110]), 'abs_errors_histogram': ([0.0, 61.06060606060606, 122.12121212121212, 183.1818181818182, 244.24242424242425, 305.3030303030303, 366.3636363636364, 427.42424242424244, 488.4848484848485, 549.5454545454545, 610.6060606060606, 671.6666666666667, 732.7272727272727, 793.7878787878788, 854.8484848484849, 915.909090909091, 976.969696969697, 1038.030303030303, 1099.090909090909, 1160.1515151515152, 1221.2121212121212, 1282.2727272727273, 1343.3333333333335, 1404.3939393939395, 1465.4545454545455, 1526.5151515151515, 1587.5757575757575, 1648.6363636363637, 1709.6969696969697, 1770.7575757575758, 1831.818181818182, 1892.878787878788, 1953.939393939394, 2015.0], [387, 324, 273, 245, 210, 167, 106, 106, 73, 51, 41, 28, 26, 23, 25, 7, 14, 4, 5, 2, 4, 8, 6, 5, 7, 0, 5, 6, 3, 2, 0, 0, 0]), 'errors_histogram': ([-2015.0, -1892.878787878788, -1770.7575757575758, -1648.6363636363635, -1526.5151515151515, -1404.3939393939395, -1282.2727272727273, -1160.151515151515, -1038.030303030303, -915.909090909091, -793.7878787878788, -671.6666666666665, -549.5454545454545, -427.4242424242425, -305.30303030303025, -183.18181818181802, -61.060606060606005, 61.060606060606005, 183.18181818181802, 305.3030303030305, 427.4242424242425, 549.5454545454545, 671.666666666667, 793.787878787879, 915.909090909091, 1038.030303030303, 1160.151515151515, 1282.2727272727275, 1404.3939393939395, 1526.5151515151515, 1648.636363636364, 1770.757575757576, 1892.878787878788, 2015.0], [0, 1, 8, 5, 10, 11, 6, 6, 14, 34, 41, 65, 119, 164, 269, 306, 387, 291, 186, 109, 60, 27, 13, 14, 7, 3, 0, 3, 2, 0, 1, 1, 0]), 'mean_err': -88.4935793476922, 'mre': 284.5353508757872, 'sq_errors_histogram': ([0.0, 123037.12121212122, 246074.24242424243, 369111.36363636365, 492148.48484848486, 615185.6060606061, 738222.7272727273, 861259.8484848485, 984296.9696969697, 1107334.0909090908, 1230371.2121212122, 1353408.3333333335, 1476445.4545454546, 1599482.5757575757, 1722519.696969697, 1845556.8181818184, 1968593.9393939395, 2091631.0606060605, 2214668.1818181816, 2337705.303030303, 2460742.4242424243, 2583779.5454545454, 2706816.666666667, 2829853.787878788, 2952890.909090909, 3075928.0303030303, 3198965.1515151514, 3322002.272727273, 3445039.393939394, 3568076.515151515, 3691113.6363636367, 3814150.757575758, 3937187.878787879, 4060225.0], [1584, 240, 115, 55, 42, 25, 27, 8, 11, 4, 4, 1, 5, 4, 7, 3, 4, 5, 3, 0, 1, 3, 4, 4, 0, 3, 1, 0, 0, 0, 0, 0, 0]), 'mrae': 0.14288944072829718, 'mean_abs_err': 284.5353508757872}}, 1: {'qii': [0.0007919223916056226, -0.0003959611958028113, -0.0003959611958028113], 'name': 'movielens_genre:Action', 'eval_test': {'recall': 0.001644736842105263, 'precision': 1.0}, 'eval_nt': {'better': 1.0644079001879994, 'auprc': 0.31179746776980966, 'auroc': 0.5527807229879764, 'prate': 0.2674717877647991}, 'eval_test_nt': {'better': 1.0694721133613783, 'auprc': 0.3276694099619038, 'auroc': 0.558318922507103, 'prate': 0.2809611829944547}, 'weights': [0.022844550796055157, -0.70995405059087979, -0.37223026617246563], 'eval': {'recall': 0.0014803849000740192, 'precision': 1.0}, 'type': 'classification'}, 2: {'qii': [0.0007919223916056226, -0.0003959611958028113, -0.000593941793704217], 'name': 'movielens_genre:Adventure', 'eval_test': {'recall': 0.0, 'precision': 0.0}, 'eval_nt': {'better': 1.0266945498778655, 'auprc': 0.21902631937017994, 'auroc': 0.5325657058990394, 'prate': 0.19817857849930706}, 'eval_test_nt': {'better': 1.0175629701759135, 'auprc': 0.2052702002442181, 'auroc': 0.5340924775707384, 'prate': 0.1913123844731978}, 'weights': [0.028786696239523967, -1.0041762084422248, -0.47643856535946194], 'eval': {'recall': 0.000999000999000999, 'precision': 0.5}, 'type': 'classification'}, 3: {'qii': [0.0, 0.0, 0.0], 'name': 'movielens_genre:Animation', 'eval_test': {'recall': 0.0, 'precision': 0}, 'eval_nt': {'better': 0.9883040045359059, 'auprc': 0.06649210972914564, 'auroc': 0.42694230705904285, 'prate': 0.07741041377944961}, 'eval_test_nt': {'better': 0.9954639326050647, 'auprc': 0.07435945762461871, 'auroc': 0.4217564458080124, 'prate': 0.07855822550831792}, 'weights': [-0.61786375825854545, -1.2012593725863405, -0.7603966602757255], 'eval': {'recall': 0.0, 'precision': 0}, 'type': 'classification'}, 4: {'qii': [0.0, 0.0, 0.0], 'name': 'movielens_genre:Children', 'eval_test': {'recall': 0.0, 'precision': 0}, 'eval_nt': {'better': 1.0149763226385327, 'auprc': 0.10350733543277614, 'auroc': 0.5448380818485263, 'prate': 0.09008117204513957}, 'eval_test_nt': {'better': 1.0163690922528297, 'auprc': 0.09612645815293906, 'auroc': 0.5334278397658677, 'prate': 0.08133086876155268}, 'weights': [-0.59154743591260017, -0.99974602098070275, -0.88268179813613756], 'eval': {'recall': 0.0, 'precision': 0}, 'type': 'classification'}, 5: {'qii': [0.0, 0.0, 0.0], 'name': 'movielens_genre:Comedy', 'eval_test': {'recall': 0.0, 'precision': 0}, 'eval_nt': {'better': 1.0183731556235658, 'auprc': 0.36778291845179056, 'auroc': 0.5176409164036053, 'prate': 0.3561670956246288}, 'eval_test_nt': {'better': 1.0283434988547224, 'auprc': 0.39649544903342904, 'auroc': 0.5326073845255275, 'prate': 0.3793900184842883}, 'weights': [-0.20137736967154454, -0.18774404440291306, -0.22987266782786317], 'eval': {'recall': 0.0, 'precision': 0}, 'type': 'classification'}, 6: {'qii': [0.0, 0.0, 0.0], 'name': 'movielens_genre:Crime', 'eval_test': {'recall': 0.0, 'precision': 0}, 'eval_nt': {'better': 0.9941860615554039, 'auprc': 0.2016542499650566, 'auroc': 0.49482187151845036, 'prate': 0.2062957830132647}, 'eval_test_nt': {'better': 1.0005798574753937, 'auprc': 0.22226243719846495, 'auroc': 0.49948164093428354, 'prate': 0.22181146025878004}, 'weights': [-0.5104020694968201, -0.18283583042245666, -0.68989473510792254], 'eval': {'recall': 0.0, 'precision': 0}, 'type': 'classification'}, 7: {'qii': [0.0, 0.0, 0.0], 'name': 'movielens_genre:Documentary', 'eval_test': {'recall': 0.0, 'precision': 0}, 'eval_nt': {'better': 0.9977061204533672, 'auprc': 0.006432021042542081, 'auroc': 0.3712620513099841, 'prate': 0.008711146307661849}, 'eval_test_nt': {'better': 0.9996822186362243, 'auprc': 0.0066159291883112845, 'auroc': 0.4002481774468748, 'prate': 0.006931608133086876}, 'weights': [-1.8597694108535263, -1.470604138153764, -1.9119455918922015], 'eval': {'recall': 0.0, 'precision': 0}, 'type': 'classification'}, 8: {'qii': [-0.1672936052266878, -0.18095426648188478, -0.17640071273015245], 'name': 'movielens_genre:Drama', 'eval_test': {'recall': 0.9263431542461005, 'precision': 0.5369161225514817}, 'eval_nt': {'better': 1.1382820770399535, 'auprc': 0.5975276139503227, 'auroc': 0.5798678533455391, 'prate': 0.5418728964561473}, 'eval_test_nt': {'better': 1.0668879349096845, 'auprc': 0.5625329843094597, 'auroc': 0.5538432829418126, 'prate': 0.533271719038817}, 'weights': [-0.09211056484767538, 0.53616768676113558, -0.22183838414014115], 'eval': {'recall': 0.9247351114358787, 'precision': 0.5497393570807994}, 'type': 'classification'}, 9: {'qii': [0.0, 0.0, 0.0], 'name': 'movielens_genre:Fantasy', 'eval_test': {'recall': 0.0, 'precision': 0}, 'eval_nt': {'better': 1.0125954535481232, 'auprc': 0.13502854269511744, 'auroc': 0.5267848130106624, 'prate': 0.12413383488418135}, 'eval_test_nt': {'better': 1.0185855079922401, 'auprc': 0.14391448111102315, 'auroc': 0.5171599716088995, 'prate': 0.128003696857671}, 'weights': [-0.39891086348494581, -1.1010392960594018, -0.56468998141508298], 'eval': {'recall': 0.0, 'precision': 0}, 'type': 'classification'}, 10: {'qii': [0.0, 0.0, 0.0], 'name': 'movielens_genre:Horror', 'eval_test': {'recall': 0.0, 'precision': 0}, 'eval_nt': {'better': 1.0936996930830793, 'auprc': 0.21564398698096093, 'auroc': 0.6329614277164242, 'prate': 0.14215006929320925}, 'eval_test_nt': {'better': 1.108325617077739, 'auprc': 0.21865118329549, 'auroc': 0.6300206086924525, 'prate': 0.13401109057301294}, 'weights': [-0.76578033210160557, -0.91652683151406522, -0.31611046098318946], 'eval': {'recall': 0.0, 'precision': 0}, 'type': 'classification'}, 11: {'qii': [0.0, 0.0, 0.0], 'name': 'movielens_genre:Musical', 'eval_test': {'recall': 0.0, 'precision': 0}, 'eval_nt': {'better': 0.9921238467590494, 'auprc': 0.05771402799727088, 'auroc': 0.46032861764565697, 'prate': 0.06513561670956246}, 'eval_test_nt': {'better': 1.0044229056325333, 'auprc': 0.07387435487201141, 'auroc': 0.5150314347469924, 'prate': 0.06977818853974121}, 'weights': [-1.1578174279888735, -0.62925978069244271, -1.0281314455520461], 'eval': {'recall': 0.0, 'precision': 0}, 'type': 'classification'}, 12: {'qii': [0.0, 0.0, 0.0], 'name': 'movielens_genre:Mystery', 'eval_test': {'recall': 0.0, 'precision': 0}, 'eval_nt': {'better': 1.0023884053846133, 'auprc': 0.11792540149302716, 'auroc': 0.5025941491458732, 'prate': 0.11581864977232231}, 'eval_test_nt': {'better': 0.992467682669223, 'auprc': 0.11812639455370585, 'auroc': 0.47607552113887924, 'prate': 0.12476894639556377}, 'weights': [-0.88565724955826075, -0.72151554281821939, -0.54153897854368827], 'eval': {'recall': 0.0, 'precision': 0}, 'type': 'classification'}, 13: {'qii': [-0.0015838447832112453, -0.002177786576915462, -0.0013858641853098396], 'name': 'movielens_genre:Romance', 'eval_test': {'recall': 0.0, 'precision': 0.0}, 'eval_nt': {'better': 1.012411134022544, 'auprc': 0.26706527022652704, 'auroc': 0.5102874001462843, 'prate': 0.2579687190655316}, 'eval_test_nt': {'better': 0.9828270674993309, 'auprc': 0.2368952537008647, 'auroc': 0.4946084645057247, 'prate': 0.25}, 'weights': [-0.62674244689527814, 0.13088916801012596, -0.58402795976295507], 'eval': {'recall': 0.0030698388334612432, 'precision': 0.6666666666666666}, 'type': 'classification'}, 14: {'qii': [0.0, 0.0, 0.0], 'name': 'movielens_genre:Sci-Fi', 'eval_test': {'recall': 0.0, 'precision': 0}, 'eval_nt': {'better': 1.0446078537774925, 'auprc': 0.17480275478923132, 'auroc': 0.5702988198651759, 'prate': 0.13799247673727974}, 'eval_test_nt': {'better': 1.025452307213114, 'auprc': 0.16046243782016026, 'auroc': 0.5428853187531988, 'prate': 0.13909426987061}, 'weights': [-0.37332690606446206, -1.2565567567989295, -0.34208188694737474], 'eval': {'recall': 0.0, 'precision': 0}, 'type': 'classification'}, 15: {'qii': [0.0, 0.0, 0.0], 'name': 'movielens_genre:Thriller', 'eval_test': {'recall': 0.0, 'precision': 0}, 'eval_nt': {'better': 1.037311692977571, 'auprc': 0.32569404440253397, 'auroc': 0.5434606404437439, 'prate': 0.3005345476143338}, 'eval_test_nt': {'better': 1.0339476842591782, 'auprc': 0.3295977892679008, 'auroc': 0.5249558232931726, 'prate': 0.3068391866913124}, 'weights': [-0.22578532237973481, -0.47617364034224424, -0.19790654133170943], 'eval': {'recall': 0.0, 'precision': 0}, 'type': 'classification'}, 16: {'qii': [0.0, 0.0, 0.0], 'name': 'movielens_genre:War', 'eval_test': {'recall': 0.0, 'precision': 0}, 'eval_nt': {'better': 0.9836994562571945, 'auprc': 0.05829853652122315, 'auroc': 0.4035647723642807, 'prate': 0.0736487824193229}, 'eval_test_nt': {'better': 0.9851300748767233, 'auprc': 0.05151532760073651, 'auroc': 0.3998168038896087, 'prate': 0.06561922365988909}, 'weights': [-0.80117914058075013, -0.80432715965364732, -1.0249841982096295], 'eval': {'recall': 0.0, 'precision': 0}, 'type': 'classification'}, 17: {'qii': [0.0, 0.0, 0.0], 'name': 'movielens_tags:BD-R', 'eval_test': {'recall': 0.0, 'precision': 0}, 'eval_nt': {'better': 0.9735332629833218, 'auprc': 0.15645047650611243, 'auroc': 0.4610946742402645, 'prate': 0.1787764799049693}, 'eval_test_nt': {'better': 0.9807932850084976, 'auprc': 0.15662972358692895, 'auroc': 0.4750664714844799, 'prate': 0.17282809611829944}, 'weights': [-0.69566008130488444, -0.16882918869448904, -0.69161338919720483], 'eval': {'recall': 0.0, 'precision': 0}, 'type': 'classification'}, 18: {'qii': [0.0, 0.0, 0.0], 'name': 'movielens_tags:Betamax', 'eval_test': {'recall': 0.0, 'precision': 0}, 'eval_nt': {'better': 1.0108536103845074, 'auprc': 0.12178678310084548, 'auroc': 0.545436881595073, 'prate': 0.11225499901009701}, 'eval_test_nt': {'better': 1.004221741528, 'auprc': 0.10820117334628121, 'auroc': 0.5316058887458103, 'prate': 0.1044362292051756}, 'weights': [-0.47024546455434391, -1.2133188679816875, -0.52737209835379339], 'eval': {'recall': 0.0, 'precision': 0}, 'type': 'classification'}, 19: {'qii': [0.0, 0.0, 0.0], 'name': 'movielens_tags:CLV', 'eval_test': {'recall': 0.0, 'precision': 0}, 'eval_nt': {'better': 0.970144222465358, 'auprc': 0.10534235931013329, 'auroc': 0.417038344422679, 'prate': 0.13205305880023757}, 'eval_test_nt': {'better': 0.9645197825737194, 'auprc': 0.11077927569439987, 'auroc': 0.4039889932266012, 'prate': 0.1423290203327172}, 'weights': [-0.46670094574258475, -0.77567740847181288, -0.67231834213319153], 'eval': {'recall': 0.0, 'precision': 0}, 'type': 'classification'}, 20: {'qii': [0.0, 0.0, 0.0], 'name': 'movielens_tags:based on a book', 'eval_test': {'recall': 0.0, 'precision': 0}, 'eval_nt': {'better': 0.968721220721294, 'auprc': 0.10014506349842413, 'auroc': 0.4092688627002352, 'prate': 0.12829142744011088}, 'eval_test_nt': {'better': 0.966444210155476, 'auprc': 0.09629276517840409, 'auroc': 0.38910419804580393, 'prate': 0.1266173752310536}, 'weights': [-0.40613369107905756, -0.7530232534421536, -0.78306787101201458], 'eval': {'recall': 0.0, 'precision': 0}, 'type': 'classification'}, 21: {'qii': [0.0, 0.0, 0.0], 'name': 'movielens_tags:nudity (topless)', 'eval_test': {'recall': 0.0, 'precision': 0}, 'eval_nt': {'better': 1.0267536066053033, 'auprc': 0.12998751405941394, 'auroc': 0.5680329675390463, 'prate': 0.10671154226885765}, 'eval_test_nt': {'better': 1.0117399839081722, 'auprc': 0.11482813268343882, 'auroc': 0.5417226042722634, 'prate': 0.1044362292051756}, 'weights': [-0.83163721160361326, -0.64560801127906997, -0.82154455046860553], 'eval': {'recall': 0.0, 'precision': 0}, 'type': 'classification'}}}
+2017-05-04 20:08:29,823 - __main__ - INFO - Train ratio: 70.000000 %
+2017-05-04 20:08:29,829 - __main__ - INFO - 
++---------------------------------+------------------+------------------+----------------+------------------+------------------+----------------+
+|             Feature             |      AUPRC       |      Prate       |    x better    |    AUPRC test    |    Prate test    | x better test  |
++---------------------------------+------------------+------------------+----------------+------------------+------------------+----------------+
+|      movielens_genre:Drama      |  0.59752761395   |  0.541872896456  | 1.13828207704  |  0.562532984309  |  0.533271719039  | 1.06688793491  |
+|      movielens_genre:Horror     |  0.215643986981  |  0.142150069293  | 1.09369969308  |  0.218651183295  |  0.134011090573  | 1.10832561708  |
+|      movielens_genre:Action     |  0.31179746777   |  0.267471787765  | 1.06440790019  |  0.327669409962  |  0.280961182994  | 1.06947211336  |
+|      movielens_genre:Sci-Fi     |  0.174802754789  |  0.137992476737  | 1.04460785378  |  0.16046243782   |  0.139094269871  | 1.02545230721  |
+|     movielens_genre:Thriller    |  0.325694044403  |  0.300534547614  | 1.03731169298  |  0.329597789268  |  0.306839186691  | 1.03394768426  |
+| movielens_tags:nudity (topless) |  0.129987514059  |  0.106711542269  | 1.02675360661  |  0.114828132683  |  0.104436229205  | 1.01173998391  |
+|    movielens_genre:Adventure    |  0.21902631937   |  0.198178578499  | 1.02669454988  |  0.205270200244  |  0.191312384473  | 1.01756297018  |
+|      movielens_genre:Comedy     |  0.367782918452  |  0.356167095625  | 1.01837315562  |  0.396495449033  |  0.379390018484  | 1.02834349885  |
+|     movielens_genre:Children    |  0.103507335433  | 0.0900811720451  | 1.01497632264  | 0.0961264581529  | 0.0813308687616  | 1.01636909225  |
+|     movielens_genre:Fantasy     |  0.135028542695  |  0.124133834884  | 1.01259545355  |  0.143914481111  |  0.128003696858  | 1.01858550799  |
+|     movielens_genre:Romance     |  0.267065270227  |  0.257968719066  | 1.01241113402  |  0.236895253701  |       0.25       | 0.982827067499 |
+|      movielens_tags:Betamax     |  0.121786783101  |  0.11225499901   | 1.01085361038  |  0.108201173346  |  0.104436229205  | 1.00422174153  |
+|     movielens_genre:Mystery     |  0.117925401493  |  0.115818649772  | 1.00238840538  |  0.118126394554  |  0.124768946396  | 0.992467682669 |
+|   movielens_genre:Documentary   | 0.00643202104254 | 0.00871114630766 | 0.997706120453 | 0.00661592918831 | 0.00693160813309 | 0.999682218636 |
+|      movielens_genre:Crime      |  0.201654249965  |  0.206295783013  | 0.994186061555 |  0.222262437198  |  0.221811460259  | 1.00057985748  |
+|     movielens_genre:Musical     | 0.0577140279973  | 0.0651356167096  | 0.992123846759 |  0.073874354872  | 0.0697781885397  | 1.00442290563  |
+|    movielens_genre:Animation    | 0.0664921097291  | 0.0774104137794  | 0.988304004536 | 0.0743594576246  | 0.0785582255083  | 0.995463932605 |
+|       movielens_genre:War       | 0.0582985365212  | 0.0736487824193  | 0.983699456257 | 0.0515153276007  | 0.0656192236599  | 0.985130074877 |
+|       movielens_tags:BD-R       |  0.156450476506  |  0.178776479905  | 0.973533262983 |  0.156629723587  |  0.172828096118  | 0.980793285008 |
+|        movielens_tags:CLV       |  0.10534235931   |   0.1320530588   | 0.970144222465 |  0.110779275694  |  0.142329020333  | 0.964519782574 |
+|  movielens_tags:based on a book |  0.100145063498  |  0.12829142744   | 0.968721220721 | 0.0962927651784  |  0.126617375231  | 0.966444210155 |
++---------------------------------+------------------+------------------+----------------+------------------+------------------+----------------+
+2017-05-04 20:08:29,830 - __main__ - INFO - 
 +---------+----------------+----------------+----------------+-------------------+
 | Feature |      MRAE      |  Mean abs err  |   MRAE test    | Mean abs err test |
 +---------+----------------+----------------+----------------+-------------------+
-|   year  | 0.139062374127 | 0.139062374127 | 0.140215973241 |   278.476635371   |
+|   year  | 0.146054542608 | 0.146054542608 | 0.142889440728 |   284.535350876   |
 +---------+----------------+----------------+----------------+-------------------+
+y: 108,825
+May 4, 2017 8:04:06 PM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 9,943B for [id] INT32: 2,475 values, 9,900B raw, 9,905B comp, 1 pages, encodings: [PLAIN, BIT_PACKED]
+May 4, 2017 8:04:06 PM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 42,755B for [features, list, element] DOUBLE: 7,425 values, 60,355B raw, 42,709B comp, 1 pages, encodings: [PLAIN, RLE]
+May 4, 2017 8:04:06 PM INFO: org.apache.parquet.hadoop.InternalParquetRecordWriter: Flushing mem columnStore to file. allocated memory: 108,437
+May 4, 2017 8:04:06 PM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 10,059B for [id] INT32: 2,504 values, 10,016B raw, 10,021B comp, 1 pages, encodings: [PLAIN, BIT_PACKED]
+May 4, 2017 8:04:06 PM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 43,108B for [features, list, element] DOUBLE: 7,512 values, 61,061B raw, 43,062B comp, 1 pages, encodings: [PLAIN, RLE]
+May 4, 2017 8:04:06 PM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 9,943B for [id] INT32: 2,475 values, 9,900B raw, 9,905B comp, 1 pages, encodings: [PLAIN, BIT_PACKED]
+May 4, 2017 8:04:06 PM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 43,120B for [features, list, element] DOUBLE: 7,425 values, 60,355B raw, 43,074B comp, 1 pages, encodings: [PLAIN, RLE]
