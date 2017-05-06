@@ -919,6 +919,9 @@ def internal_feature_predictor(sc, training, rank, numIter, lmbda,
         load_metadata_process_training(sc, args, metadata_sources, training,
         logger, all_movies)
 
+    results["feature_names"] = feature_names
+    results["categorical_features"] = categorical_features
+
     if compare_with_replaced_feature or compare_with_randomized_feature or\
             args.features_trim_percentile:
         baseline_predictions, results =\
