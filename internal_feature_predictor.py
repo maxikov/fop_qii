@@ -627,7 +627,7 @@ def load_metadata_process_training(cs, args, metadata_sources, training, logger)
         ofile = open(fname, "wb")
         pickle.dump(objects, ofile)
         ofile.close()
-   return (indicators, nof, categorical_features, feature_names, all_movies,
+    return (indicators, nof, categorical_features, feature_names, all_movies,
            training)
 
 def load_or_build_baseline_predictions(sc, model, power, results, logger):
@@ -685,7 +685,7 @@ def load_or_build_baseline_predictions(sc, model, power, results, logger):
         ofile = open(fname, "wb")
         pickle.dump(objects, ofile)
         ofile.close()
-   return baseline_predictions, results
+    return baseline_predictions, results
 
 def load_or_train_trimmed_recommender(model, args, sc, results, rank, logger):
     old_model = model
@@ -816,7 +816,7 @@ def split_or_load_training_test_sets(train_ratio, all_movies, features,
             (training_movies, test_movies, features_test_c, features_training_c,
              features_original_test_c, features_original_training_c,
              indicators_training_c, indicators_test_c) = objects
-             indicators = sc.parallelize(indicators_c)\
+            indicators = sc.parallelize(indicators_c)\
                     .repartition(args.num_partitions)\
                     .cache()
             features = sc.parallelize(features_c)\
@@ -892,9 +892,9 @@ def split_or_load_training_test_sets(train_ratio, all_movies, features,
          objects = (training_movies, test_movies, features_test_c, features_training_c,
              features_original_test_c, features_original_training_c,
              indicators_training_c, indicators_test_c)
-        ofile = open(fname, "wb")
-        pickle.dump(objects, ofile)
-        ofile.close()
+         ofile = open(fname, "wb")
+         pickle.dump(objects, ofile)
+         ofile.close()
     return (training_movies, test_movies, features_test, features_training,
              features_original_test, features_original_training,
              indicators_training, indicators_test)
