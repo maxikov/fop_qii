@@ -3,12 +3,14 @@ import time
 import math
 import random
 from collections import defaultdict
+import os.path
+import pickle
 
 #prettytable library
 from prettytable import PrettyTable
 
 #pyspark library
-from pyspark.mllib.recommendation import ALS
+from pyspark.mllib.recommendation import ALS, MatrixFactorizationModel
 import pyspark.mllib.recommendation
 from pyspark.mllib.classification import LabeledPoint, NaiveBayes
 import pyspark.mllib.regression
@@ -559,7 +561,8 @@ def load_or_train_ALS(training, rank, numIter, lmbda, args, sc, logger):
         model.save(sc, fname)
     return model
 
-def load_metadata_process_training(cs, args, metadata_sources, training, logger):
+def load_metadata_process_training(sc, args, metadata_sources, training,
+                                   logger, all_movies):
     if args.persist_dir is not None:
         fname = os.path.join(args.persist_dir, "indicators.pkl")
         if os.path.exists(fname):
@@ -589,7 +592,7 @@ def load_metadata_process_training(cs, args, metadata_sources, training, logger)
         cur_mtdt_srcs = filter(lambda x: x["name"] in args.metadata_sources, metadata_sources)
         if args.drop_missing_movies:
             indicators, nof, categorical_features, feature_names =\
-                internal_feature_predictor.build_meta_data_set(sc, cur_mtdt_srcs, None, logger)
+                build_meta_data_set(sc, cur_mtdt_srcs, None, logger)
             old_all_movies = all_movies
             all_movies = set(indicators.keys().collect())
             logger.debug("{} movies loaded, data for {} is missing, purging them"\
@@ -599,24 +602,13 @@ def load_metadata_process_training(cs, args, metadata_sources, training, logger)
                 .format(training.count()))
         else:
             indicators, nof, categorical_features, feature_names =\
-                internal_feature_predictor.\
                 build_meta_data_set(sc, cur_mtdt_srcs, all_movies, logger)
         logger.debug("%d features loaded", nof)
         if args.drop_rare_features > 0:
             indicators, nof, categorical_features, feature_names =\
-                internal_feature_predictor.drop_rare_features(indicators, nof, categorical_features,
+                drop_rare_features(indicators, nof, categorical_features,
                                feature_names, args.drop_rare_features,
                                logger)
-        if args.drop_rare_movies > 0:
-            logger.debug("Dropping movies with fewer than %d non-zero "+\
-                    "features", args.drop_rare_movies)
-            features, indicators = common_utils.drop_rare_movies(features,
-                                                                 indicators,
-                                                                 args.drop_rare_movies)
-            logger.debug("%d movies left", features.count())
-            training = training.filter(lambda x: x[1] in all_movies)
-            logger.debug("{} items left in the training set"\
-                .format(training.count()))
 
     if write_model:
         logger.debug("Writing %s", fname)
@@ -630,7 +622,8 @@ def load_metadata_process_training(cs, args, metadata_sources, training, logger)
     return (indicators, nof, categorical_features, feature_names, all_movies,
            training)
 
-def load_or_build_baseline_predictions(sc, model, power, results, logger):
+def load_or_build_baseline_predictions(sc, model, power, results, logger, args,
+        training):
     if args.persist_dir is not None:
         fname = os.path.join(args.persist_dir, "baseline_predictions.pkl")
         if os.path.exists(fname):
@@ -681,13 +674,15 @@ def load_or_build_baseline_predictions(sc, model, power, results, logger):
 
     if write_model:
         logger.debug("Writing %s", fname)
+        baseline_predictions_c = baseline_predictions.collect()
         objects = (baseline_predictions_c, results)
         ofile = open(fname, "wb")
         pickle.dump(objects, ofile)
         ofile.close()
     return baseline_predictions, results
 
-def load_or_train_trimmed_recommender(model, args, sc, results, rank, logger):
+def load_or_train_trimmed_recommender(model, args, sc, results, rank, logger,
+        training, baseline_predictions):
     old_model = model
     old_productFeatures = old_model.productFeatures()
     old_userFeatures = old_model.userFeatures()
@@ -703,10 +698,10 @@ def load_or_train_trimmed_recommender(model, args, sc, results, rank, logger):
            need_new_model = False
            write_model = False
            logger.debug("Loading %s", fname_model)
-           model = TrimmedFeatureRecommender.load(fname, sc, args.num_partitions)
+           model = TrimmedFeatureRecommender.load(fname_model, sc, args.num_partitions)
            logger.debug("Loading %s", fname_results)
-           ifile = open(fname, "rb")
-           results = pickle.load(fname_results)
+           ifile = open(fname_results, "rb")
+           results = pickle.load(ifile)
            ifile.close()
     else:
        need_new_model = True
@@ -724,10 +719,10 @@ def load_or_train_trimmed_recommender(model, args, sc, results, rank, logger):
            "Thresholded features recommender")
        logger.debug("Done in %f seconds", time.time() - start)
     if write_model:
-       logger.debug("Saving model to %s", fname)
-       model.save(sc, fname)
+       logger.debug("Saving model to %s", fname_model)
+       TrimmedFeatureRecommender.save(model, fname_model)
        logger.debug("Saving results to %s", fname_results)
-       ofile = open(fname, "wb")
+       ofile = open(fname_results, "wb")
        pickle.dump(results, ofile)
        ofile.close()
     return old_model, old_productFeatures, old_userFeatures, model, results
@@ -735,22 +730,18 @@ def load_or_train_trimmed_recommender(model, args, sc, results, rank, logger):
 def compute_or_load_mean_feature_values(args, features, results, logger):
     if args.persist_dir is not None:
         fname = os.path.join(args.persist_dir, "results.pkl")
-        if not os.path.exists(fname):
-           logger.debug("%s or %s not found, computing mean feature values",
-                        fname)
+        if "mean_feature_values" not in results:
+           logger.debug("mean feature values not found, computing")
            need_new_model = True
            write_model = True
         else:
            need_new_model = False
            write_model = False
-           logger.debug("Loading %s", fname)
-           ifile = open(fname, "rb")
-           results = pickle.load(fname)
-           ifile.close()
     else:
        need_new_model = True
        write_model = False
     if need_new_model:
+       logger.debug("Computing mean feature values")
        results["mean_feature_values"] = common_utils.mean_feature_values(features, logger)
     if write_model:
        logger.debug("Saving results to %s", fname)
@@ -805,7 +796,8 @@ def compute_or_load_discrete_features(features, indicators, results, logger,
     return (features, indicators, feature_bin_centers, results)
 
 def split_or_load_training_test_sets(train_ratio, all_movies, features,
-                                     indicators, features_original, n_movies):
+                                     indicators, features_original, n_movies,
+                                     args, logger, sc):
     if args.persist_dir is not None:
         fname = os.path.join(args.persist_dir, "features_training_test.pkl")
         if os.path.exists(fname):
@@ -816,13 +808,7 @@ def split_or_load_training_test_sets(train_ratio, all_movies, features,
             (training_movies, test_movies, features_test_c, features_training_c,
              features_original_test_c, features_original_training_c,
              indicators_training_c, indicators_test_c) = objects
-            indicators = sc.parallelize(indicators_c)\
-                    .repartition(args.num_partitions)\
-                    .cache()
-            features = sc.parallelize(features_c)\
-                    .repartition(args.num_partitions)\
-                    .cache()
-            other_features = sc.parallelize(other_features_c)\
+            indicators_training = sc.parallelize(indicators_training_c)\
                     .repartition(args.num_partitions)\
                     .cache()
             indicators_training = sc.parallelize(indicators_training_c)\
@@ -834,6 +820,12 @@ def split_or_load_training_test_sets(train_ratio, all_movies, features,
             features_original_training = sc.parallelize(features_original_training_c)\
                     .repartition(args.num_partitions)\
                     .cache()
+            if indicators_test_c is not None:
+                indicators_test = sc.parallelize(indicators_test_c)\
+                    .repartition(args.num_partitions)\
+                    .cache()
+            else:
+                features_test = None
             if features_test_c is not None:
                 features_test = sc.parallelize(features_test_c)\
                     .repartition(args.num_partitions)\
@@ -867,6 +859,7 @@ def split_or_load_training_test_sets(train_ratio, all_movies, features,
          training_size = int(math.floor(n_movies * train_ratio / 100.0)) + 1
          logger.debug("{} items in training and {} in test set"\
                  .format(training_size, n_movies - training_size))
+         all_movies = list(all_movies)
          random.shuffle(all_movies)
          training_movies = set(all_movies[:training_size])
          test_movies = set(all_movies[training_size:])
@@ -886,7 +879,7 @@ def split_or_load_training_test_sets(train_ratio, all_movies, features,
          features_test_c = features_test.collect()
          features_training_c = features_training.collect()
          features_original_test_c = features_original_test.collect()
-         features_original_training_ = features_original_training.collect()
+         features_original_training_c = features_original_training.collect()
          indicators_training_c = indicators_training.collect()
          indicators_test_c = indicators_test.collect()
          objects = (training_movies, test_movies, features_test_c, features_training_c,
@@ -908,6 +901,7 @@ def internal_feature_predictor(sc, training, rank, numIter, lmbda,
                                train_ratio = 0):
 
     results = {}
+    results["features"] = {}
     power = 1.0
 
     if "average_rating" in args.metadata_sources:
@@ -922,18 +916,20 @@ def internal_feature_predictor(sc, training, rank, numIter, lmbda,
     model = load_or_train_ALS(training, rank, numIter, lmbda, args, sc, logger)
 
     indicators, nof, categorical_features, feature_names, all_movies, training=\
-        load_metadata_process_training(cs, args, metadata_sources, training,
-        logger)
+        load_metadata_process_training(sc, args, metadata_sources, training,
+        logger, all_movies)
 
     if compare_with_replaced_feature or compare_with_randomized_feature or\
             args.features_trim_percentile:
         baseline_predictions, results =\
-            load_or_build_baseline_predictions(sc, model, power, results, logger)
+            load_or_build_baseline_predictions(sc, model, power, results,
+                    logger, args, training)
 
     if args.features_trim_percentile:
         old_model, old_productFeatures, old_userFeatures, model, results =\
             load_or_train_trimmed_recommender(model, args, sc, results, rank,
-                                              logger)
+                                              logger, training,
+                                              baseline_predictions)
 
     features = model.productFeatures()
     other_features = model.userFeatures()
@@ -943,6 +939,17 @@ def internal_feature_predictor(sc, training, rank, numIter, lmbda,
         features, other_features = other_features, features
     features_original = features
 
+    if args.drop_rare_movies > 0:
+        logger.debug("Dropping movies with fewer than %d non-zero "+\
+                "features", args.drop_rare_movies)
+        features, indicators = common_utils.drop_rare_movies(features,
+                                                             indicators,
+                                                             args.drop_rare_movies)
+        logger.debug("%d movies left", features.count())
+        training = training.filter(lambda x: x[1] in all_movies)
+        logger.debug("{} items left in the training set"\
+            .format(training.count()))
+
     results = compute_or_load_mean_feature_values(args, features, results, logger)
 
     if args.regression_model == "naive_bayes":
@@ -951,7 +958,6 @@ def internal_feature_predictor(sc, training, rank, numIter, lmbda,
                                                logger, args, categorical_features)
 
 
-    results["features"] = {}
 
     results["train_ratio"] = train_ratio
 
@@ -959,10 +965,10 @@ def internal_feature_predictor(sc, training, rank, numIter, lmbda,
     all_predicted_features_test = {}
     all_lr_models = {}
 
-    models_by_name = {"regression_tree": pyspark.mllib.tree.DecisionTree,
-                      "random_forest": pyspark.mllib.tree.RandomForest,
+    models_by_name = {"regression_tree": pyspark.mllib.tree.DecisionTreeModel,
+                      "random_forest": pyspark.mllib.tree.RandomForestModel,
                       "linear": pyspark.mllib.regression.LinearRegressionModel,
-                      "logistic": pyspark.mllib.regression.LogisticRegressionModel,
+                      "logistic": pyspark.mllib.classification.LogisticRegressionModel,
                       "naive_bayes": pyspark.mllib.classification.NaiveBayesModel}
 
     n_movies = len(all_movies)
@@ -971,7 +977,8 @@ def internal_feature_predictor(sc, training, rank, numIter, lmbda,
              features_original_test, features_original_training,
              indicators_training, indicators_test) =\
                   split_or_load_training_test_sets(train_ratio, all_movies, features,
-                                     indicators, features_original, n_movies)
+                                     indicators, features_original, n_movies,
+                                     args, logger, sc)
     else:
          features_training = features
          indicators_training = indicators
@@ -993,14 +1000,14 @@ def internal_feature_predictor(sc, training, rank, numIter, lmbda,
             fname = os.path.join(args.persist_dir,
                                  "predictions_{}.pkl".format(f))
             logger.debug("Loading %s", fname)
-            ofile = open(fname, "wb")
-            (predictions_training_c, predictions_test_c) = pickle.load(fname)
-            ofile.close()
-            predictions_training= sc.parallelize(predictions_training)\
+            ifile = open(fname, "rb")
+            (predictions_training_c, predictions_test_c) = pickle.load(ifile)
+            ifile.close()
+            predictions_training= sc.parallelize(predictions_training_c)\
                 .repartition(args.num_partitions)\
                 .cache()
             if predictions_test_c is not None:
-                predictions_test= sc.parallelize(predictions_test)\
+                predictions_test= sc.parallelize(predictions_test_c)\
                     .repartition(args.num_partitions)\
                     .cache()
             else:
@@ -1242,22 +1249,22 @@ def internal_feature_predictor(sc, training, rank, numIter, lmbda,
             fname = os.path.join(args.persist_dir, "results.pkl")
             logger.debug("Saving %s", fname)
             ofile = open(fname, "wb")
-            pickle.dump(results, fname)
+            pickle.dump(results, ofile)
             ofile.close()
             fname = os.path.join(args.persist_dir,
                                  "lr_model_{}.pkl".format(f))
             logger.debug("Saving %s", fname)
-            lr_model.save(fname)
+            lr_model.save(sc, fname)
             fname = os.path.join(args.persist_dir,
                                  "predictions_{}.pkl".format(f))
             logger.debug("Saving %s", fname)
             predictions_training_c = predictions_training.collect()
-            if test_ratio > 0:
+            if train_ratio > 0:
                  predictions_test_c = predictions_test.collect()
             else:
                  predictions_test_c = None
             ofile = open(fname, "wb")
-            pickle.dump((predictions_training_c, predictions_test_c), fname)
+            pickle.dump((predictions_training_c, predictions_test_c), ofile)
             ofile.close()
     if train_ratio <= 0:
         training_movies = all_movies
