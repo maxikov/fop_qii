@@ -2,12 +2,38 @@
 
 #standard library
 import time
+import pickle
 
 #numpy library
 import numpy
 
 #project files
 import common_utils
+
+def load(fname, sc, num_partitions):
+    ifile = open(fname, "rb")
+    res = pickle.load(ifile)
+    ifile.close()
+    res.u_feats = sc.parallelize(res.u_feats)\
+            .repartition(num_partitions)\
+            .cache()
+    res.p_feats = sc.parallelize(res.p_feats)\
+            .repartition(num_partitions)\
+            .cache()
+    return res
+
+def save(self, fname):
+    uf, pf = self.u_feats, self.p_feats
+    self.u_feats = self.u_feats.collect()
+    self.p_feats = self.p_feats.collect()
+    logger = self.logger
+    self.logger = None
+    ofile = open(fname, "wb")
+    pickle.dump(self, ofile)
+    ofile.close()
+    self.u_feats, self.p_feats = uf, pf
+    self.logger = logger
+    return self
 
 class TrimmedFeatureRecommender(object):
     """ TODO documentation """
