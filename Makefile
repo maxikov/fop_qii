@@ -25,6 +25,26 @@ bench1: *.py
 	--regression-model naive_bayes --nbins 32 --cross-validation 70 \
 	$(DATAS) > a.txt
 
+SPARK_DIR = spark_dir
+
+$(SPARK_DIR):
+	mkdir $(SPARK_DIR)
+
+$(SPARK_DIR)/%:
+	mkdir $@
+
+quick_test: $(SPARK_DIR) $(SPARK_DIR)/tmp $(SPARK_DIR)/checkpoint $(SPARK_DIR)/quick_test.state *.py
+	time spark-submit --driver-memory 5g MovieLensALS.py \
+	--checkpoint-dir $(SPARK_DIR)/checkpoint --temp-dir $(SPARK_DIR)/tmp \
+	--spark-executor-memory 5g --local-threads "*" \
+	--lmbda 0.2 --num-iter 2 --non-negative \
+	--data-path datasets/ml-1m/ --num-partitions 7 --rank 3 \
+	--predict-product-features --metadata-sources years genres \
+	--drop-rare-features 10 --drop-rare-movies 3 --cross-validation 70 \
+	--regression-model regression_tree --persist-dir $(SPARK_DIR)/quick_test.state \
+	--filter-data-set 1 --features-trim-percentile 90 \
+	> logs/quick_test.txt
+
 clean:
 	rm -Rf *.pyc
 	rm -Rf latents_users
