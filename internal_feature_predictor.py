@@ -907,8 +907,10 @@ def internal_feature_predictor(sc, training, rank, numIter, lmbda,
             logger.debug("Loading %s", fname)
             ifile = open(fname, "rb")
             results = pickle.load(ifile)
+            ifile.close()
         else:
-            resuts = {}
+            results = {}
+            results["features"] = {}
     else:
         results = {}
         results["features"] = {}
@@ -1004,7 +1006,7 @@ def internal_feature_predictor(sc, training, rank, numIter, lmbda,
     for f in xrange(rank):
         logger.debug("Processing {} out of {}"\
                 .format(f, rank))
-        if f in results["features"]:
+        if "features" in results and f in results["features"]:
             fname = os.path.join(args.persist_dir,
                                  "lr_model_{}.pkl".format(f))
             logger.debug("Already processed, loading %s", fname)
@@ -1258,7 +1260,9 @@ def internal_feature_predictor(sc, training, rank, numIter, lmbda,
                     common_utils.evaluate_recommender(baseline_predictions,\
                         randomized_predictions_test, logger, args.nbins,
                         "Randomized feature {} test".format(f))
+        logger.debug("persist_dir: {}".format(args.persist_dir))
         if args.persist_dir is not None:
+            logger.debug("Saving the state of current iteration")
             fname = os.path.join(args.persist_dir, "results.pkl")
             logger.debug("Saving %s", fname)
             ofile = open(fname, "wb")
