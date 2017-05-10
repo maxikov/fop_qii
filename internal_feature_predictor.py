@@ -204,7 +204,8 @@ def train_regression_model(data, regression_model="regression_tree",
                         maxDepth=max_depth,
                         maxBins=max_bins)
     elif regression_model == "linear":
-        lr_model = LinearRegressionWithSGD.train(data)
+        lr_model = LinearRegressionWithSGD.train(data)#, iterations=5,
+                #step=0.0000001, regType="l1")
     elif regression_model == "naive_bayes":
         lr_model = NaiveBayes.train(data)
     elif regression_model == "hash_table":
@@ -423,7 +424,8 @@ def predict_internal_feature(features, indicators, f, regression_model,
                                       logger=logger,
                                       is_classifier=is_classifier,
                                       num_classes=num_classes)
-
+    #    if regression_model in ["linear", "logistic"]:
+    #    logger.debug("Model weights: {}".format(lr_model.weights))
     if no_threshold and regression_model == "logistic":
         lr_model.clearThreshold()
 
@@ -854,7 +856,6 @@ def split_or_load_training_test_sets(train_ratio, all_movies, features,
         need_new_model = True
         write_model = False
     if need_new_model:
-         logger.debug("Writing %s", fname)
          logger.debug("Building training and test sets for regression")
          training_size = int(math.floor(n_movies * train_ratio / 100.0)) + 1
          logger.debug("{} items in training and {} in test set"\
@@ -876,6 +877,7 @@ def split_or_load_training_test_sets(train_ratio, all_movies, features,
          features_original_test = features_original.filter(lambda x: x[0] in
                  test_movies).cache()
     if write_model:
+         logger.debug("Writing %s", fname)
          features_test_c = features_test.collect()
          features_training_c = features_training.collect()
          features_original_test_c = features_original_test.collect()
@@ -899,9 +901,17 @@ def internal_feature_predictor(sc, training, rank, numIter, lmbda,
                                compare_with_replaced_feature,
                                compare_with_randomized_feature, logger,
                                train_ratio = 0):
-
-    results = {}
-    results["features"] = {}
+    if args.persist_dir is not None:
+        fname = os.path.join(args.persist_dir, "results.pkl")
+        if os.path.exists(fname):
+            logger.debug("Loading %s", fname)
+            ifile = open(fname, "rb")
+            results = pickle.load(ifile)
+        else:
+            resuts = {}
+    else:
+        results = {}
+        results["features"] = {}
     power = 1.0
 
     if "average_rating" in args.metadata_sources:
@@ -993,7 +1003,7 @@ def internal_feature_predictor(sc, training, rank, numIter, lmbda,
 
     for f in xrange(rank):
         logger.debug("Processing {} out of {}"\
-                .format(f, nof))
+                .format(f, rank))
         if f in results["features"]:
             fname = os.path.join(args.persist_dir,
                                  "lr_model_{}.pkl".format(f))
