@@ -364,7 +364,7 @@ def drop_rare_features(indicators, nof, categorical_features, feature_names,
 def predict_internal_feature(features, indicators, f, regression_model,
                              categorical_features, max_bins, logger=None,
                              no_threshold=False, is_classifier=False,
-                             num_classes=None):
+                             num_classes=None, max_depth=None):
     """
     Predict the values of an internal feature based on metadata.
 
@@ -423,7 +423,8 @@ def predict_internal_feature(features, indicators, f, regression_model,
                                       max_bins=max_bins,
                                       logger=logger,
                                       is_classifier=is_classifier,
-                                      num_classes=num_classes)
+                                      num_classes=num_classes,
+                                      max_depth=max_depth)
     #    if regression_model in ["linear", "logistic"]:
     #    logger.debug("Model weights: {}".format(lr_model.weights))
     if no_threshold and regression_model == "logistic":
@@ -1079,13 +1080,16 @@ def internal_feature_predictor(sc, training, rank, numIter, lmbda,
         results["features"][f]["regression_evaluation_ht"] = reg_eval
 
         lr_model, _, predictions = predict_internal_feature(\
-            features_training,
-            indicators_training,
-            f,
-            args.regression_model,
-            categorical_features,
-            args.nbins,
-            logger)
+            features=features_training,
+            indicators=indicators_training,
+            f=f,
+            regression_model=args.regression_model,
+            categorical_features=categorical_features,
+            max_bins=args.nbins,
+            logger=logger,
+            no_threshold=True
+            max_depthargs.max_depth)
+
         all_lr_models[f] = lr_model
         results["features"][f]["model"] = args.regression_model
         if args.regression_model == "naive_bayes":
