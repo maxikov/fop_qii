@@ -897,7 +897,7 @@ def split_or_load_training_test_sets(train_ratio, all_movies, features,
 
 def normalize_features(features, categorical_features, feature_names, logger):
     logger.debug("Normalizing features")
-    features_to_normalize = set(feature_names.keys()) -
+    features_to_normalize = set(feature_names.keys()) -\
                             set(categorical_features.keys())
     for f in features_to_normalize:
         logger.debug("Normalizing feature %d", f)
@@ -1087,8 +1087,8 @@ def internal_feature_predictor(sc, training, rank, numIter, lmbda,
             categorical_features=categorical_features,
             max_bins=args.nbins,
             logger=logger,
-            no_threshold=True
-            max_depthargs.max_depth)
+            no_threshold=True,
+            max_depth=args.max_depth)
 
         all_lr_models[f] = lr_model
         results["features"][f]["model"] = args.regression_model
