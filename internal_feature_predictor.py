@@ -961,9 +961,11 @@ def internal_feature_predictor(sc, training, rank, numIter, lmbda,
                                                              indicators,
                                                              args.drop_rare_movies)
         logger.debug("%d movies left", features.count())
+        all_movies = set(indicators.keys().collect())
         training = training.filter(lambda x: x[1] in all_movies)
         logger.debug("{} items left in the training set"\
             .format(training.count()))
+        all_movies = list(all_movies)
 
     results = compute_or_load_mean_feature_values(args, features, results, logger)
 
