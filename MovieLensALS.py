@@ -76,6 +76,11 @@ def args_init(logger):
     parser.add_argument("--nbins", action="store", type=int, default=32, help=\
             "Number of bins for a regression tree. 32 by default. "+\
             "Maximum depth is ceil(log(nbins, 2)).")
+    parser.add_argument("--max-depth", action="store", type=int, help=\
+                        "Manually specified maximum depth of the tree.")
+
+    parser.add_argument("--normalize", action="store_true", help=\
+                        "Normalize non-categorical features to between 0 and 1.")
 
     parser.add_argument("--regression-users", action="store_true", help=\
             "Predicting internal features based on user metadata")
@@ -159,6 +164,7 @@ def args_init(logger):
                         "persistence files (if persistence is used). "+\
                         "Warning: can lead to unpredictable behavior "+\
                         "if arguments are mismatched!")
+
 
     args = parser.parse_args()
 

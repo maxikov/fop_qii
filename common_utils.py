@@ -202,7 +202,7 @@ def feature_ranges(features, logger):
     for f in xrange(rank):
         _min = mins[f]
         _max = maxes[f]
-        res[f] = {"min": _min, "_max": _max}
+        res[f] = {"min": _min, "max": _max}
     logger.debug("Feature ranges: {}".format(res))
     return res
 

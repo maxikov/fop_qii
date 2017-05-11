@@ -894,6 +894,21 @@ def split_or_load_training_test_sets(train_ratio, all_movies, features,
              features_original_test, features_original_training,
              indicators_training, indicators_test)
 
+def normalize_features(features, categorical_features, feature_names, logger):
+    logger.debug("Normalizing features")
+    features_to_normalize = set(feature_names.keys()) -
+                            set(categorical_features.keys())
+    for f in features_to_normalize:
+        logger.debug("Normalizing feature %d", f)
+        cur_feature = features.map(lambda (mid, ftrs):
+                                    (mid, ftrs[f]))
+        ranges = common_utils.feature_ranges(cur_feature, logger)
+        _min, _max = ranges[0]["min"], ranges[0]["max"]
+        factor = float(_max - _min)
+        features = features.map(lambda (mid, ftrs):
+                (mid, common_utils.set_list_value(ftrs, f,
+                        float(ftrs[f]-_min)/factor)))
+    return features
 
 def internal_feature_predictor(sc, training, rank, numIter, lmbda,
                                args, all_movies, metadata_sources,
@@ -930,6 +945,10 @@ def internal_feature_predictor(sc, training, rank, numIter, lmbda,
     indicators, nof, categorical_features, feature_names, all_movies, training=\
         load_metadata_process_training(sc, args, metadata_sources, training,
         logger, all_movies)
+
+    if args.normalize:
+        features = normalize_features(features, categorical_features,
+                feature_names, logger)
 
     results["feature_names"] = feature_names
     results["categorical_features"] = categorical_features
