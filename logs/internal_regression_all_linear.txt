@@ -1,0 +1,33 @@
+2017-05-12 08:35:51,310 - __main__ - DEBUG - rank: 3, lmbda: 0.02, num_iter: 300, num_partitions: 7
+2017-05-12 08:35:51,311 - __main__ - DEBUG - data_path: datasets/ml-20m/, checkpoint_dir: /home/maxikov/spark_dir
+2017-05-12 08:35:51,311 - __main__ - DEBUG - Temp dir: /home/maxikov/spark_dir
+2017-05-12 08:35:51,311 - __main__ - DEBUG - local_threads: *
+2017-05-12 08:35:51,311 - __main__ - DEBUG - spark_executor_memory: 15g
+2017-05-12 08:35:51,311 - __main__ - DEBUG - regression_model: linear
+2017-05-12 08:35:51,311 - __main__ - DEBUG - nbins: 32
+2017-05-12 08:35:51,311 - __main__ - DEBUG - regression_users: False
+2017-05-12 08:35:51,311 - __main__ - DEBUG - predict_product_features: True
+2017-05-12 08:35:51,311 - __main__ - DEBUG - metadata_sources: ['years', 'genres', 'average_rating', 'tvtropes', 'imdb_keywords', 'imdb_producer', 'imdb_director', 'tags']
+2017-05-12 08:35:51,311 - __main__ - DEBUG - movies_file: datasets/ml-20m/ml-20m.imdb.medium.csv
+2017-05-12 08:35:51,311 - __main__ - DEBUG - cross_validation: 70
+2017-05-12 08:35:51,311 - __main__ - DEBUG - tvtropes_file: datasets/dbtropes/tropes.csv
+2017-05-12 08:35:51,311 - __main__ - DEBUG - features_trim_percentile: 0
+2017-05-12 08:35:51,311 - __main__ - DEBUG - drop_missing_movies: False
+2017-05-12 08:35:51,311 - __main__ - DEBUG - drop_rare_features: 500
+2017-05-12 08:35:51,311 - __main__ - DEBUG - filter_data_set: 10
+2017-05-12 08:35:51,311 - __main__ - DEBUG - persist_dir: /home/maxikov/all_linear_internal_rank_3.state, override_args: False
+2017-05-12 08:35:51,311 - __main__ - DEBUG - drop_rare_movies: 50
+2017-05-12 08:35:52,550 - __main__ - DEBUG - msep: ,
+2017-05-12 08:35:52,550 - __main__ - DEBUG - Loading ratings
+2017-05-12 08:36:00,349 - __main__ - DEBUG - Done in 7.798747 seconds
+2017-05-12 08:36:00,349 - __main__ - DEBUG - Loading movies
+2017-05-12 08:36:01,679 - __main__ - DEBUG - Done in 1.329463 seconds
+2017-05-12 08:36:01,679 - __main__ - DEBUG - 26804 movies loaded
+2017-05-12 08:37:02,318 - __main__ - DEBUG - 19912669 records in the training set
+2017-05-12 08:37:09,298 - __main__ - DEBUG - 26284 unique movies in the training set
+2017-05-12 08:37:09,298 - __main__ - DEBUG - Loading /home/maxikov/all_linear_internal_rank_3.state/results.pkl
+2017-05-12 08:37:09,303 - __main__ - DEBUG - Training the average rating model
+2017-05-12 08:37:30,181 - __main__ - DEBUG - Done in 20.878060 seconds
+2017-05-12 08:37:30,206 - __main__ - DEBUG - Loading /home/maxikov/all_linear_internal_rank_3.state/als_model.pkl
+2017-05-12 08:37:33,038 - __main__ - DEBUG - Loading /home/maxikov/all_linear_internal_rank_3.state/indicators.pkl
+2017-05-12 08:40:30,084 - __main__ - DEBUG - Loading /home/maxikov/all_linear_internal_rank_3.state/baseline_predictions.pkl
