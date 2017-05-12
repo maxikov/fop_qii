@@ -902,7 +902,7 @@ def normalize_features(features, categorical_features, feature_names, logger):
     for f in features_to_normalize:
         logger.debug("Normalizing feature %d", f)
         cur_feature = features.map(lambda (mid, ftrs):
-                                    (mid, ftrs[f]))
+                                    (mid, [ftrs[f]]))
         ranges = common_utils.feature_ranges(cur_feature, logger)
         _min, _max = ranges[0]["min"], ranges[0]["max"]
         factor = float(_max - _min)
