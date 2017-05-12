@@ -2,6 +2,7 @@
 
 import time
 from collections import defaultdict
+import functools
 
 class AverageRatingRecommender(object):
     """ TODO documentation """
@@ -25,11 +26,10 @@ class AverageRatingRecommender(object):
         else:
             self.logger.debug("Making average rating predictions")
         start = time.time()
+        map_f = functools.partial(lambda ratings, (user, product):
+                (user, product, ratings[product]), self.product)
         res = user_movies\
                 .map(lambda x: (x[0], x[1]))\
-                .map(lambda (user, product):
-                     (user,
-                      product,
-                      self.ratings[product]))
+                .map(map_f)
         self.logger.debug("Done in %f seconds", time.time() - start)
         return res

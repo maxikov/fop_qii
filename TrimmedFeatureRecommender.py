@@ -9,6 +9,7 @@ import numpy
 
 #project files
 import common_utils
+import functools
 
 def load(fname, sc, num_partitions):
     ifile = open(fname, "rb")
@@ -53,13 +54,17 @@ class TrimmedFeatureRecommender(object):
         self.thresholds[f] = (bottom_threshold, top_threshold)
         self.logger.debug("{}% of data are between {} and {}, thresholding the rest"\
                 .format(self.percentile, bottom_threshold, top_threshold))
+        top_map_f = functools.partial(lambda f, top_threshold, (_id, cur_feats):
+            (_id, common_utils.set_list_value(cur_feats, f, top_threshold if
+                cur_feats[f] > top_threshold else cur_feats[f])), f,
+            top_threshold)
+        bottom_map_f = fuctools.partial(lambda f, bottom_threshold, (_id,
+            cur_feats): (_id, common_utils.set_list_value(cur_feats, f,
+                bottom_threshold if cur_feats[f] < bottom_threshold else
+                cur_feats[f])), f, bottom_threshold)
         features = features\
-                .map(lambda (_id, cur_feats):\
-                    (_id, common_utils.set_list_value(cur_feats, f, top_threshold if cur_feats[f] > top_threshold else
-                        cur_feats[f]) ))\
-                .map(lambda (_id, cur_feats):\
-                    (_id, common_utils.set_list_value(cur_feats, f, bottom_threshold if cur_feats[f] < bottom_threshold else
-                        cur_feats[f]) ))\
+                .map(top_map_f)\
+                .map(bottom_map_f)\
                 .map(lambda (_id, cur_feats): (_id, map(float, cur_feats)))
         return features
 
