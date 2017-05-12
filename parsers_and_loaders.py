@@ -3,6 +3,7 @@ import csv
 import StringIO
 import traceback
 from collections import defaultdict
+import functools
 
 def loadCSV(fname, remove_first_line=True):
     """
@@ -309,9 +310,10 @@ def load_genres(src_rdd, sep=",", parser_function=parseGenre,
             if count < drop_threshold:
                 del genres_counts[genre]
     all_genres = sorted(genres_counts.keys())
-    indicators_genres = genres.map(
-        lambda (mid, cur_genres): (
-            mid, map(lambda g: int(g in cur_genres), all_genres)))
+    map_f = functools.partial(lambda all_genres, (mid, cur_genres):
+            mid, map(lambda g: int(g in cur_genres), all_genres),
+            all_genres)
+    indicators_genres = genres.map(map_f)
     nof = len(all_genres)
     cfi = {x: 2 for x in xrange(nof)}
     feature_names = {n: "{}:{}".format(prefix, g) for (n, g) in
@@ -334,9 +336,10 @@ def load_tags(src_rdd, sep=",", prefix="tags", drop_threshold=0):
             if count < drop_threshold:
                 del tags_counts[tag]
     all_tags = sorted(tags_counts.keys())
-    indicators = tags.map(
-        lambda (mid, cur_tags): (
-            mid, map(lambda t: int(t in cur_tags), all_tags)))
+    map_f = functools.partial(lambda all_tags, (mid, cur_tags):
+            mid, map(lambda t: int(t in cur_tags), all_tags),
+            all_tags)
+    indicators = tags.map(map_f)
     nof = len(all_tags)
     cfi = {x: 2 for x in xrange(nof)}
     feature_names = {n: "{}:{}".format(prefix, t) for (n, t) in
