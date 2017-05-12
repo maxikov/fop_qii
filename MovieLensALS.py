@@ -195,6 +195,7 @@ def args_init(logger):
     logger.debug("persist_dir: {}, override_args: {}".format(
                     args.persist_dir, args.override_args))
     logger.debug("drop_rare_movies: {}".format(args.drop_rare_movies))
+    logger.debug("normalize: {}".format(args.normalize))
 
     return args
 
