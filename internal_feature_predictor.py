@@ -5,6 +5,7 @@ import random
 from collections import defaultdict
 import os.path
 import pickle
+import functools
 
 #prettytable library
 from prettytable import PrettyTable
@@ -204,8 +205,7 @@ def train_regression_model(data, regression_model="regression_tree",
                         maxDepth=max_depth,
                         maxBins=max_bins)
     elif regression_model == "linear":
-        lr_model = LinearRegressionWithSGD.train(data)#, iterations=5,
-                #step=0.0000001, regType="l1")
+        lr_model = LinearRegressionWithSGD.train(data)
     elif regression_model == "naive_bayes":
         lr_model = NaiveBayes.train(data)
     elif regression_model == "hash_table":
@@ -281,7 +281,8 @@ def build_meta_data_set(sc, sources, all_ids=None, logger=None,
 
         start = time.time()
 
-        cur_rdd, nof, cfi, fnames = source["loader"](source["src_rdd"]())
+        src_rdd = source["src_rdd"]()
+        cur_rdd, nof, cfi, fnames = source["loader"](src_rdd)
         rdd_count = cur_rdd.count()
 
         logger.debug("Done in {} seconds".format(time.time() - start))
@@ -900,15 +901,25 @@ def normalize_features(features, categorical_features, feature_names, logger):
     features_to_normalize = set(feature_names.keys()) -\
                             set(categorical_features.keys())
     for f in features_to_normalize:
-        logger.debug("Normalizing feature %d", f)
-        cur_feature = features.map(lambda (mid, ftrs):
-                                    (mid, [ftrs[f]]))
+        logger.debug("Features sample: {}".format(features.take(3)))
+        logger.debug("Feature sample: {}".format(features.map(lambda x: (x[0],
+            x[1][f])).take(20)))
+        logger.debug("Normalizing feature {} ({})".format(f, feature_names[f]))
+        cur_feature = features.map(functools.partial(lambda f, (mid, ftrs):
+            (mid, [ftrs[f]]), f))
+        logger.debug("Feature sample: {}".format(cur_feature.take(20)))
         ranges = common_utils.feature_ranges(cur_feature, logger)
         _min, _max = ranges[0]["min"], ranges[0]["max"]
         factor = float(_max - _min)
-        features = features.map(lambda (mid, ftrs):
-                (mid, common_utils.set_list_value(ftrs, f,
-                        float(ftrs[f]-_min)/factor)))
+        logger.debug("Scaling factor for feature {} ({}): {}".format(f, feature_names[f],
+                    factor))
+        features = features.map(
+            functools.partial(
+                lambda f, factor, _min, (mid, ftrs):
+                    (mid, common_utils.set_list_value(ftrs, f,
+                        float(ftrs[f]-_min)/factor, True)),
+                f, factor, _min))
+        logger.debug("Features sample: {}".format(features.take(20)))
     return features
 
 def internal_feature_predictor(sc, training, rank, numIter, lmbda,
@@ -935,36 +946,27 @@ def internal_feature_predictor(sc, training, rank, numIter, lmbda,
     if "average_rating" in args.metadata_sources:
         arc = AverageRatingRecommender.AverageRatingRecommender(logger)
         arc.train(training)
-        arc_ratings = sc.parallelize(arc.ratings.items())
+        arc_ratings =\
+            sc.parallelize(arc.ratings.items()).repartition(args.num_partitions)
+        logger.debug("Average rating sample: {}".format(arc_ratings.take(20)))
         metadata_sources.append(
             {"name": "average_rating",
              "src_rdd": lambda: arc_ratings,
              "loader": parsers_and_loaders.load_average_ratings})
 
     model = load_or_train_ALS(training, rank, numIter, lmbda, args, sc, logger)
-
-    indicators, nof, categorical_features, feature_names, all_movies, training=\
-        load_metadata_process_training(sc, args, metadata_sources, training,
-        logger, all_movies)
-
-    if args.normalize:
-        indicators = normalize_features(indicators, categorical_features,
-                feature_names, logger)
-
-    results["feature_names"] = feature_names
-    results["categorical_features"] = categorical_features
-
     if compare_with_replaced_feature or compare_with_randomized_feature or\
             args.features_trim_percentile:
         baseline_predictions, results =\
             load_or_build_baseline_predictions(sc, model, power, results,
                     logger, args, training)
-
     if args.features_trim_percentile:
         old_model, old_productFeatures, old_userFeatures, model, results =\
             load_or_train_trimmed_recommender(model, args, sc, results, rank,
                                               logger, training,
                                               baseline_predictions)
+    else:
+        old_model = model
 
     features = model.productFeatures()
     other_features = model.userFeatures()
@@ -973,6 +975,11 @@ def internal_feature_predictor(sc, training, rank, numIter, lmbda,
     if user_or_product_features == "user":
         features, other_features = other_features, features
     features_original = features
+
+
+    indicators, nof, categorical_features, feature_names, all_movies, training=\
+        load_metadata_process_training(sc, args, metadata_sources, training,
+        logger, all_movies)
 
     if args.drop_rare_movies > 0:
         logger.debug("Dropping movies with fewer than %d non-zero "+\
@@ -983,9 +990,19 @@ def internal_feature_predictor(sc, training, rank, numIter, lmbda,
         logger.debug("%d movies left", features.count())
         all_movies = set(indicators.keys().collect())
         training = training.filter(lambda x: x[1] in all_movies)
+        baseline_predictions = baseline_predictions.filter(lambda x: x[1] in
+                all_movies)
         logger.debug("{} items left in the training set"\
             .format(training.count()))
         all_movies = list(all_movies)
+
+    if args.normalize:
+        indicators = normalize_features(indicators, categorical_features,
+                feature_names, logger)
+
+    results["feature_names"] = feature_names
+    results["categorical_features"] = categorical_features
+
 
     results = compute_or_load_mean_feature_values(args, features, results, logger)
 
@@ -1016,6 +1033,10 @@ def internal_feature_predictor(sc, training, rank, numIter, lmbda,
                   split_or_load_training_test_sets(train_ratio, all_movies, features,
                                      indicators, features_original, n_movies,
                                      args, logger, sc)
+         baseline_predictions_training = baseline_predictions.filter(lambda x:
+                 x[1] in training_movies)
+         baseline_predictions_test = baseline_predictions.filter(lambda x:
+                 x[1] in test_movies)
     else:
          features_training = features
          indicators_training = indicators
@@ -1024,6 +1045,8 @@ def internal_feature_predictor(sc, training, rank, numIter, lmbda,
          test_movies = None
          indicators_test = None
          features_test = None
+         baseline_predictions_training = baseline_predictions
+         baseline_predictions_test = None
 
     for f in xrange(rank):
         logger.debug("Processing {} out of {}"\
@@ -1172,7 +1195,7 @@ def internal_feature_predictor(sc, training, rank, numIter, lmbda,
                 uf, pf = replaced_features, other_features
 
             replaced_mean_error_baseline, replaced_predictions = compare_baseline_to_replaced(\
-                        baseline_predictions, uf, pf, logger, power)
+                        baseline_predictions_training, uf, pf, logger, power)
 
             logger.debug("Replaced mean error baseline: "+\
                     "%f", replaced_mean_error_baseline)
@@ -1181,7 +1204,7 @@ def internal_feature_predictor(sc, training, rank, numIter, lmbda,
 
             logger.debug("Evaluating replaced model")
             results["features"][f]["replaced_rec_eval"] =\
-                    common_utils.evaluate_recommender(baseline_predictions,\
+                    common_utils.evaluate_recommender(baseline_predictions_training,\
                         replaced_predictions, logger, args.nbins,
                         "Replaced feature {} training".format(f))
 
@@ -1202,7 +1225,7 @@ def internal_feature_predictor(sc, training, rank, numIter, lmbda,
                     uf, pf = replaced_features_test, other_features
 
                 replaced_mean_error_baseline_test, replaced_predictions_test = compare_baseline_to_replaced(\
-                           baseline_predictions, uf, pf, logger, power)
+                           baseline_predictions_test, uf, pf, logger, power)
 
                 logger.debug("Replaced mean error baseline test: "+\
                     "%f", replaced_mean_error_baseline_test)
@@ -1211,7 +1234,7 @@ def internal_feature_predictor(sc, training, rank, numIter, lmbda,
 
                 logger.debug("Evaluating replaced model test")
                 results["features"][f]["replaced_rec_eval_test"] =\
-                    common_utils.evaluate_recommender(baseline_predictions,\
+                    common_utils.evaluate_recommender(baseline_predictions_test,\
                         replaced_predictions_test, logger, args.nbins,
                         "Replaced feature {} test".format(f))
 
@@ -1233,7 +1256,7 @@ def internal_feature_predictor(sc, training, rank, numIter, lmbda,
             logger.debug("Computing predictions of the model with randomized"+\
                 " feature %d", f)
             randomized_mean_error_baseline, randomized_predictions = compare_baseline_to_replaced(\
-                baseline_predictions, uf, pf, logger, power)
+                baseline_predictions_training, uf, pf, logger, power)
 
             logger.debug("Radnomized mean error baseline: "+\
                 "%f", randomized_mean_error_baseline)
@@ -1247,7 +1270,7 @@ def internal_feature_predictor(sc, training, rank, numIter, lmbda,
 
             logger.debug("Evaluating randomized model")
             results["features"][f]["randomized_rec_eval"] =\
-                    common_utils.evaluate_recommender(baseline_predictions,\
+                    common_utils.evaluate_recommender(baseline_predictions_training,\
                         randomized_predictions, logger, args.nbins,
                         "Randomized feature {} training".format(f))
 
@@ -1268,7 +1291,7 @@ def internal_feature_predictor(sc, training, rank, numIter, lmbda,
                     " feature %d test", f)
                 randomized_mean_error_baseline_test, randomized_predictions_test\
                         = compare_baseline_to_replaced(\
-                            baseline_predictions, uf, pf, logger, power)
+                            baseline_predictions_test, uf, pf, logger, power)
 
                 logger.debug("Radnomized mean error baseline test: "+\
                     "%f", randomized_mean_error_baseline_test)
@@ -1282,7 +1305,7 @@ def internal_feature_predictor(sc, training, rank, numIter, lmbda,
 
                 logger.debug("Evaluating randomized model test")
                 results["features"][f]["randomized_rec_eval_test"] =\
-                    common_utils.evaluate_recommender(baseline_predictions,\
+                    common_utils.evaluate_recommender(baseline_predictions_test,\
                         randomized_predictions_test, logger, args.nbins,
                         "Randomized feature {} test".format(f))
         logger.debug("persist_dir: {}".format(args.persist_dir))
@@ -1314,22 +1337,22 @@ def internal_feature_predictor(sc, training, rank, numIter, lmbda,
     replaced_mean_error_baseline, replaced_rec_eval =\
         compare_with_all_replaced_features(features_original, other_features,\
             user_or_product_features, all_predicted_features, rank,\
-            baseline_predictions, logger, power, args)
+            baseline_predictions_training, logger, power, args)
     results["all_replaced_mean_error_baseline"] = replaced_mean_error_baseline
     results["all_replaced_rec_eval"] = replaced_rec_eval
     results["all_random_rec_eval"] = compare_with_all_randomized(\
-        model, rank, training_movies, baseline_predictions,\
+        model, rank, training_movies, baseline_predictions_training,\
         logger, power, args)
 
     if train_ratio > 0:
         replaced_mean_error_baseline, replaced_rec_eval =\
             compare_with_all_replaced_features(features_original, other_features,\
                 user_or_product_features, all_predicted_features_test, rank,\
-                baseline_predictions, logger, power, args)
+                baseline_predictions_test, logger, power, args)
         results["all_replaced_mean_error_baseline_test"] = replaced_mean_error_baseline
         results["all_replaced_rec_eval_test"] = replaced_rec_eval
         results["all_random_rec_eval_test"] = compare_with_all_randomized(\
-            model, rank, test_movies, baseline_predictions,\
+            model, rank, test_movies, baseline_predictions_test,\
             logger, power, args)
 
     return results

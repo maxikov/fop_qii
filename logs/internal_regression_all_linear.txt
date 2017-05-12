@@ -1,47 +1,344 @@
-2017-05-12 09:58:03,059 - __main__ - DEBUG - rank: 3, lmbda: 0.02, num_iter: 300, num_partitions: 7
-2017-05-12 09:58:03,059 - __main__ - DEBUG - data_path: datasets/ml-20m/, checkpoint_dir: /home/maxikov/spark_dir
-2017-05-12 09:58:03,059 - __main__ - DEBUG - Temp dir: /home/maxikov/spark_dir
-2017-05-12 09:58:03,059 - __main__ - DEBUG - local_threads: *
-2017-05-12 09:58:03,059 - __main__ - DEBUG - spark_executor_memory: 15g
-2017-05-12 09:58:03,059 - __main__ - DEBUG - regression_model: linear
-2017-05-12 09:58:03,059 - __main__ - DEBUG - nbins: 32
-2017-05-12 09:58:03,060 - __main__ - DEBUG - regression_users: False
-2017-05-12 09:58:03,060 - __main__ - DEBUG - predict_product_features: True
-2017-05-12 09:58:03,060 - __main__ - DEBUG - metadata_sources: ['years', 'genres', 'average_rating', 'tvtropes', 'imdb_keywords', 'imdb_producer', 'imdb_director', 'tags']
-2017-05-12 09:58:03,060 - __main__ - DEBUG - movies_file: datasets/ml-20m/ml-20m.imdb.medium.csv
-2017-05-12 09:58:03,060 - __main__ - DEBUG - cross_validation: 70
-2017-05-12 09:58:03,060 - __main__ - DEBUG - tvtropes_file: datasets/dbtropes/tropes.csv
-2017-05-12 09:58:03,060 - __main__ - DEBUG - features_trim_percentile: 0
-2017-05-12 09:58:03,060 - __main__ - DEBUG - drop_missing_movies: False
-2017-05-12 09:58:03,060 - __main__ - DEBUG - drop_rare_features: 500
-2017-05-12 09:58:03,060 - __main__ - DEBUG - filter_data_set: 10
-2017-05-12 09:58:03,060 - __main__ - DEBUG - persist_dir: /home/maxikov/all_linear_internal_rank_3.state, override_args: False
-2017-05-12 09:58:03,060 - __main__ - DEBUG - drop_rare_movies: 50
-2017-05-12 09:58:03,060 - __main__ - DEBUG - normalize: True
-2017-05-12 09:58:04,276 - __main__ - DEBUG - msep: ,
-2017-05-12 09:58:04,276 - __main__ - DEBUG - Loading ratings
-2017-05-12 09:58:12,054 - __main__ - DEBUG - Done in 7.777901 seconds
-2017-05-12 09:58:12,054 - __main__ - DEBUG - Loading movies
-2017-05-12 09:58:13,289 - __main__ - DEBUG - Done in 1.235044 seconds
-2017-05-12 09:58:13,290 - __main__ - DEBUG - 26804 movies loaded
-2017-05-12 09:59:10,978 - __main__ - DEBUG - 19912669 records in the training set
-2017-05-12 09:59:17,405 - __main__ - DEBUG - 26284 unique movies in the training set
-2017-05-12 09:59:17,406 - __main__ - DEBUG - Training the average rating model
-2017-05-12 09:59:37,648 - __main__ - DEBUG - Done in 20.242247 seconds
-2017-05-12 09:59:37,668 - __main__ - DEBUG - Loading /home/maxikov/all_linear_internal_rank_3.state/als_model.pkl
-2017-05-12 09:59:40,200 - __main__ - DEBUG - Loading /home/maxikov/all_linear_internal_rank_3.state/indicators.pkl
-2017-05-12 10:02:33,147 - __main__ - DEBUG - Normalizing features
-2017-05-12 10:02:33,147 - __main__ - DEBUG - Normalizing feature 0
-2017-05-12 10:02:33,147 - __main__ - DEBUG - Computing feature ranges
+2017-05-12 14:58:32,559 - __main__ - DEBUG - rank: 3, lmbda: 0.02, num_iter: 300, num_partitions: 7
+2017-05-12 14:58:32,559 - __main__ - DEBUG - data_path: datasets/ml-20m/, checkpoint_dir: /home/maxikov/spark_dir
+2017-05-12 14:58:32,559 - __main__ - DEBUG - Temp dir: /home/maxikov/spark_dir
+2017-05-12 14:58:32,559 - __main__ - DEBUG - local_threads: *
+2017-05-12 14:58:32,559 - __main__ - DEBUG - spark_executor_memory: 15g
+2017-05-12 14:58:32,559 - __main__ - DEBUG - regression_model: linear
+2017-05-12 14:58:32,559 - __main__ - DEBUG - nbins: 32
+2017-05-12 14:58:32,559 - __main__ - DEBUG - regression_users: False
+2017-05-12 14:58:32,559 - __main__ - DEBUG - predict_product_features: True
+2017-05-12 14:58:32,559 - __main__ - DEBUG - metadata_sources: ['years', 'genres', 'average_rating']
+2017-05-12 14:58:32,560 - __main__ - DEBUG - movies_file: datasets/ml-20m/ml-20m.imdb.medium.csv
+2017-05-12 14:58:32,560 - __main__ - DEBUG - cross_validation: 70
+2017-05-12 14:58:32,560 - __main__ - DEBUG - tvtropes_file: datasets/dbtropes/tropes.csv
+2017-05-12 14:58:32,560 - __main__ - DEBUG - features_trim_percentile: 0
+2017-05-12 14:58:32,560 - __main__ - DEBUG - drop_missing_movies: False
+2017-05-12 14:58:32,560 - __main__ - DEBUG - drop_rare_features: 500
+2017-05-12 14:58:32,560 - __main__ - DEBUG - filter_data_set: 1
+2017-05-12 14:58:32,560 - __main__ - DEBUG - persist_dir: /home/maxikov/all_linear_internal_rank_3.state, override_args: False
+2017-05-12 14:58:32,560 - __main__ - DEBUG - drop_rare_movies: 2
+2017-05-12 14:58:32,560 - __main__ - DEBUG - normalize: True
+2017-05-12 14:58:32,560 - __main__ - DEBUG - /home/maxikov/all_linear_internal_rank_3.state/args.pkl not found, loading new
+2017-05-12 14:58:32,560 - __main__ - DEBUG - Storing in /home/maxikov/all_linear_internal_rank_3.state/args.pkl
+2017-05-12 14:58:33,844 - __main__ - DEBUG - msep: ,
+2017-05-12 14:58:33,845 - __main__ - DEBUG - Loading ratings
+2017-05-12 14:58:41,702 - __main__ - DEBUG - Done in 7.857609 seconds
+2017-05-12 14:58:41,702 - __main__ - DEBUG - Loading movies
+2017-05-12 14:58:43,001 - __main__ - DEBUG - Done in 1.298299 seconds
+2017-05-12 14:58:43,001 - __main__ - DEBUG - 26804 movies loaded
+2017-05-12 14:59:40,122 - __main__ - DEBUG - 1990951 records in the training set
+2017-05-12 14:59:40,944 - __main__ - DEBUG - 17517 unique movies in the training set
+2017-05-12 14:59:40,944 - __main__ - DEBUG - Training the average rating model
+2017-05-12 14:59:43,186 - __main__ - DEBUG - Done in 2.241827 seconds
+2017-05-12 14:59:43,257 - __main__ - DEBUG - Average rating sample: [(1069, 4.034883720930233), (1070, 2.875), (1071, 3.1), (1073, 3.705323838589352), (1075, 3.40625), (1076, 3.7790697674418605), (1077, 3.9046941678520626), (1078, 3.6953846153846155), (1079, 3.848041775456919), (1080, 3.9558893657606102), (1081, 3.5866141732283463), (1082, 3.5718085106382977), (1083, 3.542944785276074), (66620, 3.0), (1085, 3.625), (1086, 4.0025906735751295), (1087, 3.6842105263157894), (1088, 3.2172538392050587), (1089, 4.09719222462203), (1090, 3.9086161879895562)]
+2017-05-12 14:59:43,257 - __main__ - DEBUG - /home/maxikov/all_linear_internal_rank_3.state/als_model.pkl not found, bulding a new model
+2017-05-12 14:59:43,257 - __main__ - DEBUG - Training ALS recommender
+2017-05-12 15:01:58,063 - __main__ - DEBUG - Done in 134.806605 seconds
+2017-05-12 15:01:58,064 - __main__ - DEBUG - Saving model to /home/maxikov/all_linear_internal_rank_3.state/als_model.pkl
+May 12, 2017 3:02:00 PM INFO: org.apache.parquet.hadoop.codec.CodecConfig: Compression: SNAPPY
+May 12, 2017 3:02:00 PM INFO: org.apache.parquet.hadoop.codec.CodecConfig: Compression: SNAPPY
+May 12, 2017 3:02:00 PM INFO: org.apache.parquet.hadoop.codec.CodecConfig: Compression: SNAPPY
+May 12, 2017 3:02:00 PM INFO: org.apache.parquet.hadoop.codec.CodecConfig: Compression: SNAPPY
+May 12, 2017 3:02:00 PM INFO: org.apache.parquet.hadoop.codec.CodecConfig: Compression: SNAPPY
+May 12, 2017 3:02:00 PM INFO: org.apache.parquet.hadoop.codec.CodecConfig: Compression: SNAPPY
+May 12, 2017 3:02:00 PM INFO: org.apache.parquet.hadoop.codec.CodecConfig: Compression: SNAPPY
+May 12, 2017 3:02:00 PM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Parquet block size to 134217728
+May 12, 2017 3:02:00 PM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Parquet block size to 134217728
+May 12, 2017 3:02:00 PM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Parquet page size to 1048576
+May 12, 2017 3:02:00 PM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Parquet block size to 134217728
+May 12, 2017 3:02:00 PM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Parquet dictionary page size to 1048576
+May 12, 2017 3:02:00 PM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Parquet block size to 134217728
+May 12, 2017 3:02:00 PM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Dictionary is on
+May 12, 2017 3:02:00 PM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Parquet page size to 1048576
+May 12, 2017 3:02:00 PM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Validation is off
+May 12, 2017 3:02:00 PM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Parquet dictionary page size to 1048576
+May 12, 2017 3:02:00 PM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Dictionary is on
+May 12, 2017 3:02:00 PM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Validation is off
+May 12, 2017 3:02:00 PM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Parquet block size to 134217728
+May 12, 2017 3:02:00 PM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Parquet page size to 1048576
+May 12, 2017 3:02:00 PM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Parquet page size to 1048576
+May 12, 2017 3:02:00 PM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Parquet dictionary page size to 1048576
+May 12, 2017 3:02:00 PM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Parquet dictionary page size to 1048576
+May 12, 2017 3:02:00 PM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Writer version is: PARQUET_1_0
+May 12, 2017 3:02:00 PM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Dictionary is on
+May 12, 2017 3:02:00 PM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Parquet block size to 134217728
+May 12, 2017 3:02:00 PM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Validation is off
+May 12, 2017 3:02:00 PM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Parquet page size to 1048576
+May 12, 2017 3:02:00 PM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Writer version is: PARQUET_1_0
+May 12, 2017 3:02:00 PM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Parquet dictionary page size to 1048576
+May 12, 2017 3:02:00 PM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Dictionary is on
+May 12, 2017 3:02:00 PM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Validation is off
+May 12, 2017 3:02:00 PM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Parquet page size to 1048576
+May 12, 2017 3:02:00 PM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Writer version is: PARQUET_1_0
+May 12, 2017 3:02:00 PM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Parquet dictionary page size to 1048576
+May 12, 2017 3:02:00 PM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Dictionary is on
+May 12, 2017 3:02:00 PM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Validation is off
+May 12, 2017 3:02:00 PM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Parquet block size to 134217728
+May 12, 2017 3:02:00 PM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Writer version is: PARQUET_1_0
+May 12, 2017 3:02:00 PM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Parquet page size to 1048576
+May 12, 2017 3:02:00 PM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Dictionary is on
+May 12, 2017 3:02:00 PM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Validation is off
+May 12, 2017 3:02:00 PM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Writer version is: PARQUET_1_0
+May 12, 2017 3:02:00 PM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Writer version is: PARQUET_1_0
+May 12, 2017 3:02:00 PM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Parquet dictionary page size to 1048576
+May 12, 2017 3:02:00 PM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Dictionary is on
+May 12, 2017 3:02:00 PM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Validation is off
+May 12, 2017 3:02:00 PM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Writer version is: PARQUET_1_0
+May 12, 2017 3:02:01 PM INFO: org.apache.parquet.hadoop.InternalParquetRecordWriter: Flushing mem columnStore to file. allocated memory: 780,914
+May 12, 2017 3:02:01 PM INFO: org.apache.parquet.hadoop.InternalParquetRecordWriter: Flushing mem columnStore to file. allocated memory: 785,342
+May 12, 2017 3:02:01 PM INFO: org.apache.parquet.hadoop.InternalParquetRecordWriter: Flushing mem columnStore to file. allocated memory: 784,494
+May 12, 2017 3:02:01 PM INFO: org.apache.parquet.hadoop.InternalParquetRecordWriter: Flushing mem columnStore to file. allocated memory: 786,886
+May 12, 2017 3:02:01 PM INFO: org.apache.parquet.hadoop.InternalParquetRecordWriter: Flushing mem columnStore to file. allocated memory: 784,062
+May 12, 2017 3:02:01 PM INFO: org.apache.parquet.hadoop.InternalParquetRecordWriter: Flushing mem columnStore to file. allocated memory: 783,814
+May 12, 2017 3:02:01 PM INFO: org.apache.parquet.hadoop.InternalParquetRecordWriter: Flushing mem columnStore to file. allocated memory: 784,198
+May 12, 2017 3:02:01 PM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 73,556B for [id] INT32: 18,377 values, 73,508B raw, 73,517B comp, 1 pages, encodings: [PLAIN, BIT_PACKED]
+May 12, 2017 3:02:01 PM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 73,364B for [id] INT32: 18,329 values, 73,316B raw, 73,325B comp, 1 pages, encodings: [PLAIN, BIT_PACKED]
+May 12, 2017 3:02:01 PM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 73,388B for [id] INT32: 18,335 values, 73,340B raw, 73,349B comp, 1 pages, encodings: [PLAIN, BIT_PACKED]
+May 12, 2017 3:02:01 PM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 73,452B for [id] INT32: 18,351 values, 73,404B raw, 73,413B comp, 1 pages, encodings: [PLAIN, BIT_PACKED]
+May 12, 2017 3:02:01 PM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 73,468B for [id] INT32: 18,355 values, 73,420B raw, 73,429B comp, 1 pages, encodings: [PLAIN, BIT_PACKED]
+May 12, 2017 3:02:01 PM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 314,319B for [features, list, element] DOUBLE: 55,131 values, 448,062B raw, 314,272B comp, 1 pages, encodings: [RLE, PLAIN]
+May 12, 2017 3:02:01 PM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 313,494B for [features, list, element] DOUBLE: 54,987 values, 446,892B raw, 313,447B comp, 1 pages, encodings: [RLE, PLAIN]
+May 12, 2017 3:02:01 PM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 313,553B for [features, list, element] DOUBLE: 55,005 values, 447,038B raw, 313,506B comp, 1 pages, encodings: [RLE, PLAIN]
+May 12, 2017 3:02:01 PM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 313,885B for [features, list, element] DOUBLE: 55,053 values, 447,428B raw, 313,838B comp, 1 pages, encodings: [RLE, PLAIN]
+May 12, 2017 3:02:01 PM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 73,716B for [id] INT32: 18,417 values, 73,668B raw, 73,677B comp, 1 pages, encodings: [PLAIN, BIT_PACKED]
+May 12, 2017 3:02:01 PM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 313,743B for [features, list, element] DOUBLE: 55,065 values, 447,526B raw, 313,696B comp, 1 pages, encodings: [RLE, PLAIN]
+May 12, 2017 3:02:01 PM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 314,866B for [features, list, element] DOUBLE: 55,251 values, 449,037B raw, 314,819B comp, 1 pages, encodings: [RLE, PLAIN]
+May 12, 2017 3:02:01 PM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 73,089B for [id] INT32: 18,260 values, 73,040B raw, 73,050B comp, 1 pages, encodings: [PLAIN, BIT_PACKED]
+May 12, 2017 3:02:01 PM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 312,420B for [features, list, element] DOUBLE: 54,780 values, 445,209B raw, 312,373B comp, 1 pages, encodings: [RLE, PLAIN]
+May 12, 2017 3:02:01 PM INFO: org.apache.parquet.hadoop.codec.CodecConfig: Compression: SNAPPY
+May 12, 2017 3:02:01 PM INFO: org.apache.parquet.hadoop.codec.CodecConfig: Compression: SNAPPY
+May 12, 2017 3:02:01 PM INFO: org.apache.parquet.hadoop.codec.CodecConfig: Compression: SNAPPY
+May 12, 2017 3:02:01 PM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Parquet block size to 134217728
+May 12, 2017 3:02:01 PM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Parquet block size to 134217728
+May 12, 2017 3:02:01 PM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Parquet block size to 134217728
+May 12, 2017 3:02:01 PM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Parquet page size to 1048576
+May 12, 2017 3:02:01 PM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Parquet page size to 1048576
+May 12, 2017 3:02:01 PM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Parquet dictionary page size to 1048576
+May 12, 2017 3:02:01 PM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Parquet dictionary page size to 1048576
+May 12, 2017 3:02:01 PM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Dictionary is on
+May 12, 2017 3:02:01 PM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Dictionary is on
+May 12, 2017 3:02:01 PM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Validation is off
+May 12, 2017 3:02:01 PM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Validation is off
+May 12, 2017 3:02:01 PM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Writer version is: PARQUET_1_0
+May 12, 2017 3:02:01 PM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Parquet page size to 1048576
+May 12, 2017 3:02:01 PM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Writer version is: PARQUET_1_0
+May 12, 2017 3:02:01 PM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Parquet dictionary page size to 1048576
+May 12, 2017 3:02:01 PM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Dictionary is on
+May 12, 2017 3:02:01 PM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Validation is off
+May 12, 2017 3:02:01 PM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Writer version is: PARQUET_1_0
+May 12, 2017 3:02:01 PM INFO: org.apache.parquet.hadoop.codec.CodecConfig: Compression: SNAPPY
+May 12, 2017 3:02:01 PM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Parquet block size to 134217728
+May 12, 2017 3:02:01 PM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Parquet page size to 1048576
+May 12, 2017 3:02:01 PM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Parquet dictionary page size to 1048576
+May 12, 2017 3:02:01 PM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Dictionary is on
+May 12, 2017 3:02:01 PM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Validation is off
+May 12, 2017 3:02:01 PM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Writer version is: PARQUET_1_0
+May 12, 2017 3:02:01 PM INFO: org.apache.parquet.hadoop.codec.CodecConfig: Compression: SNAPPY
+May 12, 2017 3:02:01 PM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Parquet block size to 134217728
+May 12, 2017 3:02:01 PM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Parquet page size to 1048576
+May 12, 2017 3:02:01 PM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Parquet dictionary page size to 1048576
+May 12, 2017 3:02:01 PM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Dictionary is on
+May 12, 2017 3:02:01 PM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Validation is off
+May 12, 2017 3:02:01 PM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Writer version is: PARQUET_1_0
+May 12, 2017 3:02:01 PM INFO: org.apache.parquet.hadoop.codec.CodecConfig: Compression: SNAPPY
+May 12, 2017 3:02:01 PM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Parquet block size to 134217728
+May 12, 2017 3:02:01 PM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Parquet page size to 1048576
+May 12, 2017 3:02:01 PM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Parquet dictionary page size to 1048576
+May 12, 2017 3:02:01 PM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Dictionary is on
+May 12, 2017 3:02:01 PM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Validation is off
+May 12, 2017 3:02:01 PM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Writer version is: PARQUET_1_0
+May 12, 2017 3:02:01 PM INFO: org.apache.parquet.hadoop.codec.CodecConfig: Compression: SNAPPY
+May 12, 2017 3:02:01 PM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Parquet block size to 134217728
+May 12, 2017 3:02:01 PM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Parquet page size to 1048576
+May 12, 2017 3:02:01 PM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Parquet dictionary page size to 1048576
+May 12, 2017 3:02:01 PM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Dictionary is on
+May 12, 2017 3:02:01 PM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Validation is off
+May 12, 2017 3:02:01 PM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Writer version is: PARQUET_1_0
+May 12, 2017 3:02:01 PM INFO: org.apache.parquet.hadoop.InternalParquetRecordWriter: Flushing mem columnStore to file. allocated memory: 103,205
+May 12, 2017 3:02:01 PM INFO: org.apache.parquet.hadoop.InternalParquetRecordWriter: Flushing mem columnStore to file. allocated memory: 102,965
+May 12, 2017 3:02:01 PM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 9,943B for [id] INT32: 2,475 values, 9,900B raw, 9,905B comp, 1 pages, encodings: [PLAIN, BIT_PACKED]
+May 12, 2017 3:02:01 PM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 40,879B for [features, list, element] DOUBLE: 7,425 values, 60,355B raw, 40,833B comp, 1 pages, encodings: [RLE, PLAIN]
+May 12, 2017 3:02:01 PM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 9,943B for [id] INT32: 2,475 values, 9,900B raw, 9,905B comp, 1 pages, encodings: [PLAIN, BIT_PACKED]
+May 12, 2017 3:02:01 PM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 40,681B for [features, list, element] DOUBLE: 7,425 values, 60,355B raw, 40,635B comp, 1 pages, encodings: [RLE, PLAIN]
+May 12, 2017 3:02:01 PM INFO: org.apache.parquet.hadoop.InternalParquetRecordWriter: Flushing mem columnStore to file. allocated memory: 103,061
+May 12, 2017 3:02:01 PM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 10,007B for [id] INT32: 2,491 values, 9,964B raw, 9,969B comp, 1 pages, encodings: [PLAIN, BIT_PACKED]
+May 12, 2017 3:02:01 PM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 40,639B for [features, list, element] DOUBLE: 7,473 values, 60,745B raw, 40,593B comp, 1 pages, encodings: [RLE, PLAIN]
+May 12, 2017 3:02:01 PM INFO: org.apache.parquet.hadoop.InternalParquetRecordWriter: Flushing mem columnStore to file. allocated memory: 103,665
+May 12, 2017 3:02:01 PM INFO: org.apache.parquet.hadoop.InternalParquetRecordWriter: Flushing mem columnStore to file. allocated memory: 104,757
+May 12, 2017 3:02:01 PM INFO: org.apache.parquet.hadoop.InternalParquetRecordWriter: Flushing mem columnStore to file. allocated memory: 102,717
+May 12, 2017 3:02:01 PM INFO: org.apache.parquet.hadoop.InternalParquetRecordWriter: Flushing mem columnStore to file. allocated memory: 106,561
+May 12, 2017 3:02:01 PM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 10,151B for [id] INT32: 2,527 2017-05-12 15:02:01,614 - __main__ - DEBUG - /home/maxikov/all_linear_internal_rank_3.state/baseline_predictions.pkl not found, building new predictions
+2017-05-12 15:02:01,615 - __main__ - DEBUG - Computing model predictions
+2017-05-12 15:02:03,068 - __main__ - DEBUG - Done in 1.453070 seconds
+2017-05-12 15:02:03,068 - __main__ - DEBUG - Computing mean error
+2017-05-12 15:02:43,158 - __main__ - DEBUG - Done in 40.090462 seconds
+2017-05-12 15:02:43,159 - __main__ - DEBUG - Mean error: 0.536521524652, RMSE: 0.710544092682
+2017-05-12 15:02:43,178 - __main__ - DEBUG - Original recommender Evaluating the model
+2017-05-12 15:02:43,201 - __main__ - DEBUG - Original recommender Bin range: (0.0, 5.5)
+2017-05-12 15:04:01,318 - __main__ - DEBUG - Done in 78.139887 seconds
+2017-05-12 15:04:01,318 - __main__ - DEBUG - Original recommender Mean error: -0.0175558033209, mean absolute error: 0.536521524652
+2017-05-12 15:04:16,865 - __main__ - DEBUG - Original recommender RMSE: 0.559777764656, variance explained: 0.710544092682, mean absolute error: 0.536521524652,
+2017-05-12 15:04:16,865 - __main__ - DEBUG - Original recommender MRAE: 0.22159790544
+2017-05-12 15:04:16,865 - __main__ - DEBUG - Original recommender Errors histogram: ([-5.5, -5.166666666666667, -4.833333333333333, -4.5, -4.166666666666667, -3.8333333333333335, -3.5, -3.166666666666667, -2.8333333333333335, -2.5, -2.166666666666667, -1.8333333333333335, -1.5, -1.166666666666667, -0.8333333333333339, -0.5, -0.16666666666666696, 0.16666666666666607, 0.5, 0.833333333333333, 1.166666666666666, 1.5, 1.833333333333333, 2.166666666666666, 2.5, 2.833333333333332, 3.166666666666666, 3.5, 3.833333333333332, 4.166666666666666, 4.5, 4.833333333333332, 5.166666666666666, 5.5], [0, 0, 1, 2, 6, 17, 61, 151, 549, 1903, 6500, 19956, 55583, 129657, 244681, 373605, 456943, 306745, 182935, 100023, 53435, 28483, 15337, 8015, 3962, 1629, 584, 150, 31, 7, 0, 0, 0])
+2017-05-12 15:04:16,866 - __main__ - DEBUG - Original recommender Absolute errors histogram: ([0.0, 0.16666666666666666, 0.3333333333333333, 0.5, 0.6666666666666666, 0.8333333333333333, 1.0, 1.1666666666666665, 1.3333333333333333, 1.5, 1.6666666666666665, 1.8333333333333333, 2.0, 2.1666666666666665, 2.333333333333333, 2.5, 2.6666666666666665, 2.833333333333333, 3.0, 3.1666666666666665, 3.333333333333333, 3.5, 3.6666666666666665, 3.833333333333333, 4.0, 4.166666666666666, 4.333333333333333, 4.5, 4.666666666666666, 4.833333333333333, 5.0, 5.166666666666666, 5.333333333333333, 5.5], [456943, 371324, 309012, 243631, 183999, 134494, 95186, 65169, 43849, 29079, 19360, 13158, 8679, 5911, 4007, 2769, 1742, 1108, 672, 425, 220, 110, 57, 26, 11, 8, 1, 1, 0, 0, 0, 0, 0])
+2017-05-12 15:04:16,866 - __main__ - DEBUG - Original recommender Squared errors histogram: ([0.0, 0.9166666666666666, 1.8333333333333333, 2.75, 3.6666666666666665, 4.583333333333333, 5.5, 6.416666666666666, 7.333333333333333, 8.25, 9.166666666666666, 10.083333333333332, 11.0, 11.916666666666666, 12.833333333333332, 13.75, 14.666666666666666, 15.583333333333332, 16.5, 17.416666666666664, 18.333333333333332, 19.25, 20.166666666666664, 21.083333333333332, 22.0, 22.916666666666664, 23.833333333333332, 24.75, 25.666666666666664, 26.583333333333332, 27.5, 28.416666666666664, 29.333333333333332, 30.25], [1669459, 196784, 65251, 27673, 13587, 7371, 4318, 2647, 1526, 946, 562, 369, 182, 119, 64, 45, 20, 13, 5, 6, 2, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]):
+2017-05-12 15:04:16,866 - __main__ - DEBUG - Original recommender Predictions histogram: ([0.0, 0.16666666666666666, 0.3333333333333333, 0.5, 0.6666666666666666, 0.8333333333333333, 1.0, 1.1666666666666665, 1.3333333333333333, 1.5, 1.6666666666666665, 1.8333333333333333, 2.0, 2.1666666666666665, 2.333333333333333, 2.5, 2.6666666666666665, 2.833333333333333, 3.0, 3.1666666666666665, 3.333333333333333, 3.5, 3.6666666666666665, 3.833333333333333, 4.0, 4.166666666666666, 4.333333333333333, 4.5, 4.666666666666666, 4.833333333333333, 5.0, 5.166666666666666, 5.333333333333333, 5.5], [57, 133, 724, 1045, 1621, 3192, 4556, 5738, 8254, 11283, 15003, 21978, 29105, 37378, 49709, 64574, 82578, 112736, 132716, 151565, 174776, 185485, 188292, 190278, 157456, 122381, 91771, 60358, 39258, 30080, 11208, 3938, 1218])
+2017-05-12 15:04:16,866 - __main__ - DEBUG - Original recommender Observations histogram: ([0.0, 0.16666666666666666, 0.3333333333333333, 0.5, 0.6666666666666666, 0.8333333333333333, 1.0, 1.1666666666666665, 1.3333333333333333, 1.5, 1.6666666666666665, 1.8333333333333333, 2.0, 2.1666666666666665, 2.333333333333333, 2.5, 2.6666666666666665, 2.833333333333333, 3.0, 3.1666666666666665, 3.333333333333333, 3.5, 3.6666666666666665, 3.833333333333333, 4.0, 4.166666666666666, 4.333333333333333, 4.5, 4.666666666666666, 4.833333333333333, 5.0, 5.166666666666666, 5.333333333333333, 5.5], [0, 0, 0, 23997, 0, 0, 67241, 0, 0, 27681, 0, 0, 142377, 0, 0, 88109, 0, 0, 427974, 0, 0, 218272, 0, 0, 553204, 0, 0, 153469, 0, 0, 288627, 0, 0])
+2017-05-12 15:04:16,866 - __main__ - DEBUG - Writing /home/maxikov/all_linear_internal_rank_3.state/baseline_predictions.pkl
+2017-05-12 15:05:03,635 - __main__ - DEBUG - user_or_product_features: product
+2017-05-12 15:05:03,635 - __main__ - DEBUG - /home/maxikov/all_linear_internal_rank_3.state/indicators.pkl not found, building new features
+2017-05-12 15:05:03,635 - __main__ - DEBUG - Loading years
+2017-05-12 15:05:03,890 - __main__ - DEBUG - Done in 0.255352020264 seconds
+2017-05-12 15:05:03,890 - __main__ - DEBUG - 26804 records of 1 features loaded
+2017-05-12 15:05:04,115 - __main__ - DEBUG - No missing IDs
+2017-05-12 15:05:04,116 - __main__ - DEBUG - Loading genres
+2017-05-12 15:05:04,617 - __main__ - DEBUG - Done in 0.50146484375 seconds
+2017-05-12 15:05:04,617 - __main__ - DEBUG - 26804 records of 17 features loaded
+2017-05-12 15:05:04,805 - __main__ - DEBUG - No missing IDs
+2017-05-12 15:05:04,831 - __main__ - DEBUG - Loading average_rating
+2017-05-12 15:05:04,861 - __main__ - DEBUG - Done in 0.0301170349121 seconds
+2017-05-12 15:05:04,861 - __main__ - DEBUG - 17517 records of 1 features loaded
+2017-05-12 15:05:04,921 - __main__ - DEBUG - 9287 IDs are missing. Adding empty records for them
+2017-05-12 15:05:04,960 - __main__ - DEBUG - Done in 0.0389630794525 seconds
+2017-05-12 15:05:04,979 - __main__ - DEBUG - 19 features loaded
+2017-05-12 15:05:04,979 - __main__ - DEBUG - Dropping features with less than 500 non-zero values
+2017-05-12 15:05:06,153 - __main__ - DEBUG - Dropping 0 features
+2017-05-12 15:05:06,159 - __main__ - DEBUG - 19 features remaining
+2017-05-12 15:05:06,159 - __main__ - DEBUG - Done in 1.180169 seconds
+2017-05-12 15:05:06,159 - __main__ - DEBUG - Writing /home/maxikov/all_linear_internal_rank_3.state/indicators.pkl
+2017-05-12 15:05:26,996 - __main__ - DEBUG - Dropping movies with fewer than 2 non-zero features
+2017-05-12 15:05:27,498 - __main__ - DEBUG - 17517 movies left
+2017-05-12 15:05:28,010 - __main__ - DEBUG - 1990951 items left in the training set
+2017-05-12 15:05:28,010 - __main__ - DEBUG - Normalizing features
+2017-05-12 15:05:28,042 - __main__ - DEBUG - Features sample: [(106498, [1953.0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 3.0]), (40964, [2005.0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 2.25]), (8197, [1959.0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 1, 0, 3.9204545454545454])]
+2017-05-12 15:05:28,074 - __main__ - DEBUG - Feature sample: [(106498, 1953.0), (40964, 2005.0), (8197, 1959.0), (7, 1995.0), (32781, 1966.0), (14, 1995.0), (32788, 2000.0), (21, 1995.0), (65562, 2005.0), (28, 1995.0), (81949, 2010.0), (73759, 2006.0), (8225, 1990.0), (35, 1995.0), (8232, 1940.0), (42, 1995.0), (106540, 2013.0), (8239, 1961.0), (49, 1995.0), (81018, 2010.0)]
+2017-05-12 15:05:28,075 - __main__ - DEBUG - Normalizing feature 0 (year)
+2017-05-12 15:05:28,113 - __main__ - DEBUG - Feature sample: [(106498, [1953.0]), (40964, [2005.0]), (8197, [1959.0]), (7, [1995.0]), (32781, [1966.0]), (14, [1995.0]), (32788, [2000.0]), (21, [1995.0]), (65562, [2005.0]), (28, [1995.0]), (81949, [2010.0]), (73759, [2006.0]), (8225, [1990.0]), (35, [1995.0]), (8232, [1940.0]), (42, [1995.0]), (106540, [2013.0]), (8239, [1961.0]), (49, [1995.0]), (81018, [2010.0])]
+2017-05-12 15:05:28,113 - __main__ - DEBUG - Computing feature ranges
+2017-05-12 15:05:28,147 - __main__ - DEBUG - Detected 1 features
+2017-05-12 15:05:28,372 - __main__ - DEBUG - Feature ranges: {0: {'max': 2015.0, 'min': 1894.0}}
+2017-05-12 15:05:28,372 - __main__ - DEBUG - Scaling factor for feature 0 (year): 121.0
+2017-05-12 15:05:28,408 - __main__ - DEBUG - Features sample: [(106498, [0.48760330578512395, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 3.0]), (40964, [0.9173553719008265, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 2.25]), (8197, [0.5371900826446281, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 1, 0, 3.9204545454545454]), (7, [0.8347107438016529, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 3.357594936708861]), (32781, [0.5950413223140496, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3.0625]), (14, [0.8347107438016529, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3.4353796445880453]), (32788, [0.8760330578512396, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4.25]), (21, [0.8347107438016529, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 3.58502024291498]), (65562, [0.9173553719008265, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 4.0]), (28, [0.8347107438016529, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 3.998432601880878]), (81949, [0.9586776859504132, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 3.125]), (73759, [0.9256198347107438, 1, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 3.84375]), (8225, [0.7933884297520661, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 3.382978723404255]), (35, [0.8347107438016529, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 3.358974358974359]), (8232, [0.38016528925619836, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3.1666666666666665]), (42, [0.8347107438016529, 1, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3.0622489959839356]), (106540, [0.9834710743801653, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3.0]), (8239, [0.5537190082644629, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3.8970588235294117]), (49, [0.8347107438016529, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 3.5714285714285716]), (81018, [0.9586776859504132, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3.7857142857142856])]
+2017-05-12 15:05:28,445 - __main__ - DEBUG - Features sample: [(106498, [0.48760330578512395, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 3.0]), (40964, [0.9173553719008265, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 2.25]), (8197, [0.5371900826446281, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 1, 0, 3.9204545454545454])]
+2017-05-12 15:05:28,596 - __main__ - DEBUG - Feature sample: [(106498, 3.0), (40964, 2.25), (8197, 3.9204545454545454), (7, 3.357594936708861), (32781, 3.0625), (14, 3.4353796445880453), (32788, 4.25), (21, 3.58502024291498), (65562, 4.0), (28, 3.998432601880878), (81949, 3.125), (73759, 3.84375), (8225, 3.382978723404255), (35, 3.358974358974359), (8232, 3.1666666666666665), (42, 3.0622489959839356), (106540, 3.0), (8239, 3.8970588235294117), (49, 3.5714285714285716), (81018, 3.7857142857142856)]
+2017-05-12 15:05:28,596 - __main__ - DEBUG - Normalizing feature 18 (average_rating)
+2017-05-12 15:05:28,632 - __main__ - DEBUG - Feature sample: [(106498, [3.0]), (40964, [2.25]), (8197, [3.9204545454545454]), (7, [3.357594936708861]), (32781, [3.0625]), (14, [3.4353796445880453]), (32788, [4.25]), (21, [3.58502024291498]), (65562, [4.0]), (28, [3.998432601880878]), (81949, [3.125]), (73759, [3.84375]), (8225, [3.382978723404255]), (35, [3.358974358974359]), (8232, [3.1666666666666665]), (42, [3.0622489959839356]), (106540, [3.0]), (8239, [3.8970588235294117]), (49, [3.5714285714285716]), (81018, [3.7857142857142856])]
+2017-05-12 15:05:28,632 - __main__ - DEBUG - Computing feature ranges
+2017-05-12 15:05:28,665 - __main__ - DEBUG - Detected 1 features
+2017-05-12 15:05:29,923 - __main__ - DEBUG - Feature ranges: {0: {'max': 5.0, 'min': 0.5}}
+2017-05-12 15:05:29,924 - __main__ - DEBUG - Scaling factor for feature 18 (average_rating): 4.5
+2017-05-12 15:05:29,972 - __main__ - DEBUG - Features sample: [(106498, [0.48760330578512395, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0.5555555555555556]), (40964, [0.9173553719008265, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0.3888888888888889]), (8197, [0.5371900826446281, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0.76010101010101]), (7, [0.8347107438016529, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0.6350210970464135]), (32781, [0.5950413223140496, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.5694444444444444]), (14, [0.8347107438016529, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.6523065876862323]), (32788, [0.8760330578512396, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.8333333333333334]), (21, [0.8347107438016529, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0.6855600539811066]), (65562, [0.9173553719008265, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0.7777777777777778]), (28, [0.8347107438016529, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0.7774294670846396]), (81949, [0.9586776859504132, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0.5833333333333334]), (73759, [0.9256198347107438, 1, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0.7430555555555556]), (8225, [0.7933884297520661, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0.6406619385342789]), (35, [0.8347107438016529, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0.6353276353276354]), (8232, [0.38016528925619836, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.5925925925925926]), (42, [0.8347107438016529, 1, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.5693886657742079]), (106540, [0.9834710743801653, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.5555555555555556]), (8239, [0.5537190082644629, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.7549019607843137]), (49, [0.8347107438016529, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0.6825396825396826]), (81018, [0.9586776859504132, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.7301587301587301])]
+2017-05-12 15:05:29,972 - __main__ - DEBUG - mean feature values not found, computing
+2017-05-12 15:05:29,972 - __main__ - DEBUG - Computing mean feature values
+2017-05-12 15:05:29,972 - __main__ - DEBUG - Computing mean feature values
+2017-05-12 15:05:30,167 - __main__ - DEBUG - Done in 0.194323 seconds
+2017-05-12 15:05:30,167 - __main__ - DEBUG - Mean product feature values: {0: 0.9743376348431867, 1: 0.877775180204495, 2: 1.0517438296557928}
+2017-05-12 15:05:30,167 - __main__ - DEBUG - Saving results to /home/maxikov/all_linear_internal_rank_3.state/results.pkl
+2017-05-12 15:05:30,168 - __main__ - DEBUG - /home/maxikov/all_linear_internal_rank_3.state/features_training_test.pkl not found, building new split
+2017-05-12 15:05:30,168 - __main__ - DEBUG - Building training and test sets for regression
+2017-05-12 15:05:30,168 - __main__ - DEBUG - 12262 items in training and 5255 in test set
+2017-05-12 15:05:30,332 - __main__ - DEBUG - Writing /home/maxikov/all_linear_internal_rank_3.state/features_training_test.pkl
+2017-05-12 15:05:34,872 - __main__ - DEBUG - Processing 0 out of 3
+2017-05-12 15:05:34,872 - __main__ - DEBUG - Processing feature 0
+2017-05-12 15:05:34,872 - __main__ - DEBUG - Building data set
+2017-05-12 15:05:34,903 - __main__ - DEBUG - Done in 0.0308711528778 seconds
+2017-05-12 15:05:34,903 - __main__ - DEBUG - Training hash_table
+2017-05-12 15:05:35,784 - __main__ - DEBUG - Done in 0.881134033203 seconds
+2017-05-12 15:05:46,281 - __main__ - DEBUG - Hash table training feature 0 Evaluating the model
+2017-05-12 15:05:46,993 - __main__ - DEBUG - Hash table training feature 0 Bin range: (0.0, 4.448196887969971)
+2017-05-12 15:05:48,181 - __main__ - DEBUG - Done in 1.899051 seconds
+2017-05-12 15:05:48,181 - __main__ - DEBUG - Hash table training feature 0 Mean error: 0.000279144245848, mean absolute error: 0.0395135445064
+2017-05-12 15:05:48,401 - __main__ - DEBUG - Hash table training feature 0 RMSE: 0.398711922967, variance explained: 0.166923378766, mean absolute error: 0.0395135445064,
+2017-05-12 15:05:48,401 - __main__ - DEBUG - Hash table training feature 0 MRAE: 0.142193911619
+2017-05-12 15:05:48,401 - __main__ - DEBUG - Hash table training feature 0 Errors histogram: ([-4.448196887969971, -4.178609197789973, -3.909021507609974, -3.639433817429976, -3.3698461272499776, -3.1002584370699795, -2.8306707468899814, -2.5610830567099834, -2.291495366529985, -2.021907676349987, -1.7523199861699883, -1.4827322959899902, -1.2131446058099922, -0.9435569156299937, -0.6739692254499956, -0.4043815352699971, -0.13479384508999903, 0.13479384508999903, 0.4043815352699971, 0.673969225449996, 0.9435569156299941, 1.2131446058099922, 1.4827322959899902, 1.7523199861699883, 2.0219076763499864, 2.2914953665299853, 2.5610830567099834, 2.8306707468899814, 3.1002584370699795, 3.3698461272499776, 3.6394338174299765, 3.9090215076099746, 4.178609197789973, 4.448196887969971], [0, 0, 0, 0, 0, 1, 0, 1, 0, 2, 9, 19, 15, 43, 125, 247, 11335, 225, 137, 58, 28, 13, 2, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0])
+2017-05-12 15:05:48,401 - __main__ - DEBUG - Hash table training feature 0 Absolute errors histogram: ([0.0, 0.13479384508999911, 0.26958769017999823, 0.4043815352699973, 0.5391753803599965, 0.6739692254499956, 0.8087630705399946, 0.9435569156299938, 1.078350760719993, 1.213144605809992, 1.3479384508999912, 1.4827322959899902, 1.6175261410799893, 1.7523199861699885, 1.8871138312599876, 2.021907676349987, 2.156701521439986, 2.291495366529985, 2.426289211619984, 2.5610830567099834, 2.6958769017999824, 2.8306707468899814, 2.9654645919799805, 3.1002584370699795, 3.2350522821599785, 3.369846127249978, 3.504639972339977, 3.639433817429976, 3.774227662519975, 3.909021507609974, 4.043815352699974, 4.178609197789973, 4.313403042879972, 4.448196887969971], [11335, 287, 185, 150, 112, 48, 53, 25, 18, 22, 10, 6, 5, 0, 2, 0, 1, 1, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
+2017-05-12 15:05:48,402 - __main__ - DEBUG - Hash table training feature 0 Squared errors histogram: ([0.0, 0.5995895622468403, 1.1991791244936807, 1.798768686740521, 2.3983582489873614, 2.9979478112342015, 3.597537373481042, 4.197126935727883, 4.796716497974723, 5.396306060221563, 5.995895622468403, 6.595485184715244, 7.195074746962084, 7.794664309208924, 8.394253871455765, 8.993843433702605, 9.593432995949446, 10.193022558196287, 10.792612120443126, 11.392201682689967, 11.991791244936806, 12.591380807183647, 13.190970369430488, 13.790559931677327, 14.390149493924168, 14.98973905617101, 15.589328618417849, 16.18891818066469, 16.78850774291153, 17.38809730515837, 17.98768686740521, 18.58727642965205, 19.18686599189889, 19.786455554145732], [12106, 91, 38, 16, 4, 2, 1, 0, 1, 1, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]):
+2017-05-12 15:05:48,402 - __main__ - DEBUG - Hash table training feature 0 Predictions histogram: ([0.0, 0.13479384508999911, 0.26958769017999823, 0.4043815352699973, 0.5391753803599965, 0.6739692254499956, 0.8087630705399946, 0.9435569156299938, 1.078350760719993, 1.213144605809992, 1.3479384508999912, 1.4827322959899902, 1.6175261410799893, 1.7523199861699885, 1.8871138312599876, 2.021907676349987, 2.156701521439986, 2.291495366529985, 2.426289211619984, 2.5610830567099834, 2.6958769017999824, 2.8306707468899814, 2.9654645919799805, 3.1002584370699795, 3.2350522821599785, 3.369846127249978, 3.504639972339977, 3.639433817429976, 3.774227662519975, 3.909021507609974, 4.043815352699974, 4.178609197789973, 4.313403042879972, 4.448196887969971], [1407, 471, 570, 699, 849, 1008, 1086, 1171, 1053, 936, 678, 571, 446, 356, 262, 193, 133, 103, 69, 61, 51, 31, 16, 16, 10, 4, 4, 4, 0, 1, 2, 1, 0])
+2017-05-12 15:05:48,402 - __main__ - DEBUG - Hash table training feature 0 Observations histogram: ([0.0, 0.13479384508999911, 0.26958769017999823, 0.4043815352699973, 0.5391753803599965, 0.6739692254499956, 0.8087630705399946, 0.9435569156299938, 1.078350760719993, 1.213144605809992, 1.3479384508999912, 1.4827322959899902, 1.6175261410799893, 1.7523199861699885, 1.8871138312599876, 2.021907676349987, 2.156701521439986, 2.291495366529985, 2.426289211619984, 2.5610830567099834, 2.6958769017999824, 2.8306707468899814, 2.9654645919799805, 3.1002584370699795, 3.2350522821599785, 3.369846127249978, 3.504639972339977, 3.639433817429976, 3.774227662519975, 3.909021507609974, 4.043815352699974, 4.178609197789973, 4.313403042879972, 4.448196887969971], [1524, 481, 574, 712, 825, 1006, 1028, 1086, 1004, 900, 687, 589, 464, 359, 267, 196, 142, 114, 78, 65, 56, 34, 18, 20, 13, 6, 4, 6, 0, 1, 1, 1, 1])
+2017-05-12 15:05:48,402 - __main__ - DEBUG - Processing feature 0
+2017-05-12 15:05:48,402 - __main__ - DEBUG - Building data set
+2017-05-12 15:05:48,434 - __main__ - DEBUG - Done in 0.0315461158752 seconds
+2017-05-12 15:05:48,434 - __main__ - DEBUG - Training linear
+/opt/spark-2.0.1/python/lib/pyspark.zip/pyspark/mllib/regression.py:281: UserWarning: Deprecated in 2.0.0. Use ml.regression.LinearRegression.
+2017-05-12 15:05:52,076 - __main__ - DEBUG - Done in 3.6414232254 seconds
+2017-05-12 15:05:52,416 - __main__ - DEBUG - Processing feature 0
+2017-05-12 15:05:52,416 - __main__ - DEBUG - Building data set
+2017-05-12 15:05:52,433 - __main__ - DEBUG - Done in 0.0168919563293 seconds
+2017-05-12 15:05:52,433 - __main__ - DEBUG - Training hash_table
+2017-05-12 15:05:52,995 - __main__ - DEBUG - Done in 0.56182718277 seconds
+2017-05-12 15:05:57,775 - __main__ - DEBUG - Hash table test feature 0 Evaluating the model
+2017-05-12 15:05:58,444 - __main__ - DEBUG - Hash table test feature 0 Bin range: (0.0, 4.609743118286133)
+2017-05-12 15:05:59,671 - __main__ - DEBUG - Done in 1.895608 seconds
+2017-05-12 15:05:59,671 - __main__ - DEBUG - Hash table test feature 0 Mean error: -0.000772487148146, mean absolute error: 0.0247622209498
+2017-05-12 15:05:59,822 - __main__ - DEBUG - Hash table test feature 0 RMSE: 0.403015887337, variance explained: 0.126825950008, mean absolute error: 0.0247622209498,
+2017-05-12 15:05:59,822 - __main__ - DEBUG - Hash table test feature 0 MRAE: 0.29988544907
+2017-05-12 15:05:59,822 - __main__ - DEBUG - Hash table test feature 0 Errors histogram: ([-4.609743118286133, -4.330364747480913, -4.050986376675692, -3.7716080058704726, -3.492229635065252, -3.212851264260032, -2.933472893454812, -2.654094522649592, -2.3747161518443716, -2.0953377810391514, -1.8159594102339311, -1.536581039428711, -1.2572026686234912, -0.977824297818271, -0.6984459270130507, -0.4190675562078301, -0.13968918540261033, 0.13968918540260944, 0.4190675562078301, 0.6984459270130499, 0.9778242978182705, 1.2572026686234903, 1.536581039428711, 1.8159594102339307, 2.0953377810391505, 2.374716151844371, 2.654094522649591, 2.9334728934548115, 3.2128512642600313, 3.492229635065252, 3.7716080058704726, 4.0509863766756915, 4.330364747480912, 4.609743118286133], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 5, 6, 8, 31, 76, 4997, 81, 28, 11, 4, 4, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
+2017-05-12 15:05:59,822 - __main__ - DEBUG - Hash table test feature 0 Absolute errors histogram: ([0.0, 0.13968918540261008, 0.27937837080522016, 0.4190675562078302, 0.5587567416104403, 0.6984459270130504, 0.8381351124156604, 0.9778242978182705, 1.1175134832208806, 1.2572026686234907, 1.3968918540261008, 1.536581039428711, 1.6762702248313208, 1.815959410233931, 1.955648595636541, 2.0953377810391514, 2.2350269664417612, 2.374716151844371, 2.5144053372469815, 2.6540945226495913, 2.7937837080522017, 2.9334728934548115, 3.073162078857422, 3.2128512642600318, 3.3525404496626416, 3.492229635065252, 3.631918820467862, 3.771608005870472, 3.911297191273082, 4.050986376675692, 4.190675562078303, 4.330364747480912, 4.4700539328835225, 4.609743118286133], [4997, 84, 73, 29, 30, 12, 7, 5, 5, 7, 2, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
+2017-05-12 15:05:59,822 - __main__ - DEBUG - Hash table test feature 0 Squared errors histogram: ([0.0, 0.6439312611086776, 1.2878625222173552, 1.9317937833260328, 2.5757250444347104, 3.219656305543388, 3.8635875666520656, 4.507518827760743, 5.151450088869421, 5.795381349978099, 6.439312611086776, 7.083243872195453, 7.727175133304131, 8.37110639441281, 9.015037655521486, 9.658968916630164, 10.302900177738842, 10.94683143884752, 11.590762699956198, 12.234693961064874, 12.878625222173552, 13.52255648328223, 14.166487744390906, 14.810419005499584, 15.454350266608262, 16.09828152771694, 16.74221278882562, 17.386144049934295, 18.03007531104297, 18.67400657215165, 19.317937833260327, 19.961869094369007, 20.605800355477683, 21.24973161658636], [5224, 14, 11, 4, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]):
+2017-05-12 15:05:59,822 - __main__ - DEBUG - Hash table test feature 0 Predictions histogram: ([0.0, 0.13968918540261008, 0.27937837080522016, 0.4190675562078302, 0.5587567416104403, 0.6984459270130504, 0.8381351124156604, 0.9778242978182705, 1.1175134832208806, 1.2572026686234907, 1.3968918540261008, 1.536581039428711, 1.6762702248313208, 1.815959410233931, 1.955648595636541, 2.0953377810391514, 2.2350269664417612, 2.374716151844371, 2.5144053372469815, 2.6540945226495913, 2.7937837080522017, 2.9334728934548115, 3.073162078857422, 3.2128512642600318, 3.3525404496626416, 3.492229635065252, 3.631918820467862, 3.771608005870472, 3.911297191273082, 4.050986376675692, 4.190675562078303, 4.330364747480912, 4.4700539328835225, 4.609743118286133], [578, 208, 268, 346, 346, 434, 494, 493, 469, 362, 309, 235, 199, 144, 105, 77, 51, 44, 35, 15, 14, 10, 9, 3, 3, 1, 0, 2, 0, 0, 0, 0, 1])
+2017-05-12 15:05:59,822 - __main__ - DEBUG - Hash table test feature 0 Observations histogram: ([0.0, 0.13968918540261008, 0.27937837080522016, 0.4190675562078302, 0.5587567416104403, 0.6984459270130504, 0.8381351124156604, 0.9778242978182705, 1.1175134832208806, 1.2572026686234907, 1.3968918540261008, 1.536581039428711, 1.6762702248313208, 1.815959410233931, 1.955648595636541, 2.0953377810391514, 2.2350269664417612, 2.374716151844371, 2.5144053372469815, 2.6540945226495913, 2.7937837080522017, 2.9334728934548115, 3.073162078857422, 3.2128512642600318, 3.3525404496626416, 3.492229635065252, 3.631918820467862, 3.771608005870472, 3.911297191273082, 4.050986376675692, 4.190675562078303, 4.330364747480912, 4.4700539328835225, 4.609743118286133], [613, 207, 253, 338, 355, 435, 495, 487, 430, 361, 307, 247, 199, 140, 101, 80, 52, 47, 41, 18, 16, 12, 10, 4, 3, 1, 0, 2, 0, 0, 0, 0, 1])
+2017-05-12 15:05:59,826 - __main__ - DEBUG - Computing predictions on the test set
+2017-05-12 15:05:59,992 - __main__ - DEBUG - Training feature 0 Evaluating the model
+2017-05-12 15:06:00,650 - __main__ - DEBUG - Training feature 0 Bin range: (0.0, 4.448196887969971)
+2017-05-12 15:06:01,824 - __main__ - DEBUG - Done in 1.832360 seconds
+2017-05-12 15:06:01,824 - __main__ - DEBUG - Training feature 0 Mean error: -0.00858167341371, mean absolute error: 0.479698378766
+2017-05-12 15:06:02,029 - __main__ - DEBUG - Training feature 0 RMSE: 0.0321995512483, variance explained: 0.622449691154, mean absolute error: 0.479698378766,
+2017-05-12 15:06:02,029 - __main__ - DEBUG - Training feature 0 MRAE: 3.24319424291
+2017-05-12 15:06:02,029 - __main__ - DEBUG - Training feature 0 Errors histogram: ([-4.448196887969971, -4.178609197789973, -3.909021507609974, -3.639433817429976, -3.3698461272499776, -3.1002584370699795, -2.8306707468899814, -2.5610830567099834, -2.291495366529985, -2.021907676349987, -1.7523199861699883, -1.4827322959899902, -1.2131446058099922, -0.9435569156299937, -0.6739692254499956, -0.4043815352699971, -0.13479384508999903, 0.13479384508999903, 0.4043815352699971, 0.673969225449996, 0.9435569156299941, 1.2131446058099922, 1.4827322959899902, 1.7523199861699883, 2.0219076763499864, 2.2914953665299853, 2.5610830567099834, 2.8306707468899814, 3.1002584370699795, 3.3698461272499776, 3.6394338174299765, 3.9090215076099746, 4.178609197789973, 4.448196887969971], [0, 0, 0, 1, 1, 5, 5, 19, 42, 85, 141, 214, 403, 690, 1134, 1902, 2397, 2101, 1438, 1175, 472, 36, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
+2017-05-12 15:06:02,029 - __main__ - DEBUG - Training feature 0 Absolute errors histogram: ([0.0, 0.13479384508999911, 0.26958769017999823, 0.4043815352699973, 0.5391753803599965, 0.6739692254499956, 0.8087630705399946, 0.9435569156299938, 1.078350760719993, 1.213144605809992, 1.3479384508999912, 1.4827322959899902, 1.6175261410799893, 1.7523199861699885, 1.8871138312599876, 2.021907676349987, 2.156701521439986, 2.291495366529985, 2.426289211619984, 2.5610830567099834, 2.6958769017999824, 2.8306707468899814, 2.9654645919799805, 3.1002584370699795, 3.2350522821599785, 3.369846127249978, 3.504639972339977, 3.639433817429976, 3.774227662519975, 3.909021507609974, 4.043815352699974, 4.178609197789973, 4.313403042879972, 4.448196887969971], [2397, 2175, 1828, 1344, 1228, 985, 880, 569, 306, 151, 99, 86, 56, 53, 32, 16, 26, 14, 5, 3, 2, 3, 2, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0])
+2017-05-12 15:06:02,029 - __main__ - DEBUG - Training feature 0 Squared errors histogram: ([0.0, 0.5995895622468403, 1.1991791244936807, 1.798768686740521, 2.3983582489873614, 2.9979478112342015, 3.597537373481042, 4.197126935727883, 4.796716497974723, 5.396306060221563, 5.995895622468403, 6.595485184715244, 7.195074746962084, 7.794664309208924, 8.394253871455765, 8.993843433702605, 9.593432995949446, 10.193022558196287, 10.792612120443126, 11.392201682689967, 11.991791244936806, 12.591380807183647, 13.190970369430488, 13.790559931677327, 14.390149493924168, 14.98973905617101, 15.589328618417849, 16.18891818066469, 16.78850774291153, 17.38809730515837, 17.98768686740521, 18.58727642965205, 19.18686599189889, 19.786455554145732], [9712, 1736, 408, 155, 85, 65, 31, 20, 22, 13, 3, 3, 2, 2, 1, 2, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]):
+2017-05-12 15:06:02,029 - __main__ - DEBUG - Training feature 0 Predictions histogram: ([0.0, 0.13479384508999911, 0.26958769017999823, 0.4043815352699973, 0.5391753803599965, 0.6739692254499956, 0.8087630705399946, 0.9435569156299938, 1.078350760719993, 1.213144605809992, 1.3479384508999912, 1.4827322959899902, 1.6175261410799893, 1.7523199861699885, 1.8871138312599876, 2.021907676349987, 2.156701521439986, 2.291495366529985, 2.426289211619984, 2.5610830567099834, 2.6958769017999824, 2.8306707468899814, 2.9654645919799805, 3.1002584370699795, 3.2350522821599785, 3.369846127249978, 3.504639972339977, 3.639433817429976, 3.774227662519975, 3.909021507609974, 4.043815352699974, 4.178609197789973, 4.313403042879972, 4.448196887969971], [4, 8, 43, 139, 590, 1525, 3010, 3802, 2365, 658, 108, 9, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
+2017-05-12 15:06:02,029 - __main__ - DEBUG - Training feature 0 Observations histogram: ([0.0, 0.13479384508999911, 0.26958769017999823, 0.4043815352699973, 0.5391753803599965, 0.6739692254499956, 0.8087630705399946, 0.9435569156299938, 1.078350760719993, 1.213144605809992, 1.3479384508999912, 1.4827322959899902, 1.6175261410799893, 1.7523199861699885, 1.8871138312599876, 2.021907676349987, 2.156701521439986, 2.291495366529985, 2.426289211619984, 2.5610830567099834, 2.6958769017999824, 2.8306707468899814, 2.9654645919799805, 3.1002584370699795, 3.2350522821599785, 3.369846127249978, 3.504639972339977, 3.639433817429976, 3.774227662519975, 3.909021507609974, 4.043815352699974, 4.178609197789973, 4.313403042879972, 4.448196887969971], [1524, 481, 574, 712, 825, 1006, 1028, 1086, 1004, 900, 687, 589, 464, 359, 267, 196, 142, 114, 78, 65, 56, 34, 18, 20, 13, 6, 4, 6, 0, 1, 1, 1, 1])
+2017-05-12 15:06:02,030 - __main__ - DEBUG - Evaluating regression on the test set
+2017-05-12 15:06:02,030 - __main__ - DEBUG - Test feature 0 Evaluating the model
+2017-05-12 15:06:02,587 - __main__ - DEBUG - Test feature 0 Bin range: (0.0, 4.609743118286133)
+2017-05-12 15:06:03,886 - __main__ - DEBUG - Done in 1.856571 seconds
+2017-05-12 15:06:03,887 - __main__ - DEBUG - Test feature 0 Mean error: -0.0237923195341, mean absolute error: 0.474584806195
+2017-05-12 15:06:04,052 - __main__ - DEBUG - Test feature 0 RMSE: 0.0338878933229, variance explained: 0.618727545177, mean absolute error: 0.474584806195,
+2017-05-12 15:06:04,052 - __main__ - DEBUG - Test feature 0 MRAE: 2.49716489088
+2017-05-12 15:06:04,052 - __main__ - DEBUG - Test feature 0 Errors histogram: ([-4.609743118286133, -4.330364747480913, -4.050986376675692, -3.7716080058704726, -3.492229635065252, -3.212851264260032, -2.933472893454812, -2.654094522649592, -2.3747161518443716, -2.0953377810391514, -1.8159594102339311, -1.536581039428711, -1.2572026686234912, -0.977824297818271, -0.6984459270130507, -0.4190675562078301, -0.13968918540261033, 0.13968918540260944, 0.4190675562078301, 0.6984459270130499, 0.9778242978182705, 1.2572026686234903, 1.536581039428711, 1.8159594102339307, 2.0953377810391505, 2.374716151844371, 2.654094522649591, 2.9334728934548115, 3.2128512642600313, 3.492229635065252, 3.7716080058704726, 4.0509863766756915, 4.330364747480912, 4.609743118286133], [0, 0, 0, 1, 2, 0, 1, 3, 18, 27, 60, 97, 149, 311, 497, 865, 1082, 890, 609, 471, 166, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
+2017-05-12 15:06:04,052 - __main__ - DEBUG - Test feature 0 Absolute errors histogram: ([0.0, 0.13968918540261008, 0.27937837080522016, 0.4190675562078302, 0.5587567416104403, 0.6984459270130504, 0.8381351124156604, 0.9778242978182705, 1.1175134832208806, 1.2572026686234907, 1.3968918540261008, 1.536581039428711, 1.6762702248313208, 1.815959410233931, 1.955648595636541, 2.0953377810391514, 2.2350269664417612, 2.374716151844371, 2.5144053372469815, 2.6540945226495913, 2.7937837080522017, 2.9334728934548115, 3.073162078857422, 3.2128512642600318, 3.3525404496626416, 3.492229635065252, 3.631918820467862, 3.771608005870472, 3.911297191273082, 4.050986376675692, 4.190675562078303, 4.330364747480912, 4.4700539328835225, 4.609743118286133], [1082, 987, 768, 592, 514, 435, 347, 223, 92, 60, 43, 33, 27, 16, 11, 9, 9, 3, 0, 1, 0, 0, 0, 2, 0, 0, 1, 0, 0, 0, 0, 0, 0])
+2017-05-12 15:06:04,053 - __main__ - DEBUG - Test feature 0 Squared errors histogram: ([0.0, 0.6439312611086776, 1.2878625222173552, 1.9317937833260328, 2.5757250444347104, 3.219656305543388, 3.8635875666520656, 4.507518827760743, 5.151450088869421, 5.795381349978099, 6.439312611086776, 7.083243872195453, 7.727175133304131, 8.37110639441281, 9.015037655521486, 9.658968916630164, 10.302900177738842, 10.94683143884752, 11.590762699956198, 12.234693961064874, 12.878625222173552, 13.52255648328223, 14.166487744390906, 14.810419005499584, 15.454350266608262, 16.09828152771694, 16.74221278882562, 17.386144049934295, 18.03007531104297, 18.67400657215165, 19.317937833260327, 19.961869094369007, 20.605800355477683, 21.24973161658636], [4283, 680, 136, 64, 38, 18, 12, 11, 8, 1, 0, 1, 0, 0, 0, 0, 1, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]):
+2017-05-12 15:06:04,053 - __main__ - DEBUG - Test feature 0 Predictions histogram: ([0.0, 0.13968918540261008, 0.27937837080522016, 0.4190675562078302, 0.5587567416104403, 0.6984459270130504, 0.8381351124156604, 0.9778242978182705, 1.1175134832208806, 1.2572026686234907, 1.3968918540261008, 1.536581039428711, 1.6762702248313208, 1.815959410233931, 1.955648595636541, 2.0953377810391514, 2.2350269664417612, 2.374716151844371, 2.5144053372469815, 2.6540945226495913, 2.7937837080522017, 2.9334728934548115, 3.073162078857422, 3.2128512642600318, 3.3525404496626416, 3.492229635065252, 3.631918820467862, 3.771608005870472, 3.911297191273082, 4.050986376675692, 4.190675562078303, 4.330364747480912, 4.4700539328835225, 4.609743118286133], [1, 2, 17, 88, 320, 820, 1373, 1577, 851, 177, 24, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
+2017-05-12 15:06:04,053 - __main__ - DEBUG - Test feature 0 Observations histogram: ([0.0, 0.13968918540261008, 0.27937837080522016, 0.4190675562078302, 0.5587567416104403, 0.6984459270130504, 0.8381351124156604, 0.9778242978182705, 1.1175134832208806, 1.2572026686234907, 1.3968918540261008, 1.536581039428711, 1.6762702248313208, 1.815959410233931, 1.955648595636541, 2.0953377810391514, 2.2350269664417612, 2.374716151844371, 2.5144053372469815, 2.6540945226495913, 2.7937837080522017, 2.9334728934548115, 3.073162078857422, 3.2128512642600318, 3.3525404496626416, 3.492229635065252, 3.631918820467862, 3.771608005870472, 3.911297191273082, 4.050986376675692, 4.190675562078303, 4.330364747480912, 4.4700539328835225, 4.609743118286133], [613, 207, 253, 338, 355, 435, 495, 487, 430, 361, 307, 247, 199, 140, 101, 80, 52, 47, 41, 18, 16, 12, 10, 4, 3, 1, 0, 2, 0, 0, 0, 0, 1])
+2017-05-12 15:06:04,053 - __main__ - DEBUG - Computing predictions of the model with replaced feature 0
+2017-05-12 15:06:04,054 - __main__ - DEBUG - Replacing original feature 0 with predicted values
+2017-05-12 15:06:04,275 - __main__ - DEBUG - Done in 0.22100520134 seconds
+2017-05-12 15:06:05,256 - __main__ - DEBUG - Done in 0.979761 seconds
+2017-05-12 15:06:05,256 - __main__ - DEBUG - Computing replaced mean error relative to the baseline model
+2017-05-12 15:07:39,525 - __main__ - DEBUG - Done in 94.268936 seconds
+2017-05-12 15:07:39,525 - __main__ - DEBUG - Replaced mean error baseline: 0.376597
+2017-05-12 15:07:39,525 - __main__ - DEBUG - Evaluating replaced model
+2017-05-12 15:07:42,378 - __main__ - DEBUG - Replaced feature 0 training Evaluating the model
+2017-05-12 15:07:42,406 - __main__ - DEBUG - Replaced feature 0 training Bin range: (0.0, 5.5)
 Traceback (most recent call last):
   File "/mnt/encrypted_data/Dropbox/cmu/foundation_of_privacy/project/fop_qii/MovieLensALS.py", line 490, in <module>
     main()
   File "/mnt/encrypted_data/Dropbox/cmu/foundation_of_privacy/project/fop_qii/MovieLensALS.py", line 434, in main
     train_ratio=args.cross_validation)
-  File "/mnt/encrypted_data/Dropbox/cmu/foundation_of_privacy/project/fop_qii/internal_feature_predictor.py", line 952, in internal_feature_predictor
-    feature_names, logger)
-  File "/mnt/encrypted_data/Dropbox/cmu/foundation_of_privacy/project/fop_qii/internal_feature_predictor.py", line 906, in normalize_features
-    ranges = common_utils.feature_ranges(cur_feature, logger)
-  File "/mnt/encrypted_data/Dropbox/cmu/foundation_of_privacy/project/fop_qii/common_utils.py", line 194, in feature_ranges
-    rank = len(features.take(1)[0][1])
-TypeError: object of type 'float' has no len()
+  File "/mnt/encrypted_data/Dropbox/cmu/foundation_of_privacy/project/fop_qii/internal_feature_predictor.py", line 1209, in internal_feature_predictor
+    "Replaced feature {} training".format(f))
+  File "/mnt/encrypted_data/Dropbox/cmu/foundation_of_privacy/project/fop_qii/common_utils.py", line 236, in evaluate_recommender
+    (0.0, 5.5), model_name)
+  File "/mnt/encrypted_data/Dropbox/cmu/foundation_of_privacy/project/fop_qii/common_utils.py", line 309, in evaluate_regression
+    mrae = mean_relative_absolute_error(predobs)
+  File "/mnt/encrypted_data/Dropbox/cmu/foundation_of_privacy/project/fop_qii/common_utils.py", line 223, in mean_relative_absolute_error
+    map(lambda (pred, obs):
+  File "/opt/spark-2.0.1/python/lib/pyspark.zip/pyspark/rdd.py", line 999, in sum
+  File "/opt/spark-2.0.1/python/lib/pyspark.zip/pyspark/rdd.py", line 873, in fold
+  File "/opt/spark-2.0.1/python/lib/pyspark.zip/pyspark/rdd.py", line 776, in collect
+  File "/opt/spark-2.0.1/python/lib/py4j-0.10.3-src.zip/py4j/java_gateway.py", line 1131, in __call__
+  File "/opt/spark-2.0.1/python/lib/py4j-0.10.3-src.zip/py4j/java_gateway.py", line 883, in send_command
+  File "/opt/spark-2.0.1/python/lib/py4j-0.10.3-src.zip/py4j/java_gateway.py", line 1028, in send_command
+  File "/usr/lib/python2.7/socket.py", line 451, in readline
+    data = self._sock.recv(self._rbufsize)
+  File "/opt/spark-2.0.1/python/lib/pyspark.zip/pyspark/context.py", line 223, in signal_handler
+KeyboardInterrupt
+values, 10,108B raw, 10,113B comp, 1 pages, encodings: [PLAIN, BIT_PACKED]
+May 12, 2017 3:02:01 PM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 10,059B for [id] INT32: 2,504 values, 10,016B raw, 10,021B comp, 1 pages, encodings: [PLAIN, BIT_PACKED]
+May 12, 2017 3:02:01 PM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 41,431B for [features, list, element] DOUBLE: 7,581 values, 61,623B raw, 41,385B comp, 1 pages, encodings: [RLE, PLAIN]
+May 12, 2017 3:02:01 PM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 40,858B for [features, list, element] DOUBLE: 7,512 values, 61,061B raw, 40,812B comp, 1 pages, encodings: [RLE, PLAIN]
+May 12, 2017 3:02:01 PM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 9,960B for [id] INT32: 2,479 values, 9,916B raw, 9,922B comp, 1 pages, encodings: [PLAIN, BIT_PACKED]
+May 12, 2017 3:02:01 PM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 40,572B for [features, list, element] DOUBLE: 7,437 values, 60,452B raw, 40,526B comp, 1 pages, encodings: [RLE, PLAIN]
+May 12, 2017 3:02:01 PM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 10,310B for [id] INT32: 2,566 values, 10,264B raw, 10,272B comp, 1 pages, encodings: [PLAIN, BIT_PACKED]
+May 12, 2017 3:02:01 PM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 42,107B for [features, list, element] DOUBLE: 7,698 values, 62,574B raw, 42,061B comp, 1 pages, encodings: [RLE, PLAIN]

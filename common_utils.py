@@ -147,9 +147,12 @@ def manual_diff_models(model_1, model_2, user_product_pairs, power=1.0):
       .values()
     return mean_error(predictionsAndRatings, power)
 
-def set_list_value(lst, ind, val):
-    new_lst = list(lst)
-    new_lst[ind] = val
+def set_list_value(lst, ind, val, logger=None):
+    lst = list(lst)
+    new_lst = lst[:ind] + [val] + lst[ind+1:]
+    if logger is not None:
+        print "set_list_value(lst={}, ind={}, val={})\nOld list: {}\nNew list:{}".\
+                format(lst, ind, val, lst, new_lst)
     return new_lst
 
 def set_list_values(*args):
