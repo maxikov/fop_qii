@@ -140,8 +140,10 @@ def manual_recommender_mean_error(user_features, product_features, data, power=1
     return mean_error(predictionsAndRatings, power)
 
 def mean_error(predictionsAndRatings, power, abs_function=abs):
-    return (predictionsAndRatings.map(lambda x: abs_function(x[0] - x[1]) **\
-        power).reduce(add) / float(predictionsAndRatings.count())) ** (1.0/power)
+    map_f = functools.partial(lambda abs_function, power, x:
+            abs_function(x[0] - x[1]) ** power,
+            abs_function, power)
+    return (predictionsAndRatings.map(map_f).reduce(add) / float(predictionsAndRatings.count())) ** (1.0/power)
 
 def manual_diff_models(model_1, model_2, user_product_pairs, power=1.0):
     predictions_1 = manual_predict_all(user_product_pairs, *model_1)

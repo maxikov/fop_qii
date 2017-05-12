@@ -52,16 +52,20 @@ def discretize_single_feature(data, nbins, logger):
                             [0, len(bin_centers)],
                             [bin_centers[0]-bin_step,
                                 bin_centers[-1]+bin_step])
-    data = data.map(lambda (mid, val):
-                           (mid, int(np.digitize(val, bin_edges))))
+    map_f = functools.partial(lambda bin_edges, (mid, val):
+            (mid, int(np.digitize(val, bin_edges))),
+            bin_edges)
+    data = data.map(map_f)
     return data, bin_centers
 
 def undiscretize_signle_feature(data, bin_centers):
     """
     data: RDD of ID: bin_n
     """
-    data = data.map(lambda (mid, bin_n):
-                           (mid, float(bin_centers[bin_n])))
+    map_f = functools.partial(lambda bin_centers, (mid, bin_n):
+            (mid, float(bin_centers[bin_n])),
+            bin_centers)
+    data = data.map(map_f)
     return data
 
 def discretize_features(data, nbins, dont_discretize, logger):
@@ -76,16 +80,20 @@ def discretize_features(data, nbins, dont_discretize, logger):
     all_bin_centers = {}
     for f in set(xrange(rank)) - dont_discretize:
         logger.debug("Processing feature {}".format(f))
-        cur_f_data = data.map(lambda (mid, ftrs):
-                                     (mid, ftrs[f]))
+        map_f = functools.partial(lambda f, (mid, ftrs):
+                (mid, ftrs[f]),
+                f)
+        cur_f_data = data.map(map_f)
         cur_f_data, bin_centers = discretize_single_feature(cur_f_data,
                                                             nbins,
                                                             logger)
+        map_f = functools.partial(lambda f, (mid, (ftrs, new_f_val)):
+                           (mid, common_utils.set_list_value(ftrs, f,
+                                                             new_f_val)),
+                           f)
         data = data\
                .join(cur_f_data)\
-               .map(lambda (mid, (ftrs, new_f_val)):
-                           (mid, common_utils.set_list_value(ftrs, f,
-                                                             new_f_val)))
+               .map(map_f)
         all_bin_centers[f] = bin_centers
     logger.debug("Done in %f seconds", time.time() - start)
     return data, all_bin_centers
@@ -407,10 +415,9 @@ def predict_internal_feature(features, indicators, f, regression_model,
     start = time.time()
 
     joined = features.join(indicators)
-    data = joined.map(
-        lambda (_id, (ftrs, inds)):
-        LabeledPoint(float(ftrs[f]), inds))\
-                .cache()
+    map_f = functools.partial(lambda f, (_id, (ftrs, inds)):
+        LabeledPoint(float(ftrs[f]), inds), f)
+    data = joined.map(f).cache()
     ids = joined.map(lambda (_id, _): _id)
 
     if logger is None:
@@ -450,10 +457,13 @@ def replace_feature_with_predicted(features, f, predictions, logger):
     features_ids = set(features.keys().collect())
     predictions_ids = set(predictions.keys().collect())
     not_predicted_ids = features_ids - predictions_ids
-    features_intact = features.filter(lambda x: x[0] in not_predicted_ids)
+    filter_f = functools.partial(lambda not_predicted_ids, x: x[0] in
+            not_predicted_ids, not_predicted_ids)
+    features_intact = features.filter(filter_f)
     joined = features.join(predictions)
-    replaced = joined.map(lambda (mid, (feats, pred)):\
-            (mid, common_utils.set_list_value(feats, f, pred)))
+    map_f = functools.partial(lambda f, (mid, (feats, pred)):\
+            (mid, common_utils.set_list_value(feats, f, pred)), f)
+    replaced = joined.map(map_f)
     replaced = replaced.union(features_intact).cache()
     logger.debug("Done in {} seconds".format(time.time() - start))
     return replaced
@@ -524,9 +534,11 @@ def compare_with_all_randomized(baseline_model, rank, perturbed_subset,
 def measure_associativity(input_features, target_features, f, logger):
     logger.debug("Measuring associativity")
     start = time.time()
+    map_f = functools.partial(lambda f, (mid, (inds, ftrs)): (inds, ftrs[f]),
+            f)
     joined = input_features\
              .join(target_features)\
-             .map(lambda (mid, (inds, ftrs)): (inds, ftrs[f]))
+             .map(map_f)
     res = defaultdict(set)
     for inds, ftr in joined.collect():
         inds = tuple(inds)
@@ -601,7 +613,9 @@ def load_metadata_process_training(sc, args, metadata_sources, training,
             all_movies = set(indicators.keys().collect())
             logger.debug("{} movies loaded, data for {} is missing, purging them"\
                 .format(len(all_movies), len(old_all_movies - all_movies)))
-            training = training.filter(lambda x: x[1] in all_movies)
+            filter_f = functools.partial(lambda all_movies, x: x[1] in
+                    all_movies, all_movies)
+            training = training.filter(filter_f)
             logger.debug("{} items left in the training set"\
                 .format(training.count()))
         else:
@@ -866,18 +880,17 @@ def split_or_load_training_test_sets(train_ratio, all_movies, features,
          random.shuffle(all_movies)
          training_movies = set(all_movies[:training_size])
          test_movies = set(all_movies[training_size:])
-         features_training = features.filter(lambda x: x[0] in
-                 training_movies).cache()
-         features_test = features.filter(lambda x: x[0] in
-                 test_movies).cache()
-         indicators_training = indicators.filter(lambda x: x[0] in
-                 training_movies).cache()
-         indicators_test = indicators.filter(lambda x: x[0] in
-                 test_movies).cache()
-         features_original_training = features_original.filter(lambda x: x[0] in
-                 training_movies).cache()
-         features_original_test = features_original.filter(lambda x: x[0] in
-                 test_movies).cache()
+         training_filter_f = functools.partial(lambda training_movies, x: x[0]
+                 in training_movies, training_movies)
+         test_filter_f = functools.partial(lambda test_movies, x: x[0]
+                 in training_movies, test_movies)
+         features_training = features.filter(training_filter_f).cache()
+         features_test = features.filter(test_filter_f).cache()
+         indicators_training = indicators.filter(training_filter_f).cache()
+         indicators_test = indicators.filter(test_filter_f).cache()
+         features_original_training =\
+            features_original.filter(training_filter_f).cache()
+         features_original_test = features_original.filter(test_filter_f).cache()
     if write_model:
          logger.debug("Writing %s", fname)
          features_test_c = features_test.collect()
@@ -901,24 +914,21 @@ def normalize_features(features, categorical_features, feature_names, logger):
     features_to_normalize = set(feature_names.keys()) -\
                             set(categorical_features.keys())
     for f in features_to_normalize:
-        logger.debug("Features sample: {}".format(features.take(3)))
-        logger.debug("Feature sample: {}".format(features.map(lambda x: (x[0],
-            x[1][f])).take(20)))
         logger.debug("Normalizing feature {} ({})".format(f, feature_names[f]))
-        cur_feature = features.map(functools.partial(lambda f, (mid, ftrs):
-            (mid, [ftrs[f]]), f))
-        logger.debug("Feature sample: {}".format(cur_feature.take(20)))
+        map_f = functools.partial(lambda f, (mid, ftrs):
+            (mid, [ftrs[f]]), f)
+        cur_feature = features.map(map_f)
         ranges = common_utils.feature_ranges(cur_feature, logger)
         _min, _max = ranges[0]["min"], ranges[0]["max"]
         factor = float(_max - _min)
         logger.debug("Scaling factor for feature {} ({}): {}".format(f, feature_names[f],
                     factor))
-        features = features.map(
-            functools.partial(
+        map_f = functools.partial(
                 lambda f, factor, _min, (mid, ftrs):
                     (mid, common_utils.set_list_value(ftrs, f,
                         float(ftrs[f]-_min)/factor, True)),
-                f, factor, _min))
+                f, factor, _min)
+        features = features.map(map_f)
         logger.debug("Features sample: {}".format(features.take(20)))
     return features
 
@@ -951,7 +961,7 @@ def internal_feature_predictor(sc, training, rank, numIter, lmbda,
         logger.debug("Average rating sample: {}".format(arc_ratings.take(20)))
         metadata_sources.append(
             {"name": "average_rating",
-             "src_rdd": lambda: arc_ratings,
+             "src_rdd": functools.partial(lambda x: x, arc_ratings),
              "loader": parsers_and_loaders.load_average_ratings})
 
     model = load_or_train_ALS(training, rank, numIter, lmbda, args, sc, logger)
@@ -989,9 +999,10 @@ def internal_feature_predictor(sc, training, rank, numIter, lmbda,
                                                              args.drop_rare_movies)
         logger.debug("%d movies left", features.count())
         all_movies = set(indicators.keys().collect())
-        training = training.filter(lambda x: x[1] in all_movies)
-        baseline_predictions = baseline_predictions.filter(lambda x: x[1] in
+        filter_f = functools.partial(lambda all_movies, x, x[1] in all_movies,
                 all_movies)
+        training = training.filter(filter_f)
+        baseline_predictions = baseline_predictions.filter(filter_f)
         logger.debug("{} items left in the training set"\
             .format(training.count()))
         all_movies = list(all_movies)
@@ -1033,10 +1044,12 @@ def internal_feature_predictor(sc, training, rank, numIter, lmbda,
                   split_or_load_training_test_sets(train_ratio, all_movies, features,
                                      indicators, features_original, n_movies,
                                      args, logger, sc)
-         baseline_predictions_training = baseline_predictions.filter(lambda x:
-                 x[1] in training_movies)
-         baseline_predictions_test = baseline_predictions.filter(lambda x:
-                 x[1] in test_movies)
+         filter_f = functools.partial(lambda training_movies, x: x[1] in
+                 training_movies, training_movies)
+         baseline_predictions_training = baseline_predictions.filter(filter_f)
+         filter_f = functools.partial(lambda test_movies, x: x[1] in
+                 test_movies, test_movies)
+         baseline_predictions_test = baseline_predictions.filter(filter_f)
     else:
          features_training = features
          indicators_training = indicators
@@ -1076,10 +1089,9 @@ def internal_feature_predictor(sc, training, rank, numIter, lmbda,
             all_predicted_features_test[f] = predictions_test
             continue
         results["features"][f] = {}
-        observations_training = features_original_training.map(\
-                lambda (mid, ftrs): (mid, ftrs[f]))
-        observations_test = features_original_test.map(\
-                lambda (mid, ftrs): (mid, ftrs[f]))
+        map_f = functools.partial(lambda f, (mid, ftrs): (mid, ftrs[f]), f)
+        observations_training = features_original_training.map(map_f)
+        observations_test = features_original_test.map(map_f)
 
         ht_model, _, predictions_ht = predict_internal_feature(\
             features_training,
