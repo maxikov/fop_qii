@@ -948,7 +948,7 @@ def internal_feature_predictor(sc, training, rank, numIter, lmbda,
         logger, all_movies)
 
     if args.normalize:
-        features = normalize_features(features, categorical_features,
+        indicators = normalize_features(indicators, categorical_features,
                 feature_names, logger)
 
     results["feature_names"] = feature_names
