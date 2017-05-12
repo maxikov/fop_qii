@@ -5,6 +5,7 @@ import random
 import bisect
 import os.path
 import pickle
+import functools
 
 #pyspark library
 from pyspark.mllib.evaluation import RegressionMetrics,\
@@ -14,10 +15,13 @@ from pyspark.mllib.evaluation import RegressionMetrics,\
 import numpy as np
 
 def drop_rare_movies(features, indicators, nmovies):
+    filter_f = functools.partial(
+        lambda nmovies, (mid, (ftrs, inds)):
+                    sum(1 for x in inds if abs(x) > 0) >= nmovies,
+        nmovies)
     joined = features\
             .join(indicators)\
-            .filter(lambda (mid, (ftrs, inds)):
-                    sum(1 for x in inds if abs(x) > 0) >= nmovies)
+            .filter(filter_f)
     features = joined.map(lambda (mid, (ftrs, inds)): (mid, ftrs))
     indicators = joined.map(lambda (mid, (ftrs, inds)): (mid, inds))
     return features, indicators
@@ -159,22 +163,28 @@ def set_list_values(*args):
     return set_list_value(*args) #OOPS
 
 def get_feature_distribution(features, f):
-    res = features.map(lambda (_, arr): arr[f]).collect()
+    map_f = functools.partial(lambda f, (_, arr):
+            arr[f], f)
+    res = features.map(map_f).collect()
     return res
 
 def perturb_feature(features, f, perturbed_subset=None):
     if perturbed_subset is not None:
-        features_intact = features.filter(lambda x: x[0] not in
-                perturbed_subset)
-        features_perturbed = features.filter(lambda x: x[0] in
-                perturbed_subset)
+        filter_f = functools.partial(lambda perturbed_subset, x:
+                x[0] not in perturbed_subset, perturbed_subset)
+        features_intact = features.filter(filter_f)
+        filter_f = functools.partial(lambda perturbed_subset, x:
+                x[0] in perturbed_subset, perturbed_subset)
+        features_perturbed = features.filter(filter_f)
         features = features_perturbed
     dist = get_feature_distribution(features, f)
     random.shuffle(dist)
     all_xs = features.keys().collect()
     ddist = {k: v for (k, v) in zip(all_xs, dist)}
-    res = features.map(lambda (x, arr):\
-            (x, set_list_value(arr, f, ddist[x])))
+    map_f = functools.partial(lambda f, ddist, (x, arr):
+            (x, set_list_value(arr, f, ddist[x])),
+            f, ddist)
+    res = features.map(map_f)
     if perturbed_subset is not None:
         res = res.union(features_intact)
     return res
