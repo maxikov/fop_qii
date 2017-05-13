@@ -311,7 +311,7 @@ def load_genres(src_rdd, sep=",", parser_function=parseGenre,
                 del genres_counts[genre]
     all_genres = sorted(genres_counts.keys())
     map_f = functools.partial(lambda all_genres, (mid, cur_genres):
-            mid, map(lambda g: int(g in cur_genres), all_genres),
+            (mid, map(lambda g: int(g in cur_genres), all_genres)),
             all_genres)
     indicators_genres = genres.map(map_f)
     nof = len(all_genres)
@@ -337,7 +337,7 @@ def load_tags(src_rdd, sep=",", prefix="tags", drop_threshold=0):
                 del tags_counts[tag]
     all_tags = sorted(tags_counts.keys())
     map_f = functools.partial(lambda all_tags, (mid, cur_tags):
-            mid, map(lambda t: int(t in cur_tags), all_tags),
+            (mid, map(lambda t: int(t in cur_tags), all_tags)),
             all_tags)
     indicators = tags.map(map_f)
     nof = len(all_tags)

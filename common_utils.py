@@ -298,6 +298,7 @@ def evaluate_regression(predictions, observations, logger=None, nbins=32,
             .values()\
             .map(lambda (a, b): (float(a), float(b)))\
             .cache()
+    logger.debug("Predobs sample: {}".format(predobs.take(20)))
 
     if bin_range is None:
         _min = min(predictions.values().min(), observations.values().min())

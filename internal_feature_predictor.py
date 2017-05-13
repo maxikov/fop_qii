@@ -415,9 +415,9 @@ def predict_internal_feature(features, indicators, f, regression_model,
     start = time.time()
 
     joined = features.join(indicators)
-    map_f = functools.partial(lambda f, (_id, (ftrs, inds)):
-        LabeledPoint(float(ftrs[f]), inds), f)
-    data = joined.map(f).cache()
+    map_f = functools.partial( ( lambda f, (_id, (ftrs, inds)):
+        LabeledPoint(float(ftrs[f]), inds) ), f)
+    data = joined.map(map_f).cache()
     ids = joined.map(lambda (_id, _): _id)
 
     if logger is None:
@@ -460,12 +460,16 @@ def replace_feature_with_predicted(features, f, predictions, logger):
     filter_f = functools.partial(lambda not_predicted_ids, x: x[0] in
             not_predicted_ids, not_predicted_ids)
     features_intact = features.filter(filter_f)
+    logger.debug("No predictions for {} items out of {}, leaving as is".\
+            format(features_intact.count(), features.count()))
     joined = features.join(predictions)
     map_f = functools.partial(lambda f, (mid, (feats, pred)):\
             (mid, common_utils.set_list_value(feats, f, pred)), f)
     replaced = joined.map(map_f)
     replaced = replaced.union(features_intact).cache()
     logger.debug("Done in {} seconds".format(time.time() - start))
+    logger.debug("features.join(replaced) sample: {}".format(
+        features.join(replaced).take(20)))
     return replaced
 
 def compare_baseline_to_replaced(baseline_predictions, uf, pf, logger, power):
@@ -883,7 +887,7 @@ def split_or_load_training_test_sets(train_ratio, all_movies, features,
          training_filter_f = functools.partial(lambda training_movies, x: x[0]
                  in training_movies, training_movies)
          test_filter_f = functools.partial(lambda test_movies, x: x[0]
-                 in training_movies, test_movies)
+                 in test_movies, test_movies)
          features_training = features.filter(training_filter_f).cache()
          features_test = features.filter(test_filter_f).cache()
          indicators_training = indicators.filter(training_filter_f).cache()
@@ -929,7 +933,6 @@ def normalize_features(features, categorical_features, feature_names, logger):
                         float(ftrs[f]-_min)/factor, True)),
                 f, factor, _min)
         features = features.map(map_f)
-        logger.debug("Features sample: {}".format(features.take(20)))
     return features
 
 def internal_feature_predictor(sc, training, rank, numIter, lmbda,
@@ -945,6 +948,8 @@ def internal_feature_predictor(sc, training, rank, numIter, lmbda,
             ifile = open(fname, "rb")
             results = pickle.load(ifile)
             ifile.close()
+            logger.debug("{} features already processed".\
+                    format(len(results["features"])))
         else:
             results = {}
             results["features"] = {}
@@ -958,7 +963,6 @@ def internal_feature_predictor(sc, training, rank, numIter, lmbda,
         arc.train(training)
         arc_ratings =\
             sc.parallelize(arc.ratings.items()).repartition(args.num_partitions)
-        logger.debug("Average rating sample: {}".format(arc_ratings.take(20)))
         metadata_sources.append(
             {"name": "average_rating",
              "src_rdd": functools.partial(lambda x: x, arc_ratings),
@@ -999,7 +1003,7 @@ def internal_feature_predictor(sc, training, rank, numIter, lmbda,
                                                              args.drop_rare_movies)
         logger.debug("%d movies left", features.count())
         all_movies = set(indicators.keys().collect())
-        filter_f = functools.partial(lambda all_movies, x, x[1] in all_movies,
+        filter_f = functools.partial(lambda all_movies, x: x[1] in all_movies,
                 all_movies)
         training = training.filter(filter_f)
         baseline_predictions = baseline_predictions.filter(filter_f)
@@ -1021,7 +1025,6 @@ def internal_feature_predictor(sc, training, rank, numIter, lmbda,
         (features, indicators, feature_bin_centers, results) =\
              compute_or_load_discrete_features(features, indicators, results,
                                                logger, args, categorical_features)
-
 
 
     results["train_ratio"] = train_ratio
@@ -1050,6 +1053,10 @@ def internal_feature_predictor(sc, training, rank, numIter, lmbda,
          filter_f = functools.partial(lambda test_movies, x: x[1] in
                  test_movies, test_movies)
          baseline_predictions_test = baseline_predictions.filter(filter_f)
+         logger.debug("{} feature rows, {} indicator rows,  and {} ratings in the training set".\
+                 format(features_training.count(), indicators_training.count(), baseline_predictions_training.count()) +\
+                 ", {} feature rows, {} indicators rows, and {} ratings in the test set".\
+                 format(features_test.count(), indicators_test.count(), baseline_predictions_test.count()))
     else:
          features_training = features
          indicators_training = indicators
@@ -1195,7 +1202,7 @@ def internal_feature_predictor(sc, training, rank, numIter, lmbda,
             logger.debug("Computing predictions of the model with replaced "+\
                 "feature %d", f)
             replaced_features =\
-                replace_feature_with_predicted(features_original, f,
+                replace_feature_with_predicted(features_original_training, f,
                                                                predictions_training,
                                                                logger)
 
@@ -1225,17 +1232,26 @@ def internal_feature_predictor(sc, training, rank, numIter, lmbda,
                 logger.debug("Computing predictions of the model with replaced "+\
                     "feature %d test", f)
                 replaced_features_test =\
-                    replace_feature_with_predicted(features_original, f,
+                    replace_feature_with_predicted(features_original_test, f,
                                                                         predictions_test,
                                                                         logger)
-
+                logger.debug("replaced_features_test.count(): {}".format(
+                    replaced_features_test.count()))
+                logger.debug("features_original_test.count(): {}".format(
+                    features_original_test.count()))
+                logger.debug("predictions_test.count(): {}".format(
+                    predictions_test.count()))
+                logger.debug("input_test.count(): {}".format(
+                    input_test.count()))
+                logger.debug("features.join(predictions_test) sample: {}".\
+                        format(features.join(predictions_test).take(20)))
                 start = time.time()
 
                 if user_or_product_features == "product":
                     uf, pf = other_features, replaced_features_test
                 else:
                     uf, pf = replaced_features_test, other_features
-
+                logger.debug("pf.join(features) sample: {}".format(pf.join(features).take(20)))
                 replaced_mean_error_baseline_test, replaced_predictions_test = compare_baseline_to_replaced(\
                            baseline_predictions_test, uf, pf, logger, power)
 
@@ -1257,7 +1273,8 @@ def internal_feature_predictor(sc, training, rank, numIter, lmbda,
                 perturbed_subset = training_movies
             else:
                 perturbed_subset = None
-            replaced_features = common_utils.perturb_feature(features_original, f,
+            replaced_features =\
+                common_utils.perturb_feature(features_original_training, f,
                     perturbed_subset)
             logger.debug("Done in %f seconds", time.time()-start)
             if user_or_product_features == "product":
@@ -1291,7 +1308,7 @@ def internal_feature_predictor(sc, training, rank, numIter, lmbda,
                 start = time.time()
                 perturbed_subset = test_movies
                 replaced_features =\
-                    common_utils.perturb_feature(features_original, f,
+                    common_utils.perturb_feature(features_original_test, f,
                     perturbed_subset)
                 logger.debug("Done in %f seconds", time.time()-start)
                 if user_or_product_features == "product":
@@ -1347,7 +1364,7 @@ def internal_feature_predictor(sc, training, rank, numIter, lmbda,
         training_movies = all_movies
 
     replaced_mean_error_baseline, replaced_rec_eval =\
-        compare_with_all_replaced_features(features_original, other_features,\
+        compare_with_all_replaced_features(features_original_training, other_features,\
             user_or_product_features, all_predicted_features, rank,\
             baseline_predictions_training, logger, power, args)
     results["all_replaced_mean_error_baseline"] = replaced_mean_error_baseline
@@ -1358,7 +1375,7 @@ def internal_feature_predictor(sc, training, rank, numIter, lmbda,
 
     if train_ratio > 0:
         replaced_mean_error_baseline, replaced_rec_eval =\
-            compare_with_all_replaced_features(features_original, other_features,\
+            compare_with_all_replaced_features(features_original_test, other_features,\
                 user_or_product_features, all_predicted_features_test, rank,\
                 baseline_predictions_test, logger, power, args)
         results["all_replaced_mean_error_baseline_test"] = replaced_mean_error_baseline
