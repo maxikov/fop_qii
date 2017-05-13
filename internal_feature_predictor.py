@@ -468,8 +468,6 @@ def replace_feature_with_predicted(features, f, predictions, logger):
     replaced = joined.map(map_f)
     replaced = replaced.union(features_intact).cache()
     logger.debug("Done in {} seconds".format(time.time() - start))
-    logger.debug("features.join(replaced) sample: {}".format(
-        features.join(replaced).take(20)))
     return replaced
 
 def compare_baseline_to_replaced(baseline_predictions, uf, pf, logger, power):
@@ -1235,23 +1233,12 @@ def internal_feature_predictor(sc, training, rank, numIter, lmbda,
                     replace_feature_with_predicted(features_original_test, f,
                                                                         predictions_test,
                                                                         logger)
-                logger.debug("replaced_features_test.count(): {}".format(
-                    replaced_features_test.count()))
-                logger.debug("features_original_test.count(): {}".format(
-                    features_original_test.count()))
-                logger.debug("predictions_test.count(): {}".format(
-                    predictions_test.count()))
-                logger.debug("input_test.count(): {}".format(
-                    input_test.count()))
-                logger.debug("features.join(predictions_test) sample: {}".\
-                        format(features.join(predictions_test).take(20)))
                 start = time.time()
 
                 if user_or_product_features == "product":
                     uf, pf = other_features, replaced_features_test
                 else:
                     uf, pf = replaced_features_test, other_features
-                logger.debug("pf.join(features) sample: {}".format(pf.join(features).take(20)))
                 replaced_mean_error_baseline_test, replaced_predictions_test = compare_baseline_to_replaced(\
                            baseline_predictions_test, uf, pf, logger, power)
 
