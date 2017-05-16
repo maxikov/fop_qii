@@ -2,10 +2,10 @@
 
 #Spark parameters
 MEMORY="15g"
-STATE_TMP_DIR_ROOT="~"
+STATE_TMP_DIR_ROOT="/home/maxikov"
 LOG_DIR="logs"
 LOCAL_THREADS="8"
-NUM_PARTITIONS=7
+NUM_PARTITIONS="7"
 
 #Data source paths
 DATA_PATH="datasets/ml-20m"
@@ -38,7 +38,7 @@ function make_commands() {
 	CHECKPOINT_DIR="$STATE_TMP_DIR_ROOT/spark_dir"
 	TEMP_DIR="$STATE_TMP_DIR_ROOT/spark_dir"
 
-	ARGS="--spark-executor-memory $MEMORY --local-threads ${LOCAL_THREADS} --num-partitions $NUM_PARTITIONS"
+	ARGS="--spark-executor-memory $MEMORY --local-threads $LOCAL_THREADS --num-partitions $NUM_PARTITIONS"
 	ARGS="${ARGS} --checkpoint-dir $CHECKPOINT_DIR --temp-dir $TEMP_DIR --persist-dir $PERSIST_DIR"
 	ARGS="${ARGS} --data-path $DATA_PATH --movies-file $MOVIES_FILE --tvtropes-file $TVTROPES_FILE"
 	ARGS="${ARGS} --rank $RANK --lmbda $LMBDA --num-iter $NUM_ITER $NON_NEGATIVE"
