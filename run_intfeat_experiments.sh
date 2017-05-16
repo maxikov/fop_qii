@@ -46,7 +46,7 @@ function make_commands() {
 	ARGS="${ARGS} --drop-rare-features $DROP_RARE_FEATURES --drop-rare-movies $DROP_RARE_MOVIES"
 	ARGS="${ARGS} --cross-validation $CROSS_VALIDATION --regression-model $REGRESSION_MODEL --nbins $NBINS $NORMALIZE"
 
-	WHOLE_COMMAND="$SPARK_SUBMIT MovieLensALS.py $ARGS >> $LOG_FILE"
+	WHOLE_COMMAND="$SPARK_SUBMIT MovieLensALS.py $ARGS >>$LOG_FILE"
 }
 
 function run_until_succeeds() {
