@@ -33,7 +33,7 @@ function make_commands() {
 	PERSIST_DIR="${STATE_TMP_DIR_ROOT}/${LOG_STATE_NAME}.state"
 	LOG_FILE="${LOG_DIR}/${LOG_STATE_NAME}.txt"
 
-	SPARK_SUBMIT="spark-submit --dirver-memory $MEMORY"
+	SPARK_SUBMIT="spark-submit --driver-memory $MEMORY"
 
 	CHECKPOINT_DIR="$STATE_TMP_DIR_ROOT/spark_dir"
 	TEMP_DIR="$STATE_TMP_DIR_ROOT/spark_dir"
