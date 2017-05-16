@@ -147,13 +147,23 @@ def train_regression_model(data, regression_model="regression_tree",
         trained_regression_model
     """
 
+    logger.debug("train_regression_model(data.count={},".format(data.count())+\
+                 " regression_model=\"{}\",".format(regression_model)+\
+                 " len(categorical_features)={},".format(len(categorical_features))+\
+                 " max_bins={},".format(max_bins)+\
+                 " max_depth={},".format(max_depth)+\
+                 " num_trees={},".format(num_trees)+\
+                 " is_classifier={},".format(is_classifier)+\
+                 " num_classes={})".format(num_classes))
+
+    start = time.time()
     if num_classes is None:
         num_classes = max_bins
+        logger.debug("num_classes is None, setting to max_bins={}".format(max_bins))
 
     if max_depth is None:
         max_depth = int(math.ceil(math.log(max_bins, 2)))
-
-    start = time.time()
+        logger.debug("max_depth is None, setting to {}".format(max_depth))
 
     if logger is None:
         print "Training", regression_model
@@ -213,7 +223,7 @@ def train_regression_model(data, regression_model="regression_tree",
                         maxDepth=max_depth,
                         maxBins=max_bins)
     elif regression_model == "linear":
-        lr_model = LinearRegressionWithSGD.train(data)
+        lr_model = LinearRegressionWithSGD.train(data, step=0.01)
     elif regression_model == "naive_bayes":
         lr_model = NaiveBayes.train(data)
     elif regression_model == "hash_table":
@@ -223,7 +233,7 @@ def train_regression_model(data, regression_model="regression_tree",
                    mllib.\
                    classification.\
                    LogisticRegressionWithLBFGS.\
-                   train(data)
+                   train(data, step=0.01)
 
 
 
@@ -404,7 +414,17 @@ def predict_internal_feature(features, indicators, f, regression_model,
         observations - RDD of (ID: float) true feature values,
         predictions - RDD of (ID: float) predicted values)
     """
-
+    logger.debug("predict_internal_feature("+\
+                 "features.count()={},".format(features.count())+\
+                 " indicators.count()={},".format(indicators.count())+\
+                 " f={},".format(f)+\
+                 " regression_model=\"{}\",".format(regression_model)+\
+                 " len(categorical_features)={},".format(len(categorical_features))+\
+                 " max_bins={},".format(max_bins)+\
+                 " no_threshold={},".format(no_threshold)+\
+                 " is_classifier={},".format(is_classifier)+\
+                 " num_classes={},".format(num_classes)+\
+                 " max_depth={})".format(max_depth))
     if logger is None:
         print "Processing feature {}".format(f)
         print "Building data set"
@@ -699,6 +719,11 @@ def load_or_build_baseline_predictions(sc, model, power, results, logger, args,
         ofile = open(fname, "wb")
         pickle.dump(objects, ofile)
         ofile.close()
+        fname = os.path.join(args.persist_dir, "results.pkl")
+        logger.debug("Writing %s", fname)
+        ofile = open(fname, "wb")
+        pickle.dump(results, ofile)
+        ofile.close
     return baseline_predictions, results
 
 def load_or_train_trimmed_recommender(model, args, sc, results, rank, logger,
@@ -939,19 +964,27 @@ def internal_feature_predictor(sc, training, rank, numIter, lmbda,
                                compare_with_replaced_feature,
                                compare_with_randomized_feature, logger,
                                train_ratio = 0):
+    logger.debug("Started internal_feature_predictor")
     if args.persist_dir is not None:
+        logger.debug("Trying to load previous results")
         fname = os.path.join(args.persist_dir, "results.pkl")
         if os.path.exists(fname):
             logger.debug("Loading %s", fname)
             ifile = open(fname, "rb")
             results = pickle.load(ifile)
             ifile.close()
-            logger.debug("{} features already processed".\
+            if "features" in results:
+                logger.debug("{} features already processed".\
                     format(len(results["features"])))
+            else:
+                logger.debug("No information about features in results")
+                results["features"] = {}
         else:
+            logger.debug("%s not found", fname)
             results = {}
             results["features"] = {}
     else:
+        logger.debug("Not trying to load previous results")
         results = {}
         results["features"] = {}
     power = 1.0

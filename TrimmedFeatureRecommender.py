@@ -58,7 +58,7 @@ class TrimmedFeatureRecommender(object):
             (_id, common_utils.set_list_value(cur_feats, f, top_threshold if
                 cur_feats[f] > top_threshold else cur_feats[f])), f,
             top_threshold)
-        bottom_map_f = fuctools.partial(lambda f, bottom_threshold, (_id,
+        bottom_map_f = functools.partial(lambda f, bottom_threshold, (_id,
             cur_feats): (_id, common_utils.set_list_value(cur_feats, f,
                 bottom_threshold if cur_feats[f] < bottom_threshold else
                 cur_feats[f])), f, bottom_threshold)
