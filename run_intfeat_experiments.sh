@@ -4,7 +4,7 @@
 MEMORY="15g"
 STATE_TMP_DIR_ROOT="~"
 LOG_DIR="logs"
-LOCAL_THREADS="\"*\""
+LOCAL_THREADS="8"
 NUM_PARTITIONS=7
 
 #Data source paths
@@ -38,7 +38,7 @@ function make_commands() {
 	CHECKPOINT_DIR="$STATE_TMP_DIR_ROOT/spark_dir"
 	TEMP_DIR="$STATE_TMP_DIR_ROOT/spark_dir"
 
-	ARGS="--spark-executor-memory $MEMORY --local-threads $LOCAL_THREADS --num-partitions $NUM_PARTITIONS"
+	ARGS="--spark-executor-memory $MEMORY --local-threads ${LOCAL_THREADS} --num-partitions $NUM_PARTITIONS"
 	ARGS="${ARGS} --checkpoint-dir $CHECKPOINT_DIR --temp-dir $TEMP_DIR --persist-dir $PERSIST_DIR"
 	ARGS="${ARGS} --data-path $DATA_PATH --movies-file $MOVIES_FILE --tvtropes-file $TVTROPES_FILE"
 	ARGS="${ARGS} --rank $RANK --lmbda $LMBDA --num-iter $NUM_ITER $NON_NEGATIVE"
@@ -46,7 +46,7 @@ function make_commands() {
 	ARGS="${ARGS} --drop-rare-features $DROP_RARE_FEATURES --drop-rare-movies $DROP_RARE_MOVIES"
 	ARGS="${ARGS} --cross-validation $CROSS_VALIDATION --regression-model $REGRESSION_MODEL --nbins $NBINS $NORMALIZE"
 
-	WHOLE_COMMAND="$SPARK_SUBMIT MovieLensALS.py $ARGS >>$LOG_FILE"
+	WHOLE_COMMAND="$SPARK_SUBMIT MovieLensALS.py $ARGS"
 }
 
 function run_until_succeeds() {
@@ -56,7 +56,7 @@ function run_until_succeeds() {
 	iteration=0
 	_start=$SECONDS
 	iteration_start=$SECONDS
-	until $WHOLE_COMMAND
+	until $WHOLE_COMMAND >> $LOG_FILE
 	do
 		echo `date` "Iteration $iteration of $MY_NAME failed acter $(($SECONDS - $iteration_start)) seconds ($(($SECONDS - $_start)) total), trying again"
 		iteration_start=$SECONDS
