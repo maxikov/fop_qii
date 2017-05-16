@@ -163,11 +163,11 @@ def metadata_predictor(sc, training, rank, numIter, lmbda,
             random.shuffle(all_movies)
             training_movies = set(all_movies[:training_size])
             test_movies = set(all_movies[training_size:])
-             training_filter_f = functools.partial(lambda training_movies, x: x[0]
+            training_filter_f = functools.partial(lambda training_movies, x: x[0]
                  in training_movies, training_movies)
-             test_filter_f = functools.partial(lambda test_movies, x: x[0]
+            test_filter_f = functools.partial(lambda test_movies, x: x[0]
                  in test_movies, test_movies)
-             features_training = features.filter(training_filter_f).cache()
+            features_training = features.filter(training_filter_f).cache()
             features_test = features.filter(test_filter_f).cache()
             indicators_training = indicators.filter(training_filter_f).cache()
             indicators_test = indicators.filter(test_filter_f).cache()
