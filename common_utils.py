@@ -339,11 +339,13 @@ def evaluate_regression(predictions, observations, logger=None, nbins=32,
     logger.debug("Done in %f seconds", time.time() - start)
     logger.debug("{} Mean error: {}, mean absolute error: {}".\
             format(model_name, mean_err, mean_abs_err))
-    logger.debug("{} RMSE: {}, variance explained: {}, mean absolute error: {},".\
-        format(model_name, metrics.explainedVariance,\
-               metrics.rootMeanSquaredError, # bug here? 
-               metrics.meanAbsoluteError)
-                 )
+    logger.debug("{} RMSE: {}, variance explained: {}, mean absolute error: {}, r2: {}".\
+                 format(model_name,
+                        metrics.explainedVariance,   #
+                        metrics.rootMeanSquaredError,# these are switched?
+                        metrics.meanAbsoluteError,
+                        metrics.r2))
+
     logger.debug("{} MRAE: {}".format(model_name, mrae))
     logger.debug("{} Errors histogram: {}".format(model_name, errors_histogram))
     logger.debug("{} Absolute errors histogram: {}".format(model_name, abs_errors_histogram))
@@ -351,6 +353,9 @@ def evaluate_regression(predictions, observations, logger=None, nbins=32,
     logger.debug("{} Predictions histogram: {}".format(model_name, preds_histogram))
     logger.debug("{} Observations histogram: {}".format(model_name, obs_histogram))
     res = {"mre": metrics.meanAbsoluteError,
+           "rmse": metrics.rootMeanSquaredError,
+           "r2": metrics.r2,
+           "explained_variance": metrics.explainedVariance,
            "mrae": mrae,
            "errors_histogram": errors_histogram,
            "abs_errors_histogram": abs_errors_histogram,
