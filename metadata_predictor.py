@@ -4,6 +4,7 @@ import math
 import random
 import os.path
 import pickle
+import functools
 
 #prettytable library
 from prettytable import PrettyTable
@@ -29,7 +30,7 @@ def metadata_predictor(sc, training, rank, numIter, lmbda,
         arc_ratings = sc.parallelize(arc.ratings.items())
         metadata_sources.append(
             {"name": "average_rating",
-             "src_rdd": lambda: arc_ratings,
+             "src_rdd": functools.partial(lambda x: x, arc_ratings),
              "loader": parsers_and_loaders.load_average_ratings})
 
     use_user_features = ("users" in args.metadata_sources)
@@ -127,7 +128,10 @@ def metadata_predictor(sc, training, rank, numIter, lmbda,
             all_movies = set(indicators.keys().collect())
             logger.debug("{} movies loaded, data for {} is missing, purging them"\
                 .format(len(all_movies), len(old_all_movies - all_movies)))
-            training = training.filter(lambda x: x[1] in all_movies)
+            filter_f = functools.partial(lambda all_movies, x:
+                                    x[1] in all_movies,
+                                                    all_movies)
+            training = training.filter(filter_f)
             logger.debug("{} items left in the training set"\
                 .format(training.count()))
         else:
@@ -143,7 +147,10 @@ def metadata_predictor(sc, training, rank, numIter, lmbda,
                                                                  indicators,
                                                                  args.drop_rare_movies)
             logger.debug("%d movies left", features.count())
-            training = training.filter(lambda x: x[1] in all_movies)
+            filter_f = functools.partial(lambda all_movies, x:
+                                    x[1] in all_movies,
+                                                    all_movies)
+            training = training.filter(filter_f)
             logger.debug("{} items left in the training set"\
                 .format(training.count()))
         all_movies = features.keys().collect()
@@ -156,12 +163,14 @@ def metadata_predictor(sc, training, rank, numIter, lmbda,
             random.shuffle(all_movies)
             training_movies = set(all_movies[:training_size])
             test_movies = set(all_movies[training_size:])
-            features_training = features.filter(lambda x: x[0] in
-                    training_movies)
-            features_test = features.filter(lambda x: x[0] in test_movies)
-            indicators_training = indicators.filter(lambda x: x[0] in
-                    training_movies)
-            indicators_test = indicators.filter(lambda x: x[0] in test_movies)
+             training_filter_f = functools.partial(lambda training_movies, x: x[0]
+                 in training_movies, training_movies)
+             test_filter_f = functools.partial(lambda test_movies, x: x[0]
+                 in test_movies, test_movies)
+             features_training = features.filter(training_filter_f).cache()
+            features_test = features.filter(test_filter_f).cache()
+            indicators_training = indicators.filter(training_filter_f).cache()
+            indicators_test = indicators.filter(test_filter_f).cache()
         else:
             features_training = features
             indicators_training = indicators
@@ -265,12 +274,13 @@ def metadata_predictor(sc, training, rank, numIter, lmbda,
                                             .map(float))
             logger.debug("Restoring threshold")
             lr_model.setThreshold(threshold)
+        select_cur_feature_map_f = functools.partial(lambda f, (mid, ftrs):
+                (ftrs[f]), f)
         qii = common_utils\
                   .compute_regression_qii(lr_model,
                                           features_training,
                                           indicators_training\
-                                                  .map(lambda (mid, ftrs):
-                                                       (ftrs[f])),
+                                                  .map(select_cur_feature_map_f),
                                           logger,
                                           predictions, rank)
         results["features"][f]["qii"] = qii
@@ -295,8 +305,9 @@ def metadata_predictor(sc, training, rank, numIter, lmbda,
                                                             logger,
                                                             True)
         else:
-            _min = indicators_training.map(lambda x: x[1][f]).min()
-            _max = indicators_training.map(lambda x: x[1][f]).max()
+            map_f = functools.partial(lambda f, x: x[1][f], f)
+            _min = indicators_training.map(map_f).min()
+            _max = indicators_training.map(map_f).max()
             bin_range = (_min, _max)
             logger.debug("Bin range: {}".format(bin_range))
             reg_eval =\
@@ -314,8 +325,9 @@ def metadata_predictor(sc, training, rank, numIter, lmbda,
             predictions = common_utils.safe_zip(ids_test, lr_model\
                                             .predict(input_test)\
                                             .map(float))
-            observations = indicators_test.map(lambda (mid, ftrs):
-                    (mid, float(ftrs[f])))
+            map_f = functools.partial(lambda f, (mid, ftrs):
+                    (mid, float(ftrs[f])), f)
+            observations = indicators_test.map(map_f)
 
             if f in categorical_features:
                 results["features"][f]["eval_test"] =\
@@ -338,8 +350,9 @@ def metadata_predictor(sc, training, rank, numIter, lmbda,
                                                                 logger,
                                                                 True)
             else:
-                _min = indicators_test.map(lambda x: x[1][f]).min()
-                _max = indicators_test.map(lambda x: x[1][f]).max()
+                map_f = functools.partial(lambda f, x: x[1][f], f)
+                _min = indicators_training.map(map_f).min()
+                _max = indicators_training.map(map_f).max()
                 bin_range = (_min, _max)
                 logger.debug("Bin range: {}".format(bin_range))
                 reg_eval =\
