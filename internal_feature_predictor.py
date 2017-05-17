@@ -233,7 +233,7 @@ def train_regression_model(data, regression_model="regression_tree",
                    mllib.\
                    classification.\
                    LogisticRegressionWithLBFGS.\
-                   train(data, step=0.01)
+                   train(data)
 
 
 
