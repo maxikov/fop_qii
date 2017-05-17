@@ -6,6 +6,7 @@ from collections import defaultdict
 import os.path
 import pickle
 import functools
+import shutil
 
 #prettytable library
 from prettytable import PrettyTable
@@ -595,6 +596,9 @@ def load_or_train_ALS(training, rank, numIter, lmbda, args, sc, logger):
                       lambda_=lmbda, nonnegative=args.non_negative)
         logger.debug("Done in %f seconds", time.time() - start)
     if write_model:
+        if os.path.exists(fname):
+            logger.debug("%a already exists, removing")
+            shutil.rmtree(fname)
         logger.debug("Saving model to %s", fname)
         model.save(sc, fname)
     return model
@@ -766,6 +770,9 @@ def load_or_train_trimmed_recommender(model, args, sc, results, rank, logger,
     if write_model:
        logger.debug("Saving model to %s", fname_model)
        TrimmedFeatureRecommender.save(model, fname_model)
+       if os.path.exists(fname):
+           logger.debug("%a already exists, removing")
+           shutil.rmtree(fname)
        logger.debug("Saving results to %s", fname_results)
        ofile = open(fname_results, "wb")
        pickle.dump(results, ofile)
@@ -974,8 +981,8 @@ def internal_feature_predictor(sc, training, rank, numIter, lmbda,
             results = pickle.load(ifile)
             ifile.close()
             if "features" in results:
-                logger.debug("{} features already processed".\
-                    format(len(results["features"])))
+                logger.debug("{} features already processed: {}".\
+                    format(len(results["features"]), results["features"]))
             else:
                 logger.debug("No information about features in results")
                 results["features"] = {}
@@ -1005,6 +1012,7 @@ def internal_feature_predictor(sc, training, rank, numIter, lmbda,
         baseline_predictions, results =\
             load_or_build_baseline_predictions(sc, model, power, results,
                     logger, args, training)
+        logger.debug("AAA  baseline_predictions, features: {}".format(results["features"]))
     if args.features_trim_percentile:
         old_model, old_productFeatures, old_userFeatures, model, results =\
             load_or_train_trimmed_recommender(model, args, sc, results, rank,
@@ -1052,6 +1060,7 @@ def internal_feature_predictor(sc, training, rank, numIter, lmbda,
 
     results = compute_or_load_mean_feature_values(args, features, results, logger)
 
+    logger.debug("AAA  mean_feature_values, features: {}".format(results["features"]))
     if args.regression_model == "naive_bayes":
         (features, indicators, feature_bin_centers, results) =\
              compute_or_load_discrete_features(features, indicators, results,
@@ -1102,7 +1111,10 @@ def internal_feature_predictor(sc, training, rank, numIter, lmbda,
     for f in xrange(rank):
         logger.debug("Processing {} out of {}"\
                 .format(f, rank))
-        if "features" in results and f in results["features"]:
+        if "features" not in results:
+            logger.debug("Features dict not found, adding")
+            results["features"] = {}
+        if f in results["features"]:
             fname = os.path.join(args.persist_dir,
                                  "lr_model_{}.pkl".format(f))
             logger.debug("Already processed, loading %s", fname)
@@ -1126,6 +1138,8 @@ def internal_feature_predictor(sc, training, rank, numIter, lmbda,
             all_predicted_features[f] = predictions_training
             all_predicted_features_test[f] = predictions_test
             continue
+        logger.debug("Feature {} not in {}, processing".format(f,
+            results["features"].keys()))
         results["features"][f] = {}
         map_f = functools.partial(lambda f, (mid, ftrs): (mid, ftrs[f]), f)
         observations_training = features_original_training.map(map_f)
@@ -1367,6 +1381,9 @@ def internal_feature_predictor(sc, training, rank, numIter, lmbda,
             ofile.close()
             fname = os.path.join(args.persist_dir,
                                  "lr_model_{}.pkl".format(f))
+            if os.path.exists(fname):
+                logger.debug("%a already exists, removing")
+                shutil.rmtree(fname)
             logger.debug("Saving %s", fname)
             lr_model.save(sc, fname)
             fname = os.path.join(args.persist_dir,
