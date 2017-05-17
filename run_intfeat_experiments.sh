@@ -60,7 +60,6 @@ function make_commands() {
 
 function run_until_succeeds() {
 	MY_NAME="$REGRESSION_MODEL rank $RANK depth $MAX_DEPTH"
-	echo `date` "Running $MY_NAME, writing to $LOG_FILE, saving to $PERSIST_DIR"
 	iteration=0
 	_start=$SECONDS
 	iteration_start=$SECONDS
@@ -73,6 +72,7 @@ function run_until_succeeds() {
 		iteration=$(($iteration + 1))
 		LOG_FILE="${LOG_DIR}/${LOG_STATE_NAME}_attempt_${iteration}.txt"
 		echo $WHOLE_COMMAND > $LOG_FILE
+		echo `date` "Running $MY_NAME, writing to $LOG_FILE, saving to $PERSIST_DIR"
 	done
 	echo `date` "$MY_NAME done after $(($SECONDS - $_start)) seconds"
 }
