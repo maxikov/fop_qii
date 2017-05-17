@@ -64,6 +64,7 @@ function run_until_succeeds() {
 	_start=$SECONDS
 	iteration_start=$SECONDS
 	LOG_FILE="${LOG_DIR}/${LOG_STATE_NAME}_attempt_${iteration}.txt"
+	echo `date` "Running $MY_NAME, writing to $LOG_FILE, saving to $PERSIST_DIR"
 	echo $WHOLE_COMMAND > $LOG_FILE
 	until $WHOLE_COMMAND >> $LOG_FILE
 	do
