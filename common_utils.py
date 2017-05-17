@@ -340,9 +340,12 @@ def evaluate_regression(predictions, observations, logger=None, nbins=32,
     logger.debug("{} Mean error: {}, mean absolute error: {}".\
             format(model_name, mean_err, mean_abs_err))
     logger.debug("{} RMSE: {}, variance explained: {}, mean absolute error: {}, r2: {}".\
-        format(model_name, metrics.explainedVariance,\
-               metrics.rootMeanSquaredError,
-            metrics.meanAbsoluteError, metrics.r2))
+                 format(model_name,
+                        metrics.explainedVariance,   #
+                        metrics.rootMeanSquaredError,# these are switched?
+                        metrics.meanAbsoluteError,
+                        metrics.r2))
+
     logger.debug("{} MRAE: {}".format(model_name, mrae))
     logger.debug("{} Errors histogram: {}".format(model_name, errors_histogram))
     logger.debug("{} Absolute errors histogram: {}".format(model_name, abs_errors_histogram))
