@@ -37,7 +37,7 @@ function make_commands() {
 	fi
 	if [ ${FEATURE_TRIM_PERCENTILE} -ne 0 ]
 	then
-		LOG_STATE_NAME="${LOG_STATE_NAME}_feature_trim_percentile_${FEATURE_TRIM_PERCENTILE}"
+		LOG_STATE_NAME="${LOG_STATE_NAME}_features_trim_percentile_${FEATURE_TRIM_PERCENTILE}"
 	fi
 	PERSIST_DIR="${STATE_TMP_DIR_ROOT}/${LOG_STATE_NAME}.state"
 
@@ -53,7 +53,7 @@ function make_commands() {
 	ARGS="${ARGS} --predict-product-features --metadata-sources $METADATA_SOURCES"
 	ARGS="${ARGS} --drop-rare-features $DROP_RARE_FEATURES --drop-rare-movies $DROP_RARE_MOVIES"
 	ARGS="${ARGS} --cross-validation $CROSS_VALIDATION --regression-model $REGRESSION_MODEL --nbins $NBINS --max-depth $MAX_DEPTH $NORMALIZE"
-	ARGS="${ARGS} --feature-trim-percentile $FEATURE_TRIM_PERCENTILE"
+	ARGS="${ARGS} --features-trim-percentile $FEATURE_TRIM_PERCENTILE"
 
 	WHOLE_COMMAND="$SPARK_SUBMIT MovieLensALS.py $ARGS"
 }
