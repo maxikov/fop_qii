@@ -1,0 +1,119 @@
+2017-05-13 18:07:21,908 - __main__ - DEBUG - rank: 3, lmbda: 0.02, num_iter: 300, num_partitions: 7
+2017-05-13 18:07:21,908 - __main__ - DEBUG - data_path: datasets/ml-20m/, checkpoint_dir: /home/maxikov/spark_dir
+2017-05-13 18:07:21,908 - __main__ - DEBUG - Temp dir: /home/maxikov/spark_dir
+2017-05-13 18:07:21,908 - __main__ - DEBUG - local_threads: *
+2017-05-13 18:07:21,908 - __main__ - DEBUG - spark_executor_memory: 15g
+2017-05-13 18:07:21,908 - __main__ - DEBUG - regression_model: logistic
+2017-05-13 18:07:21,908 - __main__ - DEBUG - nbins: 32
+2017-05-13 18:07:21,908 - __main__ - DEBUG - regression_users: False
+2017-05-13 18:07:21,908 - __main__ - DEBUG - predict_product_features: True
+2017-05-13 18:07:21,908 - __main__ - DEBUG - metadata_sources: ['years', 'genres', 'average_rating', 'tvtropes', 'imdb_keywords', 'imdb_producer', 'imdb_director', 'tags']
+2017-05-13 18:07:21,908 - __main__ - DEBUG - movies_file: datasets/ml-20m/ml-20m.imdb.medium.csv
+2017-05-13 18:07:21,908 - __main__ - DEBUG - cross_validation: 70
+2017-05-13 18:07:21,908 - __main__ - DEBUG - tvtropes_file: datasets/dbtropes/tropes.csv
+2017-05-13 18:07:21,908 - __main__ - DEBUG - features_trim_percentile: 0
+2017-05-13 18:07:21,908 - __main__ - DEBUG - drop_missing_movies: False
+2017-05-13 18:07:21,908 - __main__ - DEBUG - drop_rare_features: 500
+2017-05-13 18:07:21,908 - __main__ - DEBUG - filter_data_set: 10
+2017-05-13 18:07:21,908 - __main__ - DEBUG - persist_dir: /home/maxikov/all_logistic_internal_rank_3.state, override_args: False
+2017-05-13 18:07:21,908 - __main__ - DEBUG - drop_rare_movies: 50
+2017-05-13 18:07:21,909 - __main__ - DEBUG - normalize: True
+2017-05-13 18:07:23,217 - __main__ - DEBUG - msep: ,
+2017-05-13 18:07:23,218 - __main__ - DEBUG - Loading ratings
+2017-05-13 18:07:31,383 - __main__ - DEBUG - Done in 8.165064 seconds
+2017-05-13 18:07:31,383 - __main__ - DEBUG - Loading movies
+2017-05-13 18:07:32,631 - __main__ - DEBUG - Done in 1.247880 seconds
+2017-05-13 18:07:32,631 - __main__ - DEBUG - 26804 movies loaded
+2017-05-13 18:08:39,681 - __main__ - DEBUG - 19912669 records in the training set
+2017-05-13 18:08:50,298 - __main__ - DEBUG - 26284 unique movies in the training set
+2017-05-13 18:08:50,298 - __main__ - DEBUG - Loading /home/maxikov/all_logistic_internal_rank_3.state/results.pkl
+2017-05-13 18:08:50,305 - __main__ - DEBUG - 0 features already processed
+2017-05-13 18:08:50,305 - __main__ - DEBUG - Training the average rating model
+2017-05-13 18:09:11,615 - __main__ - DEBUG - Done in 21.310021 seconds
+2017-05-13 18:09:11,643 - __main__ - DEBUG - Loading /home/maxikov/all_logistic_internal_rank_3.state/als_model.pkl
+2017-05-13 18:09:14,275 - __main__ - DEBUG - Loading /home/maxikov/all_logistic_internal_rank_3.state/baseline_predictions.pkl
+2017-05-13 18:14:41,101 - __main__ - DEBUG - user_or_product_features: product
+2017-05-13 18:14:41,102 - __main__ - DEBUG - Loading /home/maxikov/all_logistic_internal_rank_3.state/indicators.pkl
+2017-05-13 18:17:32,178 - __main__ - DEBUG - Dropping movies with fewer than 50 non-zero features
+2017-05-13 18:17:34,425 - __main__ - DEBUG - 3277 movies left
+2017-05-13 18:17:38,588 - __main__ - DEBUG - 8037758 items left in the training set
+2017-05-13 18:17:38,588 - __main__ - DEBUG - Normalizing features
+2017-05-13 18:17:38,589 - __main__ - DEBUG - Normalizing feature 0 (year)
+2017-05-13 18:17:38,589 - __main__ - DEBUG - Computing feature ranges
+2017-05-13 18:17:38,702 - __main__ - DEBUG - Detected 1 features
+2017-05-13 18:17:39,563 - __main__ - DEBUG - Feature ranges: {0: {'max': 2015.0, 'min': 1915.0}}
+2017-05-13 18:17:39,563 - __main__ - DEBUG - Scaling factor for feature 0 (year): 100.0
+2017-05-13 18:17:39,563 - __main__ - DEBUG - Normalizing feature 486 (average_rating)
+2017-05-13 18:17:39,564 - __main__ - DEBUG - Computing feature ranges
+2017-05-13 18:17:39,680 - __main__ - DEBUG - Detected 1 features
+2017-05-13 18:17:43,218 - __main__ - DEBUG - Feature ranges: {0: {'max': 5.0, 'min': 0.5}}
+2017-05-13 18:17:43,219 - __main__ - DEBUG - Scaling factor for feature 486 (average_rating): 4.5
+2017-05-13 18:17:43,219 - __main__ - DEBUG - mean feature values not found, computing
+2017-05-13 18:17:43,219 - __main__ - DEBUG - Computing mean feature values
+2017-05-13 18:17:43,219 - __main__ - DEBUG - Computing mean feature values
+2017-05-13 18:17:44,060 - __main__ - DEBUG - Done in 0.841621 seconds
+2017-05-13 18:17:44,061 - __main__ - DEBUG - Mean product feature values: {0: 0.937338476629145, 1: 1.2103219800492306, 2: 0.8551083652083504}
+2017-05-13 18:17:44,061 - __main__ - DEBUG - Saving results to /home/maxikov/all_logistic_internal_rank_3.state/results.pkl
+2017-05-13 18:17:44,067 - __main__ - DEBUG - Loading /home/maxikov/all_logistic_internal_rank_3.state/features_training_test.pkl
+2017-05-13 18:18:06,990 - __main__ - DEBUG - 2294 feature rows, 2294 indicator rows,  and 6005922 ratings in the training set, 983 feature rows, 983 indicators rows, and 2031836 ratings in the test set
+2017-05-13 18:18:06,990 - __main__ - DEBUG - Processing 0 out of 3
+2017-05-13 18:18:06,990 - __main__ - DEBUG - Processing feature 0
+2017-05-13 18:18:06,990 - __main__ - DEBUG - Building data set
+2017-05-13 18:18:07,024 - __main__ - DEBUG - Done in 0.0332918167114 seconds
+2017-05-13 18:18:07,024 - __main__ - DEBUG - Training hash_table
+2017-05-13 18:18:07,774 - __main__ - DEBUG - Done in 0.750535011292 seconds
+2017-05-13 18:18:57,908 - __main__ - DEBUG - Hash table training feature 0 Evaluating the model
+2017-05-13 18:18:59,878 - __main__ - DEBUG - Hash table training feature 0 Bin range: (0.0, 2.8318936824798584)
+2017-05-13 18:19:01,479 - __main__ - DEBUG - Done in 3.570781 seconds
+2017-05-13 18:19:01,480 - __main__ - DEBUG - Hash table training feature 0 Mean error: 0.0, mean absolute error: 0.0
+2017-05-13 18:19:01,695 - __main__ - DEBUG - Hash table training feature 0 RMSE: 0.208248710918, variance explained: 0.0, mean absolute error: 0.0,
+2017-05-13 18:19:01,696 - __main__ - DEBUG - Hash table training feature 0 MRAE: 0.0
+2017-05-13 18:19:01,696 - __main__ - DEBUG - Hash table training feature 0 Errors histogram: ([-2.8318936824798584, -2.660263762329564, -2.4886338421792695, -2.317003922028975, -2.1453740018786807, -1.9737440817283862, -1.8021141615780918, -1.6304842414277974, -1.458854321277503, -1.2872244011272085, -1.115594480976914, -0.9439645608266196, -0.7723346406763252, -0.6007047205260307, -0.4290748003757363, -0.2574448802254419, -0.08581496007514744, 0.085814960075147, 0.25744488022544143, 0.42907480037573587, 0.6007047205260303, 0.7723346406763247, 0.9439645608266192, 1.1155944809769136, 1.287224401127208, 1.458854321277503, 1.630484241427797, 1.802114161578091, 1.9737440817283858, 2.1453740018786807, 2.3170039220289746, 2.4886338421792686, 2.6602637623295635, 2.8318936824798584], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2294, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
+2017-05-13 18:19:01,696 - __main__ - DEBUG - Hash table training feature 0 Absolute errors histogram: ([0.0, 0.08581496007514722, 0.17162992015029443, 0.25744488022544165, 0.34325984030058887, 0.4290748003757361, 0.5148897604508833, 0.6007047205260305, 0.6865196806011777, 0.772334640676325, 0.8581496007514722, 0.9439645608266194, 1.0297795209017666, 1.1155944809769138, 1.201409441052061, 1.2872244011272083, 1.3730393612023555, 1.4588543212775027, 1.54466928135265, 1.6304842414277971, 1.7162992015029443, 1.8021141615780916, 1.8879291216532388, 1.973744081728386, 2.059559041803533, 2.1453740018786807, 2.2311889619538277, 2.3170039220289746, 2.402818882104122, 2.4886338421792695, 2.5744488022544165, 2.6602637623295635, 2.746078722404711, 2.8318936824798584], [2294, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
+2017-05-13 18:19:01,696 - __main__ - DEBUG - Hash table training feature 0 Squared errors histogram: ([0.0, 0.2430188432990707, 0.4860376865981414, 0.729056529897212, 0.9720753731962828, 1.2150942164953535, 1.458113059794424, 1.7011319030934948, 1.9441507463925656, 2.1871695896916363, 2.430188432990707, 2.673207276289778, 2.916226119588848, 3.159244962887919, 3.4022638061869896, 3.6452826494860604, 3.888301492785131, 4.131320336084202, 4.374339179383273, 4.617358022682343, 4.860376865981414, 5.103395709280485, 5.346414552579556, 5.589433395878626, 5.832452239177696, 6.075471082476767, 6.318489925775838, 6.5615087690749085, 6.804527612373979, 7.04754645567305, 7.290565298972121, 7.5335841422711916, 7.776602985570262, 8.019621828869333], [2294, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]):
+2017-05-13 18:19:01,696 - __main__ - DEBUG - Hash table training feature 0 Predictions histogram: ([0.0, 0.08581496007514722, 0.17162992015029443, 0.25744488022544165, 0.34325984030058887, 0.4290748003757361, 0.5148897604508833, 0.6007047205260305, 0.6865196806011777, 0.772334640676325, 0.8581496007514722, 0.9439645608266194, 1.0297795209017666, 1.1155944809769138, 1.201409441052061, 1.2872244011272083, 1.3730393612023555, 1.4588543212775027, 1.54466928135265, 1.6304842414277971, 1.7162992015029443, 1.8021141615780916, 1.8879291216532388, 1.973744081728386, 2.059559041803533, 2.1453740018786807, 2.2311889619538277, 2.3170039220289746, 2.402818882104122, 2.4886338421792695, 2.5744488022544165, 2.6602637623295635, 2.746078722404711, 2.8318936824798584], [82, 44, 51, 65, 99, 110, 118, 139, 126, 149, 157, 153, 140, 137, 127, 132, 159, 123, 89, 37, 25, 7, 8, 2, 6, 2, 2, 1, 1, 2, 0, 0, 1])
+2017-05-13 18:19:01,696 - __main__ - DEBUG - Hash table training feature 0 Observations histogram: ([0.0, 0.08581496007514722, 0.17162992015029443, 0.25744488022544165, 0.34325984030058887, 0.4290748003757361, 0.5148897604508833, 0.6007047205260305, 0.6865196806011777, 0.772334640676325, 0.8581496007514722, 0.9439645608266194, 1.0297795209017666, 1.1155944809769138, 1.201409441052061, 1.2872244011272083, 1.3730393612023555, 1.4588543212775027, 1.54466928135265, 1.6304842414277971, 1.7162992015029443, 1.8021141615780916, 1.8879291216532388, 1.973744081728386, 2.059559041803533, 2.1453740018786807, 2.2311889619538277, 2.3170039220289746, 2.402818882104122, 2.4886338421792695, 2.5744488022544165, 2.6602637623295635, 2.746078722404711, 2.8318936824798584], [82, 44, 51, 65, 99, 110, 118, 139, 126, 149, 157, 153, 140, 137, 127, 132, 159, 123, 89, 37, 25, 7, 8, 2, 6, 2, 2, 1, 1, 2, 0, 0, 1])
+2017-05-13 18:19:01,697 - __main__ - DEBUG - Processing feature 0
+2017-05-13 18:19:01,697 - __main__ - DEBUG - Building data set
+2017-05-13 18:19:01,728 - __main__ - DEBUG - Done in 0.0310909748077 seconds
+2017-05-13 18:19:01,728 - __main__ - DEBUG - Training logistic
+Traceback (most recent call last):
+  File "/mnt/encrypted_data/Dropbox/cmu/foundation_of_privacy/project/fop_qii/MovieLensALS.py", line 490, in <module>
+    main()
+  File "/mnt/encrypted_data/Dropbox/cmu/foundation_of_privacy/project/fop_qii/MovieLensALS.py", line 434, in main
+    train_ratio=args.cross_validation)
+  File "/mnt/encrypted_data/Dropbox/cmu/foundation_of_privacy/project/fop_qii/internal_feature_predictor.py", line 1131, in internal_feature_predictor
+    max_depth=args.max_depth)
+  File "/mnt/encrypted_data/Dropbox/cmu/foundation_of_privacy/project/fop_qii/internal_feature_predictor.py", line 435, in predict_internal_feature
+    max_depth=max_depth)
+  File "/mnt/encrypted_data/Dropbox/cmu/foundation_of_privacy/project/fop_qii/internal_feature_predictor.py", line 226, in train_regression_model
+    train(data)
+  File "/opt/spark-2.0.1/python/lib/pyspark.zip/pyspark/mllib/classification.py", line 398, in train
+  File "/opt/spark-2.0.1/python/lib/pyspark.zip/pyspark/mllib/regression.py", line 215, in _regression_train_wrapper
+  File "/opt/spark-2.0.1/python/lib/pyspark.zip/pyspark/mllib/classification.py", line 388, in train
+  File "/opt/spark-2.0.1/python/lib/pyspark.zip/pyspark/mllib/common.py", line 130, in callMLlibFunc
+  File "/opt/spark-2.0.1/python/lib/pyspark.zip/pyspark/mllib/common.py", line 123, in callJavaFunc
+  File "/opt/spark-2.0.1/python/lib/py4j-0.10.3-src.zip/py4j/java_gateway.py", line 1133, in __call__
+  File "/opt/spark-2.0.1/python/lib/pyspark.zip/pyspark/sql/utils.py", line 63, in deco
+  File "/opt/spark-2.0.1/python/lib/py4j-0.10.3-src.zip/py4j/protocol.py", line 319, in get_return_value
+py4j.protocol.Py4JJavaError: An error occurred while calling o766.trainLogisticRegressionModelWithLBFGS.
+: org.apache.spark.SparkException: Classification labels should be in {0 to 0 Found 2237 invalid labels.
+	at org.apache.spark.ml.classification.LogisticRegression.train(LogisticRegression.scala:309)
+	at org.apache.spark.mllib.classification.LogisticRegressionWithLBFGS.runWithMlLogisticRegression$1(LogisticRegression.scala:445)
+	at org.apache.spark.mllib.classification.LogisticRegressionWithLBFGS.run(LogisticRegression.scala:451)
+	at org.apache.spark.mllib.classification.LogisticRegressionWithLBFGS.run(LogisticRegression.scala:418)
+	at org.apache.spark.mllib.classification.LogisticRegressionWithLBFGS.run(LogisticRegression.scala:348)
+	at org.apache.spark.mllib.api.python.PythonMLLibAPI.trainRegressionModel(PythonMLLibAPI.scala:92)
+	at org.apache.spark.mllib.api.python.PythonMLLibAPI.trainLogisticRegressionModelWithLBFGS(PythonMLLibAPI.scala:308)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at py4j.reflection.MethodInvoker.invoke(MethodInvoker.java:237)
+	at py4j.reflection.ReflectionEngine.invoke(ReflectionEngine.java:357)
+	at py4j.Gateway.invoke(Gateway.java:280)
+	at py4j.commands.AbstractCommand.invokeMethod(AbstractCommand.java:132)
+	at py4j.commands.CallCommand.execute(CallCommand.java:79)
+	at py4j.GatewayConnection.run(GatewayConnection.java:214)
+	at java.lang.Thread.run(Thread.java:748)
+
