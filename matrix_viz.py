@@ -116,6 +116,7 @@ def main():
     src = [x for x in src if  "Overall results dict" in x]
     src = [x.split("Overall results dict: ")[1] for x in src]
     src = src[0]
+    src = src.replace("inf", "1e90")
     results = eval(src)
 
     is_qii = args.qii or ("not_linlog" in results)

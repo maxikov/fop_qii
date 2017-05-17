@@ -44,7 +44,7 @@ function make_commands() {
 	ARGS="${ARGS} --rank $RANK --lmbda $LMBDA --num-iter $NUM_ITER $NON_NEGATIVE"
 	ARGS="${ARGS} --predict-product-features --metadata-sources $METADATA_SOURCES"
 	ARGS="${ARGS} --drop-rare-features $DROP_RARE_FEATURES --drop-rare-movies $DROP_RARE_MOVIES"
-	ARGS="${ARGS} --cross-validation $CROSS_VALIDATION --regression-model $REGRESSION_MODEL --nbins $NBINS $NORMALIZE"
+	ARGS="${ARGS} --cross-validation $CROSS_VALIDATION --regression-model $REGRESSION_MODEL --nbins $NBINS --max-depth $MAX_DEPTH $NORMALIZE"
 
 	WHOLE_COMMAND="$SPARK_SUBMIT MovieLensALS.py $ARGS"
 }
