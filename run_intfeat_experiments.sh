@@ -92,28 +92,28 @@ function run_and_save() {
 }
 
 function rank_n_experiments() {
-	run_and_save()
+	run_and_save
 
 	local MAX_DEPTH=8
-	copy_and_run()
+	copy_and_run
 
 	local MAX_DEPTH=4
 	local NBINS=16
-	copy_and_run()
+	copy_and_run
 
 	local NORMALIZE="--normalize"
 	local REGRESSION_MODEL="linear"
-	copy_and_run()
+	copy_and_run
 }
 
 RANK=1
 FEATURE_TRIM_PERCENTILE=0
-rank_n_experiments()
+rank_n_experiments
 FEATURE_TRIM_PERCENTILE=90
-rank_n_experiments()
+rank_n_experiments
 
 RANK=3
 FEATURE_TRIM_PERCENTILE=0
-rank_n_experiments()
+rank_n_experiments
 FEATURE_TRIM_PERCENTILE=90
-rank_n_experiments()
+rank_n_experiments
