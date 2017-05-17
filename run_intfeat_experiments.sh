@@ -77,6 +77,13 @@ function rank_1_experiments() {
 	cp -rv $REFERENCE_MODEL "${PERSIST_DIR}/"
 	run_until_succeeds
 
+	local MAX_DEPTH=4
+	local NBINS=16
+	make_commands
+	mkdir -p $PERSIST_DIR
+	cp -rv $REFERENCE_MODEL "${PERSIST_DIR}/"
+	run_until_succeeds
+
 	local NORMALIZE="--normalize"
 	local REGRESSION_MODEL="linear"
 	make_commands
@@ -90,9 +97,16 @@ function rank_3_experiments() {
 	make_commands
 	mkdir -p $PERSIST_DIR
 	run_until_succeeds
-	REFERENCE_MODEL="${PERSIST_DIR}/als_model.pkl"
+	local REFERENCE_MODEL="${PERSIST_DIR}/als_model.pkl"
 
 	local MAX_DEPTH=8
+	make_commands
+	mkdir -p $PERSIST_DIR
+	cp -rv $REFERENCE_MODEL "${PERSIST_DIR}/"
+	run_until_succeeds
+
+	local MAX_DEPTH=4
+	local NBINS=16
 	make_commands
 	mkdir -p $PERSIST_DIR
 	cp -rv $REFERENCE_MODEL "${PERSIST_DIR}/"
@@ -111,7 +125,7 @@ function rank_12_experiments() {
 	make_commands
 	mkdir -p $PERSIST_DIR
 	run_until_succeeds
-	REFERENCE_MODEL="${PERSIST_DIR}/als_model.pkl"
+	local REFERENCE_MODEL="${PERSIST_DIR}/als_model.pkl"
 
 	local MAX_DEPTH=8
 	make_commands
@@ -129,4 +143,4 @@ function rank_12_experiments() {
 
 rank_1_experiments
 rank_3_experiments
-rank_12_experiments
+#rank_12_experiments

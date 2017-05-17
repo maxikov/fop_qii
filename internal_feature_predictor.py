@@ -1403,6 +1403,12 @@ def internal_feature_predictor(sc, training, rank, numIter, lmbda,
         results["all_random_rec_eval_test"] = compare_with_all_randomized(\
             model, rank, test_movies, baseline_predictions_test,\
             logger, power, args)
+    if args.persist_dir is not None:
+        fname = os.path.join(args.persist_dir, "results.pkl")
+        logger.debug("Writing %s", fname)
+        ofile = open(fname, "wb")
+        pickle.dump(results, ofile)
+        ofile.close
 
     return results
 
