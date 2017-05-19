@@ -29,7 +29,6 @@ def rating_qii(user_features, product_features, user_id, product_id,
     cur_product_features = get_features_by_id(product_features, user_id)
     original_rating = predict_one_rating(cur_user_features,
                                          cur_product_features)
-    print original_rating
     for f in xrange(rank):
         if user_or_feature_qii in ["user", "both"]:
             user_distr = common_utils.get_feature_distribution(user_features,

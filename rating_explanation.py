@@ -117,18 +117,12 @@ def main():
     print "Predicted product features:",\
         predicted_product_features_list
 
-#    model = load_als_model(sc, args.als_model)
-#    user_features = model.userFeatures()
-#    product_features = model.productFeatures()
 
-#    qiis, original_rating = rating_qii(user_features, product_features, args.user,
-#                                       args.product, args.user_or_product,
-#                                       args.qii_iterations)
-#    print "Original rating:", original_rating
-#    print "Per feature QIIs:"
-#    qiis = sorted(qiis.items(), key=lambda x: x[0])
-#    for f, qii in qiis:
-#        print f, ":", qii
+    qiis, _ = rating_qii.rating_qii(user_features, product_features, args.user,
+                                    args.product, args.user_or_product,
+                                    args.qii_iterations)
+
+    qii_order = [x[0] for x in sorted(qiis.items(), key=lambda x: -abs(x[1]))]
 
     actual_predicted_rating = als_model.predict(args.user, args.product)
     regression_predicted_rating = rating_qii.predict_one_rating(\
@@ -141,8 +135,11 @@ def main():
                                                           predicted_product_features,
                                                           args.state_path,
                                                           feature_names)
-    for f, branch in all_prediction_branches.items():
+    print "Features (from most to least influential):"
+    for f in qii_order:
+        branch = all_prediction_branches[f]
         print "Product feature:", f
+        print "Influence on the rating:", qiis[f]
         print "Actual value:", cur_product_features[f]
         print "Predicted value:", predicted_product_features_list[f]
         print "Prediction branch:\n", branch

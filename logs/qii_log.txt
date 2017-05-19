@@ -1,0 +1,44 @@
+Real product features: [-1.067681908607483, -0.32434001564979553, 1.3918287754058838]
+Predicted product features: [-1.2100175497002523, -0.6654395141605554, 1.4603169396452587]
+Rating predicted by the actual recommender: 3.67474592723
+Rating predicted from product features estimated with regression: 3.80750895162
+Features (from most to least influential):
+Product feature: 0
+Influence on the rating: 1.49430292139
+Actual value: -1.06768190861
+Predicted value: -1.2100175497
+Prediction branch:
+  If (average_rating <= 3.4160295930949447)
+   If (imdb_keywords:drinking in {0.0})
+    If (year > 1974.0)
+     If (movielens_genre:Action in {1.0})
+      If (imdb_keywords:rape in {0.0})
+       Predict: -1.2100175497002523
+
+
+Product feature: 1
+Influence on the rating: 0.919720058363
+Actual value: -0.32434001565
+Predicted value: -0.665439514161
+Prediction branch:
+  If (imdb_keywords:gore in {1.0})
+   If (movielens_genre:Horror not in {1.0})
+    If (imdb_keywords:white-panties not in {1.0})
+     If (average_rating > 3.0)
+      If (movielens_genre:Drama not in {0.0})
+       Predict: -0.6654395141605554
+
+
+Product feature: 2
+Influence on the rating: 0.70982155557
+Actual value: 1.39182877541
+Predicted value: 1.46031693965
+Prediction branch:
+  If (average_rating > 3.209207300463089)
+   If (average_rating <= 3.5714285714285716)
+    If (movielens_genre:Drama not in {0.0})
+     If (average_rating <= 3.4160295930949447)
+      If (year > 1971.0)
+       Predict: 1.4603169396452587
+
+
