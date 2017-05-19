@@ -107,14 +107,8 @@ function rank_n_experiments() {
 	copy_and_run
 }
 
-RANK=1
-FEATURE_TRIM_PERCENTILE=0
-rank_n_experiments
-FEATURE_TRIM_PERCENTILE=90
-rank_n_experiments
+RANK=12
+run_and_save
 
-RANK=3
-FEATURE_TRIM_PERCENTILE=0
-rank_n_experiments
-FEATURE_TRIM_PERCENTILE=90
-rank_n_experiments
+RANK=40
+run_and_save
