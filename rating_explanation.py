@@ -7,6 +7,7 @@ import pickle
 #project files
 import common_utils
 import rating_qii
+import parsers_and_loaders
 
 #pyspark library
 from pyspark import SparkConf, SparkContext
@@ -114,6 +115,9 @@ def main():
                         help="If passed, will display the specified number"+\
                              " of movies, for which product features are"+\
                              " are predicted most accurately, and exit.")
+    parser.add_argument("--movies-file", action="store", type=str, help=\
+                        "If passed, a file with movie titles will be loaded"+\
+                        " to dispaly titles instead of IDs.")
     args = parser.parse_args()
     conf = SparkConf().setMaster("local[*]").set("spark.default.parallelism",
                                                  4)
@@ -127,6 +131,25 @@ def main():
     product_features = als_model.productFeatures()
     rank = als_model.rank
 
+    if args.movies_file is not None:
+        if ".csv" in args.movies_file:
+            msep = ","
+            movies_remove_first_line = True
+        else:
+            msep = "::"
+            movies_remove_first_line = False
+        movies_rdd = sc.parallelize(
+            parsers_and_loaders.loadCSV(
+                args.movies_file,
+                remove_first_line=movies_remove_first_line
+            )
+            ).cache()
+        movies_dict = dict(movies_rdd.map(lambda x: parsers_and_loaders.parseMovie(x,\
+            sep=msep)).collect())
+    else:
+        movies = product_features.keys().collect()
+        movies_dict = {x: str(x) for x in movies}
+
     if args.display_top_movies is not None:
         all_predicted_features = get_all_predicted_product_features(sc, args.state_path, rank)
         errors = compute_feature_prediction_errors(product_features,
@@ -134,7 +157,7 @@ def main():
         res = sorted(errors.items(), key=lambda x:
                 abs(x[1]))[:args.display_top_movies]
         for mid, err in res:
-            print "Movie:", mid, ", error:", err
+            print "Movie:", movies_dict[mid], "(", mid, ")", ", error:", err
         return
 
     cur_product_features = rating_qii.get_features_by_id(product_features,
@@ -147,6 +170,7 @@ def main():
     predicted_product_features_list = [x[1] for x in sorted(predicted_product_features.items(),
                                                             key=lambda x: x[0])]
 
+    print "Movie:", movies_dict[args.product]
     print "Real product features:", list(cur_product_features)
     print "Predicted product features:",\
         predicted_product_features_list

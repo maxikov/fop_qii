@@ -1,20 +1,45 @@
-Movie: 7104 , error: 0.0107300702051
-Movie: 6770 , error: 0.0157893363155
-Movie: 3174 , error: 0.0189832368624
-Movie: 2377 , error: 0.0222264941802
-Movie: 31362 , error: 0.0222471945314
-Movie: 705 , error: 0.0225057764034
-Movie: 4234 , error: 0.0239753856523
-Movie: 3365 , error: 0.0249082924245
-Movie: 68358 , error: 0.0252921067124
-Movie: 7382 , error: 0.0254439858239
-Movie: 2210 , error: 0.0256859334835
-Movie: 3108 , error: 0.0268896358981
-Movie: 30820 , error: 0.0285542260832
-Movie: 100714 , error: 0.0297423185316
-Movie: 3481 , error: 0.0307908591114
-Movie: 60950 , error: 0.0310693413001
-Movie: 73323 , error: 0.0313897166787
-Movie: 6429 , error: 0.0314179685687
-Movie: 8584 , error: 0.0335595856214
-Movie: 3334 , error: 0.033638028484
+Movie: 1941 (1979)
+Real product features: [-1.021789312362671, -0.8357594609260559, 1.0325801372528076]
+Predicted product features: [-1.0400445181762201, -0.8312611763083607, 1.042016857436725]
+Rating predicted by the actual recommender: 2.71156752707
+Rating predicted from product features estimated with regression: 2.75190789811
+Features (from most to least influential):
+Product feature: 0
+Influence on the rating: 1.42188944767
+Actual value: -1.02178931236
+Predicted value: -1.04004451818
+Prediction branch:
+  If (average_rating <= 3.4160295930949447)
+   If (Isn't imdb_keywords:drinking)
+    If (year > 1974.0)
+     If (Isn't movielens_genre:Action)
+      If (Isn't movielens_genre:Drama)
+       Predict: -1.0400445181762201
+
+
+Product feature: 2
+Influence on the rating: 1.12104230074
+Actual value: 1.03258013725
+Predicted value: 1.04201685744
+Prediction branch:
+  If (average_rating <= 3.209207300463089)
+   If (average_rating > 2.75)
+    If (Isn't movielens_genre:Drama)
+     If (Isn't imdb_keywords:blood-splatter)
+      If (year > 1971.0)
+       Predict: 1.042016857436725
+
+
+Product feature: 1
+Influence on the rating: 0.907012155068
+Actual value: -0.835759460926
+Predicted value: -0.831261176308
+Prediction branch:
+  If (Isn't imdb_keywords:gore)
+   If (Is imdb_keywords:female-nudity)
+    If (Is imdb_keywords:cult-film)
+     If (Isn't imdb_keywords:independent-film)
+      If (Isn't imdb_keywords:blockbuster)
+       Predict: -0.8312611763083607
+
+
