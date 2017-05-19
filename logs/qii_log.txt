@@ -1,44 +1,20 @@
-Real product features: [-1.067681908607483, -0.32434001564979553, 1.3918287754058838]
-Predicted product features: [-1.2100175497002523, -0.6654395141605554, 1.4603169396452587]
-Rating predicted by the actual recommender: 3.67474592723
-Rating predicted from product features estimated with regression: 3.80750895162
-Features (from most to least influential):
-Product feature: 0
-Influence on the rating: 1.41959462415
-Actual value: -1.06768190861
-Predicted value: -1.2100175497
-Prediction branch:
-  If (average_rating <= 3.4160295930949447)
-   If (Isn't imdb_keywords:drinking)
-    If (year > 1974.0)
-     If (Is movielens_genre:Action)
-      If (Isn't imdb_keywords:rape)
-       Predict: -1.2100175497002523
-
-
-Product feature: 1
-Influence on the rating: 1.04024510526
-Actual value: -0.32434001565
-Predicted value: -0.665439514161
-Prediction branch:
-  If (Is imdb_keywords:gore)
-   If (Isn't movielens_genre:Horror)
-    If (Isn't imdb_keywords:white-panties)
-     If (average_rating > 3.0)
-      If (Is movielens_genre:Drama)
-       Predict: -0.6654395141605554
-
-
-Product feature: 2
-Influence on the rating: 0.78971813248
-Actual value: 1.39182877541
-Predicted value: 1.46031693965
-Prediction branch:
-  If (average_rating > 3.209207300463089)
-   If (average_rating <= 3.5714285714285716)
-    If (Is movielens_genre:Drama)
-     If (average_rating <= 3.4160295930949447)
-      If (year > 1971.0)
-       Predict: 1.4603169396452587
-
-
+Movie: 7104 , error: 0.0107300702051
+Movie: 6770 , error: 0.0157893363155
+Movie: 3174 , error: 0.0189832368624
+Movie: 2377 , error: 0.0222264941802
+Movie: 31362 , error: 0.0222471945314
+Movie: 705 , error: 0.0225057764034
+Movie: 4234 , error: 0.0239753856523
+Movie: 3365 , error: 0.0249082924245
+Movie: 68358 , error: 0.0252921067124
+Movie: 7382 , error: 0.0254439858239
+Movie: 2210 , error: 0.0256859334835
+Movie: 3108 , error: 0.0268896358981
+Movie: 30820 , error: 0.0285542260832
+Movie: 100714 , error: 0.0297423185316
+Movie: 3481 , error: 0.0307908591114
+Movie: 60950 , error: 0.0310693413001
+Movie: 73323 , error: 0.0313897166787
+Movie: 6429 , error: 0.0314179685687
+Movie: 8584 , error: 0.0335595856214
+Movie: 3334 , error: 0.033638028484

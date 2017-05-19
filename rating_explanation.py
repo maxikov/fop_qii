@@ -39,6 +39,25 @@ def get_predicted_product_features(sc, state_path, product, rank):
         res[f] = cur_pred
     return res
 
+def get_all_predicted_product_features(sc, state_path, rank):
+    res = None
+    for f in xrange(rank):
+        preds = load_regression_predictions(state_path, f)
+        if res is None:
+            res = {mid: [pred] for (mid, pred) in preds.items()}
+        else:
+            for mid in res:
+                res[mid].append(preds[mid])
+    return res
+
+def compute_feature_prediction_errors(features, predicted_features):
+    res = {}
+    features = dict(features.collect())
+    for mid in predicted_features:
+        res[mid] = sum(abs(x-y) for (x,y) in zip(features[mid],
+            predicted_features[mid]))/float(len(features[mid]))
+    return res
+
 def get_model_string(lr_model, feature_names):
     res = lr_model.toDebugString()
     res = common_utils.substitute_feature_names(res, feature_names)
@@ -91,8 +110,13 @@ def main():
     parser.add_argument("--qii-iterations", action="store", type=int,
                         default=10, help="Number of QII iterations. "+\
                                          "10 by default.")
+    parser.add_argument("--display-top-movies", action="store", type=int,
+                        help="If passed, will display the specified number"+\
+                             " of movies, for which product features are"+\
+                             " are predicted most accurately, and exit.")
     args = parser.parse_args()
-    conf = SparkConf().setMaster("local[*]")
+    conf = SparkConf().setMaster("local[*]").set("spark.default.parallelism",
+                                                 4)
     sc = SparkContext(conf=conf)
 
     results_dict = load_results_dict(args.state_path)
@@ -102,6 +126,16 @@ def main():
     user_features = als_model.userFeatures()
     product_features = als_model.productFeatures()
     rank = als_model.rank
+
+    if args.display_top_movies is not None:
+        all_predicted_features = get_all_predicted_product_features(sc, args.state_path, rank)
+        errors = compute_feature_prediction_errors(product_features,
+                                                  all_predicted_features)
+        res = sorted(errors.items(), key=lambda x:
+                abs(x[1]))[:args.display_top_movies]
+        for mid, err in res:
+            print "Movie:", mid, ", error:", err
+        return
 
     cur_product_features = rating_qii.get_features_by_id(product_features,
                                                          args.product)
