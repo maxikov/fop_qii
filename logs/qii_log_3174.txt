@@ -1,0 +1,45 @@
+Movie: Man on the Moon (1999)
+Real product features: [-0.5552290081977844, -0.8325631618499756, 1.595481276512146]
+Predicted product features: [-0.527428788561259, -0.8312611763083607, 1.623328781921229]
+Rating predicted by the actual recommender: 3.251307165
+Rating predicted from product features estimated with regression: 3.2732379424
+Features (from most to least influential):
+Product feature: 0
+Influence on the rating: 1.27601652035
+Actual value: -0.555229008198
+Predicted value: -0.527428788561
+Prediction branch:
+  If (average_rating > 3.4160295930949447)
+   If (Isn't movielens_genre:Action)
+    If (Isn't movielens_tags:Criterion)
+     If (year > 1979.0)
+      If (Isn't imdb_keywords:surprise-ending)
+       Predict: -0.527428788561259
+
+
+Product feature: 1
+Influence on the rating: 1.03715500822
+Actual value: -0.83256316185
+Predicted value: -0.831261176308
+Prediction branch:
+  If (Isn't imdb_keywords:gore)
+   If (Is imdb_keywords:female-nudity)
+    If (Is imdb_keywords:cult-film)
+     If (Isn't imdb_keywords:independent-film)
+      If (Isn't imdb_keywords:blockbuster)
+       Predict: -0.8312611763083607
+
+
+Product feature: 2
+Influence on the rating: 0.955404660557
+Actual value: 1.59548127651
+Predicted value: 1.62332878192
+Prediction branch:
+  If (average_rating > 3.209207300463089)
+   If (average_rating <= 3.5714285714285716)
+    If (Is movielens_genre:Drama)
+     If (average_rating > 3.4160295930949447)
+      If (year > 1965.0)
+       Predict: 1.623328781921229
+
+

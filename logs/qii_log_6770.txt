@@ -1,0 +1,45 @@
+Movie: My Life Without Me (2003)
+Real product features: [-0.5452261567115784, -0.5225275158882141, 1.8929471969604492]
+Predicted product features: [-0.527428788561259, -0.5469628197133634, 1.8878118599893825]
+Rating predicted by the actual recommender: 3.94306602347
+Rating predicted from product features estimated with regression: 3.90222768455
+Features (from most to least influential):
+Product feature: 0
+Influence on the rating: 1.07897992104
+Actual value: -0.545226156712
+Predicted value: -0.527428788561
+Prediction branch:
+  If (average_rating > 3.4160295930949447)
+   If (Isn't movielens_genre:Action)
+    If (Isn't movielens_tags:Criterion)
+     If (year > 1979.0)
+      If (Isn't imdb_keywords:surprise-ending)
+       Predict: -0.527428788561259
+
+
+Product feature: 1
+Influence on the rating: 1.00076460935
+Actual value: -0.522527515888
+Predicted value: -0.546962819713
+Prediction branch:
+  If (Isn't imdb_keywords:gore)
+   If (Isn't imdb_keywords:female-nudity)
+    If (Isn't imdb_keywords:blockbuster)
+     If (Isn't movielens_genre:Horror)
+      If (year > 1956.0)
+       Predict: -0.5469628197133634
+
+
+Product feature: 2
+Influence on the rating: 0.774693136538
+Actual value: 1.89294719696
+Predicted value: 1.88781185999
+Prediction branch:
+  If (average_rating > 3.209207300463089)
+   If (average_rating > 3.5714285714285716)
+    If (year > 1971.0)
+     If (average_rating > 3.7293977812995247)
+      If (Isn't movielens_genre:Action)
+       Predict: 1.8878118599893825
+
+

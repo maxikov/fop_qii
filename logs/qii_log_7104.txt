@@ -1,0 +1,45 @@
+Movie: 1941 (1979)
+Real product features: [-1.021789312362671, -0.8357594609260559, 1.0325801372528076]
+Predicted product features: [-1.0400445181762201, -0.8312611763083607, 1.042016857436725]
+Rating predicted by the actual recommender: 2.71156752707
+Rating predicted from product features estimated with regression: 2.75190789811
+Features (from most to least influential):
+Product feature: 1
+Influence on the rating: 1.04686015704
+Actual value: -0.835759460926
+Predicted value: -0.831261176308
+Prediction branch:
+  If (Isn't imdb_keywords:gore)
+   If (Is imdb_keywords:female-nudity)
+    If (Is imdb_keywords:cult-film)
+     If (Isn't imdb_keywords:independent-film)
+      If (Isn't imdb_keywords:blockbuster)
+       Predict: -0.8312611763083607
+
+
+Product feature: 0
+Influence on the rating: 0.995262934582
+Actual value: -1.02178931236
+Predicted value: -1.04004451818
+Prediction branch:
+  If (average_rating <= 3.4160295930949447)
+   If (Isn't imdb_keywords:drinking)
+    If (year > 1974.0)
+     If (Isn't movielens_genre:Action)
+      If (Isn't movielens_genre:Drama)
+       Predict: -1.0400445181762201
+
+
+Product feature: 2
+Influence on the rating: 0.970607374089
+Actual value: 1.03258013725
+Predicted value: 1.04201685744
+Prediction branch:
+  If (average_rating <= 3.209207300463089)
+   If (average_rating > 2.75)
+    If (Isn't movielens_genre:Drama)
+     If (Isn't imdb_keywords:blood-splatter)
+      If (year > 1971.0)
+       Predict: 1.042016857436725
+
+
