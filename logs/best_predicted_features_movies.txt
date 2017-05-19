@@ -1,0 +1,50 @@
+Movie: 1941 (1979) ( 7104 ) , error: 0.0107300702051
+Movie: My Life Without Me (2003) ( 6770 ) , error: 0.0157893363155
+Movie: Man on the Moon (1999) ( 3174 ) , error: 0.0189832368624
+Movie: Lifeforce (1985) ( 2377 ) , error: 0.0222264941802
+Movie: This Girl's Life (2003) ( 31362 ) , error: 0.0222471945314
+Movie: Cosi (1996) ( 705 ) , error: 0.0225057764034
+Movie: Tailor of Panama, The (2001) ( 4234 ) , error: 0.0239753856523
+Movie: Searchers, The (1956) ( 3365 ) , error: 0.0249082924245
+Movie: Star Trek (2009) ( 68358 ) , error: 0.0252921067124
+Movie: I'm Not Scared (Io non ho paura) (2003) ( 7382 ) , error: 0.0254439858239
+Movie: Sabotage (1936) ( 2210 ) , error: 0.0256859334835
+Movie: Fisher King, The (1991) ( 3108 ) , error: 0.0268896358981
+Movie: Woodsman, The (2004) ( 30820 ) , error: 0.0285542260832
+Movie: Before Midnight (2013) ( 100714 ) , error: 0.0297423185316
+Movie: High Fidelity (2000) ( 3481 ) , error: 0.0307908591114
+Movie: Vicky Cristina Barcelona (2008) ( 60950 ) , error: 0.0310693413001
+Movie: Girl Who Kicked the Hornet's Nest, The (Luftslottet som sprängdes) (2009) ( 73323 ) , error: 0.0313897166787
+Movie: Winchester '73 (1950) ( 6429 ) , error: 0.0314179685687
+Movie: Leave Her to Heaven (1945) ( 8584 ) , error: 0.0335595856214
+Movie: Key Largo (1948) ( 3334 ) , error: 0.033638028484
+Movie: Firefox (1982) ( 6078 ) , error: 0.0336680466444
+Movie: Z (1969) ( 5475 ) , error: 0.034025943615
+Movie: Supergirl (1984) ( 3877 ) , error: 0.0356259585903
+Movie: In a Better World (Hævnen) (2010) ( 81257 ) , error: 0.0364312330406
+Movie: Ipcress File, The (1965) ( 2983 ) , error: 0.0380001477655
+Movie: Legend of the Fist: The Return of Chen Zhen (Jing wu feng yun: Chen Zhen) (2010) ( 88495 ) , error: 0.0397619616143
+Movie: Away We Go (2009) ( 66665 ) , error: 0.0397897937002
+Movie: Little Miss Sunshine (2006) ( 46578 ) , error: 0.0402750038621
+Movie: Son of Rambow (2007) ( 59141 ) , error: 0.0409183134617
+Movie: Men in Black (a.k.a. MIB) (1997) ( 1580 ) , error: 0.0411045375184
+Movie: Diary of the Dead (2007) ( 58332 ) , error: 0.0411403060181
+Movie: We Need to Talk About Kevin (2011) ( 90376 ) , error: 0.0422468111013
+Movie: Picnic at Hanging Rock (1975) ( 1913 ) , error: 0.0428346188995
+Movie: Sneakers (1992) ( 1396 ) , error: 0.0430545691997
+Movie: Incredible Hulk, The (2008) ( 60040 ) , error: 0.0434605945644
+Movie: Vatel (2000) ( 4152 ) , error: 0.0437999836818
+Movie: Flashpoint (1984) ( 8901 ) , error: 0.0442494548457
+Movie: Beauty of the Day (Belle de jour) (1967) ( 154 ) , error: 0.0448369001769
+Movie: To Have and Have Not (1944) ( 7215 ) , error: 0.0450693856289
+Movie: Everything Is Illuminated (2005) ( 36535 ) , error: 0.0462310763556
+Movie: Substance of Fire, The (1996) ( 1384 ) , error: 0.0465560493642
+Movie: 20 Feet from Stardom (Twenty Feet from Stardom) (2013) ( 103107 ) , error: 0.0471630920948
+Movie: Chattahoochee (1989) ( 6845 ) , error: 0.0480387103057
+Movie: Batman Forever (1995) ( 153 ) , error: 0.0481966310016
+Movie: Lost Weekend, The (1945) ( 1938 ) , error: 0.0486451436479
+Movie: Talented Mr. Ripley, The (1999) ( 3176 ) , error: 0.0486578835508
+Movie: Kuffs (1992) ( 6720 ) , error: 0.0489900110707
+Movie: Fruitvale Station (2013) ( 103624 ) , error: 0.049138231077
+Movie: Strangeland (1998) ( 2298 ) , error: 0.050521854057
+Movie: 3:10 to Yuma (2007) ( 54997 ) , error: 0.0511823360724
