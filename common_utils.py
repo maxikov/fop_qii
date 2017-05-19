@@ -108,11 +108,45 @@ def shift_drop_dict(src, ids_to_drop):
             res[key-offset] = value
     return res
 
+def substitute_belong_predicate(line):
+    if_pos = line.find("If (")
+    else_pos = line.find("Else (")
+    if if_pos == -1 and else_pos == -1:
+        return line
+    if if_pos != -1:
+        subline = line[if_pos+len("If ("):]
+        before_line = line[:if_pos+len("If (")]
+    elif else_pos != -1:
+        subline = line[else_pos+len("Else ("):]
+        before_line = line[:else_pos+len("Else (")]
+    else:
+        return line
+    in_pos = subline.find(" not in ")
+    if in_pos == -1:
+        in_pos = subline.find(" in ")
+    if in_pos == -1:
+        return line
+    feature = subline[:in_pos]
+    if " not in {0.0}" in subline:
+        predicate = "Is "
+    elif " not in {1.0}" in subline:
+        predicate = "Isn't "
+    elif " in {1.0}" in subline:
+        predicate = "Is "
+    elif " in {0.0}" in subline:
+        predicate = "Isn't "
+    else:
+        return line
+    res = before_line + predicate + feature + ")"
+    return res
+
 def substitute_feature_names(string, feature_names):
     for fid, fname in feature_names.items():
         fname = fname.decode("ascii", errors="ignore")
         string = string.replace("feature {} ".format(fid),
                                 "{} ".format(fname))
+    string = "\n".join(substitute_belong_predicate(line) for line in\
+            string.split("\n"))
     return string
 
 def recommender_mean_error(model, data, power=1.0):
