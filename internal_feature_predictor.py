@@ -770,9 +770,9 @@ def load_or_train_trimmed_recommender(model, args, sc, results, rank, logger,
     if write_model:
        logger.debug("Saving model to %s", fname_model)
        TrimmedFeatureRecommender.save(model, fname_model)
-       if os.path.exists(fname):
+       if os.path.exists(fname_model):
            logger.debug("%a already exists, removing")
-           shutil.rmtree(fname)
+           shutil.rmtree(fname_model)
        logger.debug("Saving results to %s", fname_results)
        ofile = open(fname_results, "wb")
        pickle.dump(results, ofile)
