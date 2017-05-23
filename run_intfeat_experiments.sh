@@ -106,9 +106,9 @@ function rank_n_experiments() {
 	local REGRESSION_MODEL="linear"
 	copy_and_run
 }
-
+FEATURE_TRIM_PERCENTILE=0
 RANK=12
-run_and_save
+#run_and_save
 
 RANK=40
 run_and_save
