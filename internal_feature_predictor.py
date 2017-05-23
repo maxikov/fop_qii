@@ -675,7 +675,7 @@ def load_or_build_baseline_predictions(sc, model, power, results, logger, args,
             ifile = open(fname, "rb")
             objects = pickle.load(ifile)
             ifile.close()
-            (baseline_predictions_c, results) = objects
+            (baseline_predictions_c, _) = objects
             baseline_predictions = sc.parallelize(baseline_predictions_c)\
                     .repartition(args.num_partitions)\
                     .cache()
@@ -750,7 +750,7 @@ def load_or_train_trimmed_recommender(model, args, sc, results, rank, logger,
            model = TrimmedFeatureRecommender.load(fname_model, sc, args.num_partitions)
            logger.debug("Loading %s", fname_results)
            ifile = open(fname_results, "rb")
-           results = pickle.load(ifile)
+           results_ = pickle.load(ifile)
            ifile.close()
     else:
        need_new_model = True
@@ -816,7 +816,7 @@ def compute_or_load_discrete_features(features, indicators, results, logger,
            write_model = False
            logger.debug("Loading %s", fname)
            ifile = open(fname, "rb")
-           (features_c, indicators_c, feature_bin_centers, results) = pickle.load(fname)
+           (features_c, indicators_c, feature_bin_centers, _) = pickle.load(fname)
            ifile.close()
            indicators = sc.parallelize(indicators_c)\
                     .repartition(args.num_partitions)\
@@ -981,8 +981,8 @@ def internal_feature_predictor(sc, training, rank, numIter, lmbda,
             results = pickle.load(ifile)
             ifile.close()
             if "features" in results:
-                logger.debug("{} features already processed: {}".\
-                    format(len(results["features"]), results["features"]))
+                logger.debug("{} features already processed".\
+                    format(len(results["features"])))
             else:
                 logger.debug("No information about features in results")
                 results["features"] = {}
@@ -1012,7 +1012,6 @@ def internal_feature_predictor(sc, training, rank, numIter, lmbda,
         baseline_predictions, results =\
             load_or_build_baseline_predictions(sc, model, power, results,
                     logger, args, training)
-        logger.debug("AAA  baseline_predictions, features: {}".format(results["features"]))
     if args.features_trim_percentile:
         old_model, old_productFeatures, old_userFeatures, model, results =\
             load_or_train_trimmed_recommender(model, args, sc, results, rank,
@@ -1060,7 +1059,6 @@ def internal_feature_predictor(sc, training, rank, numIter, lmbda,
 
     results = compute_or_load_mean_feature_values(args, features, results, logger)
 
-    logger.debug("AAA  mean_feature_values, features: {}".format(results["features"]))
     if args.regression_model == "naive_bayes":
         (features, indicators, feature_bin_centers, results) =\
              compute_or_load_discrete_features(features, indicators, results,
