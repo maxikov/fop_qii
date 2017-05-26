@@ -1,0 +1,162 @@
+Movie: Nightmare Before Christmas, The (1993)
+Real product features: [0.501442015171051, -0.1726270318031311, 0.242436945438385, -0.5980876684188843, 0.9512808322906494, -0.8811215758323669, 0.306609183549881, 0.5110045075416565, -0.009633191861212254, -1.3867721557617188, -0.16543252766132355, -0.13262777030467987]
+Predicted product features: [0.8314756774860952, -0.19829751533651424, 0.342051960863173, -0.3788877640249608, 0.7758074076286431, -0.8845950051460391, 0.4958959863423695, 0.5373036134027943, -0.06469086554205539, -1.3637729768167461, -0.18066769231147334, 0.03073599314250584]
+Rating predicted by the actual recommender: 2.97952034922
+Rating predicted from product features estimated with regression: 3.34856471784
+Features (from most to least influential):
+Product feature: 9
+Influence on the rating: 1.46956449794
+Actual value: -1.38677215576
+Predicted value: -1.36377297682
+Prediction branch:
+  If (Is imdb_keywords:black-comedy)
+   If (Isn't imdb_keywords:explosion)
+    If (average_rating > 2.1875)
+     If (Isn't imdb_keywords:public-nudity)
+      If (Isn't imdb_keywords:female-nudity)
+       Predict: -1.3637729768167461
+
+
+Product feature: 5
+Influence on the rating: 1.4110797902
+Actual value: -0.881121575832
+Predicted value: -0.884595005146
+Prediction branch:
+  If (Isn't imdb_keywords:friend)
+   If (Isn't imdb_keywords:fight)
+    If (Isn't imdb_keywords:betrayal)
+     If (Isn't movielens_genre:Action)
+      If (average_rating > 3.272727272727273)
+       Predict: -0.8845950051460391
+
+
+Product feature: 8
+Influence on the rating: 1.26808824912
+Actual value: -0.00963319186121
+Predicted value: -0.0646908655421
+Prediction branch:
+  If (Isn't imdb_keywords:money)
+   If (Isn't imdb_keywords:police)
+    If (Isn't imdb_keywords:knife)
+     If (Isn't imdb_keywords:friend)
+      If (Isn't imdb_keywords:betrayal)
+       Predict: -0.06469086554205539
+
+
+Product feature: 3
+Influence on the rating: 1.26563688155
+Actual value: -0.598087668419
+Predicted value: -0.378887764025
+Prediction branch:
+  If (Isn't imdb_keywords:betrayal)
+   If (Isn't imdb_keywords:police)
+    If (Isn't imdb_keywords:shot-to-death)
+     If (Is imdb_keywords:black-comedy)
+      If (year > 1968.0)
+       Predict: -0.3788877640249608
+
+
+Product feature: 10
+Influence on the rating: 1.24434533434
+Actual value: -0.165432527661
+Predicted value: -0.180667692311
+Prediction branch:
+  If (Isn't imdb_keywords:money)
+   If (Isn't imdb_keywords:gun)
+    If (Isn't imdb_keywords:police)
+     If (Isn't imdb_keywords:female-nudity)
+      If (Is imdb_keywords:corpse)
+       Predict: -0.18066769231147334
+
+
+Product feature: 7
+Influence on the rating: 1.22522868822
+Actual value: 0.511004507542
+Predicted value: 0.537303613403
+Prediction branch:
+  If (Is imdb_keywords:black-comedy)
+   If (Isn't imdb_keywords:shot-to-death)
+    If (Isn't imdb_keywords:betrayal)
+     If (Isn't imdb_keywords:jail)
+      If (Isn't imdb_keywords:friend)
+       Predict: 0.5373036134027943
+
+
+Product feature: 4
+Influence on the rating: 1.11905592236
+Actual value: 0.951280832291
+Predicted value: 0.775807407629
+Prediction branch:
+  If (Isn't imdb_keywords:doctor)
+   If (Isn't imdb_keywords:police)
+    If (Isn't imdb_keywords:boyfriend-girlfriend-relationship)
+     If (Isn't imdb_keywords:female-nudity)
+      If (Isn't movielens_genre:Action)
+       Predict: 0.7758074076286431
+
+
+Product feature: 6
+Influence on the rating: 1.06680336748
+Actual value: 0.30660918355
+Predicted value: 0.495895986342
+Prediction branch:
+  If (Is imdb_keywords:black-comedy)
+   If (Isn't imdb_keywords:explosion)
+    If (Isn't imdb_keywords:money)
+     If (Isn't imdb_keywords:surprise-ending)
+      If (Isn't imdb_keywords:opening-action-scene)
+       Predict: 0.4958959863423695
+
+
+Product feature: 1
+Influence on the rating: 0.999182011194
+Actual value: -0.172627031803
+Predicted value: -0.198297515337
+Prediction branch:
+  If (Is imdb_keywords:corpse)
+   If (Isn't imdb_keywords:male-nudity)
+    If (Isn't imdb_keywords:boyfriend-girlfriend-relationship)
+     If (Isn't imdb_keywords:female-nudity)
+      If (Isn't imdb_keywords:money)
+       Predict: -0.19829751533651424
+
+
+Product feature: 11
+Influence on the rating: 0.99670944017
+Actual value: -0.132627770305
+Predicted value: 0.0307359931425
+Prediction branch:
+  If (Isn't imdb_keywords:gun)
+   If (Isn't imdb_keywords:female-nudity)
+    If (Is imdb_keywords:corpse)
+     If (Isn't movielens_genre:Horror)
+      If (Isn't imdb_keywords:police)
+       Predict: 0.03073599314250584
+
+
+Product feature: 2
+Influence on the rating: 0.986879436422
+Actual value: 0.242436945438
+Predicted value: 0.342051960863
+Prediction branch:
+  If (Isn't imdb_keywords:gun)
+   If (Isn't imdb_keywords:surprise-ending)
+    If (Isn't imdb_keywords:character-name-in-title)
+     If (Isn't imdb_keywords:female-nudity)
+      If (Isn't movielens_genre:Action)
+       Predict: 0.342051960863173
+
+
+Product feature: 0
+Influence on the rating: 0.456879828243
+Actual value: 0.501442015171
+Predicted value: 0.831475677486
+Prediction branch:
+  If (Isn't imdb_keywords:male-nudity)
+   If (Is imdb_keywords:corpse)
+    If (Isn't imdb_keywords:surprise-ending)
+     If (Isn't movielens_genre:Action)
+      If (Isn't imdb_keywords:police)
+       Predict: 0.8314756774860952
+
+
