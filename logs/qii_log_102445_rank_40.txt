@@ -1,0 +1,526 @@
+Movie: Star Trek Into Darkness (2013)
+Real product features: [0.18182611465454102, -0.20916178822517395, -0.27446624636650085, -0.03923657536506653, 0.4000970125198364, -0.3819641172885895, -0.38254085183143616, 0.5926553010940552, -0.26960548758506775, 0.7387630343437195, 0.07594212144613266, -0.7716721892356873, -0.5772404670715332, 0.20302441716194153, -0.040700241923332214, 0.27751830220222473, 0.1190653070807457, 0.07844600826501846, -0.6007139086723328, 0.3060854971408844, -0.0722738578915596, 0.4345516264438629, -0.4677811563014984, 0.16847775876522064, -0.37775444984436035, 0.559666633605957, -0.34817495942115784, 0.023962797597050667, -0.6559407711029053, -0.18379496037960052, 0.816628098487854, 1.0251526832580566, 0.040756743401288986, 0.26268506050109863, 0.03838631510734558, 0.04722202941775322, -0.27872124314308167, 0.4193063974380493, 0.20550982654094696, 0.16621172428131104]
+Predicted product features: [0.04225139836359672, -0.1574689813635566, -0.23349001861520505, 0.10974214429661033, -0.002895613006768289, -0.20505664080838565, -0.5454776594694531, 0.5137337573937008, -0.43745826307887936, 0.5473260866710916, 0.16086895444563457, -0.5501767935918627, -0.6064834423770998, 0.20494669115170835, -0.05541555592272845, 0.12662618465774433, -0.08788119559433948, -0.0014079321983564248, -0.21425412201420227, 0.3000732229857053, -0.025885222157128823, 0.34375780150294305, -0.5962085039131542, -0.16899868599402026, -0.13516751255586065, 0.4890034939029387, -0.2152404187022355, 0.3099806828137774, -0.4881887133713932, 0.15048544217939847, 0.25138177694702074, 0.832361329685558, 0.0861102343299129, 0.22216194694625183, -0.0652959356084466, 0.10488537918540784, 0.19612101878282492, 0.17716168928639311, 0.2639506319809356, -0.1427922285028246]
+Rating predicted by the actual recommender: 3.55262744347
+Rating predicted from product features estimated with regression: 3.7010943997
+Features (from most to least influential):
+Product feature: 12
+Influence on the rating: 7.68320631813
+Actual value: -0.577240467072
+Predicted value: -0.606483442377
+Prediction branch:
+  If (average_rating > 3.2883035855315117)
+   If (year > 1992.0)
+    If (Isn't movielens_tags:funny)
+     If (Isn't imdb_keywords:masturbation)
+      If (year > 2006.0)
+       Predict: -0.6064834423770998
+
+
+Product feature: 11
+Influence on the rating: 7.67743939761
+Actual value: -0.771672189236
+Predicted value: -0.550176793592
+Prediction branch:
+  If (average_rating > 3.2480300859598854)
+   If (Isn't movielens_genre:Crime)
+    If (Isn't imdb_keywords:adultery)
+     If (Isn't imdb_keywords:teen-angst)
+      If (Isn't movielens_genre:Thriller)
+       Predict: -0.5501767935918627
+
+
+Product feature: 19
+Influence on the rating: 7.66367616384
+Actual value: 0.306085497141
+Predicted value: 0.300073222986
+Prediction branch:
+  If (year > 1985.0)
+   If (average_rating > 3.2883035855315117)
+    If (Isn't imdb_keywords:gore)
+     If (Isn't imdb_keywords:male-nudity)
+      If (Isn't movielens_tags:comedy)
+       Predict: 0.3000732229857053
+
+
+Product feature: 25
+Influence on the rating: 7.65295759221
+Actual value: 0.559666633606
+Predicted value: 0.489003493903
+Prediction branch:
+  If (year > 2007.0)
+   If (Is movielens_genre:Action)
+    If (Isn't imdb_keywords:bed)
+     If (average_rating > 2.5229007633587788)
+      If (Isn't imdb_keywords:army)
+       Predict: 0.4890034939029387
+
+
+Product feature: 7
+Influence on the rating: 7.64904768562
+Actual value: 0.592655301094
+Predicted value: 0.513733757394
+Prediction branch:
+  If (Isn't movielens_genre:Horror)
+   If (Is imdb_keywords:blockbuster)
+    If (Is movielens_tags:franchise)
+     If (Isn't movielens_genre:Comedy)
+      If (Is imdb_keywords:stabbed-in-the-chest)
+       Predict: 0.5137337573937008
+
+
+Product feature: 1
+Influence on the rating: 7.64636474062
+Actual value: -0.209161788225
+Predicted value: -0.157468981364
+Prediction branch:
+  If (Is movielens_genre:Action)
+   If (average_rating > 3.7232704402515724)
+    If (Isn't movielens_genre:Animation)
+     If (Is imdb_keywords:exploding-building)
+      If (Isn't movielens_tags:Bob*ola)
+       Predict: -0.1574689813635566
+
+
+Product feature: 15
+Influence on the rating: 7.64258399755
+Actual value: 0.277518302202
+Predicted value: 0.126626184658
+Prediction branch:
+  If (Is imdb_keywords:blockbuster)
+   If (Isn't imdb_keywords:farce)
+    If (Isn't movielens_tags:less than 300 ratings)
+     If (Isn't imdb_keywords:bikini)
+      If (Isn't imdb_keywords:wristwatch)
+       Predict: 0.12662618465774433
+
+
+Product feature: 39
+Influence on the rating: 7.63436155612
+Actual value: 0.166211724281
+Predicted value: -0.142792228503
+Prediction branch:
+  If (average_rating > 3.8131711036279308)
+   If (Isn't imdb_keywords:slow-motion-scene)
+    If (Isn't imdb_keywords:crying)
+     If (Isn't imdb_keywords:nipples)
+      If (Isn't imdb_keywords:little-boy)
+       Predict: -0.1427922285028246
+
+
+Product feature: 29
+Influence on the rating: 7.63177985245
+Actual value: -0.18379496038
+Predicted value: 0.150485442179
+Prediction branch:
+  If (average_rating > 3.4532085561497325)
+   If (year > 1956.0)
+    If (average_rating <= 3.9245495495495497)
+     If (year > 2003.0)
+      If (Isn't imdb_keywords:premarital-sex)
+       Predict: 0.15048544217939847
+
+
+Product feature: 10
+Influence on the rating: 7.63116609761
+Actual value: 0.0759421214461
+Predicted value: 0.160868954446
+Prediction branch:
+  If (average_rating > 3.3732394366197185)
+   If (year > 2005.0)
+    If (Is imdb_keywords:shot-to-death)
+     If (year > 2011.0)
+      If (Is imdb_keywords:boyfriend-girlfriend-relationship)
+       Predict: 0.16086895444563457
+
+
+Product feature: 14
+Influence on the rating: 7.6186906417
+Actual value: -0.0407002419233
+Predicted value: -0.0554155559227
+Prediction branch:
+  If (average_rating > 3.6345755693581783)
+   If (year > 1975.0)
+    If (Isn't imdb_keywords:long-take)
+     If (year > 2010.0)
+      If (Isn't imdb_keywords:telephone-call)
+       Predict: -0.05541555592272845
+
+
+Product feature: 27
+Influence on the rating: 7.61793323029
+Actual value: 0.0239627975971
+Predicted value: 0.309980682814
+Prediction branch:
+  If (year > 1990.0)
+   If (Is imdb_keywords:blockbuster)
+    If (Is imdb_keywords:sequel)
+     If (Isn't imdb_keywords:secret)
+      If (Isn't imdb_keywords:general)
+       Predict: 0.3099806828137774
+
+
+Product feature: 38
+Influence on the rating: 7.61128878895
+Actual value: 0.205509826541
+Predicted value: 0.263950631981
+Prediction branch:
+  If (Isn't movielens_genre:Horror)
+   If (year > 2002.0)
+    If (Isn't imdb_keywords:mexico)
+     If (Isn't movielens_tags:disturbing)
+      If (Isn't imdb_keywords:heroin)
+       Predict: 0.2639506319809356
+
+
+Product feature: 16
+Influence on the rating: 7.59924800085
+Actual value: 0.119065307081
+Predicted value: -0.0878811955943
+Prediction branch:
+  If (Isn't movielens_genre:Horror)
+   If (year > 1982.0)
+    If (Isn't movielens_genre:Comedy)
+     If (Isn't imdb_keywords:1940s)
+      If (Isn't imdb_keywords:madness)
+       Predict: -0.08788119559433948
+
+
+Product feature: 33
+Influence on the rating: 7.594950892
+Actual value: 0.262685060501
+Predicted value: 0.222161946946
+Prediction branch:
+  If (average_rating > 3.4925373134328357)
+   If (Isn't imdb_keywords:surrealism)
+    If (Isn't movielens_tags:CLV)
+     If (Isn't tvtropes:very loosely based on a true story)
+      If (Isn't movielens_tags:politics)
+       Predict: 0.22216194694625183
+
+
+Product feature: 3
+Influence on the rating: 7.59302026478
+Actual value: -0.0392365753651
+Predicted value: 0.109742144297
+Prediction branch:
+  If (average_rating > 3.2017129356172473)
+   If (year > 2001.0)
+    If (Isn't movielens_genre:Musical)
+     If (Isn't imdb_keywords:catholic)
+      If (Isn't imdb_keywords:security-guard)
+       Predict: 0.10974214429661033
+
+
+Product feature: 22
+Influence on the rating: 7.59114748534
+Actual value: -0.467781156301
+Predicted value: -0.596208503913
+Prediction branch:
+  If (average_rating > 3.2017129356172473)
+   If (year > 1982.0)
+    If (average_rating > 3.5168621700879767)
+     If (Isn't movielens_genre:Romance)
+      If (Isn't movielens_genre:Crime)
+       Predict: -0.5962085039131542
+
+
+Product feature: 5
+Influence on the rating: 7.58415453167
+Actual value: -0.381964117289
+Predicted value: -0.205056640808
+Prediction branch:
+  If (Isn't movielens_genre:Comedy)
+   If (Isn't movielens_genre:Horror)
+    If (Isn't imdb_keywords:hero)
+     If (Isn't imdb_keywords:espionage)
+      If (Isn't imdb_keywords:cafe)
+       Predict: -0.20505664080838565
+
+
+Product feature: 18
+Influence on the rating: 7.58056815927
+Actual value: -0.600713908672
+Predicted value: -0.214254122014
+Prediction branch:
+  If (average_rating > 3.0)
+   If (year > 2000.0)
+    If (Isn't movielens_genre:Drama)
+     If (average_rating > 3.156862745098039)
+      If (Isn't movielens_genre:Fantasy)
+       Predict: -0.21425412201420227
+
+
+Product feature: 23
+Influence on the rating: 7.56294288251
+Actual value: 0.168477758765
+Predicted value: -0.168998685994
+Prediction branch:
+  If (Isn't imdb_keywords:surrealism)
+   If (Isn't movielens_genre:Comedy)
+    If (year > 1998.0)
+     If (year > 2007.0)
+      If (Isn't imdb_keywords:rage)
+       Predict: -0.16899868599402026
+
+
+Product feature: 13
+Influence on the rating: 7.55573702732
+Actual value: 0.203024417162
+Predicted value: 0.204946691152
+Prediction branch:
+  If (year > 1971.0)
+   If (average_rating > 3.156862745098039)
+    If (Is imdb_keywords:blockbuster)
+     If (Isn't movielens_tags:sci-fi)
+      If (Isn't movielens_genre:Fantasy)
+       Predict: 0.20494669115170835
+
+
+Product feature: 35
+Influence on the rating: 7.54739131042
+Actual value: 0.0472220294178
+Predicted value: 0.104885379185
+Prediction branch:
+  If (average_rating > 3.4139966273187183)
+   If (average_rating > 3.765044353871973)
+    If (Isn't imdb_keywords:satire)
+     If (Isn't movielens_genre:Western)
+      If (Isn't imdb_keywords:sex)
+       Predict: 0.10488537918540784
+
+
+Product feature: 21
+Influence on the rating: 7.50259932549
+Actual value: 0.434551626444
+Predicted value: 0.343757801503
+Prediction branch:
+  If (Isn't movielens_genre:Horror)
+   If (Is imdb_keywords:gunfight)
+    If (year > 2005.0)
+     If (Isn't imdb_keywords:character-repeating-someone-else's-dialogue)
+      If (Is movielens_genre:Sci-Fi)
+       Predict: 0.34375780150294305
+
+
+Product feature: 31
+Influence on the rating: 7.49606278535
+Actual value: 1.02515268326
+Predicted value: 0.832361329686
+Prediction branch:
+  If (year > 1997.0)
+   If (average_rating > 3.111111111111111)
+    If (Is imdb_keywords:hand-to-hand-combat)
+     If (Is tvtropes:faux affably evil)
+      If (Isn't imdb_keywords:flower)
+       Predict: 0.832361329685558
+
+
+Product feature: 34
+Influence on the rating: 7.4840782285
+Actual value: 0.0383863151073
+Predicted value: -0.0652959356084
+Prediction branch:
+  If (average_rating > 3.5168621700879767)
+   If (Is movielens_tags:action)
+    If (Is movielens_tags:revenge)
+     If (Isn't tvtropes:determinator)
+      If (Isn't imdb_keywords:pregnancy)
+       Predict: -0.0652959356084466
+
+
+Product feature: 20
+Influence on the rating: 7.46317390916
+Actual value: -0.0722738578916
+Predicted value: -0.0258852221571
+Prediction branch:
+  If (year > 1987.0)
+   If (Is imdb_keywords:death)
+    If (Isn't imdb_keywords:new-york-city)
+     If (Isn't imdb_keywords:memory)
+      If (Isn't imdb_keywords:two-word-title)
+       Predict: -0.025885222157128823
+
+
+Product feature: 36
+Influence on the rating: 7.45928877237
+Actual value: -0.278721243143
+Predicted value: 0.196121018783
+Prediction branch:
+  If (Isn't imdb_keywords:cult-film)
+   If (year > 1996.0)
+    If (average_rating > 2.961988304093567)
+     If (Isn't imdb_keywords:satire)
+      If (Is imdb_keywords:london-england)
+       Predict: 0.19612101878282492
+
+
+Product feature: 0
+Influence on the rating: 7.42304434114
+Actual value: 0.181826114655
+Predicted value: 0.0422513983636
+Prediction branch:
+  If (average_rating > 3.2883035855315117)
+   If (year > 1965.0)
+    If (Isn't movielens_genre:Drama)
+     If (Isn't imdb_keywords:cult-film)
+      If (Isn't tvtropes:shown their work)
+       Predict: 0.04225139836359672
+
+
+Product feature: 30
+Influence on the rating: 7.39174306891
+Actual value: 0.816628098488
+Predicted value: 0.251381776947
+Prediction branch:
+  If (Isn't movielens_genre:Thriller)
+   If (Is movielens_genre:Action)
+    If (Isn't tvtropes:cluster f bomb)
+     If (Isn't imdb_keywords:slapstick-comedy)
+      If (Isn't imdb_keywords:japan)
+       Predict: 0.25138177694702074
+
+
+Product feature: 8
+Influence on the rating: 7.38317276389
+Actual value: -0.269605487585
+Predicted value: -0.437458263079
+Prediction branch:
+  If (Isn't movielens_genre:Horror)
+   If (Isn't imdb_keywords:female-frontal-nudity)
+    If (Isn't imdb_keywords:gay)
+     If (year > 1971.0)
+      If (Isn't imdb_keywords:chinese)
+       Predict: -0.43745826307887936
+
+
+Product feature: 17
+Influence on the rating: 7.38261715712
+Actual value: 0.078446008265
+Predicted value: -0.00140793219836
+Prediction branch:
+  If (Isn't movielens_genre:Drama)
+   If (year > 1994.0)
+    If (average_rating > 3.2883035855315117)
+     If (Isn't imdb_keywords:crying)
+      If (Isn't imdb_keywords:mountain)
+       Predict: -0.0014079321983564248
+
+
+Product feature: 26
+Influence on the rating: 7.33930194232
+Actual value: -0.348174959421
+Predicted value: -0.215240418702
+Prediction branch:
+  If (Is imdb_keywords:hand-to-hand-combat)
+   If (year > 1990.0)
+    If (Is imdb_keywords:sequel)
+     If (Isn't tvtropes:eye scream)
+      If (Isn't movielens_tags:crime)
+       Predict: -0.2152404187022355
+
+
+Product feature: 24
+Influence on the rating: 7.27002594591
+Actual value: -0.377754449844
+Predicted value: -0.135167512556
+Prediction branch:
+  If (year > 1992.0)
+   If (Is imdb_keywords:blockbuster)
+    If (Isn't movielens_genre:Thriller)
+     If (Isn't imdb_keywords:gas-station)
+      If (Isn't imdb_keywords:aunt-niece-relationship)
+       Predict: -0.13516751255586065
+
+
+Product feature: 9
+Influence on the rating: 7.26610969011
+Actual value: 0.738763034344
+Predicted value: 0.547326086671
+Prediction branch:
+  If (Is movielens_genre:Action)
+   If (Is imdb_keywords:monster)
+    If (Isn't imdb_keywords:silencer)
+     If (Isn't imdb_keywords:anger)
+      If (Isn't imdb_keywords:redemption)
+       Predict: 0.5473260866710916
+
+
+Product feature: 28
+Influence on the rating: 7.25892887911
+Actual value: -0.655940771103
+Predicted value: -0.488188713371
+Prediction branch:
+  If (average_rating > 2.824074074074074)
+   If (year > 1992.0)
+    If (Isn't imdb_keywords:f-rated)
+     If (average_rating > 3.7232704402515724)
+      If (Isn't imdb_keywords:gay-kiss)
+       Predict: -0.4881887133713932
+
+
+Product feature: 2
+Influence on the rating: 7.20357892595
+Actual value: -0.274466246367
+Predicted value: -0.233490018615
+Prediction branch:
+  If (average_rating > 3.5168621700879767)
+   If (Isn't movielens_genre:Children)
+    If (Isn't imdb_keywords:cigarette-smoking)
+     If (Isn't movielens_genre:Comedy)
+      If (Is movielens_genre:Sci-Fi)
+       Predict: -0.23349001861520505
+
+
+Product feature: 4
+Influence on the rating: 7.17875744625
+Actual value: 0.40009701252
+Predicted value: -0.00289561300677
+Prediction branch:
+  If (Isn't movielens_genre:Horror)
+   If (average_rating > 3.6739130434782608)
+    If (Is imdb_keywords:murder)
+     If (Isn't movielens_tags:politics)
+      If (Isn't imdb_keywords:france)
+       Predict: -0.002895613006768289
+
+
+Product feature: 32
+Influence on the rating: 7.08523124322
+Actual value: 0.0407567434013
+Predicted value: 0.0861102343299
+Prediction branch:
+  If (Isn't imdb_keywords:sex)
+   If (Isn't movielens_genre:Drama)
+    If (Isn't movielens_genre:Children)
+     If (Is tvtropes:foreshadowing)
+      If (Isn't imdb_keywords:white-panties)
+       Predict: 0.0861102343299129
+
+
+Product feature: 37
+Influence on the rating: 6.92739034616
+Actual value: 0.419306397438
+Predicted value: 0.177161689286
+Prediction branch:
+  If (average_rating > 3.0661222339304532)
+   If (Is movielens_genre:Action)
+    If (Isn't imdb_keywords:based-on-comic-book)
+     If (Isn't imdb_keywords:mother-daughter-relationship)
+      If (Isn't imdb_keywords:blood)
+       Predict: 0.17716168928639311
+
+
+Product feature: 6
+Influence on the rating: 6.54006310299
+Actual value: -0.382540851831
+Predicted value: -0.545477659469
+Prediction branch:
+  If (year > 1975.0)
+   If (Isn't movielens_tags:nudity (full frontal))
+    If (Isn't imdb_keywords:female-nudity)
+     If (Isn't imdb_keywords:blood-splatter)
+      If (Isn't imdb_keywords:lifting-someone-into-the-air)
+       Predict: -0.5454776594694531
+
+
