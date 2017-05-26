@@ -1,0 +1,162 @@
+Movie: Star Trek Into Darkness (2013)
+Real product features: [0.345996618270874, 0.8205808401107788, 0.18424470722675323, -0.09055448323488235, 0.7836925387382507, -0.019679004326462746, 0.15582412481307983, 0.12815935909748077, 0.5666410326957703, 0.029207337647676468, -0.8665985465049744, -1.5917606353759766]
+Predicted product features: [0.23827542401429813, 0.9895980790421203, 0.29481060890590444, -0.18724393485937937, 0.6833266645669938, -0.039671492443398335, 0.012486458644603512, 0.2422762171538066, 0.65435433853989, -0.03072575030846228, -0.7716790145823678, -1.5617265125800823]
+Rating predicted by the actual recommender: 3.88829614215
+Rating predicted from product features estimated with regression: 4.03286705065
+Features (from most to least influential):
+Product feature: 1
+Influence on the rating: 3.9925921331
+Actual value: 0.820580840111
+Predicted value: 0.989598079042
+Prediction branch:
+  If (average_rating > 3.2551020408163267)
+   If (average_rating > 3.5753968253968256)
+    If (Is movielens_tags:imdb top 250)
+     If (year > 1965.0)
+      If (Isn't movielens_tags:memasa's movies)
+       Predict: 0.9895980790421203
+
+
+Product feature: 9
+Influence on the rating: 3.88478654479
+Actual value: 0.0292073376477
+Predicted value: -0.0307257503085
+Prediction branch:
+  If (Isn't movielens_tags:comedy)
+   If (average_rating > 3.608108108108108)
+    If (Is movielens_genre:Action)
+     If (Isn't imdb_keywords:gambling)
+      If (Isn't imdb_keywords:forest)
+       Predict: -0.03072575030846228
+
+
+Product feature: 4
+Influence on the rating: 3.81014041446
+Actual value: 0.783692538738
+Predicted value: 0.683326664567
+Prediction branch:
+  If (average_rating > 3.2996845425867507)
+   If (Is movielens_genre:Action)
+    If (Is movielens_tags:action)
+     If (Is imdb_keywords:outer-space)
+      If (Isn't movielens_tags:CLV)
+       Predict: 0.6833266645669938
+
+
+Product feature: 6
+Influence on the rating: 3.80580928872
+Actual value: 0.155824124813
+Predicted value: 0.0124864586446
+Prediction branch:
+  If (Isn't movielens_genre:Horror)
+   If (Isn't imdb_keywords:cult-film)
+    If (Is movielens_genre:Sci-Fi)
+     If (Isn't imdb_keywords:based-on-play)
+      If (Isn't movielens_tags:music)
+       Predict: 0.012486458644603512
+
+
+Product feature: 7
+Influence on the rating: 3.79712556784
+Actual value: 0.128159359097
+Predicted value: 0.242276217154
+Prediction branch:
+  If (Is movielens_genre:Action)
+   If (year > 1999.0)
+    If (Isn't imdb_keywords:female-nudity)
+     If (Isn't movielens_genre:Comedy)
+      If (Is imdb_keywords:action-hero)
+       Predict: 0.2422762171538066
+
+
+Product feature: 3
+Influence on the rating: 3.73817336173
+Actual value: -0.0905544832349
+Predicted value: -0.187243934859
+Prediction branch:
+  If (Isn't movielens_genre:Thriller)
+   If (year > 1974.0)
+    If (Isn't imdb_keywords:pistol)
+     If (Isn't imdb_keywords:anger)
+      If (Isn't imdb_keywords:song)
+       Predict: -0.18724393485937937
+
+
+Product feature: 8
+Influence on the rating: 3.47511741378
+Actual value: 0.566641032696
+Predicted value: 0.65435433854
+Prediction branch:
+  If (year > 1992.0)
+   If (Isn't movielens_genre:Comedy)
+    If (average_rating > 3.460526315789474)
+     If (Isn't movielens_genre:Romance)
+      If (year > 1997.0)
+       Predict: 0.65435433853989
+
+
+Product feature: 5
+Influence on the rating: 3.30675967639
+Actual value: -0.0196790043265
+Predicted value: -0.0396714924434
+Prediction branch:
+  If (Is movielens_genre:Action)
+   If (year > 1987.0)
+    If (average_rating > 3.497716894977169)
+     If (Isn't imdb_keywords:catholic-church)
+      If (Is tvtropes:oh crap)
+       Predict: -0.039671492443398335
+
+
+Product feature: 10
+Influence on the rating: 3.19266641591
+Actual value: -0.866598546505
+Predicted value: -0.771679014582
+Prediction branch:
+  If (year > 1999.0)
+   If (average_rating > 3.3846153846153846)
+    If (Isn't imdb_keywords:blood-splatter)
+     If (Isn't imdb_keywords:mayor)
+      If (average_rating > 3.5753968253968256)
+       Predict: -0.7716790145823678
+
+
+Product feature: 0
+Influence on the rating: 3.18458349045
+Actual value: 0.345996618271
+Predicted value: 0.238275424014
+Prediction branch:
+  If (year > 1992.0)
+   If (Isn't movielens_genre:Horror)
+    If (Isn't imdb_keywords:panties)
+     If (average_rating > 2.6711409395973154)
+      If (Isn't imdb_keywords:gay-slur)
+       Predict: 0.23827542401429813
+
+
+Product feature: 2
+Influence on the rating: 3.0795414418
+Actual value: 0.184244707227
+Predicted value: 0.294810608906
+Prediction branch:
+  If (Isn't movielens_genre:Horror)
+   If (Is imdb_keywords:blockbuster)
+    If (Is movielens_genre:Action)
+     If (Is imdb_keywords:exploding-body)
+      If (Isn't movielens_tags:atmospheric)
+       Predict: 0.29481060890590444
+
+
+Product feature: 11
+Influence on the rating: 2.68792523448
+Actual value: -1.59176063538
+Predicted value: -1.56172651258
+Prediction branch:
+  If (average_rating > 3.1221628838451267)
+   If (Isn't imdb_keywords:female-nudity)
+    If (year > 2008.0)
+     If (Is movielens_genre:Adventure)
+      If (Isn't imdb_keywords:map)
+       Predict: -1.5617265125800823
+
+
