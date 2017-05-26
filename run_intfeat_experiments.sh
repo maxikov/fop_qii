@@ -29,6 +29,8 @@ DROP_RARE_MOVIES=50
 NORMALIZE="" #Must be empty or --normalize
 FEATURE_TRIM_PERCENTILE=90
 
+NAME_SUFFIX=""
+
 function make_commands() {
 	LOG_STATE_NAME="product_regression_all_${REGRESSION_MODEL}_rank_${RANK}"
 	if [ "$REGRESSION_MODEL" == "regression_tree" ]
@@ -39,6 +41,7 @@ function make_commands() {
 	then
 		LOG_STATE_NAME="${LOG_STATE_NAME}_features_trim_percentile_${FEATURE_TRIM_PERCENTILE}"
 	fi
+	LOG_STATE_NAME="${LOG_STATE_NAME}_${NAME_SUFFIX}"
 	PERSIST_DIR="${STATE_TMP_DIR_ROOT}/${LOG_STATE_NAME}.state"
 
 	SPARK_SUBMIT="spark-submit --driver-memory $MEMORY"
@@ -106,9 +109,13 @@ function rank_n_experiments() {
 	local REGRESSION_MODEL="linear"
 	copy_and_run
 }
-FEATURE_TRIM_PERCENTILE=0
-RANK=12
-#run_and_save
+DATA_PATH="datasets/synth_level0"
+MOVIES_FILE="datasets/ml-20m/ml-20m.imdb.medium.csv"
 
-RANK=40
+METADATA_SOURCES="years genres average_rating imdb_keywords imdb_producer imdb_director tvtropes"
+FEATURE_TRIM_PERCENTILE=0
+
+NAME_SUFFIX="synth_level0"
+RANK=3
 run_and_save
+
