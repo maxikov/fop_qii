@@ -1,0 +1,45 @@
+Movie: Nightmare Before Christmas, The (1993)
+Real product features: [1.5614073276519775, -0.21493516862392426, 1.1715364456176758]
+Predicted product features: [1.573911618780006, -0.1973026919189248, 1.1389865164695554]
+Rating predicted by the actual recommender: 2.78588948886
+Rating predicted from product features estimated with regression: 2.7897232661
+Features (from most to least influential):
+Product feature: 0
+Influence on the rating: 1.32288135578
+Actual value: 1.56140732765
+Predicted value: 1.57391161878
+Prediction branch:
+  If (Is imdb_keywords:corpse)
+   If (Isn't imdb_keywords:shot-to-death)
+    If (Isn't imdb_keywords:boxing)
+     If (Isn't imdb_keywords:male-nudity)
+      If (Isn't imdb_keywords:impersonation)
+       Predict: 1.573911618780006
+
+
+Product feature: 2
+Influence on the rating: 1.13748029831
+Actual value: 1.17153644562
+Predicted value: 1.13898651647
+Prediction branch:
+  If (Isn't imdb_keywords:shot-to-death)
+   If (Isn't imdb_keywords:money)
+    If (Isn't imdb_keywords:knife)
+     If (Isn't imdb_keywords:female-nudity)
+      If (Isn't imdb_keywords:betrayal)
+       Predict: 1.1389865164695554
+
+
+Product feature: 1
+Influence on the rating: -0.872441591075
+Actual value: -0.214935168624
+Predicted value: -0.197302691919
+Prediction branch:
+  If (Isn't movielens_genre:Action)
+   If (Isn't imdb_keywords:doctor)
+    If (Isn't imdb_keywords:surprise-ending)
+     If (Isn't imdb_keywords:friend)
+      If (Is imdb_keywords:black-comedy)
+       Predict: -0.1973026919189248
+
+
