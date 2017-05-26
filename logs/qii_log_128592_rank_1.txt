@@ -1,0 +1,19 @@
+Movie: The Boy Next Door (2015)
+Real product features: [-1.636008381843567]
+Predicted product features: [-1.636008381843567]
+Rating predicted by the actual recommender: 3.7435169487
+Rating predicted from product features estimated with regression: 3.7435169487
+Features (from most to least influential):
+Product feature: 0
+Influence on the rating: 0.946763732439
+Actual value: -1.63600838184
+Predicted value: -1.63600838184
+Prediction branch:
+  If (average_rating <= 3.150872817955112)
+   If (average_rating <= 2.6349137931034483)
+    If (average_rating > 2.1041666666666665)
+     If (average_rating <= 2.38125)
+      If (year > 2014.0)
+       Predict: -1.636008381843567
+
+
