@@ -522,7 +522,6 @@ def replace_all_features_with_predicted(sc, features, all_predictions, logger,
             format(features_intact.count(), features.count()))
     joined = features.join(predictions)
     replaced = joined.map(lambda (mid, (feats, preds)): (mid, preds))
-    logger.debug("Joined sample: {}".format(joined.take(1)))
     replaced = replaced.union(features_intact).cache()
     logger.debug("Done in {} seconds".format(time.time() - start))
     return replaced
@@ -549,7 +548,7 @@ def compare_with_all_replaced_features(sc, features, other_features,
     logger.debug("Computing predictions of the model with all "+\
         "replaced features")
     start = time.time()
-    feautres = replace_all_features_with_predicted(sc, features,
+    features = replace_all_features_with_predicted(sc, features,
             all_predicted_features, logger, args)
 
     if user_or_product_features == "product":
@@ -1431,12 +1430,12 @@ def internal_feature_predictor(sc, training, rank, numIter, lmbda,
     if train_ratio <= 0:
         training_movies = all_movies
 
-    #replaced_mean_error_baseline, replaced_rec_eval =\
-            #    compare_with_all_replaced_features(sc, features_original_training, other_features,\
-            #user_or_product_features, all_predicted_features, rank,\
-            #baseline_predictions_training, logger, power, args)
-    #results["all_replaced_mean_error_baseline"] = replaced_mean_error_baseline
-    #results["all_replaced_rec_eval"] = replaced_rec_eval
+    replaced_mean_error_baseline, replaced_rec_eval =\
+                compare_with_all_replaced_features(sc, features_original_training, other_features,\
+            user_or_product_features, all_predicted_features, rank,\
+            baseline_predictions_training, logger, power, args)
+    results["all_replaced_mean_error_baseline"] = replaced_mean_error_baseline
+    results["all_replaced_rec_eval"] = replaced_rec_eval
     results["all_random_rec_eval"] = compare_with_all_randomized(\
         sc, model, rank, training_movies, baseline_predictions_training,\
         logger, power, args)
