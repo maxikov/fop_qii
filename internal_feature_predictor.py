@@ -491,6 +491,42 @@ def replace_feature_with_predicted(features, f, predictions, logger):
     logger.debug("Done in {} seconds".format(time.time() - start))
     return replaced
 
+def replace_all_features_with_predicted(sc, features, all_predictions, logger,
+                                        args):
+    logger.debug("Replacing all original features "+\
+            "with predicted values")
+    start = time.time()
+    logger.debug("Creating predictions RDD")
+    rank = len(all_predictions)
+    predictions = None
+    for f in xrange(rank):
+        logger.debug("Adding feature {}".format(f))
+        cur_data = dict(all_predictions[f].map(lambda (x, y): (x, [y])).collect())
+        if predictions is None:
+            predictions = cur_data
+        else:
+            predictions = common_utils.dict_join(predictions,
+                                                 cur_data,
+                                                 join_f = lambda x, y: x+y)
+    logger.debug("Predictions for {} products created".format(len(predictions)))
+    logger.debug("Turning into an RDD")
+    predictions =\
+        sc.parallelize(predictions.items()).repartition(args.num_partitions).cache()
+    features_ids = set(features.keys().collect())
+    predictions_ids = set(predictions.keys().collect())
+    not_predicted_ids = features_ids - predictions_ids
+    filter_f = functools.partial(lambda not_predicted_ids, x: x[0] in
+            not_predicted_ids, not_predicted_ids)
+    features_intact = features.filter(filter_f)
+    logger.debug("No predictions for {} items out of {}, leaving as is".\
+            format(features_intact.count(), features.count()))
+    joined = features.join(predictions)
+    replaced = joined.map(lambda (mid, (feats, preds)): (mid, preds))
+    logger.debug("Joined sample: {}".format(joined.take(1)))
+    replaced = replaced.union(features_intact).cache()
+    logger.debug("Done in {} seconds".format(time.time() - start))
+    return replaced
+
 def compare_baseline_to_replaced(baseline_predictions, uf, pf, logger, power):
     start = time.time()
     replaced_predictions = common_utils.manual_predict_all(\
@@ -505,7 +541,7 @@ def compare_baseline_to_replaced(baseline_predictions, uf, pf, logger, power):
     logger.debug("Done in %f seconds", time.time() - start)
     return replaced_mean_error_baseline, replaced_predictions
 
-def compare_with_all_replaced_features(features, other_features,
+def compare_with_all_replaced_features(sc, features, other_features,
                                        user_or_product_features,
                                        all_predicted_features, rank,
                                        baseline_predictions, logger, power,
@@ -513,11 +549,8 @@ def compare_with_all_replaced_features(features, other_features,
     logger.debug("Computing predictions of the model with all "+\
         "replaced features")
     start = time.time()
-    for f in xrange(rank):
-        logger.debug("Replacing feature %d", f)
-        features = replace_feature_with_predicted(features, f,
-                                                   all_predicted_features[f],
-                                                   logger)
+    feautres = replace_all_features_with_predicted(sc, features,
+            all_predicted_features, logger, args)
 
     if user_or_product_features == "product":
         uf, pf = other_features, features
@@ -538,13 +571,13 @@ def compare_with_all_replaced_features(features, other_features,
     logger.debug("Done in %f seconds", time.time() - start)
     return replaced_mean_error_baseline, replaced_rec_eval
 
-def compare_with_all_randomized(baseline_model, rank, perturbed_subset,
+def compare_with_all_randomized(sc, baseline_model, rank, perturbed_subset,
                                 baseline_predictions, logger, power,
                                 args):
     logger.debug("Evaluating a completely randomized model")
     start = time.time()
     model = RandomizedRecommender.RandomizedRecommender(\
-        baseline_model, rank, perturbed_subset, logger)
+        sc, baseline_model, rank, perturbed_subset, logger)
     model.randomize()
     randomized_predictions = model.predictAll(baseline_predictions)
     replaced_rec_eval =\
@@ -1398,25 +1431,25 @@ def internal_feature_predictor(sc, training, rank, numIter, lmbda,
     if train_ratio <= 0:
         training_movies = all_movies
 
-    replaced_mean_error_baseline, replaced_rec_eval =\
-        compare_with_all_replaced_features(features_original_training, other_features,\
-            user_or_product_features, all_predicted_features, rank,\
-            baseline_predictions_training, logger, power, args)
-    results["all_replaced_mean_error_baseline"] = replaced_mean_error_baseline
-    results["all_replaced_rec_eval"] = replaced_rec_eval
+    #replaced_mean_error_baseline, replaced_rec_eval =\
+            #    compare_with_all_replaced_features(sc, features_original_training, other_features,\
+            #user_or_product_features, all_predicted_features, rank,\
+            #baseline_predictions_training, logger, power, args)
+    #results["all_replaced_mean_error_baseline"] = replaced_mean_error_baseline
+    #results["all_replaced_rec_eval"] = replaced_rec_eval
     results["all_random_rec_eval"] = compare_with_all_randomized(\
-        model, rank, training_movies, baseline_predictions_training,\
+        sc, model, rank, training_movies, baseline_predictions_training,\
         logger, power, args)
 
     if train_ratio > 0:
         replaced_mean_error_baseline, replaced_rec_eval =\
-            compare_with_all_replaced_features(features_original_test, other_features,\
+            compare_with_all_replaced_features(sc, features_original_test, other_features,\
                 user_or_product_features, all_predicted_features_test, rank,\
                 baseline_predictions_test, logger, power, args)
         results["all_replaced_mean_error_baseline_test"] = replaced_mean_error_baseline
         results["all_replaced_rec_eval_test"] = replaced_rec_eval
         results["all_random_rec_eval_test"] = compare_with_all_randomized(\
-            model, rank, test_movies, baseline_predictions_test,\
+            sc, model, rank, test_movies, baseline_predictions_test,\
             logger, power, args)
     if args.persist_dir is not None:
         fname = os.path.join(args.persist_dir, "results.pkl")

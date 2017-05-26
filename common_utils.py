@@ -14,6 +14,11 @@ from pyspark.mllib.evaluation import RegressionMetrics,\
 #numpy library
 import numpy as np
 
+def dict_join(foo, bar, join_f = lambda x, y: (x, y)):
+    keys = set(foo.keys()) & set(bar.keys())
+    res = {key: join_f(foo[key], bar[key]) for key in keys}
+    return res
+
 def drop_rare_movies(features, indicators, nmovies):
     filter_f = functools.partial(
         lambda nmovies, (mid, (ftrs, inds)):
