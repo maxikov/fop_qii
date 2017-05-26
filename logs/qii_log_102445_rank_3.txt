@@ -1,0 +1,45 @@
+Movie: Star Trek Into Darkness (2013)
+Real product features: [-1.3182061910629272, -0.45380380749702454, 1.4390031099319458]
+Predicted product features: [-1.2211143066806178, -0.3175899905946431, 1.6683176040649415]
+Rating predicted by the actual recommender: 4.49146467016
+Rating predicted from product features estimated with regression: 4.75317268534
+Features (from most to least influential):
+Product feature: 1
+Influence on the rating: 1.50748902904
+Actual value: -0.453803807497
+Predicted value: -0.317589990595
+Prediction branch:
+  If (Isn't imdb_keywords:gore)
+   If (Isn't imdb_keywords:female-nudity)
+    If (Is imdb_keywords:blockbuster)
+     If (Isn't movielens_genre:Romance)
+      If (Isn't movielens_genre:Children)
+       Predict: -0.3175899905946431
+
+
+Product feature: 2
+Influence on the rating: 1.44867052213
+Actual value: 1.43900310993
+Predicted value: 1.66831760406
+Prediction branch:
+  If (average_rating > 3.209207300463089)
+   If (average_rating > 3.5714285714285716)
+    If (year > 1971.0)
+     If (average_rating > 3.7293977812995247)
+      If (Is movielens_genre:Action)
+       Predict: 1.6683176040649415
+
+
+Product feature: 0
+Influence on the rating: 0.65743117348
+Actual value: -1.31820619106
+Predicted value: -1.22111430668
+Prediction branch:
+  If (average_rating > 3.4160295930949447)
+   If (Is movielens_genre:Action)
+    If (year > 1982.0)
+     If (Is imdb_keywords:blockbuster)
+      If (Isn't movielens_genre:Animation)
+       Predict: -1.2211143066806178
+
+

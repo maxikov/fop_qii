@@ -1,0 +1,50 @@
+Movie: Barry Munday (2010) ( 98626 ) , error: 0.0864840075092
+Movie: Roads to Koktebel (Koktebel) (2003) ( 43244 ) , error: 0.0946022958186
+Movie: SS Camp 5: Women's Hell (SS Lager 5: L'inferno delle donne) (1977) ( 114764 ) , error: 0.0950348853469
+Movie: Strangers on a Train (1951) ( 2186 ) , error: 0.0963076009329
+Movie: Alexandria... Why? (Iskanderija... lih?) (1979) ( 92174 ) , error: 0.0968457261354
+Movie: Notorious (1946) ( 930 ) , error: 0.0981810962082
+Movie: The Case of the Scorpion's Tail (1971) ( 119699 ) , error: 0.101152503186
+Movie: Better Way to Die, A (2000) ( 102178 ) , error: 0.101323488374
+Movie: Sunset Blvd. (a.k.a. Sunset Boulevard) (1950) ( 922 ) , error: 0.101796791397
+Movie: Forty-first, The (Sorok pervyy) (1956) ( 91589 ) , error: 0.102047730741
+Movie: Assassination (Ansatsu) (Assassination, The) (Assassin, The) (1964) ( 88580 ) , error: 0.102524720954
+Movie: Master, The (Huang Fei Hong jiu er zhi long xing tian xia) (1992) ( 98825 ) , error: 0.102529907357
+Movie: B.T.K. (2008) ( 107840 ) , error: 0.103541325104
+Movie: The Bloodstained Butterfly (1971) ( 118742 ) , error: 0.103889085838
+Movie: Virgin Territory (2007) ( 59116 ) , error: 0.104084327105
+Movie: North by Northwest (1959) ( 908 ) , error: 0.104232994794
+Movie: Young Bess (1953) ( 79083 ) , error: 0.104958486034
+Movie: Now You Know (2002) ( 120282 ) , error: 0.105271518872
+Movie: Un Piede in paradiso (1991) ( 125345 ) , error: 0.105955362345
+Movie: Story of Three Loves, The (1953) ( 82235 ) , error: 0.106389938485
+Movie: Omagh (2004) ( 51886 ) , error: 0.106412790812
+Movie: Last King of Scotland, The (2006) ( 48738 ) , error: 0.106734195095
+Movie: Footprints on the Moon (Le orme) (Primal Impulse) (1975) ( 107370 ) , error: 0.106765541554
+Movie: As Good as Dead (2010) ( 77349 ) , error: 0.107159594646
+Movie: Inside Man (2006) ( 44199 ) , error: 0.107763572117
+Movie: Man Is Not a Bird (Covek nije tica) (1965) ( 96451 ) , error: 0.108016759243
+Movie: Bitter Victory (1957) ( 35050 ) , error: 0.108372499372
+Movie: Reincarnation (2005) ( 54349 ) , error: 0.108469666471
+Movie: Phar Lap (1983) ( 58598 ) , error: 0.10851663242
+Movie: Serpico (1973) ( 3735 ) , error: 0.109023170823
+Movie: All About Eve (1950) ( 926 ) , error: 0.10916187272
+Movie: Empire State (2013) ( 104518 ) , error: 0.109382565141
+Movie: Clapham Junction (2007) ( 89870 ) , error: 0.109691849497
+Movie: Colors of the Mountain, The (Los colores de la montaña) (2010) ( 101984 ) , error: 0.109812290289
+Movie: I Became a Criminal (They Made Me a Fugitive) (1947) ( 86204 ) , error: 0.109842311674
+Movie: Goldfinger (1964) ( 2947 ) , error: 0.109855332577
+Movie: From Russia with Love (1963) ( 2948 ) , error: 0.110441502204
+Movie: Armored Car Robbery (1950) ( 104028 ) , error: 0.111415782881
+Movie: Mysterious Island (2005) ( 74619 ) , error: 0.111792025746
+Movie: Dr. No (1962) ( 2949 ) , error: 0.112082384823
+Movie: Dog Tags (2008) ( 92325 ) , error: 0.112486130268
+Movie: Desert Saints (2002) ( 34004 ) , error: 0.112499998546
+Movie: Good-bye, My Lady (1956) ( 94339 ) , error: 0.112631694235
+Movie: Taste the Blood of Dracula (1970) ( 26214 ) , error: 0.11265773517
+Movie: What Have They Done to Your Daughters? (1974) ( 129378 ) , error: 0.112712135542
+Movie: Himizu (2011) ( 98061 ) , error: 0.112761228962
+Movie: Spy Who Loved Me, The (1977) ( 3635 ) , error: 0.113031077185
+Movie: Tactical Force (2011) ( 121161 ) , error: 0.113479742668
+Movie: Live and Let Die (1973) ( 2991 ) , error: 0.11395246721
+Movie: Man Who Knew Too Much, The (1956) ( 2183 ) , error: 0.114230413517
