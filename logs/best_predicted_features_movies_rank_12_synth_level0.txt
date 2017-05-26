@@ -1,0 +1,50 @@
+Movie: Nightmare Before Christmas, The (1993) ( 551 ) , error: 0.0208955656604
+Movie: Battle Royale (Batoru rowaiaru) (2000) ( 7022 ) , error: 0.0229302370092
+Movie: Identity (2003) ( 6323 ) , error: 0.0270789650176
+Movie: Mystic River (2003) ( 6870 ) , error: 0.0345992412493
+Movie: Behind Enemy Lines (2001) ( 4958 ) , error: 0.0356632967259
+Movie: Mission: Impossible II (2000) ( 3623 ) , error: 0.041080905081
+Movie: Horseman on the Roof, The (Hussard sur le toit, Le) (1995) ( 715 ) , error: 0.0461830043911
+Movie: First Love, Last Rites (1997) ( 2127 ) , error: 0.0462020669209
+Movie: Opera (1987) ( 4794 ) , error: 0.046273207943
+Movie: Stealing Beauty (1996) ( 781 ) , error: 0.0478702618507
+Movie: Happiness (1998) ( 2318 ) , error: 0.0486878380437
+Movie: Nightmare on Elm Street 4: The Dream Master, A (1988) ( 1971 ) , error: 0.0493198212244
+Movie: Hot Spot, The (1990) ( 3765 ) , error: 0.0518309171873
+Movie: Femme Fatale (2002) ( 5809 ) , error: 0.0522427085295
+Movie: U.S. Marshals (1998) ( 1792 ) , error: 0.0539604148481
+Movie: Dirty Dozen, The (1967) ( 2944 ) , error: 0.0540084999036
+Movie: 2001: A Space Odyssey (1968) ( 924 ) , error: 0.0560393964581
+Movie: Scaramouche (1952) ( 6527 ) , error: 0.0562234535213
+Movie: CQ (2001) ( 5390 ) , error: 0.0563060213289
+Movie: Dr. No (1962) ( 2949 ) , error: 0.0565530414995
+Movie: Hero and the Terror (1988) ( 5432 ) , error: 0.0571928412809
+Movie: Evil That Men Do, The (1984) ( 5277 ) , error: 0.0586486871918
+Movie: Pygmalion (1938) ( 7086 ) , error: 0.0591585139523
+Movie: Phantom, The (1996) ( 761 ) , error: 0.0595747785367
+Movie: Street Fighter (1994) ( 393 ) , error: 0.0597062192167
+Movie: Hunted, The (2003) ( 6219 ) , error: 0.0599038224631
+Movie: Private Parts (1997) ( 1476 ) , error: 0.0608595758041
+Movie: Here on Earth (2000) ( 3453 ) , error: 0.0614703432056
+Movie: My Favorite Martian (1999) ( 2498 ) , error: 0.062697649853
+Movie: Toy Story (1995) ( 1 ) , error: 0.0646810864295
+Movie: 40 Days and 40 Nights (2002) ( 5151 ) , error: 0.0656449458979
+Movie: Innocence (2000) ( 4731 ) , error: 0.0679067540896
+Movie: Shadow of a Doubt (1943) ( 2203 ) , error: 0.0696828493039
+Movie: In the Line of Fire (1993) ( 474 ) , error: 0.0700809152021
+Movie: Windtalkers (2002) ( 5420 ) , error: 0.0708061609648
+Movie: Time Machine, The (2002) ( 5171 ) , error: 0.0711166626619
+Movie: xXx (2002) ( 5507 ) , error: 0.0715634393616
+Movie: On Our Merry Way (1948) ( 3778 ) , error: 0.0716469515911
+Movie: Sudden Impact (1983) ( 4957 ) , error: 0.0717731307433
+Movie: L.I.E. (2001) ( 4765 ) , error: 0.0718515566044
+Movie: House of 1000 Corpses (2003) ( 6290 ) , error: 0.072535967655
+Movie: Breakfast of Champions (1999) ( 2507 ) , error: 0.0727059182317
+Movie: Agent Cody Banks 2: Destination London (2004) ( 7345 ) , error: 0.0729488696151
+Movie: Crying Game, The (1992) ( 1094 ) , error: 0.0732160923081
+Movie: Ref, The (1994) ( 514 ) , error: 0.074931738116
+Movie: Last Man, The (2000) ( 5132 ) , error: 0.0754607858357
+Movie: Hell Up in Harlem (1973) ( 4905 ) , error: 0.0772311343146
+Movie: Shadow Magic (2000) ( 4245 ) , error: 0.0773982221131
+Movie: Girls Will Be Girls (2003) ( 6877 ) , error: 0.077842344194
+Movie: William Shakespeare's Romeo + Juliet (1996) ( 1059 ) , error: 0.0783114077642
