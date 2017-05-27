@@ -35,7 +35,11 @@ regression_models = ["regression_tree", "random_forest", "linear",
                      "naive_bayes", "logistic"]
 metadata_sources = ["name", "genres", "tags", "imdb_keywords",
                     "imdb_genres", "imdb_director", "imdb_producer",
-                    "tvtropes", "average_rating", "users", "years"]
+                    "tvtropes", "average_rating", "users", "years",
+                    "imdb_year", "imdb_rating", "imdb_cast",
+                    "imdb_cinematographer", "imdb_composer",
+                    "imdb_languages", "imdb_production_companies",
+                    "imdb_writer"]
 
 def discretize_single_feature(data, nbins, logger):
     """

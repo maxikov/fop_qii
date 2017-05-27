@@ -377,7 +377,83 @@ def main():
                     remove_first_line=remove_first_line
                 )).cache()),
             "loader": (lambda x: parsers_and_loaders.load_users(x, sep=sep))
-        }
+        },
+        {
+            "name": "imdb_year",
+            "src_rdd": (lambda: movies_rdd),
+            "loader": (lambda x: parsers_and_loaders.load_years(x, sep=msep,\
+                parser_function=parsers_and_loaders.parseIMDBYear,
+                    prefix="imdb_year")
+        },
+        {
+            "name": "imdb_rating",
+            "src_rdd": (lambda: movies_rdd),
+            "loader": (lambda x: parsers_and_loaders.load_years(x, sep=msep,\
+                parser_function=parsers_and_loaders.parseIMDBRating,
+                    prefix="imdb_rating")
+        },
+        {
+            "name": "imdb_cast",
+            "src_rdd": (lambda: movies_rdd),
+            "loader": (lambda x: parsers_and_loaders.load_genres(x, sep=msep,\
+                parser_function=\
+                    lambda line, _sep:\
+                        parsers_and_loaders.parseField(line, "imdb_cast", _sep),
+                    prefix="imdb_cast",
+                    drop_threshold=args.drop_rare_features))
+        },
+        {
+            "name": "imdb_cinematographer",
+            "src_rdd": (lambda: movies_rdd),
+            "loader": (lambda x: parsers_and_loaders.load_genres(x, sep=msep,\
+                parser_function=\
+                    lambda line, _sep:\
+                        parsers_and_loaders.parseField(line,
+                            "imdb_cinematographer", _sep),
+                    prefix="imdb_cinematographer",
+                    drop_threshold=args.drop_rare_features))
+        },
+        {
+            "name": "imdb_composer",
+            "src_rdd": (lambda: movies_rdd),
+            "loader": (lambda x: parsers_and_loaders.load_genres(x, sep=msep,\
+                parser_function=\
+                    lambda line, _sep:\
+                        parsers_and_loaders.parseField(line, "imdb_composer", _sep),
+                    prefix="imdb_composer",
+                    drop_threshold=args.drop_rare_features))
+        },
+        {
+            "name": "imdb_languages",
+            "src_rdd": (lambda: movies_rdd),
+            "loader": (lambda x: parsers_and_loaders.load_genres(x, sep=msep,\
+                parser_function=\
+                    lambda line, _sep:\
+                        parsers_and_loaders.parseField(line, "imdb_languages", _sep),
+                    prefix="imdb_languages",
+                    drop_threshold=args.drop_rare_features))
+        },
+        {
+            "name": "imdb_production_companies",
+            "src_rdd": (lambda: movies_rdd),
+            "loader": (lambda x: parsers_and_loaders.load_genres(x, sep=msep,\
+                parser_function=\
+                    lambda line, _sep:\
+                        parsers_and_loaders.parseField(line,
+                            "imdb_production_companies", _sep),
+                    prefix="imdb_production_companies",
+                    drop_threshold=args.drop_rare_features))
+        },
+        {
+            "name": "imdb_writer",
+            "src_rdd": (lambda: movies_rdd),
+            "loader": (lambda x: parsers_and_loaders.load_genres(x, sep=msep,\
+                parser_function=\
+                    lambda line, _sep:\
+                        parsers_and_loaders.parseField(line, "imdb_writer", _sep),
+                    prefix="imdb_writer",
+                    drop_threshold=args.drop_rare_features))
+        },
     ]
 
 

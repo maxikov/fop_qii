@@ -109,13 +109,18 @@ function rank_n_experiments() {
 	local REGRESSION_MODEL="linear"
 	copy_and_run
 }
-DATA_PATH="datasets/synth_level0"
-MOVIES_FILE="datasets/ml-20m/ml-20m.imdb.medium.csv"
 
-METADATA_SOURCES="years genres average_rating imdb_keywords imdb_producer imdb_director tvtropes"
+MOVIES_FILE="datasets/ml-20m/ml-20m.imdb.set1.csv"
+METADATA_SOURCES="years genres average_rating imdb_keywords imdb_producer imdb_director tags tvtropes imdb_year imdb_rating imdb_cast"
+MEDADATA_SOURCES="${METADATA_SOURCES} imdb_cinematographer imdb_composer imdb_languages imdb_production_companies imdb_writer"
 FEATURE_TRIM_PERCENTILE=0
+NAME_SUFFIX="extra_imdb_metadata"
 
-NAME_SUFFIX="synth_level0"
+RANK=1
+run_and_save
 RANK=3
 run_and_save
-
+RANK=12
+run_and_save
+RANK=40
+run_and_save

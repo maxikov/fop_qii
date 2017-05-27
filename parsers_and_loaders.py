@@ -192,6 +192,96 @@ def parseYear(line, sep="::"):
         return mid, 2000.0
 
 
+def parseIMDBYear(line, sep="::"):
+    """"
+    (0) movieId, (1) title, (2) genres, (3) imdbId, (4) localImdbID,
+    (5) tmdbId, (6) imdb_genres, (7) imdb_keywords, (8) imdb_director,
+    (9) imdb_producer, (10) imdb_cast, (11) imdb_cinematographer,
+    (12) imdb_composer, (13) imdb_costume designer,
+    (14) imdb_countries, (15) imdb_languages, (16) imdb_locations,
+    (17) imdb_production companies, (18) imdb_production designer,
+    (19) imdb_rating, (20) imdb_runtimes, (21) imdb_writer,
+    (22) imdb_year
+    """
+    if sep == "::":
+        line = line.replace(sep, "%")
+        sep = "%"
+    s = StringIO.StringIO(line)
+    r = csv.reader(s, delimiter=sep, quotechar='"')
+    fields = r.next()
+    mid = int(fields[0])
+    mtitle = fields[22]
+    try:
+        year = float(mtitle)
+        return mid, year
+    except Exception as e: #Dirty hack, but this isn't even supposed to happen!
+        print e
+        traceback.print_exc()
+        print "mid:", mid
+        print "Setting the year to 2000, and continuing"
+        return mid, 2000.0
+
+def parseIMDBRating(line, sep="::"):
+    """"
+    (0) movieId, (1) title, (2) genres, (3) imdbId, (4) localImdbID,
+    (5) tmdbId, (6) imdb_genres, (7) imdb_keywords, (8) imdb_director,
+    (9) imdb_producer, (10) imdb_cast, (11) imdb_cinematographer,
+    (12) imdb_composer, (13) imdb_costume designer,
+    (14) imdb_countries, (15) imdb_languages, (16) imdb_locations,
+    (17) imdb_production companies, (18) imdb_production designer,
+    (19) imdb_rating, (20) imdb_runtimes, (21) imdb_writer,
+    (22) imdb_year
+    """
+    if sep == "::":
+        line = line.replace(sep, "%")
+        sep = "%"
+    s = StringIO.StringIO(line)
+    r = csv.reader(s, delimiter=sep, quotechar='"')
+    fields = r.next()
+    mid = int(fields[0])
+    mtitle = fields[19]
+    try:
+        year = float(mtitle)
+        return mid, year
+    except Exception as e: #Dirty hack, but this isn't even supposed to happen!
+        print e
+        traceback.print_exc()
+        print "mid:", mid
+        print "Setting the rating to 5, and continuing"
+        return mid, 5.0
+
+def parseField(line, field, sep="::"):
+    """"
+    (0) movieId, (1) title, (2) genres, (3) imdbId, (4) localImdbID,
+    (5) tmdbId, (6) imdb_genres, (7) imdb_keywords, (8) imdb_director,
+    (9) imdb_producer, (10) imdb_cast, (11) imdb_cinematographer,
+    (12) imdb_composer, (13) imdb_costume designer,
+    (14) imdb_countries, (15) imdb_languages, (16) imdb_locations,
+    (17) imdb_production companies, (18) imdb_production designer,
+    (19) imdb_rating, (20) imdb_runtimes, (21) imdb_writer,
+    (22) imdb_year
+    """
+    fields_dict = {
+            "title": 1, "genres": 2, "imdbId": 3, "localImdbID": 4,
+            "tmdbId": 5, "imdb_genres": 6, "imdb_keywords": 7,
+            "imdb_director": 8, "imdb_producer": 9, "imdb_cast": 10,
+            "imdb_cinematographer": 11, "imdb_composer": 12,
+            "imdb_costume_designer": 13, "imdb_countries": 14,
+            "imdb_languages": 15, "imdb_locations": 16,
+            "imdb_production_companies": 17, "imdb_production_designer": 18,
+            "imdb_rating": 19, "imdb_runtimes": 20, "imdb_writer": 21,
+            "imdb_year": 22}
+    if sep == "::":
+        line = line.replace(sep, "%")
+        sep = "%"
+    s = StringIO.StringIO(line)
+    r = csv.reader(s, delimiter=sep, quotechar='"')
+    fields = r.next()
+    mid = int(fields[0])
+    genres = fields[fields_dict[field]]
+    genres = genres.split("|")
+    return mid, set(genres)
+
 def parseMovie(line, sep="::"):
     """
     Parses a movie record in MovieLens format movieId::movieTitle .
@@ -289,9 +379,10 @@ def load_average_ratings(src_rdd, prefix="average_rating"):
     feature_names = {0: prefix}
     return (ratings, nof, cfi, feature_names)
 
-def load_years(src_rdd, sep=",", prefix="year"):
+def load_years(src_rdd, sep=",", prefix="year",
+               parser_function=parseYear):
     years = src_rdd\
-            .map(lambda x: parseYear(x, sep=sep))\
+            .map(lambda x: parser_function(x, sep=sep))\
             .map(lambda (x, y): (x, [float(y)]))
     nof = 1
     cfi = {}
