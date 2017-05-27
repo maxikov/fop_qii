@@ -112,7 +112,7 @@ function rank_n_experiments() {
 
 MOVIES_FILE="datasets/ml-20m/ml-20m.imdb.set1.csv"
 METADATA_SOURCES="years genres average_rating imdb_keywords imdb_producer imdb_director tags tvtropes imdb_year imdb_rating imdb_cast"
-MEDADATA_SOURCES="${METADATA_SOURCES} imdb_cinematographer imdb_composer imdb_languages imdb_production_companies imdb_writer"
+METADATA_SOURCES="${METADATA_SOURCES} imdb_cinematographer imdb_composer imdb_languages imdb_production_companies imdb_writer"
 FEATURE_TRIM_PERCENTILE=0
 NAME_SUFFIX="extra_imdb_metadata"
 
