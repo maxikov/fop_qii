@@ -154,6 +154,10 @@ def args_init(logger):
                                 "less than the specified value. If 10 "+\
                                 "(default), nothing is dropped")
 
+    parser.add_argument("--no-ht", action="store_true", help=\
+                        "Don't train hast table regression for internal "+\
+                        "feature predictor")
+
     parser.add_argument("--persist-dir", action="store", type=str,
                         help="Path to a directory for saving and loading" +\
                              "state persistence files. If not specified, "+\
@@ -197,6 +201,7 @@ def args_init(logger):
     logger.debug("drop_rare_movies: {}".format(args.drop_rare_movies))
     logger.debug("normalize: {}".format(args.normalize))
     logger.debug("max_depth: {}".format(args.max_depth))
+    logger.debug("no_ht: {}".format(args.no_ht))
 
     return args
 
@@ -498,7 +503,7 @@ def main():
             train_ratio=args.cross_validation)
 
         internal_feature_predictor.display_internal_feature_predictor(\
-            results, logger)
+            results, logger, args.no_ht)
 
     elif args.predict_product_features:
         results = internal_feature_predictor.internal_feature_predictor(\
@@ -511,7 +516,7 @@ def main():
             train_ratio=args.cross_validation)
 
         internal_feature_predictor.display_internal_feature_predictor(\
-           results, logger)
+           results, logger, args.no_ht)
 
     elif args.predict_metadata:
         results = metadata_predictor.metadata_predictor(\

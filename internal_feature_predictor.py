@@ -1179,26 +1179,27 @@ def internal_feature_predictor(sc, training, rank, numIter, lmbda,
         observations_training = features_original_training.map(map_f)
         observations_test = features_original_test.map(map_f)
 
-        ht_model, _, predictions_ht = predict_internal_feature(\
-            features_training,
-            indicators_training,
-            f,
-            "hash_table",
-            categorical_features,
-            args.nbins,
-            logger)
-        if args.regression_model == "naive_bayes":
-            logger.debug("Undiscretizing values for hast table")
-            predictions_ht = undiscretize_signle_feature(predictions_ht,
+        if not args.no_ht:
+            ht_model, _, predictions_ht = predict_internal_feature(\
+                features_training,
+                indicators_training,
+                f,
+                "hash_table",
+                categorical_features,
+                args.nbins,
+                logger)
+            if args.regression_model == "naive_bayes":
+                logger.debug("Undiscretizing values for hast table")
+                predictions_ht = undiscretize_signle_feature(predictions_ht,
                                                       feature_bin_centers[f])
-        #logger.debug("Hash table: {}".format(ht_model.table))
-        reg_eval = common_utils.evaluate_regression(predictions_ht,
+                #logger.debug("Hash table: {}".format(ht_model.table))
+            reg_eval = common_utils.evaluate_regression(predictions_ht,
                                                     observations_training,
                                                     logger,
                                                     args.nbins,
                                                     bin_range=None,
                      model_name = "Hash table training feature {}".format(f))
-        results["features"][f]["regression_evaluation_ht"] = reg_eval
+            results["features"][f]["regression_evaluation_ht"] = reg_eval
 
         lr_model, _, predictions = predict_internal_feature(\
             features=features_training,
@@ -1227,26 +1228,27 @@ def internal_feature_predictor(sc, training, rank, numIter, lmbda,
             logger.info(model_debug_string)
 
         if train_ratio > 0:
-            _, _, predictions_ht_test = predict_internal_feature(\
-                features_test,
-                indicators_test,
-                f,
-                "hash_table",
-                categorical_features,
-                args.nbins,
-                logger)
-            if args.regression_model == "naive_bayes":
-                logger.debug("Undiscretizing values for hash table test")
-                predictions_ht_test =\
-                    undiscretize_signle_feature(predictions_ht_test,
+            if not args.no_ht:
+                _, _, predictions_ht_test = predict_internal_feature(\
+                    features_test,
+                    indicators_test,
+                    f,
+                    "hash_table",
+                    categorical_features,
+                    args.nbins,
+                    logger)
+                if args.regression_model == "naive_bayes":
+                    logger.debug("Undiscretizing values for hash table test")
+                    predictions_ht_test =\
+                        undiscretize_signle_feature(predictions_ht_test,
                                                       feature_bin_centers[f])
-            reg_eval = common_utils.evaluate_regression(predictions_ht_test,
+                reg_eval = common_utils.evaluate_regression(predictions_ht_test,
                                                     observations_test,
                                                     logger,
                                                     args.nbins,
                                                     bin_range=None,
                      model_name = "Hash table test feature {}".format(f))
-            results["features"][f]["regression_evaluation_ht_test"] = reg_eval
+                results["features"][f]["regression_evaluation_ht_test"] = reg_eval
             logger.debug("Computing predictions on the test set")
             ids_test = indicators_test.keys()
             input_test = indicators_test.values()
@@ -1463,7 +1465,7 @@ def internal_feature_predictor(sc, training, rank, numIter, lmbda,
 
     return results
 
-def display_internal_feature_predictor(results, logger):
+def display_internal_feature_predictor(results, logger, no_ht=False):
     logger.info("Overall results dict: {}".format(results))
     logger.info("Baseline mean error: {}".format(
         results["baseline_mean_error"]))
@@ -1486,13 +1488,17 @@ def display_internal_feature_predictor(results, logger):
     header = ["Feature",
               "MRAE",
               "Mean absolute error",
-              "Mean error",
+              "Mean error"]
+    if not no_ht:
+        header +=[
               "Mean absolute error HT",
               "MRAE HT"]
     if results["train_ratio"] > 0:
         header += ["MRAE test",
                    "Mean absolute error test",
-                   "Mean error test",
+                   "Mean error test"]
+        if not no_ht:
+            header += [
                    "Mean absolute error HT test",
                    "MRAE HT test"]
     header += ["Mean feature value",
@@ -1508,13 +1514,17 @@ def display_internal_feature_predictor(results, logger):
         row = [f,
                r["regression_evaluation"]["mrae"],
                r["regression_evaluation"]["mre"],
-               r["regression_evaluation"]["mean_err"],
+               r["regression_evaluation"]["mean_err"]]
+        if not no_ht:
+            row += [
                r["regression_evaluation_ht"]["mre"],
                r["regression_evaluation_ht"]["mrae"]]
         if results["train_ratio"] > 0:
             row +=  [r["regression_evaluation_test"]["mrae"],
                      r["regression_evaluation_test"]["mre"],
-                     r["regression_evaluation_test"]["mean_err"],
+                     r["regression_evaluation_test"]["mean_err"]]
+            if not no_ht:
+                row += [
                      r["regression_evaluation_ht_test"]["mre"],
                      r["regression_evaluation_ht_test"]["mrae"]]
         row += [results["mean_feature_values"][f],
