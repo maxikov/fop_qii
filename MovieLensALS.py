@@ -383,14 +383,14 @@ def main():
             "src_rdd": (lambda: movies_rdd),
             "loader": (lambda x: parsers_and_loaders.load_years(x, sep=msep,\
                 parser_function=parsers_and_loaders.parseIMDBYear,
-                    prefix="imdb_year")
+                    prefix="imdb_year"))
         },
         {
             "name": "imdb_rating",
             "src_rdd": (lambda: movies_rdd),
             "loader": (lambda x: parsers_and_loaders.load_years(x, sep=msep,\
                 parser_function=parsers_and_loaders.parseIMDBRating,
-                    prefix="imdb_rating")
+                    prefix="imdb_rating"))
         },
         {
             "name": "imdb_cast",
