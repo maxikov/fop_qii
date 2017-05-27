@@ -397,8 +397,8 @@ def main():
             "src_rdd": (lambda: movies_rdd),
             "loader": (lambda x: parsers_and_loaders.load_genres(x, sep=msep,\
                 parser_function=\
-                    lambda line, _sep=sep:\
-                        parsers_and_loaders.parseField(line, "imdb_cast", _sep),
+                    lambda line, sep=msep:\
+                        parsers_and_loaders.parseField(line, "imdb_cast", sep),
                     prefix="imdb_cast",
                     drop_threshold=args.drop_rare_features))
         },
@@ -407,9 +407,9 @@ def main():
             "src_rdd": (lambda: movies_rdd),
             "loader": (lambda x: parsers_and_loaders.load_genres(x, sep=msep,\
                 parser_function=\
-                    lambda line, _sep=sep:\
+                    lambda line, sep=msep:\
                         parsers_and_loaders.parseField(line,
-                            "imdb_cinematographer", _sep),
+                            "imdb_cinematographer", sep),
                     prefix="imdb_cinematographer",
                     drop_threshold=args.drop_rare_features))
         },
@@ -418,8 +418,8 @@ def main():
             "src_rdd": (lambda: movies_rdd),
             "loader": (lambda x: parsers_and_loaders.load_genres(x, sep=msep,\
                 parser_function=\
-                    lambda line, _sep=sep:\
-                        parsers_and_loaders.parseField(line, "imdb_composer", _sep),
+                    lambda line, sep=msep:\
+                        parsers_and_loaders.parseField(line, "imdb_composer", sep),
                     prefix="imdb_composer",
                     drop_threshold=args.drop_rare_features))
         },
@@ -428,8 +428,8 @@ def main():
             "src_rdd": (lambda: movies_rdd),
             "loader": (lambda x: parsers_and_loaders.load_genres(x, sep=msep,\
                 parser_function=\
-                    lambda line, _sep=sep:\
-                        parsers_and_loaders.parseField(line, "imdb_languages", _sep),
+                    lambda line, sep=msep:\
+                        parsers_and_loaders.parseField(line, "imdb_languages", sep),
                     prefix="imdb_languages",
                     drop_threshold=args.drop_rare_features))
         },
@@ -438,9 +438,9 @@ def main():
             "src_rdd": (lambda: movies_rdd),
             "loader": (lambda x: parsers_and_loaders.load_genres(x, sep=msep,\
                 parser_function=\
-                    lambda line, _sep=sep:\
+                    lambda line, sep=msep:\
                         parsers_and_loaders.parseField(line,
-                            "imdb_production_companies", _sep),
+                            "imdb_production_companies", sep),
                     prefix="imdb_production_companies",
                     drop_threshold=args.drop_rare_features))
         },
@@ -449,8 +449,8 @@ def main():
             "src_rdd": (lambda: movies_rdd),
             "loader": (lambda x: parsers_and_loaders.load_genres(x, sep=msep,\
                 parser_function=\
-                    lambda line, _sep=sep:\
-                        parsers_and_loaders.parseField(line, "imdb_writer", _sep),
+                    lambda line, sep=msep:\
+                        parsers_and_loaders.parseField(line, "imdb_writer", sep),
                     prefix="imdb_writer",
                     drop_threshold=args.drop_rare_features))
         },
