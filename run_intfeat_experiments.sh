@@ -98,15 +98,8 @@ function run_and_save() {
 function rank_n_experiments() {
 	run_and_save
 
-	local MAX_DEPTH=8
-	copy_and_run
-
-	local MAX_DEPTH=4
-	local NBINS=16
-	copy_and_run
-
-	local NORMALIZE="--normalize"
-	local REGRESSION_MODEL="linear"
+	local DROP_RARE_FEATURES=50
+	local NAME_SUFFIX="${NAME_SUFFIX}_drop_rare_features_50"
 	copy_and_run
 }
 
@@ -117,10 +110,11 @@ FEATURE_TRIM_PERCENTILE=0
 NAME_SUFFIX="extra_imdb_metadata"
 
 RANK=1
-run_and_save
+rank_n_experiments
 RANK=3
-run_and_save
+rank_n_experiments
 RANK=12
-run_and_save
+rank_n_experiments
 RANK=40
-run_and_save
+
+
