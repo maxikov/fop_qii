@@ -28,6 +28,7 @@ DROP_RARE_FEATURES=250
 DROP_RARE_MOVIES=50
 NORMALIZE="" #Must be empty or --normalize
 FEATURE_TRIM_PERCENTILE=90
+NO_HT="--no-ht"
 
 NAME_SUFFIX=""
 
@@ -56,7 +57,7 @@ function make_commands() {
 	ARGS="${ARGS} --predict-product-features --metadata-sources $METADATA_SOURCES"
 	ARGS="${ARGS} --drop-rare-features $DROP_RARE_FEATURES --drop-rare-movies $DROP_RARE_MOVIES"
 	ARGS="${ARGS} --cross-validation $CROSS_VALIDATION --regression-model $REGRESSION_MODEL --nbins $NBINS --max-depth $MAX_DEPTH $NORMALIZE"
-	ARGS="${ARGS} --features-trim-percentile $FEATURE_TRIM_PERCENTILE"
+	ARGS="${ARGS} --features-trim-percentile $FEATURE_TRIM_PERCENTILE ${NO_HT}"
 
 	WHOLE_COMMAND="$SPARK_SUBMIT MovieLensALS.py $ARGS"
 }
@@ -110,7 +111,13 @@ FEATURE_TRIM_PERCENTILE=0
 NAME_SUFFIX="extra_imdb_metadata"
 
 RANK=1
-rank_n_experiments
+DROP_RARE_FEATURES=50
+NS=$NAME_SUFFIX
+NAME_SUFFIX="${NAME_SUFFIX}_drop_rare_features_50"
+copy_and_run
+DROP_RARE_FEATURES=250
+NAME_SUFFIX=$NS
+
 RANK=3
 rank_n_experiments
 RANK=12
