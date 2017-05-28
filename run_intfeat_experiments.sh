@@ -102,6 +102,10 @@ function rank_n_experiments() {
 	local DROP_RARE_FEATURES=50
 	local NAME_SUFFIX="${NAME_SUFFIX}_drop_rare_features_50"
 	copy_and_run
+	local DROP_RARE_MOVIES=100
+	local NAME_SUFFIX="${NAME_SUFFIX}_drop_rare_movies_100"
+	copy_and_run
+
 }
 
 MOVIES_FILE="datasets/ml-20m/ml-20m.imdb.set1.csv"
@@ -110,18 +114,27 @@ METADATA_SOURCES="${METADATA_SOURCES} imdb_cinematographer imdb_composer imdb_la
 FEATURE_TRIM_PERCENTILE=0
 NAME_SUFFIX="extra_imdb_metadata"
 
-RANK=1
 DROP_RARE_FEATURES=50
-NS=$NAME_SUFFIX
-NAME_SUFFIX="${NAME_SUFFIX}_drop_rare_features_50"
+DROP_RARE_MOVIES=100
+
+RANK=1
+make_commands
+REFERENCE_MODEL="${PERSIST_DIR}/als_model.pkl"
+NAME_SUFFIX="${NAME_SUFFIX}_drop_rare_features_50_drop_rare_movies_100"
 copy_and_run
-DROP_RARE_FEATURES=250
-NAME_SUFFIX=$NS
 
 RANK=3
-rank_n_experiments
-RANK=12
-rank_n_experiments
-RANK=40
+make_commands
+REFERENCE_MODEL="${PERSIST_DIR}/als_model.pkl"
+NAME_SUFFIX="${NAME_SUFFIX}_drop_rare_features_50_drop_rare_movies_100"
+copy_and_run
 
+RANK=12
+make_commands
+REFERENCE_MODEL="${PERSIST_DIR}/als_model.pkl"
+NAME_SUFFIX="${NAME_SUFFIX}_drop_rare_features_50_drop_rare_movies_100"
+copy_and_run
+
+RANK=40
+rank_n_experiments
 
