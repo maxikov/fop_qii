@@ -100,10 +100,10 @@ function rank_n_experiments() {
 	run_and_save
 
 	local DROP_RARE_FEATURES=50
-	local NAME_SUFFIX="${NAME_SUFFIX}_drop_rare_features_50"
+	local NAME_SUFFIX="${NAME_SUFFIX}_drop_rf_50"
 	copy_and_run
 	local DROP_RARE_MOVIES=100
-	local NAME_SUFFIX="${NAME_SUFFIX}_drop_rare_movies_100"
+	local NAME_SUFFIX="${NAME_SUFFIX}_rm_100"
 	copy_and_run
 
 }
@@ -117,22 +117,16 @@ NAME_SUFFIX="extra_imdb_metadata"
 DROP_RARE_FEATURES=50
 DROP_RARE_MOVIES=100
 
-RANK=1
-make_commands
-REFERENCE_MODEL="${PERSIST_DIR}/als_model.pkl"
-NAME_SUFFIX="${NAME_SUFFIX}_drop_rare_features_50_drop_rare_movies_100"
-copy_and_run
-
 RANK=3
 make_commands
 REFERENCE_MODEL="${PERSIST_DIR}/als_model.pkl"
-NAME_SUFFIX="${NAME_SUFFIX}_drop_rare_features_50_drop_rare_movies_100"
+NAME_SUFFIX="${NAME_SUFFIX}_drop_rf_50_rm_100"
 copy_and_run
 
 RANK=12
 make_commands
 REFERENCE_MODEL="${PERSIST_DIR}/als_model.pkl"
-NAME_SUFFIX="${NAME_SUFFIX}_drop_rare_features_50_drop_rare_movies_100"
+NAME_SUFFIX="${NAME_SUFFIX}_drop_rf_50_drop_rm_100"
 copy_and_run
 
 RANK=40
