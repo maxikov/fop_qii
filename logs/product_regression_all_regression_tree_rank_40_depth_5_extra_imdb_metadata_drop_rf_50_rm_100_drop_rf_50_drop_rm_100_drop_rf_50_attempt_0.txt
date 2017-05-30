@@ -2152,3 +2152,18 @@ spark-submit --driver-memory 15g MovieLensALS.py --spark-executor-memory 15g --l
 2017-05-30 16:44:03,365 - __main__ - DEBUG - Evaluating replaced model
 2017-05-30 16:44:07,536 - __main__ - DEBUG - Replaced feature 9 training Evaluating the model
 2017-05-30 16:44:07,567 - __main__ - DEBUG - Replaced feature 9 training Bin range: (0.0, 5.5)
+ERROR:root:Exception while sending command.
+Traceback (most recent call last):
+  File "/opt/spark-2.0.1/python/lib/py4j-0.10.3-src.zip/py4j/java_gateway.py", line 883, in send_command
+    response = connection.send_command(command)
+  File "/opt/spark-2.0.1/python/lib/py4j-0.10.3-src.zip/py4j/java_gateway.py", line 1040, in send_command
+    "Error while receiving", e, proto.ERROR_ON_RECEIVE)
+Py4JNetworkError: Error while receiving
+Traceback (most recent call last):
+  File "/mnt/encrypted_data/Dropbox/cmu/foundation_of_privacy/project/fop_qii/MovieLensALS.py", line 572, in <module>
+    main()
+  File "/mnt/encrypted_data/Dropbox/cmu/foundation_of_privacy/project/fop_qii/MovieLensALS.py", line 516, in main
+    train_ratio=args.cross_validation)
+  File "/mnt/encrypted_data/Dropbox/cmu/foundation_of_privacy/project/fop_qii/internal_feature_predictor.py", line 1309, in internal_feature_predictor
+    "Replaced feature {} training".format(f))
+
