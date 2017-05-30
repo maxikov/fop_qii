@@ -1,0 +1,15 @@
+Feature 0: corpse + male nudity (match)
+Feature 1: corpse + male nudity + female nudity + imdb_keywords:boyfriend-girlfriend-relationship 
+Feature 2: gun + character-name-in-title (match)
+Feature 3: betrayal + shot-to-death (match)
+Feature 4: doctor + police (match)
+Feature 5: friend + fight (match)
+Feature 6: black-comedy + explosion (match) OR suprise ending + action (match)
+Feature 7: friend + fight + money + police + betrayal + char-name-title + action
+Feature 8: money + knife (match)
+Feature 9: black-comedy + explosion = feature 6 
+Feature 10: money + knife = feature 8
+Feature 11: ...
+
+suprise-ending + action
+voiceover narration + voiceover naration = non-influential
