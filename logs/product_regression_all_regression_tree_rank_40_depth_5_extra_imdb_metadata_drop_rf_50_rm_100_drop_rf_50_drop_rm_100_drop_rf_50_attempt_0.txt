@@ -2147,3 +2147,8 @@ spark-submit --driver-memory 15g MovieLensALS.py --spark-executor-memory 15g --l
 2017-05-30 16:40:22,348 - __main__ - DEBUG - Done in 0.231292009354 seconds
 2017-05-30 16:40:24,381 - __main__ - DEBUG - Done in 2.032557 seconds
 2017-05-30 16:40:24,381 - __main__ - DEBUG - Computing replaced mean error relative to the baseline model
+2017-05-30 16:44:03,331 - __main__ - DEBUG - Done in 218.950199 seconds
+2017-05-30 16:44:03,364 - __main__ - DEBUG - Replaced mean error baseline: 0.048541
+2017-05-30 16:44:03,365 - __main__ - DEBUG - Evaluating replaced model
+2017-05-30 16:44:07,536 - __main__ - DEBUG - Replaced feature 9 training Evaluating the model
+2017-05-30 16:44:07,567 - __main__ - DEBUG - Replaced feature 9 training Bin range: (0.0, 5.5)

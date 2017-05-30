@@ -30,7 +30,7 @@ def main():
     user_features = als_model.userFeatures().sortByKey()
     rank = als_model.rank
 
-    header = ["Used ID"] + ["Feature {}".format(x) for x in xrange(rank)]
+    header = ["User ID"] + ["Feature {}".format(x) for x in xrange(rank)]
     table = PrettyTable(header)
 
     for user in args.users:
