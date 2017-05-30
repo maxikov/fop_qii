@@ -35,11 +35,25 @@ def main():
 
     for user in args.users:
         ftrs = list(user_features.lookup(user)[0])
-        max_ftr = max(enumerate(ftrs), key=lambda x: abs(x[1]))[0]
-        colored_ftrs = [Back.RED + str(val) + Style.RESET_ALL if n == max_ftr
-                        else str(val) for (n, val) in enumerate(ftrs)]
-        table.add_row([str(user)] + colored_ftrs)
-
+        sorted_ftrs = sorted(ftrs, key=lambda x: -abs(x))
+        row = [str(user)]
+        for ftr in ftrs:
+            if ftr == sorted_ftrs[0]:
+                row.append(Back.RED + str(ftr) + Style.RESET_ALL)
+            elif ftr == sorted_ftrs[1]:
+                row.append(Back.YELLOW + str(ftr) + Style.RESET_ALL)
+            elif ftr == sorted_ftrs[2]:
+                row.append(Back.GREEN + str(ftr) + Style.RESET_ALL)
+            elif ftr == sorted_ftrs[-1]:
+                row.append(Back.BLUE + str(ftr) + Style.RESET_ALL)
+            else:
+                row.append(str(ftr))
+        table.add_row(row)
+    print "Legend:"
+    print Back.RED + "Largest magnitude feature" + Style.RESET_ALL
+    print Back.YELLOW + "Second largest magnitude feature" + Style.RESET_ALL
+    print Back.GREEN + "Third largest magnitude feature" + Style.RESET_ALL
+    print Back.BLUE + "Smallest magnitude feature" + Style.RESET_ALL
     print table
 
 
