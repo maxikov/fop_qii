@@ -11,6 +11,9 @@ from pyspark import SparkConf, SparkContext
 #prettytable library
 from prettytable import PrettyTable
 
+#colorama library
+from colorama import Back, Style
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--state-path", action="store", type=str, help=\
@@ -32,7 +35,10 @@ def main():
 
     for user in args.users:
         ftrs = list(user_features.lookup(user)[0])
-        table.add_row([user] + ftrs)
+        max_ftr = max(enumerate(ftrs), key=lambda x: abs(x[1]))[0]
+        colored_ftrs = [Back.RED + str(val) + Style.RESET_ALL if n == max_ftr
+                        else str(val) for (n, val) in enumerate(ftrs)]
+        table.add_row([str(user)] + colored_ftrs)
 
     print table
 
