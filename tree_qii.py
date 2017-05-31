@@ -6,6 +6,7 @@ import functools
 
 #project files
 import rating_explanation
+import common_utils
 
 #pyspark libraryb
 from pyspark import SparkConf, SparkContext
@@ -77,6 +78,23 @@ def load_features_indicators(fname, sc, num_partitions):
              features_original_test, features_original_training,
              indicators_training, indicators_test)
 
+def get_feature_mapping(used_features):
+    ufl = sorted(list(used_features))
+    mapping = {n:f for (n, f) in enumerate(ufl)}
+    return ufl, mapping
+
+def get_tree_qii(lr_model, features, used_features):
+    ufl, mapping = get_feature_mapping(used_features)
+    qiis_list = common_utils.compute_regression_qii(lr_model=lr_model,
+                                                    input_features=features,
+                                                    target_variable=None,
+                                                    logger=None,
+                                                    original_predictions=None,
+                                                    rank=None,
+                                                    features_to_test=used_features)
+    qiis_dict = {mapping[f]:q for (f,q) in enumerate(qiis_list)}
+    return qiis_dict
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--persist-dir", action="store", type=str, help=\
@@ -97,12 +115,18 @@ def main():
     print "Loading feature indicator sets"
     (training_movies, test_movies, features_test, features_training,
              features_original_test, features_original_training,
-             indicators_training, indicators_test) = load_features_indicators(os.path.join(args.persist_dir, "features_training_test.pkl"), sc, 4)
+             indicators_training, indicators_test) =\
+        load_features_indicators(os.path.join(args.persist_dir,
+                                              "features_training_test.pkl"), sc, 7)
 
     used_features = get_used_features(lr_model)
 
     print "Used features:", ", ".join(["{} ({})".format(x, results["feature_names"][x]) for x in used_features])
-
+    print "Computing regression QIIs"
+    qiis = get_tree_qii(lr_model, indicators_test, used_features)
+    qiis_list = sorted(qiis.items(), key=lambda x: -abs(x[1]))
+    for f, q in qiis_list:
+        print results["feature_names"][f], "(", f, "):", q
 
 if __name__ == "__main__":
     main()

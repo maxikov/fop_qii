@@ -72,7 +72,8 @@ def save_if_needed(persist_dir, fname, objects, store, logger):
 def compute_regression_qii(lr_model, input_features, target_variable,
                            logger, original_predictions=None, rank=None,
                            features_to_test=None):
-    logger.debug("Measuring model QII")
+    if logger is not None:
+        logger.debug("Measuring model QII")
     if original_predictions is None:
         original_predictions = lr_model\
                                .predict(\
@@ -84,11 +85,13 @@ def compute_regression_qii(lr_model, input_features, target_variable,
     if features_to_test is None:
         if rank is None:
             rank = len(input_features.take(1)[0][1])
-            logger.debug("%d features detected", rank)
+            if logger is not None:
+                logger.debug("%d features detected", rank)
         features_to_test = xrange(rank)
     res = []
     for f in features_to_test:
-        logger.debug("Processing feature %d", f)
+        if logger is not None:
+            logger.debug("Processing feature %d", f)
         perturbed_features = perturb_feature(input_features, f,
                                              None).values()
         new_predictions = lr_model.predict(perturbed_features)
@@ -100,7 +103,8 @@ def compute_regression_qii(lr_model, input_features, target_variable,
         else:
             sign = signed_error/abs(signed_error)
         signed_cur_qii = cur_qii * sign
-        logger.debug("QII: {}, signed QII: {}".format(cur_qii, signed_cur_qii))
+        if logger is not None:
+            logger.debug("QII: {}, signed QII: {}".format(cur_qii, signed_cur_qii))
         res.append(signed_cur_qii)
     return res
 
