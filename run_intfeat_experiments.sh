@@ -19,7 +19,7 @@ NUM_ITER=300
 NON_NEGATIVE="" #Must be empty or --non-negative
 
 #Regression parameters
-METADATA_SOURCES="years genres average_rating imdb_keywords imdb_producer imdb_director tags tvtropes"
+METADATA_SOURCES="years genres average_rating imdb_keywords imdb_producer imdb_director tvtropes"
 CROSS_VALIDATION=70
 REGRESSION_MODEL="regression_tree"
 NBINS=32
