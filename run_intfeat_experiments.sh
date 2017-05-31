@@ -27,7 +27,7 @@ MAX_DEPTH=5
 DROP_RARE_FEATURES=250
 DROP_RARE_MOVIES=50
 NORMALIZE="" #Must be empty or --normalize
-FEATURE_TRIM_PERCENTILE=90
+FEATURE_TRIM_PERCENTILE=0
 NO_HT="--no-ht"
 
 NAME_SUFFIX=""
@@ -99,36 +99,18 @@ function run_and_save() {
 function rank_n_experiments() {
 	run_and_save
 
-	local DROP_RARE_FEATURES=50
-	local NAME_SUFFIX="${NAME_SUFFIX}_drop_rf_50"
-	copy_and_run
-	local DROP_RARE_MOVIES=100
-	local NAME_SUFFIX="${NAME_SUFFIX}_rm_100"
+	local NAME_SUFFIX="${NAME_SUFFIX}_extra_imdb_features"
+	local METADATA_SOURCES="${METADATA_SOURCES} imdb_year imdb_rating imdb_cast imdb_cinematographer imdb_composer imdb_languages imdb_production_companies imdb_writer"
 	copy_and_run
 
 }
 
+DATA_PATH="datasets/synth_level0"
 MOVIES_FILE="datasets/ml-20m/ml-20m.imdb.set1.csv"
-METADATA_SOURCES="years genres average_rating imdb_keywords imdb_producer imdb_director tags tvtropes imdb_year imdb_rating imdb_cast"
-METADATA_SOURCES="${METADATA_SOURCES} imdb_cinematographer imdb_composer imdb_languages imdb_production_companies imdb_writer"
-FEATURE_TRIM_PERCENTILE=0
-NAME_SUFFIX="extra_imdb_metadata"
+METADATA_SOURCES="years genres average_rating imdb_keywords imdb_producer imdb_director tags tvtropes"
 
-DROP_RARE_FEATURES=50
-DROP_RARE_MOVIES=100
-
-RANK=3
-make_commands
-REFERENCE_MODEL="${PERSIST_DIR}/als_model.pkl"
-NAME_SUFFIX="${NAME_SUFFIX}_drop_rf_50_rm_100"
-copy_and_run
+LMBDA=0.01
+NAME_SUFFIX="synth_level0_lambda_0.1"
 
 RANK=12
-make_commands
-REFERENCE_MODEL="${PERSIST_DIR}/als_model.pkl"
-NAME_SUFFIX="${NAME_SUFFIX}_drop_rf_50_drop_rm_100"
-copy_and_run
-
-RANK=40
 rank_n_experiments
-
