@@ -108,7 +108,7 @@ function rank_n_experiments() {
 DATA_PATH="datasets/synth_level0"
 MOVIES_FILE="datasets/ml-20m/ml-20m.imdb.set1.csv"
 
-LMBDA=0.01
+LMBDA=0.1
 NAME_SUFFIX="synth_level0_lambda_0.1"
 
 RANK=12
