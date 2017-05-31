@@ -107,7 +107,6 @@ function rank_n_experiments() {
 
 DATA_PATH="datasets/synth_level0"
 MOVIES_FILE="datasets/ml-20m/ml-20m.imdb.set1.csv"
-METADATA_SOURCES="years genres average_rating imdb_keywords imdb_producer imdb_director tags tvtropes"
 
 LMBDA=0.01
 NAME_SUFFIX="synth_level0_lambda_0.1"
