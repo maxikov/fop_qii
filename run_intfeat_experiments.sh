@@ -85,7 +85,7 @@ function run_until_succeeds() {
 function copy_and_run() {
 	make_commands
 	mkdir -p $PERSIST_DIR
-	cp -rv $REFERENCE_MODEL "${PERSIST_DIR}/"
+	cp -r $REFERENCE_MODEL "${PERSIST_DIR}/"
 	run_until_succeeds
 }
 
@@ -96,20 +96,22 @@ function run_and_save() {
 	REFERENCE_MODEL="${PERSIST_DIR}/als_model.pkl"
 }
 
-function rank_n_experiments() {
+function lmbda_n_experiments() {
+	local NAME_SUFFIX="${NAME_SUFFIX}_lambda_${LMBDA}"
 	run_and_save
-
-	local NAME_SUFFIX="${NAME_SUFFIX}_extra_imdb_features"
-	local METADATA_SOURCES="${METADATA_SOURCES} imdb_year imdb_rating imdb_cast imdb_cinematographer imdb_composer imdb_languages imdb_production_companies imdb_writer"
-	copy_and_run
 
 }
 
+
+
 DATA_PATH="datasets/synth_level0"
 MOVIES_FILE="datasets/ml-20m/ml-20m.imdb.set1.csv"
-
-LMBDA=0.1
-NAME_SUFFIX="synth_level0_lambda_0.1"
+NAME_SUFFIX="synth_level0"
 
 RANK=12
-rank_n_experiments
+
+LMBDA=1.0
+lmbda_n_experiments
+
+LMBDA=0.001
+lmbda_n_experiments
