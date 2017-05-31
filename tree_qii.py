@@ -2,6 +2,7 @@
 import argparse
 import os.path
 import pickle
+import functools
 
 #project files
 import rating_explanation
@@ -98,9 +99,9 @@ def main():
              features_original_test, features_original_training,
              indicators_training, indicators_test) = load_features_indicators(os.path.join(args.persist_dir, "features_training_test.pkl"), sc, 4)
 
-    print lr_model.toDebugString()
+    used_features = get_used_features(lr_model)
 
-    print "Used features:", ", ".join(["{} ({})".format(x, results["feature_names"][x]) for x in get_used_features(lr_model)])
+    print "Used features:", ", ".join(["{} ({})".format(x, results["feature_names"][x]) for x in used_features])
 
 
 if __name__ == "__main__":

@@ -70,7 +70,8 @@ def save_if_needed(persist_dir, fname, objects, store, logger):
 
 
 def compute_regression_qii(lr_model, input_features, target_variable,
-                           logger, original_predictions=None, rank=None):
+                           logger, original_predictions=None, rank=None,
+                           features_to_test=None):
     logger.debug("Measuring model QII")
     if original_predictions is None:
         original_predictions = lr_model\
@@ -80,11 +81,13 @@ def compute_regression_qii(lr_model, input_features, target_variable,
                                .cache()
     else:
         original_predictions = original_predictions.values().cache()
-    if rank is None:
-        rank = len(input_features.take(1)[0][1])
-    logger.debug("%d features detected", rank)
+    if features_to_test is None:
+        if rank is None:
+            rank = len(input_features.take(1)[0][1])
+            logger.debug("%d features detected", rank)
+        features_to_test = xrange(rank)
     res = []
-    for f in xrange(rank):
+    for f in features_to_test:
         logger.debug("Processing feature %d", f)
         perturbed_features = perturb_feature(input_features, f,
                                              None).values()
