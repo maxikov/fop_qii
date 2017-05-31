@@ -123,7 +123,7 @@ def main():
 
     print "Used features:", ", ".join(["{} ({})".format(x, results["feature_names"][x]) for x in used_features])
     print "Computing regression QIIs"
-    qiis = get_tree_qii(lr_model, indicators_test, used_features)
+    qiis = get_tree_qii(lr_model, indicators_training, used_features)
     qiis_list = sorted(qiis.items(), key=lambda x: -abs(x[1]))
     for f, q in qiis_list:
         print results["feature_names"][f], "(", f, "):", q
