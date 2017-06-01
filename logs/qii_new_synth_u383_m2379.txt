@@ -1,0 +1,162 @@
+Movie: Police Academy 2: Their First Assignment (1985)
+Real product features: [0.709437906742096, 0.24771030247211456, -0.21859118342399597, -0.7621297836303711, -0.6862257122993469, 0.1197415217757225, 0.4217417538166046, -0.2871416211128235, 0.8310144543647766, -0.14842528104782104, 0.25021666288375854, -0.7779314517974854]
+Predicted product features: [0.6783658374492415, 0.25631652652236797, -0.1717979119421635, -0.7713535796638137, -0.7035976185151381, 0.16932833074868503, 0.4073082628698047, -0.2144904519502175, 0.8339487113509314, -0.14538465656479305, 0.2027301679615243, -0.791195060638116]
+Rating predicted by the actual recommender: 3.99169849857
+Rating predicted from product features estimated with regression: 3.95419195737
+Features (from most to least influential):
+Product feature: 3
+Influence on the rating: 3.29242513439
+Actual value: -0.76212978363
+Predicted value: -0.771353579664
+Prediction branch:
+  If (average_rating > 2.0952380952380953)
+   If (Isn't imdb_keywords:greed)
+    If (Isn't imdb_keywords:campfire)
+     If (Isn't imdb_keywords:cooking)
+      If (Isn't imdb_keywords:hostage)
+       Predict: -0.7713535796638137
+
+
+Product feature: 5
+Influence on the rating: 3.24619528881
+Actual value: 0.119741521776
+Predicted value: 0.169328330749
+Prediction branch:
+  If (Isn't imdb_keywords:cooking)
+   If (Isn't imdb_keywords:f-rated)
+    If (Isn't imdb_keywords:riot)
+     If (Isn't imdb_keywords:campfire)
+      If (Isn't imdb_keywords:lawyer)
+       Predict: 0.16932833074868503
+
+
+Product feature: 7
+Influence on the rating: 3.22806455302
+Actual value: -0.287141621113
+Predicted value: -0.21449045195
+Prediction branch:
+  If (Isn't imdb_keywords:f-rated)
+   If (Isn't imdb_keywords:hostage)
+    If (Isn't imdb_keywords:campfire)
+     If (Isn't imdb_keywords:b-movie)
+      If (Isn't imdb_keywords:cooking)
+       Predict: -0.2144904519502175
+
+
+Product feature: 9
+Influence on the rating: 3.19993775562
+Actual value: -0.148425281048
+Predicted value: -0.145384656565
+Prediction branch:
+  If (Isn't imdb_keywords:lawyer)
+   If (Isn't imdb_keywords:hostage)
+    If (Isn't imdb_keywords:f-rated)
+     If (Is imdb_keywords:male-nudity)
+      If (Isn't imdb_keywords:campfire)
+       Predict: -0.14538465656479305
+
+
+Product feature: 6
+Influence on the rating: 3.17934002515
+Actual value: 0.421741753817
+Predicted value: 0.40730826287
+Prediction branch:
+  If (Isn't imdb_keywords:riot)
+   If (Is imdb_keywords:male-nudity)
+    If (Isn't imdb_keywords:lawyer)
+     If (Isn't imdb_keywords:ring)
+      If (Isn't imdb_keywords:campfire)
+       Predict: 0.4073082628698047
+
+
+Product feature: 2
+Influence on the rating: 3.16980573476
+Actual value: -0.218591183424
+Predicted value: -0.171797911942
+Prediction branch:
+  If (Isn't imdb_keywords:ring)
+   If (average_rating > 2.0)
+    If (Isn't imdb_keywords:b-movie)
+     If (Isn't imdb_keywords:greed)
+      If (Isn't imdb_keywords:f-rated)
+       Predict: -0.1717979119421635
+
+
+Product feature: 1
+Influence on the rating: 3.15824422043
+Actual value: 0.247710302472
+Predicted value: 0.256316526522
+Prediction branch:
+  If (Isn't imdb_keywords:riot)
+   If (Isn't imdb_keywords:hostage)
+    If (Is imdb_keywords:male-nudity)
+     If (Isn't imdb_keywords:f-rated)
+      If (Isn't imdb_keywords:lawyer)
+       Predict: 0.25631652652236797
+
+
+Product feature: 10
+Influence on the rating: 3.15257819155
+Actual value: 0.250216662884
+Predicted value: 0.202730167962
+Prediction branch:
+  If (Isn't imdb_keywords:b-movie)
+   If (Is imdb_keywords:male-nudity)
+    If (Isn't imdb_keywords:riot)
+     If (Isn't imdb_keywords:lawyer)
+      If (Isn't imdb_keywords:ring)
+       Predict: 0.2027301679615243
+
+
+Product feature: 11
+Influence on the rating: 3.11509072551
+Actual value: -0.777931451797
+Predicted value: -0.791195060638
+Prediction branch:
+  If (average_rating > 2.0)
+   If (Isn't imdb_keywords:campfire)
+    If (Isn't imdb_keywords:hostage)
+     If (Isn't imdb_keywords:lawyer)
+      If (Isn't imdb_keywords:f-rated)
+       Predict: -0.791195060638116
+
+
+Product feature: 4
+Influence on the rating: 3.01246885564
+Actual value: -0.686225712299
+Predicted value: -0.703597618515
+Prediction branch:
+  If (Isn't imdb_keywords:campfire)
+   If (average_rating > 3.0)
+    If (Isn't imdb_keywords:cooking)
+     If (Isn't imdb_keywords:hostage)
+      If (Isn't imdb_keywords:riot)
+       Predict: -0.7035976185151381
+
+
+Product feature: 0
+Influence on the rating: 2.78230970183
+Actual value: 0.709437906742
+Predicted value: 0.678365837449
+Prediction branch:
+  If (Isn't imdb_keywords:f-rated)
+   If (Isn't imdb_keywords:cooking)
+    If (Is imdb_keywords:male-nudity)
+     If (Isn't imdb_keywords:greed)
+      If (Isn't imdb_keywords:riot)
+       Predict: 0.6783658374492415
+
+
+Product feature: 8
+Influence on the rating: 2.69733013307
+Actual value: 0.831014454365
+Predicted value: 0.833948711351
+Prediction branch:
+  If (Is imdb_keywords:male-nudity)
+   If (Isn't imdb_keywords:f-rated)
+    If (Isn't imdb_keywords:lawyer)
+     If (Isn't imdb_keywords:campfire)
+      If (average_rating > 2.0)
+       Predict: 0.8339487113509314
+
+

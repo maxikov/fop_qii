@@ -1,0 +1,50 @@
+Movie: As Far As My Feet Will Carry Me (So weit die Füße tragen) (2001) ( 56331 ) , error: 0.0203460250718
+Movie: Kikujiro (Kikujirô no natsu) (1999) ( 8012 ) , error: 0.0214412483485
+Movie: Jimmy and Judy (2006) ( 69159 ) , error: 0.0217765733536
+Movie: Nekromantik (1987) ( 3777 ) , error: 0.0225515988902
+Movie: Night of the Demons 2 (1994) ( 100087 ) , error: 0.022970731167
+Movie: Risky Business (1983) ( 2915 ) , error: 0.0231143137892
+Movie: Bliss (1997) ( 987 ) , error: 0.0231952450627
+Movie: Crazy Stranger, The (Gadjo Dilo) (1997) ( 8260 ) , error: 0.0233130219499
+Movie: On a Clear Day (2005) ( 45658 ) , error: 0.0235874508068
+Movie: Long Weekend, The (2005) ( 49016 ) , error: 0.0236008380786
+Movie: Madame Satã (2002) ( 6540 ) , error: 0.0238278830958
+Movie: Don't Torture a Duckling (Non si sevizia un paperino) (1972) ( 44590 ) , error: 0.0238644954995
+Movie: American History X (1998) ( 2329 ) , error: 0.0239049106918
+Movie: Star Maker, The (Uomo delle stelle, L') (1995) ( 124 ) , error: 0.0241576269159
+Movie: Born American (1986) ( 3443 ) , error: 0.0242033544742
+Movie: Agata and the Storm (Agata e la tempesta) (2004) ( 43953 ) , error: 0.0242097288764
+Movie: Chariots of Fire (1981) ( 1957 ) , error: 0.0244607360424
+Movie: Just Like Heaven (2005) ( 36525 ) , error: 0.0244707386413
+Movie: Isle, The (Seom) (2000) ( 5526 ) , error: 0.0244839789903
+Movie: Humanité, L' (1999) ( 27223 ) , error: 0.0246657483216
+Movie: Along Came Polly (2004) ( 7173 ) , error: 0.0247407028933
+Movie: Cider House Rules, The (1999) ( 3148 ) , error: 0.0249424407129
+Movie: Circle of Deceit (Die Fälschung) (1981) ( 91106 ) , error: 0.0250662350343
+Movie: Vibrator (2003) ( 27849 ) , error: 0.0252572648163
+Movie: Film Geek (2005) ( 73060 ) , error: 0.0255105237102
+Movie: Witnesses, The (Les témoins) (2007) ( 59705 ) , error: 0.0257012491285
+Movie: About Schmidt (2002) ( 5945 ) , error: 0.0258313968487
+Movie: Opera (1987) ( 4794 ) , error: 0.0258665875778
+Movie: Kids (1995) ( 175 ) , error: 0.0259456107189
+Movie: Hair (1979) ( 26422 ) , error: 0.0260100049335
+Movie: Down and Out in Beverly Hills (1986) ( 5548 ) , error: 0.0260325024942
+Movie: Spanish Apartment, The (L'auberge espagnole) (2002) ( 6370 ) , error: 0.0261034785418
+Movie: Man About Town (2006) ( 51579 ) , error: 0.0262547026014
+Movie: Police Academy 2: Their First Assignment (1985) ( 2379 ) , error: 0.0263719767824
+Movie: I Am a Sex Addict (2005) ( 46105 ) , error: 0.026619809791
+Movie: Card Player, The (Il cartaio) (2004) ( 75825 ) , error: 0.0266278883238
+Movie: 2:37 (2006) ( 47503 ) , error: 0.0266684361858
+Movie: Hedd Wyn (1992) ( 822 ) , error: 0.0267587254167
+Movie: Seeing Other People (2004) ( 8841 ) , error: 0.0269473878463
+Movie: Tsotsi (2005) ( 44204 ) , error: 0.0270756015228
+Movie: Swimming Pool (2003) ( 6538 ) , error: 0.0271221599062
+Movie: The Way He Looks (2014) ( 116855 ) , error: 0.0271862798032
+Movie: Backdraft (1991) ( 3107 ) , error: 0.0272023452317
+Movie: Hottest State, The (2006) ( 58411 ) , error: 0.0272632195796
+Movie: Dirty Love (2005) ( 42053 ) , error: 0.0272927420557
+Movie: Much Ado About Nothing (1993) ( 497 ) , error: 0.027343649593
+Movie: River, The (He liu) (1997) ( 30854 ) , error: 0.0274065311173
+Movie: Firecracker (2005) ( 102830 ) , error: 0.0275341209988
+Movie: Little Boy Blue (1997) ( 1890 ) , error: 0.02759306195
+Movie: God on Trial (2008) ( 84972 ) , error: 0.02759306195

@@ -1,0 +1,162 @@
+Movie: Toy Story (1995)
+Real product features: [0.6172943115234375, -0.016588114202022552, 0.024830518290400505, -0.28700965642929077, -0.3828146755695343, 0.26149141788482666, 0.10001661628484726, 0.23537570238113403, 0.10220058262348175, 0.24297265708446503, -0.031800270080566406, -0.5390252470970154]
+Predicted product features: [0.2833938436369916, -0.015154576991518969, -0.034265925559180135, -0.3464389125138153, -0.39499522773138296, 0.16932833074868503, 0.08088399158163799, -0.2144904519502175, 0.17880043117790134, 0.08027965369528221, -0.11127702279652742, -0.526787956386353]
+Rating predicted by the actual recommender: 1.0684173141
+Rating predicted from product features estimated with regression: 1.24001552499
+Features (from most to least influential):
+Product feature: 3
+Influence on the rating: 2.55206304122
+Actual value: -0.287009656429
+Predicted value: -0.346438912514
+Prediction branch:
+  If (average_rating <= 2.0952380952380953)
+   If (Is movielens_genre:Adventure)
+    If (Isn't imdb_keywords:singing)
+     If (Isn't imdb_keywords:russian)
+      If (Isn't imdb_keywords:coffin)
+       Predict: -0.3464389125138153
+
+
+Product feature: 11
+Influence on the rating: 2.31143718007
+Actual value: -0.539025247097
+Predicted value: -0.526787956386
+Prediction branch:
+  If (average_rating <= 2.0)
+   If (Isn't imdb_keywords:coffin)
+    If (Isn't imdb_keywords:shot-in-the-head)
+     If (Isn't imdb_keywords:cave)
+      If (Isn't tvtropes:only sane man)
+       Predict: -0.526787956386353
+
+
+Product feature: 7
+Influence on the rating: 2.18945101825
+Actual value: 0.235375702381
+Predicted value: -0.21449045195
+Prediction branch:
+  If (Isn't imdb_keywords:f-rated)
+   If (Isn't imdb_keywords:hostage)
+    If (Isn't imdb_keywords:campfire)
+     If (Isn't imdb_keywords:b-movie)
+      If (Isn't imdb_keywords:cooking)
+       Predict: -0.2144904519502175
+
+
+Product feature: 9
+Influence on the rating: 2.17334401235
+Actual value: 0.242972657084
+Predicted value: 0.0802796536953
+Prediction branch:
+  If (Isn't imdb_keywords:lawyer)
+   If (Isn't imdb_keywords:hostage)
+    If (Isn't imdb_keywords:f-rated)
+     If (Isn't imdb_keywords:male-nudity)
+      If (Isn't imdb_keywords:campfire)
+       Predict: 0.08027965369528221
+
+
+Product feature: 2
+Influence on the rating: 2.17245846921
+Actual value: 0.0248305182904
+Predicted value: -0.0342659255592
+Prediction branch:
+  If (Isn't imdb_keywords:ring)
+   If (average_rating <= 2.0)
+    If (Isn't imdb_keywords:singing)
+     If (Isn't movielens_tags:To See)
+      If (Isn't imdb_keywords:russian)
+       Predict: -0.034265925559180135
+
+
+Product feature: 0
+Influence on the rating: 2.16713282751
+Actual value: 0.617294311523
+Predicted value: 0.283393843637
+Prediction branch:
+  If (Isn't imdb_keywords:f-rated)
+   If (Isn't imdb_keywords:cooking)
+    If (Isn't imdb_keywords:male-nudity)
+     If (Isn't imdb_keywords:greed)
+      If (Isn't imdb_keywords:lawyer)
+       Predict: 0.2833938436369916
+
+
+Product feature: 8
+Influence on the rating: 2.16258354335
+Actual value: 0.102200582623
+Predicted value: 0.178800431178
+Prediction branch:
+  If (Isn't imdb_keywords:male-nudity)
+   If (Isn't imdb_keywords:ring)
+    If (Isn't imdb_keywords:cooking)
+     If (Isn't imdb_keywords:singing)
+      If (Isn't imdb_keywords:riot)
+       Predict: 0.17880043117790134
+
+
+Product feature: 5
+Influence on the rating: 2.13223053761
+Actual value: 0.261491417885
+Predicted value: 0.169328330749
+Prediction branch:
+  If (Isn't imdb_keywords:cooking)
+   If (Isn't imdb_keywords:f-rated)
+    If (Isn't imdb_keywords:riot)
+     If (Isn't imdb_keywords:campfire)
+      If (Isn't imdb_keywords:lawyer)
+       Predict: 0.16932833074868503
+
+
+Product feature: 4
+Influence on the rating: 1.98689249772
+Actual value: -0.38281467557
+Predicted value: -0.394995227731
+Prediction branch:
+  If (Isn't imdb_keywords:campfire)
+   If (average_rating <= 3.0)
+    If (Isn't imdb_keywords:male-nudity)
+     If (Isn't imdb_keywords:shot-in-the-head)
+      If (Isn't imdb_keywords:hostage)
+       Predict: -0.39499522773138296
+
+
+Product feature: 10
+Influence on the rating: 1.97781713045
+Actual value: -0.0318002700806
+Predicted value: -0.111277022797
+Prediction branch:
+  If (Isn't imdb_keywords:b-movie)
+   If (Isn't imdb_keywords:male-nudity)
+    If (Isn't imdb_keywords:riot)
+     If (Isn't imdb_keywords:greed)
+      If (Isn't movielens_tags:To See)
+       Predict: -0.11127702279652742
+
+
+Product feature: 1
+Influence on the rating: 1.95707217951
+Actual value: -0.016588114202
+Predicted value: -0.0151545769915
+Prediction branch:
+  If (Isn't imdb_keywords:riot)
+   If (Isn't imdb_keywords:hostage)
+    If (Isn't imdb_keywords:male-nudity)
+     If (Isn't imdb_keywords:campfire)
+      If (Isn't imdb_keywords:ring)
+       Predict: -0.015154576991518969
+
+
+Product feature: 6
+Influence on the rating: 1.47348963797
+Actual value: 0.100016616285
+Predicted value: 0.0808839915816
+Prediction branch:
+  If (Isn't imdb_keywords:riot)
+   If (Isn't imdb_keywords:male-nudity)
+    If (Isn't imdb_keywords:cooking)
+     If (Isn't imdb_keywords:mental-illness)
+      If (Isn't imdb_keywords:f-rated)
+       Predict: 0.08088399158163799
+
+

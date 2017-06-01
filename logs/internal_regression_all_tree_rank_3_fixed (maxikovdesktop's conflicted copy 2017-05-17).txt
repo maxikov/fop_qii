@@ -1,0 +1,23 @@
+2017-05-11 16:31:38,431 - __main__ - DEBUG - rank: 3, lmbda: 0.02, num_iter: 300, num_partitions: 7
+2017-05-11 16:31:38,431 - __main__ - DEBUG - data_path: datasets/ml-20m/, checkpoint_dir: /home/maxikov/spark_dir
+2017-05-11 16:31:38,431 - __main__ - DEBUG - Temp dir: /home/maxikov/spark_dir
+2017-05-11 16:31:38,431 - __main__ - DEBUG - local_threads: *
+2017-05-11 16:31:38,432 - __main__ - DEBUG - spark_executor_memory: 15g
+2017-05-11 16:31:38,432 - __main__ - DEBUG - regression_model: regression_tree
+2017-05-11 16:31:38,432 - __main__ - DEBUG - nbins: 32
+2017-05-11 16:31:38,432 - __main__ - DEBUG - regression_users: False
+2017-05-11 16:31:38,432 - __main__ - DEBUG - predict_product_features: True
+2017-05-11 16:31:38,432 - __main__ - DEBUG - metadata_sources: ['years', 'genres', 'average_rating', 'tvtropes', 'imdb_keywords', 'imdb_producer', 'imdb_director', 'tags']
+2017-05-11 16:31:38,432 - __main__ - DEBUG - movies_file: datasets/ml-20m/ml-20m.imdb.medium.csv
+2017-05-11 16:31:38,432 - __main__ - DEBUG - cross_validation: 70
+2017-05-11 16:31:38,432 - __main__ - DEBUG - tvtropes_file: datasets/dbtropes/tropes.csv
+2017-05-11 16:31:38,433 - __main__ - DEBUG - features_trim_percentile: 0
+2017-05-11 16:31:38,433 - __main__ - DEBUG - drop_missing_movies: False
+2017-05-11 16:31:38,433 - __main__ - DEBUG - drop_rare_features: 500
+2017-05-11 16:31:38,433 - __main__ - DEBUG - filter_data_set: 10
+2017-05-11 16:31:38,433 - __main__ - DEBUG - persist_dir: /home/maxikov/all_tree_internal_rank_3_fixed.state, override_args: False
+2017-05-11 16:31:38,433 - __main__ - DEBUG - drop_rare_movies: 50
+2017-05-11 16:31:38,433 - __main__ - DEBUG - /home/maxikov/all_tree_internal_rank_3_fixed.state/args.pkl not found, loading new
+2017-05-11 16:31:38,433 - __main__ - DEBUG - Storing in /home/maxikov/all_tree_internal_rank_3_fixed.state/args.pkl
+2017-05-11 16:31:40,042 - __main__ - DEBUG - msep: ,
+2017-05-11 16:31:40,042 - __main__ - DEBUG - Loading ratings

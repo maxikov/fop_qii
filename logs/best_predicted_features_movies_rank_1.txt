@@ -1,0 +1,50 @@
+Movie: The Boy Next Door (2015) ( 128592 ) , error: 0.0
+Movie: Anguish (Angustia) (1987) ( 3650 ) , error: 0.0
+Movie: Sexy Nights of the Living Dead (1980) ( 96921 ) , error: 0.0
+Movie: Bullitt (1968) ( 7076 ) , error: 1.17821853702e-05
+Movie: That's My Boy (2012) ( 96616 ) , error: 1.66697044894e-05
+Movie: Evelyn (2002) ( 5947 ) , error: 2.10300498051e-05
+Movie: De-Lovely (2004) ( 8535 ) , error: 3.06023764856e-05
+Movie: Hours, The (2002) ( 5992 ) , error: 5.91263049792e-05
+Movie: Man Who Knew Too Much, The (1934) ( 2212 ) , error: 8.54535263126e-05
+Movie: Two Days (2003) ( 65111 ) , error: 0.000125403565485
+Movie: Affliction (1997) ( 2439 ) , error: 0.000127402033125
+Movie: Expendables 3, The (2014) ( 112897 ) , error: 0.00013852580158
+Movie: Name of the Rose, The (Name der Rose, Der) (1986) ( 2467 ) , error: 0.00016697314607
+Movie: I Was a Male War Bride (1949) ( 7212 ) , error: 0.000177561259661
+Movie: Vicious Kind, The (2009) ( 74573 ) , error: 0.000190396769708
+Movie: Cop Out (2010) ( 74532 ) , error: 0.000241856052451
+Movie: Re-Animator (1985) ( 3018 ) , error: 0.000269670819127
+Movie: Hollywoodland (2006) ( 47950 ) , error: 0.000278862674585
+Movie: Kings Row (1942) ( 8422 ) , error: 0.000303100008483
+Movie: Unknown (2006) ( 51037 ) , error: 0.000303118479879
+Movie: Tristan & Isolde (2006) ( 42728 ) , error: 0.000316173779337
+Movie: Trial of Billy Jack, The (1974) ( 51300 ) , error: 0.000332250433453
+Movie: Away We Go (2009) ( 66665 ) , error: 0.000333072257643
+Movie: Ghost World (2001) ( 4641 ) , error: 0.000336070521539
+Movie: St. Ives (1976) ( 59850 ) , error: 0.00036850665745
+Movie: Mimic (1997) ( 1603 ) , error: 0.000385423229165
+Movie: Gauntlet, The (1977) ( 4947 ) , error: 0.000385846059347
+Movie: Bedazzled (1967) ( 7708 ) , error: 0.000400154841574
+Movie: eXistenZ (1999) ( 2600 ) , error: 0.000405547493382
+Movie: Motorcycle Diaries, The (Diarios de motocicleta) (2004) ( 8873 ) , error: 0.00041241305215
+Movie: Bless the Child (2000) ( 3857 ) , error: 0.000425031142575
+Movie: Danton (1983) ( 5937 ) , error: 0.00042591525727
+Movie: Revenge of the Pink Panther (1978) ( 8596 ) , error: 0.000433028721418
+Movie: Sentinel, The (2006) ( 45062 ) , error: 0.000436779570906
+Movie: Turkish Delight (Turks fruit) (1973) ( 26308 ) , error: 0.000438739400391
+Movie: Showdown in Little Tokyo (1991) ( 6642 ) , error: 0.000448445751242
+Movie: Die Another Day (2002) ( 5872 ) , error: 0.000510099815996
+Movie: Tingler, The (1959) ( 2781 ) , error: 0.000515345024736
+Movie: Wraith, The (1986) ( 38583 ) , error: 0.000535953429437
+Movie: Panic Room (2002) ( 5266 ) , error: 0.000537361066366
+Movie: Evening (2007) ( 53988 ) , error: 0.000550118724951
+Movie: Place Beyond the Pines, The (2012) ( 101525 ) , error: 0.00056469590724
+Movie: Henry Fool (1997) ( 1904 ) , error: 0.000584873471941
+Movie: Giver, The (2014) ( 113378 ) , error: 0.000585440086992
+Movie: Waitress (2007) ( 50685 ) , error: 0.000600186075483
+Movie: 8: The Mormon Proposition (2010) ( 79430 ) , error: 0.000600784075887
+Movie: Wayne's World 2 (1993) ( 3254 ) , error: 0.00061369402973
+Movie: Game Change (2012) ( 93498 ) , error: 0.000642637745673
+Movie: Escape from Alcatraz (1979) ( 8340 ) , error: 0.00067283676452
+Movie: Hunchback of Notre Dame, The (1939) ( 7079 ) , error: 0.000702242390448
