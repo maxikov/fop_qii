@@ -1,6 +1,7 @@
 #standard library
 import argparse
 import os.path
+import functools
 
 #project files
 import rating_explanation
@@ -9,6 +10,25 @@ import tree_qii
 
 #pyspark libraryb
 from pyspark import SparkConf, SparkContext
+
+def shadow_model_qii(user, movie, user_features, all_trees, indicators,
+                     iterations=10):
+    pass
+
+def get_all_feature_distributions(features, used_features):
+    used_features = sorted(list(used_features))
+    map_f = functools.partial(lambda used_features, (mid, ftrs):
+            (mid, {f:[ftrs[f]] for f in used_features}), used_features)
+    reduce_f = functools.partial(lambda used_features, foo, bar:\
+            {f:foo[f]+bar[f] for f in used_features}, used_features)
+    res = features.map(map_f).values().reduce(reduce_f)
+    return res
+
+def get_all_used_features(all_trees):
+    res = set()
+    for tree in all_trees.values():
+        res = res.union(set(tree_qii.get_used_features(tree)))
+    return res
 
 def shadow_predict(user, movie, rank, user_features, all_trees, indicators):
     res = 0
@@ -56,6 +76,10 @@ def main():
     all_trees = {}
     for i in xrange(rank):
         all_trees[i] = rating_explanation.load_regression_tree_model(sc, args.persist_dir, i)
+    all_used_features = get_all_used_features(all_trees)
+    print "{} features are used: {}".format(len(all_used_features), ", "\
+            .join("{}: {}".format(f, results["feature_names"][f])
+                for f in all_used_features))
     original_predicted_rating = model.predict(args.user, args.movie)
     print "Original predicted rating:", original_predicted_rating
     print "Loading indicators"
@@ -65,6 +89,8 @@ def main():
         tree_qii.load_features_indicators(os.path.join(args.persist_dir,
                                               "features_training_test.pkl"), sc, 7)
     indicators = indicators_training.union(indicators_test).sortByKey().cache()
+    all_indicator_distributions = get_all_feature_distributions(indicators,
+            all_used_features)
     shadow_predicted_rating = shadow_predict(args.user, args.movie, rank,
                                               user_features, all_trees,
                                               indicators)
