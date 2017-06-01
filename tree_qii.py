@@ -120,9 +120,6 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--persist-dir", action="store", type=str, help=\
                         "Path from which to loaad models and features to analyze")
-    parser.add_argument("--qii-iterations", action="store", type=int,
-                        default=10, help="Number of QII iterations. "+\
-                                         "10 by default.")
     parser.add_argument("--feature", action="store", type=int, help=\
                         "Feature ID of the model to analyze")
     args = parser.parse_args()
