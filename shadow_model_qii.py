@@ -25,15 +25,13 @@ def shadow_model_qii(user, movie, user_features, all_trees, indicators,
     qiis = {}
     filter_f = functools.partial(lambda movie, (mid, _): mid == movie, movie)
     indicators = indicators.filter(filter_f)
+    original_values = indicators.lookup(movie)[0]
     original_prediction = shadow_predict(user, movie, rank, user_features,
                                          all_trees, indicators)
     for i_f, f in enumerate(used_features):
         cur_qii = 0.0
         cur_signed_qii = 0.0
         for i in xrange(iterations):
-            if debug:
-                print "Processing feature {} ({} out of {}), iteration {} out of {}"\
-                        .format(f, i_f, len(used_features), i, iterations)
             perturbed_value = random.choice(indicator_distributions[f])
             map_f = functools.partial(lambda pv, f, (mid, ftrs):\
                     (mid, common_utils.set_list_value(ftrs, f, pv)),
@@ -45,6 +43,11 @@ def shadow_model_qii(user, movie, user_features, all_trees, indicators,
             signed_err = perturbed_prediction - original_prediction
             cur_qii += abs_err
             cur_signed_qii += signed_err
+            if debug:
+                print "Processed feature {} ({} out of {}), iteration {} out of {}"\
+                        .format(f, i_f, len(used_features), i, iterations) +\
+                      ". Sampled feature value: {} (vs original {}),".format(perturbed_value, original_values[f]) +\
+                      " new rating: {} (vs original {})".format(perturbed_prediction, original_prediction)
         cur_qii = cur_qii / float(iterations)
         cur_signed_qii = cur_signed_qii / float(iterations)
         if cur_signed_qii == 0:
@@ -54,6 +57,13 @@ def shadow_model_qii(user, movie, user_features, all_trees, indicators,
         cur_qii *= sign
         qiis[f] = cur_qii
     return qiis
+
+def exact_histogram(distr):
+    uniques = set(distr)
+    res = {u:0 for u in uniques}
+    for i in distr:
+        res[i] += 1
+    return res
 
 def get_all_feature_distributions(features, used_features):
     used_features = sorted(list(used_features))
@@ -135,6 +145,10 @@ def main():
     indicators = indicators_training.union(indicators_test).sortByKey().cache()
     all_indicator_distributions = get_all_feature_distributions(indicators,
             all_used_features)
+    print "Used indicator distributions:"
+    for f in sorted(list(all_used_features)):
+        hist = exact_histogram(all_indicator_distributions[f])
+        print "{} ({}): {}".format(results["feature_names"][f], f, hist)
     shadow_predicted_rating = shadow_predict(args.user, args.movie, rank,
                                               user_features, all_trees,
                                               indicators)
