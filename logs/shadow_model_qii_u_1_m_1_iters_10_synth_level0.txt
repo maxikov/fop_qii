@@ -1,0 +1,1511 @@
+Loading results dict
+Original recommender relative to ground truth on training set mean absolute error: 0.0151974320906, RMSE: 0.0204116879929
+Shadow model relative to the baseline recommender on test set MAE: 0.382359618452, RMSE: 0.47008215798
+Randomized model relative to the baseline recommender on test set MAE: 1.01781981247, RMSE: 1.20739181776
+Shadow model is 2.66194379154 times better than random on the test set
+Loading ALS model
+Loaded rank 12 model
+Cur user features: [array('d', [0.2410728633403778, 0.10723987966775894, 0.545657217502594, 0.20227843523025513, 0.6135056614875793, -1.3558677434921265, 0.06796791404485703, -0.583808422088623, 0.25898876786231995, -0.9236955642700195, 0.1422213613986969, -0.03905709832906723])]
+Cur product features: [array('d', [0.30203428864479065, -0.1525067239999771, 0.2422783523797989, 0.057886626571416855, 0.635220468044281, -1.137028694152832, -0.0827893316745758, 0.13533075153827667, -0.11613612622022629, -0.9739937782287598, -0.15840773284435272, -0.034364763647317886])]
+Loading decision trees
+136 features are used: 0: year, 1: movielens_genre:Action, 258: imdb_keywords:dark-comedy, 261: imdb_keywords:dead-body, 6: movielens_genre:Crime, 769: imdb_keywords:satire, 8: movielens_genre:Drama, 265: imdb_keywords:death-of-child, 11: movielens_genre:Horror, 13: movielens_genre:Mystery, 1039: tvtropes:chekhovs gun, 16: movielens_genre:Thriller, 18: movielens_genre:Western, 787: imdb_keywords:seduction, 532: imdb_keywords:lifting-someone-into-the-air, 790: imdb_keywords:semiautomatic-pistol, 280: imdb_keywords:detective, 1050: tvtropes:disproportionate retribution, 815: imdb_keywords:shot-to-death, 796: imdb_keywords:severed-hand, 1053: tvtropes:dragon, 799: imdb_keywords:sex-in-bed, 800: imdb_keywords:sex-scene, 545: imdb_keywords:loss-of-father, 290: imdb_keywords:dismemberment, 803: imdb_keywords:sheriff, 292: imdb_keywords:doctor, 518: imdb_keywords:knife, 553: imdb_keywords:lust, 554: imdb_keywords:machine-gun, 300: imdb_keywords:drink, 306: imdb_keywords:drug-use, 46: imdb_keywords:alcoholic, 303: imdb_keywords:drug-addict, 562: imdb_keywords:male-nudity, 308: imdb_keywords:drunkenness, 312: imdb_keywords:dysfunctional-marriage, 65: imdb_keywords:arrest, 2: movielens_genre:Adventure, 579: imdb_keywords:mayor, 325: imdb_keywords:escape, 583: imdb_keywords:mercenary, 72: imdb_keywords:attempted-murder, 80: imdb_keywords:baby, 337: imdb_keywords:explosion, 594: imdb_keywords:money, 340: imdb_keywords:f-rated, 342: imdb_keywords:face-slap, 88: imdb_keywords:bare-butt, 347: imdb_keywords:falling-from-height, 861: imdb_keywords:student, 863: imdb_keywords:subjective-camera, 96: imdb_keywords:based-on-novel, 1123: average_rating, 359: imdb_keywords:fear, 361: imdb_keywords:female-frontal-nudity, 874: imdb_keywords:surprise-ending, 363: imdb_keywords:female-nudity, 876: imdb_keywords:surveillance, 621: imdb_keywords:nightmare, 879: imdb_keywords:suspicion, 112: imdb_keywords:best-friend, 113: imdb_keywords:betrayal, 370: imdb_keywords:fight, 117: imdb_keywords:binoculars, 886: imdb_keywords:syringe, 634: imdb_keywords:old-man, 191: imdb_keywords:chicago-illinois, 124: imdb_keywords:black-comedy, 382: imdb_keywords:fistfight, 641: imdb_keywords:one-man-army, 642: imdb_keywords:one-word-title, 643: imdb_keywords:opening-action-scene, 648: imdb_keywords:orphan, 140: imdb_keywords:boyfriend-girlfriend-relationship, 962: imdb_keywords:urination, 877: imdb_keywords:survival, 400: imdb_keywords:friend, 401: imdb_keywords:friendship, 146: imdb_keywords:breasts, 661: imdb_keywords:party, 150: imdb_keywords:brothel, 152: imdb_keywords:brother-sister-relationship, 409: imdb_keywords:garden, 155: imdb_keywords:bully, 413: imdb_keywords:gay-kiss, 415: imdb_keywords:general, 672: imdb_keywords:pig, 673: imdb_keywords:pilot, 675: imdb_keywords:pistol, 679: imdb_keywords:police, 168: imdb_keywords:cannon, 683: imdb_keywords:police-detective, 941: imdb_keywords:trust, 688: imdb_keywords:policeman, 433: imdb_keywords:gun, 434: imdb_keywords:gunfight, 180: imdb_keywords:cave, 185: imdb_keywords:character-name-in-title, 442: imdb_keywords:hand-to-hand-combat, 443: imdb_keywords:handcuffs, 188: imdb_keywords:chase, 712: imdb_keywords:public-nudity, 629: imdb_keywords:nurse, 928: imdb_keywords:tough-guy, 706: imdb_keywords:prostitution, 708: imdb_keywords:psychiatrist, 374: imdb_keywords:fire, 455: imdb_keywords:hero, 456: imdb_keywords:heroin, 972: imdb_keywords:violence, 970: imdb_keywords:village, 460: imdb_keywords:hit-by-a-car, 34: imdb_keywords:action-hero, 462: imdb_keywords:hitman, 109: imdb_keywords:bed, 271: imdb_keywords:death-of-wife, 977: imdb_keywords:voyeurism, 210: imdb_keywords:cleavage, 723: imdb_keywords:rage, 726: imdb_keywords:rainstorm, 36: imdb_keywords:actor-shares-first-name-with-character, 475: imdb_keywords:house, 478: imdb_keywords:husband-wife-relationship, 37: imdb_keywords:actress, 740: imdb_keywords:reporter, 230: imdb_keywords:corpse, 15: movielens_genre:Sci-Fi, 352: imdb_keywords:fantasy-sequence, 752: imdb_keywords:river, 497: imdb_keywords:jail, 501: imdb_keywords:jealousy, 1065: tvtropes:gory discretion shot, 761: imdb_keywords:rural-setting, 509: imdb_keywords:karate, 1022: tvtropes:badass
+Original predicted rating: 2.89551425337
+Loading indicators
+Shadow predicted rating: 2.83840432197 (0.0571099313946 away from original)
+Processing feature 0 (0 out of 136), iteration 0 out of 10
+Processing feature 0 (0 out of 136), iteration 1 out of 10
+Processing feature 0 (0 out of 136), iteration 2 out of 10
+Processing feature 0 (0 out of 136), iteration 3 out of 10
+Processing feature 0 (0 out of 136), iteration 4 out of 10
+Processing feature 0 (0 out of 136), iteration 5 out of 10
+Processing feature 0 (0 out of 136), iteration 6 out of 10
+Processing feature 0 (0 out of 136), iteration 7 out of 10
+Processing feature 0 (0 out of 136), iteration 8 out of 10
+Processing feature 0 (0 out of 136), iteration 9 out of 10
+Processing feature 1 (1 out of 136), iteration 0 out of 10
+Processing feature 1 (1 out of 136), iteration 1 out of 10
+Processing feature 1 (1 out of 136), iteration 2 out of 10
+Processing feature 1 (1 out of 136), iteration 3 out of 10
+Processing feature 1 (1 out of 136), iteration 4 out of 10
+Processing feature 1 (1 out of 136), iteration 5 out of 10
+Processing feature 1 (1 out of 136), iteration 6 out of 10
+Processing feature 1 (1 out of 136), iteration 7 out of 10
+Processing feature 1 (1 out of 136), iteration 8 out of 10
+Processing feature 1 (1 out of 136), iteration 9 out of 10
+Processing feature 258 (2 out of 136), iteration 0 out of 10
+Processing feature 258 (2 out of 136), iteration 1 out of 10
+Processing feature 258 (2 out of 136), iteration 2 out of 10
+Processing feature 258 (2 out of 136), iteration 3 out of 10
+Processing feature 258 (2 out of 136), iteration 4 out of 10
+Processing feature 258 (2 out of 136), iteration 5 out of 10
+Processing feature 258 (2 out of 136), iteration 6 out of 10
+Processing feature 258 (2 out of 136), iteration 7 out of 10
+Processing feature 258 (2 out of 136), iteration 8 out of 10
+Processing feature 258 (2 out of 136), iteration 9 out of 10
+Processing feature 261 (3 out of 136), iteration 0 out of 10
+Processing feature 261 (3 out of 136), iteration 1 out of 10
+Processing feature 261 (3 out of 136), iteration 2 out of 10
+Processing feature 261 (3 out of 136), iteration 3 out of 10
+Processing feature 261 (3 out of 136), iteration 4 out of 10
+Processing feature 261 (3 out of 136), iteration 5 out of 10
+Processing feature 261 (3 out of 136), iteration 6 out of 10
+Processing feature 261 (3 out of 136), iteration 7 out of 10
+Processing feature 261 (3 out of 136), iteration 8 out of 10
+Processing feature 261 (3 out of 136), iteration 9 out of 10
+Processing feature 6 (4 out of 136), iteration 0 out of 10
+Processing feature 6 (4 out of 136), iteration 1 out of 10
+Processing feature 6 (4 out of 136), iteration 2 out of 10
+Processing feature 6 (4 out of 136), iteration 3 out of 10
+Processing feature 6 (4 out of 136), iteration 4 out of 10
+Processing feature 6 (4 out of 136), iteration 5 out of 10
+Processing feature 6 (4 out of 136), iteration 6 out of 10
+Processing feature 6 (4 out of 136), iteration 7 out of 10
+Processing feature 6 (4 out of 136), iteration 8 out of 10
+Processing feature 6 (4 out of 136), iteration 9 out of 10
+Processing feature 769 (5 out of 136), iteration 0 out of 10
+Processing feature 769 (5 out of 136), iteration 1 out of 10
+Processing feature 769 (5 out of 136), iteration 2 out of 10
+Processing feature 769 (5 out of 136), iteration 3 out of 10
+Processing feature 769 (5 out of 136), iteration 4 out of 10
+Processing feature 769 (5 out of 136), iteration 5 out of 10
+Processing feature 769 (5 out of 136), iteration 6 out of 10
+Processing feature 769 (5 out of 136), iteration 7 out of 10
+Processing feature 769 (5 out of 136), iteration 8 out of 10
+Processing feature 769 (5 out of 136), iteration 9 out of 10
+Processing feature 8 (6 out of 136), iteration 0 out of 10
+Processing feature 8 (6 out of 136), iteration 1 out of 10
+Processing feature 8 (6 out of 136), iteration 2 out of 10
+Processing feature 8 (6 out of 136), iteration 3 out of 10
+Processing feature 8 (6 out of 136), iteration 4 out of 10
+Processing feature 8 (6 out of 136), iteration 5 out of 10
+Processing feature 8 (6 out of 136), iteration 6 out of 10
+Processing feature 8 (6 out of 136), iteration 7 out of 10
+Processing feature 8 (6 out of 136), iteration 8 out of 10
+Processing feature 8 (6 out of 136), iteration 9 out of 10
+Processing feature 265 (7 out of 136), iteration 0 out of 10
+Processing feature 265 (7 out of 136), iteration 1 out of 10
+Processing feature 265 (7 out of 136), iteration 2 out of 10
+Processing feature 265 (7 out of 136), iteration 3 out of 10
+Processing feature 265 (7 out of 136), iteration 4 out of 10
+Processing feature 265 (7 out of 136), iteration 5 out of 10
+Processing feature 265 (7 out of 136), iteration 6 out of 10
+Processing feature 265 (7 out of 136), iteration 7 out of 10
+Processing feature 265 (7 out of 136), iteration 8 out of 10
+Processing feature 265 (7 out of 136), iteration 9 out of 10
+Processing feature 11 (8 out of 136), iteration 0 out of 10
+Processing feature 11 (8 out of 136), iteration 1 out of 10
+Processing feature 11 (8 out of 136), iteration 2 out of 10
+Processing feature 11 (8 out of 136), iteration 3 out of 10
+Processing feature 11 (8 out of 136), iteration 4 out of 10
+Processing feature 11 (8 out of 136), iteration 5 out of 10
+Processing feature 11 (8 out of 136), iteration 6 out of 10
+Processing feature 11 (8 out of 136), iteration 7 out of 10
+Processing feature 11 (8 out of 136), iteration 8 out of 10
+Processing feature 11 (8 out of 136), iteration 9 out of 10
+Processing feature 13 (9 out of 136), iteration 0 out of 10
+Processing feature 13 (9 out of 136), iteration 1 out of 10
+Processing feature 13 (9 out of 136), iteration 2 out of 10
+Processing feature 13 (9 out of 136), iteration 3 out of 10
+Processing feature 13 (9 out of 136), iteration 4 out of 10
+Processing feature 13 (9 out of 136), iteration 5 out of 10
+Processing feature 13 (9 out of 136), iteration 6 out of 10
+Processing feature 13 (9 out of 136), iteration 7 out of 10
+Processing feature 13 (9 out of 136), iteration 8 out of 10
+Processing feature 13 (9 out of 136), iteration 9 out of 10
+Processing feature 1039 (10 out of 136), iteration 0 out of 10
+Processing feature 1039 (10 out of 136), iteration 1 out of 10
+Processing feature 1039 (10 out of 136), iteration 2 out of 10
+Processing feature 1039 (10 out of 136), iteration 3 out of 10
+Processing feature 1039 (10 out of 136), iteration 4 out of 10
+Processing feature 1039 (10 out of 136), iteration 5 out of 10
+Processing feature 1039 (10 out of 136), iteration 6 out of 10
+Processing feature 1039 (10 out of 136), iteration 7 out of 10
+Processing feature 1039 (10 out of 136), iteration 8 out of 10
+Processing feature 1039 (10 out of 136), iteration 9 out of 10
+Processing feature 16 (11 out of 136), iteration 0 out of 10
+Processing feature 16 (11 out of 136), iteration 1 out of 10
+Processing feature 16 (11 out of 136), iteration 2 out of 10
+Processing feature 16 (11 out of 136), iteration 3 out of 10
+Processing feature 16 (11 out of 136), iteration 4 out of 10
+Processing feature 16 (11 out of 136), iteration 5 out of 10
+Processing feature 16 (11 out of 136), iteration 6 out of 10
+Processing feature 16 (11 out of 136), iteration 7 out of 10
+Processing feature 16 (11 out of 136), iteration 8 out of 10
+Processing feature 16 (11 out of 136), iteration 9 out of 10
+Processing feature 18 (12 out of 136), iteration 0 out of 10
+Processing feature 18 (12 out of 136), iteration 1 out of 10
+Processing feature 18 (12 out of 136), iteration 2 out of 10
+Processing feature 18 (12 out of 136), iteration 3 out of 10
+Processing feature 18 (12 out of 136), iteration 4 out of 10
+Processing feature 18 (12 out of 136), iteration 5 out of 10
+Processing feature 18 (12 out of 136), iteration 6 out of 10
+Processing feature 18 (12 out of 136), iteration 7 out of 10
+Processing feature 18 (12 out of 136), iteration 8 out of 10
+Processing feature 18 (12 out of 136), iteration 9 out of 10
+Processing feature 787 (13 out of 136), iteration 0 out of 10
+Processing feature 787 (13 out of 136), iteration 1 out of 10
+Processing feature 787 (13 out of 136), iteration 2 out of 10
+Processing feature 787 (13 out of 136), iteration 3 out of 10
+Processing feature 787 (13 out of 136), iteration 4 out of 10
+Processing feature 787 (13 out of 136), iteration 5 out of 10
+Processing feature 787 (13 out of 136), iteration 6 out of 10
+Processing feature 787 (13 out of 136), iteration 7 out of 10
+Processing feature 787 (13 out of 136), iteration 8 out of 10
+Processing feature 787 (13 out of 136), iteration 9 out of 10
+Processing feature 532 (14 out of 136), iteration 0 out of 10
+Processing feature 532 (14 out of 136), iteration 1 out of 10
+Processing feature 532 (14 out of 136), iteration 2 out of 10
+Processing feature 532 (14 out of 136), iteration 3 out of 10
+Processing feature 532 (14 out of 136), iteration 4 out of 10
+Processing feature 532 (14 out of 136), iteration 5 out of 10
+Processing feature 532 (14 out of 136), iteration 6 out of 10
+Processing feature 532 (14 out of 136), iteration 7 out of 10
+Processing feature 532 (14 out of 136), iteration 8 out of 10
+Processing feature 532 (14 out of 136), iteration 9 out of 10
+Processing feature 790 (15 out of 136), iteration 0 out of 10
+Processing feature 790 (15 out of 136), iteration 1 out of 10
+Processing feature 790 (15 out of 136), iteration 2 out of 10
+Processing feature 790 (15 out of 136), iteration 3 out of 10
+Processing feature 790 (15 out of 136), iteration 4 out of 10
+Processing feature 790 (15 out of 136), iteration 5 out of 10
+Processing feature 790 (15 out of 136), iteration 6 out of 10
+Processing feature 790 (15 out of 136), iteration 7 out of 10
+Processing feature 790 (15 out of 136), iteration 8 out of 10
+Processing feature 790 (15 out of 136), iteration 9 out of 10
+Processing feature 280 (16 out of 136), iteration 0 out of 10
+Processing feature 280 (16 out of 136), iteration 1 out of 10
+Processing feature 280 (16 out of 136), iteration 2 out of 10
+Processing feature 280 (16 out of 136), iteration 3 out of 10
+Processing feature 280 (16 out of 136), iteration 4 out of 10
+Processing feature 280 (16 out of 136), iteration 5 out of 10
+Processing feature 280 (16 out of 136), iteration 6 out of 10
+Processing feature 280 (16 out of 136), iteration 7 out of 10
+Processing feature 280 (16 out of 136), iteration 8 out of 10
+Processing feature 280 (16 out of 136), iteration 9 out of 10
+Processing feature 1050 (17 out of 136), iteration 0 out of 10
+Processing feature 1050 (17 out of 136), iteration 1 out of 10
+Processing feature 1050 (17 out of 136), iteration 2 out of 10
+Processing feature 1050 (17 out of 136), iteration 3 out of 10
+Processing feature 1050 (17 out of 136), iteration 4 out of 10
+Processing feature 1050 (17 out of 136), iteration 5 out of 10
+Processing feature 1050 (17 out of 136), iteration 6 out of 10
+Processing feature 1050 (17 out of 136), iteration 7 out of 10
+Processing feature 1050 (17 out of 136), iteration 8 out of 10
+Processing feature 1050 (17 out of 136), iteration 9 out of 10
+Processing feature 815 (18 out of 136), iteration 0 out of 10
+Processing feature 815 (18 out of 136), iteration 1 out of 10
+Processing feature 815 (18 out of 136), iteration 2 out of 10
+Processing feature 815 (18 out of 136), iteration 3 out of 10
+Processing feature 815 (18 out of 136), iteration 4 out of 10
+Processing feature 815 (18 out of 136), iteration 5 out of 10
+Processing feature 815 (18 out of 136), iteration 6 out of 10
+Processing feature 815 (18 out of 136), iteration 7 out of 10
+Processing feature 815 (18 out of 136), iteration 8 out of 10
+Processing feature 815 (18 out of 136), iteration 9 out of 10
+Processing feature 796 (19 out of 136), iteration 0 out of 10
+Processing feature 796 (19 out of 136), iteration 1 out of 10
+Processing feature 796 (19 out of 136), iteration 2 out of 10
+Processing feature 796 (19 out of 136), iteration 3 out of 10
+Processing feature 796 (19 out of 136), iteration 4 out of 10
+Processing feature 796 (19 out of 136), iteration 5 out of 10
+Processing feature 796 (19 out of 136), iteration 6 out of 10
+Processing feature 796 (19 out of 136), iteration 7 out of 10
+Processing feature 796 (19 out of 136), iteration 8 out of 10
+Processing feature 796 (19 out of 136), iteration 9 out of 10
+Processing feature 1053 (20 out of 136), iteration 0 out of 10
+Processing feature 1053 (20 out of 136), iteration 1 out of 10
+Processing feature 1053 (20 out of 136), iteration 2 out of 10
+Processing feature 1053 (20 out of 136), iteration 3 out of 10
+Processing feature 1053 (20 out of 136), iteration 4 out of 10
+Processing feature 1053 (20 out of 136), iteration 5 out of 10
+Processing feature 1053 (20 out of 136), iteration 6 out of 10
+Processing feature 1053 (20 out of 136), iteration 7 out of 10
+Processing feature 1053 (20 out of 136), iteration 8 out of 10
+Processing feature 1053 (20 out of 136), iteration 9 out of 10
+Processing feature 799 (21 out of 136), iteration 0 out of 10
+Processing feature 799 (21 out of 136), iteration 1 out of 10
+Processing feature 799 (21 out of 136), iteration 2 out of 10
+Processing feature 799 (21 out of 136), iteration 3 out of 10
+Processing feature 799 (21 out of 136), iteration 4 out of 10
+Processing feature 799 (21 out of 136), iteration 5 out of 10
+Processing feature 799 (21 out of 136), iteration 6 out of 10
+Processing feature 799 (21 out of 136), iteration 7 out of 10
+Processing feature 799 (21 out of 136), iteration 8 out of 10
+Processing feature 799 (21 out of 136), iteration 9 out of 10
+Processing feature 800 (22 out of 136), iteration 0 out of 10
+Processing feature 800 (22 out of 136), iteration 1 out of 10
+Processing feature 800 (22 out of 136), iteration 2 out of 10
+Processing feature 800 (22 out of 136), iteration 3 out of 10
+Processing feature 800 (22 out of 136), iteration 4 out of 10
+Processing feature 800 (22 out of 136), iteration 5 out of 10
+Processing feature 800 (22 out of 136), iteration 6 out of 10
+Processing feature 800 (22 out of 136), iteration 7 out of 10
+Processing feature 800 (22 out of 136), iteration 8 out of 10
+Processing feature 800 (22 out of 136), iteration 9 out of 10
+Processing feature 545 (23 out of 136), iteration 0 out of 10
+Processing feature 545 (23 out of 136), iteration 1 out of 10
+Processing feature 545 (23 out of 136), iteration 2 out of 10
+Processing feature 545 (23 out of 136), iteration 3 out of 10
+Processing feature 545 (23 out of 136), iteration 4 out of 10
+Processing feature 545 (23 out of 136), iteration 5 out of 10
+Processing feature 545 (23 out of 136), iteration 6 out of 10
+Processing feature 545 (23 out of 136), iteration 7 out of 10
+Processing feature 545 (23 out of 136), iteration 8 out of 10
+Processing feature 545 (23 out of 136), iteration 9 out of 10
+Processing feature 290 (24 out of 136), iteration 0 out of 10
+Processing feature 290 (24 out of 136), iteration 1 out of 10
+Processing feature 290 (24 out of 136), iteration 2 out of 10
+Processing feature 290 (24 out of 136), iteration 3 out of 10
+Processing feature 290 (24 out of 136), iteration 4 out of 10
+Processing feature 290 (24 out of 136), iteration 5 out of 10
+Processing feature 290 (24 out of 136), iteration 6 out of 10
+Processing feature 290 (24 out of 136), iteration 7 out of 10
+Processing feature 290 (24 out of 136), iteration 8 out of 10
+Processing feature 290 (24 out of 136), iteration 9 out of 10
+Processing feature 803 (25 out of 136), iteration 0 out of 10
+Processing feature 803 (25 out of 136), iteration 1 out of 10
+Processing feature 803 (25 out of 136), iteration 2 out of 10
+Processing feature 803 (25 out of 136), iteration 3 out of 10
+Processing feature 803 (25 out of 136), iteration 4 out of 10
+Processing feature 803 (25 out of 136), iteration 5 out of 10
+Processing feature 803 (25 out of 136), iteration 6 out of 10
+Processing feature 803 (25 out of 136), iteration 7 out of 10
+Processing feature 803 (25 out of 136), iteration 8 out of 10
+Processing feature 803 (25 out of 136), iteration 9 out of 10
+Processing feature 292 (26 out of 136), iteration 0 out of 10
+Processing feature 292 (26 out of 136), iteration 1 out of 10
+Processing feature 292 (26 out of 136), iteration 2 out of 10
+Processing feature 292 (26 out of 136), iteration 3 out of 10
+Processing feature 292 (26 out of 136), iteration 4 out of 10
+Processing feature 292 (26 out of 136), iteration 5 out of 10
+Processing feature 292 (26 out of 136), iteration 6 out of 10
+Processing feature 292 (26 out of 136), iteration 7 out of 10
+Processing feature 292 (26 out of 136), iteration 8 out of 10
+Processing feature 292 (26 out of 136), iteration 9 out of 10
+Processing feature 518 (27 out of 136), iteration 0 out of 10
+Processing feature 518 (27 out of 136), iteration 1 out of 10
+Processing feature 518 (27 out of 136), iteration 2 out of 10
+Processing feature 518 (27 out of 136), iteration 3 out of 10
+Processing feature 518 (27 out of 136), iteration 4 out of 10
+Processing feature 518 (27 out of 136), iteration 5 out of 10
+Processing feature 518 (27 out of 136), iteration 6 out of 10
+Processing feature 518 (27 out of 136), iteration 7 out of 10
+Processing feature 518 (27 out of 136), iteration 8 out of 10
+Processing feature 518 (27 out of 136), iteration 9 out of 10
+Processing feature 553 (28 out of 136), iteration 0 out of 10
+Processing feature 553 (28 out of 136), iteration 1 out of 10
+Processing feature 553 (28 out of 136), iteration 2 out of 10
+Processing feature 553 (28 out of 136), iteration 3 out of 10
+Processing feature 553 (28 out of 136), iteration 4 out of 10
+Processing feature 553 (28 out of 136), iteration 5 out of 10
+Processing feature 553 (28 out of 136), iteration 6 out of 10
+Processing feature 553 (28 out of 136), iteration 7 out of 10
+Processing feature 553 (28 out of 136), iteration 8 out of 10
+Processing feature 553 (28 out of 136), iteration 9 out of 10
+Processing feature 554 (29 out of 136), iteration 0 out of 10
+Processing feature 554 (29 out of 136), iteration 1 out of 10
+Processing feature 554 (29 out of 136), iteration 2 out of 10
+Processing feature 554 (29 out of 136), iteration 3 out of 10
+Processing feature 554 (29 out of 136), iteration 4 out of 10
+Processing feature 554 (29 out of 136), iteration 5 out of 10
+Processing feature 554 (29 out of 136), iteration 6 out of 10
+Processing feature 554 (29 out of 136), iteration 7 out of 10
+Processing feature 554 (29 out of 136), iteration 8 out of 10
+Processing feature 554 (29 out of 136), iteration 9 out of 10
+Processing feature 300 (30 out of 136), iteration 0 out of 10
+Processing feature 300 (30 out of 136), iteration 1 out of 10
+Processing feature 300 (30 out of 136), iteration 2 out of 10
+Processing feature 300 (30 out of 136), iteration 3 out of 10
+Processing feature 300 (30 out of 136), iteration 4 out of 10
+Processing feature 300 (30 out of 136), iteration 5 out of 10
+Processing feature 300 (30 out of 136), iteration 6 out of 10
+Processing feature 300 (30 out of 136), iteration 7 out of 10
+Processing feature 300 (30 out of 136), iteration 8 out of 10
+Processing feature 300 (30 out of 136), iteration 9 out of 10
+Processing feature 306 (31 out of 136), iteration 0 out of 10
+Processing feature 306 (31 out of 136), iteration 1 out of 10
+Processing feature 306 (31 out of 136), iteration 2 out of 10
+Processing feature 306 (31 out of 136), iteration 3 out of 10
+Processing feature 306 (31 out of 136), iteration 4 out of 10
+Processing feature 306 (31 out of 136), iteration 5 out of 10
+Processing feature 306 (31 out of 136), iteration 6 out of 10
+Processing feature 306 (31 out of 136), iteration 7 out of 10
+Processing feature 306 (31 out of 136), iteration 8 out of 10
+Processing feature 306 (31 out of 136), iteration 9 out of 10
+Processing feature 46 (32 out of 136), iteration 0 out of 10
+Processing feature 46 (32 out of 136), iteration 1 out of 10
+Processing feature 46 (32 out of 136), iteration 2 out of 10
+Processing feature 46 (32 out of 136), iteration 3 out of 10
+Processing feature 46 (32 out of 136), iteration 4 out of 10
+Processing feature 46 (32 out of 136), iteration 5 out of 10
+Processing feature 46 (32 out of 136), iteration 6 out of 10
+Processing feature 46 (32 out of 136), iteration 7 out of 10
+Processing feature 46 (32 out of 136), iteration 8 out of 10
+Processing feature 46 (32 out of 136), iteration 9 out of 10
+Processing feature 303 (33 out of 136), iteration 0 out of 10
+Processing feature 303 (33 out of 136), iteration 1 out of 10
+Processing feature 303 (33 out of 136), iteration 2 out of 10
+Processing feature 303 (33 out of 136), iteration 3 out of 10
+Processing feature 303 (33 out of 136), iteration 4 out of 10
+Processing feature 303 (33 out of 136), iteration 5 out of 10
+Processing feature 303 (33 out of 136), iteration 6 out of 10
+Processing feature 303 (33 out of 136), iteration 7 out of 10
+Processing feature 303 (33 out of 136), iteration 8 out of 10
+Processing feature 303 (33 out of 136), iteration 9 out of 10
+Processing feature 562 (34 out of 136), iteration 0 out of 10
+Processing feature 562 (34 out of 136), iteration 1 out of 10
+Processing feature 562 (34 out of 136), iteration 2 out of 10
+Processing feature 562 (34 out of 136), iteration 3 out of 10
+Processing feature 562 (34 out of 136), iteration 4 out of 10
+Processing feature 562 (34 out of 136), iteration 5 out of 10
+Processing feature 562 (34 out of 136), iteration 6 out of 10
+Processing feature 562 (34 out of 136), iteration 7 out of 10
+Processing feature 562 (34 out of 136), iteration 8 out of 10
+Processing feature 562 (34 out of 136), iteration 9 out of 10
+Processing feature 308 (35 out of 136), iteration 0 out of 10
+Processing feature 308 (35 out of 136), iteration 1 out of 10
+Processing feature 308 (35 out of 136), iteration 2 out of 10
+Processing feature 308 (35 out of 136), iteration 3 out of 10
+Processing feature 308 (35 out of 136), iteration 4 out of 10
+Processing feature 308 (35 out of 136), iteration 5 out of 10
+Processing feature 308 (35 out of 136), iteration 6 out of 10
+Processing feature 308 (35 out of 136), iteration 7 out of 10
+Processing feature 308 (35 out of 136), iteration 8 out of 10
+Processing feature 308 (35 out of 136), iteration 9 out of 10
+Processing feature 312 (36 out of 136), iteration 0 out of 10
+Processing feature 312 (36 out of 136), iteration 1 out of 10
+Processing feature 312 (36 out of 136), iteration 2 out of 10
+Processing feature 312 (36 out of 136), iteration 3 out of 10
+Processing feature 312 (36 out of 136), iteration 4 out of 10
+Processing feature 312 (36 out of 136), iteration 5 out of 10
+Processing feature 312 (36 out of 136), iteration 6 out of 10
+Processing feature 312 (36 out of 136), iteration 7 out of 10
+Processing feature 312 (36 out of 136), iteration 8 out of 10
+Processing feature 312 (36 out of 136), iteration 9 out of 10
+Processing feature 65 (37 out of 136), iteration 0 out of 10
+Processing feature 65 (37 out of 136), iteration 1 out of 10
+Processing feature 65 (37 out of 136), iteration 2 out of 10
+Processing feature 65 (37 out of 136), iteration 3 out of 10
+Processing feature 65 (37 out of 136), iteration 4 out of 10
+Processing feature 65 (37 out of 136), iteration 5 out of 10
+Processing feature 65 (37 out of 136), iteration 6 out of 10
+Processing feature 65 (37 out of 136), iteration 7 out of 10
+Processing feature 65 (37 out of 136), iteration 8 out of 10
+Processing feature 65 (37 out of 136), iteration 9 out of 10
+Processing feature 2 (38 out of 136), iteration 0 out of 10
+Processing feature 2 (38 out of 136), iteration 1 out of 10
+Processing feature 2 (38 out of 136), iteration 2 out of 10
+Processing feature 2 (38 out of 136), iteration 3 out of 10
+Processing feature 2 (38 out of 136), iteration 4 out of 10
+Processing feature 2 (38 out of 136), iteration 5 out of 10
+Processing feature 2 (38 out of 136), iteration 6 out of 10
+Processing feature 2 (38 out of 136), iteration 7 out of 10
+Processing feature 2 (38 out of 136), iteration 8 out of 10
+Processing feature 2 (38 out of 136), iteration 9 out of 10
+Processing feature 579 (39 out of 136), iteration 0 out of 10
+Processing feature 579 (39 out of 136), iteration 1 out of 10
+Processing feature 579 (39 out of 136), iteration 2 out of 10
+Processing feature 579 (39 out of 136), iteration 3 out of 10
+Processing feature 579 (39 out of 136), iteration 4 out of 10
+Processing feature 579 (39 out of 136), iteration 5 out of 10
+Processing feature 579 (39 out of 136), iteration 6 out of 10
+Processing feature 579 (39 out of 136), iteration 7 out of 10
+Processing feature 579 (39 out of 136), iteration 8 out of 10
+Processing feature 579 (39 out of 136), iteration 9 out of 10
+Processing feature 325 (40 out of 136), iteration 0 out of 10
+Processing feature 325 (40 out of 136), iteration 1 out of 10
+Processing feature 325 (40 out of 136), iteration 2 out of 10
+Processing feature 325 (40 out of 136), iteration 3 out of 10
+Processing feature 325 (40 out of 136), iteration 4 out of 10
+Processing feature 325 (40 out of 136), iteration 5 out of 10
+Processing feature 325 (40 out of 136), iteration 6 out of 10
+Processing feature 325 (40 out of 136), iteration 7 out of 10
+Processing feature 325 (40 out of 136), iteration 8 out of 10
+Processing feature 325 (40 out of 136), iteration 9 out of 10
+Processing feature 583 (41 out of 136), iteration 0 out of 10
+Processing feature 583 (41 out of 136), iteration 1 out of 10
+Processing feature 583 (41 out of 136), iteration 2 out of 10
+Processing feature 583 (41 out of 136), iteration 3 out of 10
+Processing feature 583 (41 out of 136), iteration 4 out of 10
+Processing feature 583 (41 out of 136), iteration 5 out of 10
+Processing feature 583 (41 out of 136), iteration 6 out of 10
+Processing feature 583 (41 out of 136), iteration 7 out of 10
+Processing feature 583 (41 out of 136), iteration 8 out of 10
+Processing feature 583 (41 out of 136), iteration 9 out of 10
+Processing feature 72 (42 out of 136), iteration 0 out of 10
+Processing feature 72 (42 out of 136), iteration 1 out of 10
+Processing feature 72 (42 out of 136), iteration 2 out of 10
+Processing feature 72 (42 out of 136), iteration 3 out of 10
+Processing feature 72 (42 out of 136), iteration 4 out of 10
+Processing feature 72 (42 out of 136), iteration 5 out of 10
+Processing feature 72 (42 out of 136), iteration 6 out of 10
+Processing feature 72 (42 out of 136), iteration 7 out of 10
+Processing feature 72 (42 out of 136), iteration 8 out of 10
+Processing feature 72 (42 out of 136), iteration 9 out of 10
+Processing feature 80 (43 out of 136), iteration 0 out of 10
+Processing feature 80 (43 out of 136), iteration 1 out of 10
+Processing feature 80 (43 out of 136), iteration 2 out of 10
+Processing feature 80 (43 out of 136), iteration 3 out of 10
+Processing feature 80 (43 out of 136), iteration 4 out of 10
+Processing feature 80 (43 out of 136), iteration 5 out of 10
+Processing feature 80 (43 out of 136), iteration 6 out of 10
+Processing feature 80 (43 out of 136), iteration 7 out of 10
+Processing feature 80 (43 out of 136), iteration 8 out of 10
+Processing feature 80 (43 out of 136), iteration 9 out of 10
+Processing feature 337 (44 out of 136), iteration 0 out of 10
+Processing feature 337 (44 out of 136), iteration 1 out of 10
+Processing feature 337 (44 out of 136), iteration 2 out of 10
+Processing feature 337 (44 out of 136), iteration 3 out of 10
+Processing feature 337 (44 out of 136), iteration 4 out of 10
+Processing feature 337 (44 out of 136), iteration 5 out of 10
+Processing feature 337 (44 out of 136), iteration 6 out of 10
+Processing feature 337 (44 out of 136), iteration 7 out of 10
+Processing feature 337 (44 out of 136), iteration 8 out of 10
+Processing feature 337 (44 out of 136), iteration 9 out of 10
+Processing feature 594 (45 out of 136), iteration 0 out of 10
+Processing feature 594 (45 out of 136), iteration 1 out of 10
+Processing feature 594 (45 out of 136), iteration 2 out of 10
+Processing feature 594 (45 out of 136), iteration 3 out of 10
+Processing feature 594 (45 out of 136), iteration 4 out of 10
+Processing feature 594 (45 out of 136), iteration 5 out of 10
+Processing feature 594 (45 out of 136), iteration 6 out of 10
+Processing feature 594 (45 out of 136), iteration 7 out of 10
+Processing feature 594 (45 out of 136), iteration 8 out of 10
+Processing feature 594 (45 out of 136), iteration 9 out of 10
+Processing feature 340 (46 out of 136), iteration 0 out of 10
+Processing feature 340 (46 out of 136), iteration 1 out of 10
+Processing feature 340 (46 out of 136), iteration 2 out of 10
+Processing feature 340 (46 out of 136), iteration 3 out of 10
+Processing feature 340 (46 out of 136), iteration 4 out of 10
+Processing feature 340 (46 out of 136), iteration 5 out of 10
+Processing feature 340 (46 out of 136), iteration 6 out of 10
+Processing feature 340 (46 out of 136), iteration 7 out of 10
+Processing feature 340 (46 out of 136), iteration 8 out of 10
+Processing feature 340 (46 out of 136), iteration 9 out of 10
+Processing feature 342 (47 out of 136), iteration 0 out of 10
+Processing feature 342 (47 out of 136), iteration 1 out of 10
+Processing feature 342 (47 out of 136), iteration 2 out of 10
+Processing feature 342 (47 out of 136), iteration 3 out of 10
+Processing feature 342 (47 out of 136), iteration 4 out of 10
+Processing feature 342 (47 out of 136), iteration 5 out of 10
+Processing feature 342 (47 out of 136), iteration 6 out of 10
+Processing feature 342 (47 out of 136), iteration 7 out of 10
+Processing feature 342 (47 out of 136), iteration 8 out of 10
+Processing feature 342 (47 out of 136), iteration 9 out of 10
+Processing feature 88 (48 out of 136), iteration 0 out of 10
+Processing feature 88 (48 out of 136), iteration 1 out of 10
+Processing feature 88 (48 out of 136), iteration 2 out of 10
+Processing feature 88 (48 out of 136), iteration 3 out of 10
+Processing feature 88 (48 out of 136), iteration 4 out of 10
+Processing feature 88 (48 out of 136), iteration 5 out of 10
+Processing feature 88 (48 out of 136), iteration 6 out of 10
+Processing feature 88 (48 out of 136), iteration 7 out of 10
+Processing feature 88 (48 out of 136), iteration 8 out of 10
+Processing feature 88 (48 out of 136), iteration 9 out of 10
+Processing feature 347 (49 out of 136), iteration 0 out of 10
+Processing feature 347 (49 out of 136), iteration 1 out of 10
+Processing feature 347 (49 out of 136), iteration 2 out of 10
+Processing feature 347 (49 out of 136), iteration 3 out of 10
+Processing feature 347 (49 out of 136), iteration 4 out of 10
+Processing feature 347 (49 out of 136), iteration 5 out of 10
+Processing feature 347 (49 out of 136), iteration 6 out of 10
+Processing feature 347 (49 out of 136), iteration 7 out of 10
+Processing feature 347 (49 out of 136), iteration 8 out of 10
+Processing feature 347 (49 out of 136), iteration 9 out of 10
+Processing feature 861 (50 out of 136), iteration 0 out of 10
+Processing feature 861 (50 out of 136), iteration 1 out of 10
+Processing feature 861 (50 out of 136), iteration 2 out of 10
+Processing feature 861 (50 out of 136), iteration 3 out of 10
+Processing feature 861 (50 out of 136), iteration 4 out of 10
+Processing feature 861 (50 out of 136), iteration 5 out of 10
+Processing feature 861 (50 out of 136), iteration 6 out of 10
+Processing feature 861 (50 out of 136), iteration 7 out of 10
+Processing feature 861 (50 out of 136), iteration 8 out of 10
+Processing feature 861 (50 out of 136), iteration 9 out of 10
+Processing feature 863 (51 out of 136), iteration 0 out of 10
+Processing feature 863 (51 out of 136), iteration 1 out of 10
+Processing feature 863 (51 out of 136), iteration 2 out of 10
+Processing feature 863 (51 out of 136), iteration 3 out of 10
+Processing feature 863 (51 out of 136), iteration 4 out of 10
+Processing feature 863 (51 out of 136), iteration 5 out of 10
+Processing feature 863 (51 out of 136), iteration 6 out of 10
+Processing feature 863 (51 out of 136), iteration 7 out of 10
+Processing feature 863 (51 out of 136), iteration 8 out of 10
+Processing feature 863 (51 out of 136), iteration 9 out of 10
+Processing feature 96 (52 out of 136), iteration 0 out of 10
+Processing feature 96 (52 out of 136), iteration 1 out of 10
+Processing feature 96 (52 out of 136), iteration 2 out of 10
+Processing feature 96 (52 out of 136), iteration 3 out of 10
+Processing feature 96 (52 out of 136), iteration 4 out of 10
+Processing feature 96 (52 out of 136), iteration 5 out of 10
+Processing feature 96 (52 out of 136), iteration 6 out of 10
+Processing feature 96 (52 out of 136), iteration 7 out of 10
+Processing feature 96 (52 out of 136), iteration 8 out of 10
+Processing feature 96 (52 out of 136), iteration 9 out of 10
+Processing feature 1123 (53 out of 136), iteration 0 out of 10
+Processing feature 1123 (53 out of 136), iteration 1 out of 10
+Processing feature 1123 (53 out of 136), iteration 2 out of 10
+Processing feature 1123 (53 out of 136), iteration 3 out of 10
+Processing feature 1123 (53 out of 136), iteration 4 out of 10
+Processing feature 1123 (53 out of 136), iteration 5 out of 10
+Processing feature 1123 (53 out of 136), iteration 6 out of 10
+Processing feature 1123 (53 out of 136), iteration 7 out of 10
+Processing feature 1123 (53 out of 136), iteration 8 out of 10
+Processing feature 1123 (53 out of 136), iteration 9 out of 10
+Processing feature 359 (54 out of 136), iteration 0 out of 10
+Processing feature 359 (54 out of 136), iteration 1 out of 10
+Processing feature 359 (54 out of 136), iteration 2 out of 10
+Processing feature 359 (54 out of 136), iteration 3 out of 10
+Processing feature 359 (54 out of 136), iteration 4 out of 10
+Processing feature 359 (54 out of 136), iteration 5 out of 10
+Processing feature 359 (54 out of 136), iteration 6 out of 10
+Processing feature 359 (54 out of 136), iteration 7 out of 10
+Processing feature 359 (54 out of 136), iteration 8 out of 10
+Processing feature 359 (54 out of 136), iteration 9 out of 10
+Processing feature 361 (55 out of 136), iteration 0 out of 10
+Processing feature 361 (55 out of 136), iteration 1 out of 10
+Processing feature 361 (55 out of 136), iteration 2 out of 10
+Processing feature 361 (55 out of 136), iteration 3 out of 10
+Processing feature 361 (55 out of 136), iteration 4 out of 10
+Processing feature 361 (55 out of 136), iteration 5 out of 10
+Processing feature 361 (55 out of 136), iteration 6 out of 10
+Processing feature 361 (55 out of 136), iteration 7 out of 10
+Processing feature 361 (55 out of 136), iteration 8 out of 10
+Processing feature 361 (55 out of 136), iteration 9 out of 10
+Processing feature 874 (56 out of 136), iteration 0 out of 10
+Processing feature 874 (56 out of 136), iteration 1 out of 10
+Processing feature 874 (56 out of 136), iteration 2 out of 10
+Processing feature 874 (56 out of 136), iteration 3 out of 10
+Processing feature 874 (56 out of 136), iteration 4 out of 10
+Processing feature 874 (56 out of 136), iteration 5 out of 10
+Processing feature 874 (56 out of 136), iteration 6 out of 10
+Processing feature 874 (56 out of 136), iteration 7 out of 10
+Processing feature 874 (56 out of 136), iteration 8 out of 10
+Processing feature 874 (56 out of 136), iteration 9 out of 10
+Processing feature 363 (57 out of 136), iteration 0 out of 10
+Processing feature 363 (57 out of 136), iteration 1 out of 10
+Processing feature 363 (57 out of 136), iteration 2 out of 10
+Processing feature 363 (57 out of 136), iteration 3 out of 10
+Processing feature 363 (57 out of 136), iteration 4 out of 10
+Processing feature 363 (57 out of 136), iteration 5 out of 10
+Processing feature 363 (57 out of 136), iteration 6 out of 10
+Processing feature 363 (57 out of 136), iteration 7 out of 10
+Processing feature 363 (57 out of 136), iteration 8 out of 10
+Processing feature 363 (57 out of 136), iteration 9 out of 10
+Processing feature 876 (58 out of 136), iteration 0 out of 10
+Processing feature 876 (58 out of 136), iteration 1 out of 10
+Processing feature 876 (58 out of 136), iteration 2 out of 10
+Processing feature 876 (58 out of 136), iteration 3 out of 10
+Processing feature 876 (58 out of 136), iteration 4 out of 10
+Processing feature 876 (58 out of 136), iteration 5 out of 10
+Processing feature 876 (58 out of 136), iteration 6 out of 10
+Processing feature 876 (58 out of 136), iteration 7 out of 10
+Processing feature 876 (58 out of 136), iteration 8 out of 10
+Processing feature 876 (58 out of 136), iteration 9 out of 10
+Processing feature 621 (59 out of 136), iteration 0 out of 10
+Processing feature 621 (59 out of 136), iteration 1 out of 10
+Processing feature 621 (59 out of 136), iteration 2 out of 10
+Processing feature 621 (59 out of 136), iteration 3 out of 10
+Processing feature 621 (59 out of 136), iteration 4 out of 10
+Processing feature 621 (59 out of 136), iteration 5 out of 10
+Processing feature 621 (59 out of 136), iteration 6 out of 10
+Processing feature 621 (59 out of 136), iteration 7 out of 10
+Processing feature 621 (59 out of 136), iteration 8 out of 10
+Processing feature 621 (59 out of 136), iteration 9 out of 10
+Processing feature 879 (60 out of 136), iteration 0 out of 10
+Processing feature 879 (60 out of 136), iteration 1 out of 10
+Processing feature 879 (60 out of 136), iteration 2 out of 10
+Processing feature 879 (60 out of 136), iteration 3 out of 10
+Processing feature 879 (60 out of 136), iteration 4 out of 10
+Processing feature 879 (60 out of 136), iteration 5 out of 10
+Processing feature 879 (60 out of 136), iteration 6 out of 10
+Processing feature 879 (60 out of 136), iteration 7 out of 10
+Processing feature 879 (60 out of 136), iteration 8 out of 10
+Processing feature 879 (60 out of 136), iteration 9 out of 10
+Processing feature 112 (61 out of 136), iteration 0 out of 10
+Processing feature 112 (61 out of 136), iteration 1 out of 10
+Processing feature 112 (61 out of 136), iteration 2 out of 10
+Processing feature 112 (61 out of 136), iteration 3 out of 10
+Processing feature 112 (61 out of 136), iteration 4 out of 10
+Processing feature 112 (61 out of 136), iteration 5 out of 10
+Processing feature 112 (61 out of 136), iteration 6 out of 10
+Processing feature 112 (61 out of 136), iteration 7 out of 10
+Processing feature 112 (61 out of 136), iteration 8 out of 10
+Processing feature 112 (61 out of 136), iteration 9 out of 10
+Processing feature 113 (62 out of 136), iteration 0 out of 10
+Processing feature 113 (62 out of 136), iteration 1 out of 10
+Processing feature 113 (62 out of 136), iteration 2 out of 10
+Processing feature 113 (62 out of 136), iteration 3 out of 10
+Processing feature 113 (62 out of 136), iteration 4 out of 10
+Processing feature 113 (62 out of 136), iteration 5 out of 10
+Processing feature 113 (62 out of 136), iteration 6 out of 10
+Processing feature 113 (62 out of 136), iteration 7 out of 10
+Processing feature 113 (62 out of 136), iteration 8 out of 10
+Processing feature 113 (62 out of 136), iteration 9 out of 10
+Processing feature 370 (63 out of 136), iteration 0 out of 10
+Processing feature 370 (63 out of 136), iteration 1 out of 10
+Processing feature 370 (63 out of 136), iteration 2 out of 10
+Processing feature 370 (63 out of 136), iteration 3 out of 10
+Processing feature 370 (63 out of 136), iteration 4 out of 10
+Processing feature 370 (63 out of 136), iteration 5 out of 10
+Processing feature 370 (63 out of 136), iteration 6 out of 10
+Processing feature 370 (63 out of 136), iteration 7 out of 10
+Processing feature 370 (63 out of 136), iteration 8 out of 10
+Processing feature 370 (63 out of 136), iteration 9 out of 10
+Processing feature 117 (64 out of 136), iteration 0 out of 10
+Processing feature 117 (64 out of 136), iteration 1 out of 10
+Processing feature 117 (64 out of 136), iteration 2 out of 10
+Processing feature 117 (64 out of 136), iteration 3 out of 10
+Processing feature 117 (64 out of 136), iteration 4 out of 10
+Processing feature 117 (64 out of 136), iteration 5 out of 10
+Processing feature 117 (64 out of 136), iteration 6 out of 10
+Processing feature 117 (64 out of 136), iteration 7 out of 10
+Processing feature 117 (64 out of 136), iteration 8 out of 10
+Processing feature 117 (64 out of 136), iteration 9 out of 10
+Processing feature 886 (65 out of 136), iteration 0 out of 10
+Processing feature 886 (65 out of 136), iteration 1 out of 10
+Processing feature 886 (65 out of 136), iteration 2 out of 10
+Processing feature 886 (65 out of 136), iteration 3 out of 10
+Processing feature 886 (65 out of 136), iteration 4 out of 10
+Processing feature 886 (65 out of 136), iteration 5 out of 10
+Processing feature 886 (65 out of 136), iteration 6 out of 10
+Processing feature 886 (65 out of 136), iteration 7 out of 10
+Processing feature 886 (65 out of 136), iteration 8 out of 10
+Processing feature 886 (65 out of 136), iteration 9 out of 10
+Processing feature 634 (66 out of 136), iteration 0 out of 10
+Processing feature 634 (66 out of 136), iteration 1 out of 10
+Processing feature 634 (66 out of 136), iteration 2 out of 10
+Processing feature 634 (66 out of 136), iteration 3 out of 10
+Processing feature 634 (66 out of 136), iteration 4 out of 10
+Processing feature 634 (66 out of 136), iteration 5 out of 10
+Processing feature 634 (66 out of 136), iteration 6 out of 10
+Processing feature 634 (66 out of 136), iteration 7 out of 10
+Processing feature 634 (66 out of 136), iteration 8 out of 10
+Processing feature 634 (66 out of 136), iteration 9 out of 10
+Processing feature 191 (67 out of 136), iteration 0 out of 10
+Processing feature 191 (67 out of 136), iteration 1 out of 10
+Processing feature 191 (67 out of 136), iteration 2 out of 10
+Processing feature 191 (67 out of 136), iteration 3 out of 10
+Processing feature 191 (67 out of 136), iteration 4 out of 10
+Processing feature 191 (67 out of 136), iteration 5 out of 10
+Processing feature 191 (67 out of 136), iteration 6 out of 10
+Processing feature 191 (67 out of 136), iteration 7 out of 10
+Processing feature 191 (67 out of 136), iteration 8 out of 10
+Processing feature 191 (67 out of 136), iteration 9 out of 10
+Processing feature 124 (68 out of 136), iteration 0 out of 10
+Processing feature 124 (68 out of 136), iteration 1 out of 10
+Processing feature 124 (68 out of 136), iteration 2 out of 10
+Processing feature 124 (68 out of 136), iteration 3 out of 10
+Processing feature 124 (68 out of 136), iteration 4 out of 10
+Processing feature 124 (68 out of 136), iteration 5 out of 10
+Processing feature 124 (68 out of 136), iteration 6 out of 10
+Processing feature 124 (68 out of 136), iteration 7 out of 10
+Processing feature 124 (68 out of 136), iteration 8 out of 10
+Processing feature 124 (68 out of 136), iteration 9 out of 10
+Processing feature 382 (69 out of 136), iteration 0 out of 10
+Processing feature 382 (69 out of 136), iteration 1 out of 10
+Processing feature 382 (69 out of 136), iteration 2 out of 10
+Processing feature 382 (69 out of 136), iteration 3 out of 10
+Processing feature 382 (69 out of 136), iteration 4 out of 10
+Processing feature 382 (69 out of 136), iteration 5 out of 10
+Processing feature 382 (69 out of 136), iteration 6 out of 10
+Processing feature 382 (69 out of 136), iteration 7 out of 10
+Processing feature 382 (69 out of 136), iteration 8 out of 10
+Processing feature 382 (69 out of 136), iteration 9 out of 10
+Processing feature 641 (70 out of 136), iteration 0 out of 10
+Processing feature 641 (70 out of 136), iteration 1 out of 10
+Processing feature 641 (70 out of 136), iteration 2 out of 10
+Processing feature 641 (70 out of 136), iteration 3 out of 10
+Processing feature 641 (70 out of 136), iteration 4 out of 10
+Processing feature 641 (70 out of 136), iteration 5 out of 10
+Processing feature 641 (70 out of 136), iteration 6 out of 10
+Processing feature 641 (70 out of 136), iteration 7 out of 10
+Processing feature 641 (70 out of 136), iteration 8 out of 10
+Processing feature 641 (70 out of 136), iteration 9 out of 10
+Processing feature 642 (71 out of 136), iteration 0 out of 10
+Processing feature 642 (71 out of 136), iteration 1 out of 10
+Processing feature 642 (71 out of 136), iteration 2 out of 10
+Processing feature 642 (71 out of 136), iteration 3 out of 10
+Processing feature 642 (71 out of 136), iteration 4 out of 10
+Processing feature 642 (71 out of 136), iteration 5 out of 10
+Processing feature 642 (71 out of 136), iteration 6 out of 10
+Processing feature 642 (71 out of 136), iteration 7 out of 10
+Processing feature 642 (71 out of 136), iteration 8 out of 10
+Processing feature 642 (71 out of 136), iteration 9 out of 10
+Processing feature 643 (72 out of 136), iteration 0 out of 10
+Processing feature 643 (72 out of 136), iteration 1 out of 10
+Processing feature 643 (72 out of 136), iteration 2 out of 10
+Processing feature 643 (72 out of 136), iteration 3 out of 10
+Processing feature 643 (72 out of 136), iteration 4 out of 10
+Processing feature 643 (72 out of 136), iteration 5 out of 10
+Processing feature 643 (72 out of 136), iteration 6 out of 10
+Processing feature 643 (72 out of 136), iteration 7 out of 10
+Processing feature 643 (72 out of 136), iteration 8 out of 10
+Processing feature 643 (72 out of 136), iteration 9 out of 10
+Processing feature 648 (73 out of 136), iteration 0 out of 10
+Processing feature 648 (73 out of 136), iteration 1 out of 10
+Processing feature 648 (73 out of 136), iteration 2 out of 10
+Processing feature 648 (73 out of 136), iteration 3 out of 10
+Processing feature 648 (73 out of 136), iteration 4 out of 10
+Processing feature 648 (73 out of 136), iteration 5 out of 10
+Processing feature 648 (73 out of 136), iteration 6 out of 10
+Processing feature 648 (73 out of 136), iteration 7 out of 10
+Processing feature 648 (73 out of 136), iteration 8 out of 10
+Processing feature 648 (73 out of 136), iteration 9 out of 10
+Processing feature 140 (74 out of 136), iteration 0 out of 10
+Processing feature 140 (74 out of 136), iteration 1 out of 10
+Processing feature 140 (74 out of 136), iteration 2 out of 10
+Processing feature 140 (74 out of 136), iteration 3 out of 10
+Processing feature 140 (74 out of 136), iteration 4 out of 10
+Processing feature 140 (74 out of 136), iteration 5 out of 10
+Processing feature 140 (74 out of 136), iteration 6 out of 10
+Processing feature 140 (74 out of 136), iteration 7 out of 10
+Processing feature 140 (74 out of 136), iteration 8 out of 10
+Processing feature 140 (74 out of 136), iteration 9 out of 10
+Processing feature 962 (75 out of 136), iteration 0 out of 10
+Processing feature 962 (75 out of 136), iteration 1 out of 10
+Processing feature 962 (75 out of 136), iteration 2 out of 10
+Processing feature 962 (75 out of 136), iteration 3 out of 10
+Processing feature 962 (75 out of 136), iteration 4 out of 10
+Processing feature 962 (75 out of 136), iteration 5 out of 10
+Processing feature 962 (75 out of 136), iteration 6 out of 10
+Processing feature 962 (75 out of 136), iteration 7 out of 10
+Processing feature 962 (75 out of 136), iteration 8 out of 10
+Processing feature 962 (75 out of 136), iteration 9 out of 10
+Processing feature 877 (76 out of 136), iteration 0 out of 10
+Processing feature 877 (76 out of 136), iteration 1 out of 10
+Processing feature 877 (76 out of 136), iteration 2 out of 10
+Processing feature 877 (76 out of 136), iteration 3 out of 10
+Processing feature 877 (76 out of 136), iteration 4 out of 10
+Processing feature 877 (76 out of 136), iteration 5 out of 10
+Processing feature 877 (76 out of 136), iteration 6 out of 10
+Processing feature 877 (76 out of 136), iteration 7 out of 10
+Processing feature 877 (76 out of 136), iteration 8 out of 10
+Processing feature 877 (76 out of 136), iteration 9 out of 10
+Processing feature 400 (77 out of 136), iteration 0 out of 10
+Processing feature 400 (77 out of 136), iteration 1 out of 10
+Processing feature 400 (77 out of 136), iteration 2 out of 10
+Processing feature 400 (77 out of 136), iteration 3 out of 10
+Processing feature 400 (77 out of 136), iteration 4 out of 10
+Processing feature 400 (77 out of 136), iteration 5 out of 10
+Processing feature 400 (77 out of 136), iteration 6 out of 10
+Processing feature 400 (77 out of 136), iteration 7 out of 10
+Processing feature 400 (77 out of 136), iteration 8 out of 10
+Processing feature 400 (77 out of 136), iteration 9 out of 10
+Processing feature 401 (78 out of 136), iteration 0 out of 10
+Processing feature 401 (78 out of 136), iteration 1 out of 10
+Processing feature 401 (78 out of 136), iteration 2 out of 10
+Processing feature 401 (78 out of 136), iteration 3 out of 10
+Processing feature 401 (78 out of 136), iteration 4 out of 10
+Processing feature 401 (78 out of 136), iteration 5 out of 10
+Processing feature 401 (78 out of 136), iteration 6 out of 10
+Processing feature 401 (78 out of 136), iteration 7 out of 10
+Processing feature 401 (78 out of 136), iteration 8 out of 10
+Processing feature 401 (78 out of 136), iteration 9 out of 10
+Processing feature 146 (79 out of 136), iteration 0 out of 10
+Processing feature 146 (79 out of 136), iteration 1 out of 10
+Processing feature 146 (79 out of 136), iteration 2 out of 10
+Processing feature 146 (79 out of 136), iteration 3 out of 10
+Processing feature 146 (79 out of 136), iteration 4 out of 10
+Processing feature 146 (79 out of 136), iteration 5 out of 10
+Processing feature 146 (79 out of 136), iteration 6 out of 10
+Processing feature 146 (79 out of 136), iteration 7 out of 10
+Processing feature 146 (79 out of 136), iteration 8 out of 10
+Processing feature 146 (79 out of 136), iteration 9 out of 10
+Processing feature 661 (80 out of 136), iteration 0 out of 10
+Processing feature 661 (80 out of 136), iteration 1 out of 10
+Processing feature 661 (80 out of 136), iteration 2 out of 10
+Processing feature 661 (80 out of 136), iteration 3 out of 10
+Processing feature 661 (80 out of 136), iteration 4 out of 10
+Processing feature 661 (80 out of 136), iteration 5 out of 10
+Processing feature 661 (80 out of 136), iteration 6 out of 10
+Processing feature 661 (80 out of 136), iteration 7 out of 10
+Processing feature 661 (80 out of 136), iteration 8 out of 10
+Processing feature 661 (80 out of 136), iteration 9 out of 10
+Processing feature 150 (81 out of 136), iteration 0 out of 10
+Processing feature 150 (81 out of 136), iteration 1 out of 10
+Processing feature 150 (81 out of 136), iteration 2 out of 10
+Processing feature 150 (81 out of 136), iteration 3 out of 10
+Processing feature 150 (81 out of 136), iteration 4 out of 10
+Processing feature 150 (81 out of 136), iteration 5 out of 10
+Processing feature 150 (81 out of 136), iteration 6 out of 10
+Processing feature 150 (81 out of 136), iteration 7 out of 10
+Processing feature 150 (81 out of 136), iteration 8 out of 10
+Processing feature 150 (81 out of 136), iteration 9 out of 10
+Processing feature 152 (82 out of 136), iteration 0 out of 10
+Processing feature 152 (82 out of 136), iteration 1 out of 10
+Processing feature 152 (82 out of 136), iteration 2 out of 10
+Processing feature 152 (82 out of 136), iteration 3 out of 10
+Processing feature 152 (82 out of 136), iteration 4 out of 10
+Processing feature 152 (82 out of 136), iteration 5 out of 10
+Processing feature 152 (82 out of 136), iteration 6 out of 10
+Processing feature 152 (82 out of 136), iteration 7 out of 10
+Processing feature 152 (82 out of 136), iteration 8 out of 10
+Processing feature 152 (82 out of 136), iteration 9 out of 10
+Processing feature 409 (83 out of 136), iteration 0 out of 10
+Processing feature 409 (83 out of 136), iteration 1 out of 10
+Processing feature 409 (83 out of 136), iteration 2 out of 10
+Processing feature 409 (83 out of 136), iteration 3 out of 10
+Processing feature 409 (83 out of 136), iteration 4 out of 10
+Processing feature 409 (83 out of 136), iteration 5 out of 10
+Processing feature 409 (83 out of 136), iteration 6 out of 10
+Processing feature 409 (83 out of 136), iteration 7 out of 10
+Processing feature 409 (83 out of 136), iteration 8 out of 10
+Processing feature 409 (83 out of 136), iteration 9 out of 10
+Processing feature 155 (84 out of 136), iteration 0 out of 10
+Processing feature 155 (84 out of 136), iteration 1 out of 10
+Processing feature 155 (84 out of 136), iteration 2 out of 10
+Processing feature 155 (84 out of 136), iteration 3 out of 10
+Processing feature 155 (84 out of 136), iteration 4 out of 10
+Processing feature 155 (84 out of 136), iteration 5 out of 10
+Processing feature 155 (84 out of 136), iteration 6 out of 10
+Processing feature 155 (84 out of 136), iteration 7 out of 10
+Processing feature 155 (84 out of 136), iteration 8 out of 10
+Processing feature 155 (84 out of 136), iteration 9 out of 10
+Processing feature 413 (85 out of 136), iteration 0 out of 10
+Processing feature 413 (85 out of 136), iteration 1 out of 10
+Processing feature 413 (85 out of 136), iteration 2 out of 10
+Processing feature 413 (85 out of 136), iteration 3 out of 10
+Processing feature 413 (85 out of 136), iteration 4 out of 10
+Processing feature 413 (85 out of 136), iteration 5 out of 10
+Processing feature 413 (85 out of 136), iteration 6 out of 10
+Processing feature 413 (85 out of 136), iteration 7 out of 10
+Processing feature 413 (85 out of 136), iteration 8 out of 10
+Processing feature 413 (85 out of 136), iteration 9 out of 10
+Processing feature 415 (86 out of 136), iteration 0 out of 10
+Processing feature 415 (86 out of 136), iteration 1 out of 10
+Processing feature 415 (86 out of 136), iteration 2 out of 10
+Processing feature 415 (86 out of 136), iteration 3 out of 10
+Processing feature 415 (86 out of 136), iteration 4 out of 10
+Processing feature 415 (86 out of 136), iteration 5 out of 10
+Processing feature 415 (86 out of 136), iteration 6 out of 10
+Processing feature 415 (86 out of 136), iteration 7 out of 10
+Processing feature 415 (86 out of 136), iteration 8 out of 10
+Processing feature 415 (86 out of 136), iteration 9 out of 10
+Processing feature 672 (87 out of 136), iteration 0 out of 10
+Processing feature 672 (87 out of 136), iteration 1 out of 10
+Processing feature 672 (87 out of 136), iteration 2 out of 10
+Processing feature 672 (87 out of 136), iteration 3 out of 10
+Processing feature 672 (87 out of 136), iteration 4 out of 10
+Processing feature 672 (87 out of 136), iteration 5 out of 10
+Processing feature 672 (87 out of 136), iteration 6 out of 10
+Processing feature 672 (87 out of 136), iteration 7 out of 10
+Processing feature 672 (87 out of 136), iteration 8 out of 10
+Processing feature 672 (87 out of 136), iteration 9 out of 10
+Processing feature 673 (88 out of 136), iteration 0 out of 10
+Processing feature 673 (88 out of 136), iteration 1 out of 10
+Processing feature 673 (88 out of 136), iteration 2 out of 10
+Processing feature 673 (88 out of 136), iteration 3 out of 10
+Processing feature 673 (88 out of 136), iteration 4 out of 10
+Processing feature 673 (88 out of 136), iteration 5 out of 10
+Processing feature 673 (88 out of 136), iteration 6 out of 10
+Processing feature 673 (88 out of 136), iteration 7 out of 10
+Processing feature 673 (88 out of 136), iteration 8 out of 10
+Processing feature 673 (88 out of 136), iteration 9 out of 10
+Processing feature 675 (89 out of 136), iteration 0 out of 10
+Processing feature 675 (89 out of 136), iteration 1 out of 10
+Processing feature 675 (89 out of 136), iteration 2 out of 10
+Processing feature 675 (89 out of 136), iteration 3 out of 10
+Processing feature 675 (89 out of 136), iteration 4 out of 10
+Processing feature 675 (89 out of 136), iteration 5 out of 10
+Processing feature 675 (89 out of 136), iteration 6 out of 10
+Processing feature 675 (89 out of 136), iteration 7 out of 10
+Processing feature 675 (89 out of 136), iteration 8 out of 10
+Processing feature 675 (89 out of 136), iteration 9 out of 10
+Processing feature 679 (90 out of 136), iteration 0 out of 10
+Processing feature 679 (90 out of 136), iteration 1 out of 10
+Processing feature 679 (90 out of 136), iteration 2 out of 10
+Processing feature 679 (90 out of 136), iteration 3 out of 10
+Processing feature 679 (90 out of 136), iteration 4 out of 10
+Processing feature 679 (90 out of 136), iteration 5 out of 10
+Processing feature 679 (90 out of 136), iteration 6 out of 10
+Processing feature 679 (90 out of 136), iteration 7 out of 10
+Processing feature 679 (90 out of 136), iteration 8 out of 10
+Processing feature 679 (90 out of 136), iteration 9 out of 10
+Processing feature 168 (91 out of 136), iteration 0 out of 10
+Processing feature 168 (91 out of 136), iteration 1 out of 10
+Processing feature 168 (91 out of 136), iteration 2 out of 10
+Processing feature 168 (91 out of 136), iteration 3 out of 10
+Processing feature 168 (91 out of 136), iteration 4 out of 10
+Processing feature 168 (91 out of 136), iteration 5 out of 10
+Processing feature 168 (91 out of 136), iteration 6 out of 10
+Processing feature 168 (91 out of 136), iteration 7 out of 10
+Processing feature 168 (91 out of 136), iteration 8 out of 10
+Processing feature 168 (91 out of 136), iteration 9 out of 10
+Processing feature 683 (92 out of 136), iteration 0 out of 10
+Processing feature 683 (92 out of 136), iteration 1 out of 10
+Processing feature 683 (92 out of 136), iteration 2 out of 10
+Processing feature 683 (92 out of 136), iteration 3 out of 10
+Processing feature 683 (92 out of 136), iteration 4 out of 10
+Processing feature 683 (92 out of 136), iteration 5 out of 10
+Processing feature 683 (92 out of 136), iteration 6 out of 10
+Processing feature 683 (92 out of 136), iteration 7 out of 10
+Processing feature 683 (92 out of 136), iteration 8 out of 10
+Processing feature 683 (92 out of 136), iteration 9 out of 10
+Processing feature 941 (93 out of 136), iteration 0 out of 10
+Processing feature 941 (93 out of 136), iteration 1 out of 10
+Processing feature 941 (93 out of 136), iteration 2 out of 10
+Processing feature 941 (93 out of 136), iteration 3 out of 10
+Processing feature 941 (93 out of 136), iteration 4 out of 10
+Processing feature 941 (93 out of 136), iteration 5 out of 10
+Processing feature 941 (93 out of 136), iteration 6 out of 10
+Processing feature 941 (93 out of 136), iteration 7 out of 10
+Processing feature 941 (93 out of 136), iteration 8 out of 10
+Processing feature 941 (93 out of 136), iteration 9 out of 10
+Processing feature 688 (94 out of 136), iteration 0 out of 10
+Processing feature 688 (94 out of 136), iteration 1 out of 10
+Processing feature 688 (94 out of 136), iteration 2 out of 10
+Processing feature 688 (94 out of 136), iteration 3 out of 10
+Processing feature 688 (94 out of 136), iteration 4 out of 10
+Processing feature 688 (94 out of 136), iteration 5 out of 10
+Processing feature 688 (94 out of 136), iteration 6 out of 10
+Processing feature 688 (94 out of 136), iteration 7 out of 10
+Processing feature 688 (94 out of 136), iteration 8 out of 10
+Processing feature 688 (94 out of 136), iteration 9 out of 10
+Processing feature 433 (95 out of 136), iteration 0 out of 10
+Processing feature 433 (95 out of 136), iteration 1 out of 10
+Processing feature 433 (95 out of 136), iteration 2 out of 10
+Processing feature 433 (95 out of 136), iteration 3 out of 10
+Processing feature 433 (95 out of 136), iteration 4 out of 10
+Processing feature 433 (95 out of 136), iteration 5 out of 10
+Processing feature 433 (95 out of 136), iteration 6 out of 10
+Processing feature 433 (95 out of 136), iteration 7 out of 10
+Processing feature 433 (95 out of 136), iteration 8 out of 10
+Processing feature 433 (95 out of 136), iteration 9 out of 10
+Processing feature 434 (96 out of 136), iteration 0 out of 10
+Processing feature 434 (96 out of 136), iteration 1 out of 10
+Processing feature 434 (96 out of 136), iteration 2 out of 10
+Processing feature 434 (96 out of 136), iteration 3 out of 10
+Processing feature 434 (96 out of 136), iteration 4 out of 10
+Processing feature 434 (96 out of 136), iteration 5 out of 10
+Processing feature 434 (96 out of 136), iteration 6 out of 10
+Processing feature 434 (96 out of 136), iteration 7 out of 10
+Processing feature 434 (96 out of 136), iteration 8 out of 10
+Processing feature 434 (96 out of 136), iteration 9 out of 10
+Processing feature 180 (97 out of 136), iteration 0 out of 10
+Processing feature 180 (97 out of 136), iteration 1 out of 10
+Processing feature 180 (97 out of 136), iteration 2 out of 10
+Processing feature 180 (97 out of 136), iteration 3 out of 10
+Processing feature 180 (97 out of 136), iteration 4 out of 10
+Processing feature 180 (97 out of 136), iteration 5 out of 10
+Processing feature 180 (97 out of 136), iteration 6 out of 10
+Processing feature 180 (97 out of 136), iteration 7 out of 10
+Processing feature 180 (97 out of 136), iteration 8 out of 10
+Processing feature 180 (97 out of 136), iteration 9 out of 10
+Processing feature 185 (98 out of 136), iteration 0 out of 10
+Processing feature 185 (98 out of 136), iteration 1 out of 10
+Processing feature 185 (98 out of 136), iteration 2 out of 10
+Processing feature 185 (98 out of 136), iteration 3 out of 10
+Processing feature 185 (98 out of 136), iteration 4 out of 10
+Processing feature 185 (98 out of 136), iteration 5 out of 10
+Processing feature 185 (98 out of 136), iteration 6 out of 10
+Processing feature 185 (98 out of 136), iteration 7 out of 10
+Processing feature 185 (98 out of 136), iteration 8 out of 10
+Processing feature 185 (98 out of 136), iteration 9 out of 10
+Processing feature 442 (99 out of 136), iteration 0 out of 10
+Processing feature 442 (99 out of 136), iteration 1 out of 10
+Processing feature 442 (99 out of 136), iteration 2 out of 10
+Processing feature 442 (99 out of 136), iteration 3 out of 10
+Processing feature 442 (99 out of 136), iteration 4 out of 10
+Processing feature 442 (99 out of 136), iteration 5 out of 10
+Processing feature 442 (99 out of 136), iteration 6 out of 10
+Processing feature 442 (99 out of 136), iteration 7 out of 10
+Processing feature 442 (99 out of 136), iteration 8 out of 10
+Processing feature 442 (99 out of 136), iteration 9 out of 10
+Processing feature 443 (100 out of 136), iteration 0 out of 10
+Processing feature 443 (100 out of 136), iteration 1 out of 10
+Processing feature 443 (100 out of 136), iteration 2 out of 10
+Processing feature 443 (100 out of 136), iteration 3 out of 10
+Processing feature 443 (100 out of 136), iteration 4 out of 10
+Processing feature 443 (100 out of 136), iteration 5 out of 10
+Processing feature 443 (100 out of 136), iteration 6 out of 10
+Processing feature 443 (100 out of 136), iteration 7 out of 10
+Processing feature 443 (100 out of 136), iteration 8 out of 10
+Processing feature 443 (100 out of 136), iteration 9 out of 10
+Processing feature 188 (101 out of 136), iteration 0 out of 10
+Processing feature 188 (101 out of 136), iteration 1 out of 10
+Processing feature 188 (101 out of 136), iteration 2 out of 10
+Processing feature 188 (101 out of 136), iteration 3 out of 10
+Processing feature 188 (101 out of 136), iteration 4 out of 10
+Processing feature 188 (101 out of 136), iteration 5 out of 10
+Processing feature 188 (101 out of 136), iteration 6 out of 10
+Processing feature 188 (101 out of 136), iteration 7 out of 10
+Processing feature 188 (101 out of 136), iteration 8 out of 10
+Processing feature 188 (101 out of 136), iteration 9 out of 10
+Processing feature 712 (102 out of 136), iteration 0 out of 10
+Processing feature 712 (102 out of 136), iteration 1 out of 10
+Processing feature 712 (102 out of 136), iteration 2 out of 10
+Processing feature 712 (102 out of 136), iteration 3 out of 10
+Processing feature 712 (102 out of 136), iteration 4 out of 10
+Processing feature 712 (102 out of 136), iteration 5 out of 10
+Processing feature 712 (102 out of 136), iteration 6 out of 10
+Processing feature 712 (102 out of 136), iteration 7 out of 10
+Processing feature 712 (102 out of 136), iteration 8 out of 10
+Processing feature 712 (102 out of 136), iteration 9 out of 10
+Processing feature 629 (103 out of 136), iteration 0 out of 10
+Processing feature 629 (103 out of 136), iteration 1 out of 10
+Processing feature 629 (103 out of 136), iteration 2 out of 10
+Processing feature 629 (103 out of 136), iteration 3 out of 10
+Processing feature 629 (103 out of 136), iteration 4 out of 10
+Processing feature 629 (103 out of 136), iteration 5 out of 10
+Processing feature 629 (103 out of 136), iteration 6 out of 10
+Processing feature 629 (103 out of 136), iteration 7 out of 10
+Processing feature 629 (103 out of 136), iteration 8 out of 10
+Processing feature 629 (103 out of 136), iteration 9 out of 10
+Processing feature 928 (104 out of 136), iteration 0 out of 10
+Processing feature 928 (104 out of 136), iteration 1 out of 10
+Processing feature 928 (104 out of 136), iteration 2 out of 10
+Processing feature 928 (104 out of 136), iteration 3 out of 10
+Processing feature 928 (104 out of 136), iteration 4 out of 10
+Processing feature 928 (104 out of 136), iteration 5 out of 10
+Processing feature 928 (104 out of 136), iteration 6 out of 10
+Processing feature 928 (104 out of 136), iteration 7 out of 10
+Processing feature 928 (104 out of 136), iteration 8 out of 10
+Processing feature 928 (104 out of 136), iteration 9 out of 10
+Processing feature 706 (105 out of 136), iteration 0 out of 10
+Processing feature 706 (105 out of 136), iteration 1 out of 10
+Processing feature 706 (105 out of 136), iteration 2 out of 10
+Processing feature 706 (105 out of 136), iteration 3 out of 10
+Processing feature 706 (105 out of 136), iteration 4 out of 10
+Processing feature 706 (105 out of 136), iteration 5 out of 10
+Processing feature 706 (105 out of 136), iteration 6 out of 10
+Processing feature 706 (105 out of 136), iteration 7 out of 10
+Processing feature 706 (105 out of 136), iteration 8 out of 10
+Processing feature 706 (105 out of 136), iteration 9 out of 10
+Processing feature 708 (106 out of 136), iteration 0 out of 10
+Processing feature 708 (106 out of 136), iteration 1 out of 10
+Processing feature 708 (106 out of 136), iteration 2 out of 10
+Processing feature 708 (106 out of 136), iteration 3 out of 10
+Processing feature 708 (106 out of 136), iteration 4 out of 10
+Processing feature 708 (106 out of 136), iteration 5 out of 10
+Processing feature 708 (106 out of 136), iteration 6 out of 10
+Processing feature 708 (106 out of 136), iteration 7 out of 10
+Processing feature 708 (106 out of 136), iteration 8 out of 10
+Processing feature 708 (106 out of 136), iteration 9 out of 10
+Processing feature 374 (107 out of 136), iteration 0 out of 10
+Processing feature 374 (107 out of 136), iteration 1 out of 10
+Processing feature 374 (107 out of 136), iteration 2 out of 10
+Processing feature 374 (107 out of 136), iteration 3 out of 10
+Processing feature 374 (107 out of 136), iteration 4 out of 10
+Processing feature 374 (107 out of 136), iteration 5 out of 10
+Processing feature 374 (107 out of 136), iteration 6 out of 10
+Processing feature 374 (107 out of 136), iteration 7 out of 10
+Processing feature 374 (107 out of 136), iteration 8 out of 10
+Processing feature 374 (107 out of 136), iteration 9 out of 10
+Processing feature 455 (108 out of 136), iteration 0 out of 10
+Processing feature 455 (108 out of 136), iteration 1 out of 10
+Processing feature 455 (108 out of 136), iteration 2 out of 10
+Processing feature 455 (108 out of 136), iteration 3 out of 10
+Processing feature 455 (108 out of 136), iteration 4 out of 10
+Processing feature 455 (108 out of 136), iteration 5 out of 10
+Processing feature 455 (108 out of 136), iteration 6 out of 10
+Processing feature 455 (108 out of 136), iteration 7 out of 10
+Processing feature 455 (108 out of 136), iteration 8 out of 10
+Processing feature 455 (108 out of 136), iteration 9 out of 10
+Processing feature 456 (109 out of 136), iteration 0 out of 10
+Processing feature 456 (109 out of 136), iteration 1 out of 10
+Processing feature 456 (109 out of 136), iteration 2 out of 10
+Processing feature 456 (109 out of 136), iteration 3 out of 10
+Processing feature 456 (109 out of 136), iteration 4 out of 10
+Processing feature 456 (109 out of 136), iteration 5 out of 10
+Processing feature 456 (109 out of 136), iteration 6 out of 10
+Processing feature 456 (109 out of 136), iteration 7 out of 10
+Processing feature 456 (109 out of 136), iteration 8 out of 10
+Processing feature 456 (109 out of 136), iteration 9 out of 10
+Processing feature 972 (110 out of 136), iteration 0 out of 10
+Processing feature 972 (110 out of 136), iteration 1 out of 10
+Processing feature 972 (110 out of 136), iteration 2 out of 10
+Processing feature 972 (110 out of 136), iteration 3 out of 10
+Processing feature 972 (110 out of 136), iteration 4 out of 10
+Processing feature 972 (110 out of 136), iteration 5 out of 10
+Processing feature 972 (110 out of 136), iteration 6 out of 10
+Processing feature 972 (110 out of 136), iteration 7 out of 10
+Processing feature 972 (110 out of 136), iteration 8 out of 10
+Processing feature 972 (110 out of 136), iteration 9 out of 10
+Processing feature 970 (111 out of 136), iteration 0 out of 10
+Processing feature 970 (111 out of 136), iteration 1 out of 10
+Processing feature 970 (111 out of 136), iteration 2 out of 10
+Processing feature 970 (111 out of 136), iteration 3 out of 10
+Processing feature 970 (111 out of 136), iteration 4 out of 10
+Processing feature 970 (111 out of 136), iteration 5 out of 10
+Processing feature 970 (111 out of 136), iteration 6 out of 10
+Processing feature 970 (111 out of 136), iteration 7 out of 10
+Processing feature 970 (111 out of 136), iteration 8 out of 10
+Processing feature 970 (111 out of 136), iteration 9 out of 10
+Processing feature 460 (112 out of 136), iteration 0 out of 10
+Processing feature 460 (112 out of 136), iteration 1 out of 10
+Processing feature 460 (112 out of 136), iteration 2 out of 10
+Processing feature 460 (112 out of 136), iteration 3 out of 10
+Processing feature 460 (112 out of 136), iteration 4 out of 10
+Processing feature 460 (112 out of 136), iteration 5 out of 10
+Processing feature 460 (112 out of 136), iteration 6 out of 10
+Processing feature 460 (112 out of 136), iteration 7 out of 10
+Processing feature 460 (112 out of 136), iteration 8 out of 10
+Processing feature 460 (112 out of 136), iteration 9 out of 10
+Processing feature 34 (113 out of 136), iteration 0 out of 10
+Processing feature 34 (113 out of 136), iteration 1 out of 10
+Processing feature 34 (113 out of 136), iteration 2 out of 10
+Processing feature 34 (113 out of 136), iteration 3 out of 10
+Processing feature 34 (113 out of 136), iteration 4 out of 10
+Processing feature 34 (113 out of 136), iteration 5 out of 10
+Processing feature 34 (113 out of 136), iteration 6 out of 10
+Processing feature 34 (113 out of 136), iteration 7 out of 10
+Processing feature 34 (113 out of 136), iteration 8 out of 10
+Processing feature 34 (113 out of 136), iteration 9 out of 10
+Processing feature 462 (114 out of 136), iteration 0 out of 10
+Processing feature 462 (114 out of 136), iteration 1 out of 10
+Processing feature 462 (114 out of 136), iteration 2 out of 10
+Processing feature 462 (114 out of 136), iteration 3 out of 10
+Processing feature 462 (114 out of 136), iteration 4 out of 10
+Processing feature 462 (114 out of 136), iteration 5 out of 10
+Processing feature 462 (114 out of 136), iteration 6 out of 10
+Processing feature 462 (114 out of 136), iteration 7 out of 10
+Processing feature 462 (114 out of 136), iteration 8 out of 10
+Processing feature 462 (114 out of 136), iteration 9 out of 10
+Processing feature 109 (115 out of 136), iteration 0 out of 10
+Processing feature 109 (115 out of 136), iteration 1 out of 10
+Processing feature 109 (115 out of 136), iteration 2 out of 10
+Processing feature 109 (115 out of 136), iteration 3 out of 10
+Processing feature 109 (115 out of 136), iteration 4 out of 10
+Processing feature 109 (115 out of 136), iteration 5 out of 10
+Processing feature 109 (115 out of 136), iteration 6 out of 10
+Processing feature 109 (115 out of 136), iteration 7 out of 10
+Processing feature 109 (115 out of 136), iteration 8 out of 10
+Processing feature 109 (115 out of 136), iteration 9 out of 10
+Processing feature 271 (116 out of 136), iteration 0 out of 10
+Processing feature 271 (116 out of 136), iteration 1 out of 10
+Processing feature 271 (116 out of 136), iteration 2 out of 10
+Processing feature 271 (116 out of 136), iteration 3 out of 10
+Processing feature 271 (116 out of 136), iteration 4 out of 10
+Processing feature 271 (116 out of 136), iteration 5 out of 10
+Processing feature 271 (116 out of 136), iteration 6 out of 10
+Processing feature 271 (116 out of 136), iteration 7 out of 10
+Processing feature 271 (116 out of 136), iteration 8 out of 10
+Processing feature 271 (116 out of 136), iteration 9 out of 10
+Processing feature 977 (117 out of 136), iteration 0 out of 10
+Processing feature 977 (117 out of 136), iteration 1 out of 10
+Processing feature 977 (117 out of 136), iteration 2 out of 10
+Processing feature 977 (117 out of 136), iteration 3 out of 10
+Processing feature 977 (117 out of 136), iteration 4 out of 10
+Processing feature 977 (117 out of 136), iteration 5 out of 10
+Processing feature 977 (117 out of 136), iteration 6 out of 10
+Processing feature 977 (117 out of 136), iteration 7 out of 10
+Processing feature 977 (117 out of 136), iteration 8 out of 10
+Processing feature 977 (117 out of 136), iteration 9 out of 10
+Processing feature 210 (118 out of 136), iteration 0 out of 10
+Processing feature 210 (118 out of 136), iteration 1 out of 10
+Processing feature 210 (118 out of 136), iteration 2 out of 10
+Processing feature 210 (118 out of 136), iteration 3 out of 10
+Processing feature 210 (118 out of 136), iteration 4 out of 10
+Processing feature 210 (118 out of 136), iteration 5 out of 10
+Processing feature 210 (118 out of 136), iteration 6 out of 10
+Processing feature 210 (118 out of 136), iteration 7 out of 10
+Processing feature 210 (118 out of 136), iteration 8 out of 10
+Processing feature 210 (118 out of 136), iteration 9 out of 10
+Processing feature 723 (119 out of 136), iteration 0 out of 10
+Processing feature 723 (119 out of 136), iteration 1 out of 10
+Processing feature 723 (119 out of 136), iteration 2 out of 10
+Processing feature 723 (119 out of 136), iteration 3 out of 10
+Processing feature 723 (119 out of 136), iteration 4 out of 10
+Processing feature 723 (119 out of 136), iteration 5 out of 10
+Processing feature 723 (119 out of 136), iteration 6 out of 10
+Processing feature 723 (119 out of 136), iteration 7 out of 10
+Processing feature 723 (119 out of 136), iteration 8 out of 10
+Processing feature 723 (119 out of 136), iteration 9 out of 10
+Processing feature 726 (120 out of 136), iteration 0 out of 10
+Processing feature 726 (120 out of 136), iteration 1 out of 10
+Processing feature 726 (120 out of 136), iteration 2 out of 10
+Processing feature 726 (120 out of 136), iteration 3 out of 10
+Processing feature 726 (120 out of 136), iteration 4 out of 10
+Processing feature 726 (120 out of 136), iteration 5 out of 10
+Processing feature 726 (120 out of 136), iteration 6 out of 10
+Processing feature 726 (120 out of 136), iteration 7 out of 10
+Processing feature 726 (120 out of 136), iteration 8 out of 10
+Processing feature 726 (120 out of 136), iteration 9 out of 10
+Processing feature 36 (121 out of 136), iteration 0 out of 10
+Processing feature 36 (121 out of 136), iteration 1 out of 10
+Processing feature 36 (121 out of 136), iteration 2 out of 10
+Processing feature 36 (121 out of 136), iteration 3 out of 10
+Processing feature 36 (121 out of 136), iteration 4 out of 10
+Processing feature 36 (121 out of 136), iteration 5 out of 10
+Processing feature 36 (121 out of 136), iteration 6 out of 10
+Processing feature 36 (121 out of 136), iteration 7 out of 10
+Processing feature 36 (121 out of 136), iteration 8 out of 10
+Processing feature 36 (121 out of 136), iteration 9 out of 10
+Processing feature 475 (122 out of 136), iteration 0 out of 10
+Processing feature 475 (122 out of 136), iteration 1 out of 10
+Processing feature 475 (122 out of 136), iteration 2 out of 10
+Processing feature 475 (122 out of 136), iteration 3 out of 10
+Processing feature 475 (122 out of 136), iteration 4 out of 10
+Processing feature 475 (122 out of 136), iteration 5 out of 10
+Processing feature 475 (122 out of 136), iteration 6 out of 10
+Processing feature 475 (122 out of 136), iteration 7 out of 10
+Processing feature 475 (122 out of 136), iteration 8 out of 10
+Processing feature 475 (122 out of 136), iteration 9 out of 10
+Processing feature 478 (123 out of 136), iteration 0 out of 10
+Processing feature 478 (123 out of 136), iteration 1 out of 10
+Processing feature 478 (123 out of 136), iteration 2 out of 10
+Processing feature 478 (123 out of 136), iteration 3 out of 10
+Processing feature 478 (123 out of 136), iteration 4 out of 10
+Processing feature 478 (123 out of 136), iteration 5 out of 10
+Processing feature 478 (123 out of 136), iteration 6 out of 10
+Processing feature 478 (123 out of 136), iteration 7 out of 10
+Processing feature 478 (123 out of 136), iteration 8 out of 10
+Processing feature 478 (123 out of 136), iteration 9 out of 10
+Processing feature 37 (124 out of 136), iteration 0 out of 10
+Processing feature 37 (124 out of 136), iteration 1 out of 10
+Processing feature 37 (124 out of 136), iteration 2 out of 10
+Processing feature 37 (124 out of 136), iteration 3 out of 10
+Processing feature 37 (124 out of 136), iteration 4 out of 10
+Processing feature 37 (124 out of 136), iteration 5 out of 10
+Processing feature 37 (124 out of 136), iteration 6 out of 10
+Processing feature 37 (124 out of 136), iteration 7 out of 10
+Processing feature 37 (124 out of 136), iteration 8 out of 10
+Processing feature 37 (124 out of 136), iteration 9 out of 10
+Processing feature 740 (125 out of 136), iteration 0 out of 10
+Processing feature 740 (125 out of 136), iteration 1 out of 10
+Processing feature 740 (125 out of 136), iteration 2 out of 10
+Processing feature 740 (125 out of 136), iteration 3 out of 10
+Processing feature 740 (125 out of 136), iteration 4 out of 10
+Processing feature 740 (125 out of 136), iteration 5 out of 10
+Processing feature 740 (125 out of 136), iteration 6 out of 10
+Processing feature 740 (125 out of 136), iteration 7 out of 10
+Processing feature 740 (125 out of 136), iteration 8 out of 10
+Processing feature 740 (125 out of 136), iteration 9 out of 10
+Processing feature 230 (126 out of 136), iteration 0 out of 10
+Processing feature 230 (126 out of 136), iteration 1 out of 10
+Processing feature 230 (126 out of 136), iteration 2 out of 10
+Processing feature 230 (126 out of 136), iteration 3 out of 10
+Processing feature 230 (126 out of 136), iteration 4 out of 10
+Processing feature 230 (126 out of 136), iteration 5 out of 10
+Processing feature 230 (126 out of 136), iteration 6 out of 10
+Processing feature 230 (126 out of 136), iteration 7 out of 10
+Processing feature 230 (126 out of 136), iteration 8 out of 10
+Processing feature 230 (126 out of 136), iteration 9 out of 10
+Processing feature 15 (127 out of 136), iteration 0 out of 10
+Processing feature 15 (127 out of 136), iteration 1 out of 10
+Processing feature 15 (127 out of 136), iteration 2 out of 10
+Processing feature 15 (127 out of 136), iteration 3 out of 10
+Processing feature 15 (127 out of 136), iteration 4 out of 10
+Processing feature 15 (127 out of 136), iteration 5 out of 10
+Processing feature 15 (127 out of 136), iteration 6 out of 10
+Processing feature 15 (127 out of 136), iteration 7 out of 10
+Processing feature 15 (127 out of 136), iteration 8 out of 10
+Processing feature 15 (127 out of 136), iteration 9 out of 10
+Processing feature 352 (128 out of 136), iteration 0 out of 10
+Processing feature 352 (128 out of 136), iteration 1 out of 10
+Processing feature 352 (128 out of 136), iteration 2 out of 10
+Processing feature 352 (128 out of 136), iteration 3 out of 10
+Processing feature 352 (128 out of 136), iteration 4 out of 10
+Processing feature 352 (128 out of 136), iteration 5 out of 10
+Processing feature 352 (128 out of 136), iteration 6 out of 10
+Processing feature 352 (128 out of 136), iteration 7 out of 10
+Processing feature 352 (128 out of 136), iteration 8 out of 10
+Processing feature 352 (128 out of 136), iteration 9 out of 10
+Processing feature 752 (129 out of 136), iteration 0 out of 10
+Processing feature 752 (129 out of 136), iteration 1 out of 10
+Processing feature 752 (129 out of 136), iteration 2 out of 10
+Processing feature 752 (129 out of 136), iteration 3 out of 10
+Processing feature 752 (129 out of 136), iteration 4 out of 10
+Processing feature 752 (129 out of 136), iteration 5 out of 10
+Processing feature 752 (129 out of 136), iteration 6 out of 10
+Processing feature 752 (129 out of 136), iteration 7 out of 10
+Processing feature 752 (129 out of 136), iteration 8 out of 10
+Processing feature 752 (129 out of 136), iteration 9 out of 10
+Processing feature 497 (130 out of 136), iteration 0 out of 10
+Processing feature 497 (130 out of 136), iteration 1 out of 10
+Processing feature 497 (130 out of 136), iteration 2 out of 10
+Processing feature 497 (130 out of 136), iteration 3 out of 10
+Processing feature 497 (130 out of 136), iteration 4 out of 10
+Processing feature 497 (130 out of 136), iteration 5 out of 10
+Processing feature 497 (130 out of 136), iteration 6 out of 10
+Processing feature 497 (130 out of 136), iteration 7 out of 10
+Processing feature 497 (130 out of 136), iteration 8 out of 10
+Processing feature 497 (130 out of 136), iteration 9 out of 10
+Processing feature 501 (131 out of 136), iteration 0 out of 10
+Processing feature 501 (131 out of 136), iteration 1 out of 10
+Processing feature 501 (131 out of 136), iteration 2 out of 10
+Processing feature 501 (131 out of 136), iteration 3 out of 10
+Processing feature 501 (131 out of 136), iteration 4 out of 10
+Processing feature 501 (131 out of 136), iteration 5 out of 10
+Processing feature 501 (131 out of 136), iteration 6 out of 10
+Processing feature 501 (131 out of 136), iteration 7 out of 10
+Processing feature 501 (131 out of 136), iteration 8 out of 10
+Processing feature 501 (131 out of 136), iteration 9 out of 10
+Processing feature 1065 (132 out of 136), iteration 0 out of 10
+Processing feature 1065 (132 out of 136), iteration 1 out of 10
+Processing feature 1065 (132 out of 136), iteration 2 out of 10
+Processing feature 1065 (132 out of 136), iteration 3 out of 10
+Processing feature 1065 (132 out of 136), iteration 4 out of 10
+Processing feature 1065 (132 out of 136), iteration 5 out of 10
+Processing feature 1065 (132 out of 136), iteration 6 out of 10
+Processing feature 1065 (132 out of 136), iteration 7 out of 10
+Processing feature 1065 (132 out of 136), iteration 8 out of 10
+Processing feature 1065 (132 out of 136), iteration 9 out of 10
+Processing feature 761 (133 out of 136), iteration 0 out of 10
+Processing feature 761 (133 out of 136), iteration 1 out of 10
+Processing feature 761 (133 out of 136), iteration 2 out of 10
+Processing feature 761 (133 out of 136), iteration 3 out of 10
+Processing feature 761 (133 out of 136), iteration 4 out of 10
+Processing feature 761 (133 out of 136), iteration 5 out of 10
+Processing feature 761 (133 out of 136), iteration 6 out of 10
+Processing feature 761 (133 out of 136), iteration 7 out of 10
+Processing feature 761 (133 out of 136), iteration 8 out of 10
+Processing feature 761 (133 out of 136), iteration 9 out of 10
+Processing feature 509 (134 out of 136), iteration 0 out of 10
+Processing feature 509 (134 out of 136), iteration 1 out of 10
+Processing feature 509 (134 out of 136), iteration 2 out of 10
+Processing feature 509 (134 out of 136), iteration 3 out of 10
+Processing feature 509 (134 out of 136), iteration 4 out of 10
+Processing feature 509 (134 out of 136), iteration 5 out of 10
+Processing feature 509 (134 out of 136), iteration 6 out of 10
+Processing feature 509 (134 out of 136), iteration 7 out of 10
+Processing feature 509 (134 out of 136), iteration 8 out of 10
+Processing feature 509 (134 out of 136), iteration 9 out of 10
+Processing feature 1022 (135 out of 136), iteration 0 out of 10
+Processing feature 1022 (135 out of 136), iteration 1 out of 10
+Processing feature 1022 (135 out of 136), iteration 2 out of 10
+Processing feature 1022 (135 out of 136), iteration 3 out of 10
+Processing feature 1022 (135 out of 136), iteration 4 out of 10
+Processing feature 1022 (135 out of 136), iteration 5 out of 10
+Processing feature 1022 (135 out of 136), iteration 6 out of 10
+Processing feature 1022 (135 out of 136), iteration 7 out of 10
+Processing feature 1022 (135 out of 136), iteration 8 out of 10
+Processing feature 1022 (135 out of 136), iteration 9 out of 10
+Feature influences:
+imdb_keywords:fight (370): 0.590871447803
+imdb_keywords:lifting-someone-into-the-air (532): -0.329947178531
+imdb_keywords:friend (400): -0.262596274902
+imdb_keywords:bed (109): -0.22134754978
+imdb_keywords:black-comedy (124): 0.131768306316
+average_rating (1123): -0.103584207545
+imdb_keywords:surprise-ending (874): 0.0663435488007
+imdb_keywords:gun (433): 0.0521584689504
+imdb_keywords:money (594): 0.047674299627
+imdb_keywords:doctor (292): -0.0240217609082
+imdb_keywords:boyfriend-girlfriend-relationship (140): -0.0222680351653
+imdb_keywords:male-nudity (562): 0.0161523907017
+imdb_keywords:shot-to-death (815): 0.0161376889985
+imdb_keywords:female-nudity (363): 0.0149745532284
+imdb_keywords:knife (518): -0.0144238203508
+movielens_genre:Action (1): 0.0138485578909
+imdb_keywords:sex-scene (800): 0.0132103650021
+imdb_keywords:party (661): -0.0113043670796
+imdb_keywords:betrayal (113): 0.00935309429197
+imdb_keywords:police (679): 0.00651393381689
+imdb_keywords:corpse (230): -0.00549245564017
+imdb_keywords:character-name-in-title (185): 0.00415815879383
+year (0): 0.0
+movielens_genre:Adventure (2): 0.0
+movielens_genre:Crime (6): 0.0
+movielens_genre:Drama (8): 0.0
+movielens_genre:Horror (11): 0.0
+movielens_genre:Mystery (13): 0.0
+tvtropes:chekhovs gun (1039): 0.0
+movielens_genre:Thriller (16): 0.0
+movielens_genre:Western (18): 0.0
+tvtropes:disproportionate retribution (1050): 0.0
+tvtropes:dragon (1053): 0.0
+imdb_keywords:loss-of-father (545): 0.0
+imdb_keywords:action-hero (34): 0.0
+imdb_keywords:actor-shares-first-name-with-character (36): 0.0
+imdb_keywords:lust (553): 0.0
+imdb_keywords:machine-gun (554): 0.0
+imdb_keywords:alcoholic (46): 0.0
+imdb_keywords:arrest (65): 0.0
+imdb_keywords:mayor (579): 0.0
+imdb_keywords:mercenary (583): 0.0
+imdb_keywords:attempted-murder (72): 0.0
+imdb_keywords:baby (80): 0.0
+imdb_keywords:bare-butt (88): 0.0
+movielens_genre:Sci-Fi (15): 0.0
+imdb_keywords:based-on-novel (96): 0.0
+imdb_keywords:nightmare (621): 0.0
+imdb_keywords:best-friend (112): 0.0
+imdb_keywords:binoculars (117): 0.0
+imdb_keywords:old-man (634): 0.0
+imdb_keywords:one-man-army (641): 0.0
+imdb_keywords:one-word-title (642): 0.0
+imdb_keywords:opening-action-scene (643): 0.0
+imdb_keywords:orphan (648): 0.0
+imdb_keywords:breasts (146): 0.0
+imdb_keywords:brothel (150): 0.0
+imdb_keywords:brother-sister-relationship (152): 0.0
+imdb_keywords:bully (155): 0.0
+imdb_keywords:pig (672): 0.0
+imdb_keywords:pilot (673): 0.0
+imdb_keywords:pistol (675): 0.0
+imdb_keywords:cannon (168): 0.0
+imdb_keywords:police-detective (683): 0.0
+imdb_keywords:policeman (688): 0.0
+imdb_keywords:cave (180): 0.0
+imdb_keywords:chase (188): 0.0
+imdb_keywords:chicago-illinois (191): 0.0
+imdb_keywords:prostitution (706): 0.0
+imdb_keywords:psychiatrist (708): 0.0
+imdb_keywords:fire (374): 0.0
+imdb_keywords:public-nudity (712): 0.0
+imdb_keywords:hit-by-a-car (460): 0.0
+imdb_keywords:cleavage (210): 0.0
+imdb_keywords:rage (723): 0.0
+imdb_keywords:rainstorm (726): 0.0
+imdb_keywords:actress (37): 0.0
+imdb_keywords:reporter (740): 0.0
+imdb_keywords:river (752): 0.0
+tvtropes:gory discretion shot (1065): 0.0
+imdb_keywords:rural-setting (761): 0.0
+imdb_keywords:satire (769): 0.0
+imdb_keywords:dark-comedy (258): 0.0
+imdb_keywords:dead-body (261): 0.0
+imdb_keywords:death-of-child (265): 0.0
+imdb_keywords:death-of-wife (271): 0.0
+imdb_keywords:seduction (787): 0.0
+imdb_keywords:semiautomatic-pistol (790): 0.0
+imdb_keywords:detective (280): 0.0
+imdb_keywords:severed-hand (796): 0.0
+imdb_keywords:sex-in-bed (799): 0.0
+imdb_keywords:dismemberment (290): 0.0
+imdb_keywords:sheriff (803): 0.0
+imdb_keywords:drink (300): 0.0
+imdb_keywords:drug-addict (303): 0.0
+imdb_keywords:drug-use (306): 0.0
+imdb_keywords:drunkenness (308): 0.0
+imdb_keywords:dysfunctional-marriage (312): 0.0
+imdb_keywords:escape (325): 0.0
+imdb_keywords:explosion (337): 0.0
+imdb_keywords:f-rated (340): 0.0
+imdb_keywords:face-slap (342): 0.0
+imdb_keywords:falling-from-height (347): 0.0
+imdb_keywords:student (861): 0.0
+imdb_keywords:subjective-camera (863): 0.0
+imdb_keywords:fantasy-sequence (352): 0.0
+imdb_keywords:fear (359): 0.0
+imdb_keywords:female-frontal-nudity (361): 0.0
+imdb_keywords:surveillance (876): 0.0
+imdb_keywords:survival (877): 0.0
+imdb_keywords:suspicion (879): 0.0
+imdb_keywords:syringe (886): 0.0
+imdb_keywords:fistfight (382): 0.0
+imdb_keywords:friendship (401): 0.0
+imdb_keywords:garden (409): 0.0
+imdb_keywords:gay-kiss (413): 0.0
+imdb_keywords:general (415): 0.0
+imdb_keywords:tough-guy (928): 0.0
+imdb_keywords:trust (941): 0.0
+imdb_keywords:gunfight (434): 0.0
+imdb_keywords:hand-to-hand-combat (442): 0.0
+imdb_keywords:handcuffs (443): 0.0
+imdb_keywords:urination (962): 0.0
+imdb_keywords:hero (455): 0.0
+imdb_keywords:heroin (456): 0.0
+imdb_keywords:village (970): 0.0
+imdb_keywords:violence (972): 0.0
+imdb_keywords:hitman (462): 0.0
+imdb_keywords:nurse (629): 0.0
+imdb_keywords:voyeurism (977): 0.0
+imdb_keywords:house (475): 0.0
+imdb_keywords:husband-wife-relationship (478): 0.0
+imdb_keywords:jail (497): 0.0
+imdb_keywords:jealousy (501): 0.0
+imdb_keywords:karate (509): 0.0
+tvtropes:badass (1022): 0.0

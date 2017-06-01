@@ -2,18 +2,58 @@
 import argparse
 import os.path
 import functools
+import random
 
 #project files
 import rating_explanation
 import rating_qii
 import tree_qii
+import common_utils
 
 #pyspark libraryb
 from pyspark import SparkConf, SparkContext
 
 def shadow_model_qii(user, movie, user_features, all_trees, indicators,
-                     iterations=10):
-    pass
+                     iterations=10, indicator_distributions=None,
+                     used_features=None, debug=False):
+    if used_features is None:
+        used_features = get_all_used_features(all_trees)
+    if indicator_distributions is None:
+        indicator_distributions = get_all_feature_ditributions(idicators,
+                                                               used_features)
+    rank = len(all_trees)
+    qiis = {}
+    filter_f = functools.partial(lambda movie, (mid, _): mid == movie, movie)
+    indicators = indicators.filter(filter_f)
+    original_prediction = shadow_predict(user, movie, rank, user_features,
+                                         all_trees, indicators)
+    for i_f, f in enumerate(used_features):
+        cur_qii = 0.0
+        cur_signed_qii = 0.0
+        for i in xrange(iterations):
+            if debug:
+                print "Processing feature {} ({} out of {}), iteration {} out of {}"\
+                        .format(f, i_f, len(used_features), i, iterations)
+            perturbed_value = random.choice(indicator_distributions[f])
+            map_f = functools.partial(lambda pv, f, (mid, ftrs):\
+                    (mid, common_utils.set_list_value(ftrs, f, pv)),
+                    perturbed_value, f)
+            cur_indicators = indicators.map(map_f)
+            perturbed_prediction = shadow_predict(user, movie, rank, user_features,
+                                                  all_trees, cur_indicators)
+            abs_err = abs(original_prediction - perturbed_prediction)
+            signed_err = perturbed_prediction - original_prediction
+            cur_qii += abs_err
+            cur_signed_qii += signed_err
+        cur_qii = cur_qii / float(iterations)
+        cur_signed_qii = cur_signed_qii / float(iterations)
+        if cur_signed_qii == 0:
+            sign = 1
+        else:
+            sign = cur_signed_qii / abs(cur_signed_qii)
+        cur_qii *= sign
+        qiis[f] = cur_qii
+    return qiis
 
 def get_all_feature_distributions(features, used_features):
     used_features = sorted(list(used_features))
@@ -50,6 +90,8 @@ def main():
                         "Movie for which to compute the QII")
     parser.add_argument("--user", action="store", type=int, help=\
                         "User for who to compute QII")
+    parser.add_argument("--qii-iterations", action="store", type=int, default=10, help=\
+                        "Iterations to use with QII. 10 by default.")
     args = parser.parse_args()
     conf = SparkConf().setMaster("local[*]")
     sc = SparkContext(conf=conf)
@@ -72,6 +114,8 @@ def main():
     rank = model.rank
     user_features = model.userFeatures()
     print "Loaded rank {} model".format(rank)
+    print "Cur user features:", user_features.lookup(args.user)
+    print "Cur product features:", model.productFeatures().lookup(args.movie)
     print "Loading decision trees"
     all_trees = {}
     for i in xrange(rank):
@@ -98,5 +142,14 @@ def main():
             .format(shadow_predicted_rating, abs(shadow_predicted_rating -\
                     original_predicted_rating))
 
+    qiis =  shadow_model_qii(args.user, args.movie, user_features, all_trees, indicators,
+                     iterations=args.qii_iterations,
+                     indicator_distributions=all_indicator_distributions,
+                     used_features=all_used_features, debug=True)
+
+    print "Feature influences:"
+    qiis_list = sorted(qiis.items(), key=lambda x: -abs(x[1]))
+    for f, q in qiis_list:
+        print "{} ({}): {}".format(results["feature_names"][f], f, q)
 if __name__ == "__main__":
     main()
