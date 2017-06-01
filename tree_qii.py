@@ -11,13 +11,7 @@ import common_utils
 #pyspark libraryb
 from pyspark import SparkConf, SparkContext
 
-def get_used_features(lr_model):
-    model_string = lr_model.toDebugString()
-    lines = model_string.split("\n")
-    res = set()
-    for line in lines:
-        if "(feature " not in line:
-            continue
+def get_feature_from_line(line):
         right = line.split("(feature ")[1]
         if " not in " in right:
             left = right.split(" not in ")[0]
@@ -28,6 +22,16 @@ def get_used_features(lr_model):
         else:
             left = right.split(" in ")[0]
         fid = int(left)
+        return fid
+
+def get_used_features(lr_model):
+    model_string = lr_model.toDebugString()
+    lines = model_string.split("\n")
+    res = set()
+    for line in lines:
+        if "(feature " not in line:
+            continue
+        fid = get_feature_from_line(line)
         res.add(fid)
     return res
 
@@ -95,6 +99,23 @@ def get_tree_qii(lr_model, features, used_features):
     qiis_dict = {mapping[f]:q for (f,q) in enumerate(qiis_list)}
     return qiis_dict
 
+def get_top_tree_layers(lr_model):
+    model_string = lr_model.toDebugString()
+    res = {"root": None, "children": set()}
+    for line in model_string.split("\n"):
+        if common_utils.beginswith(line, " "*2 +" If") or\
+            common_utils.beginswith(line, " "*2 + "Else"):
+            fid = get_feature_from_line(line)
+            res["children"].add(fid)
+        elif common_utils.beginswith(line, " "*1 +" If") or\
+            common_utils.beginswith(line, " "*1 + "Else"):
+            fid = get_feature_from_line(line)
+            res["root"] = fid
+    if res["root"] in res["children"]:
+        res["children"].remove(res["root"])
+    return res
+
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--persist-dir", action="store", type=str, help=\
@@ -108,10 +129,17 @@ def main():
     conf = SparkConf().setMaster("local[*]")
     sc = SparkContext(conf=conf)
 
-    print "Loading the tree model"
-    lr_model = rating_explanation.load_regression_tree_model(sc, args.persist_dir, args.feature)
     print "Loading results dict"
     results = rating_explanation.load_results_dict(args.persist_dir)
+    print "Loading the tree model"
+    lr_model = rating_explanation.load_regression_tree_model(sc, args.persist_dir, args.feature)
+    print rating_explanation.get_model_string(lr_model,
+            results['feature_names'])
+    top_layers = get_top_tree_layers(lr_model)
+    print "Tree root:", results["feature_names"][top_layers["root"]], "(",\
+        top_layers["root"], ")"
+    for child in top_layers["children"]:
+        print "Child:", results["feature_names"][child], "(", child, ")"
     print "Loading feature indicator sets"
     (training_movies, test_movies, features_test, features_training,
              features_original_test, features_original_training,
