@@ -9,8 +9,9 @@ NUM_PARTITIONS="7"
 
 #Data source paths
 DATA_PATH="datasets/ml-20m"
-MOVIES_FILE="datasets/ml-20m/ml-20m.imdb.medium.csv"
+MOVIES_FILE="datasets/ml-20m/ml-20m.imdb.set1.csv"
 TVTROPES_FILE="datasets/dbtropes/tropes.csv"
+CSV="--csv"
 
 #Recommender parameters
 RANK=3
@@ -19,7 +20,7 @@ NUM_ITER=300
 NON_NEGATIVE="" #Must be empty or --non-negative
 
 #Regression parameters
-METADATA_SOURCES="years genres average_rating imdb_keywords imdb_producer imdb_director tvtropes"
+METADATA_SOURCES="years genres average_rating imdb_keywords imdb_producer imdb_director tvtropes tags"
 CROSS_VALIDATION=70
 REGRESSION_MODEL="regression_tree"
 NBINS=32
@@ -52,7 +53,7 @@ function make_commands() {
 
 	ARGS="--spark-executor-memory $MEMORY --local-threads $LOCAL_THREADS --num-partitions $NUM_PARTITIONS"
 	ARGS="${ARGS} --checkpoint-dir $CHECKPOINT_DIR --temp-dir $TEMP_DIR --persist-dir $PERSIST_DIR"
-	ARGS="${ARGS} --data-path $DATA_PATH --movies-file $MOVIES_FILE --tvtropes-file $TVTROPES_FILE"
+	ARGS="${ARGS} $CSV --data-path $DATA_PATH --movies-file $MOVIES_FILE --tvtropes-file $TVTROPES_FILE"
 	ARGS="${ARGS} --rank $RANK --lmbda $LMBDA --num-iter $NUM_ITER $NON_NEGATIVE"
 	ARGS="${ARGS} --predict-product-features --metadata-sources $METADATA_SOURCES"
 	ARGS="${ARGS} --drop-rare-features $DROP_RARE_FEATURES --drop-rare-movies $DROP_RARE_MOVIES"
@@ -96,22 +97,8 @@ function run_and_save() {
 	REFERENCE_MODEL="${PERSIST_DIR}/als_model.pkl"
 }
 
-function lmbda_n_experiments() {
-	local NAME_SUFFIX="${NAME_SUFFIX}_lambda_${LMBDA}"
-	run_and_save
-
-}
-
-
-
-DATA_PATH="datasets/synth_level0"
-MOVIES_FILE="datasets/ml-20m/ml-20m.imdb.set1.csv"
-NAME_SUFFIX="synth_level0"
+DATA_PATH="datasets/new_synth"
+NAME_SUFFIX="new_synth"
 
 RANK=12
-
-LMBDA=1.0
-lmbda_n_experiments
-
-LMBDA=0.001
-lmbda_n_experiments
+run_and_save

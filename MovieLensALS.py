@@ -169,6 +169,8 @@ def args_init(logger):
                         "Warning: can lead to unpredictable behavior "+\
                         "if arguments are mismatched!")
 
+    parser.add_argument("--csv", action="store_true", help=\
+                        "Use csv format instead of dat")
 
     args = parser.parse_args()
 
@@ -202,6 +204,7 @@ def args_init(logger):
     logger.debug("normalize: {}".format(args.normalize))
     logger.debug("max_depth: {}".format(args.max_depth))
     logger.debug("no_ht: {}".format(args.no_ht))
+    logger.debug("csv: {}".format(args.csv))
 
     return args
 
@@ -255,7 +258,7 @@ def main():
     ALS.checkpointInterval = 2
 
 
-    if "ml-20m" in args.data_path:
+    if args.csv or "ml-20m" in args.data_path:
         sep = ","
         extension = ".csv"
         remove_first_line = True
