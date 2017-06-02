@@ -56,7 +56,7 @@ def sample_correctness(user_product_pairs, user_features, all_trees,
     for (n, (u, m)) in enumerate(user_product_pairs):
         if debug:
             print "Processing user {}, movie {} ({})"\
-                    .format(u, m, movie_names[m])
+                    .format(u, m, movies_dict[m])
         corr = one_rating_correctness(u, m, user_features, all_trees,
                 indicators, user_profiles[users[u]], feature_names, iterations,
                 indicator_distributions, used_features, debug)
