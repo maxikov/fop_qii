@@ -1,0 +1,100 @@
+Movie: Silverado (1985) ( 7027 ) , error: 0.0674241075221
+Movie: Election (1999) ( 2599 ) , error: 0.0708988460942
+Movie: Shadow Magic (2000) ( 4245 ) , error: 0.0742110578227
+Movie: Lakeboat (2000) ( 4253 ) , error: 0.0765010521872
+Movie: Shadow of a Doubt (1943) ( 2203 ) , error: 0.0767937236498
+Movie: Hackers (1995) ( 170 ) , error: 0.077756699202
+Movie: Pi (1998) ( 1921 ) , error: 0.0780408291473
+Movie: She-Devil (1989) ( 3392 ) , error: 0.0799529850226
+Movie: Less Than Zero (1987) ( 4126 ) , error: 0.0800848971482
+Movie: Chinese Box (1997) ( 1829 ) , error: 0.0811162058839
+Movie: Night of the Iguana, The (1964) ( 7944 ) , error: 0.0838760230801
+Movie: On Our Merry Way (1948) ( 3778 ) , error: 0.0840903223408
+Movie: Valley of the Dolls (1967) ( 6646 ) , error: 0.0856414815314
+Movie: Wizard of Oz, The (1939) ( 919 ) , error: 0.0861628153773
+Movie: Heavenly Creatures (1994) ( 247 ) , error: 0.0866351265517
+Movie: Friday the 13th Part VII: The New Blood (1988) ( 1980 ) , error: 0.087648059648
+Movie: Boiler Room (2000) ( 3298 ) , error: 0.088532803974
+Movie: Eraser (1996) ( 786 ) , error: 0.0889990519452
+Movie: Ten Commandments, The (1956) ( 7386 ) , error: 0.0890595114273
+Movie: Flirt (1995) ( 846 ) , error: 0.0891004717317
+Movie: Lost in Translation (2003) ( 6711 ) , error: 0.0897647427311
+Movie: Pecker (1998) ( 2282 ) , error: 0.0904273991379
+Movie: Camelot (1967) ( 7714 ) , error: 0.090522432579
+Movie: Mansfield Park (1999) ( 3079 ) , error: 0.0910867209571
+Movie: Umberto D. (1952) ( 6611 ) , error: 0.0911671810581
+Movie: Kiss, The (1988) ( 7342 ) , error: 0.0913925780959
+Movie: Butterfly Kiss (1995) ( 696 ) , error: 0.0919575807845
+Movie: Nightcap (Merci pour le chocolat) (2000) ( 5517 ) , error: 0.0921663608272
+Movie: Dawn of the Dead (1978) ( 7387 ) , error: 0.0939627778128
+Movie: Halloween II (1981) ( 1983 ) , error: 0.094032044448
+Movie: Lovely & Amazing (2001) ( 5450 ) , error: 0.0948752252897
+Movie: Women, The (1939) ( 927 ) , error: 0.0955886574788
+Movie: Business of Fancydancing, The (2002) ( 6647 ) , error: 0.0961851173323
+Movie: Adventures of Sherlock Holmes, The (1939) ( 8401 ) , error: 0.0964174695218
+Movie: Center of the World, The (2001) ( 4256 ) , error: 0.0964398049762
+Movie: Angel Eyes (2001) ( 4305 ) , error: 0.0964670543963
+Movie: Royal Tenenbaums, The (2001) ( 4979 ) , error: 0.0965310723137
+Movie: Pixote (1981) ( 4179 ) , error: 0.0969858596446
+Movie: Rushmore (1998) ( 2395 ) , error: 0.0970653029139
+Movie: Shock Treatment (1981) ( 5855 ) , error: 0.0972867980386
+Movie: Bread and Roses (2000) ( 4300 ) , error: 0.0974455433087
+Movie: Same River Twice, The (2003) ( 8625 ) , error: 0.0979130161967
+Movie: Laws of Attraction (2004) ( 7450 ) , error: 0.0983404689314
+Movie: Titus (1999) ( 3181 ) , error: 0.0984309751561
+Movie: Network (1976) ( 3504 ) , error: 0.098712709917
+Movie: Something Wicked This Way Comes (1983) ( 2097 ) , error: 0.0987142664078
+Movie: Antz (1998) ( 2294 ) , error: 0.0988548660971
+Movie: I.Q. (1994) ( 252 ) , error: 0.0988723913773
+Movie: Assassination Tango (2002) ( 6267 ) , error: 0.0993371058969
+Movie: Sixteen Candles (1984) ( 2144 ) , error: 0.0994305040568
+Movie: Rat Race (2001) ( 4728 ) , error: 0.0997746872286
+Movie: The Plague of the Zombies (1966) ( 7882 ) , error: 0.0999919306248
+Movie: Spirits of the Dead (1968) ( 775 ) , error: 0.100305209315
+Movie: Dark Command (1940) ( 3644 ) , error: 0.100511240295
+Movie: Madame Bovary (1991) ( 5838 ) , error: 0.100781805773
+Movie: Wedding Singer, The (1998) ( 1777 ) , error: 0.101206574954
+Movie: Nightbreed (1990) ( 7951 ) , error: 0.101541252784
+Movie: Mudge Boy, The (2003) ( 7455 ) , error: 0.101738891867
+Movie: Analyze This (1999) ( 2539 ) , error: 0.102620798127
+Movie: Cabaret (1972) ( 3545 ) , error: 0.102637757375
+Movie: It's a Wonderful Life (1946) ( 953 ) , error: 0.10282768867
+Movie: Last Emperor, The (1987) ( 1960 ) , error: 0.102858570619
+Movie: Meet the Parents (2000) ( 3948 ) , error: 0.102931185352
+Movie: Big Jake (1971) ( 6394 ) , error: 0.103076466356
+Movie: Rope (1948) ( 2176 ) , error: 0.103392721456
+Movie: Queen Bee (1955) ( 5019 ) , error: 0.103644995254
+Movie: Riding in Cars with Boys (2001) ( 4867 ) , error: 0.103743209044
+Movie: Merry War, A (1997) ( 2191 ) , error: 0.103777415269
+Movie: Man from Elysian Fields, The (2001) ( 5635 ) , error: 0.104358011538
+Movie: Igby Goes Down (2002) ( 5577 ) , error: 0.104557259999
+Movie: Savannah Smiles (1982) ( 6124 ) , error: 0.1047489984
+Movie: Alien (1979) ( 1214 ) , error: 0.105025248776
+Movie: Big Trouble (2002) ( 4774 ) , error: 0.10527952649
+Movie: Anaconda (1997) ( 1499 ) , error: 0.106223163518
+Movie: Real Cancun, The (2003) ( 6325 ) , error: 0.106463968694
+Movie: Panic Room (2002) ( 5266 ) , error: 0.10648243579
+Movie: Bless the Child (2000) ( 3857 ) , error: 0.106743981399
+Movie: Death Hunt (1981) ( 5728 ) , error: 0.106769310039
+Movie: Home Fries (1998) ( 2385 ) , error: 0.106802421386
+Movie: Black Narcissus (1947) ( 8338 ) , error: 0.107074166166
+Movie: My Left Foot (1989) ( 1185 ) , error: 0.107145816427
+Movie: Last Orders (2001) ( 5112 ) , error: 0.10715363856
+Movie: Road Trip (2000) ( 3617 ) , error: 0.107348590492
+Movie: Lady Eve, The (1941) ( 2935 ) , error: 0.107546647849
+Movie: Lawn Dogs (1997) ( 1880 ) , error: 0.107843510943
+Movie: Strictly Ballroom (1992) ( 1188 ) , error: 0.107870000292
+Movie: Out of Sight (1998) ( 1912 ) , error: 0.108030514067
+Movie: Labyrinth (1986) ( 1967 ) , error: 0.108171364377
+Movie: Night of the Living Dead (1968) ( 968 ) , error: 0.10837609102
+Movie: Old Acquaintance (1943) ( 7582 ) , error: 0.108481075264
+Movie: Man Who Came to Dinner, The (1942) ( 8331 ) , error: 0.108577040775
+Movie: Sleeping Beauty (1959) ( 2096 ) , error: 0.108707982973
+Movie: Birds, The (1963) ( 1333 ) , error: 0.108727984718
+Movie: They Shoot Horses, Don't They? (1969) ( 3011 ) , error: 0.108776214047
+Movie: Celebration, The (Festen) (1998) ( 2360 ) , error: 0.109428913923
+Movie: Big Red One, The (1980) ( 4826 ) , error: 0.109585402866
+Movie: Princess Diaries, The (2001) ( 4700 ) , error: 0.109790428858
+Movie: Jersey Girl (2004) ( 7366 ) , error: 0.110086548668
+Movie: Divorce, Le (2003) ( 6596 ) , error: 0.110110240056
+Movie: X-Men (2000) ( 3793 ) , error: 0.110130398395
