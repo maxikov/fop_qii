@@ -25,13 +25,13 @@ def sort_dict(src, non_zero=False):
 def explanation_correctness(qiis, user_profile):
     qii_list = sort_dict(qiis)
     abs_qii_list = [(f, abs(q)) for (f, q) in qii_list]
-    max_qii = abs_qii_list[0][1]
+    top_two_qii = abs_qii_list[0][1] + abs_qii_lst[1][1]
+    if top_two_qii == 0:
+        top_two_qii = 1e-30
     qiis = collections.defaultdict(lambda: 0.0, qiis)
     pos_qii = abs(qiis[user_profile["pos"]])
     neg_qii = abs(qiis[user_profile["neg"]])
-    pos_corr = pos_qii / max_qii
-    neg_corr = neg_qii / max_qii
-    corr = (pos_corr + neg_corr) / 2.0
+    corr = (pos_qii + neg_qii) / float(top_two_qii)
     return corr
 
 def one_rating_correctness(user, movie, user_features, all_trees, indicators,
