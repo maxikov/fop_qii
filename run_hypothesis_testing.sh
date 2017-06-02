@@ -131,7 +131,7 @@ do
 	DATA_PATH="${DATASET_ROOT}/${NAME_SUFFIX}"
 	echo `date` "Creating dataset in $DATA_PATH"
 	python synth_dataset_generator.py --persist-dir ${ORIGINAL_STATE_DIR} --n-profiles 10 --n-users 1000 --mu 3 --sigma 1 ${RAND} --odir ${DATA_PATH}
-	cp ${ORIGINAL_DATA_ROOT}/ml-20m/tags.csv ${DATA_PATH}/
+	cp ${ORIGINAL_DATA_ROOT}/ml-20m/tags.csv ${DATA_PATH}/tags.csv
 	echo `date` "Done creating data set"
 
 	echo `date` "Building a recommender and a shadow model"
