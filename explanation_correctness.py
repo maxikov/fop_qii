@@ -58,7 +58,7 @@ def sample_correctness(user_product_pairs, user_features, all_trees,
             print "Processing user {}, movie {} ({})"\
                     .format(u, m, movies_dict[m])
         corr = one_rating_correctness(u, m, user_features, all_trees,
-                indicators, user_profiles[users[u]], feature_names, iterations,
+                indicators, profiles[users[u]], feature_names, iterations,
                 indicator_distributions, used_features, debug)
         res.append(corr)
     return corr
