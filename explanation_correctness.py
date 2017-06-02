@@ -17,7 +17,7 @@ from pyspark import SparkConf, SparkContext
 def sort_dict(src, non_zero=False):
     lst = sorted(src.items(), key=lambda x: -abs(x[0]))
     if non_zero:
-        lst = [x for x in lst is x[1] != 0]
+        lst = [x for x in lst if x[1] != 0]
     return lst
 
 def explanation_correctness(qiis, user_profile):
