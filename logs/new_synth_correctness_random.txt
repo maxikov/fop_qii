@@ -1,0 +1,717 @@
+Loading results dict
+Original recommender relative to ground truth on training set mean absolute error: 0.0218818746864, RMSE: 0.0276227384085
+Shadow model relative to the baseline recommender on test set MAE: 0.865435628085, RMSE: 1.01557620195
+Randomized model relative to the baseline recommender on test set MAE: 1.12803764885, RMSE: 1.3833902838
+Shadow model is 1.3034333372 times better than random on the test set
+Loading movies
+Loading ALS model
+Loading decision trees
+249 features are used: 0: year, 512: imdb_keywords:hand-grenade, 1026: imdb_keywords:undressing, 958: imdb_keywords:talking-to-the-camera, 5: movielens_genre:Comedy, 6: movielens_genre:Crime, 1025: imdb_keywords:underwear, 9: movielens_genre:Fantasy, 522: imdb_keywords:heist, 11: movielens_genre:Horror, 524: imdb_keywords:helicopter, 2: movielens_genre:Adventure, 14: movielens_genre:Romance, 527: imdb_keywords:heroin, 16: movielens_genre:Thriller, 20: movielens_tags:BD-R, 1045: imdb_keywords:voice-over-narration, 1046: imdb_keywords:vomiting, 857: imdb_keywords:security-guard, 537: imdb_keywords:honor, 26: movielens_tags:CLV, 539: imdb_keywords:horse, 29: movielens_tags:Criterion, 542: imdb_keywords:hospital, 32: movielens_tags:DVD-Video, 547: imdb_keywords:humiliation, 1: movielens_genre:Action, 37: movielens_tags:Nudity (Topless), 1063: imdb_keywords:whiskey, 1066: imdb_keywords:widower, 45: movielens_tags:based on a book, 1073: imdb_keywords:woods, 675: imdb_keywords:murder-of-a-police-officer, 53: movielens_tags:drugs, 54: movielens_tags:erlend's DVDs, 56: movielens_tags:franchise, 569: imdb_keywords:jail-cell, 58: movielens_tags:history, 1034: imdb_keywords:uzi, 1086: tvtropes:affably evil, 65: movielens_tags:murder, 582: imdb_keywords:kicked-in-the-face, 1096: tvtropes:big bad, 1097: tvtropes:big damn heroes, 586: imdb_keywords:kiss, 1099: tvtropes:bittersweet ending, 1102: tvtropes:book ends, 13: movielens_genre:Mystery, 1104: tvtropes:brick joke, 81: movielens_tags:slow, 82: movielens_tags:soundtrack, 1110: tvtropes:chekhovs gun, 87: movielens_tags:thriller, 600: imdb_keywords:liar, 90: imdb_keywords:, 1115: tvtropes:cool car, 1117: tvtropes:cult classic, 1118: tvtropes:deadpan snarker, 95: imdb_keywords:1950s, 608: imdb_keywords:little-boy, 609: imdb_keywords:little-girl, 610: imdb_keywords:locker-room, 99: imdb_keywords:1990s, 103: imdb_keywords:accident, 1128: tvtropes:expy, 105: imdb_keywords:action-hero, 566: imdb_keywords:italian-american, 1134: tvtropes:genre savvy, 623: imdb_keywords:loyalty, 626: imdb_keywords:machismo, 481: imdb_keywords:gas-station, 1141: tvtropes:hey its that guy, 1144: tvtropes:idiot ball, 121: imdb_keywords:ambush, 737: imdb_keywords:phone-booth, 1149: tvtropes:karma houdini, 126: imdb_keywords:animal-attack, 127: imdb_keywords:animal-in-title, 128: imdb_keywords:answering-machine, 1039: imdb_keywords:vengeance, 130: imdb_keywords:apartment, 643: imdb_keywords:marriage, 1156: tvtropes:mind screw, 1159: tvtropes:my god what have i done, 649: imdb_keywords:masturbation, 652: imdb_keywords:memory, 141: imdb_keywords:assassination, 142: imdb_keywords:assassination-attempt, 143: imdb_keywords:attempted-murder, 1172: tvtropes:red herring, 110: imdb_keywords:adultery, 25: movielens_tags:Bob*ola, 1177: tvtropes:shown their work, 1179: tvtropes:soundtrack dissonance, 156: imdb_keywords:bar, 671: imdb_keywords:mother-son-relationship, 1184: tvtropes:too dumb to live, 674: imdb_keywords:murder, 27: movielens_tags:Can't remember, 1188: tvtropes:villain protagonist, 166: imdb_keywords:based-on-comic-book, 679: imdb_keywords:native-american, 1194: average_rating, 1053: imdb_keywords:washington-d.c., 689: imdb_keywords:newspaper-headline, 178: imdb_keywords:beaten-to-death, 179: imdb_keywords:beating, 1114: tvtropes:cluster f bomb, 30: movielens_tags:DVD-R, 184: imdb_keywords:betrayal, 185: imdb_keywords:bible, 187: imdb_keywords:bikini, 188: imdb_keywords:binoculars, 706: imdb_keywords:old-woman, 195: imdb_keywords:black-comedy, 709: imdb_keywords:on-the-road, 516: imdb_keywords:hanging, 201: imdb_keywords:blood, 203: imdb_keywords:boat, 205: imdb_keywords:bomb, 206: imdb_keywords:book, 211: imdb_keywords:boyfriend-girlfriend-relationship, 212: imdb_keywords:bra, 213: imdb_keywords:brawl, 214: imdb_keywords:break-up, 215: imdb_keywords:breaking-and-entering, 1060: imdb_keywords:what-happened-to-epilogue, 733: imdb_keywords:passion, 734: imdb_keywords:pay-phone, 1061: imdb_keywords:wheelchair, 224: imdb_keywords:brunette, 225: imdb_keywords:brutality, 227: imdb_keywords:burial, 746: imdb_keywords:pistol, 238: imdb_keywords:candle, 637: imdb_keywords:manhattan-new-york-city, 241: imdb_keywords:car, 754: imdb_keywords:police-detective, 755: imdb_keywords:police-officer, 756: imdb_keywords:police-officer-killed, 758: imdb_keywords:police-station, 760: imdb_keywords:politician, 639: imdb_keywords:manipulation, 766: imdb_keywords:pregnancy, 769: imdb_keywords:priest, 771: imdb_keywords:prisoner, 263: imdb_keywords:chicken, 111: imdb_keywords:africa, 780: imdb_keywords:psychopath, 472: imdb_keywords:friendship, 275: imdb_keywords:cigar-smoking, 276: imdb_keywords:cigarette-smoking, 279: imdb_keywords:class-differences, 283: imdb_keywords:coffee, 797: imdb_keywords:rainstorm, 803: imdb_keywords:redemption, 487: imdb_keywords:german, 299: imdb_keywords:cook, 301: imdb_keywords:corpse, 221: imdb_keywords:brothel, 818: imdb_keywords:rifle, 308: imdb_keywords:cousin-cousin-relationship, 243: imdb_keywords:car-chase, 311: imdb_keywords:cowboy, 824: imdb_keywords:road-trip, 313: imdb_keywords:creature, 223: imdb_keywords:brother-sister-relationship, 573: imdb_keywords:jeep, 318: imdb_keywords:crucifix, 319: imdb_keywords:cruelty, 321: imdb_keywords:crying, 834: imdb_keywords:russian, 1078: imdb_keywords:writing, 1059: imdb_keywords:wedding, 795: imdb_keywords:railway-station, 845: imdb_keywords:scene-during-opening-credits, 334: imdb_keywords:death, 337: imdb_keywords:death-of-father, 340: imdb_keywords:death-of-mother, 345: imdb_keywords:deception, 860: imdb_keywords:self-sacrifice, 864: imdb_keywords:serial-killer, 354: imdb_keywords:diner, 827: imdb_keywords:rooftop, 871: imdb_keywords:sex-scene, 874: imdb_keywords:sheriff, 363: imdb_keywords:doctor, 364: imdb_keywords:dog, 365: imdb_keywords:doll, 367: imdb_keywords:double-cross, 888: imdb_keywords:showdown, 377: imdb_keywords:drug-use, 383: imdb_keywords:dysfunctional-marriage, 899: imdb_keywords:slasher, 389: imdb_keywords:elevator, 390: imdb_keywords:employer-employee-relationship, 906: imdb_keywords:snow, 151: imdb_keywords:baby, 909: imdb_keywords:sociopath, 399: imdb_keywords:evil-man, 303: imdb_keywords:corruption, 387: imdb_keywords:electrocution, 406: imdb_keywords:exploding-car, 751: imdb_keywords:police-brutality, 413: imdb_keywords:face-slap, 927: imdb_keywords:strangulation, 418: imdb_keywords:falling-from-height, 1009: imdb_keywords:tree, 936: imdb_keywords:suburb, 939: imdb_keywords:suicide-attempt, 428: imdb_keywords:father-son-relationship, 429: imdb_keywords:fbi, 328: imdb_keywords:dancing, 947: imdb_keywords:surveillance, 441: imdb_keywords:fight, 159: imdb_keywords:bare-butt, 957: imdb_keywords:syringe, 446: imdb_keywords:fired-from-the-job, 449: imdb_keywords:first-part, 587: imdb_keywords:kissing-while-having-sex, 453: imdb_keywords:fistfight, 454: imdb_keywords:flash-forward, 457: imdb_keywords:flatulence, 458: imdb_keywords:flirting, 972: imdb_keywords:teenager, 466: imdb_keywords:forgiveness, 163: imdb_keywords:baseball, 984: imdb_keywords:thief, 676: imdb_keywords:murderer, 591: imdb_keywords:kung-fu, 479: imdb_keywords:garage, 992: imdb_keywords:title-spoken-by-character, 993: imdb_keywords:toilet, 995: imdb_keywords:topless-female-nudity, 485: imdb_keywords:gay-slur, 999: imdb_keywords:tough-guy, 1000: imdb_keywords:tragedy, 490: imdb_keywords:girl, 167: imdb_keywords:based-on-novel, 492: imdb_keywords:gold, 1005: imdb_keywords:traitor, 494: imdb_keywords:gore, 496: imdb_keywords:grandmother-grandson-relationship, 497: imdb_keywords:grave, 499: imdb_keywords:greed, 1012: imdb_keywords:trust, 1013: imdb_keywords:tunnel, 510: imdb_keywords:hairy-chest, 511: imdb_keywords:hallucination
+Loading indicators
+Building indicator distributions
+Loading user profiles
+Processing user 595, movie 2734 (Mosquito Coast, The (1986))
+Original predicted rating: 2.18708210416
+User profile: {'neg_name': 'imdb_keywords:singing', 'neg': 892, 'profile_id': 0, 'pos_name': 'imdb_keywords:ring', 'pos': 819}
+Non-zero qiis:
+average_rating (1194): 0.584567272198
+imdb_keywords:little-boy (608): 0.196972313194
+imdb_keywords:on-the-road (709): 0.15721167781
+imdb_keywords:flirting (458): 0.0823886967206
+imdb_keywords:trust (1012): -0.0502846126596
+imdb_keywords:showdown (888): -0.0468366371797
+imdb_keywords:little-girl (609): -0.0466222772863
+imdb_keywords:death-of-father (337): 0.026320599427
+imdb_keywords:rifle (818): -0.025834096325
+imdb_keywords:corruption (303): 0.0225492905504
+imdb_keywords:heist (522): 0.0195252250071
+imdb_keywords:gay-slur (485): 0.0190389027007
+imdb_keywords:corpse (301): -0.0184041923558
+imdb_keywords:talking-to-the-camera (958): -0.0162339662359
+imdb_keywords:undressing (1026): 0.0161265727203
+imdb_keywords:suicide-attempt (939): 0.0117832280931
+imdb_keywords:doll (365): 0.0111054960607
+imdb_keywords:grave (497): 0.00965042127547
+tvtropes:brick joke (1104): 0.00913006415952
+imdb_keywords:jail-cell (569): 0.00787726450454
+imdb_keywords:whiskey (1063): -0.00552129297525
+imdb_keywords:police-brutality (751): 0.00547160731535
+imdb_keywords:friendship (472): -0.00546722851453
+movielens_genre:Horror (11): 0.00424555487279
+imdb_keywords:brawl (213): -0.00361058171037
+imdb_keywords:attempted-murder (143): 0.00337247294953
+imdb_keywords:action-hero (105): -0.00317887563227
+imdb_keywords:boyfriend-girlfriend-relationship (211): 0.00275752160838
+imdb_keywords:police-detective (754): 0.00228410809474
+imdb_keywords:redemption (803): 0.00186829007709
+imdb_keywords:toilet (993): 0.00159610169806
+imdb_keywords:based-on-comic-book (166): 0.00112087563675
+imdb_keywords:forgiveness (466): 0.00108282658111
+imdb_keywords:loyalty (623): 0.000954088186828
+imdb_keywords:baseball (163): -0.000750205751507
+Correctness score: 0.0
+Processing user 914, movie 77266 (Disgrace (2008))
+Original predicted rating: 2.02808143577
+User profile: {'neg_name': 'imdb_keywords:cave', 'neg': 251, 'profile_id': 5, 'pos_name': 'imdb_keywords:cooking', 'pos': 300}
+Non-zero qiis:
+average_rating (1194): 0.657915732696
+movielens_tags:based on a book (45): 0.138891274902
+imdb_keywords:redemption (803): -0.114322646759
+imdb_keywords:chicken (263): 0.0451187422515
+imdb_keywords:boat (203): 0.0341649957942
+imdb_keywords:corpse (301): -0.0275618121934
+imdb_keywords:police-officer-killed (756): 0.0213675745433
+imdb_keywords:double-cross (367): 0.0107396774998
+imdb_keywords:horse (539): 0.010207937596
+imdb_keywords:newspaper-headline (689): 0.00584736596405
+imdb_keywords:brutality (225): -0.00499653916583
+imdb_keywords:boyfriend-girlfriend-relationship (211): -0.00498385033355
+imdb_keywords:little-boy (608): -0.00481901122229
+imdb_keywords:politician (760): -0.00458601520977
+tvtropes:brick joke (1104): 0.00453615436622
+imdb_keywords:whiskey (1063): 0.00272958077442
+imdb_keywords:hand-grenade (512): 0.00227647001223
+imdb_keywords:tunnel (1013): -0.00222217943964
+imdb_keywords:little-girl (609): -0.00218349816715
+tvtropes:red herring (1172): -0.00197987886837
+imdb_keywords:flirting (458): -0.00186467518463
+tvtropes:big bad (1096): 0.00177500011794
+imdb_keywords:scene-during-opening-credits (845): 0.00170472198973
+imdb_keywords:helicopter (524): -0.00161485176455
+imdb_keywords:murderer (676): -0.00156866385825
+imdb_keywords:based-on-comic-book (166): 0.000780099847798
+imdb_keywords:loyalty (623): 0.000664020186474
+movielens_genre:Horror (11): -0.000547718353126
+imdb_keywords:suicide-attempt (939): -0.000383103827382
+imdb_keywords:friendship (472): 0.000213304824709
+Correctness score: 0.0
+Processing user 880, movie 130588 (Escobar: Paradise Lost (2014))
+Original predicted rating: 2.70162876886
+User profile: {'neg_name': 'movielens_genre:Adventure', 'neg': 2, 'profile_id': 2, 'pos_name': 'imdb_keywords:f-rated', 'pos': 411}
+Non-zero qiis:
+average_rating (1194): 0.690815584318
+imdb_keywords:police-officer (755): 0.377690208576
+imdb_keywords:girl (490): 0.321872327424
+imdb_keywords:corpse (301): 0.234207493712
+imdb_keywords:rainstorm (797): 0.18432007383
+imdb_keywords:helicopter (524): 0.0762531553062
+imdb_keywords:brutality (225): 0.0704231070095
+imdb_keywords:little-boy (608): 0.0502707360029
+imdb_keywords:murderer (676): -0.0350117072938
+imdb_keywords:boyfriend-girlfriend-relationship (211): 0.031993688585
+imdb_keywords:animal-attack (126): -0.0298902428136
+tvtropes:deadpan snarker (1118): 0.0216208193269
+imdb_keywords:grandmother-grandson-relationship (496): 0.0184895712176
+movielens_tags:based on a book (45): -0.0136651017121
+imdb_keywords:memory (652): 0.0113787398239
+imdb_keywords:book (206): 0.00989052973991
+imdb_keywords:class-differences (279): -0.0091807972058
+imdb_keywords:newspaper-headline (689): -0.00840590237056
+imdb_keywords:doll (365): -0.00816557530134
+imdb_keywords:scene-during-opening-credits (845): 0.00703182422
+imdb_keywords:horse (539): -0.00661055781549
+imdb_keywords:little-girl (609): 0.00627779158418
+tvtropes:red herring (1172): -0.00409908999996
+imdb_keywords:whiskey (1063): -0.00392391884541
+imdb_keywords:africa (111): 0.00365046318119
+imdb_keywords:based-on-comic-book (166): -0.00348711751919
+imdb_keywords:baseball (163): 0.00233393922867
+imdb_keywords:pregnancy (766): 0.00194017720649
+imdb_keywords:hand-grenade (512): 0.00116933550058
+tvtropes:brick joke (1104): 0.00116359080032
+imdb_keywords:jail-cell (569): 0.0011600886759
+imdb_keywords:friendship (472): -0.000966193767078
+imdb_keywords:slasher (899): 0.000407264244129
+Correctness score: 0.0
+Processing user 490, movie 65772 (Lazarus Project, The (2008))
+Original predicted rating: 1.85750274777
+User profile: {'neg_name': 'imdb_keywords:spoof', 'neg': 915, 'profile_id': 8, 'pos_name': 'imdb_keywords:lawyer', 'pos': 594}
+Non-zero qiis:
+average_rating (1194): 0.164075412077
+imdb_keywords:woods (1073): -0.0790717450865
+imdb_keywords:double-cross (367): 0.0147729827343
+imdb_keywords:police-officer-killed (756): 0.0146961028303
+imdb_keywords:death-of-father (337): 0.0136878413222
+imdb_keywords:whiskey (1063): -0.013463312812
+imdb_keywords:undressing (1026): 0.0111820132404
+imdb_keywords:corpse (301): -0.00758254008404
+imdb_keywords:grave (497): 0.00596397044226
+imdb_keywords:boyfriend-girlfriend-relationship (211): -0.00569152490762
+imdb_keywords:brawl (213): 0.00560560204385
+imdb_keywords:redemption (803): 0.00517432519868
+imdb_keywords:little-boy (608): -0.00459281469777
+tvtropes:soundtrack dissonance (1179): 0.00364860772724
+imdb_keywords:brutality (225): -0.00317467317952
+imdb_keywords:police-detective (754): -0.00295515654432
+imdb_keywords:serial-killer (864): 0.00178548232008
+imdb_keywords:widower (1066): 0.00078844362399
+imdb_keywords:rifle (818): 0.000688465225514
+imdb_keywords:horse (539): -0.000680971200959
+tvtropes:brick joke (1104): -0.0006796673222
+movielens_tags:murder (65): -0.000470565428618
+imdb_keywords:action-hero (105): -0.000396721476787
+imdb_keywords:loyalty (623): -0.000289889308823
+Correctness score: 0.0
+Processing user 902, movie 8025 (Thief, The (Vor) (1997))
+Original predicted rating: 3.58043171648
+User profile: {'neg_name': 'movielens_tags:To See', 'neg': 39, 'profile_id': 9, 'pos_name': 'imdb_keywords:b-movie', 'pos': 150}
+Non-zero qiis:
+average_rating (1194): -0.305225310162
+imdb_keywords:phone-booth (737): -0.0276584634511
+imdb_keywords:security-guard (857): 0.0249607509693
+imdb_keywords:action-hero (105): 0.0249202730714
+imdb_keywords:gay-slur (485): 0.0206352031965
+imdb_keywords:wheelchair (1061): 0.0193559578429
+imdb_keywords:crying (321): -0.0165743202244
+imdb_keywords:kung-fu (591): -0.012177961974
+imdb_keywords:suburb (936): -0.0100131032045
+tvtropes:soundtrack dissonance (1179): 0.00970332963417
+imdb_keywords:accident (103): 0.00964792631384
+imdb_keywords:police-detective (754): -0.00823662134633
+imdb_keywords:horse (539): 0.0077328713218
+imdb_keywords:pregnancy (766): -0.00680871770496
+imdb_keywords:boat (203): -0.00650718815696
+imdb_keywords:rifle (818): -0.00650521008672
+movielens_tags:DVD-Video (32): 0.00632372928054
+imdb_keywords:apartment (130): 0.00598397964782
+movielens_genre:Thriller (16): -0.00426576750694
+imdb_keywords:electrocution (387): 0.00242805186814
+imdb_keywords:flirting (458): 0.00194789215015
+imdb_keywords:brawl (213): 0.00173599457088
+imdb_keywords:brutality (225): 0.000580853342159
+movielens_tags:murder (65): -0.000164169853354
+Correctness score: 0.0
+Processing user 250, movie 1981 (Friday the 13th Part VIII: Jason Takes Manhattan (1989))
+Original predicted rating: 2.37596935841
+User profile: {'neg_name': 'imdb_keywords:singing', 'neg': 892, 'profile_id': 0, 'pos_name': 'imdb_keywords:ring', 'pos': 819}
+Non-zero qiis:
+average_rating (1194): -0.353510976299
+imdb_keywords:boat (203): 0.0989913789577
+imdb_keywords:electrocution (387): 0.0835868421346
+imdb_keywords:blood (201): 0.0378293288835
+movielens_tags:DVD-Video (32): 0.0356724175132
+imdb_keywords:humiliation (547): 0.0252904069245
+imdb_keywords:police-officer (755): 0.0222611251271
+imdb_keywords:serial-killer (864): -0.0184105625219
+imdb_keywords:gold (492): 0.0173718241158
+movielens_genre:Thriller (16): -0.0172172556831
+imdb_keywords:kung-fu (591): -0.0171740963569
+imdb_keywords:police-detective (754): -0.00791956898058
+imdb_keywords:native-american (679): 0.00762354350224
+imdb_keywords:whiskey (1063): -0.007496442709
+imdb_keywords:wheelchair (1061): 0.00749504428451
+imdb_keywords:action-hero (105): 0.00693767807759
+imdb_keywords:brawl (213): 0.0050075127322
+imdb_keywords:crying (321): 0.00427177233082
+imdb_keywords:gay-slur (485): 0.00416486756196
+imdb_keywords:suburb (936): 0.00378144248786
+imdb_keywords:topless-female-nudity (995): 0.0035397440893
+imdb_keywords:talking-to-the-camera (958): -0.0032111780477
+imdb_keywords:security-guard (857): 0.00261298748669
+imdb_keywords:beaten-to-death (178): 0.00227949596434
+imdb_keywords:burial (227): 0.00182234693763
+imdb_keywords:hand-grenade (512): -0.000769668514822
+imdb_keywords:horse (539): -0.000768302015446
+imdb_keywords:flirting (458): 0.000630441768294
+imdb_keywords:phone-booth (737): -0.000608304375567
+imdb_keywords:rifle (818): 0.000208401281992
+tvtropes:my god what have i done (1159): 0.000201982104298
+movielens_tags:murder (65): -0.000110313313819
+imdb_keywords:little-boy (608): -2.92722552549e-05
+Correctness score: 0.0
+Processing user 61, movie 94677 (Dictator, The (2012))
+Original predicted rating: 1.90591402963
+User profile: {'neg_name': 'imdb_keywords:russian', 'neg': 834, 'profile_id': 3, 'pos_name': 'imdb_keywords:greed', 'pos': 499}
+Non-zero qiis:
+average_rating (1194): 0.577739764347
+imdb_keywords:politician (760): -0.0573293499049
+imdb_keywords:locker-room (610): 0.0542073600727
+imdb_keywords:vengeance (1039): 0.0443542406104
+imdb_keywords:corpse (301): 0.0398873346982
+imdb_keywords:helicopter (524): 0.0367744972553
+imdb_keywords:slasher (899): 0.0244137014142
+tvtropes:big damn heroes (1097): -0.0233624453132
+imdb_keywords:chicken (263): 0.0212555466049
+imdb_keywords:suicide-attempt (939): 0.0203114560771
+tvtropes:idiot ball (1144): -0.0202923413072
+tvtropes:too dumb to live (1184): 0.0171115436774
+imdb_keywords:jail-cell (569): 0.013578512673
+imdb_keywords:murderer (676): -0.0124842591439
+tvtropes:deadpan snarker (1118): 0.0108561664769
+imdb_keywords:memory (652): 0.00914039954755
+imdb_keywords:boyfriend-girlfriend-relationship (211): -0.00899743389493
+imdb_keywords:police-officer-killed (756): 0.00732468668724
+tvtropes:brick joke (1104): 0.00657413185043
+imdb_keywords:based-on-comic-book (166): -0.00587470169814
+imdb_keywords:friendship (472): -0.00565451356583
+movielens_tags:based on a book (45): -0.00548850274458
+imdb_keywords:washington-d.c. (1053): 0.00457559746193
+tvtropes:red herring (1172): -0.0031771650067
+imdb_keywords:dysfunctional-marriage (383): 0.00270040418617
+movielens_tags:history (58): -0.00182619980476
+imdb_keywords:little-boy (608): -0.00152427575796
+imdb_keywords:newspaper-headline (689): 0.00149536277637
+imdb_keywords:whiskey (1063): 0.00139608620711
+imdb_keywords:little-girl (609): -0.00111678383105
+imdb_keywords:brutality (225): -0.00049050335707
+imdb_keywords:bra (212): -0.000432380518943
+movielens_genre:Horror (11): 0.000334293212815
+imdb_keywords:redemption (803): 0.000122590315254
+Correctness score: 0.0
+Processing user 974, movie 46821 (Blackjack (1998))
+Original predicted rating: 1.49755468485
+User profile: {'neg_name': 'imdb_keywords:cave', 'neg': 251, 'profile_id': 5, 'pos_name': 'imdb_keywords:cooking', 'pos': 300}
+Non-zero qiis:
+imdb_keywords:little-girl (609): -0.26933433701
+average_rating (1194): 0.21066195747
+imdb_keywords:death-of-father (337): -0.0846641365247
+imdb_keywords:action-hero (105): 0.0686014464849
+imdb_keywords:surveillance (947): 0.068134607393
+imdb_keywords:hand-grenade (512): -0.0674549808168
+imdb_keywords:friendship (472): 0.0516550992746
+imdb_keywords:corpse (301): -0.028145844568
+movielens_tags:Bob*ola (25): -0.0280137004044
+imdb_keywords:evil-man (399): 0.0177142595914
+imdb_keywords:double-cross (367): 0.0156675004583
+imdb_keywords:little-boy (608): 0.0145402557673
+imdb_keywords:heist (522): 0.0141643567231
+tvtropes:chekhovs gun (1110): -0.01271976615
+imdb_keywords:boyfriend-girlfriend-relationship (211): -0.0111001122613
+imdb_keywords:what-happened-to-epilogue (1060): -0.0092846912288
+imdb_keywords:thief (984): -0.00867894828244
+imdb_keywords:animal-in-title (127): -0.00860049102626
+imdb_keywords:brutality (225): 0.00750039491375
+tvtropes:cult classic (1117): 0.00601678424376
+imdb_keywords:redemption (803): 0.00519521708633
+imdb_keywords:talking-to-the-camera (958): -0.00511641149432
+imdb_keywords:heroin (527): -0.00460523263319
+imdb_keywords:scene-during-opening-credits (845): -0.00259214924262
+imdb_keywords:animal-attack (126): 0.00112069623041
+movielens_tags:murder (65): 0.00111174484673
+imdb_keywords:italian-american (566): 7.35967724719e-05
+movielens_genre:Horror (11): 2.48902192814e-05
+imdb_keywords:snow (906): -1.90748789036e-05
+tvtropes:brick joke (1104): -1.2434561504e-05
+Correctness score: 0.0
+Processing user 20, movie 58964 (Inside (À l'intérieur) (2007))
+Original predicted rating: 3.15295436314
+User profile: {'neg_name': 'imdb_keywords:spoof', 'neg': 915, 'profile_id': 8, 'pos_name': 'imdb_keywords:lawyer', 'pos': 594}
+Non-zero qiis:
+average_rating (1194): 0.267058210582
+movielens_genre:Thriller (16): 0.0964751226539
+imdb_keywords:break-up (214): -0.0504888361473
+imdb_keywords:brutality (225): -0.0458102527808
+imdb_keywords:grandmother-grandson-relationship (496): -0.0442047547972
+imdb_keywords:crying (321): 0.031192490806
+imdb_keywords:wheelchair (1061): 0.0297137737078
+imdb_keywords:boyfriend-girlfriend-relationship (211): -0.0249572904503
+imdb_keywords:suburb (936): 0.0241715541858
+imdb_keywords:police-detective (754): -0.0117949265482
+imdb_keywords:humiliation (547): 0.0100262706904
+imdb_keywords:horse (539): -0.00988841090256
+tvtropes:brick joke (1104): -0.00988687040895
+imdb_keywords:brawl (213): 0.00745788628276
+imdb_keywords:whiskey (1063): -0.00526253132519
+imdb_keywords:electrocution (387): -0.00471690675887
+imdb_keywords:police-officer (755): 0.00442490030606
+imdb_keywords:security-guard (857): 0.00366865432975
+imdb_keywords:tunnel (1013): 0.00322893187657
+imdb_keywords:rifle (818): 0.00246969987085
+imdb_keywords:beaten-to-death (178): -0.00127434298821
+imdb_keywords:boat (203): 0.00110720830572
+imdb_keywords:animal-in-title (127): 0.000930111796578
+imdb_keywords:brothel (221): 0.000796866742932
+imdb_keywords:coffee (283): -0.000688973244286
+imdb_keywords:woods (1073): -0.000389885475455
+imdb_keywords:serial-killer (864): 0.000383568093556
+imdb_keywords:action-hero (105): -0.000189752112123
+Correctness score: 0.0
+Processing user 528, movie 89870 (Clapham Junction (2007))
+Original predicted rating: 1.26746069796
+User profile: {'neg_name': 'tvtropes:only sane man', 'neg': 1166, 'profile_id': 7, 'pos_name': 'imdb_keywords:male-nudity', 'pos': 633}
+Non-zero qiis:
+imdb_keywords:grandmother-grandson-relationship (496): 0.33226095096
+average_rating (1194): 0.288825288693
+imdb_keywords:brutality (225): 0.217110595682
+imdb_keywords:corpse (301): 0.0634836644072
+imdb_keywords:washington-d.c. (1053): 0.0527474009254
+movielens_tags:murder (65): 0.0424504742519
+imdb_keywords:flirting (458): 0.0354823974091
+imdb_keywords:car-chase (243): -0.0309371319509
+imdb_keywords:rifle (818): 0.0162539411606
+imdb_keywords:little-boy (608): 0.0160045115408
+imdb_keywords:brawl (213): 0.0128338275437
+imdb_keywords:police-officer-killed (756): 0.012434970116
+tvtropes:deadpan snarker (1118): 0.00921514540335
+imdb_keywords:trust (1012): -0.00902337881776
+imdb_keywords:heist (522): 0.0087919822884
+movielens_genre:Horror (11): -0.00874379612026
+imdb_keywords:widower (1066): 0.00620477539407
+imdb_keywords:death-of-father (337): 0.00592593027474
+imdb_keywords:police-detective (754): -0.00507429476233
+imdb_keywords:native-american (679): 0.00470900843423
+imdb_keywords:toilet (993): -0.00410899995796
+imdb_keywords:boyfriend-girlfriend-relationship (211): -0.0036524175912
+imdb_keywords:italian-american (566): -0.00312363638323
+imdb_keywords:doll (365): 0.00298925732787
+imdb_keywords:coffee (283): -0.00291256281082
+imdb_keywords:loyalty (623): -0.00281603717158
+imdb_keywords:serial-killer (864): 0.00252439306385
+imdb_keywords:undressing (1026): 0.0024205361983
+imdb_keywords:redemption (803): -0.00240486049779
+imdb_keywords:baseball (163): 0.00221426835773
+imdb_keywords:action-hero (105): -0.00187323551049
+imdb_keywords:woods (1073): -0.00164820034117
+tvtropes:red herring (1172): -0.00128973810712
+imdb_keywords:security-guard (857): 0.00111342873951
+imdb_keywords:scene-during-opening-credits (845): 0.00111049466072
+imdb_keywords:whiskey (1063): -0.00079858349866
+Correctness score: 0.0
+Processing user 112, movie 6713 (Millennium Actress (Sennen joyû) (2001))
+Original predicted rating: 2.94302859711
+User profile: {'neg_name': 'imdb_keywords:shot-in-the-head', 'neg': 882, 'profile_id': 4, 'pos_name': 'imdb_keywords:hostage', 'pos': 543}
+Non-zero qiis:
+average_rating (1194): 0.170939296866
+tvtropes:cult classic (1117): -0.0328211176977
+movielens_genre:Horror (11): 0.0303659738104
+imdb_keywords:corpse (301): 0.029947226321
+imdb_keywords:coffee (283): -0.0208411064806
+imdb_keywords:baseball (163): -0.0205407543703
+imdb_keywords:redemption (803): 0.0200441812382
+imdb_keywords:double-cross (367): 0.016518753986
+imdb_keywords:heist (522): 0.0158525314297
+imdb_keywords:boyfriend-girlfriend-relationship (211): -0.014916561057
+imdb_keywords:grave (497): 0.0133375043196
+imdb_keywords:toilet (993): 0.0114159830256
+imdb_keywords:death-of-father (337): 0.0080136361331
+imdb_keywords:little-girl (609): 0.00691706619683
+imdb_keywords:police-detective (754): -0.00638375281597
+imdb_keywords:brawl (213): 0.00504552766438
+imdb_keywords:undressing (1026): 0.00436438847369
+imdb_keywords:whiskey (1063): -0.00432349593655
+imdb_keywords:woods (1073): -0.00393128217802
+imdb_keywords:forgiveness (466): 0.00383251820496
+imdb_keywords:serial-killer (864): -0.00361986391921
+imdb_keywords:brutality (225): -0.00309101625928
+imdb_keywords:electrocution (387): -0.00259846849853
+imdb_keywords:hand-grenade (512): -0.00157612271037
+tvtropes:brick joke (1104): -0.00157031190306
+imdb_keywords:horse (539): -0.00117999330067
+imdb_keywords:rifle (818): -0.000697892777048
+imdb_keywords:action-hero (105): 0.000482584815422
+Correctness score: 0.0
+Processing user 412, movie 5283 (National Lampoon's Van Wilder (2002))
+Original predicted rating: 2.67972236818
+User profile: {'neg_name': 'imdb_keywords:mental-illness', 'neg': 653, 'profile_id': 1, 'pos_name': 'imdb_keywords:riot', 'pos': 820}
+Non-zero qiis:
+average_rating (1194): 0.266841222549
+imdb_keywords:newspaper-headline (689): 0.0828669575094
+imdb_keywords:brutality (225): -0.0804608409906
+imdb_keywords:serial-killer (864): 0.0456715360067
+imdb_keywords:double-cross (367): -0.045542480544
+imdb_keywords:suicide-attempt (939): 0.0222094593194
+imdb_keywords:boyfriend-girlfriend-relationship (211): -0.0136609120517
+imdb_keywords:corpse (301): -0.0133280033434
+imdb_keywords:rifle (818): 0.0132078867357
+imdb_keywords:police-officer-killed (756): 0.0129158372713
+imdb_keywords:widower (1066): 0.0100839506942
+imdb_keywords:whiskey (1063): -0.00871287289538
+imdb_keywords:little-girl (609): 0.00804192227337
+imdb_keywords:friendship (472): -0.00721338259998
+imdb_keywords:scene-during-opening-credits (845): 0.00534023309363
+imdb_keywords:dysfunctional-marriage (383): 0.00527150075231
+imdb_keywords:heist (522): -0.00475144245031
+imdb_keywords:brawl (213): 0.00422619588794
+imdb_keywords:death-of-father (337): -0.00320254474377
+imdb_keywords:action-hero (105): -0.00304436717315
+imdb_keywords:forgiveness (466): 0.00247868534651
+imdb_keywords:police-detective (754): -0.00222796237373
+imdb_keywords:loyalty (623): 0.0021839918314
+imdb_keywords:little-boy (608): 0.00210973804156
+imdb_keywords:flirting (458): 0.00182646392226
+imdb_keywords:undressing (1026): -0.00130812802709
+movielens_genre:Horror (11): 0.000869073884515
+imdb_keywords:car-chase (243): -0.000670524387391
+movielens_tags:murder (65): 0.000648471482824
+Correctness score: 0.0
+Processing user 149, movie 1281 (Great Dictator, The (1940))
+Original predicted rating: 2.09864590885
+User profile: {'neg_name': 'movielens_genre:Adventure', 'neg': 2, 'profile_id': 2, 'pos_name': 'imdb_keywords:f-rated', 'pos': 411}
+Non-zero qiis:
+average_rating (1194): -0.23814621575
+tvtropes:soundtrack dissonance (1179): -0.0586873473137
+imdb_keywords:suburb (936): 0.0441400139428
+imdb_keywords:brawl (213): -0.0279029818423
+imdb_keywords:topless-female-nudity (995): -0.0255009934831
+imdb_keywords:gore (494): 0.0215084975522
+imdb_keywords:humiliation (547): 0.0202034756354
+imdb_keywords:crying (321): 0.0166436704218
+imdb_keywords:phone-booth (737): -0.0160772477539
+imdb_keywords:police-officer (755): 0.0121205587177
+imdb_keywords:wheelchair (1061): 0.0119749709873
+movielens_tags:DVD-Video (32): 0.011027528252
+imdb_keywords:electrocution (387): -0.0103866501626
+imdb_keywords:talking-to-the-camera (958): -0.00918359222617
+imdb_keywords:native-american (679): 0.00855965223023
+imdb_keywords:whiskey (1063): -0.00834825516933
+imdb_keywords:syringe (957): -0.00811172340489
+imdb_keywords:kung-fu (591): -0.00707877760958
+imdb_keywords:beaten-to-death (178): -0.00641301126016
+imdb_keywords:accident (103): 0.00528375172976
+imdb_keywords:honor (537): -0.00419863255087
+imdb_keywords:serial-killer (864): 0.00379194149903
+imdb_keywords:little-boy (608): -0.0037418711052
+imdb_keywords:boat (203): -0.0027771769926
+imdb_keywords:brutality (225): -0.00266883516432
+tvtropes:brick joke (1104): -0.00235653061771
+movielens_genre:Thriller (16): -0.00162079553938
+imdb_keywords:tunnel (1013): 0.00153922859608
+imdb_keywords:rifle (818): 0.00109660279042
+imdb_keywords:gay-slur (485): 0.000840153650518
+imdb_keywords:widower (1066): 0.00083723374458
+movielens_tags:murder (65): 0.000754307922069
+imdb_keywords:flirting (458): 0.000645798740506
+imdb_keywords:gold (492): 0.000584052242954
+imdb_keywords:action-hero (105): -8.42542440472e-05
+Correctness score: 0.0
+Processing user 840, movie 3735 (Serpico (1973))
+Original predicted rating: 0.908428896844
+User profile: {'neg_name': 'imdb_keywords:russian', 'neg': 834, 'profile_id': 3, 'pos_name': 'imdb_keywords:greed', 'pos': 499}
+Non-zero qiis:
+average_rating (1194): -0.96124377152
+imdb_keywords:crying (321): 0.0668428637907
+imdb_keywords:cowboy (311): -0.0305461315965
+movielens_tags:DVD-Video (32): -0.024174770625
+imdb_keywords:brutality (225): -0.0236951846866
+movielens_tags:Can't remember (27): -0.0211224006674
+imdb_keywords:suburb (936): -0.0160099717076
+imdb_keywords:death (334): -0.0119526564953
+imdb_keywords:psychopath (780): -0.0108635654867
+tvtropes:karma houdini (1149): 0.0107331266835
+imdb_keywords:black-comedy (195): -0.00686697738018
+imdb_keywords:little-boy (608): -0.00678024069527
+imdb_keywords:syringe (957): -0.00564986632914
+imdb_keywords:widower (1066): 0.00539651758731
+imdb_keywords:heroin (527): -0.00504996787972
+imdb_keywords:flatulence (457): -0.00340576694919
+imdb_keywords:rifle (818): -0.00180068168191
+imdb_keywords:machismo (626): -0.00158570643541
+tvtropes:brick joke (1104): -0.0011559279629
+imdb_keywords:car (241): 0.00107398441735
+movielens_tags:murder (65): -0.000755190208468
+imdb_keywords:tunnel (1013): 0.000566268064419
+imdb_keywords:serial-killer (864): -0.000559326295461
+imdb_keywords:hand-grenade (512): -0.000290051344311
+imdb_keywords:horse (539): -0.000217152281916
+imdb_keywords:action-hero (105): 0.000138350070968
+imdb_keywords:breaking-and-entering (215): 8.86042869055e-05
+Correctness score: 0.0
+Processing user 842, movie 67267 (Sunshine Cleaning (2008))
+Original predicted rating: 1.98312127869
+User profile: {'neg_name': 'imdb_keywords:singing', 'neg': 892, 'profile_id': 0, 'pos_name': 'imdb_keywords:ring', 'pos': 819}
+Non-zero qiis:
+average_rating (1194): -0.271622143587
+imdb_keywords:brutality (225): -0.0541106355868
+imdb_keywords:boat (203): -0.0438361145669
+imdb_keywords:police-detective (754): -0.0379258857186
+movielens_genre:Thriller (16): -0.0301135875171
+imdb_keywords:beaten-to-death (178): 0.0201812955847
+imdb_keywords:horse (539): 0.0176902124852
+imdb_keywords:woods (1073): -0.0174369446303
+imdb_keywords:gold (492): 0.0108514046993
+imdb_keywords:brawl (213): -0.00728309130305
+imdb_keywords:flirting (458): -0.00727077578838
+imdb_keywords:based-on-comic-book (166): -0.00531216196446
+imdb_keywords:gay-slur (485): 0.00520321448489
+imdb_keywords:forgiveness (466): -0.00513183620884
+imdb_keywords:little-boy (608): 0.00427749042898
+imdb_keywords:electrocution (387): -0.00304476384081
+imdb_keywords:whiskey (1063): -0.00297894596224
+imdb_keywords:tunnel (1013): -0.00288825431909
+imdb_keywords:boyfriend-girlfriend-relationship (211): -0.00175428433712
+imdb_keywords:rifle (818): -0.00103198281124
+imdb_keywords:scene-during-opening-credits (845): 0.000960082469766
+imdb_keywords:serial-killer (864): -0.000480830505963
+imdb_keywords:action-hero (105): 0.000178401056316
+Correctness score: 0.0
+Processing user 618, movie 8012 (Kikujiro (Kikujirô no natsu) (1999))
+Original predicted rating: 3.7539029557
+User profile: {'neg_name': 'imdb_keywords:coffin', 'neg': 284, 'profile_id': 6, 'pos_name': 'imdb_keywords:campfire', 'pos': 236}
+Non-zero qiis:
+average_rating (1194): 0.358063341594
+imdb_keywords:brutality (225): -0.0168662831125
+imdb_keywords:slasher (899): 0.0151409985917
+imdb_keywords:boyfriend-girlfriend-relationship (211): -0.014652732913
+imdb_keywords:redemption (803): -0.0136846941028
+imdb_keywords:friendship (472): -0.0126853625085
+imdb_keywords:memory (652): 0.0124899949867
+imdb_keywords:little-boy (608): 0.0116341320413
+imdb_keywords:vengeance (1039): 0.0102719580771
+movielens_tags:based on a book (45): -0.00899978668211
+imdb_keywords:double-cross (367): 0.00820777315964
+imdb_keywords:dysfunctional-marriage (383): 0.00791591726783
+imdb_keywords:politician (760): -0.00642752374727
+imdb_keywords:based-on-comic-book (166): -0.00641232425597
+imdb_keywords:forgiveness (466): -0.00619465257644
+imdb_keywords:drug-use (377): 0.00614794428301
+imdb_keywords:tunnel (1013): -0.00579399687777
+imdb_keywords:corpse (301): -0.00561707996307
+imdb_keywords:murderer (676): -0.00499010226045
+imdb_keywords:little-girl (609): -0.00489727719619
+movielens_tags:murder (65): -0.0046481527859
+imdb_keywords:baseball (163): 0.00429178972192
+imdb_keywords:class-differences (279): -0.00403095994282
+imdb_keywords:helicopter (524): -0.00385277352356
+tvtropes:big bad (1096): 0.00376432127434
+imdb_keywords:locker-room (610): 0.00339574199252
+imdb_keywords:whiskey (1063): 0.00306103157833
+imdb_keywords:rainstorm (797): 0.00274304778265
+imdb_keywords:flirting (458): -0.00243092929515
+imdb_keywords:horse (539): 0.0022218799231
+tvtropes:too dumb to live (1184): 0.00214385601306
+imdb_keywords:toilet (993): 0.00107747655414
+movielens_genre:Horror (11): -0.000207616787897
+Correctness score: 0.0
+Processing user 595, movie 4326 (Mississippi Burning (1988))
+Original predicted rating: 3.0473734649
+User profile: {'neg_name': 'imdb_keywords:singing', 'neg': 892, 'profile_id': 0, 'pos_name': 'imdb_keywords:ring', 'pos': 819}
+Non-zero qiis:
+average_rating (1194): 0.688454940006
+imdb_keywords:helicopter (524): -0.0704036180441
+imdb_keywords:chicken (263): 0.035215072966
+imdb_keywords:corpse (301): -0.0306736539263
+imdb_keywords:police-officer-killed (756): 0.0151526205404
+imdb_keywords:tunnel (1013): -0.014727696498
+movielens_tags:based on a book (45): -0.0136395945174
+imdb_keywords:double-cross (367): 0.0119522311739
+imdb_keywords:suicide-attempt (939): 0.0117832280931
+imdb_keywords:friendship (472): -0.0109344570291
+imdb_keywords:hand-grenade (512): 0.0100583414729
+imdb_keywords:grave (497): 0.00965042127547
+imdb_keywords:memory (652): 0.00757166689215
+tvtropes:red herring (1172): 0.00722914710073
+imdb_keywords:newspaper-headline (689): -0.00657123995055
+imdb_keywords:drug-use (377): 0.00634718499533
+imdb_keywords:class-differences (279): -0.0061091069242
+imdb_keywords:vengeance (1039): -0.00601009456831
+imdb_keywords:politician (760): -0.0053435605139
+tvtropes:brick joke (1104): 0.00501062932349
+imdb_keywords:redemption (803): 0.00467072519273
+imdb_keywords:flirting (458): -0.00411943483603
+imdb_keywords:horse (539): 0.00376518131356
+imdb_keywords:whiskey (1063): -0.00306748890755
+imdb_keywords:locker-room (610): -0.00298025902435
+tvtropes:big bad (1096): 0.00291473569175
+imdb_keywords:little-boy (608): -0.00284690987636
+movielens_genre:Horror (11): 0.00254733292367
+imdb_keywords:little-girl (609): 0.0024538040677
+imdb_keywords:dysfunctional-marriage (383): -0.00186213666127
+imdb_keywords:toilet (993): 0.00159610169806
+imdb_keywords:boyfriend-girlfriend-relationship (211): 0.00137876080419
+movielens_tags:murder (65): -0.000678958389807
+Correctness score: 0.0
+Processing user 455, movie 2639 (Mommie Dearest (1981))
+Original predicted rating: 3.10534851137
+User profile: {'neg_name': 'imdb_keywords:spoof', 'neg': 915, 'profile_id': 8, 'pos_name': 'imdb_keywords:lawyer', 'pos': 594}
+Non-zero qiis:
+average_rating (1194): 0.239423002052
+imdb_keywords:drug-use (377): 0.0455118832397
+imdb_keywords:loyalty (623): -0.038339524484
+imdb_keywords:jail-cell (569): 0.0237570025553
+imdb_keywords:corpse (301): -0.0234111970466
+imdb_keywords:suicide-attempt (939): 0.0177684892868
+tvtropes:big bad (1096): 0.0144207071694
+imdb_keywords:helicopter (524): -0.0106954640455
+imdb_keywords:vengeance (1039): 0.00932861525189
+imdb_keywords:double-cross (367): 0.00912235757212
+imdb_keywords:police-officer-killed (756): 0.00907488401942
+imdb_keywords:redemption (803): 0.00834417273212
+imdb_keywords:slasher (899): 0.00760659781168
+imdb_keywords:grave (497): 0.00736553638523
+imdb_keywords:forgiveness (466): -0.00620855982284
+imdb_keywords:animal-attack (126): -0.005837086728
+imdb_keywords:newspaper-headline (689): -0.00551834424957
+movielens_genre:Horror (11): 0.00505640869322
+imdb_keywords:friendship (472): -0.00329771741738
+imdb_keywords:politician (760): -0.00322908609854
+tvtropes:cult classic (1117): -0.00261402724647
+movielens_tags:based on a book (45): -0.00251439446348
+imdb_keywords:little-girl (609): 0.00247276355789
+imdb_keywords:flirting (458): -0.00218530186281
+imdb_keywords:horse (539): 0.00133158358947
+imdb_keywords:boat (203): -0.000579843903511
+imdb_keywords:scene-during-opening-credits (845): -0.000478107395001
+imdb_keywords:class-differences (279): 0.000390603287478
+imdb_keywords:boyfriend-girlfriend-relationship (211): 0.000174721722545
+Correctness score: 0.0
+Processing user 567, movie 25900 (Curse of the Cat People, The (1944))
+Original predicted rating: 2.82211487197
+User profile: {'neg_name': 'imdb_keywords:cave', 'neg': 251, 'profile_id': 5, 'pos_name': 'imdb_keywords:cooking', 'pos': 300}
+Non-zero qiis:
+average_rating (1194): -0.417366137679
+imdb_keywords:suburb (936): 0.0537422067448
+tvtropes:cluster f bomb (1114): -0.0316505904535
+imdb_keywords:humiliation (547): 0.0279351365467
+imdb_keywords:wheelchair (1061): 0.0248365025683
+imdb_keywords:sex-scene (871): 0.0215886344977
+imdb_keywords:serial-killer (864): -0.0213924707756
+imdb_keywords:boat (203): -0.017280399133
+imdb_keywords:crying (321): 0.0154394855203
+tvtropes:brick joke (1104): -0.0152827288562
+imdb_keywords:burial (227): 0.0105859893115
+imdb_keywords:brutality (225): 0.00986654960103
+imdb_keywords:beaten-to-death (178): 0.00795556007118
+imdb_keywords:honor (537): 0.00776106686422
+imdb_keywords:phone-booth (737): 0.00692175656125
+imdb_keywords:rifle (818): -0.00618655196882
+imdb_keywords:tunnel (1013): -0.00593250068532
+imdb_keywords:topless-female-nudity (995): -0.00502333226546
+imdb_keywords:brothel (221): -0.00497473702198
+imdb_keywords:death (334): -0.00379564106783
+movielens_tags:murder (65): -0.0027886385143
+imdb_keywords:action-hero (105): 0.00237662745319
+imdb_keywords:little-boy (608): 0.00230558493294
+imdb_keywords:horse (539): 0.00227499331542
+imdb_keywords:italian-american (566): -0.00101208740305
+imdb_keywords:flirting (458): 0.000866034770807
+movielens_tags:DVD-Video (32): -0.000633025977261
+imdb_keywords:kung-fu (591): 0.000609526905536
+imdb_keywords:police-detective (754): -0.000432081187654
+imdb_keywords:machismo (626): -0.000307093862292
+imdb_keywords:brawl (213): 0.000204902443601
+Correctness score: 0.0
+Processing user 141, movie 46430 (Waist Deep (2006))
+Original predicted rating: 2.85659590694
+User profile: {'neg_name': 'movielens_genre:Adventure', 'neg': 2, 'profile_id': 2, 'pos_name': 'imdb_keywords:f-rated', 'pos': 411}
+Non-zero qiis:
+average_rating (1194): 0.596381773728
+imdb_keywords:class-differences (279): -0.0525416290748
+imdb_keywords:corpse (301): -0.0317732974278
+imdb_keywords:memory (652): 0.0244201639205
+imdb_keywords:newspaper-headline (689): 0.0125670258504
+imdb_keywords:double-cross (367): 0.0123807159371
+imdb_keywords:slasher (899): -0.0105040030187
+movielens_tags:based on a book (45): -0.00977565849308
+tvtropes:cult classic (1117): -0.00962138782825
+tvtropes:too dumb to live (1184): 0.00904865950959
+imdb_keywords:boyfriend-girlfriend-relationship (211): -0.00824689957329
+imdb_keywords:loyalty (623): 0.00797195194936
+imdb_keywords:scene-during-opening-credits (845): 0.00752225427267
+imdb_keywords:brutality (225): -0.00599690843204
+imdb_keywords:politician (760): -0.00439525760378
+tvtropes:red herring (1172): -0.00436820559795
+imdb_keywords:animal-attack (126): -0.00292242467153
+imdb_keywords:little-boy (608): -0.00289191859344
+imdb_keywords:redemption (803): 0.00278508982216
+imdb_keywords:based-on-comic-book (166): 0.0026726207583
+movielens_genre:Horror (11): 0.00253156655075
+imdb_keywords:drug-use (377): 0.0010418190492
+imdb_keywords:horse (539): -0.00067842340131
+imdb_keywords:suicide-attempt (939): 0.00044422746485
+imdb_keywords:helicopter (524): -0.000435255825834
+tvtropes:big bad (1096): 0.000318947393666
+imdb_keywords:jail-cell (569): 0.000296972715215
+imdb_keywords:friendship (472): -0.000123668643783
+Correctness score: 0.0
+Correctness scores: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+Average correctness: 0.0
