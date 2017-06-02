@@ -127,7 +127,7 @@ N_SUBJECTS=20
 
 for SUBJ in `seq 1 ${N_SUBJECTS}`
 do
-	NAME_SUFFIX="new_synth_${CONRT_OR_EXPR}_subj_${SUBJ}"
+	NAME_SUFFIX="new_synth_${CONTR_OR_EXPR}_subj_${SUBJ}"
 	DATA_PATH="${DATASET_ROOT}/${NAME_SUFFIX}"
 	echo `date` "Creating dataset in $DATA_PATH"
 	python synth_dataset_generator.py --persist-dir ${ORIGINAL_STATE_DIR} --n-profiles 10 --n-users 1000 --mu 3 --sigma 1 ${RAND} --odir ${DATA_PATH}
