@@ -122,7 +122,7 @@ def main():
     all_trees = {}
     for i in xrange(rank):
         all_trees[i] = rating_explanation.load_regression_tree_model(sc, args.persist_dir, i)
-    all_used_features = get_all_used_features(all_trees)
+    all_used_features = shadow_model_qii.get_all_used_features(all_trees)
 
     print "{} features are used: {}".format(len(all_used_features), ", "\
             .join("{}: {}".format(f, results["feature_names"][f])
