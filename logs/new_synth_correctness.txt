@@ -1,0 +1,400 @@
+Loading results dict
+Original recommender relative to ground truth on training set mean absolute error: 0.0134269993127, RMSE: 0.0200243245936
+Shadow model relative to the baseline recommender on test set MAE: 0.269450582501, RMSE: 0.349494214425
+Randomized model relative to the baseline recommender on test set MAE: 1.04508370451, RMSE: 1.3171936287
+Shadow model is 3.87857281586 times better than random on the test set
+Loading movies
+Loading ALS model
+Loading decision trees
+95 features are used: 0: year, 2: movielens_genre:Adventure, 5: movielens_genre:Comedy, 775: imdb_keywords:promise, 8: movielens_genre:Drama, 9: movielens_genre:Fantasy, 267: imdb_keywords:child-murder, 13: movielens_genre:Mystery, 15: movielens_genre:Sci-Fi, 17: movielens_genre:War, 786: imdb_keywords:punctuation-in-title, 20: movielens_tags:BD-R, 22: movielens_tags:Bechdel Test:Fail, 24: movielens_tags:Bibliothek, 284: imdb_keywords:coffin, 543: imdb_keywords:hostage, 544: imdb_keywords:hotel, 33: movielens_tags:In Netflix queue, 34: movielens_tags:National Film Registry, 292: imdb_keywords:computer, 805: imdb_keywords:reference-to-god, 39: movielens_tags:To See, 552: imdb_keywords:immigrant, 300: imdb_keywords:cooking, 301: imdb_keywords:corpse, 303: imdb_keywords:corruption, 49: movielens_tags:comedy, 306: imdb_keywords:court, 819: imdb_keywords:ring, 820: imdb_keywords:riot, 1077: imdb_keywords:writer, 823: imdb_keywords:river, 315: imdb_keywords:criminal, 821: imdb_keywords:ritual, 701: imdb_keywords:obscene-finger-gesture, 834: imdb_keywords:russian, 323: imdb_keywords:cult-film, 325: imdb_keywords:cynicism, 586: imdb_keywords:kiss, 332: imdb_keywords:dead-body, 79: movielens_tags:sci-fi, 11: movielens_genre:Horror, 594: imdb_keywords:lawyer, 342: imdb_keywords:death-of-wife, 348: imdb_keywords:depression, 96: imdb_keywords:1960s, 102: imdb_keywords:abortion, 106: imdb_keywords:actor, 620: imdb_keywords:love, 109: imdb_keywords:adoption, 623: imdb_keywords:loyalty, 882: imdb_keywords:shot-in-the-head, 375: imdb_keywords:drug-addiction, 633: imdb_keywords:male-nudity, 63: movielens_tags:might like, 892: imdb_keywords:singing, 895: imdb_keywords:sister-sister-relationship, 133: imdb_keywords:archive-footage, 653: imdb_keywords:mental-illness, 1166: tvtropes:only sane man, 404: imdb_keywords:exploding-body, 150: imdb_keywords:b-movie, 151: imdb_keywords:baby, 408: imdb_keywords:explosion, 411: imdb_keywords:f-rated, 160: imdb_keywords:bare-chested-male, 164: imdb_keywords:baseball-bat, 678: imdb_keywords:musician, 1194: average_rating, 427: imdb_keywords:father-daughter-relationship, 517: imdb_keywords:hat, 175: imdb_keywords:battle, 946: imdb_keywords:surrealism, 695: imdb_keywords:no-opening-credits, 901: imdb_keywords:slow-motion-scene, 186: imdb_keywords:bicycle, 74: movielens_tags:quirky, 959: imdb_keywords:tank, 454: imdb_keywords:flash-forward, 205: imdb_keywords:bomb, 211: imdb_keywords:boyfriend-girlfriend-relationship, 724: imdb_keywords:panic, 471: imdb_keywords:friend, 472: imdb_keywords:friendship, 473: imdb_keywords:fugitive, 37: movielens_tags:Nudity (Topless), 480: imdb_keywords:garden, 996: imdb_keywords:torch, 124: imdb_keywords:american-flag, 236: imdb_keywords:campfire, 499: imdb_keywords:greed, 246: imdb_keywords:casino, 251: imdb_keywords:cave, 253: imdb_keywords:cemetery, 1022: imdb_keywords:uncle-niece-relationship
+Loading indicators
+Building indicator distributions
+Loading user profiles
+Processing user 3, movie 3063 (Poison Ivy (1992))
+Original predicted rating: 2.48425903158
+User profile: {'neg_name': 'imdb_keywords:shot-in-the-head', 'neg': 882, 'profile_id': 4, 'pos_name': 'imdb_keywords:hostage', 'pos': 543}
+Non-zero qiis:
+imdb_keywords:f-rated (411): 0.233153010709
+average_rating (1194): 0.139533733576
+imdb_keywords:ring (819): -0.106131500499
+imdb_keywords:hostage (543): -0.101378089261
+movielens_genre:Adventure (2): 0.0277423497749
+imdb_keywords:surrealism (946): -0.0262545149016
+imdb_keywords:campfire (236): -0.0209421875177
+imdb_keywords:male-nudity (633): -0.0202177481169
+imdb_keywords:riot (820): -0.00855050372323
+imdb_keywords:mental-illness (653): 0.00733074066452
+imdb_keywords:lawyer (594): 0.00208852569239
+Correctness score: 0.272019573584
+Processing user 840, movie 80026 (Tekken (2010))
+Original predicted rating: 2.98809749107
+User profile: {'neg_name': 'imdb_keywords:russian', 'neg': 834, 'profile_id': 3, 'pos_name': 'imdb_keywords:greed', 'pos': 499}
+Non-zero qiis:
+imdb_keywords:russian (834): -1.24297922982
+movielens_genre:Sci-Fi (15): -0.320438621704
+average_rating (1194): -0.24635402396
+imdb_keywords:shot-in-the-head (882): -0.0802814392854
+imdb_keywords:hostage (543): 0.0744454988639
+imdb_keywords:lawyer (594): -0.0686433748786
+imdb_keywords:greed (499): 0.0647404548584
+imdb_keywords:male-nudity (633): -0.0546756166298
+imdb_keywords:riot (820): -0.0120878843859
+imdb_keywords:b-movie (150): -0.00734962812794
+imdb_keywords:singing (892): -0.00346938271772
+imdb_keywords:campfire (236): -0.00293239331349
+imdb_keywords:cooking (300): -0.0025556828554
+imdb_keywords:mental-illness (653): 0.00163607424257
+imdb_keywords:flash-forward (454): 0.000986563213285
+Correctness score: 0.836449247016
+Processing user 103, movie 5840 (My Mother's Castle (Château de ma mère, Le) (1990))
+Original predicted rating: 3.9799240806
+User profile: {'neg_name': 'imdb_keywords:spoof', 'neg': 915, 'profile_id': 8, 'pos_name': 'imdb_keywords:lawyer', 'pos': 594}
+Non-zero qiis:
+average_rating (1194): 0.305677502873
+imdb_keywords:lawyer (594): 0.134049495727
+imdb_keywords:hostage (543): -0.0945575254497
+imdb_keywords:cooking (300): 0.0396935294315
+movielens_genre:Adventure (2): 0.0357711822473
+imdb_keywords:male-nudity (633): 0.0267121878724
+imdb_keywords:f-rated (411): 0.0195380579306
+imdb_keywords:ring (819): 0.014510629283
+imdb_keywords:campfire (236): -0.0125545604082
+movielens_tags:To See (39): 0.00865177543359
+imdb_keywords:greed (499): -0.00864868954135
+imdb_keywords:obscene-finger-gesture (701): -0.00595119179961
+imdb_keywords:riot (820): 0.00583339107763
+Correctness score: 0.304847089567
+Processing user 783, movie 100244 (East, The (2013))
+Original predicted rating: 2.82258107949
+User profile: {'neg_name': 'imdb_keywords:russian', 'neg': 834, 'profile_id': 3, 'pos_name': 'imdb_keywords:greed', 'pos': 499}
+Non-zero qiis:
+average_rating (1194): 0.580616074357
+imdb_keywords:campfire (236): 0.37766342962
+imdb_keywords:coffin (284): 0.14923720681
+imdb_keywords:male-nudity (633): 0.0648914768232
+imdb_keywords:greed (499): -0.0471295058698
+imdb_keywords:f-rated (411): -0.0430509342401
+imdb_keywords:lawyer (594): -0.0422278621781
+year (0): 0.0339473749819
+imdb_keywords:russian (834): 0.0279157114623
+imdb_keywords:cooking (300): 0.0257658079834
+imdb_keywords:ring (819): -0.00646813243424
+imdb_keywords:riot (820): -0.0054719443463
+imdb_keywords:hostage (543): -0.00335823776001
+Correctness score: 0.0783124516601
+Processing user 341, movie 84663 (Elizabeth I (2005))
+Original predicted rating: 2.58603981501
+User profile: {'neg_name': 'movielens_tags:To See', 'neg': 39, 'profile_id': 9, 'pos_name': 'imdb_keywords:b-movie', 'pos': 150}
+Non-zero qiis:
+imdb_keywords:ring (819): 0.578874288859
+average_rating (1194): 0.44828100589
+imdb_keywords:b-movie (150): -0.103683614441
+imdb_keywords:lawyer (594): -0.099843337482
+imdb_keywords:cooking (300): -0.086967926779
+imdb_keywords:f-rated (411): -0.0725269161125
+imdb_keywords:panic (724): 0.0631000530529
+imdb_keywords:hostage (543): -0.0360840461581
+imdb_keywords:greed (499): -0.0332318419863
+imdb_keywords:singing (892): 0.0260916444035
+imdb_keywords:male-nudity (633): -0.0227939965814
+imdb_keywords:shot-in-the-head (882): -0.0114218849779
+imdb_keywords:riot (820): -0.0111461733117
+movielens_tags:To See (39): -0.00944539021572
+imdb_keywords:ritual (821): 0.00179981817327
+Correctness score: 0.110138170183
+Processing user 395, movie 26142 (Major Dundee (1965))
+Original predicted rating: 1.93995669011
+User profile: {'neg_name': 'tvtropes:only sane man', 'neg': 1166, 'profile_id': 7, 'pos_name': 'imdb_keywords:male-nudity', 'pos': 633}
+Non-zero qiis:
+average_rating (1194): -0.446144815986
+imdb_keywords:cooking (300): -0.213253081646
+imdb_keywords:singing (892): 0.208638666032
+imdb_keywords:male-nudity (633): -0.176044599793
+tvtropes:only sane man (1166): -0.0697232223523
+imdb_keywords:hostage (543): 0.0597776558703
+imdb_keywords:greed (499): 0.0395010139133
+imdb_keywords:riot (820): -0.0223853523042
+movielens_genre:Adventure (2): 0.0199257041694
+imdb_keywords:lawyer (594): -0.0184538768251
+imdb_keywords:shot-in-the-head (882): -0.0175180000855
+movielens_tags:Bibliothek (24): 0.0119394381757
+imdb_keywords:mental-illness (653): -0.0117008103385
+movielens_tags:To See (39): -0.0055515804324
+imdb_keywords:coffin (284): -0.00370796701708
+Correctness score: 0.372715507629
+Processing user 697, movie 1650 (Washington Square (1997))
+Original predicted rating: 1.31107127128
+User profile: {'neg_name': 'imdb_keywords:cave', 'neg': 251, 'profile_id': 5, 'pos_name': 'imdb_keywords:cooking', 'pos': 300}
+Non-zero qiis:
+average_rating (1194): -0.190182965244
+imdb_keywords:male-nudity (633): -0.119565561385
+imdb_keywords:lawyer (594): -0.0929927877218
+imdb_keywords:cooking (300): -0.0862998402827
+imdb_keywords:f-rated (411): -0.0558579235034
+imdb_keywords:greed (499): 0.0555652032988
+imdb_keywords:singing (892): 0.0511799820038
+imdb_keywords:riot (820): -0.0406705532738
+imdb_keywords:russian (834): -0.0229572919323
+imdb_keywords:b-movie (150): 0.0178689082624
+imdb_keywords:shot-in-the-head (882): -0.016785760245
+imdb_keywords:coffin (284): -0.0161413449543
+imdb_keywords:campfire (236): -0.00566831264999
+movielens_tags:To See (39): 0.00455238153858
+movielens_genre:Adventure (2): -0.00372418408274
+imdb_keywords:hostage (543): 0.00346419863175
+tvtropes:only sane man (1166): 0.00226745830079
+imdb_keywords:cave (251): -0.00172256513392
+Correctness score: 0.284173766295
+Processing user 41, movie 69481 (Hurt Locker, The (2008))
+Original predicted rating: 2.71052834774
+User profile: {'neg_name': 'imdb_keywords:spoof', 'neg': 915, 'profile_id': 8, 'pos_name': 'imdb_keywords:lawyer', 'pos': 594}
+Non-zero qiis:
+imdb_keywords:f-rated (411): 0.692283890684
+average_rating (1194): 0.662207673675
+imdb_keywords:lawyer (594): -0.175009401116
+imdb_keywords:shot-in-the-head (882): -0.168957498665
+imdb_keywords:male-nudity (633): -0.119676483206
+movielens_genre:Adventure (2): 0.0846659727562
+movielens_tags:To See (39): -0.0774150531808
+imdb_keywords:campfire (236): -0.0732684700148
+imdb_keywords:greed (499): -0.0507331939826
+imdb_keywords:cooking (300): -0.0308534326988
+imdb_keywords:ring (819): -0.0250395864952
+imdb_keywords:hostage (543): -0.010518265862
+imdb_keywords:singing (892): -0.0079039779621
+imdb_keywords:mental-illness (653): 0.000903173473358
+Correctness score: 0.129206711744
+Processing user 478, movie 55276 (Michael Clayton (2007))
+Original predicted rating: 2.2711646356
+User profile: {'neg_name': 'imdb_keywords:cave', 'neg': 251, 'profile_id': 5, 'pos_name': 'imdb_keywords:cooking', 'pos': 300}
+Non-zero qiis:
+imdb_keywords:lawyer (594): 0.412420689426
+average_rating (1194): -0.360174807366
+imdb_keywords:mental-illness (653): -0.206872186814
+imdb_keywords:male-nudity (633): -0.173962302404
+imdb_keywords:cooking (300): -0.0712773932227
+imdb_keywords:russian (834): -0.0633130416358
+imdb_keywords:f-rated (411): -0.0510023098309
+movielens_tags:To See (39): -0.0474758199265
+imdb_keywords:greed (499): 0.0250182799087
+imdb_keywords:b-movie (150): 0.0177455386785
+imdb_keywords:coffin (284): -0.016486602552
+imdb_keywords:ring (819): -0.00918670605446
+imdb_keywords:hostage (543): -0.00874543440427
+imdb_keywords:singing (892): -0.00611376864691
+movielens_genre:Adventure (2): -0.000708819978159
+imdb_keywords:shot-in-the-head (882): 3.11700773896e-05
+Correctness score: 0.0922570653321
+Processing user 841, movie 3740 (Big Trouble in Little China (1986))
+Original predicted rating: 1.98591383028
+User profile: {'neg_name': 'imdb_keywords:coffin', 'neg': 284, 'profile_id': 6, 'pos_name': 'imdb_keywords:campfire', 'pos': 236}
+Non-zero qiis:
+imdb_keywords:coffin (284): 0.304970728741
+average_rating (1194): -0.210145585407
+imdb_keywords:shot-in-the-head (882): 0.12173877934
+imdb_keywords:cooking (300): -0.0644103440265
+imdb_keywords:hostage (543): 0.0344711379288
+imdb_keywords:f-rated (411): -0.0291210323436
+movielens_genre:Adventure (2): -0.0261820045504
+imdb_keywords:male-nudity (633): -0.0213870947119
+imdb_keywords:greed (499): 0.0173952266702
+imdb_keywords:battle (175): 0.0104814894003
+imdb_keywords:singing (892): 0.00902275169232
+imdb_keywords:lawyer (594): 0.00823055653203
+imdb_keywords:riot (820): -0.00537707386719
+movielens_tags:To See (39): 0.00321198463282
+imdb_keywords:corpse (301): -0.000653789062122
+Correctness score: 0.592042457915
+Processing user 569, movie 1032 (Alice in Wonderland (1951))
+Original predicted rating: 1.68260783233
+User profile: {'neg_name': 'tvtropes:only sane man', 'neg': 1166, 'profile_id': 7, 'pos_name': 'imdb_keywords:male-nudity', 'pos': 633}
+Non-zero qiis:
+average_rating (1194): -0.661464883669
+imdb_keywords:male-nudity (633): -0.15838698336
+imdb_keywords:singing (892): -0.144178418556
+imdb_keywords:hostage (543): 0.130036334645
+movielens_genre:Adventure (2): -0.128936056296
+imdb_keywords:f-rated (411): -0.0941915054514
+imdb_keywords:lawyer (594): -0.0525725795455
+imdb_keywords:riot (820): -0.0495057897697
+imdb_keywords:russian (834): -0.0488550042977
+imdb_keywords:greed (499): 0.0305258446422
+imdb_keywords:campfire (236): -0.0182941589402
+tvtropes:only sane man (1166): 0.00820740431534
+imdb_keywords:mental-illness (653): -0.0080794076952
+imdb_keywords:coffin (284): 0.00654697378016
+imdb_keywords:cave (251): 0.00308765077727
+imdb_keywords:ring (819): -0.00155002559971
+imdb_keywords:shot-in-the-head (882): 0.00111809166741
+movielens_tags:To See (39): -0.000440081260364
+Correctness score: 0.203200595589
+Processing user 755, movie 2826 (13th Warrior, The (1999))
+Original predicted rating: 1.97985743028
+User profile: {'neg_name': 'imdb_keywords:mental-illness', 'neg': 653, 'profile_id': 1, 'pos_name': 'imdb_keywords:riot', 'pos': 820}
+Non-zero qiis:
+imdb_keywords:campfire (236): 0.49562842199
+average_rating (1194): 0.306897973131
+imdb_keywords:lawyer (594): -0.0527817579079
+imdb_keywords:cooking (300): -0.0523294109296
+imdb_keywords:hostage (543): -0.0487344478818
+imdb_keywords:coffin (284): 0.04503362334
+imdb_keywords:male-nudity (633): -0.0271309235782
+imdb_keywords:f-rated (411): -0.0241100319981
+imdb_keywords:b-movie (150): 0.0207153184248
+imdb_keywords:ring (819): -0.0144254507377
+imdb_keywords:singing (892): -0.00463775319516
+Correctness score: 0.0
+Processing user 223, movie 67331 (Submerged (2005))
+Original predicted rating: 2.14054069626
+User profile: {'neg_name': 'imdb_keywords:russian', 'neg': 834, 'profile_id': 3, 'pos_name': 'imdb_keywords:greed', 'pos': 499}
+Non-zero qiis:
+average_rating (1194): 0.462376301187
+imdb_keywords:riot (820): 0.451509834194
+imdb_keywords:f-rated (411): -0.0261889977249
+imdb_keywords:hostage (543): -0.0189739255875
+imdb_keywords:ring (819): -0.0179840587774
+imdb_keywords:mental-illness (653): 0.0179687302416
+imdb_keywords:singing (892): 0.0132127134884
+imdb_keywords:male-nudity (633): -0.0118503900932
+imdb_keywords:lawyer (594): -0.0108510179066
+imdb_keywords:campfire (236): -0.00996405110852
+movielens_tags:National Film Registry (34): 0.00022851557438
+Correctness score: 0.0
+Processing user 545, movie 92210 (Disappearance of Haruhi Suzumiya, The (Suzumiya Haruhi no shôshitsu) (2010))
+Original predicted rating: 1.54848603868
+User profile: {'neg_name': 'imdb_keywords:cave', 'neg': 251, 'profile_id': 5, 'pos_name': 'imdb_keywords:cooking', 'pos': 300}
+Non-zero qiis:
+average_rating (1194): -0.342683530095
+movielens_genre:Adventure (2): -0.165135971073
+imdb_keywords:male-nudity (633): -0.137231993969
+imdb_keywords:singing (892): -0.0428896711736
+imdb_keywords:lawyer (594): -0.029900044863
+imdb_keywords:greed (499): 0.0248381253459
+imdb_keywords:mental-illness (653): -0.0197685648792
+imdb_keywords:russian (834): -0.0180018491781
+imdb_keywords:campfire (236): -0.0134430387203
+imdb_keywords:shot-in-the-head (882): -0.0129997857934
+imdb_keywords:b-movie (150): 0.00775873986608
+movielens_tags:To See (39): 0.00743325666457
+imdb_keywords:coffin (284): -0.00689330612736
+imdb_keywords:hostage (543): -0.00611521016143
+imdb_keywords:f-rated (411): 0.00305576382894
+tvtropes:only sane man (1166): 0.00224286531308
+imdb_keywords:cave (251): 0.0016875456749
+Correctness score: 0.0033231210519
+Processing user 853, movie 82463 (Another Year (2010))
+Original predicted rating: 2.10334563174
+User profile: {'neg_name': 'imdb_keywords:singing', 'neg': 892, 'profile_id': 0, 'pos_name': 'imdb_keywords:ring', 'pos': 819}
+Non-zero qiis:
+imdb_keywords:cooking (300): 0.44055245365
+average_rating (1194): 0.393238166144
+imdb_keywords:b-movie (150): -0.0548452941327
+imdb_keywords:hostage (543): -0.0539960286091
+imdb_keywords:lawyer (594): 0.0398193964997
+imdb_keywords:greed (499): -0.0396486951824
+imdb_keywords:campfire (236): -0.028176861138
+movielens_genre:Adventure (2): -0.0211541427521
+imdb_keywords:f-rated (411): 0.0191065041254
+imdb_keywords:cave (251): 0.0158837595429
+imdb_keywords:shot-in-the-head (882): -0.0100935432359
+imdb_keywords:male-nudity (633): 0.0056975708265
+imdb_keywords:loyalty (623): -0.00365772550877
+movielens_tags:To See (39): 0.00330214730784
+Correctness score: 0.0
+Processing user 94, movie 27263 (Tracker, The (2002))
+Original predicted rating: 2.3758851139
+User profile: {'neg_name': 'imdb_keywords:shot-in-the-head', 'neg': 882, 'profile_id': 4, 'pos_name': 'imdb_keywords:hostage', 'pos': 543}
+Non-zero qiis:
+imdb_keywords:campfire (236): 0.333728456291
+imdb_keywords:hostage (543): -0.103528480471
+imdb_keywords:male-nudity (633): -0.0717062692037
+average_rating (1194): 0.0687993884215
+imdb_keywords:russian (834): 0.0336726875357
+imdb_keywords:f-rated (411): -0.0295760065793
+imdb_keywords:coffin (284): 0.0177627768536
+imdb_keywords:singing (892): 0.0161612890422
+imdb_keywords:cooking (300): -0.0159902517826
+imdb_keywords:lawyer (594): -0.0139917316973
+imdb_keywords:ring (819): -0.00492674972803
+movielens_tags:To See (39): -0.00246279287956
+imdb_keywords:b-movie (150): 0.00170740300389
+imdb_keywords:mental-illness (653): 0.00111835319988
+imdb_keywords:greed (499): 0.000967050117439
+Correctness score: 0.236768068764
+Processing user 854, movie 7364 (Intermission (2003))
+Original predicted rating: 2.87961259112
+User profile: {'neg_name': 'movielens_tags:To See', 'neg': 39, 'profile_id': 9, 'pos_name': 'imdb_keywords:b-movie', 'pos': 150}
+Non-zero qiis:
+imdb_keywords:hostage (543): 0.508675160792
+average_rating (1194): 0.328852603342
+imdb_keywords:greed (499): 0.319874428785
+imdb_keywords:flash-forward (454): -0.0819531244037
+imdb_keywords:male-nudity (633): 0.0782277554496
+imdb_keywords:lawyer (594): -0.0340737543292
+imdb_keywords:f-rated (411): 0.0308919218817
+imdb_keywords:campfire (236): 0.0300820630753
+imdb_keywords:ring (819): 0.0289977982417
+imdb_keywords:russian (834): 0.0279315054831
+imdb_keywords:cooking (300): -0.019970955135
+imdb_keywords:shot-in-the-head (882): 0.0122682025273
+imdb_keywords:corruption (303): -0.00688170037385
+Correctness score: 0.0
+Processing user 869, movie 999 (2 Days in the Valley (1996))
+Original predicted rating: 2.09700946942
+User profile: {'neg_name': 'imdb_keywords:coffin', 'neg': 284, 'profile_id': 6, 'pos_name': 'imdb_keywords:campfire', 'pos': 236}
+Non-zero qiis:
+imdb_keywords:hostage (543): 0.51321632257
+average_rating (1194): 0.355422409342
+imdb_keywords:cooking (300): 0.33775909306
+imdb_keywords:shot-in-the-head (882): -0.303360959873
+imdb_keywords:greed (499): -0.0540741153467
+imdb_keywords:campfire (236): -0.0370572869428
+movielens_genre:Adventure (2): 0.0246501786274
+imdb_keywords:f-rated (411): 0.0240577013796
+imdb_keywords:ring (819): -0.0198290905063
+imdb_keywords:b-movie (150): -0.0136946593457
+imdb_keywords:riot (820): 0.00972610329209
+imdb_keywords:cave (251): 0.00866383415965
+imdb_keywords:lawyer (594): -0.00477967201309
+imdb_keywords:male-nudity (633): -0.00413261384535
+imdb_keywords:criminal (315): 0.00325480216345
+Correctness score: 0.0426613338565
+Processing user 569, movie 84469 (Devil's Playground, The (1976))
+Original predicted rating: 3.80778412283
+User profile: {'neg_name': 'tvtropes:only sane man', 'neg': 1166, 'profile_id': 7, 'pos_name': 'imdb_keywords:male-nudity', 'pos': 633}
+Non-zero qiis:
+imdb_keywords:male-nudity (633): 1.21311956935
+average_rating (1194): 0.618651259908
+imdb_keywords:greed (499): -0.0277876081026
+imdb_keywords:ring (819): 0.0272776366328
+imdb_keywords:riot (820): 0.0216351615718
+imdb_keywords:hostage (543): -0.0195139055495
+imdb_keywords:lawyer (594): 0.00381643596711
+imdb_keywords:f-rated (411): 0.000925180157828
+Correctness score: 0.662266016018
+Processing user 976, movie 43914 (Winter Passing (2005))
+Original predicted rating: 1.61930350463
+User profile: {'neg_name': 'imdb_keywords:spoof', 'neg': 915, 'profile_id': 8, 'pos_name': 'imdb_keywords:lawyer', 'pos': 594}
+Non-zero qiis:
+average_rating (1194): -0.649365843348
+imdb_keywords:lawyer (594): -0.0930054559401
+imdb_keywords:cooking (300): -0.0453221494399
+imdb_keywords:riot (820): -0.0423717109449
+imdb_keywords:singing (892): -0.0403054739721
+imdb_keywords:male-nudity (633): -0.0307667825935
+imdb_keywords:hostage (543): 0.0200789791197
+imdb_keywords:b-movie (150): 0.0200261858237
+imdb_keywords:f-rated (411): -0.0190318605717
+imdb_keywords:greed (499): 0.0184722709656
+imdb_keywords:campfire (236): 0.00963213836383
+imdb_keywords:mental-illness (653): 0.00928910654313
+imdb_keywords:coffin (284): -0.00788110038949
+imdb_keywords:shot-in-the-head (882): 0.0071763897672
+imdb_keywords:cave (251): 0.00712780329002
+movielens_genre:Adventure (2): -0.0070470636006
+tvtropes:only sane man (1166): 0.00512457931982
+movielens_tags:To See (39): 0.00327295175969
+imdb_keywords:ring (819): 0.00023990808504
+Correctness score: 0.125281588915
+Correctness scores: [0.2720195735844267, 0.8364492470160849, 0.3048470895666527, 0.07831245166009201, 0.11013817018267745, 0.3727155076292849, 0.2841737662951355, 0.12920671174404372, 0.09225706533205946, 0.592042457915478, 0.20320059558927758, 0.0, 0.0, 0.0033231210518969057, 0.0, 0.2367680687644939, 0.0, 0.042661333856463576, 0.662266016017693, 0.12528158891544636]
+Average correctness: 0.217283138256
