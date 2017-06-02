@@ -40,7 +40,7 @@ def shadow_model_qii(user, movie, user_features, all_trees, indicators,
             perturbed_prediction = shadow_predict(user, movie, rank, user_features,
                                                   all_trees, cur_indicators)
             abs_err = abs(original_prediction - perturbed_prediction)
-            signed_err = perturbed_prediction - original_prediction
+            signed_err = original_prediction - perturbed_prediction
             cur_qii += abs_err
             cur_signed_qii += signed_err
             if debug:
