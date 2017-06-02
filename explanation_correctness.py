@@ -16,7 +16,7 @@ import parsers_and_loaders
 from pyspark import SparkConf, SparkContext
 
 def sort_dict(src, non_zero=False):
-    lst = sorted(src.items(), key=lambda x: -abs(x[0]))
+    lst = sorted(src.items(), key=lambda x: -abs(x[1]))
     if non_zero:
         lst = [x for x in lst if x[1] != 0]
     return lst
@@ -36,7 +36,10 @@ def explanation_correctness(qiis, user_profile):
 def one_rating_correctness(user, movie, user_features, all_trees, indicators,
                            user_profile, feature_names,
                            iterations=10, indicator_distributions=None,
-                           used_features=None, debug=False):
+                           used_features=None, debug=False, model=None):
+    if model is not None and debug:
+        r = model.predict(user, movie)
+        print "Original predicted rating:", r
     qiis = shadow_model_qii.shadow_model_qii(user, movie,
             user_features, all_trees, indicators, iterations,
              indicator_distributions, used_features, False)
@@ -53,7 +56,7 @@ def one_rating_correctness(user, movie, user_features, all_trees, indicators,
 def sample_correctness(user_product_pairs, user_features, all_trees,
                        indicators, users, profiles, feature_names, movies_dict, iterations=10,
                        indicator_distributions=None, used_features=None,
-                       debug=False):
+                       debug=False, model=None):
     res = []
     for (n, (u, m)) in enumerate(user_product_pairs):
         if debug:
@@ -61,7 +64,7 @@ def sample_correctness(user_product_pairs, user_features, all_trees,
                     .format(u, m, movies_dict[m])
         corr = one_rating_correctness(u, m, user_features, all_trees,
                 indicators, profiles[users[u]], feature_names, iterations,
-                indicator_distributions, used_features, debug)
+                indicator_distributions, used_features, debug, model)
         res.append(corr)
     return res
 
@@ -156,7 +159,7 @@ def main():
                        indicators, users, profiles, results["feature_names"],
                        movies_dict, args.qii_iterations,
                        all_indicator_distributions, all_used_features,
-                       debug=True)
+                       debug=True, model=model)
 
     print "Correctness scores:", corr
     print "Average correctness:", sum(corr)/float(len(corr))
