@@ -63,7 +63,7 @@ def sample_correctness(user_product_pairs, user_features, all_trees,
                 indicators, profiles[users[u]], feature_names, iterations,
                 indicator_distributions, used_features, debug)
         res.append(corr)
-    return corr
+    return res
 
 
 def main():
