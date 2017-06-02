@@ -97,8 +97,8 @@ function run_and_save() {
 	REFERENCE_MODEL="${PERSIST_DIR}/als_model.pkl"
 }
 
-DATA_PATH="datasets/new_synth"
-NAME_SUFFIX="new_synth"
+DATA_PATH="datasets/new_synth_random"
+NAME_SUFFIX="new_synth_random"
 
 RANK=12
 run_and_save

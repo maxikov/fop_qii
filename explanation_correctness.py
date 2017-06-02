@@ -25,7 +25,7 @@ def sort_dict(src, non_zero=False):
 def explanation_correctness(qiis, user_profile):
     qii_list = sort_dict(qiis)
     abs_qii_list = [(f, abs(q)) for (f, q) in qii_list]
-    top_two_qii = abs_qii_list[0][1] + abs_qii_lst[1][1]
+    top_two_qii = abs_qii_list[0][1] + abs_qii_list[1][1]
     if top_two_qii == 0:
         top_two_qii = 1e-30
     qiis = collections.defaultdict(lambda: 0.0, qiis)
