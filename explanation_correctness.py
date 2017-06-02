@@ -4,6 +4,7 @@ import os.path
 import pickle
 import random
 import collections
+import sys
 
 #project files
 import rating_explanation
@@ -40,6 +41,7 @@ def one_rating_correctness(user, movie, user_features, all_trees, indicators,
     if model is not None and debug:
         r = model.predict(user, movie)
         print "Original predicted rating:", r
+        sys.stdout.flush()
     qiis = shadow_model_qii.shadow_model_qii(user, movie,
             user_features, all_trees, indicators, iterations,
              indicator_distributions, used_features, False)
@@ -62,6 +64,7 @@ def sample_correctness(user_product_pairs, user_features, all_trees,
         if debug:
             print "Processing user {}, movie {} ({})"\
                     .format(u, m, movies_dict[m])
+            sys.stdout.flush()
         corr = one_rating_correctness(u, m, user_features, all_trees,
                 indicators, profiles[users[u]], feature_names, iterations,
                 indicator_distributions, used_features, debug, model)
@@ -96,6 +99,7 @@ def main():
             .format(results["all_random_rec_eval_test"]["mean_abs_err"],results["all_random_rec_eval_test"]["rmse"])
     print "Shadow model is {} times better than random on the test set"\
             .format(results["all_random_rec_eval_test"]["mean_abs_err"]/results["all_replaced_rec_eval_test"]["mean_abs_err"])
+    sys.stdout.flush()
 
     if args.movies_file is not None:
         if ".csv" in args.movies_file:
@@ -133,6 +137,7 @@ def main():
             .join("{}: {}".format(f, results["feature_names"][f])
                 for f in all_used_features))
 
+    sys.stdout.flush()
     print "Loading indicators"
     (training_movies, test_movies, features_test, features_training,
              features_original_test, features_original_training,
@@ -145,11 +150,13 @@ def main():
     all_indicator_distributions = shadow_model_qii.get_all_feature_distributions(indicators,
             all_used_features)
 
+    sys.stdout.flush()
 
     print "Loading user profiles"
     profiles, users = pickle.load(open(os.path.join(args.dataset_dir,
                                                     "profiles.pkl"),
                                        "rb"))
+    sys.stdout.flush()
     users_list = users.keys()
 
     user_product_pairs = [(random.choice(users_list), random.choice(products))
@@ -164,5 +171,6 @@ def main():
     print "Correctness scores:", corr
     print "Average correctness:", sum(corr)/float(len(corr))
 
+    sys.stdout.flush()
 if __name__ == "__main__":
     main()
