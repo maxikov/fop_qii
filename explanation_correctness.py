@@ -3,6 +3,7 @@ import argparse
 import os.path
 import pickle
 import random
+import collections
 
 #project files
 import rating_explanation
@@ -24,6 +25,7 @@ def explanation_correctness(qiis, user_profile):
     qii_list = sort_dict(qiis)
     abs_qii_list = [(f, abs(q)) for (f, q) in qii_list]
     max_qii = abs_qii_list[0][1]
+    qiis = collections.defaultdict(lambda: 0.0, qiis)
     pos_qii = abs(qiis[user_profile["pos"]])
     neg_qii = abs(qiis[user_profile["neg"]])
     pos_corr = pos_qii / max_qii
