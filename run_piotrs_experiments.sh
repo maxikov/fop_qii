@@ -6,7 +6,7 @@ LOCAL_THREADS="8"
 NUM_PARTITIONS="7"
 
 #Regression parameters
-METADATA_SOURCES="years genres average_rating imdb_keywords imdb_producer imdb_director tvtropes tags"
+METADATA_SOURCES="years genres average_rating imdb_keywords imdb_producer imdb_director tvtropes"
 CROSS_VALIDATION=70
 REGRESSION_MODEL="regression_tree"
 NBINS=32
@@ -83,25 +83,34 @@ function run_and_save() {
 	REFERENCE_MODEL="${PERSIST_DIR}/als_model.pkl"
 }
 
-if [ "$1" == "control" ]
-then
-	CONTR_OR_EXPR="control"
-	RAND="--random"
-else
-	if [ "$1" == "experimental" ]
-	then
-		CONTR_OR_EXPR="experimental"
-		RAND=" "
-	else
-		echo "Specify the first positional argument control or experimental"
-		exit
-	fi
-fi
+function run_qii_measurements() {
+	echo `date` "Running QII measurements for ${STATE_DIR}"
+	for USER in `python get_model_user_or_movies.py --persist-dir ${STATE_DIR} --users --n ${N_USERS}`
+	do
+		echo `date` "Measuring all-movie QII for user ${USER}"
+		LOG_FILE="${LOG_DIR}/qii_user_${USER}_all_movies_${NAME_SUFFIX}.txt"
+		python shadow_model_qii.py --persist-dir ${STATE_DIR} --user ${USER} --all-movies > ${LOG_FILE}
+		for MOVIE in `python get_model_user_or_movies.py --persist-dir ${STATE_DIR} --movies --n ${N_MOVIES}`
+		do
+			echo `date` "Measuing QII for user ${USER} movie ${MOVIE}"
+			LOG_FILE="${LOG_DIR}/qii_user_${USER}_movie_${MOVIE}_${NAME_SUFFIX}.txt"
+			python shadow_model_qii.py --persist-dir ${STATE_DIR} --user ${USER} --movie ${MOVIE} > ${LOG_FILE}
+		done
+	done
+			
+}
+
+function build_model() {
+	DATA_PATH=${DATASET_ROOT}/${NAME_SUFFIX}
+	mkdir -p ${DATA_PATH}
+	cp ../tool-synth-data/ratings.${NAME_SUFFIX}.dat ${DATA_PATH}/ratings.dat
+	run_and_save
+}
 
 ALL_ROOT="/home/maxikov"
-mkdir -p "${ALL_ROOT}/hypothesis_testing"
-mkdir -p "${ALL_ROOT}/hypothesis_testing/${CONTR_OR_EXPR}"
-ALL_ROOT="${ALL_ROOT}/hypothesis_testing/${CONTR_OR_EXPR}"
+mkdir -p "${ALL_ROOT}/piotrs_experiments"
+mkdir -p "${ALL_ROOT}/piotrs_experiments/${CONTR_OR_EXPR}"
+ALL_ROOT="${ALL_ROOT}/piotrs_experiments/${CONTR_OR_EXPR}"
 mkdir -p "${ALL_ROOT}/logs"
 LOG_DIR="${ALL_ROOT}/logs"
 mkdir -p "${ALL_ROOT}/states"
@@ -113,32 +122,25 @@ ORIGINAL_DATA_ROOT="datasets"
 
 MOVIES_FILE="${ORIGINAL_DATA_ROOT}/ml-20m/ml-20m.imdb.set1.csv"
 TVTROPES_FILE="${ORIGINAL_DATA_ROOT}/dbtropes/tropes.csv"
-CSV="--csv"
 
-ORIGINAL_STATE_DIR="archived_states/product_regression_all_regression_tree_rank_12_depth_5.state"
+N_USERS=3
+N_MOVIES=3
 
-#Recommender parameters
+STATE_DIR="archived_states/product_regression_all_regression_tree_rank_12_depth_5.state"
+NAME_SUFFIX="real_data"
+run_qii_measurements
+
 RANK=12
 LMBDA=0.01
 NUM_ITER=300
 NON_NEGATIVE="" #Must be empty or --non-negative
 
-N_SUBJECTS=20
+NAME_SUFFIX="level0.seed0"
+build_model
+STATE_DIR=$PERSIST_DIR
+run_qii_measurements
 
-for SUBJ in `seq 1 ${N_SUBJECTS}`
-do
-	NAME_SUFFIX="new_synth_${CONTR_OR_EXPR}_subj_${SUBJ}"
-	DATA_PATH="${DATASET_ROOT}/${NAME_SUFFIX}"
-	echo `date` "Creating dataset in $DATA_PATH"
-	python synth_dataset_generator.py --persist-dir ${ORIGINAL_STATE_DIR} --n-profiles 10 --n-users 1000 --mu 3 --sigma 1 ${RAND} --odir ${DATA_PATH}
-	cp ${ORIGINAL_DATA_ROOT}/ml-20m/tags.csv ${DATA_PATH}/tags.csv
-	echo `date` "Done creating data set"
-
-	echo `date` "Building a recommender and a shadow model"
-	run_and_save
-	echo `date` "Done building a recommender"
-
-	echo `date` "Running correctness explanations"
-	python explanation_correctness.py --persist-dir $PERSIST_DIR --dataset-dir $DATA_PATH --qii-iterations 10 --sample-size 20 --movies-file $MOVIES_FILE > "${LOG_DIR}/explanation_correctness_${NAME_SUFFIX}.txt"
-	echo `date` "Done correctness explanation"
-done
+NAME_SUFFIX="level1.latents6of20.seed0"
+build_model
+STATE_DIR=$PERSIST_DIR
+run_qii_measurements
