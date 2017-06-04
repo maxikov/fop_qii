@@ -1,0 +1,607 @@
+Loading results dict
+Original recommender relative to ground truth on training set mean absolute error: 0.0153200166175, RMSE: 0.0206101056093
+Shadow model relative to the baseline recommender on test set MAE: 0.335642864715, RMSE: 0.442734824459
+Randomized model relative to the baseline recommender on test set MAE: 0.826171090602, RMSE: 1.00496875617
+Shadow model is 2.46145882262 times better than random on the test set
+Loading ALS model
+Loaded rank 12 model
+Cur user features: [array('d', [0.14052695035934448, 0.0491957888007164, 0.4041169285774231, 0.34488219022750854, 0.557602047920227, -0.7392046451568604, -1.245356559753418, -0.48192158341407776, 0.06036478653550148, 0.22695916891098022, 0.5188847184181213, 0.2675919234752655])]
+Loading decision trees
+198 features are used: 0: year, 512: imdb_keywords:kidnapping, 2: movielens_genre:Adventure, 1028: tvtropes:bittersweet ending, 5: movielens_genre:Comedy, 6: movielens_genre:Crime, 1: movielens_genre:Action, 8: movielens_genre:Drama, 1033: tvtropes:brick joke, 10: movielens_genre:Film-Noir, 13: movielens_genre:Mystery, 14: movielens_genre:Romance, 15: movielens_genre:Sci-Fi, 16: movielens_genre:Thriller, 17: movielens_genre:War, 1042: tvtropes:cloud cuckoo lander, 532: imdb_keywords:lifting-someone-into-the-air, 1045: tvtropes:creator cameo, 1113: tvtropes:too dumb to live, 24: imdb_keywords:1950s, 4: movielens_genre:Children, 26: imdb_keywords:1970s, 1054: tvtropes:driven to suicide, 1056: tvtropes:even evil has standards, 36: imdb_keywords:actor-shares-first-name-with-character, 518: imdb_keywords:knife, 38: imdb_keywords:adoption, 40: imdb_keywords:africa, 41: imdb_keywords:african-american, 554: imdb_keywords:machine-gun, 1031: tvtropes:book ends, 1071: tvtropes:hilarity ensues, 1032: tvtropes:box office bomb, 1078: tvtropes:karma houdini, 55: imdb_keywords:animal-attack, 571: imdb_keywords:marijuana, 60: imdb_keywords:apology, 1085: tvtropes:mind screw, 1089: tvtropes:mythology gag, 1092: tvtropes:noodle incident, 581: imdb_keywords:memory, 865: imdb_keywords:suburb, 1096: tvtropes:pet the dog, 1103: tvtropes:running gag, 82: imdb_keywords:band, 1107: tvtropes:smug snake, 84: imdb_keywords:bank-robbery, 601: imdb_keywords:motorcycle, 602: imdb_keywords:mountain, 603: imdb_keywords:murder, 96: imdb_keywords:based-on-novel, 1123: average_rating, 102: imdb_keywords:bathroom, 1041: tvtropes:chekhovs skill, 108: imdb_keywords:beating, 18: movielens_genre:Western, 623: imdb_keywords:nipples-visible-through-clothing, 116: imdb_keywords:bikini, 631: imdb_keywords:obsession, 720: imdb_keywords:racial-slur, 130: imdb_keywords:blood, 644: imdb_keywords:oral-sex, 136: imdb_keywords:bound-and-gagged, 140: imdb_keywords:boyfriend-girlfriend-relationship, 141: imdb_keywords:bra, 654: imdb_keywords:panties, 144: imdb_keywords:breaking-and-entering, 146: imdb_keywords:breasts, 147: imdb_keywords:bridge, 661: imdb_keywords:party, 663: imdb_keywords:pay-phone, 673: imdb_keywords:pilot, 675: imdb_keywords:pistol, 164: imdb_keywords:camera-shot-of-feet, 679: imdb_keywords:police, 169: imdb_keywords:captain, 683: imdb_keywords:police-detective, 882: imdb_keywords:swimming-pool, 179: imdb_keywords:catholic-church, 542: imdb_keywords:long-take, 703: imdb_keywords:prologue, 711: imdb_keywords:pubic-hair, 714: imdb_keywords:punched-in-the-stomach, 206: imdb_keywords:city, 719: imdb_keywords:race-relations, 208: imdb_keywords:class-differences, 724: imdb_keywords:railway-station, 213: imdb_keywords:coffin, 218: imdb_keywords:combat, 733: imdb_keywords:redhead, 223: imdb_keywords:condom, 225: imdb_keywords:conspiracy, 739: imdb_keywords:remake, 230: imdb_keywords:corpse, 743: imdb_keywords:revenge, 232: imdb_keywords:corruption, 161: imdb_keywords:cafe, 746: imdb_keywords:revolver, 747: imdb_keywords:rifle, 25: imdb_keywords:1960s, 251: imdb_keywords:cult-director, 252: imdb_keywords:cult-film, 256: imdb_keywords:dancer, 260: imdb_keywords:dating, 261: imdb_keywords:dead-body, 262: imdb_keywords:dead-woman, 266: imdb_keywords:death-of-father, 269: imdb_keywords:death-of-mother, 270: imdb_keywords:death-of-son, 742: imdb_keywords:restaurant, 274: imdb_keywords:deception, 803: imdb_keywords:sheriff, 292: imdb_keywords:doctor, 49: imdb_keywords:ambulance, 808: imdb_keywords:shot-in-the-back, 391: imdb_keywords:food, 300: imdb_keywords:drink, 814: imdb_keywords:shot-in-the-stomach, 817: imdb_keywords:showdown, 478: imdb_keywords:husband-wife-relationship, 823: imdb_keywords:single-parent, 314: imdb_keywords:eavesdropping, 315: imdb_keywords:eccentric, 829: imdb_keywords:sleeping, 325: imdb_keywords:escape, 840: imdb_keywords:song, 845: imdb_keywords:spy, 846: imdb_keywords:stabbed-in-the-back, 336: imdb_keywords:exploitation, 851: imdb_keywords:stalking, 342: imdb_keywords:face-slap, 347: imdb_keywords:falling-from-height, 348: imdb_keywords:falling-in-love, 350: imdb_keywords:family-relationships, 656: imdb_keywords:parade, 827: imdb_keywords:slapstick-comedy, 868: imdb_keywords:suicide-attempt, 357: imdb_keywords:father-son-relationship, 359: imdb_keywords:fear, 364: imdb_keywords:female-protagonist, 877: imdb_keywords:survival, 880: imdb_keywords:swat-team, 369: imdb_keywords:fictional-war, 370: imdb_keywords:fight, 374: imdb_keywords:fire, 375: imdb_keywords:fired-from-the-job, 378: imdb_keywords:first-part, 381: imdb_keywords:fishing, 384: imdb_keywords:flashback, 389: imdb_keywords:flowers, 902: imdb_keywords:telephone, 903: imdb_keywords:telephone-call, 906: imdb_keywords:terminal-illness, 395: imdb_keywords:forgiveness, 908: imdb_keywords:terrorist, 911: imdb_keywords:theatre-audience, 401: imdb_keywords:friendship, 914: imdb_keywords:threat, 921: imdb_keywords:title-spoken-by-character, 413: imdb_keywords:gay-kiss, 414: imdb_keywords:gay-slur, 415: imdb_keywords:general, 419: imdb_keywords:girl, 932: imdb_keywords:train-station, 423: imdb_keywords:gore, 425: imdb_keywords:grandmother-grandson-relationship, 428: imdb_keywords:greed, 925: imdb_keywords:torch, 432: imdb_keywords:guitarist, 433: imdb_keywords:gun, 594: imdb_keywords:money, 577: imdb_keywords:massacre, 951: imdb_keywords:uncle-niece-relationship, 442: imdb_keywords:hand-to-hand-combat, 443: imdb_keywords:handcuffs, 445: imdb_keywords:hanging, 446: imdb_keywords:hat, 449: imdb_keywords:heart-attack, 963: imdb_keywords:uzi, 965: imdb_keywords:vampire, 967: imdb_keywords:vandalism, 972: imdb_keywords:violence, 974: imdb_keywords:voice-over-narration, 464: imdb_keywords:homosexual, 467: imdb_keywords:hope, 468: imdb_keywords:horse, 470: imdb_keywords:horse-riding, 591: imdb_keywords:mistaken-identity, 988: imdb_keywords:wedding, 990: imdb_keywords:wheelchair, 480: imdb_keywords:illness, 1073: tvtropes:idiot ball, 488: imdb_keywords:injection, 1005: imdb_keywords:wristwatch, 1010: imdb_keywords:zombie, 499: imdb_keywords:japan, 1012: imdb_producer:, 1019: tvtropes:arch enemy
+Loading indicators
+Used indicator distributions:
+year (0): {1922.0: 1, 1926.0: 1, 1927.0: 3, 1928.0: 1, 1930.0: 1, 1931.0: 1, 1933.0: 6, 1934.0: 3, 1935.0: 3, 1936.0: 4, 1937.0: 3, 1938.0: 3, 1939.0: 8, 1940.0: 8, 1941.0: 8, 1942.0: 7, 1943.0: 6, 1944.0: 5, 1945.0: 9, 1946.0: 5, 1947.0: 5, 1948.0: 10, 1949.0: 7, 1950.0: 6, 1951.0: 4, 1952.0: 8, 1953.0: 13, 1954.0: 5, 1955.0: 8, 1956.0: 10, 1957.0: 6, 1958.0: 9, 1959.0: 7, 1960.0: 11, 1961.0: 12, 1962.0: 12, 1963.0: 9, 1964.0: 7, 1965.0: 10, 1966.0: 7, 1967.0: 16, 1968.0: 15, 1969.0: 13, 1970.0: 20, 1971.0: 25, 1972.0: 21, 1973.0: 29, 1974.0: 25, 1975.0: 21, 1976.0: 13, 1977.0: 22, 1978.0: 19, 1979.0: 19, 1980.0: 42, 1981.0: 42, 1982.0: 38, 1983.0: 26, 1984.0: 38, 1985.0: 51, 1986.0: 44, 1987.0: 61, 1988.0: 60, 1989.0: 51, 1990.0: 55, 1991.0: 44, 1992.0: 53, 1993.0: 66, 1994.0: 72, 1995.0: 95, 1996.0: 87, 1997.0: 123, 1998.0: 113, 1999.0: 120, 2000.0: 118, 2001.0: 139, 2002.0: 142, 2003.0: 131, 2004.0: 38, 2005.0: 2, 2008.0: 1, 2009.0: 1, 2011.0: 2, 2012.0: 1, 1916.0: 1}
+movielens_genre:Action (1): {0: 1834, 1: 533}
+movielens_genre:Adventure (2): {0: 2096, 1: 271}
+movielens_genre:Children (4): {0: 2275, 1: 92}
+movielens_genre:Comedy (5): {0: 1697, 1: 670}
+movielens_genre:Crime (6): {0: 1974, 1: 393}
+movielens_genre:Drama (8): {0: 1132, 1: 1235}
+movielens_genre:Film-Noir (10): {0: 2326, 1: 41}
+movielens_genre:Mystery (13): {0: 2201, 1: 166}
+movielens_genre:Romance (14): {0: 1971, 1: 396}
+movielens_genre:Sci-Fi (15): {0: 2173, 1: 194}
+movielens_genre:Thriller (16): {0: 1724, 1: 643}
+movielens_genre:War (17): {0: 2264, 1: 103}
+movielens_genre:Western (18): {0: 2284, 1: 83}
+imdb_keywords:1950s (24): {0: 2250, 1: 117}
+imdb_keywords:1960s (25): {0: 2227, 1: 140}
+imdb_keywords:1970s (26): {0: 2201, 1: 166}
+imdb_keywords:actor-shares-first-name-with-character (36): {0: 2309, 1: 58}
+imdb_keywords:adoption (38): {0: 2314, 1: 53}
+imdb_keywords:africa (40): {0: 2331, 1: 36}
+imdb_keywords:african-american (41): {0: 2123, 1: 244}
+imdb_keywords:ambulance (49): {0: 2131, 1: 236}
+imdb_keywords:animal-attack (55): {0: 2311, 1: 56}
+imdb_keywords:apology (60): {0: 2211, 1: 156}
+imdb_keywords:band (82): {0: 2208, 1: 159}
+imdb_keywords:bank-robbery (84): {0: 2303, 1: 64}
+imdb_keywords:based-on-novel (96): {0: 1740, 1: 627}
+imdb_keywords:bathroom (102): {0: 2165, 1: 202}
+imdb_keywords:beating (108): {0: 1808, 1: 559}
+imdb_keywords:bikini (116): {0: 2258, 1: 109}
+imdb_keywords:blood (130): {0: 1300, 1: 1067}
+imdb_keywords:bound-and-gagged (136): {0: 2275, 1: 92}
+imdb_keywords:boyfriend-girlfriend-relationship (140): {0: 1900, 1: 467}
+imdb_keywords:bra (141): {0: 2217, 1: 150}
+imdb_keywords:breaking-and-entering (144): {0: 2259, 1: 108}
+imdb_keywords:breasts (146): {0: 1996, 1: 371}
+imdb_keywords:bridge (147): {0: 2153, 1: 214}
+imdb_keywords:cafe (161): {0: 2009, 1: 358}
+imdb_keywords:camera-shot-of-feet (164): {0: 2305, 1: 62}
+imdb_keywords:captain (169): {0: 2262, 1: 105}
+imdb_keywords:catholic-church (179): {0: 2267, 1: 100}
+imdb_keywords:city (206): {0: 2304, 1: 63}
+imdb_keywords:class-differences (208): {0: 2251, 1: 116}
+imdb_keywords:coffin (213): {0: 2161, 1: 206}
+imdb_keywords:combat (218): {0: 2157, 1: 210}
+imdb_keywords:condom (223): {0: 2298, 1: 69}
+imdb_keywords:conspiracy (225): {0: 2190, 1: 177}
+imdb_keywords:corpse (230): {0: 1843, 1: 524}
+imdb_keywords:corruption (232): {0: 2194, 1: 173}
+imdb_keywords:cult-director (251): {0: 2263, 1: 104}
+imdb_keywords:cult-film (252): {0: 1515, 1: 852}
+imdb_keywords:dancer (256): {0: 1917, 1: 450}
+imdb_keywords:dating (260): {0: 2287, 1: 80}
+imdb_keywords:dead-body (261): {0: 2093, 1: 274}
+imdb_keywords:dead-woman (262): {0: 2297, 1: 70}
+imdb_keywords:death-of-father (266): {0: 2146, 1: 221}
+imdb_keywords:death-of-mother (269): {0: 2173, 1: 194}
+imdb_keywords:death-of-son (270): {0: 2281, 1: 86}
+imdb_keywords:deception (274): {0: 2000, 1: 367}
+imdb_keywords:doctor (292): {0: 1865, 1: 502}
+imdb_keywords:drink (300): {0: 1802, 1: 565}
+imdb_keywords:eavesdropping (314): {0: 2261, 1: 106}
+imdb_keywords:eccentric (315): {0: 2301, 1: 66}
+imdb_keywords:escape (325): {0: 1938, 1: 429}
+imdb_keywords:exploitation (336): {0: 2314, 1: 53}
+imdb_keywords:face-slap (342): {0: 1935, 1: 432}
+imdb_keywords:falling-from-height (347): {0: 1998, 1: 369}
+imdb_keywords:falling-in-love (348): {0: 2297, 1: 70}
+imdb_keywords:family-relationships (350): {0: 1772, 1: 595}
+imdb_keywords:father-son-relationship (357): {0: 1582, 1: 785}
+imdb_keywords:fear (359): {0: 1957, 1: 410}
+imdb_keywords:female-protagonist (364): {0: 2189, 1: 178}
+imdb_keywords:fictional-war (369): {0: 2295, 1: 72}
+imdb_keywords:fight (370): {0: 1711, 1: 656}
+imdb_keywords:fire (374): {0: 1848, 1: 519}
+imdb_keywords:fired-from-the-job (375): {0: 2221, 1: 146}
+imdb_keywords:first-part (378): {0: 2223, 1: 144}
+imdb_keywords:fishing (381): {0: 2263, 1: 104}
+imdb_keywords:flashback (384): {0: 1686, 1: 681}
+imdb_keywords:flowers (389): {0: 2235, 1: 132}
+imdb_keywords:food (391): {0: 2059, 1: 308}
+imdb_keywords:forgiveness (395): {0: 2306, 1: 61}
+imdb_keywords:friendship (401): {0: 1609, 1: 758}
+imdb_keywords:gay-kiss (413): {0: 2303, 1: 64}
+imdb_keywords:gay-slur (414): {0: 2142, 1: 225}
+imdb_keywords:general (415): {0: 2244, 1: 123}
+imdb_keywords:girl (419): {0: 2127, 1: 240}
+imdb_keywords:gore (423): {0: 2054, 1: 313}
+imdb_keywords:grandmother-grandson-relationship (425): {0: 2291, 1: 76}
+imdb_keywords:greed (428): {0: 2244, 1: 123}
+imdb_keywords:guitarist (432): {0: 2296, 1: 71}
+imdb_keywords:gun (433): {0: 1732, 1: 635}
+imdb_keywords:hand-to-hand-combat (442): {0: 2104, 1: 263}
+imdb_keywords:handcuffs (443): {0: 2138, 1: 229}
+imdb_keywords:hanging (445): {0: 2239, 1: 128}
+imdb_keywords:hat (446): {0: 2290, 1: 77}
+imdb_keywords:heart-attack (449): {0: 2276, 1: 91}
+imdb_keywords:homosexual (464): {0: 2149, 1: 218}
+imdb_keywords:hope (467): {0: 2287, 1: 80}
+imdb_keywords:horse (468): {0: 2028, 1: 339}
+imdb_keywords:horse-riding (470): {0: 2274, 1: 93}
+imdb_keywords:husband-wife-relationship (478): {0: 1438, 1: 929}
+imdb_keywords:illness (480): {0: 2222, 1: 145}
+imdb_keywords:injection (488): {0: 2252, 1: 115}
+imdb_keywords:japan (499): {0: 2336, 1: 31}
+imdb_keywords:kidnapping (512): {0: 2005, 1: 362}
+imdb_keywords:knife (518): {0: 1805, 1: 562}
+imdb_keywords:lifting-someone-into-the-air (532): {0: 2181, 1: 186}
+imdb_keywords:long-take (542): {0: 2294, 1: 73}
+imdb_keywords:machine-gun (554): {0: 1926, 1: 441}
+imdb_keywords:marijuana (571): {0: 2168, 1: 199}
+imdb_keywords:massacre (577): {0: 2208, 1: 159}
+imdb_keywords:memory (581): {0: 2186, 1: 181}
+imdb_keywords:mistaken-identity (591): {0: 2270, 1: 97}
+imdb_keywords:money (594): {0: 1901, 1: 466}
+imdb_keywords:motorcycle (601): {0: 2105, 1: 262}
+imdb_keywords:mountain (602): {0: 2282, 1: 85}
+imdb_keywords:murder (603): {0: 1114, 1: 1253}
+imdb_keywords:nipples-visible-through-clothing (623): {0: 2276, 1: 91}
+imdb_keywords:obsession (631): {0: 2185, 1: 182}
+imdb_keywords:oral-sex (644): {0: 2263, 1: 104}
+imdb_keywords:panties (654): {0: 2039, 1: 328}
+imdb_keywords:parade (656): {0: 2293, 1: 74}
+imdb_keywords:party (661): {0: 1895, 1: 472}
+imdb_keywords:pay-phone (663): {0: 2120, 1: 247}
+imdb_keywords:pilot (673): {0: 2283, 1: 84}
+imdb_keywords:pistol (675): {0: 1656, 1: 711}
+imdb_keywords:police (679): {0: 1588, 1: 779}
+imdb_keywords:police-detective (683): {0: 2183, 1: 184}
+imdb_keywords:prologue (703): {0: 2224, 1: 143}
+imdb_keywords:pubic-hair (711): {0: 2203, 1: 164}
+imdb_keywords:punched-in-the-stomach (714): {0: 2291, 1: 76}
+imdb_keywords:race-relations (719): {0: 2300, 1: 67}
+imdb_keywords:racial-slur (720): {0: 2142, 1: 225}
+imdb_keywords:railway-station (724): {0: 2229, 1: 138}
+imdb_keywords:redhead (733): {0: 2298, 1: 69}
+imdb_keywords:remake (739): {0: 2254, 1: 113}
+imdb_keywords:restaurant (742): {0: 1796, 1: 571}
+imdb_keywords:revenge (743): {0: 1797, 1: 570}
+imdb_keywords:revolver (746): {0: 1950, 1: 417}
+imdb_keywords:rifle (747): {0: 1978, 1: 389}
+imdb_keywords:sheriff (803): {0: 2212, 1: 155}
+imdb_keywords:shot-in-the-back (808): {0: 2082, 1: 285}
+imdb_keywords:shot-in-the-stomach (814): {0: 2290, 1: 77}
+imdb_keywords:showdown (817): {0: 1971, 1: 396}
+imdb_keywords:single-parent (823): {0: 2303, 1: 64}
+imdb_keywords:slapstick-comedy (827): {0: 2285, 1: 82}
+imdb_keywords:sleeping (829): {0: 2277, 1: 90}
+imdb_keywords:song (840): {0: 1934, 1: 433}
+imdb_keywords:spy (845): {0: 2250, 1: 117}
+imdb_keywords:stabbed-in-the-back (846): {0: 2224, 1: 143}
+imdb_keywords:stalking (851): {0: 2271, 1: 96}
+imdb_keywords:suburb (865): {0: 2264, 1: 103}
+imdb_keywords:suicide-attempt (868): {0: 2242, 1: 125}
+imdb_keywords:survival (877): {0: 2241, 1: 126}
+imdb_keywords:swat-team (880): {0: 2290, 1: 77}
+imdb_keywords:swimming-pool (882): {0: 2073, 1: 294}
+imdb_keywords:telephone (902): {0: 2134, 1: 233}
+imdb_keywords:telephone-call (903): {0: 1825, 1: 542}
+imdb_keywords:terminal-illness (906): {0: 2319, 1: 48}
+imdb_keywords:terrorist (908): {0: 2261, 1: 106}
+imdb_keywords:theatre-audience (911): {0: 2249, 1: 118}
+imdb_keywords:threat (914): {0: 2257, 1: 110}
+imdb_keywords:title-spoken-by-character (921): {0: 1757, 1: 610}
+imdb_keywords:torch (925): {0: 2283, 1: 84}
+imdb_keywords:train-station (932): {0: 2308, 1: 59}
+imdb_keywords:uncle-niece-relationship (951): {0: 2291, 1: 76}
+imdb_keywords:uzi (963): {0: 2235, 1: 132}
+imdb_keywords:vampire (965): {0: 2332, 1: 35}
+imdb_keywords:vandalism (967): {0: 2280, 1: 87}
+imdb_keywords:violence (972): {0: 1433, 1: 934}
+imdb_keywords:voice-over-narration (974): {0: 1946, 1: 421}
+imdb_keywords:wedding (988): {0: 2085, 1: 282}
+imdb_keywords:wheelchair (990): {0: 2145, 1: 222}
+imdb_keywords:wristwatch (1005): {0: 2278, 1: 89}
+imdb_keywords:zombie (1010): {0: 2317, 1: 50}
+imdb_producer: (1012): {0: 2360, 1: 7}
+tvtropes:arch enemy (1019): {0: 2230, 1: 137}
+tvtropes:bittersweet ending (1028): {0: 2150, 1: 217}
+tvtropes:book ends (1031): {0: 2228, 1: 139}
+tvtropes:box office bomb (1032): {0: 2249, 1: 118}
+tvtropes:brick joke (1033): {0: 2225, 1: 142}
+tvtropes:chekhovs skill (1041): {0: 2277, 1: 90}
+tvtropes:cloud cuckoo lander (1042): {0: 2266, 1: 101}
+tvtropes:creator cameo (1045): {0: 2240, 1: 127}
+tvtropes:driven to suicide (1054): {0: 2258, 1: 109}
+tvtropes:even evil has standards (1056): {0: 2255, 1: 112}
+tvtropes:hilarity ensues (1071): {0: 2296, 1: 71}
+tvtropes:idiot ball (1073): {0: 2287, 1: 80}
+tvtropes:karma houdini (1078): {0: 2223, 1: 144}
+tvtropes:mind screw (1085): {0: 2307, 1: 60}
+tvtropes:mythology gag (1089): {0: 2293, 1: 74}
+tvtropes:noodle incident (1092): {0: 2270, 1: 97}
+tvtropes:pet the dog (1096): {0: 2262, 1: 105}
+tvtropes:running gag (1103): {0: 2204, 1: 163}
+tvtropes:smug snake (1107): {0: 2277, 1: 90}
+tvtropes:too dumb to live (1113): {0: 2222, 1: 145}
+average_rating (1123): {2.5: 156, 2.25: 38, 2.0: 31, 3.0: 332, 4.0: 2, 2.625: 44, 3.3125: 1, 2.1666666666666665: 22, 2.5833333333333335: 10, 2.375: 18, 3.4285714285714284: 9, 3.263157894736842: 1, 2.9411764705882355: 1, 3.5384615384615383: 1, 3.066666666666667: 5, 2.230769230769231: 3, 2.875: 41, 3.090909090909091: 9, 3.1818181818181817: 5, 2.5238095238095237: 1, 2.3: 16, 2.526315789473684: 1, 2.7777777777777777: 16, 2.8823529411764706: 1, 3.12: 1, 3.1333333333333333: 6, 3.2142857142857144: 1, 2.7857142857142856: 5, 2.9166666666666665: 5, 3.2857142857142856: 8, 2.4615384615384617: 9, 3.1666666666666665: 31, 3.5: 31, 2.823529411764706: 1, 2.1818181818181817: 6, 2.125: 8, 2.45: 1, 2.7: 27, 2.7083333333333335: 1, 3.1: 6, 3.7777777777777777: 1, 3.75: 3, 3.0555555555555554: 4, 3.3333333333333335: 43, 2.6923076923076925: 7, 2.5625: 4, 2.764705882352941: 3, 3.4444444444444446: 5, 2.3157894736842106: 1, 2.7666666666666666: 1, 2.272727272727273: 4, 2.6206896551724137: 1, 2.4285714285714284: 26, 3.5714285714285716: 3, 2.1176470588235294: 1, 2.7142857142857144: 45, 2.5714285714285716: 39, 3.625: 5, 2.1538461538461537: 3, 2.923076923076923: 6, 2.5555555555555554: 21, 3.2: 42, 2.0833333333333335: 1, 2.7222222222222223: 1, 3.3636363636363638: 5, 2.6470588235294117: 1, 2.6875: 1, 2.857142857142857: 49, 2.727272727272727: 15, 2.3636363636363638: 18, 2.8421052631578947: 1, 3.0952380952380953: 1, 3.1538461538461537: 1, 3.1875: 1, 2.5652173913043477: 1, 2.9: 14, 2.4: 54, 2.2: 31, 2.588235294117647: 2, 3.357142857142857: 1, 2.75: 79, 2.642857142857143: 5, 3.857142857142857: 2, 2.111111111111111: 5, 2.4545454545454546: 26, 2.4166666666666665: 10, 3.230769230769231: 2, 2.3846153846153846: 2, 2.466666666666667: 2, 2.5294117647058822: 3, 3.3684210526315788: 1, 2.85: 1, 2.8125: 1, 3.8333333333333335: 1, 2.9444444444444446: 1, 2.380952380952381: 1, 2.6315789473684212: 1, 2.4705882352941178: 1, 2.533333333333333: 3, 2.6153846153846154: 10, 2.090909090909091: 4, 2.2142857142857144: 1, 3.5454545454545454: 2, 2.888888888888889: 27, 3.3: 7, 2.1: 2, 2.357142857142857: 9, 3.142857142857143: 25, 2.8947368421052633: 1, 2.411764705882353: 1, 2.1333333333333333: 1, 2.6: 85, 2.9375: 1, 2.8461538461538463: 7, 2.9047619047619047: 1, 3.272727272727273: 5, 2.6363636363636362: 10, 2.2777777777777777: 3, 3.111111111111111: 14, 3.375: 9, 3.4166666666666665: 1, 2.9285714285714284: 5, 3.6363636363636362: 3, 3.076923076923077: 5, 3.411764705882353: 1, 3.2941176470588234: 2, 2.142857142857143: 11, 3.0714285714285716: 1, 2.5454545454545454: 23, 3.4545454545454546: 4, 3.727272727272727: 1, 3.0625: 1, 2.6842105263157894: 1, 2.8: 67, 3.6: 6, 3.4: 19, 2.7058823529411766: 1, 3.1904761904761907: 1, 3.235294117647059: 1, 3.3076923076923075: 2, 2.4444444444444446: 24, 3.466666666666667: 1, 3.125: 16, 3.8: 4, 3.1363636363636362: 1, 2.8181818181818183: 13, 2.066666666666667: 1, 2.176470588235294: 2, 2.8636363636363638: 2, 2.84: 1, 3.210526315789474: 1, 2.5384615384615383: 7, 3.2222222222222223: 7, 2.8333333333333335: 50, 3.7142857142857144: 2, 2.2857142857142856: 18, 2.3076923076923075: 5, 2.8666666666666667: 3, 2.4782608695652173: 2, 3.1176470588235294: 1, 2.2222222222222223: 9, 3.473684210526316: 1, 2.5172413793103448: 1, 3.3181818181818183: 1, 3.4761904761904763: 1, 2.909090909090909: 8, 3.4615384615384617: 2, 3.25: 32, 3.769230769230769: 1, 2.933333333333333: 3, 2.4375: 1, 3.0588235294117645: 3, 3.5555555555555554: 2, 2.1875: 2, 3.0833333333333335: 3, 2.769230769230769: 5, 3.6666666666666665: 13, 3.5833333333333335: 1, 2.3125: 2, 2.3333333333333335: 76, 2.6666666666666665: 134}
+Replacing feature 0 (0 out of 198)
+Replacing feature 512 (1 out of 198)
+Replacing feature 2 (2 out of 198)
+Replacing feature 1028 (3 out of 198)
+Replacing feature 5 (4 out of 198)
+Replacing feature 6 (5 out of 198)
+Replacing feature 1 (6 out of 198)
+Replacing feature 8 (7 out of 198)
+Replacing feature 1033 (8 out of 198)
+Replacing feature 10 (9 out of 198)
+Replacing feature 13 (10 out of 198)
+Replacing feature 14 (11 out of 198)
+Replacing feature 15 (12 out of 198)
+Replacing feature 16 (13 out of 198)
+Replacing feature 17 (14 out of 198)
+Replacing feature 1042 (15 out of 198)
+Replacing feature 532 (16 out of 198)
+Replacing feature 1045 (17 out of 198)
+Replacing feature 1113 (18 out of 198)
+Replacing feature 24 (19 out of 198)
+Replacing feature 4 (20 out of 198)
+Replacing feature 26 (21 out of 198)
+Replacing feature 1054 (22 out of 198)
+Replacing feature 1056 (23 out of 198)
+Replacing feature 36 (24 out of 198)
+Replacing feature 518 (25 out of 198)
+Replacing feature 38 (26 out of 198)
+Replacing feature 40 (27 out of 198)
+Replacing feature 41 (28 out of 198)
+Replacing feature 554 (29 out of 198)
+Replacing feature 1031 (30 out of 198)
+Replacing feature 1071 (31 out of 198)
+Replacing feature 1032 (32 out of 198)
+Replacing feature 1078 (33 out of 198)
+Replacing feature 55 (34 out of 198)
+Replacing feature 571 (35 out of 198)
+Replacing feature 60 (36 out of 198)
+Replacing feature 1085 (37 out of 198)
+Replacing feature 1089 (38 out of 198)
+Replacing feature 1092 (39 out of 198)
+Replacing feature 581 (40 out of 198)
+Replacing feature 865 (41 out of 198)
+Replacing feature 1096 (42 out of 198)
+Replacing feature 1103 (43 out of 198)
+Replacing feature 82 (44 out of 198)
+Replacing feature 1107 (45 out of 198)
+Replacing feature 84 (46 out of 198)
+Replacing feature 601 (47 out of 198)
+Replacing feature 602 (48 out of 198)
+Replacing feature 603 (49 out of 198)
+Replacing feature 96 (50 out of 198)
+Replacing feature 1123 (51 out of 198)
+Replacing feature 102 (52 out of 198)
+Replacing feature 1041 (53 out of 198)
+Replacing feature 108 (54 out of 198)
+Replacing feature 18 (55 out of 198)
+Replacing feature 623 (56 out of 198)
+Replacing feature 116 (57 out of 198)
+Replacing feature 631 (58 out of 198)
+Replacing feature 720 (59 out of 198)
+Replacing feature 130 (60 out of 198)
+Replacing feature 644 (61 out of 198)
+Replacing feature 136 (62 out of 198)
+Replacing feature 140 (63 out of 198)
+Replacing feature 141 (64 out of 198)
+Replacing feature 654 (65 out of 198)
+Replacing feature 144 (66 out of 198)
+Replacing feature 146 (67 out of 198)
+Replacing feature 147 (68 out of 198)
+Replacing feature 661 (69 out of 198)
+Replacing feature 663 (70 out of 198)
+Replacing feature 673 (71 out of 198)
+Replacing feature 675 (72 out of 198)
+Replacing feature 164 (73 out of 198)
+Replacing feature 679 (74 out of 198)
+Replacing feature 169 (75 out of 198)
+Replacing feature 683 (76 out of 198)
+Replacing feature 882 (77 out of 198)
+Replacing feature 179 (78 out of 198)
+Replacing feature 542 (79 out of 198)
+Replacing feature 703 (80 out of 198)
+Replacing feature 711 (81 out of 198)
+Replacing feature 714 (82 out of 198)
+Replacing feature 206 (83 out of 198)
+Replacing feature 719 (84 out of 198)
+Replacing feature 208 (85 out of 198)
+Replacing feature 724 (86 out of 198)
+Replacing feature 213 (87 out of 198)
+Replacing feature 218 (88 out of 198)
+Replacing feature 733 (89 out of 198)
+Replacing feature 223 (90 out of 198)
+Replacing feature 225 (91 out of 198)
+Replacing feature 739 (92 out of 198)
+Replacing feature 230 (93 out of 198)
+Replacing feature 743 (94 out of 198)
+Replacing feature 232 (95 out of 198)
+Replacing feature 161 (96 out of 198)
+Replacing feature 746 (97 out of 198)
+Replacing feature 747 (98 out of 198)
+Replacing feature 25 (99 out of 198)
+Replacing feature 251 (100 out of 198)
+Replacing feature 252 (101 out of 198)
+Replacing feature 256 (102 out of 198)
+Replacing feature 260 (103 out of 198)
+Replacing feature 261 (104 out of 198)
+Replacing feature 262 (105 out of 198)
+Replacing feature 266 (106 out of 198)
+Replacing feature 269 (107 out of 198)
+Replacing feature 270 (108 out of 198)
+Replacing feature 742 (109 out of 198)
+Replacing feature 274 (110 out of 198)
+Replacing feature 803 (111 out of 198)
+Replacing feature 292 (112 out of 198)
+Replacing feature 49 (113 out of 198)
+Replacing feature 808 (114 out of 198)
+Replacing feature 391 (115 out of 198)
+Replacing feature 300 (116 out of 198)
+Replacing feature 814 (117 out of 198)
+Replacing feature 817 (118 out of 198)
+Replacing feature 478 (119 out of 198)
+Replacing feature 823 (120 out of 198)
+Replacing feature 314 (121 out of 198)
+Replacing feature 315 (122 out of 198)
+Replacing feature 829 (123 out of 198)
+Replacing feature 325 (124 out of 198)
+Replacing feature 840 (125 out of 198)
+Replacing feature 845 (126 out of 198)
+Replacing feature 846 (127 out of 198)
+Replacing feature 336 (128 out of 198)
+Replacing feature 851 (129 out of 198)
+Replacing feature 342 (130 out of 198)
+Replacing feature 347 (131 out of 198)
+Replacing feature 348 (132 out of 198)
+Replacing feature 350 (133 out of 198)
+Replacing feature 656 (134 out of 198)
+Replacing feature 827 (135 out of 198)
+Replacing feature 868 (136 out of 198)
+Replacing feature 357 (137 out of 198)
+Replacing feature 359 (138 out of 198)
+Replacing feature 364 (139 out of 198)
+Replacing feature 877 (140 out of 198)
+Replacing feature 880 (141 out of 198)
+Replacing feature 369 (142 out of 198)
+Replacing feature 370 (143 out of 198)
+Replacing feature 374 (144 out of 198)
+Replacing feature 375 (145 out of 198)
+Replacing feature 378 (146 out of 198)
+Replacing feature 381 (147 out of 198)
+Replacing feature 384 (148 out of 198)
+Replacing feature 389 (149 out of 198)
+Replacing feature 902 (150 out of 198)
+Replacing feature 903 (151 out of 198)
+Replacing feature 906 (152 out of 198)
+Replacing feature 395 (153 out of 198)
+Replacing feature 908 (154 out of 198)
+Replacing feature 911 (155 out of 198)
+Replacing feature 401 (156 out of 198)
+Replacing feature 914 (157 out of 198)
+Replacing feature 921 (158 out of 198)
+Replacing feature 413 (159 out of 198)
+Replacing feature 414 (160 out of 198)
+Replacing feature 415 (161 out of 198)
+Replacing feature 419 (162 out of 198)
+Replacing feature 932 (163 out of 198)
+Replacing feature 423 (164 out of 198)
+Replacing feature 425 (165 out of 198)
+Replacing feature 428 (166 out of 198)
+Replacing feature 925 (167 out of 198)
+Replacing feature 432 (168 out of 198)
+Replacing feature 433 (169 out of 198)
+Replacing feature 594 (170 out of 198)
+Replacing feature 577 (171 out of 198)
+Replacing feature 951 (172 out of 198)
+Replacing feature 442 (173 out of 198)
+Replacing feature 443 (174 out of 198)
+Replacing feature 445 (175 out of 198)
+Replacing feature 446 (176 out of 198)
+Replacing feature 449 (177 out of 198)
+Replacing feature 963 (178 out of 198)
+Replacing feature 965 (179 out of 198)
+Replacing feature 967 (180 out of 198)
+Replacing feature 972 (181 out of 198)
+Replacing feature 974 (182 out of 198)
+Replacing feature 464 (183 out of 198)
+Replacing feature 467 (184 out of 198)
+Replacing feature 468 (185 out of 198)
+Replacing feature 470 (186 out of 198)
+Replacing feature 591 (187 out of 198)
+Replacing feature 988 (188 out of 198)
+Replacing feature 990 (189 out of 198)
+Replacing feature 480 (190 out of 198)
+Replacing feature 1073 (191 out of 198)
+Replacing feature 488 (192 out of 198)
+Replacing feature 1005 (193 out of 198)
+Replacing feature 1010 (194 out of 198)
+Replacing feature 499 (195 out of 198)
+Replacing feature 1012 (196 out of 198)
+Replacing feature 1019 (197 out of 198)
+Feature influences:
+imdb_keywords:murder (603): -0.411870404344
+imdb_keywords:blood (130): -0.380817700733
+imdb_keywords:based-on-novel (96): 0.334005634123
+movielens_genre:Drama (8): 0.237244465857
+average_rating (1123): -0.209921910789
+imdb_keywords:husband-wife-relationship (478): -0.152857369238
+movielens_genre:Comedy (5): 0.11966558161
+imdb_keywords:cult-film (252): -0.0925231109559
+movielens_genre:Thriller (16): 0.0775956452737
+imdb_keywords:machine-gun (554): 0.0171048501375
+year (0): -0.0156867134158
+imdb_keywords:violence (972): 0.0139998135723
+imdb_keywords:dead-body (261): 0.0109046497811
+imdb_keywords:gore (423): 0.0101732577632
+movielens_genre:Action (1): 0.00948414678351
+imdb_keywords:coffin (213): 0.00940184576133
+imdb_keywords:knife (518): 0.00885680305891
+imdb_keywords:gun (433): -0.00843717547162
+imdb_keywords:suicide-attempt (868): -0.00750098436523
+imdb_keywords:remake (739): 0.0071468610318
+imdb_keywords:panties (654): 0.00658672499921
+imdb_keywords:horse (468): 0.00654822509999
+imdb_keywords:swimming-pool (882): 0.00652877509239
+imdb_keywords:band (82): -0.00638153096892
+imdb_keywords:corruption (232): 0.00596096649677
+imdb_keywords:zombie (1010): 0.00577298262765
+imdb_keywords:father-son-relationship (357): -0.00571618548295
+tvtropes:pet the dog (1096): 0.00549418972487
+imdb_keywords:drink (300): 0.00537238497307
+imdb_keywords:food (391): -0.00531261946453
+imdb_keywords:title-spoken-by-character (921): 0.00525167634858
+imdb_keywords:girl (419): -0.00521214327837
+imdb_keywords:wheelchair (990): 0.00510922167533
+imdb_keywords:police-detective (683): -0.00508084543025
+tvtropes:box office bomb (1032): -0.0050003706632
+imdb_keywords:hanging (445): 0.00459557118001
+imdb_keywords:kidnapping (512): -0.00443098041266
+imdb_keywords:fight (370): 0.00436255815937
+imdb_keywords:pubic-hair (711): 0.00427326090876
+imdb_keywords:shot-in-the-stomach (814): -0.00426285656213
+imdb_keywords:doctor (292): 0.00425543038671
+imdb_keywords:torch (925): 0.00425401037821
+imdb_keywords:mistaken-identity (591): 0.00425397351969
+imdb_keywords:hand-to-hand-combat (442): -0.00424096768096
+imdb_keywords:family-relationships (350): 0.0042166030591
+imdb_keywords:escape (325): -0.0041789384601
+imdb_keywords:railway-station (724): -0.00416248346493
+imdb_keywords:greed (428): -0.00401696905836
+imdb_keywords:hope (467): 0.00399767663907
+imdb_keywords:general (415): 0.0039266418937
+imdb_keywords:illness (480): -0.00391588951309
+imdb_keywords:female-protagonist (364): 0.00387298140215
+imdb_keywords:slapstick-comedy (827): -0.00383457518359
+imdb_keywords:wedding (988): -0.00373652897537
+imdb_keywords:friendship (401): 0.00370868848163
+imdb_keywords:pilot (673): 0.00367279205655
+imdb_keywords:massacre (577): -0.00363684684053
+imdb_keywords:sheriff (803): 0.0036195730696
+imdb_keywords:homosexual (464): -0.00351402615356
+imdb_keywords:threat (914): 0.00347524522945
+imdb_keywords:fishing (381): -0.00346231485122
+imdb_keywords:hat (446): -0.00343961174374
+imdb_keywords:stalking (851): 0.00341805097807
+imdb_keywords:memory (581): -0.00339529538167
+imdb_keywords:bridge (147): 0.00335078364904
+imdb_keywords:nipples-visible-through-clothing (623): -0.00327103995226
+imdb_keywords:spy (845): -0.00312187082231
+imdb_keywords:camera-shot-of-feet (164): 0.00311161906908
+imdb_keywords:bikini (116): -0.00310826302941
+imdb_keywords:revolver (746): -0.00308802505515
+imdb_keywords:telephone-call (903): -0.00304769286601
+tvtropes:karma houdini (1078): -0.00304339037642
+imdb_keywords:marijuana (571): 0.00302385051092
+tvtropes:arch enemy (1019): -0.00298046001196
+imdb_keywords:face-slap (342): 0.00295486353152
+imdb_keywords:cult-director (251): 0.00294267550765
+imdb_keywords:obsession (631): -0.00292668798482
+movielens_genre:War (17): 0.00291384939328
+imdb_keywords:handcuffs (443): -0.00288363581166
+imdb_keywords:single-parent (823): -0.00286980367621
+imdb_keywords:lifting-someone-into-the-air (532): 0.00278291545958
+movielens_genre:Children (4): -0.00275033786522
+imdb_keywords:fear (359): -0.00269224633451
+tvtropes:cloud cuckoo lander (1042): -0.00269040851201
+imdb_keywords:first-part (378): -0.00267844239467
+imdb_keywords:pistol (675): -0.00267334662639
+imdb_keywords:corpse (230): 0.00266652595327
+imdb_keywords:eavesdropping (314): -0.00263124938932
+imdb_keywords:boyfriend-girlfriend-relationship (140): -0.00262552804302
+imdb_keywords:falling-from-height (347): 0.00262289745125
+imdb_keywords:mountain (602): -0.0026139419504
+imdb_keywords:bound-and-gagged (136): -0.00253123501304
+imdb_keywords:breasts (146): -0.00245479429352
+imdb_keywords:sleeping (829): -0.0024108319452
+tvtropes:driven to suicide (1054): 0.00239651704732
+imdb_keywords:horse-riding (470): 0.00239191875583
+tvtropes:idiot ball (1073): -0.00238866773227
+imdb_keywords:africa (40): 0.00234141667627
+imdb_keywords:1950s (24): -0.00227831017172
+tvtropes:too dumb to live (1113): 0.00227151959269
+tvtropes:smug snake (1107): 0.00227065167268
+imdb_keywords:oral-sex (644): -0.00222412021412
+imdb_keywords:voice-over-narration (974): -0.00220876652731
+imdb_keywords:breaking-and-entering (144): 0.0021651030116
+imdb_keywords:japan (499): -0.00214307210474
+imdb_keywords:cafe (161): -0.00213907039745
+tvtropes:noodle incident (1092): 0.00213593474983
+imdb_keywords:theatre-audience (911): 0.00213135186797
+imdb_keywords:grandmother-grandson-relationship (425): 0.00212825024942
+imdb_keywords:forgiveness (395): -0.00212462586415
+imdb_keywords:fired-from-the-job (375): -0.00206293661824
+imdb_keywords:gay-slur (414): 0.00196939983864
+imdb_keywords:vandalism (967): -0.00196713911649
+imdb_keywords:captain (169): -0.00195294196051
+imdb_keywords:flowers (389): -0.00194697167178
+imdb_keywords:bra (141): -0.00190317361151
+imdb_keywords:shot-in-the-back (808): -0.00182904378134
+imdb_keywords:class-differences (208): -0.00182665139567
+imdb_keywords:rifle (747): 0.00178905003431
+tvtropes:mind screw (1085): -0.00176841696032
+imdb_keywords:exploitation (336): 0.00174391071835
+imdb_keywords:parade (656): 0.00174053769557
+imdb_keywords:death-of-father (266): -0.00171193699019
+imdb_keywords:uzi (963): 0.00167089857165
+imdb_keywords:suburb (865): -0.00166034618646
+imdb_keywords:vampire (965): -0.0016467295813
+tvtropes:mythology gag (1089): -0.00164034874264
+imdb_keywords:terrorist (908): 0.00161560512707
+imdb_keywords:guitarist (432): -0.00157280195875
+imdb_keywords:flashback (384): -0.0015238030637
+imdb_keywords:falling-in-love (348): 0.00149613071316
+imdb_keywords:restaurant (742): 0.00142626820541
+imdb_keywords:redhead (733): -0.00142450391618
+imdb_keywords:fictional-war (369): 0.00139229276582
+imdb_keywords:pay-phone (663): 0.00136983673841
+tvtropes:running gag (1103): -0.00135725127711
+imdb_keywords:dead-woman (262): 0.00132878985545
+imdb_keywords:gay-kiss (413): -0.00131907706862
+imdb_keywords:condom (223): 0.00125479881268
+imdb_keywords:racial-slur (720): -0.00121385870267
+tvtropes:even evil has standards (1056): 0.00118953177439
+tvtropes:hilarity ensues (1071): 0.00118333743478
+imdb_keywords:wristwatch (1005): -0.00113495535556
+imdb_keywords:death-of-mother (269): -0.00106841910443
+imdb_keywords:dating (260): -0.0010489848916
+imdb_keywords:punched-in-the-stomach (714): -0.00104127746199
+imdb_keywords:uncle-niece-relationship (951): -0.00102032276373
+imdb_keywords:ambulance (49): 0.00099038629581
+imdb_keywords:prologue (703): -0.000982526567608
+tvtropes:creator cameo (1045): -0.000962979636731
+imdb_keywords:beating (108): 0.000955094638361
+imdb_keywords:song (840): -0.000938284648409
+imdb_keywords:heart-attack (449): 0.000924307241313
+movielens_genre:Mystery (13): 0.00092011932921
+imdb_keywords:stabbed-in-the-back (846): -0.000884089090284
+imdb_keywords:long-take (542): -0.000846354716568
+imdb_keywords:police (679): 0.000841805402571
+imdb_keywords:injection (488): -0.000828205413763
+imdb_keywords:adoption (38): -0.000792138048099
+imdb_keywords:animal-attack (55): 0.000741680090828
+imdb_keywords:telephone (902): -0.000717833251025
+imdb_keywords:combat (218): 0.00070926983917
+imdb_keywords:fire (374): 0.000705648128847
+imdb_keywords:survival (877): 0.000699232202797
+tvtropes:bittersweet ending (1028): -0.000683476565304
+imdb_keywords:terminal-illness (906): 0.000681528185564
+imdb_keywords:city (206): 0.000674591899556
+imdb_keywords:eccentric (315): 0.000671424222064
+tvtropes:chekhovs skill (1041): 0.000668977464761
+imdb_keywords:conspiracy (225): 0.000662512720783
+movielens_genre:Adventure (2): -0.00065579181657
+imdb_keywords:showdown (817): -0.000649441892606
+imdb_keywords:train-station (932): 0.000628725967916
+tvtropes:book ends (1031): -0.000623396482344
+imdb_keywords:catholic-church (179): -0.000622754469892
+imdb_keywords:swat-team (880): -0.000610742636771
+imdb_keywords:motorcycle (601): 0.000556164707974
+imdb_keywords:party (661): 0.000553656360219
+movielens_genre:Western (18): -0.000521452233085
+imdb_keywords:money (594): 0.000516274172152
+imdb_keywords:deception (274): -0.000454389100661
+imdb_keywords:revenge (743): 0.00045157471753
+imdb_keywords:apology (60): 0.000424370393841
+imdb_keywords:bank-robbery (84): -0.000415912550891
+imdb_keywords:dancer (256): -0.000401712058428
+tvtropes:brick joke (1033): -0.000386402952751
+imdb_producer: (1012): -0.000341857627347
+imdb_keywords:race-relations (719): 0.00032649989901
+imdb_keywords:1970s (26): -0.00031439695597
+imdb_keywords:bathroom (102): -0.000313094494595
+imdb_keywords:death-of-son (270): 0.000299335306689
+imdb_keywords:african-american (41): 0.000243117125295
+imdb_keywords:actor-shares-first-name-with-character (36): 0.000152631933094
+movielens_genre:Romance (14): 0.000151480961611
+movielens_genre:Crime (6): -0.000133329590867
+movielens_genre:Sci-Fi (15): 0.000102563294923
+movielens_genre:Film-Noir (10): 8.18832972204e-05
+imdb_keywords:1960s (25): 6.78090088268e-05
