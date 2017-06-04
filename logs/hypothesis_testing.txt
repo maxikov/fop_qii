@@ -1,0 +1,34 @@
+
+
+Testing the explanation correctness hypothesis
+Loading control group
+16 subjects found in control group
+[41mLoading average correctness from icdm_experiments/hypothesis_testing/control/logs/explanation_correctness_new_synth_control_subj_16.txt failed, trying to load individually[0m
+[41m19 values found, averaging[0m
+[41mLoading average correctness from icdm_experiments/hypothesis_testing/control/logs/explanation_correctness_new_synth_control_subj_3.txt failed, trying to load individually[0m
+[41m9 values found, averaging[0m
+Loading experimental group
+20 subjects found in experimental group
+Experimental mean (0.223424366402) > control mean (0.000490669328185), p=8.10096936057e-13, effect size 5.41694090505
+
+
+
+
+Testing the original recommender error hypothesis
+Loading control group
+16 subjects found in control group
+Loading experimental group
+20 subjects found in experimental group
+Experimental mean (0.0133660504639) < control mean (0.022520231581), p=7.49028300754e-23, effect size 12.5388241741
+
+
+
+
+Testing the shadow model faithfulness hypothesis
+Loading control group
+16 subjects found in control group
+Loading experimental group
+20 subjects found in experimental group
+Experimental mean (3.62732389626) > control mean (1.33304733919), p=2.1741256728e-20, effect size 13.7556286713
+
+

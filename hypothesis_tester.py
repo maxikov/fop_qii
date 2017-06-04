@@ -7,6 +7,43 @@ from colorama import Back, Style
 import numpy
 import scipy.stats
 
+def get_recommender_error(fname):
+    with open(fname, "r") as f:
+        for line in f:
+            if "Original recommender relative to ground truth" in line:
+                merr = line.split("mean absolute error: ")[1].split(", ")[0]
+                merr = float(merr)
+                break
+    return merr
+
+def get_shadow_faith(fname):
+    with open(fname, "r") as f:
+        for line in f:
+            if "Shadow model is " in line:
+                merr = line.split("Shadow model is ")[1].split(" ")[0]
+                merr = float(merr)
+                break
+    return merr
+
+def get_group_values(data_root, control_or_experimental, rec_or_shadow):
+    path_suffix = os.path.join("hypothesis_testing",
+                                control_or_experimental, "logs")
+    fname_mask = "explanation_correctness_new_synth_{}_subj_{}.txt"\
+                 .format(control_or_experimental, "{}")
+    all_files = glob.glob(os.path.join(data_root, path_suffix,
+                          fname_mask.format("*")))
+    print "{} subjects found in {} group".format(len(all_files),
+                                                 control_or_experimental)
+    res = []
+    for fname in all_files:
+        if rec_or_shadow == "rec":
+            cur = get_recommender_error(fname)
+        else:
+            cur = get_shadow_faith(fname)
+        res.append(cur)
+    return res
+
+
 def get_average_correctness(fname):
     with open(fname, "r") as f:
         for line in f:
@@ -88,6 +125,30 @@ def explanation_correctness_test(data_root):
     hypothesis_test(control, experimental)
     print "\n"
 
+def rec_err_test(data_root):
+    print "\n"
+    print "Testing the original recommender error hypothesis"
+    print "Loading control group"
+    control = get_group_values(data_root, "control",
+            "rec")
+    print "Loading experimental group"
+    experimental = get_group_values(data_root, "experimental",
+            "rec")
+    hypothesis_test(control, experimental)
+    print "\n"
+
+def shadow_faith_test(data_root):
+    print "\n"
+    print "Testing the shadow model faithfulness hypothesis"
+    print "Loading control group"
+    control = get_group_values(data_root, "control",
+            "shadow")
+    print "Loading experimental group"
+    experimental = get_group_values(data_root, "experimental",
+            "shadow")
+    hypothesis_test(control, experimental)
+    print "\n"
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--data-root", action="store", type=str, help=\
@@ -95,7 +156,8 @@ def main():
     args = parser.parse_args()
 
     explanation_correctness_test(args.data_root)
-
+    rec_err_test(args.data_root)
+    shadow_faith_test(args.data_root)
 
 if __name__ == "__main__":
     main()
