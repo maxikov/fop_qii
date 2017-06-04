@@ -1,0 +1,560 @@
+Loading results dict
+Original recommender relative to ground truth on training set mean absolute error: 0.024628522416, RMSE: 0.0313342322786
+Shadow model relative to the baseline recommender on test set MAE: 0.859213420608, RMSE: 1.0134582373
+Randomized model relative to the baseline recommender on test set MAE: 1.16664984779, RMSE: 1.43290194679
+Shadow model is 1.35781148177 times better than random on the test set
+Loading movies
+Loading ALS model
+Loading decision trees
+260 features are used: 0: year, 1024: imdb_keywords:underwater-scene, 2: movielens_genre:Adventure, 3: movielens_genre:Animation, 5: movielens_genre:Comedy, 1030: imdb_keywords:unrequited-love, 1032: imdb_keywords:urban-setting, 9: movielens_genre:Fantasy, 11: movielens_genre:Horror, 12: movielens_genre:Musical, 525: imdb_keywords:henchman, 14: movielens_genre:Romance, 527: imdb_keywords:heroin, 16: movielens_genre:Thriller, 17: movielens_genre:War, 19: movielens_tags:70mm, 20: movielens_tags:BD-R, 21: movielens_tags:BD-Video, 1046: imdb_keywords:vomiting, 345: imdb_keywords:deception, 24: movielens_tags:Bibliothek, 538: imdb_keywords:hope, 28: movielens_tags:ClearPlay, 542: imdb_keywords:hospital, 1055: imdb_keywords:watching-tv, 32: movielens_tags:DVD-Video, 546: imdb_keywords:house, 1059: imdb_keywords:wedding, 6: movielens_genre:Crime, 38: movielens_tags:R, 1063: imdb_keywords:whiskey, 43: movielens_tags:adapted from:book, 1068: imdb_keywords:wine, 558: imdb_keywords:inheritance, 559: imdb_keywords:injection, 561: imdb_keywords:interracial-relationship, 1074: imdb_keywords:world-war-two, 51: movielens_tags:disturbing, 1033: imdb_keywords:urination, 1080: imdb_keywords:written-by-director, 569: imdb_keywords:jail-cell, 59: movielens_tags:imdb top 250, 926: imdb_keywords:storytelling, 61: movielens_tags:library, 65: movielens_tags:murder, 1090: tvtropes:arch enemy, 579: imdb_keywords:justice, 68: movielens_tags:nudity (full frontal), 69: movielens_tags:nudity (topless), 583: imdb_keywords:kidnapping, 524: imdb_keywords:helicopter, 74: movielens_tags:quirky, 587: imdb_keywords:kissing-while-having-sex, 590: imdb_keywords:knocked-out, 13: movielens_genre:Mystery, 82: movielens_tags:soundtrack, 1110: tvtropes:chekhovs gun, 1111: tvtropes:chekhovs gunman, 1112: tvtropes:chekhovs skill, 89: movielens_tags:violence, 91: imdb_keywords:1910s, 604: imdb_keywords:lightning, 97: imdb_keywords:1970s, 101: imdb_keywords:2000s, 600: imdb_keywords:liar, 617: imdb_keywords:loss-of-friend, 1132: tvtropes:faux affably evil, 1133: tvtropes:foreshadowing, 1134: tvtropes:genre savvy, 624: imdb_keywords:lust, 113: imdb_keywords:airplane, 114: imdb_keywords:airport, 1043: imdb_keywords:violence, 1141: tvtropes:hey its that guy, 118: imdb_keywords:alcoholism, 631: imdb_keywords:male-frontal-nudity, 120: imdb_keywords:ambulance, 633: imdb_keywords:male-nudity, 1147: tvtropes:jerk with a heart of gold, 125: imdb_keywords:anger, 1151: tvtropes:lampshade hanging, 129: imdb_keywords:anti-hero, 642: imdb_keywords:marijuana, 131: imdb_keywords:apology, 1156: tvtropes:mind screw, 133: imdb_keywords:archive-footage, 648: imdb_keywords:massacre, 650: imdb_keywords:mayor, 279: imdb_keywords:class-differences, 140: imdb_keywords:assassin, 142: imdb_keywords:assassination-attempt, 658: imdb_keywords:mini-skirt, 148: imdb_keywords:automobile, 149: imdb_keywords:axe, 1175: tvtropes:scenery porn, 664: imdb_keywords:mixed-martial-arts, 1179: tvtropes:soundtrack dissonance, 26: movielens_tags:CLV, 1182: tvtropes:tempting fate, 160: imdb_keywords:bare-chested-male, 1185: tvtropes:took a level in badass, 164: imdb_keywords:baseball-bat, 710: imdb_keywords:on-the-run, 1190: tvtropes:wham line, 1137: tvtropes:groin attack, 168: imdb_keywords:based-on-play, 1194: average_rating, 683: imdb_keywords:neighbor, 685: imdb_keywords:new-york, 688: imdb_keywords:newspaper, 178: imdb_keywords:beaten-to-death, 179: imdb_keywords:beating, 182: imdb_keywords:beer, 183: imdb_keywords:best-friend, 696: imdb_keywords:nonlinear-timeline, 188: imdb_keywords:binoculars, 189: imdb_keywords:bird, 703: imdb_keywords:ocean, 193: imdb_keywords:bisexual, 198: imdb_keywords:blindness, 200: imdb_keywords:blonde, 713: imdb_keywords:one-word-title, 518: imdb_keywords:hate, 210: imdb_keywords:boy, 547: imdb_keywords:humiliation, 213: imdb_keywords:brawl, 214: imdb_keywords:break-up, 216: imdb_keywords:breaking-the-fourth-wall, 217: imdb_keywords:breasts, 219: imdb_keywords:british, 732: imdb_keywords:party, 222: imdb_keywords:brother-brother-relationship, 37: movielens_tags:Nudity (Topless), 736: imdb_keywords:person-on-fire, 123: imdb_keywords:american-abroad, 740: imdb_keywords:pianist, 323: imdb_keywords:cult-film, 749: imdb_keywords:poison, 239: imdb_keywords:cannon, 752: imdb_keywords:police-car, 753: imdb_keywords:police-chase, 243: imdb_keywords:car-chase, 244: imdb_keywords:car-crash, 247: imdb_keywords:castle, 622: imdb_keywords:low-budget-film, 766: imdb_keywords:pregnancy, 255: imdb_keywords:character's-point-of-view-camera-shot, 257: imdb_keywords:character-repeating-someone-else's-dialogue, 770: imdb_keywords:prison, 982: imdb_keywords:theatre-audience, 774: imdb_keywords:prologue, 775: imdb_keywords:promise, 556: imdb_keywords:independent-film, 266: imdb_keywords:child-in-peril, 813: imdb_keywords:restaurant, 272: imdb_keywords:christmas, 277: imdb_keywords:city, 791: imdb_keywords:racial-slur, 792: imdb_keywords:racism, 281: imdb_keywords:cleavage, 288: imdb_keywords:color-in-title, 804: imdb_keywords:redhead, 220: imdb_keywords:broken-leg, 903: imdb_keywords:snake, 812: imdb_keywords:rescue, 301: imdb_keywords:corpse, 817: imdb_keywords:revolver, 734: imdb_keywords:pay-phone, 310: imdb_keywords:cow, 317: imdb_keywords:cross-dressing, 821: imdb_keywords:ritual, 321: imdb_keywords:crying, 322: imdb_keywords:cult-director, 851: imdb_keywords:search, 325: imdb_keywords:cynicism, 326: imdb_keywords:dance, 839: imdb_keywords:san-francisco-california, 841: imdb_keywords:scandal, 330: imdb_keywords:darkness, 843: imdb_keywords:scar, 334: imdb_keywords:death, 847: imdb_keywords:scientist, 848: imdb_keywords:scream, 337: imdb_keywords:death-of-father, 534: imdb_keywords:home-invasion, 343: imdb_keywords:debt, 856: imdb_keywords:security-camera, 857: imdb_keywords:security-guard, 346: imdb_keywords:demon, 864: imdb_keywords:serial-killer, 627: imdb_keywords:madness, 870: imdb_keywords:sex-in-bed, 363: imdb_keywords:doctor, 365: imdb_keywords:doll, 879: imdb_keywords:shot-in-the-back, 881: imdb_keywords:shot-in-the-forehead, 882: imdb_keywords:shot-in-the-head, 372: imdb_keywords:drinking, 888: imdb_keywords:showdown, 46: movielens_tags:boring, 890: imdb_keywords:silencer, 892: imdb_keywords:singing, 490: imdb_keywords:girl, 895: imdb_keywords:sister-sister-relationship, 1056: imdb_keywords:water, 391: imdb_keywords:engagement, 392: imdb_keywords:england, 906: imdb_keywords:snow, 907: imdb_keywords:soccer, 914: imdb_keywords:split-screen, 915: imdb_keywords:spoof, 406: imdb_keywords:exploding-car, 920: imdb_keywords:stabbing, 921: imdb_keywords:stage, 410: imdb_keywords:eyeglasses, 922: imdb_keywords:stalking, 849: imdb_keywords:screaming, 415: imdb_keywords:fainting, 1173: tvtropes:reveal, 419: imdb_keywords:falling-in-love, 421: imdb_keywords:family-relationships, 241: imdb_keywords:car, 937: imdb_keywords:subway, 427: imdb_keywords:father-daughter-relationship, 413: imdb_keywords:face-slap, 946: imdb_keywords:surrealism, 435: imdb_keywords:female-protagonist, 948: imdb_keywords:survival, 437: imdb_keywords:female-rear-nudity, 953: imdb_keywords:swimming-pool, 954: imdb_keywords:switchblade, 446: imdb_keywords:fired-from-the-job, 441: imdb_keywords:fight, 456: imdb_keywords:flashlight, 112: imdb_keywords:african-american, 977: imdb_keywords:terminal-illness, 468: imdb_keywords:france, 469: imdb_keywords:freeze-frame, 470: imdb_keywords:french, 474: imdb_keywords:funeral, 591: imdb_keywords:kung-fu, 476: imdb_keywords:gambling, 800: imdb_keywords:reading, 480: imdb_keywords:garden, 336: imdb_keywords:death-of-child, 482: imdb_keywords:gay, 483: imdb_keywords:gay-interest, 996: imdb_keywords:torch, 999: imdb_keywords:tough-guy, 488: imdb_keywords:ghost, 1002: imdb_keywords:train, 935: imdb_keywords:subtitled-scene, 1004: imdb_keywords:training, 253: imdb_keywords:cemetery, 339: imdb_keywords:death-of-husband, 254: imdb_keywords:champagne, 1015: imdb_keywords:twenty-something, 504: imdb_keywords:gun, 767: imdb_keywords:prejudice, 170: imdb_keywords:basement
+Loading indicators
+Building indicator distributions
+Loading user profiles
+Processing user 669, movie 8591 (Philadelphia Experiment, The (1984))
+Original predicted rating: 2.0607470748
+User profile: {'neg_name': 'imdb_keywords:storytelling', 'neg': 926, 'profile_id': 3, 'pos_name': 'imdb_keywords:reverse-footage', 'pos': 815}
+Non-zero qiis:
+average_rating (1194): 0.330156937514
+imdb_keywords:scientist (847): -0.248344421163
+imdb_keywords:police-chase (753): -0.102882619257
+imdb_keywords:world-war-two (1074): -0.0399297288285
+imdb_keywords:doctor (363): -0.0338821474349
+imdb_keywords:basement (170): -0.0320757801363
+imdb_keywords:independent-film (556): -0.0301895648446
+imdb_keywords:party (732): 0.0223343972568
+imdb_keywords:water (1056): 0.0141552325089
+movielens_tags:Nudity (Topless) (37): -0.0139158084175
+imdb_keywords:gambling (476): 0.0122051973388
+year (0): -0.00787275797359
+movielens_tags:library (61): 0.00614369489333
+imdb_keywords:rescue (812): -0.00528768885907
+tvtropes:scenery porn (1175): 0.00466506541953
+imdb_keywords:bird (189): 0.00343090573048
+imdb_keywords:boy (210): 0.00331380258711
+imdb_keywords:newspaper (688): 0.00306315199449
+imdb_keywords:split-screen (914): -0.00244604175182
+tvtropes:hey its that guy (1141): 0.00235309309192
+imdb_keywords:2000s (101): -7.0408883099e-05
+Correctness score: 0.0
+Processing user 377, movie 90933 (Deep Blue Sea, The (2011))
+Original predicted rating: 2.15307835524
+User profile: {'neg_name': 'imdb_keywords:storytelling', 'neg': 926, 'profile_id': 3, 'pos_name': 'imdb_keywords:reverse-footage', 'pos': 815}
+Non-zero qiis:
+average_rating (1194): -0.143043267109
+imdb_keywords:mayor (650): 0.10899799253
+imdb_keywords:vomiting (1046): 0.0598748806967
+tvtropes:arch enemy (1090): 0.0336180584741
+movielens_genre:Mystery (13): -0.0311044567795
+tvtropes:reveal (1173): -0.019187426735
+tvtropes:faux affably evil (1132): -0.0158938135552
+imdb_keywords:kung-fu (591): 0.0128886230648
+imdb_keywords:demon (346): -0.0121295209097
+imdb_keywords:best-friend (183): 0.0107347791315
+imdb_keywords:ritual (821): -0.00984165676832
+movielens_tags:nudity (full frontal) (68): -0.00940242005202
+imdb_keywords:serial-killer (864): 0.00880017508367
+movielens_genre:War (17): 0.00854764907363
+imdb_keywords:train (1002): 0.00709110537955
+imdb_keywords:eyeglasses (410): -0.00677300380858
+imdb_keywords:beer (182): 0.00495967225424
+imdb_keywords:urban-setting (1032): 0.00294436480046
+imdb_keywords:exploding-car (406): -0.00262385459622
+imdb_keywords:soccer (907): 0.0011550906139
+imdb_keywords:doctor (363): 0.0011176657191
+imdb_keywords:color-in-title (288): 0.00102122028913
+imdb_keywords:redhead (804): 0.000583267358122
+imdb_keywords:death-of-husband (339): 0.000487197457927
+imdb_keywords:fainting (415): 0.000144086548691
+Correctness score: 0.0
+Processing user 148, movie 5605 (Ratcatcher (1999))
+Original predicted rating: 2.98071744841
+User profile: {'neg_name': 'imdb_keywords:switchblade', 'neg': 954, 'profile_id': 5, 'pos_name': 'imdb_keywords:demonstration', 'pos': 347}
+Non-zero qiis:
+average_rating (1194): 0.18694399101
+imdb_keywords:water (1056): -0.152539461194
+imdb_keywords:independent-film (556): -0.110468688137
+movielens_tags:Nudity (Topless) (37): -0.0739632603716
+imdb_keywords:breaking-the-fourth-wall (216): 0.0619989793271
+imdb_keywords:fired-from-the-job (446): -0.060103017747
+imdb_keywords:underwater-scene (1024): 0.0446872336902
+imdb_keywords:african-american (112): -0.0403070454312
+imdb_keywords:marijuana (642): 0.0349006346848
+imdb_keywords:gay (482): -0.0291576072243
+imdb_keywords:scandal (841): -0.027252003376
+tvtropes:mind screw (1156): -0.0247717588041
+imdb_keywords:boy (210): 0.0226321753067
+imdb_keywords:beer (182): -0.0214293329013
+imdb_keywords:gambling (476): 0.0206596335787
+imdb_keywords:death (334): 0.019045466485
+movielens_tags:soundtrack (82): -0.0166707893146
+imdb_keywords:scientist (847): 0.0165504790402
+imdb_keywords:doll (365): -0.0133505635077
+imdb_keywords:home-invasion (534): 0.00998280659471
+tvtropes:genre savvy (1134): 0.00652036468895
+imdb_keywords:house (546): 0.00623806575381
+movielens_tags:BD-Video (21): -0.00435780206969
+imdb_keywords:split-screen (914): -0.00404171508195
+imdb_keywords:newspaper (688): 0.00253069834258
+imdb_keywords:doctor (363): -0.000412877180245
+imdb_keywords:exploding-car (406): -0.000193331092288
+imdb_keywords:brother-brother-relationship (222): 0.000124561877661
+Correctness score: 0.0
+Processing user 582, movie 56848 (Ricochet (1991))
+Original predicted rating: 3.48789413588
+User profile: {'neg_name': 'imdb_keywords:new-york', 'neg': 685, 'profile_id': 8, 'pos_name': 'imdb_keywords:gay-interest', 'pos': 483}
+Non-zero qiis:
+average_rating (1194): 0.403252404388
+imdb_keywords:scandal (841): -0.219714203922
+imdb_keywords:survival (948): -0.103662244808
+imdb_keywords:neighbor (683): -0.0781959346819
+imdb_keywords:scientist (847): 0.0402592641622
+imdb_keywords:castle (247): 0.0335021602507
+tvtropes:genre savvy (1134): 0.031059182835
+imdb_keywords:marijuana (642): -0.0246081255196
+imdb_keywords:jail-cell (569): -0.019493414506
+imdb_keywords:knocked-out (590): -0.017839445645
+imdb_keywords:blindness (198): -0.0172868945428
+imdb_keywords:rescue (812): -0.016669909815
+imdb_keywords:brother-brother-relationship (222): 0.0153342821863
+imdb_keywords:doctor (363): -0.0127068877513
+imdb_keywords:interracial-relationship (561): -0.0111483452977
+tvtropes:scenery porn (1175): 0.0104396185955
+imdb_keywords:racial-slur (791): 0.0079181863167
+movielens_tags:Nudity (Topless) (37): -0.0077852998437
+tvtropes:reveal (1173): -0.00742936670223
+imdb_keywords:independent-film (556): 0.00606645243764
+imdb_keywords:1970s (97): 0.00521176553946
+imdb_keywords:boy (210): -0.00474958218173
+imdb_keywords:british (219): 0.00375754029852
+tvtropes:hey its that guy (1141): 0.00294694947825
+movielens_genre:Animation (3): 0.000625106708753
+movielens_tags:library (61): -0.000422613689926
+imdb_keywords:underwater-scene (1024): 2.67542321904e-05
+Correctness score: 0.0
+Processing user 9, movie 82589 (Mother and Child (2009))
+Original predicted rating: 3.35077957612
+User profile: {'neg_name': 'imdb_keywords:skinny-dipping', 'neg': 897, 'profile_id': 1, 'pos_name': 'movielens_tags:perrot library', 'pos': 71}
+Non-zero qiis:
+average_rating (1194): 0.261613207532
+movielens_tags:soundtrack (82): 0.0881009033654
+movielens_tags:nudity (full frontal) (68): 0.0403880555727
+imdb_keywords:independent-film (556): 0.024731760203
+imdb_keywords:marijuana (642): -0.0239304152491
+imdb_keywords:doctor (363): 0.0161723548856
+imdb_keywords:racial-slur (791): 0.0145237991468
+imdb_keywords:home-invasion (534): 0.0140857510297
+imdb_keywords:beer (182): 0.0137094015039
+imdb_keywords:newspaper (688): 0.0121412109862
+imdb_keywords:torch (996): -0.0115512977185
+imdb_keywords:wine (1068): -0.00837741437423
+imdb_keywords:water (1056): -0.00774604020069
+imdb_keywords:rescue (812): -0.00765159207398
+tvtropes:genre savvy (1134): -0.0074658651308
+tvtropes:scenery porn (1175): 0.00682376154213
+movielens_tags:Nudity (Topless) (37): 0.00458708971575
+imdb_keywords:bird (189): 0.00445767149972
+imdb_keywords:snow (906): 0.00397939655471
+movielens_genre:Animation (3): 0.00310003578603
+tvtropes:chekhovs skill (1112): -0.00238356356326
+imdb_keywords:2000s (101): -0.000837224962926
+imdb_keywords:underwater-scene (1024): 0.000265359741167
+Correctness score: 0.0
+Processing user 783, movie 64701 (I've Loved You So Long (Il y a longtemps que je t'aime) (2008))
+Original predicted rating: 1.97973481079
+User profile: {'neg_name': 'imdb_keywords:employer-employee-relationship', 'neg': 390, 'profile_id': 2, 'pos_name': 'imdb_keywords:voyeur', 'pos': 1047}
+Non-zero qiis:
+average_rating (1194): -0.666608982823
+imdb_keywords:prologue (774): 0.180159312671
+imdb_keywords:unrequited-love (1030): -0.0640448216845
+movielens_tags:nudity (topless) (69): -0.0464608468408
+imdb_keywords:doctor (363): 0.0373632775212
+imdb_keywords:car-chase (243): 0.0148051752234
+imdb_keywords:one-word-title (713): 0.0116771064006
+imdb_keywords:bird (189): 0.0115859669687
+imdb_keywords:cleavage (281): 0.0101899962484
+movielens_genre:Mystery (13): -0.00933115895863
+imdb_keywords:fight (441): 0.00799802725365
+imdb_keywords:brawl (213): -0.00750717347921
+imdb_keywords:underwater-scene (1024): 0.00522668049807
+imdb_keywords:injection (559): 0.00413740031067
+imdb_keywords:training (1004): -0.00373955873952
+imdb_keywords:archive-footage (133): 0.00336301108091
+imdb_keywords:soccer (907): -0.00319024954429
+imdb_keywords:train (1002): -0.00150952677691
+Correctness score: 0.0
+Processing user 845, movie 5569 (Last House on the Left, The (1972))
+Original predicted rating: 3.30263124195
+User profile: {'neg_name': 'imdb_keywords:skinny-dipping', 'neg': 897, 'profile_id': 1, 'pos_name': 'movielens_tags:perrot library', 'pos': 71}
+Non-zero qiis:
+average_rating (1194): 0.977390407338
+imdb_keywords:marijuana (642): 0.211668570345
+imdb_keywords:dance (326): 0.0550568852552
+imdb_keywords:helicopter (524): -0.0351752939332
+movielens_tags:BD-Video (21): 0.034162257813
+imdb_keywords:independent-film (556): -0.0260149481129
+imdb_keywords:jail-cell (569): -0.0208069822714
+year (0): 0.0134305235473
+movielens_tags:Nudity (Topless) (37): 0.0118698296872
+imdb_keywords:castle (247): 0.0112806607021
+imdb_keywords:reading (800): -0.00823171400349
+imdb_keywords:fired-from-the-job (446): -0.00808801591262
+imdb_keywords:doctor (363): -0.0069315133832
+imdb_keywords:boy (210): 0.0057293929894
+imdb_keywords:brother-brother-relationship (222): 0.00418236881745
+imdb_keywords:spoof (915): -0.00343055607745
+tvtropes:tempting fate (1182): -0.00300920458383
+imdb_keywords:hope (538): -0.00286132519675
+imdb_keywords:rescue (812): -0.00280649956824
+tvtropes:genre savvy (1134): 0.0021620991468
+imdb_keywords:underwater-scene (1024): 0.000966570577075
+imdb_keywords:fainting (415): -0.000248006822209
+Correctness score: 0.0
+Processing user 599, movie 112655 (No One Lives (2012))
+Original predicted rating: 2.29397548114
+User profile: {'neg_name': 'imdb_keywords:horse-and-carriage', 'neg': 540, 'profile_id': 0, 'pos_name': 'imdb_keywords:stabbed-in-the-back', 'pos': 917}
+Non-zero qiis:
+average_rating (1194): 0.373111529984
+tvtropes:scenery porn (1175): -0.144360505877
+imdb_keywords:girl (490): 0.12849118689
+imdb_keywords:class-differences (279): 0.0992541723763
+imdb_keywords:british (219): -0.0837854655552
+imdb_keywords:exploding-car (406): -0.0753988774262
+imdb_keywords:independent-film (556): 0.0516460225637
+tvtropes:hey its that guy (1141): -0.043071598712
+imdb_keywords:police-chase (753): 0.0404862793812
+imdb_keywords:newspaper (688): 0.0263995187815
+imdb_keywords:split-screen (914): -0.0210810058671
+imdb_keywords:marijuana (642): -0.0172467616183
+imdb_keywords:car-crash (244): -0.0143083209552
+imdb_keywords:water (1056): 0.011043156505
+imdb_keywords:home-invasion (534): 0.00740476942965
+imdb_keywords:doctor (363): -0.00699304584615
+imdb_keywords:color-in-title (288): -0.00634036303808
+movielens_genre:Animation (3): -0.00487097122975
+imdb_keywords:boy (210): -0.00487076008141
+imdb_keywords:torch (996): -0.00476475517988
+movielens_tags:library (61): 0.00329310035567
+imdb_keywords:fainting (415): 0.00260541523646
+imdb_keywords:beer (182): 0.0018369751941
+imdb_keywords:underwater-scene (1024): -0.000208474958673
+Correctness score: 0.0
+Processing user 239, movie 1986 (Halloween 5: The Revenge of Michael Myers (1989))
+Original predicted rating: 2.07381173906
+User profile: {'neg_name': 'imdb_keywords:horse-and-carriage', 'neg': 540, 'profile_id': 0, 'pos_name': 'imdb_keywords:stabbed-in-the-back', 'pos': 917}
+Non-zero qiis:
+average_rating (1194): 0.366607475148
+imdb_keywords:world-war-two (1074): 0.081362751747
+imdb_keywords:jail-cell (569): -0.0341486070842
+imdb_keywords:snow (906): 0.0274665290764
+imdb_keywords:helicopter (524): -0.0241916784502
+imdb_keywords:underwater-scene (1024): -0.0200614825011
+year (0): 0.0199514476796
+imdb_keywords:reading (800): -0.0169839926834
+movielens_tags:BD-Video (21): -0.0124567496924
+imdb_keywords:split-screen (914): -0.0115532170343
+imdb_keywords:knocked-out (590): -0.0113540536442
+imdb_keywords:water (1056): 0.0106425451576
+tvtropes:reveal (1173): 0.00813691356396
+imdb_keywords:rescue (812): -0.00795104812678
+imdb_keywords:newspaper (688): 0.0072339852284
+imdb_keywords:hope (538): -0.00590359749937
+imdb_keywords:doctor (363): 0.00472495281579
+tvtropes:genre savvy (1134): -0.00257108262528
+imdb_keywords:marijuana (642): -0.00245533519467
+imdb_keywords:subtitled-scene (935): -0.00244511680105
+imdb_keywords:boy (210): 0.00162780820789
+imdb_keywords:lust (624): -0.00118438903038
+imdb_keywords:2000s (101): -0.000665114654714
+imdb_keywords:independent-film (556): 0.000455324759933
+imdb_keywords:gay (482): 0.00016024064657
+Correctness score: 0.0
+Processing user 609, movie 25825 (Fury (1936))
+Original predicted rating: 2.79323224533
+User profile: {'neg_name': 'imdb_keywords:horse-and-carriage', 'neg': 540, 'profile_id': 0, 'pos_name': 'imdb_keywords:stabbed-in-the-back', 'pos': 917}
+Non-zero qiis:
+average_rating (1194): -0.275625930058
+imdb_keywords:serial-killer (864): 0.109451163306
+imdb_keywords:eyeglasses (410): 0.0968471161252
+imdb_keywords:cynicism (325): 0.0368112540068
+imdb_keywords:beer (182): -0.0279097986119
+imdb_keywords:deception (345): -0.0247045567777
+imdb_keywords:urban-setting (1032): 0.0240886536169
+imdb_keywords:brother-brother-relationship (222): -0.0220500691709
+movielens_tags:BD-Video (21): 0.020543018691
+imdb_keywords:train (1002): -0.0198469536435
+movielens_genre:War (17): 0.0170691471268
+imdb_keywords:kung-fu (591): 0.0128689070796
+tvtropes:arch enemy (1090): 0.0127301856537
+imdb_keywords:sister-sister-relationship (895): -0.0125693385985
+imdb_keywords:vomiting (1046): -0.00962458792571
+imdb_keywords:brawl (213): -0.00936866199966
+tvtropes:faux affably evil (1132): 0.00906277669956
+imdb_keywords:doctor (363): -0.00585940365324
+imdb_keywords:fainting (415): 0.00576504087445
+imdb_keywords:exploding-car (406): -0.00562737340504
+imdb_keywords:cannon (239): -0.00495994558117
+movielens_tags:library (61): 0.00463829337458
+imdb_keywords:underwater-scene (1024): 0.00212490571432
+imdb_keywords:freeze-frame (469): 0.00203889009881
+imdb_keywords:henchman (525): 0.0013456626661
+Correctness score: 0.0
+Processing user 354, movie 430 (Calendar Girl (1993))
+Original predicted rating: 1.64863208077
+User profile: {'neg_name': 'imdb_keywords:employer-employee-relationship', 'neg': 390, 'profile_id': 2, 'pos_name': 'imdb_keywords:voyeur', 'pos': 1047}
+Non-zero qiis:
+average_rating (1194): -0.420367535611
+imdb_keywords:henchman (525): 0.0602618849075
+imdb_keywords:loss-of-friend (617): 0.0440814773509
+imdb_keywords:train (1002): -0.0182926102556
+imdb_keywords:whiskey (1063): 0.0156252444726
+tvtropes:foreshadowing (1133): -0.013535686829
+imdb_keywords:brawl (213): 0.0117558329134
+imdb_keywords:best-friend (183): 0.0110550408778
+imdb_keywords:underwater-scene (1024): 0.010881027691
+imdb_keywords:injection (559): 0.00947289517492
+movielens_tags:Bibliothek (24): -0.00619463532087
+imdb_keywords:brother-brother-relationship (222): 0.00576367196609
+movielens_genre:War (17): 0.00525505911395
+imdb_keywords:french (470): -0.00513033447036
+imdb_keywords:doctor (363): -0.00464128641673
+imdb_keywords:kung-fu (591): 0.00396193593815
+imdb_keywords:exploding-car (406): -0.00298191018985
+imdb_keywords:freeze-frame (469): 0.000825531963803
+Correctness score: 0.0
+Processing user 756, movie 79946 (Joneses, The (2009))
+Original predicted rating: 2.73673863491
+User profile: {'neg_name': 'imdb_keywords:switchblade', 'neg': 954, 'profile_id': 5, 'pos_name': 'imdb_keywords:demonstration', 'pos': 347}
+Non-zero qiis:
+average_rating (1194): 0.542922073989
+imdb_keywords:marijuana (642): 0.10663950725
+imdb_keywords:underwater-scene (1024): -0.0851029961191
+imdb_keywords:helicopter (524): -0.0737272108869
+imdb_keywords:independent-film (556): -0.0609396309648
+imdb_keywords:dance (326): 0.0312051240902
+imdb_keywords:racial-slur (791): -0.0252474350573
+imdb_keywords:death (334): -0.0244825565469
+imdb_keywords:wine (1068): 0.0145628718233
+imdb_keywords:hope (538): -0.00899598138102
+imdb_keywords:brother-brother-relationship (222): 0.00813752434332
+imdb_keywords:newspaper (688): 0.00705851627978
+imdb_keywords:doctor (363): -0.00674323109149
+imdb_keywords:rescue (812): -0.00610525107699
+imdb_keywords:subtitled-scene (935): 0.00562858883184
+imdb_keywords:french (470): -0.00543250317084
+imdb_keywords:jail-cell (569): -0.0051401044264
+tvtropes:scenery porn (1175): -0.0047229023734
+tvtropes:mind screw (1156): 0.00436664413592
+imdb_keywords:exploding-car (406): -0.00413946418851
+imdb_keywords:knocked-out (590): -0.00404174021066
+imdb_keywords:boy (210): 0.00249783990265
+imdb_keywords:2000s (101): -0.00021632716822
+Correctness score: 0.0
+Processing user 26, movie 104361 (Ain't Them Bodies Saints (2013))
+Original predicted rating: 2.74613491617
+User profile: {'neg_name': 'imdb_keywords:skinny-dipping', 'neg': 897, 'profile_id': 1, 'pos_name': 'movielens_tags:perrot library', 'pos': 71}
+Non-zero qiis:
+average_rating (1194): -0.231413359399
+tvtropes:lampshade hanging (1151): 0.045137861879
+movielens_tags:soundtrack (82): -0.0327772822373
+imdb_keywords:baseball-bat (164): 0.023567175703
+imdb_keywords:vomiting (1046): -0.0161079413634
+tvtropes:arch enemy (1090): -0.0155061176862
+imdb_keywords:injection (559): 0.00839505619528
+imdb_keywords:gambling (476): 0.00788417284327
+imdb_keywords:beer (182): 0.00701509863474
+tvtropes:mind screw (1156): 0.00685669397349
+imdb_keywords:best-friend (183): -0.00667969739296
+movielens_tags:nudity (full frontal) (68): -0.00664952245723
+movielens_tags:library (61): -0.00647873023795
+imdb_keywords:assassination-attempt (142): -0.00598231371648
+imdb_keywords:fainting (415): -0.00512580263332
+tvtropes:genre savvy (1134): 0.00468831226926
+imdb_keywords:eyeglasses (410): 0.00455986523328
+imdb_keywords:brawl (213): 0.00426726682531
+imdb_keywords:serial-killer (864): 0.00378343947979
+imdb_keywords:switchblade (954): -0.00376474349938
+imdb_keywords:redhead (804): 0.00371923149169
+imdb_keywords:exploding-car (406): -0.0034107497924
+imdb_keywords:brother-brother-relationship (222): 0.00329628354145
+imdb_keywords:doctor (363): -0.00182099622484
+movielens_genre:War (17): 0.00161937920622
+Correctness score: 0.0
+Processing user 614, movie 522 (Romper Stomper (1992))
+Original predicted rating: 4.27865704477
+User profile: {'neg_name': 'imdb_keywords:switchblade', 'neg': 954, 'profile_id': 5, 'pos_name': 'imdb_keywords:demonstration', 'pos': 347}
+Non-zero qiis:
+average_rating (1194): -0.139089520373
+imdb_keywords:home-invasion (534): -0.0715384473935
+imdb_keywords:prison (770): -0.0488714215453
+tvtropes:lampshade hanging (1151): 0.0193733173311
+imdb_keywords:color-in-title (288): 0.0191745615939
+imdb_keywords:whiskey (1063): 0.0135557716733
+imdb_keywords:brawl (213): 0.0113847286428
+movielens_tags:library (61): -0.00995901263469
+imdb_keywords:switchblade (954): 0.00959069047137
+imdb_keywords:exploding-car (406): 0.00738418170032
+imdb_keywords:brother-brother-relationship (222): 0.00676725535537
+imdb_keywords:demon (346): 0.00257488982558
+imdb_keywords:vomiting (1046): 0.00255292506543
+imdb_keywords:doctor (363): -0.00224309825894
+imdb_keywords:beer (182): 0.00192093735749
+Correctness score: 0.0455337938881
+Processing user 870, movie 116503 (The Possession of Michael King (2014))
+Original predicted rating: 2.62621313907
+User profile: {'neg_name': 'imdb_keywords:switchblade', 'neg': 954, 'profile_id': 5, 'pos_name': 'imdb_keywords:demonstration', 'pos': 347}
+Non-zero qiis:
+average_rating (1194): 0.235110755599
+imdb_keywords:demon (346): -0.0781479688655
+imdb_keywords:serial-killer (864): -0.0357990340197
+tvtropes:arch enemy (1090): -0.021721111655
+imdb_keywords:home-invasion (534): 0.0214778739287
+tvtropes:faux affably evil (1132): 0.020538443594
+imdb_keywords:ritual (821): 0.0137371075373
+imdb_keywords:beer (182): 0.0102296776736
+imdb_keywords:brother-brother-relationship (222): -0.00801526559114
+imdb_keywords:terminal-illness (977): -0.00718697726303
+imdb_keywords:injection (559): 0.00587993579884
+imdb_keywords:exploding-car (406): 0.00497616150562
+tvtropes:tempting fate (1182): 0.00369621912617
+imdb_keywords:spoof (915): 0.00262978415211
+imdb_keywords:best-friend (183): 0.00183456604051
+movielens_genre:War (17): 0.00144622659045
+imdb_keywords:eyeglasses (410): -0.00115750148441
+imdb_keywords:freeze-frame (469): 0.000351347876571
+imdb_keywords:fainting (415): -0.000252344451418
+Correctness score: 0.0
+Processing user 269, movie 40887 (Lonesome Jim (2005))
+Original predicted rating: 2.2860108664
+User profile: {'neg_name': 'imdb_keywords:storytelling', 'neg': 926, 'profile_id': 3, 'pos_name': 'imdb_keywords:reverse-footage', 'pos': 815}
+Non-zero qiis:
+average_rating (1194): -0.211801754639
+imdb_keywords:ritual (821): -0.109605525038
+imdb_keywords:beer (182): -0.0398736937017
+movielens_tags:soundtrack (82): -0.0293776597683
+imdb_keywords:doll (365): -0.0248414769841
+movielens_genre:Animation (3): -0.0118724006317
+imdb_keywords:brawl (213): 0.0100813535392
+tvtropes:genre savvy (1134): 0.00901377623076
+imdb_keywords:brother-brother-relationship (222): -0.00858177325922
+imdb_keywords:gambling (476): 0.00787340304969
+movielens_genre:War (17): 0.00710654378484
+imdb_keywords:cynicism (325): 0.00694644813117
+imdb_keywords:best-friend (183): 0.00571600263153
+imdb_keywords:spoof (915): -0.00323714874218
+imdb_keywords:exploding-car (406): -0.00312877817381
+imdb_keywords:serial-killer (864): 0.00309285681503
+imdb_keywords:switchblade (954): 0.0029775839266
+imdb_keywords:doctor (363): -0.00201599862362
+Correctness score: 0.0
+Processing user 215, movie 40278 (Jarhead (2005))
+Original predicted rating: 1.72409180517
+User profile: {'neg_name': 'imdb_keywords:new-york', 'neg': 685, 'profile_id': 8, 'pos_name': 'imdb_keywords:gay-interest', 'pos': 483}
+Non-zero qiis:
+average_rating (1194): 0.450581062885
+imdb_keywords:gambling (476): -0.125542912869
+imdb_keywords:flashlight (456): -0.11573537708
+tvtropes:tempting fate (1182): -0.0889622845359
+imdb_keywords:beer (182): -0.0550418846481
+imdb_keywords:exploding-car (406): 0.0356086281805
+imdb_keywords:boy (210): 0.0246010465219
+imdb_keywords:independent-film (556): 0.0211036566847
+imdb_keywords:underwater-scene (1024): 0.0138083934844
+imdb_keywords:funeral (474): -0.0120772839014
+imdb_keywords:newspaper (688): 0.0110639619562
+imdb_keywords:marijuana (642): -0.00482753368111
+imdb_keywords:police-chase (753): -0.00423079473235
+imdb_keywords:rescue (812): -0.00317775310633
+year (0): -0.00205276789202
+movielens_tags:Nudity (Topless) (37): -0.00173987411858
+imdb_keywords:car-crash (244): -0.00149655464167
+tvtropes:scenery porn (1175): 0.00116653324643
+imdb_keywords:2000s (101): -0.000508627195376
+imdb_keywords:doctor (363): -0.000326273348351
+Correctness score: 0.0
+Processing user 337, movie 6213 (Tears of the Sun (2003))
+Original predicted rating: 2.34681358457
+User profile: {'neg_name': 'imdb_keywords:heavy-rain', 'neg': 521, 'profile_id': 9, 'pos_name': 'imdb_keywords:courtroom', 'pos': 307}
+Non-zero qiis:
+average_rating (1194): 0.402759282319
+tvtropes:scenery porn (1175): 0.0998109947744
+imdb_keywords:restaurant (813): 0.0642532202187
+imdb_keywords:doctor (363): -0.0566418974577
+imdb_keywords:character-repeating-someone-else's-dialogue (257): -0.0352334962454
+imdb_keywords:scandal (841): 0.0332174556662
+imdb_keywords:marijuana (642): -0.0308947540683
+imdb_keywords:snow (906): -0.0268792705477
+movielens_tags:BD-Video (21): -0.0137323037065
+imdb_keywords:assassination-attempt (142): -0.0129232032003
+imdb_keywords:underwater-scene (1024): -0.0117688220127
+imdb_keywords:world-war-two (1074): -0.0113196194658
+tvtropes:reveal (1173): 0.0107992621275
+imdb_keywords:wine (1068): 0.00883562559348
+imdb_keywords:newspaper (688): 0.00797473535378
+imdb_keywords:subtitled-scene (935): 0.00777862122492
+imdb_keywords:racial-slur (791): -0.00765909657344
+imdb_keywords:beer (182): 0.00757713064073
+imdb_keywords:boy (210): 0.00690395090623
+imdb_keywords:fainting (415): 0.00603938960641
+imdb_keywords:independent-film (556): 0.00554379765565
+imdb_keywords:england (392): 0.00308891518596
+imdb_keywords:rescue (812): -0.00221132212808
+tvtropes:genre savvy (1134): 0.00182685273408
+imdb_keywords:water (1056): -0.00180690419246
+movielens_tags:soundtrack (82): -0.000817881014453
+Correctness score: 0.0
+Processing user 35, movie 8 (Tom and Huck (1995))
+Original predicted rating: 2.85558797737
+User profile: {'neg_name': 'imdb_keywords:ambulance', 'neg': 120, 'profile_id': 7, 'pos_name': 'imdb_keywords:alcoholism', 'pos': 118}
+Non-zero qiis:
+average_rating (1194): -0.442250762832
+imdb_keywords:brawl (213): -0.0712229990547
+imdb_keywords:doctor (363): -0.0570639598228
+imdb_keywords:1910s (91): -0.0480530798377
+imdb_keywords:mayor (650): 0.022374331801
+imdb_keywords:vomiting (1046): -0.0207156553011
+tvtropes:lampshade hanging (1151): 0.0190196013907
+imdb_keywords:cult-director (322): -0.0178173765642
+imdb_keywords:sister-sister-relationship (895): -0.0148073835589
+imdb_keywords:eyeglasses (410): -0.0137869030691
+movielens_genre:Mystery (13): -0.0127698028252
+imdb_keywords:kung-fu (591): -0.0126835365484
+imdb_keywords:train (1002): 0.00873366972632
+imdb_keywords:world-war-two (1074): -0.00605118793452
+tvtropes:foreshadowing (1133): -0.0052738872478
+imdb_keywords:serial-killer (864): 0.00486570110653
+imdb_keywords:injection (559): 0.00333421830038
+imdb_keywords:urban-setting (1032): 0.00331042815305
+imdb_keywords:fainting (415): -0.0030681027206
+imdb_keywords:freeze-frame (469): -0.00306801491197
+tvtropes:chekhovs skill (1112): 0.00286889435585
+imdb_keywords:snow (906): -0.00239483194228
+imdb_keywords:henchman (525): -0.00227799294799
+Correctness score: 0.0
+Processing user 172, movie 97172 (Frankenweenie (2012))
+Original predicted rating: 2.27161231832
+User profile: {'neg_name': 'imdb_keywords:switchblade', 'neg': 954, 'profile_id': 5, 'pos_name': 'imdb_keywords:demonstration', 'pos': 347}
+Non-zero qiis:
+imdb_keywords:baseball-bat (164): -0.202334017299
+average_rating (1194): -0.193241405449
+imdb_keywords:beer (182): -0.13390364549
+tvtropes:arch enemy (1090): -0.0946875389201
+imdb_keywords:torch (996): 0.0703053780041
+imdb_keywords:serial-killer (864): 0.0233251000554
+movielens_genre:Animation (3): 0.0212445806391
+imdb_keywords:gambling (476): 0.0140819769701
+imdb_keywords:injection (559): 0.012816025686
+tvtropes:tempting fate (1182): -0.0111225683902
+imdb_keywords:doctor (363): -0.00979245662805
+imdb_keywords:home-invasion (534): -0.00676440604081
+imdb_keywords:vomiting (1046): -0.00660116904646
+imdb_keywords:brother-brother-relationship (222): 0.00443146355455
+imdb_keywords:kung-fu (591): 0.00247010140031
+imdb_keywords:spoof (915): -0.00242324942198
+imdb_keywords:switchblade (954): 0.00118254588359
+imdb_keywords:brawl (213): 0.00107964406868
+imdb_keywords:redhead (804): 8.49916178697e-05
+imdb_keywords:henchman (525): -2.51425558504e-05
+imdb_keywords:freeze-frame (469): 5.08960803023e-06
+Correctness score: 0.00298943214261
+Correctness scores: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.045533793888125826, 0.0, 0.0, 0.0, 0.0, 0.0, 0.002989432142608878]
+Average correctness: 0.00242616130154

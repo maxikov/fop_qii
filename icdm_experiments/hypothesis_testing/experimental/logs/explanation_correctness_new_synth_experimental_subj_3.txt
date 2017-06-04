@@ -1,0 +1,291 @@
+Loading results dict
+Original recommender relative to ground truth on training set mean absolute error: 0.0135537030012, RMSE: 0.0197740887878
+Shadow model relative to the baseline recommender on test set MAE: 0.322865317692, RMSE: 0.418461158173
+Randomized model relative to the baseline recommender on test set MAE: 1.13039591745, RMSE: 1.38190253802
+Shadow model is 3.50113764317 times better than random on the test set
+Loading movies
+Loading ALS model
+Loading decision trees
+113 features are used: 0: year, 257: imdb_keywords:character-repeating-someone-else's-dialogue, 2: movielens_genre:Adventure, 427: imdb_keywords:father-daughter-relationship, 772: imdb_keywords:product-placement, 5: movielens_genre:Comedy, 6: movielens_genre:Crime, 513: imdb_keywords:hand-to-hand-combat, 776: imdb_keywords:prostitute, 1033: imdb_keywords:urination, 1035: imdb_keywords:vacation, 525: imdb_keywords:henchman, 14: movielens_genre:Romance, 15: movielens_genre:Sci-Fi, 16: movielens_genre:Thriller, 17: movielens_genre:War, 274: imdb_keywords:church, 276: imdb_keywords:cigarette-smoking, 24: movielens_tags:Bibliothek, 25: movielens_tags:Bob*ola, 542: imdb_keywords:hospital, 1055: imdb_keywords:watching-tv, 1: movielens_genre:Action, 38: movielens_tags:R, 553: imdb_keywords:impalement, 298: imdb_keywords:convertible, 812: imdb_keywords:rescue, 557: imdb_keywords:infidelity, 302: imdb_keywords:corrupt-cop, 1071: imdb_keywords:woman, 561: imdb_keywords:interracial-relationship, 563: imdb_keywords:interview, 820: imdb_keywords:riot, 9: movielens_genre:Fantasy, 57: movielens_tags:funny, 570: imdb_keywords:japan, 319: imdb_keywords:cruelty, 1090: tvtropes:arch enemy, 1025: imdb_keywords:underwear, 581: imdb_keywords:key, 1153: tvtropes:laser guided karma, 585: imdb_keywords:king, 1098: tvtropes:bilingual bonus, 331: imdb_keywords:dating, 334: imdb_keywords:death, 13: movielens_genre:Mystery, 593: imdb_keywords:lake, 301: imdb_keywords:corpse, 1110: tvtropes:chekhovs gun, 603: imdb_keywords:lifting-someone-into-the-air, 860: imdb_keywords:self-sacrifice, 606: imdb_keywords:lingerie, 609: imdb_keywords:little-girl, 98: imdb_keywords:1980s, 101: imdb_keywords:2000s, 870: imdb_keywords:sex-in-bed, 105: imdb_keywords:action-hero, 1134: tvtropes:genre savvy, 879: imdb_keywords:shot-in-the-back, 112: imdb_keywords:african-american, 113: imdb_keywords:airplane, 114: imdb_keywords:airport, 1140: tvtropes:heroic sacrifice, 890: imdb_keywords:silencer, 63: movielens_tags:might like, 124: imdb_keywords:american-flag, 1151: tvtropes:lampshade hanging, 641: imdb_keywords:map, 388: imdb_keywords:electronic-music-score, 1158: tvtropes:ms fanservice, 135: imdb_keywords:army, 136: imdb_keywords:arrest, 908: imdb_keywords:social-commentary, 140: imdb_keywords:assassin, 405: imdb_keywords:exploding-building, 663: imdb_keywords:mistress, 409: imdb_keywords:extramarital-affair, 1178: tvtropes:smug snake, 667: imdb_keywords:monster, 668: imdb_keywords:montage, 158: imdb_keywords:bare-breasts, 368: imdb_keywords:drawing, 674: imdb_keywords:murder, 156: imdb_keywords:bar, 1194: average_rating, 171: imdb_keywords:basketball, 173: imdb_keywords:bathroom, 175: imdb_keywords:battle, 435: imdb_keywords:female-protagonist, 180: imdb_keywords:bed, 694: imdb_keywords:nipples-visible-through-clothing, 696: imdb_keywords:nonlinear-timeline, 960: imdb_keywords:tape-recorder, 765: imdb_keywords:prayer, 417: imdb_keywords:falling-down-stairs, 203: imdb_keywords:boat, 665: imdb_keywords:money, 463: imdb_keywords:foot-chase, 211: imdb_keywords:boyfriend-girlfriend-relationship, 974: imdb_keywords:telephone-call, 215: imdb_keywords:breaking-and-entering, 292: imdb_keywords:computer, 730: imdb_keywords:park, 481: imdb_keywords:gas-station, 635: imdb_keywords:male-rear-nudity, 1004: imdb_keywords:training, 110: imdb_keywords:adultery, 1006: imdb_keywords:transformation, 1021: imdb_keywords:uncle-nephew-relationship, 755: imdb_keywords:police-officer, 8: movielens_genre:Drama, 42: movielens_tags:action, 511: imdb_keywords:hallucination
+Loading indicators
+Building indicator distributions
+Loading user profiles
+Processing user 530, movie 102880 (After Earth (2013))
+Original predicted rating: 1.8857286955
+User profile: {'neg_name': 'imdb_keywords:money', 'neg': 665, 'profile_id': 2, 'pos_name': 'imdb_keywords:vacation', 'pos': 1035}
+Non-zero qiis:
+average_rating (1194): 0.53779187273
+tvtropes:heroic sacrifice (1140): -0.0888170674402
+imdb_keywords:assassin (140): 0.0770391015678
+imdb_keywords:computer (292): 0.0248978749993
+imdb_keywords:church (274): 0.0247843727932
+imdb_keywords:product-placement (772): -0.00675754774871
+tvtropes:chekhovs gun (1110): -0.00227611249902
+imdb_keywords:transformation (1006): -0.000775316370777
+tvtropes:ms fanservice (1158): -0.000720062883445
+Correctness score: 0.0
+Processing user 851, movie 3141 (Two Jakes, The (1990))
+Original predicted rating: 1.29687820244
+User profile: {'neg_name': 'imdb_keywords:nipples-visible-through-clothing', 'neg': 694, 'profile_id': 8, 'pos_name': 'imdb_keywords:basketball', 'pos': 171}
+Non-zero qiis:
+average_rating (1194): -0.706908696982
+imdb_keywords:henchman (525): -0.173743080355
+imdb_keywords:money (665): -0.0517373543162
+imdb_keywords:lake (593): 0.031614735503
+imdb_keywords:computer (292): 0.00784060067533
+imdb_keywords:church (274): -0.0073087329736
+imdb_keywords:assassin (140): -0.00727725272455
+imdb_keywords:product-placement (772): -0.00230295428903
+tvtropes:chekhovs gun (1110): -0.00145524889132
+Correctness score: 0.0
+Processing user 6, movie 5628 (Wasabi (2001))
+Original predicted rating: 1.99207977977
+User profile: {'neg_name': 'imdb_keywords:japan', 'neg': 570, 'profile_id': 0, 'pos_name': 'imdb_keywords:computer', 'pos': 292}
+Non-zero qiis:
+average_rating (1194): 0.151760933582
+tvtropes:chekhovs gun (1110): -0.139322349176
+imdb_keywords:computer (292): -0.0834952231332
+tvtropes:heroic sacrifice (1140): 0.0644925424949
+imdb_keywords:transformation (1006): 0.0574723762582
+imdb_keywords:church (274): 0.0516933611027
+imdb_keywords:basketball (171): -0.0357728505153
+imdb_keywords:assassin (140): 0.0175236571291
+tvtropes:ms fanservice (1158): 0.0169287776344
+Correctness score: 0.286843072341
+Processing user 212, movie 2460 (Texas Chainsaw Massacre 2, The (1986))
+Original predicted rating: 1.69450348904
+User profile: {'neg_name': 'imdb_keywords:japan', 'neg': 570, 'profile_id': 0, 'pos_name': 'imdb_keywords:computer', 'pos': 292}
+Non-zero qiis:
+average_rating (1194): -1.1610545618
+imdb_keywords:hallucination (511): 0.101172685977
+imdb_keywords:transformation (1006): 0.0778087059876
+imdb_keywords:money (665): -0.0443915010038
+tvtropes:ms fanservice (1158): 0.0361932617814
+imdb_keywords:product-placement (772): -0.0226877708665
+imdb_keywords:henchman (525): 0.0178388113165
+imdb_keywords:assassin (140): -0.0145276987512
+tvtropes:chekhovs gun (1110): 0.0122816610038
+imdb_keywords:computer (292): 0.00971429991953
+imdb_keywords:church (274): -0.00631965425781
+imdb_keywords:japan (570): -0.00165034251347
+imdb_keywords:sex-in-bed (870): -0.000690505633405
+Correctness score: 0.0090036421358
+Processing user 336, movie 225 (Disclosure (1994))
+Original predicted rating: 1.96663781764
+User profile: {'neg_name': 'tvtropes:lampshade hanging', 'neg': 1151, 'profile_id': 7, 'pos_name': 'tvtropes:ms fanservice', 'pos': 1158}
+Non-zero qiis:
+average_rating (1194): 0.588959067359
+imdb_keywords:basketball (171): -0.494402585606
+imdb_keywords:assassin (140): -0.0977323875478
+imdb_keywords:computer (292): -0.0842817418437
+tvtropes:chekhovs gun (1110): -0.0744354195519
+imdb_keywords:transformation (1006): 0.0279411126403
+imdb_keywords:sex-in-bed (870): -0.0177232847427
+imdb_keywords:battle (175): 0.0128918970907
+imdb_keywords:prayer (765): -0.0122178167743
+imdb_keywords:church (274): -0.00807069961683
+imdb_keywords:breaking-and-entering (215): 0.00668146775374
+Correctness score: 0.0
+Processing user 290, movie 898 (Philadelphia Story, The (1940))
+Original predicted rating: 1.14280637025
+User profile: {'neg_name': 'tvtropes:lampshade hanging', 'neg': 1151, 'profile_id': 7, 'pos_name': 'tvtropes:ms fanservice', 'pos': 1158}
+Non-zero qiis:
+average_rating (1194): -0.559743736248
+imdb_keywords:church (274): -0.0693020856017
+imdb_keywords:assassin (140): -0.0620607503059
+imdb_keywords:lake (593): 0.0536812790678
+imdb_keywords:vacation (1035): 0.0261057554111
+movielens_tags:Bibliothek (24): -0.0230791921811
+imdb_keywords:hallucination (511): 0.0224216188765
+imdb_keywords:computer (292): 0.00669121028652
+imdb_keywords:money (665): -0.00667236687553
+tvtropes:chekhovs gun (1110): 0.00469792894462
+imdb_keywords:product-placement (772): 0.0019985229489
+Correctness score: 0.0
+Processing user 283, movie 93980 (Three Stooges, The (2012))
+Original predicted rating: 3.39131105511
+User profile: {'neg_name': 'imdb_keywords:mistress', 'neg': 663, 'profile_id': 9, 'pos_name': 'tvtropes:heroic sacrifice', 'pos': 1140}
+Non-zero qiis:
+average_rating (1194): 0.437790381104
+tvtropes:chekhovs gun (1110): 0.208707668273
+tvtropes:heroic sacrifice (1140): -0.0720390645631
+imdb_keywords:church (274): 0.0710208980783
+imdb_keywords:vacation (1035): 0.0672015858983
+imdb_keywords:basketball (171): -0.0528659951669
+imdb_keywords:impalement (553): -0.0133030825754
+imdb_keywords:product-placement (772): 0.00245323421335
+imdb_keywords:computer (292): -0.00166624818735
+Correctness score: 0.11142967041
+Processing user 116, movie 49957 (History Boys, The (2006))
+Original predicted rating: 2.28599791967
+User profile: {'neg_name': 'imdb_keywords:nipples-visible-through-clothing', 'neg': 694, 'profile_id': 8, 'pos_name': 'imdb_keywords:basketball', 'pos': 171}
+Non-zero qiis:
+average_rating (1194): 0.260531561782
+imdb_keywords:church (274): -0.233568269451
+imdb_keywords:basketball (171): -0.137408534807
+imdb_keywords:computer (292): -0.0380192796183
+tvtropes:chekhovs gun (1110): 0.0157599095192
+imdb_keywords:hallucination (511): -0.000985732732682
+imdb_keywords:product-placement (772): -0.000980900341197
+imdb_keywords:assassin (140): 0.000133478477383
+Correctness score: 0.278098728479
+Processing user 537, movie 16 (Casino (1995))
+Original predicted rating: 3.95622897188
+User profile: {'neg_name': 'imdb_keywords:product-placement', 'neg': 772, 'profile_id': 6, 'pos_name': 'imdb_keywords:sex-in-bed', 'pos': 870}
+Non-zero qiis:
+imdb_keywords:sex-in-bed (870): 1.17145643774
+imdb_keywords:church (274): 0.25758392997
+average_rating (1194): 0.234597514586
+movielens_tags:Bibliothek (24): 0.207482474078
+tvtropes:ms fanservice (1158): -0.162428654784
+tvtropes:chekhovs gun (1110): 0.116496401426
+imdb_keywords:assassin (140): 0.115737681886
+imdb_keywords:shot-in-the-back (879): -0.0239011151491
+movielens_tags:R (38): 0.014942507694
+imdb_keywords:computer (292): 0.0127958778878
+imdb_keywords:hand-to-hand-combat (513): 0.00362289632309
+imdb_keywords:police-officer (755): -0.00275093728491
+imdb_keywords:male-rear-nudity (635): -0.00161453615322
+Correctness score: 0.81975041728
+Processing user 567, movie 2721 (Trick (1999))
+Original predicted rating: 2.1924320604
+User profile: {'neg_name': 'imdb_keywords:henchman', 'neg': 525, 'profile_id': 5, 'pos_name': 'imdb_keywords:transformation', 'pos': 1006}
+Non-zero qiis:
+average_rating (1194): 0.586332714816
+tvtropes:chekhovs gun (1110): -0.238796614878
+imdb_keywords:church (274): 0.0657262631884
+imdb_keywords:sex-in-bed (870): 0.0378084994941
+imdb_keywords:vacation (1035): -0.0331888496042
+tvtropes:heroic sacrifice (1140): -0.0180347663797
+tvtropes:ms fanservice (1158): 0.0150369467297
+imdb_keywords:computer (292): 0.00658964465198
+imdb_keywords:assassin (140): 0.00337838253055
+Correctness score: 0.0
+Processing user 186, movie 4645 (Cure (1997))
+Original predicted rating: 2.02537074026
+User profile: {'neg_name': 'imdb_keywords:nipples-visible-through-clothing', 'neg': 694, 'profile_id': 8, 'pos_name': 'imdb_keywords:basketball', 'pos': 171}
+Non-zero qiis:
+average_rating (1194): 0.301806853528
+imdb_keywords:computer (292): -0.109523004302
+imdb_keywords:assassin (140): 0.0732325122176
+imdb_keywords:transformation (1006): 0.0730800683895
+Correctness score: 0.0
+Processing user 959, movie 849 (Escape from L.A. (1996))
+Original predicted rating: 3.52957820505
+User profile: {'neg_name': 'imdb_keywords:japan', 'neg': 570, 'profile_id': 0, 'pos_name': 'imdb_keywords:computer', 'pos': 292}
+Non-zero qiis:
+average_rating (1194): 0.987356150189
+imdb_keywords:basketball (171): 0.117122722813
+imdb_keywords:church (274): -0.0337931359962
+imdb_keywords:computer (292): -0.0164999941492
+imdb_keywords:product-placement (772): -0.0145079065747
+imdb_keywords:assassin (140): 0.00923526608003
+tvtropes:chekhovs gun (1110): -0.00114156907349
+imdb_keywords:sex-in-bed (870): 0.000122407056278
+Correctness score: 0.0149391668347
+Processing user 232, movie 51927 (Dead Silence (2007))
+Original predicted rating: 3.8545371063
+User profile: {'neg_name': 'movielens_tags:Bibliothek', 'neg': 24, 'profile_id': 4, 'pos_name': 'tvtropes:chekhovs gun', 'pos': 1110}
+Non-zero qiis:
+tvtropes:chekhovs gun (1110): 0.915694198658
+average_rating (1194): 0.465922292964
+imdb_keywords:church (274): 0.0658305109379
+imdb_keywords:computer (292): 0.0554078790387
+imdb_keywords:assassin (140): 0.0424862001739
+tvtropes:heroic sacrifice (1140): 0.0288323994025
+imdb_keywords:vacation (1035): -0.0213040826094
+Correctness score: 0.66277017118
+Processing user 889, movie 128642 (Everybody Wins (1990))
+Original predicted rating: 2.28689273812
+User profile: {'neg_name': 'imdb_keywords:nipples-visible-through-clothing', 'neg': 694, 'profile_id': 8, 'pos_name': 'imdb_keywords:basketball', 'pos': 171}
+Non-zero qiis:
+imdb_keywords:church (274): -0.233309368843
+imdb_keywords:basketball (171): -0.137227831257
+imdb_keywords:computer (292): -0.0755718404969
+tvtropes:chekhovs gun (1110): 0.0152320585043
+imdb_keywords:product-placement (772): -0.000388439466076
+imdb_keywords:hallucination (511): -0.000115246811752
+Correctness score: 0.370348324596
+Processing user 822, movie 1032 (Alice in Wonderland (1951))
+Original predicted rating: 2.34355149867
+User profile: {'neg_name': 'imdb_keywords:nipples-visible-through-clothing', 'neg': 694, 'profile_id': 8, 'pos_name': 'imdb_keywords:basketball', 'pos': 171}
+Non-zero qiis:
+average_rating (1194): 0.328411862337
+imdb_keywords:sex-in-bed (870): 0.128475863541
+tvtropes:chekhovs gun (1110): -0.12846134693
+imdb_keywords:church (274): 0.0592116669862
+tvtropes:ms fanservice (1158): 0.0375087651208
+imdb_keywords:computer (292): 0.0141975217854
+imdb_keywords:product-placement (772): -0.00130743077147
+Correctness score: 0.0
+Processing user 377, movie 102125 (Iron Man 3 (2013))
+Original predicted rating: 2.92792322595
+User profile: {'neg_name': 'imdb_keywords:hallucination', 'neg': 511, 'profile_id': 3, 'pos_name': 'imdb_keywords:church', 'pos': 274}
+Non-zero qiis:
+imdb_keywords:transformation (1006): -0.484211895036
+average_rating (1194): 0.12322006091
+imdb_keywords:computer (292): 0.11402886816
+imdb_keywords:assassin (140): -0.105625365436
+imdb_keywords:sex-in-bed (870): 0.0682702379223
+imdb_keywords:church (274): -0.0616479457463
+imdb_keywords:henchman (525): 0.0383617052891
+imdb_keywords:vacation (1035): -0.0344526763828
+imdb_keywords:training (1004): -0.0140382498452
+imdb_keywords:basketball (171): 0.00666089645865
+imdb_keywords:hallucination (511): 0.0041998591296
+Correctness score: 0.108403590281
+Processing user 657, movie 8874 (Shaun of the Dead (2004))
+Original predicted rating: 3.08348049454
+User profile: {'neg_name': 'imdb_keywords:mistress', 'neg': 663, 'profile_id': 9, 'pos_name': 'tvtropes:heroic sacrifice', 'pos': 1140}
+Non-zero qiis:
+average_rating (1194): 0.594487200171
+tvtropes:chekhovs gun (1110): 0.225740039255
+imdb_keywords:church (274): 0.144702743076
+imdb_keywords:vacation (1035): -0.0745809880031
+imdb_keywords:computer (292): 0.0551035443211
+imdb_keywords:sex-in-bed (870): 0.0228849894055
+tvtropes:ms fanservice (1158): 0.0113451914273
+Correctness score: 0.0
+Processing user 857, movie 71928 (Cairo Time (2009))
+Original predicted rating: 2.80547757497
+User profile: {'neg_name': 'imdb_keywords:nipples-visible-through-clothing', 'neg': 694, 'profile_id': 8, 'pos_name': 'imdb_keywords:basketball', 'pos': 171}
+Non-zero qiis:
+average_rating (1194): 1.14900466826
+imdb_keywords:computer (292): -0.209694509226
+imdb_keywords:money (665): 0.140867816223
+imdb_keywords:dating (331): 0.111638035299
+imdb_keywords:church (274): -0.100021628938
+imdb_keywords:basketball (171): -0.0942449687986
+imdb_keywords:vacation (1035): 0.0767678491673
+tvtropes:chekhovs gun (1110): 0.0215209607389
+imdb_keywords:interview (563): 0.00441532320826
+Correctness score: 0.0693641170615
+Processing user 706, movie 991 (Michael Collins (1996))
+Original predicted rating: 2.90419645419
+User profile: {'neg_name': 'imdb_keywords:hallucination', 'neg': 511, 'profile_id': 3, 'pos_name': 'imdb_keywords:church', 'pos': 274}
+Non-zero qiis:
+imdb_keywords:assassin (140): -0.479231429272
+imdb_keywords:prostitute (776): -0.155863256054
+imdb_keywords:father-daughter-relationship (427): -0.151501540056
+imdb_keywords:church (274): 0.0796586026557
+tvtropes:heroic sacrifice (1140): 0.049030261041
+imdb_keywords:transformation (1006): 0.0366099794969
+imdb_keywords:hallucination (511): 0.0199696656212
+tvtropes:ms fanservice (1158): 0.0188686111149
+tvtropes:chekhovs gun (1110): 0.0140377032547
+imdb_keywords:bare-breasts (158): 0.00855055908972
+imdb_keywords:boat (203): -0.00230280188323
+Correctness score: 0.156871519442
+Processing user 140, movie 56995 (Nanking (2007))
+Original predicted rating: 1.94596457622
+User profile: {'neg_name': 'imdb_keywords:product-placement', 'neg': 772, 'profile_id': 6, 'pos_name': 'imdb_keywords:sex-in-bed', 'pos': 870}
+Non-zero qiis:
+average_rating (1194): 0.590052334509
+imdb_keywords:church (274): -0.226245950887
+imdb_keywords:product-placement (772): -0.0575832027201
+imdb_keywords:transformation (1006): 0.0139493322843
+imdb_keywords:assassin (140): -0.00641607497664
+imdb_keywords:hallucination (511): 0.000195209641007
+Correctness score: 0.0705418641081
+Correctness scores: [0.0, 0.0, 0.28684307234051637, 0.009003642135801961, 0.0, 0.0, 0.11142967041046273, 0.2780987284789313, 0.8197504172800962, 0.0, 0.0, 0.014939166834711647, 0.6627701711802326, 0.37034832459571715, 0.0, 0.10840359028091141, 0.0, 0.06936411706154873, 0.15687151944239242, 0.07054186410809604]
+Average correctness: 0.147918214207

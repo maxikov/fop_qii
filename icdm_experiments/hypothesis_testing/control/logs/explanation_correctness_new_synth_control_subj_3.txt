@@ -1,0 +1,235 @@
+Loading results dict
+Original recommender relative to ground truth on training set mean absolute error: 0.0224113323934, RMSE: 0.0283600456463
+Shadow model relative to the baseline recommender on test set MAE: 0.851512899224, RMSE: 1.00395803823
+Randomized model relative to the baseline recommender on test set MAE: 1.12011599527, RMSE: 1.37242156737
+Shadow model is 1.3154421927 times better than random on the test set
+Loading movies
+Loading ALS model
+Loading decision trees
+263 features are used: 0: year, 1: movielens_genre:Action, 514: imdb_keywords:handcuffs, 171: imdb_keywords:basketball, 4: movielens_genre:Children, 5: movielens_genre:Comedy, 1025: imdb_keywords:underwear, 8: movielens_genre:Drama, 9: movielens_genre:Fantasy, 10: movielens_genre:Film-Noir, 1035: imdb_keywords:vacation, 13: movielens_genre:Mystery, 14: movielens_genre:Romance, 15: movielens_genre:Sci-Fi, 528: imdb_keywords:hiding, 1044: imdb_keywords:virgin, 21: movielens_tags:BD-Video, 1046: imdb_keywords:vomiting, 345: imdb_keywords:deception, 25: movielens_tags:Bob*ola, 538: imdb_keywords:hope, 175: imdb_keywords:battle, 28: movielens_tags:ClearPlay, 1053: imdb_keywords:washington-d.c., 542: imdb_keywords:hospital, 33: movielens_tags:In Netflix queue, 1060: imdb_keywords:what-happened-to-epilogue, 40: movielens_tags:Tumey's DVDs, 1065: imdb_keywords:widow, 554: imdb_keywords:impersonation, 556: imdb_keywords:independent-film, 558: imdb_keywords:inheritance, 1073: imdb_keywords:woods, 52: movielens_tags:drama, 54: movielens_tags:erlend's DVDs, 1033: imdb_keywords:urination, 180: imdb_keywords:bed, 1083: imdb_producer:, 573: imdb_keywords:jeep, 62: movielens_tags:memasa's movies, 63: movielens_tags:might like, 577: imdb_keywords:judge, 2: movielens_genre:Adventure, 1091: tvtropes:asshole victim, 1092: tvtropes:ax crazy, 69: movielens_tags:nudity (topless), 72: movielens_tags:politics, 586: imdb_keywords:kiss, 589: imdb_keywords:knife, 590: imdb_keywords:knocked-out, 1104: tvtropes:brick joke, 1105: tvtropes:butt monkey, 83: movielens_tags:story, 1109: tvtropes:catchphrase, 88: movielens_tags:true story, 770: imdb_keywords:prison, 603: imdb_keywords:lifting-someone-into-the-air, 604: imdb_keywords:lightning, 96: imdb_keywords:1960s, 16: movielens_genre:Thriller, 98: imdb_keywords:1980s, 612: imdb_keywords:loneliness, 102: imdb_keywords:abortion, 103: imdb_keywords:accident, 616: imdb_keywords:loss-of-father, 617: imdb_keywords:loss-of-friend, 106: imdb_keywords:actor, 110: imdb_keywords:adultery, 112: imdb_keywords:african-american, 113: imdb_keywords:airplane, 1180: tvtropes:spiritual successor, 1140: tvtropes:heroic sacrifice, 117: imdb_keywords:alcoholic, 1144: tvtropes:idiot ball, 635: imdb_keywords:male-rear-nudity, 1149: tvtropes:karma houdini, 533: imdb_keywords:hitman, 129: imdb_keywords:anti-hero, 643: imdb_keywords:marriage, 134: imdb_keywords:argument, 647: imdb_keywords:mass-murder, 136: imdb_keywords:arrest, 1164: tvtropes:not so different, 141: imdb_keywords:assassination, 655: imdb_keywords:mexico, 656: imdb_keywords:microphone, 1171: tvtropes:reason you suck speech, 1173: tvtropes:reveal, 662: imdb_keywords:mistaken-identity, 1175: tvtropes:scenery porn, 664: imdb_keywords:mixed-martial-arts, 363: imdb_keywords:doctor, 668: imdb_keywords:montage, 669: imdb_keywords:motel, 158: imdb_keywords:bare-breasts, 1183: tvtropes:title drop, 160: imdb_keywords:bare-chested-male, 161: imdb_keywords:barn, 676: imdb_keywords:murderer, 678: imdb_keywords:musician, 1137: tvtropes:groin attack, 540: imdb_keywords:horse-and-carriage, 1194: average_rating, 683: imdb_keywords:neighbor, 173: imdb_keywords:bathroom, 687: imdb_keywords:news-report, 178: imdb_keywords:beaten-to-death, 692: imdb_keywords:nightmare, 181: imdb_keywords:bedroom, 184: imdb_keywords:betrayal, 188: imdb_keywords:binoculars, 189: imdb_keywords:bird, 194: imdb_keywords:black-american, 710: imdb_keywords:on-the-run, 200: imdb_keywords:blonde, 201: imdb_keywords:blood, 205: imdb_keywords:bomb, 725: imdb_keywords:panties, 728: imdb_keywords:paranoia, 730: imdb_keywords:park, 220: imdb_keywords:broken-leg, 996: imdb_keywords:torch, 734: imdb_keywords:pay-phone, 736: imdb_keywords:person-on-fire, 225: imdb_keywords:brutality, 738: imdb_keywords:photograph, 230: imdb_keywords:businessman, 743: imdb_keywords:pig, 744: imdb_keywords:pilot, 745: imdb_keywords:pipe-smoking, 238: imdb_keywords:candle, 893: imdb_keywords:single-mother, 241: imdb_keywords:car, 246: imdb_keywords:casino, 41: movielens_tags:acting, 248: imdb_keywords:cat, 761: imdb_keywords:politics, 250: imdb_keywords:catholic-church, 763: imdb_keywords:poverty, 252: imdb_keywords:cell-phone, 213: imdb_keywords:brawl, 257: imdb_keywords:character-repeating-someone-else's-dialogue, 258: imdb_keywords:character-says-i-love-you, 259: imdb_keywords:chase, 262: imdb_keywords:chicago-illinois, 385: imdb_keywords:eavesdropping, 264: imdb_keywords:child, 265: imdb_keywords:child-abuse, 471: imdb_keywords:friend, 269: imdb_keywords:children, 270: imdb_keywords:chinese, 783: imdb_keywords:public-nudity, 784: imdb_keywords:punched-in-the-face, 785: imdb_keywords:punched-in-the-stomach, 1155: tvtropes:meaningful name, 276: imdb_keywords:cigarette-smoking, 279: imdb_keywords:class-differences, 281: imdb_keywords:cleavage, 796: imdb_keywords:rain, 797: imdb_keywords:rainstorm, 800: imdb_keywords:reading, 803: imdb_keywords:redemption, 806: imdb_keywords:reference-to-jesus-christ, 807: imdb_keywords:reference-to-william-shakespeare, 298: imdb_keywords:convertible, 301: imdb_keywords:corpse, 304: imdb_keywords:costume, 817: imdb_keywords:revolver, 306: imdb_keywords:court, 307: imdb_keywords:courtroom, 311: imdb_keywords:cowboy, 1076: imdb_keywords:wristwatch, 316: imdb_keywords:cross, 831: imdb_keywords:running, 835: imdb_keywords:sabotage, 324: imdb_keywords:curse, 326: imdb_keywords:dance, 327: imdb_keywords:dancer, 140: imdb_keywords:assassin, 844: imdb_keywords:scene-during-end-credits, 845: imdb_keywords:scene-during-opening-credits, 1165: tvtropes:oh crap, 11: movielens_genre:Horror, 337: imdb_keywords:death-of-father, 851: imdb_keywords:search, 853: imdb_keywords:secret, 343: imdb_keywords:debt, 608: imdb_keywords:little-boy, 216: imdb_keywords:breaking-the-fourth-wall, 861: imdb_keywords:semiautomatic-pistol, 862: imdb_keywords:sequel, 523: imdb_keywords:held-at-gunpoint, 867: imdb_keywords:severed-hand, 361: imdb_keywords:dismemberment, 362: imdb_keywords:divorce, 875: imdb_keywords:ship, 365: imdb_keywords:doll, 1085: tvtropes:adult fear, 488: imdb_keywords:ghost, 884: imdb_keywords:shot-in-the-shoulder, 376: imdb_keywords:drug-dealer, 889: imdb_keywords:shower, 379: imdb_keywords:drunkenness, 381: imdb_keywords:dying, 661: imdb_keywords:mission, 149: imdb_keywords:axe, 897: imdb_keywords:skinny-dipping, 387: imdb_keywords:electrocution, 388: imdb_keywords:electronic-music-score, 1174: tvtropes:running gag, 395: imdb_keywords:erotica, 909: imdb_keywords:sociopath, 1176: tvtropes:shout out, 403: imdb_keywords:execution, 916: imdb_keywords:spy, 408: imdb_keywords:explosion, 836: imdb_keywords:sadism, 924: imdb_keywords:stealing, 926: imdb_keywords:storytelling, 927: imdb_keywords:strangulation, 418: imdb_keywords:falling-from-height, 935: imdb_keywords:subtitled-scene, 937: imdb_keywords:subway, 426: imdb_keywords:farmer, 943: imdb_keywords:supernatural-power, 432: imdb_keywords:female-frontal-nudity, 945: imdb_keywords:surprise-ending, 434: imdb_keywords:female-nudity, 947: imdb_keywords:surveillance, 670: imdb_keywords:mother-daughter-relationship, 951: imdb_keywords:swat-team, 442: imdb_keywords:fighting, 955: imdb_keywords:sword, 956: imdb_keywords:sword-fight, 447: imdb_keywords:fireplace, 449: imdb_keywords:first-part, 1011: imdb_keywords:truck, 452: imdb_keywords:fishing, 966: imdb_keywords:teacher, 961: imdb_keywords:target-practice, 460: imdb_keywords:flowers, 463: imdb_keywords:foot-chase, 561: imdb_keywords:interracial-relationship, 470: imdb_keywords:french, 983: imdb_keywords:theft, 474: imdb_keywords:funeral, 987: imdb_keywords:three-word-title, 988: imdb_keywords:throat-slitting, 477: imdb_keywords:gang, 990: imdb_keywords:tied-up, 991: imdb_keywords:title-directed-by-female, 480: imdb_keywords:garden, 1090: tvtropes:arch enemy, 1000: imdb_keywords:tragedy, 323: imdb_keywords:cult-film, 167: imdb_keywords:based-on-novel, 1007: imdb_keywords:trap, 497: imdb_keywords:grave, 339: imdb_keywords:death-of-husband, 504: imdb_keywords:gun, 1017: imdb_keywords:typewriter, 506: imdb_keywords:gunfire, 1023: imdb_keywords:undercover
+Loading indicators
+Building indicator distributions
+Loading user profiles
+Processing user 557, movie 75825 (Card Player, The (Il cartaio) (2004))
+Original predicted rating: 2.77116361021
+User profile: {'neg_name': 'imdb_keywords:arrest', 'neg': 136, 'profile_id': 0, 'pos_name': 'tvtropes:heel face turn', 'pos': 1138}
+Non-zero qiis:
+average_rating (1194): -0.325179510274
+imdb_keywords:search (851): -0.168215875925
+imdb_keywords:eavesdropping (385): -0.0271422528801
+imdb_keywords:friend (471): -0.0235219219016
+imdb_keywords:murderer (676): 0.01834642428
+movielens_tags:acting (41): 0.0167338403788
+imdb_keywords:airplane (113): 0.0119479756972
+imdb_keywords:grave (497): 0.00794448607454
+imdb_keywords:held-at-gunpoint (523): 0.007425994854
+imdb_keywords:impersonation (554): 0.00742450554888
+imdb_keywords:mexico (655): -0.00628790629964
+imdb_keywords:loss-of-father (616): -0.00523203190299
+imdb_keywords:falling-from-height (418): -0.00361158009998
+imdb_keywords:abortion (102): 0.00201666254331
+imdb_keywords:torch (996): -0.000942111984833
+movielens_tags:ClearPlay (28): 0.000172364798974
+Correctness score: 0.0
+Processing user 841, movie 26966 (Brave, The (1997))
+Original predicted rating: 3.35859414785
+User profile: {'neg_name': "imdb_keywords:character-repeating-someone-else's-dialogue", 'neg': 257, 'profile_id': 2, 'pos_name': 'imdb_keywords:crushed-to-death', 'pos': 320}
+Non-zero qiis:
+average_rating (1194): -0.234375044619
+imdb_keywords:airplane (113): -0.0364901390217
+imdb_keywords:grave (497): 0.0309925386052
+imdb_keywords:rain (796): -0.0138694282998
+imdb_keywords:gunfire (506): 0.0135783930114
+imdb_keywords:typewriter (1017): 0.00869025064558
+imdb_keywords:child-abuse (265): 0.00798899134994
+imdb_keywords:death-of-husband (339): 0.0066165837969
+imdb_keywords:mission (661): 0.00653469159246
+imdb_keywords:held-at-gunpoint (523): -0.00642799599086
+imdb_keywords:teacher (966): 0.00493828864963
+imdb_keywords:assassin (140): -0.00432091667008
+imdb_keywords:falling-from-height (418): 0.00205335444531
+imdb_keywords:pilot (744): 0.000469695622321
+imdb_keywords:brutality (225): 8.85417299025e-05
+imdb_keywords:basketball (171): -6.45685495558e-05
+imdb_keywords:friend (471): 5.69041873843e-05
+Correctness score: 0.0
+Processing user 656, movie 3254 (Wayne's World 2 (1993))
+Original predicted rating: 1.67404693459
+User profile: {'neg_name': 'imdb_keywords:beating', 'neg': 179, 'profile_id': 5, 'pos_name': 'imdb_keywords:knocked-out', 'pos': 590}
+Non-zero qiis:
+average_rating (1194): -0.581341987481
+imdb_keywords:fireplace (447): -0.107748744718
+imdb_keywords:casino (246): -0.103446540897
+imdb_keywords:mother-daughter-relationship (670): 0.0293057141952
+imdb_keywords:theft (983): 0.0234093435469
+imdb_keywords:sword-fight (956): 0.0221089488589
+imdb_keywords:airplane (113): 0.0207495376168
+imdb_keywords:costume (304): 0.0177387195879
+imdb_keywords:grave (497): 0.0124627533899
+imdb_keywords:nightmare (692): -0.0122995894523
+imdb_keywords:reference-to-jesus-christ (806): -0.0121892684711
+imdb_keywords:eavesdropping (385): 0.00620944006015
+imdb_keywords:friend (471): 0.00268440427193
+imdb_keywords:typewriter (1017): -0.00262850490553
+imdb_keywords:reference-to-william-shakespeare (807): 0.00232750515378
+imdb_keywords:death-of-husband (339): -0.00200129129496
+imdb_keywords:tied-up (990): -0.00198177393424
+imdb_keywords:teacher (966): -0.00149366416112
+imdb_keywords:rainstorm (797): 0.00120371203495
+imdb_keywords:child-abuse (265): -0.000683527033634
+imdb_keywords:falling-from-height (418): -0.000614371107777
+imdb_keywords:basketball (171): 0.000324027098068
+Correctness score: 0.0
+Processing user 21, movie 910 (Some Like It Hot (1959))
+Original predicted rating: 3.36004029142
+User profile: {'neg_name': 'imdb_keywords:italy', 'neg': 567, 'profile_id': 1, 'pos_name': 'imdb_keywords:brothel', 'pos': 221}
+Non-zero qiis:
+average_rating (1194): 0.409630577001
+movielens_tags:memasa's movies (62): 0.360397398291
+imdb_keywords:flowers (460): -0.192925757167
+imdb_keywords:on-the-run (710): 0.135028726234
+imdb_keywords:car (241): 0.0429145070273
+imdb_keywords:typewriter (1017): -0.0277177432227
+imdb_keywords:businessman (230): -0.0232141141511
+imdb_keywords:fishing (452): -0.0230661034976
+imdb_keywords:revolver (817): -0.0124046041978
+imdb_keywords:knife (589): 0.010070808809
+imdb_keywords:chase (259): -0.00959741498828
+imdb_keywords:neighbor (683): 0.00769126553854
+imdb_keywords:undercover (1023): -0.00643416707857
+imdb_producer: (1083): 0.00532709793563
+year (0): -0.00427757152069
+imdb_keywords:battle (175): 0.00376077226986
+imdb_keywords:held-at-gunpoint (523): 0.00288639121089
+imdb_keywords:abortion (102): -0.000530596505884
+Correctness score: 0.0
+Processing user 956, movie 62553 (Secret Life of Bees, The (2008))
+Original predicted rating: 3.14577063016
+User profile: {'neg_name': 'imdb_keywords:blood-splatter', 'neg': 202, 'profile_id': 4, 'pos_name': 'imdb_keywords:1920s', 'pos': 92}
+Non-zero qiis:
+average_rating (1194): 0.384938400765
+imdb_keywords:battle (175): 0.148481771259
+imdb_keywords:child-abuse (265): 0.0734752287879
+imdb_keywords:assassin (140): 0.0509848947346
+imdb_producer: (1083): 0.036375011111
+imdb_keywords:falling-from-height (418): -0.034098755946
+imdb_keywords:typewriter (1017): -0.0216524415812
+imdb_keywords:sword-fight (956): -0.0176264139841
+imdb_keywords:teacher (966): 0.01451172502
+imdb_keywords:car (241): 0.0121505128708
+imdb_keywords:knife (589): -0.00969021678483
+imdb_keywords:jeep (573): -0.00425469292615
+imdb_keywords:held-at-gunpoint (523): -0.00325955446816
+imdb_keywords:undercover (1023): -0.00243359206074
+year (0): 0.0016397885977
+imdb_keywords:cat (248): 0.000184135608163
+Correctness score: 0.0
+Processing user 757, movie 7336 (Damned, The (La Caduta degli dei) (1969))
+Original predicted rating: 2.91025729875
+User profile: {'neg_name': 'imdb_keywords:dancer', 'neg': 327, 'profile_id': 9, 'pos_name': 'imdb_keywords:piano', 'pos': 741}
+Non-zero qiis:
+imdb_keywords:flowers (460): -0.151190714557
+average_rating (1194): 0.146665666659
+tvtropes:karma houdini (1149): -0.0743454181401
+imdb_keywords:car (241): 0.036628755819
+imdb_keywords:wristwatch (1076): -0.0247302109917
+imdb_keywords:knife (589): 0.0196088204257
+imdb_keywords:jeep (573): -0.017173750515
+imdb_keywords:chinese (270): -0.0170847743512
+imdb_keywords:binoculars (188): -0.0159396435593
+imdb_keywords:news-report (687): -0.0134201973465
+imdb_keywords:swat-team (951): -0.0132327409266
+imdb_keywords:bare-chested-male (160): 0.0130897467364
+imdb_keywords:surveillance (947): -0.0101747812641
+imdb_keywords:undercover (1023): -0.00982301276068
+imdb_keywords:sword-fight (956): -0.00958313925354
+imdb_keywords:mission (661): -0.00775046045579
+imdb_keywords:child-abuse (265): -0.00552125431205
+imdb_keywords:falling-from-height (418): -0.00522586619311
+imdb_keywords:abortion (102): -0.00450762983801
+imdb_keywords:hitman (533): -0.00224238295715
+year (0): 0.00198504257547
+imdb_keywords:teacher (966): -0.001468926655
+imdb_keywords:debt (343): -0.00141683612257
+imdb_keywords:doll (365): -0.00121704061146
+imdb_keywords:rainstorm (797): 0.00118377660729
+imdb_keywords:cat (248): -0.000215341408097
+Correctness score: 0.0
+Processing user 87, movie 8495 (Animal Factory (2000))
+Original predicted rating: 1.48855316105
+User profile: {'neg_name': 'imdb_keywords:upskirt', 'neg': 1031, 'profile_id': 6, 'pos_name': 'imdb_keywords:duel', 'pos': 380}
+Non-zero qiis:
+imdb_keywords:typewriter (1017): -0.290001963822
+average_rating (1194): -0.224157919729
+imdb_keywords:cigarette-smoking (276): -0.151132714434
+imdb_keywords:search (851): -0.110808719872
+imdb_keywords:assassin (140): 0.0624665654496
+imdb_keywords:chicago-illinois (262): -0.0489183239769
+imdb_keywords:character-says-i-love-you (258): -0.0210707226905
+tvtropes:brick joke (1104): 0.0163724413295
+imdb_keywords:airplane (113): 0.0118321853176
+imdb_keywords:eavesdropping (385): -0.0106201385903
+imdb_keywords:courtroom (307): -0.00832898348967
+imdb_keywords:male-rear-nudity (635): -0.00695083959504
+imdb_keywords:bed (180): 0.00651492368925
+movielens_tags:ClearPlay (28): -0.00638620726774
+imdb_keywords:reference-to-william-shakespeare (807): -0.00600846882928
+imdb_keywords:sword-fight (956): 0.00448864662004
+imdb_keywords:park (730): -0.00440249068458
+imdb_keywords:chase (259): 0.00410304909469
+imdb_keywords:loneliness (612): 0.0038945939801
+imdb_keywords:held-at-gunpoint (523): -0.00357096524318
+imdb_keywords:bare-breasts (158): -0.00194011230493
+year (0): 0.00170150919128
+imdb_keywords:cat (248): 0.000100863762702
+Correctness score: 0.0
+Processing user 611, movie 93838 (The Raid: Redemption (2011))
+Original predicted rating: 2.80598015545
+User profile: {'neg_name': 'imdb_keywords:dancer', 'neg': 327, 'profile_id': 9, 'pos_name': 'imdb_keywords:piano', 'pos': 741}
+Non-zero qiis:
+average_rating (1194): 0.791078896007
+imdb_keywords:bare-chested-male (160): -0.131250303429
+imdb_keywords:punched-in-the-stomach (785): 0.108774223586
+imdb_keywords:death-of-father (337): 0.0632338439249
+imdb_keywords:female-nudity (434): 0.0430735049105
+imdb_keywords:doll (365): 0.0192654781741
+imdb_keywords:swat-team (951): -0.0162591418743
+year (0): 0.0154039246185
+tvtropes:karma houdini (1149): 0.0106382047524
+imdb_keywords:held-at-gunpoint (523): -0.0104588432303
+imdb_keywords:cat (248): 0.00985848646388
+imdb_keywords:assassin (140): 0.00865237305257
+imdb_keywords:tied-up (990): -0.00417687732896
+imdb_keywords:battle (175): -0.00260896256107
+imdb_keywords:neighbor (683): -0.00225158033756
+imdb_keywords:news-report (687): 0.00175788864562
+imdb_keywords:falling-from-height (418): -0.00154425734776
+imdb_keywords:farmer (426): 0.00150986299509
+imdb_keywords:typewriter (1017): 0.000623922707729
+imdb_keywords:virgin (1044): -0.000445855781266
+imdb_keywords:knife (589): -0.000170599124424
+Correctness score: 0.0
+Processing user 470, movie 2643 (Superman IV: The Quest for Peace (1987))
+Original predicted rating: 3.347263392
+User profile: {'neg_name': 'imdb_keywords:san-francisco-california', 'neg': 839, 'profile_id': 8, 'pos_name': 'imdb_keywords:soldier', 'pos': 910}
+Non-zero qiis:
+average_rating (1194): 0.414018039728
+imdb_keywords:sword (955): -0.0142307695087
+imdb_keywords:car (241): 0.0131865635497
+imdb_keywords:teacher (966): -0.0123486511805
+imdb_keywords:knife (589): -0.0107643960221
+imdb_keywords:male-rear-nudity (635): -0.0081540846137
+imdb_keywords:mission (661): 0.00762888704566
+imdb_keywords:fighting (442): -0.00698716308581
+imdb_keywords:sword-fight (956): 0.00471640925885
+tvtropes:brick joke (1104): 0.0035763321237
+imdb_keywords:bed (180): 0.00284618895916
+imdb_keywords:falling-from-height (418): -0.002705267606
+imdb_keywords:revolver (817): 0.0024842592571
+imdb_keywords:loneliness (612): 0.00228438941911
+imdb_keywords:doll (365): 0.00189269000924
+imdb_keywords:child-abuse (265): -0.0015716324706
+year (0): 0.00099944310128
+imdb_keywords:cat (248): 0.000423927142909
+Correctness score: 0.0
+Processing user 958, movie 89999 (The Beast Kills in Cold Blood (1971))

@@ -1,0 +1,590 @@
+Loading results dict
+Original recommender relative to ground truth on training set mean absolute error: 0.0228946881256, RMSE: 0.0290476194989
+Shadow model relative to the baseline recommender on test set MAE: 0.857612113523, RMSE: 1.00920997679
+Randomized model relative to the baseline recommender on test set MAE: 1.12532950836, RMSE: 1.38602512088
+Shadow model is 1.31216606041 times better than random on the test set
+Loading movies
+Loading ALS model
+Loading decision trees
+248 features are used: 0: year, 1: movielens_genre:Action, 2: movielens_genre:Adventure, 5: movielens_genre:Comedy, 6: movielens_genre:Crime, 7: movielens_genre:Documentary, 8: movielens_genre:Drama, 9: movielens_genre:Fantasy, 525: imdb_keywords:henchman, 1038: imdb_keywords:vandalism, 15: movielens_genre:Sci-Fi, 16: movielens_genre:Thriller, 529: imdb_keywords:high-school, 1043: imdb_keywords:violence, 1044: imdb_keywords:virgin, 1049: imdb_keywords:waiter, 26: movielens_tags:CLV, 27: movielens_tags:Can't remember, 28: movielens_tags:ClearPlay, 1053: imdb_keywords:washington-d.c., 542: imdb_keywords:hospital, 544: imdb_keywords:hotel, 35: movielens_tags:Netflix Finland, 1023: imdb_keywords:undercover, 1061: imdb_keywords:wheelchair, 945: imdb_keywords:surprise-ending, 604: imdb_keywords:lightning, 1066: imdb_keywords:widower, 556: imdb_keywords:independent-film, 1073: imdb_keywords:woods, 50: movielens_tags:crime, 54: movielens_tags:erlend's DVDs, 567: imdb_keywords:italy, 568: imdb_keywords:jail, 445: imdb_keywords:fire, 571: imdb_keywords:japanese, 60: movielens_tags:less than 300 ratings, 67: movielens_tags:netflix, 581: imdb_keywords:key, 582: imdb_keywords:kicked-in-the-face, 1095: tvtropes:berserk button, 1096: tvtropes:big bad, 1099: tvtropes:bittersweet ending, 588: imdb_keywords:kitchen, 590: imdb_keywords:knocked-out, 13: movielens_genre:Mystery, 592: imdb_keywords:laboratory, 593: imdb_keywords:lake, 514: imdb_keywords:handcuffs, 1108: tvtropes:cassandra truth, 1110: tvtropes:chekhovs gun, 1112: tvtropes:chekhovs skill, 89: movielens_tags:violence, 603: imdb_keywords:lifting-someone-into-the-air, 92: imdb_keywords:1920s, 1117: tvtropes:cult classic, 606: imdb_keywords:lingerie, 609: imdb_keywords:little-girl, 611: imdb_keywords:london-england, 1125: tvtropes:driven to suicide, 105: imdb_keywords:action-hero, 618: imdb_keywords:loss-of-mother, 1132: tvtropes:faux affably evil, 621: imdb_keywords:love-triangle, 1134: tvtropes:genre savvy, 111: imdb_keywords:africa, 531: imdb_keywords:hit-by-a-car, 630: imdb_keywords:maid, 1129: tvtropes:eye scream, 1144: tvtropes:idiot ball, 532: imdb_keywords:hit-in-the-crotch, 122: imdb_keywords:american, 1147: tvtropes:jerk with a heart of gold, 1148: tvtropes:jerkass, 637: imdb_keywords:manhattan-new-york-city, 1150: tvtropes:kick the dog, 639: imdb_keywords:manipulation, 1153: tvtropes:laser guided karma, 130: imdb_keywords:apartment, 186: imdb_keywords:bicycle, 132: imdb_keywords:applause, 648: imdb_keywords:massacre, 649: imdb_keywords:masturbation, 138: imdb_keywords:art, 1187: tvtropes:very loosely based on a true story, 1133: tvtropes:foreshadowing, 145: imdb_keywords:audition, 448: imdb_keywords:fireworks, 1173: tvtropes:reveal, 1178: tvtropes:smug snake, 623: imdb_keywords:loyalty, 156: imdb_keywords:bar, 88: movielens_tags:true story, 671: imdb_keywords:mother-son-relationship, 160: imdb_keywords:bare-chested-male, 539: imdb_keywords:horse, 454: imdb_keywords:flash-forward, 1191: tvtropes:what happened to the mouse, 1194: average_rating, 683: imdb_keywords:neighbor, 176: imdb_keywords:battlefield, 177: imdb_keywords:beach, 713: imdb_keywords:one-word-title, 184: imdb_keywords:betrayal, 698: imdb_keywords:number-in-title, 187: imdb_keywords:bikini, 192: imdb_keywords:birthday-party, 620: imdb_keywords:love, 262: imdb_keywords:chicago-illinois, 707: imdb_keywords:older-man-younger-woman-relationship, 374: imdb_keywords:drug-addict, 711: imdb_keywords:one-against-many, 201: imdb_keywords:blood, 203: imdb_keywords:boat, 717: imdb_keywords:organized-crime, 720: imdb_keywords:outer-space, 209: imdb_keywords:boxing, 547: imdb_keywords:humiliation, 213: imdb_keywords:brawl, 633: imdb_keywords:male-nudity, 219: imdb_keywords:british, 220: imdb_keywords:broken-leg, 734: imdb_keywords:pay-phone, 736: imdb_keywords:person-on-fire, 738: imdb_keywords:photograph, 739: imdb_keywords:photographer, 741: imdb_keywords:piano, 233: imdb_keywords:california, 746: imdb_keywords:pistol, 750: imdb_keywords:police, 239: imdb_keywords:cannon, 240: imdb_keywords:captain, 243: imdb_keywords:car-chase, 248: imdb_keywords:cat, 766: imdb_keywords:pregnancy, 256: imdb_keywords:character-name-in-title, 257: imdb_keywords:character-repeating-someone-else's-dialogue, 259: imdb_keywords:chase, 774: imdb_keywords:prologue, 265: imdb_keywords:child-abuse, 780: imdb_keywords:psychopath, 642: imdb_keywords:marijuana, 272: imdb_keywords:christmas, 121: imdb_keywords:ambush, 791: imdb_keywords:racial-slur, 281: imdb_keywords:cleavage, 282: imdb_keywords:cocaine, 795: imdb_keywords:railway-station, 796: imdb_keywords:rain, 286: imdb_keywords:college-student, 800: imdb_keywords:reading, 1017: imdb_keywords:typewriter, 902: imdb_keywords:small-town, 294: imdb_keywords:condom, 813: imdb_keywords:restaurant, 814: imdb_keywords:revenge, 303: imdb_keywords:corruption, 304: imdb_keywords:costume, 305: imdb_keywords:courage, 20: movielens_tags:BD-R, 823: imdb_keywords:river, 283: imdb_keywords:coffee, 825: imdb_keywords:robbery, 315: imdb_keywords:criminal, 828: imdb_keywords:roommate, 318: imdb_keywords:crucifix, 319: imdb_keywords:cruelty, 832: imdb_keywords:rural-setting, 322: imdb_keywords:cult-director, 323: imdb_keywords:cult-film, 836: imdb_keywords:sadism, 1078: imdb_keywords:writing, 328: imdb_keywords:dancing, 329: imdb_keywords:dark-comedy, 844: imdb_keywords:scene-during-end-credits, 333: imdb_keywords:dead-woman, 850: imdb_keywords:sea, 851: imdb_keywords:search, 142: imdb_keywords:assassination-attempt, 344: imdb_keywords:decapitation, 349: imdb_keywords:desert, 997: imdb_keywords:torture, 873: imdb_keywords:shaving, 362: imdb_keywords:divorce, 364: imdb_keywords:dog, 878: imdb_keywords:shot-in-the-arm, 884: imdb_keywords:shot-in-the-shoulder, 108: imdb_keywords:actress, 889: imdb_keywords:shower, 378: imdb_keywords:drugs, 234: imdb_keywords:camera, 899: imdb_keywords:slasher, 390: imdb_keywords:employer-employee-relationship, 909: imdb_keywords:sociopath, 399: imdb_keywords:evil-man, 912: imdb_keywords:spear, 913: imdb_keywords:speech, 644: imdb_keywords:marriage-proposal, 405: imdb_keywords:exploding-building, 751: imdb_keywords:police-brutality, 925: imdb_keywords:storm, 418: imdb_keywords:falling-from-height, 781: imdb_keywords:pub, 422: imdb_keywords:famous-score, 423: imdb_keywords:fantasy-sequence, 696: imdb_keywords:nonlinear-timeline, 428: imdb_keywords:father-son-relationship, 941: imdb_keywords:sunglasses, 430: imdb_keywords:fear, 413: imdb_keywords:face-slap, 840: imdb_keywords:satire, 948: imdb_keywords:survival, 950: imdb_keywords:suspicion, 439: imdb_keywords:femme-fatale, 953: imdb_keywords:swimming-pool, 504: imdb_keywords:gun, 957: imdb_keywords:syringe, 447: imdb_keywords:fireplace, 960: imdb_keywords:tape-recorder, 1184: tvtropes:too dumb to live, 450: imdb_keywords:fish, 451: imdb_keywords:fish-out-of-water, 452: imdb_keywords:fishing, 966: imdb_keywords:teacher, 455: imdb_keywords:flashback, 456: imdb_keywords:flashlight, 464: imdb_keywords:foreign-language-adaptation, 465: imdb_keywords:forest, 675: imdb_keywords:murder-of-a-police-officer, 470: imdb_keywords:french, 471: imdb_keywords:friend, 472: imdb_keywords:friendship, 473: imdb_keywords:fugitive, 474: imdb_keywords:funeral, 987: imdb_keywords:three-word-title, 988: imdb_keywords:throat-slitting, 994: imdb_keywords:told-in-flashback, 485: imdb_keywords:gay-slur, 876: imdb_keywords:shooting, 496: imdb_keywords:grandmother-grandson-relationship, 498: imdb_keywords:graveyard, 562: imdb_keywords:interrogation, 501: imdb_keywords:guilt, 1016: imdb_keywords:two-word-title, 84: movielens_tags:stylized, 1018: imdb_keywords:u.s.-army, 1019: imdb_keywords:u.s.-president, 511: imdb_keywords:hallucination
+Loading indicators
+Building indicator distributions
+Loading user profiles
+Processing user 865, movie 67193 (Duplicity (2009))
+Original predicted rating: 2.22014171668
+User profile: {'neg_name': 'imdb_keywords:ak-47', 'neg': 115, 'profile_id': 7, 'pos_name': 'imdb_keywords:cigarette-smoking', 'pos': 276}
+Non-zero qiis:
+average_rating (1194): -0.349870829618
+imdb_keywords:restaurant (813): 0.044387080431
+imdb_keywords:exploding-building (405): -0.0204287171518
+imdb_keywords:rain (796): -0.0180469106009
+imdb_keywords:sadism (836): -0.0139480782604
+imdb_keywords:pregnancy (766): 0.0121532946844
+imdb_keywords:throat-slitting (988): -0.0118853565983
+imdb_keywords:little-girl (609): 0.00942745428883
+year (0): -0.00855680695011
+tvtropes:reveal (1173): -0.00839228888231
+imdb_keywords:prologue (774): -0.00833191169756
+imdb_keywords:slasher (899): -0.00710065535265
+imdb_keywords:hallucination (511): 0.00675182481915
+imdb_keywords:suspicion (950): -0.00611967202833
+imdb_keywords:lake (593): -0.00523967484906
+imdb_keywords:friend (471): -0.00300632298032
+tvtropes:driven to suicide (1125): -0.00106955766658
+imdb_keywords:hit-by-a-car (531): -0.000719614724002
+imdb_keywords:piano (741): -0.000424690663819
+imdb_keywords:outer-space (720): -0.000253461817736
+imdb_keywords:shooting (876): -0.000196398012785
+Correctness score: 0.0
+Processing user 876, movie 37733 (History of Violence, A (2005))
+Original predicted rating: 0.89884901181
+User profile: {'neg_name': 'imdb_keywords:rainstorm', 'neg': 797, 'profile_id': 6, 'pos_name': 'imdb_keywords:lesbian', 'pos': 596}
+Non-zero qiis:
+average_rating (1194): 0.196530034202
+imdb_keywords:sunglasses (941): 0.104696730079
+imdb_keywords:robbery (825): 0.0698162091831
+imdb_keywords:u.s.-president (1019): -0.0676358153546
+imdb_keywords:betrayal (184): 0.030750455315
+imdb_keywords:japanese (571): -0.0305952582554
+imdb_keywords:california (233): 0.0286904944686
+imdb_keywords:foreign-language-adaptation (464): -0.0279121493196
+imdb_keywords:decapitation (344): -0.0267896250722
+tvtropes:chekhovs gun (1110): 0.0226247760196
+imdb_keywords:shooting (876): 0.0222896011215
+imdb_keywords:restaurant (813): -0.0183287876737
+imdb_keywords:friend (471): -0.0128362027991
+tvtropes:cassandra truth (1108): -0.011803180405
+imdb_keywords:hallucination (511): 0.00711783712067
+imdb_keywords:psychopath (780): 0.00547356667687
+imdb_keywords:rain (796): 0.00538863879757
+imdb_keywords:desert (349): 0.00467187584924
+year (0): 0.00393138368528
+imdb_keywords:prologue (774): 0.00382805664613
+imdb_keywords:woods (1073): -0.00176605104512
+imdb_keywords:older-man-younger-woman-relationship (707): -0.001602245403
+imdb_keywords:lingerie (606): 0.00128347912523
+imdb_keywords:humiliation (547): 0.000178496670727
+Correctness score: 0.0
+Processing user 216, movie 33817 (My Summer of Love (2004))
+Original predicted rating: 3.09744751979
+User profile: {'neg_name': 'imdb_keywords:cooking', 'neg': 300, 'profile_id': 1, 'pos_name': 'imdb_keywords:colonel', 'pos': 287}
+Non-zero qiis:
+average_rating (1194): -0.236933586899
+imdb_keywords:marijuana (642): -0.092138665307
+imdb_keywords:cleavage (281): 0.0612398328373
+imdb_keywords:restaurant (813): -0.0389344404817
+imdb_keywords:outer-space (720): -0.0348033266723
+imdb_keywords:woods (1073): 0.0332451006529
+imdb_keywords:speech (913): -0.0312291293337
+tvtropes:too dumb to live (1184): 0.0262434083738
+movielens_tags:CLV (26): -0.0248957551304
+imdb_keywords:cult-director (322): 0.0214326551392
+imdb_keywords:lingerie (606): -0.0210232071975
+tvtropes:chekhovs gun (1110): 0.020798835972
+imdb_keywords:gun (504): -0.0171157278127
+imdb_keywords:kicked-in-the-face (582): -0.0135048444007
+imdb_keywords:older-man-younger-woman-relationship (707): -0.00990720123154
+imdb_keywords:hallucination (511): 0.00549921983301
+imdb_keywords:desert (349): 0.00360947741455
+imdb_keywords:sadism (836): -0.00252993364763
+imdb_keywords:cannon (239): 0.00237217473583
+imdb_keywords:psychopath (780): 0.00196937994183
+imdb_keywords:friend (471): 0.00145493964492
+year (0): -0.00110884869567
+imdb_keywords:throat-slitting (988): 0.000900361166243
+imdb_keywords:humiliation (547): 0.00074222455232
+imdb_keywords:rain (796): -0.000584660066464
+Correctness score: 0.0
+Processing user 299, movie 58411 (Hottest State, The (2006))
+Original predicted rating: 3.60412962971
+User profile: {'neg_name': 'imdb_keywords:ak-47', 'neg': 115, 'profile_id': 7, 'pos_name': 'imdb_keywords:cigarette-smoking', 'pos': 276}
+Non-zero qiis:
+average_rating (1194): 0.552970035245
+imdb_keywords:japanese (571): -0.0493295141868
+imdb_keywords:key (581): -0.0431443590351
+imdb_keywords:flash-forward (454): 0.0369353187709
+imdb_keywords:cruelty (319): -0.0243757239465
+tvtropes:chekhovs gun (1110): -0.0223573483829
+imdb_keywords:friendship (472): 0.0193254125336
+imdb_keywords:rain (796): 0.0184652860039
+imdb_keywords:u.s.-army (1018): -0.0183365685019
+imdb_keywords:person-on-fire (736): -0.0162172677582
+imdb_keywords:restaurant (813): 0.0159745760426
+imdb_keywords:decapitation (344): 0.0061357725459
+imdb_keywords:pregnancy (766): 0.00583183900117
+imdb_keywords:psychopath (780): 0.0043650952551
+imdb_keywords:desert (349): -0.00387994521165
+imdb_keywords:humiliation (547): -0.00361943800203
+imdb_keywords:writing (1078): 0.00307618311682
+imdb_keywords:hallucination (511): -0.00295564554205
+imdb_keywords:exploding-building (405): -0.00207868679214
+tvtropes:driven to suicide (1125): 0.00198414111278
+imdb_keywords:older-man-younger-woman-relationship (707): -0.00191665349644
+imdb_keywords:friend (471): 0.000503108627959
+Correctness score: 0.0
+Processing user 940, movie 90561 (Happy, Happy (Sykt lykkelig) (2010))
+Original predicted rating: 2.56051525309
+User profile: {'neg_name': 'imdb_keywords:rainstorm', 'neg': 797, 'profile_id': 6, 'pos_name': 'imdb_keywords:lesbian', 'pos': 596}
+Non-zero qiis:
+average_rating (1194): -0.205249382649
+imdb_keywords:u.s.-president (1019): 0.0345966347206
+imdb_keywords:sadism (836): 0.0201389092451
+imdb_keywords:woods (1073): 0.0139022475352
+tvtropes:too dumb to live (1184): 0.0138429493838
+tvtropes:reveal (1173): -0.0133122948066
+imdb_keywords:friend (471): 0.0131317828317
+imdb_keywords:art (138): -0.0128440869852
+year (0): 0.012343400642
+imdb_keywords:cleavage (281): -0.0108641336922
+imdb_keywords:outer-space (720): -0.0108166756903
+imdb_keywords:femme-fatale (439): -0.00973318546322
+imdb_keywords:exploding-building (405): -0.0094178571455
+imdb_keywords:lake (593): 0.00917447256846
+imdb_keywords:piano (741): -0.00906199841116
+imdb_keywords:shooting (876): -0.00838143444835
+imdb_keywords:kicked-in-the-face (582): -0.00559109538803
+tvtropes:chekhovs gun (1110): -0.00552855523238
+imdb_keywords:restaurant (813): -0.00504851596459
+imdb_keywords:gun (504): -0.0027741834748
+imdb_keywords:rain (796): -0.00146685223581
+imdb_keywords:desert (349): 0.00145386523601
+Correctness score: 0.0
+Processing user 535, movie 4167 (15 Minutes (2001))
+Original predicted rating: 1.72421306324
+User profile: {'neg_name': 'imdb_keywords:ak-47', 'neg': 115, 'profile_id': 7, 'pos_name': 'imdb_keywords:cigarette-smoking', 'pos': 276}
+Non-zero qiis:
+imdb_keywords:sociopath (909): -0.229973053841
+average_rating (1194): -0.225311788447
+imdb_keywords:handcuffs (514): 0.101806893653
+imdb_keywords:scene-during-end-credits (844): -0.10022479883
+imdb_keywords:one-against-many (711): 0.0906625759443
+imdb_keywords:restaurant (813): -0.0574935055724
+imdb_keywords:u.s.-president (1019): 0.0377026103088
+imdb_keywords:kicked-in-the-face (582): -0.0333114709518
+imdb_keywords:psychopath (780): 0.0278608186131
+imdb_keywords:pregnancy (766): -0.00899535255853
+imdb_keywords:friend (471): 0.00715535621833
+imdb_keywords:woods (1073): 0.00636536071275
+imdb_keywords:independent-film (556): 0.00394927813092
+tvtropes:jerkass (1148): 0.00365469529426
+year (0): -0.00332510078454
+imdb_keywords:exploding-building (405): -0.00264614062328
+imdb_keywords:hit-by-a-car (531): 0.00211009994966
+imdb_keywords:lake (593): -0.00208418104791
+tvtropes:jerk with a heart of gold (1147): -0.00179263272206
+imdb_keywords:rain (796): -0.00116881209209
+imdb_keywords:prologue (774): -0.00107923614824
+imdb_keywords:little-girl (609): 0.000673058145483
+imdb_keywords:piano (741): -0.000347294408635
+imdb_keywords:sadism (836): -0.000257816038408
+imdb_keywords:manipulation (639): -5.24827687522e-05
+Correctness score: 0.0
+Processing user 715, movie 103539 (The Spectacular Now (2013))
+Original predicted rating: 3.65245510882
+User profile: {'neg_name': 'imdb_keywords:social-commentary', 'neg': 908, 'profile_id': 8, 'pos_name': 'imdb_keywords:voice-over-narration', 'pos': 1045}
+Non-zero qiis:
+average_rating (1194): 0.298420643146
+imdb_keywords:friendship (472): -0.0301325006424
+imdb_keywords:prologue (774): 0.0283395175813
+imdb_keywords:organized-crime (717): -0.0233993923185
+imdb_keywords:person-on-fire (736): -0.022790835661
+imdb_keywords:child-abuse (265): -0.0219396824585
+imdb_keywords:london-england (611): 0.0185863679465
+imdb_keywords:friend (471): 0.0131887813258
+imdb_keywords:virgin (1044): 0.0117756985366
+imdb_keywords:lingerie (606): -0.00992506972686
+tvtropes:chekhovs gun (1110): -0.00917035859822
+imdb_keywords:french (470): -0.00833295059106
+tvtropes:jerkass (1148): 0.00780399135643
+imdb_keywords:condom (294): 0.00777032555976
+imdb_keywords:hallucination (511): 0.0073482777961
+imdb_keywords:writing (1078): 0.00711925962815
+tvtropes:genre savvy (1134): -0.00577856400327
+imdb_keywords:exploding-building (405): 0.00565062699445
+imdb_keywords:rain (796): -0.00541217722685
+imdb_keywords:cruelty (319): -0.00512394334208
+imdb_keywords:gun (504): -0.00432383811293
+imdb_keywords:restaurant (813): -0.00393430462328
+tvtropes:jerk with a heart of gold (1147): -0.00234162314463
+imdb_keywords:woods (1073): 0.00138259891968
+tvtropes:faux affably evil (1132): -0.000421928404416
+year (0): -0.000191235312941
+Correctness score: 0.0
+Processing user 276, movie 469 (House of the Spirits, The (1993))
+Original predicted rating: 3.08587463537
+User profile: {'neg_name': 'tvtropes:eye scream', 'neg': 1129, 'profile_id': 3, 'pos_name': 'imdb_keywords:neighbor', 'pos': 683}
+Non-zero qiis:
+average_rating (1194): 0.367022436974
+imdb_keywords:graveyard (498): 0.220989992658
+imdb_keywords:violence (1043): 0.120081851239
+imdb_keywords:character-name-in-title (256): 0.0727836747608
+imdb_keywords:corruption (303): 0.0556813075656
+imdb_keywords:cannon (239): -0.0307087248502
+imdb_keywords:foreign-language-adaptation (464): 0.0252496367403
+imdb_keywords:restaurant (813): 0.0186821610665
+imdb_keywords:sadism (836): 0.0170321328167
+imdb_keywords:shooting (876): -0.0156530317725
+tvtropes:jerk with a heart of gold (1147): -0.013519425952
+imdb_keywords:friend (471): -0.0134069547555
+imdb_keywords:sunglasses (941): -0.011415716307
+tvtropes:berserk button (1095): 0.00840904766962
+year (0): -0.00831713629191
+imdb_keywords:decapitation (344): 0.00823033287539
+imdb_keywords:jail (568): -0.00674355201109
+imdb_keywords:exploding-building (405): -0.00661884064197
+imdb_keywords:robbery (825): -0.00638217797264
+imdb_keywords:desert (349): 0.00408501136229
+imdb_keywords:hit-by-a-car (531): -0.00167028014284
+imdb_keywords:humiliation (547): 0.000788216460432
+Correctness score: 0.0
+Processing user 620, movie 4855 (Dirty Harry (1971))
+Original predicted rating: 1.63933680963
+User profile: {'neg_name': 'imdb_keywords:ak-47', 'neg': 115, 'profile_id': 7, 'pos_name': 'imdb_keywords:cigarette-smoking', 'pos': 276}
+Non-zero qiis:
+average_rating (1194): -0.571837738199
+imdb_keywords:two-word-title (1016): -0.166694837609
+imdb_keywords:sunglasses (941): 0.158700415928
+imdb_keywords:robbery (825): 0.0861257918751
+imdb_keywords:high-school (529): 0.0493923566514
+year (0): 0.0478721111551
+imdb_keywords:coffee (283): -0.0426950142829
+tvtropes:driven to suicide (1125): -0.0309941546537
+imdb_keywords:guilt (501): 0.0301468641168
+imdb_keywords:humiliation (547): 0.0214819862717
+tvtropes:jerkass (1148): 0.0130499142751
+imdb_keywords:exploding-building (405): -0.0107001343983
+imdb_keywords:drug-addict (374): 0.00975750091104
+imdb_keywords:cocaine (282): 0.00955944763337
+imdb_keywords:friend (471): -0.00694275386946
+imdb_keywords:rain (796): -0.00680362582452
+imdb_keywords:u.s.-president (1019): -0.00539206032624
+imdb_keywords:restaurant (813): -0.00530387078304
+tvtropes:cassandra truth (1108): -0.00425601338708
+imdb_keywords:character-repeating-someone-else's-dialogue (257): -0.00417341881481
+imdb_keywords:gun (504): -0.00388600287873
+imdb_keywords:shooting (876): -0.00231103829737
+imdb_keywords:revenge (814): 0.00196386076765
+imdb_keywords:piano (741): -0.000832897419807
+Correctness score: 0.0
+Processing user 191, movie 2153 (Avengers, The (1998))
+Original predicted rating: 3.61884758457
+User profile: {'neg_name': 'imdb_keywords:vampire', 'neg': 1036, 'profile_id': 0, 'pos_name': 'imdb_keywords:disguise', 'pos': 360}
+Non-zero qiis:
+average_rating (1194): 0.409527652048
+tvtropes:cassandra truth (1108): -0.090633698546
+tvtropes:chekhovs gun (1110): 0.0641291121187
+imdb_keywords:exploding-building (405): 0.060780619991
+imdb_keywords:photograph (738): -0.0390457636625
+imdb_keywords:scene-during-end-credits (844): 0.0343919875717
+imdb_keywords:hit-by-a-car (531): -0.0334821698071
+imdb_keywords:sadism (836): -0.0332185499752
+imdb_keywords:shot-in-the-shoulder (884): 0.0293755905567
+imdb_keywords:throat-slitting (988): 0.0279345287971
+imdb_keywords:psychopath (780): 0.0269674832887
+imdb_keywords:restaurant (813): -0.0226796186401
+tvtropes:too dumb to live (1184): 0.0181577759073
+imdb_keywords:femme-fatale (439): 0.0126688543061
+imdb_keywords:shooting (876): -0.0100218961976
+imdb_keywords:dark-comedy (329): -0.00991123838574
+imdb_keywords:lingerie (606): 0.00948527822104
+imdb_keywords:older-man-younger-woman-relationship (707): -0.00592052614147
+tvtropes:berserk button (1095): 0.00556366696139
+imdb_keywords:piano (741): -0.00541783199399
+tvtropes:jerkass (1148): 0.00467517966025
+imdb_keywords:friend (471): -0.00358337634915
+imdb_keywords:woods (1073): 0.00165656214938
+imdb_keywords:little-girl (609): -0.000674130138748
+Correctness score: 0.0
+Processing user 300, movie 3819 (Tampopo (1985))
+Original predicted rating: 1.02354054263
+User profile: {'neg_name': 'imdb_keywords:ak-47', 'neg': 115, 'profile_id': 7, 'pos_name': 'imdb_keywords:cigarette-smoking', 'pos': 276}
+Non-zero qiis:
+average_rating (1194): -0.655779809937
+imdb_keywords:japanese (571): -0.309373340003
+imdb_keywords:sea (850): -0.210660699866
+imdb_keywords:number-in-title (698): 0.0514637470499
+movielens_genre:Documentary (7): -0.0414420540236
+imdb_keywords:restaurant (813): 0.0384092387612
+imdb_keywords:lake (593): 0.033918900276
+imdb_keywords:rain (796): -0.0263616769113
+imdb_keywords:photograph (738): 0.0242865703094
+imdb_keywords:sadism (836): 0.0204803372295
+imdb_keywords:two-word-title (1016): -0.0136046681776
+imdb_keywords:exploding-building (405): 0.0132859632613
+imdb_keywords:decapitation (344): 0.0126452907995
+imdb_keywords:piano (741): 0.0108413305583
+imdb_keywords:little-girl (609): -0.00943715040704
+imdb_keywords:suspicion (950): -0.00605200411071
+imdb_keywords:pregnancy (766): 0.00600945516754
+imdb_keywords:friend (471): 0.00588325661973
+tvtropes:driven to suicide (1125): 0.00555873468112
+imdb_keywords:maid (630): -0.00463868206956
+imdb_keywords:slasher (899): 0.00463190170421
+imdb_keywords:apartment (130): -0.00445823719289
+imdb_keywords:hit-in-the-crotch (532): -0.00348721207583
+imdb_keywords:shooting (876): 0.00334237906786
+imdb_keywords:robbery (825): 0.00315521015063
+tvtropes:jerkass (1148): -0.00234047393379
+imdb_keywords:woods (1073): 2.79494724434e-05
+Correctness score: 0.0
+Processing user 889, movie 69324 (Flame and Citron (Flammen & Citronen) (2008))
+Original predicted rating: 0.660150417317
+User profile: {'neg_name': 'imdb_keywords:baseball', 'neg': 163, 'profile_id': 2, 'pos_name': 'imdb_keywords:mass-murder', 'pos': 647}
+Non-zero qiis:
+average_rating (1194): 0.210097072487
+movielens_tags:CLV (26): -0.0660262284333
+imdb_keywords:hit-by-a-car (531): 0.0213091827332
+imdb_keywords:sociopath (909): 0.0180192378105
+tvtropes:berserk button (1095): 0.0173088162349
+tvtropes:chekhovs gun (1110): -0.0168033155493
+imdb_keywords:kicked-in-the-face (582): -0.0123868472896
+tvtropes:jerkass (1148): 0.0113787615943
+imdb_keywords:u.s.-president (1019): -0.0113058134828
+imdb_keywords:femme-fatale (439): -0.0107817407509
+imdb_keywords:restaurant (813): 0.00947561922394
+year (0): 0.008102866157
+imdb_keywords:prologue (774): 0.00788990165501
+imdb_keywords:hallucination (511): 0.00673231200444
+tvtropes:jerk with a heart of gold (1147): 0.00655264184006
+imdb_keywords:scene-during-end-credits (844): 0.00593710730885
+imdb_keywords:shooting (876): 0.00581572472503
+imdb_keywords:cleavage (281): -0.0049872344123
+imdb_keywords:psychopath (780): 0.00482789220053
+imdb_keywords:rain (796): 0.00427237934662
+imdb_keywords:woods (1073): 0.00403185056699
+imdb_keywords:friend (471): -0.0032184955688
+imdb_keywords:gun (504): 0.00173563257328
+imdb_keywords:art (138): -0.000458550252742
+imdb_keywords:lake (593): 0.000327540347547
+Correctness score: 0.0
+Processing user 276, movie 2950 (Blue Lagoon, The (1980))
+Original predicted rating: 3.11821054896
+User profile: {'neg_name': 'tvtropes:eye scream', 'neg': 1129, 'profile_id': 3, 'pos_name': 'imdb_keywords:neighbor', 'pos': 683}
+Non-zero qiis:
+average_rating (1194): 0.42744380676
+tvtropes:reveal (1173): 0.0472514573665
+imdb_keywords:lake (593): 0.0302715700563
+imdb_keywords:loyalty (623): 0.0257958843469
+imdb_keywords:restaurant (813): 0.0246181488053
+imdb_keywords:psychopath (780): -0.0216587877787
+year (0): 0.0194066513478
+imdb_keywords:femme-fatale (439): 0.0169078879915
+imdb_keywords:cleavage (281): -0.00927077738234
+imdb_keywords:exploding-building (405): -0.00903474114271
+imdb_keywords:rain (796): -0.00795722941178
+imdb_keywords:gun (504): -0.00777711452434
+tvtropes:genre savvy (1134): -0.00692911449904
+imdb_keywords:kitchen (588): 0.00687263416058
+imdb_keywords:guilt (501): 0.00683023587126
+imdb_keywords:hallucination (511): 0.00622371964735
+imdb_keywords:desert (349): 0.00408501136229
+imdb_keywords:friend (471): -0.00335173868887
+imdb_keywords:humiliation (547): -0.00262980952981
+imdb_keywords:hit-by-a-car (531): 0.00112148890014
+Correctness score: 0.0
+Processing user 178, movie 4803 (Play Misty for Me (1971))
+Original predicted rating: 1.4060919237
+User profile: {'neg_name': 'imdb_keywords:rainstorm', 'neg': 797, 'profile_id': 6, 'pos_name': 'imdb_keywords:lesbian', 'pos': 596}
+Non-zero qiis:
+average_rating (1194): -0.260110169746
+imdb_keywords:maid (630): 0.133844398335
+year (0): -0.0320740343987
+imdb_keywords:piano (741): -0.0214681779879
+imdb_keywords:restaurant (813): -0.0201561649954
+imdb_keywords:character-repeating-someone-else's-dialogue (257): -0.0169513634137
+imdb_keywords:revenge (814): 0.0145320622063
+imdb_keywords:sadism (836): 0.0144774488365
+imdb_keywords:shooting (876): -0.0132372660987
+imdb_keywords:decapitation (344): -0.0116128569058
+imdb_keywords:jail (568): -0.00930296644387
+tvtropes:jerkass (1148): 0.00897056257255
+imdb_keywords:two-word-title (1016): 0.00770424795402
+tvtropes:berserk button (1095): 0.00714775763615
+imdb_keywords:pregnancy (766): -0.00551880886326
+imdb_keywords:friend (471): 0.00385914738561
+imdb_keywords:employer-employee-relationship (390): -0.00367973383266
+imdb_keywords:suspicion (950): 0.00277894193363
+imdb_keywords:survival (948): -0.00246579463975
+imdb_keywords:kitchen (588): 0.000349609381717
+imdb_keywords:guilt (501): 0.000347452590104
+imdb_keywords:rain (796): 0.000200008741018
+imdb_keywords:little-girl (609): 0.000181502534832
+imdb_keywords:woods (1073): -0.000107124667275
+Correctness score: 0.0
+Processing user 800, movie 53129 (Mr. Brooks (2007))
+Original predicted rating: 0.463964822769
+User profile: {'neg_name': 'imdb_keywords:redhead', 'neg': 804, 'profile_id': 5, 'pos_name': 'imdb_keywords:drinking', 'pos': 372}
+Non-zero qiis:
+average_rating (1194): -1.27254438796
+imdb_keywords:divorce (362): -0.705398018705
+imdb_keywords:flashlight (456): -0.45101730184
+imdb_keywords:evil-man (399): -0.15886257058
+imdb_keywords:shooting (876): 0.0619625931632
+imdb_keywords:character-repeating-someone-else's-dialogue (257): -0.0340039561996
+imdb_keywords:photograph (738): 0.0319915358748
+imdb_keywords:robbery (825): -0.0275718318521
+imdb_keywords:pregnancy (766): 0.0272577290925
+imdb_keywords:drug-addict (374): 0.0265005461405
+year (0): -0.0200632256007
+imdb_keywords:revenge (814): -0.0170346998785
+imdb_keywords:restaurant (813): 0.0160457455203
+imdb_keywords:decapitation (344): -0.00668863778146
+imdb_keywords:suspicion (950): 0.0060787168868
+imdb_keywords:humiliation (547): 0.00597864388167
+imdb_keywords:little-girl (609): -0.00445823321726
+imdb_keywords:friend (471): -0.00431176743238
+imdb_keywords:two-word-title (1016): 0.00318944226747
+imdb_keywords:exploding-building (405): 0.00200512242627
+imdb_keywords:rain (796): 0.000801287367858
+Correctness score: 0.0
+Processing user 18, movie 1952 (Midnight Cowboy (1969))
+Original predicted rating: 3.69558814744
+User profile: {'neg_name': 'tvtropes:eye scream', 'neg': 1129, 'profile_id': 3, 'pos_name': 'imdb_keywords:neighbor', 'pos': 683}
+Non-zero qiis:
+average_rating (1194): 0.496892005013
+year (0): 0.0674518088305
+tvtropes:jerkass (1148): 0.05300416618
+movielens_tags:violence (89): -0.0475930538462
+imdb_keywords:woods (1073): -0.0452069271303
+imdb_keywords:friendship (472): -0.0257042701225
+imdb_keywords:kitchen (588): 0.0238872537695
+imdb_keywords:guilt (501): 0.0237398897934
+imdb_keywords:friend (471): -0.0221864488538
+imdb_keywords:writing (1078): 0.0220953515879
+imdb_keywords:exploding-building (405): -0.0200054347253
+imdb_keywords:cruelty (319): -0.019921688996
+imdb_keywords:virgin (1044): 0.0198536474386
+imdb_keywords:rain (796): 0.0183663774704
+imdb_keywords:three-word-title (987): 0.0139899098528
+imdb_keywords:french (470): 0.0116805580018
+movielens_genre:Sci-Fi (15): 0.011551955301
+tvtropes:driven to suicide (1125): 0.0114141618975
+imdb_keywords:desert (349): 0.0098642873743
+imdb_keywords:child-abuse (265): 0.007655328482
+imdb_keywords:restaurant (813): 0.00655311168359
+imdb_keywords:dark-comedy (329): 0.00635976450078
+tvtropes:chekhovs gun (1110): -0.00397219872596
+imdb_keywords:humiliation (547): 0.00363196457003
+imdb_keywords:gun (504): 0.00360096596082
+imdb_keywords:little-girl (609): -0.00223327921163
+tvtropes:faux affably evil (1132): -0.00164044094366
+Correctness score: 0.0
+Processing user 837, movie 69122 (Hangover, The (2009))
+Original predicted rating: 2.45090487285
+User profile: {'neg_name': 'imdb_keywords:baseball', 'neg': 163, 'profile_id': 2, 'pos_name': 'imdb_keywords:mass-murder', 'pos': 647}
+Non-zero qiis:
+average_rating (1194): 0.405776119117
+imdb_keywords:scene-during-end-credits (844): -0.126685048551
+imdb_keywords:friendship (472): -0.0677442860337
+imdb_keywords:shaving (873): 0.0521500980401
+imdb_keywords:three-word-title (987): 0.0331837008064
+imdb_keywords:restaurant (813): 0.0294681412611
+imdb_keywords:massacre (648): -0.0281171520532
+imdb_keywords:key (581): -0.0231324997779
+imdb_keywords:london-england (611): 0.0213358209483
+tvtropes:jerkass (1148): -0.0164669977117
+tvtropes:genre savvy (1134): -0.012276141488
+imdb_keywords:older-man-younger-woman-relationship (707): 0.00555982665443
+imdb_keywords:cannon (239): -0.00538369258976
+imdb_keywords:child-abuse (265): 0.00528869506505
+movielens_genre:Sci-Fi (15): -0.00358888810481
+imdb_keywords:exploding-building (405): 0.00322775583809
+imdb_keywords:cruelty (319): -0.00288168342992
+year (0): 0.00141560028075
+imdb_keywords:woods (1073): -0.00106322261937
+imdb_keywords:prologue (774): 0.00068919730263
+imdb_keywords:friend (471): 0.000198553595548
+imdb_keywords:slasher (899): -3.38014419614e-05
+Correctness score: 0.0
+Processing user 726, movie 8848 (Vitelloni, I (a.k.a. The Young and the Passionate) (1953))
+Original predicted rating: 1.61330770381
+User profile: {'neg_name': 'imdb_keywords:cooking', 'neg': 300, 'profile_id': 1, 'pos_name': 'imdb_keywords:colonel', 'pos': 287}
+Non-zero qiis:
+imdb_keywords:employer-employee-relationship (390): 1.1732689702
+imdb_keywords:blood (201): 0.261665374842
+average_rating (1194): 0.252686552506
+year (0): 0.2125979877
+imdb_keywords:two-word-title (1016): 0.0629919029914
+imdb_keywords:photograph (738): 0.0508610843072
+imdb_keywords:pregnancy (766): -0.0442164293639
+tvtropes:cassandra truth (1108): 0.0366968158423
+imdb_keywords:apartment (130): -0.0340088575996
+imdb_keywords:sadism (836): 0.0312912125491
+imdb_keywords:fish-out-of-water (451): 0.0281365001195
+imdb_keywords:friend (471): -0.0168166345405
+tvtropes:berserk button (1095): 0.0154489928418
+imdb_keywords:flash-forward (454): -0.0136521392812
+imdb_keywords:rain (796): -0.0135552568991
+imdb_keywords:sunglasses (941): -0.0131140463406
+imdb_keywords:maid (630): -0.0126139689555
+imdb_keywords:robbery (825): 0.0069217794359
+imdb_keywords:revenge (814): 0.00657380885917
+imdb_keywords:shooting (876): 0.00559453163937
+imdb_keywords:lake (593): -0.00483680339251
+imdb_keywords:character-repeating-someone-else's-dialogue (257): -0.00425487835938
+imdb_keywords:restaurant (813): -0.00345948740447
+imdb_keywords:piano (741): 0.00302440096261
+imdb_keywords:little-girl (609): -0.00169275581579
+imdb_keywords:hit-by-a-car (531): 0.00160332010469
+imdb_keywords:jail (568): -4.35475057563e-05
+imdb_keywords:woods (1073): 4.36244063629e-07
+Correctness score: 0.0
+Processing user 944, movie 81083 (Kaboom (2010))
+Original predicted rating: 2.05960952137
+User profile: {'neg_name': 'imdb_keywords:redhead', 'neg': 804, 'profile_id': 5, 'pos_name': 'imdb_keywords:drinking', 'pos': 372}
+Non-zero qiis:
+average_rating (1194): 0.268640342635
+imdb_keywords:cleavage (281): 0.057584062899
+imdb_keywords:hallucination (511): 0.0381388263831
+imdb_keywords:fish (450): 0.029736302863
+imdb_keywords:humiliation (547): 0.0264165394655
+imdb_keywords:u.s.-president (1019): 0.0257672467008
+imdb_keywords:femme-fatale (439): -0.025470929531
+tvtropes:chekhovs gun (1110): 0.0190521257122
+imdb_keywords:loyalty (623): 0.0172117115475
+imdb_keywords:rain (796): -0.0169565068379
+imdb_keywords:shooting (876): -0.0131199057582
+tvtropes:jerk with a heart of gold (1147): -0.0130032830833
+imdb_keywords:lingerie (606): -0.0112887850356
+movielens_tags:violence (89): 0.0087081662727
+imdb_keywords:friend (471): 0.00489021389765
+tvtropes:driven to suicide (1125): -0.00346812594889
+imdb_keywords:scene-during-end-credits (844): -0.00323656570014
+imdb_keywords:gun (504): 0.00265254217461
+imdb_keywords:restaurant (813): 0.00241357531629
+imdb_keywords:hit-by-a-car (531): -0.00187999729287
+tvtropes:jerkass (1148): -0.00177314579982
+imdb_keywords:woods (1073): 0.00106538592895
+Correctness score: 0.0
+Processing user 838, movie 8273 (Tale of Ham and Passion, A (Jamón, Jamón) (1992))
+Original predicted rating: 2.26305477523
+User profile: {'neg_name': 'imdb_keywords:rainstorm', 'neg': 797, 'profile_id': 6, 'pos_name': 'imdb_keywords:lesbian', 'pos': 596}
+Non-zero qiis:
+average_rating (1194): -0.267577010327
+imdb_keywords:apartment (130): -0.102352901748
+imdb_keywords:sunglasses (941): -0.0394679736798
+imdb_keywords:piano (741): -0.0228830013064
+tvtropes:genre savvy (1134): -0.021607022679
+imdb_keywords:gun (504): -0.0202094473889
+imdb_keywords:rain (796): 0.0197296567183
+imdb_keywords:psychopath (780): -0.0173398580184
+imdb_keywords:graveyard (498): -0.015937956728
+imdb_keywords:shooting (876): -0.0141096453364
+imdb_keywords:hit-in-the-crotch (532): 0.00996085378323
+imdb_keywords:exploding-building (405): 0.00990838263811
+imdb_keywords:betrayal (184): 0.00985904042996
+imdb_keywords:robbery (825): -0.00901252527302
+tvtropes:chekhovs gun (1110): 0.00862602462183
+tvtropes:jerkass (1148): -0.00838028488198
+imdb_keywords:flash-forward (454): -0.00636265857808
+imdb_keywords:friend (471): 0.00620469129254
+imdb_keywords:hit-by-a-car (531): -0.00404364109388
+tvtropes:berserk button (1095): 0.00369168599385
+imdb_keywords:scene-during-end-credits (844): 0.0023932337259
+imdb_keywords:sadism (836): 0.00186933433592
+imdb_keywords:hallucination (511): 0.00135688941636
+tvtropes:cassandra truth (1108): -0.00086766970309
+imdb_keywords:restaurant (813): 0.000700319150699
+Correctness score: 0.0
+Correctness scores: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+Average correctness: 0.0

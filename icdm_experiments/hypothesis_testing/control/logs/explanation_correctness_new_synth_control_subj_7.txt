@@ -1,0 +1,552 @@
+Loading results dict
+Original recommender relative to ground truth on training set mean absolute error: 0.0218927238324, RMSE: 0.027624366643
+Shadow model relative to the baseline recommender on test set MAE: 0.844905723528, RMSE: 1.00138769721
+Randomized model relative to the baseline recommender on test set MAE: 1.1346448515, RMSE: 1.39188190777
+Shadow model is 1.34292480203 times better than random on the test set
+Loading movies
+Loading ALS model
+Loading decision trees
+261 features are used: 0: year, 1: movielens_genre:Action, 2: movielens_genre:Adventure, 3: movielens_genre:Animation, 4: movielens_genre:Children, 5: movielens_genre:Comedy, 6: movielens_genre:Crime, 8: movielens_genre:Drama, 521: imdb_keywords:heavy-rain, 522: imdb_keywords:heist, 11: movielens_genre:Horror, 12: movielens_genre:Musical, 1038: imdb_keywords:vandalism, 15: movielens_genre:Sci-Fi, 530: imdb_keywords:high-school-student, 531: imdb_keywords:hit-by-a-car, 20: movielens_tags:BD-R, 25: movielens_tags:Bob*ola, 26: movielens_tags:CLV, 28: movielens_tags:ClearPlay, 542: imdb_keywords:hospital, 31: movielens_tags:DVD-RAM, 544: imdb_keywords:hotel, 1057: imdb_keywords:waterfall, 1059: imdb_keywords:wedding, 550: imdb_keywords:hypodermic-needle, 1063: imdb_keywords:whiskey, 40: movielens_tags:Tumey's DVDs, 1065: imdb_keywords:widow, 43: movielens_tags:adapted from:book, 556: imdb_keywords:independent-film, 1069: imdb_keywords:winter, 46: movielens_tags:boring, 93: imdb_keywords:1930s, 560: imdb_keywords:insanity, 50: movielens_tags:crime, 564: imdb_keywords:investigation, 9: movielens_genre:Fantasy, 570: imdb_keywords:japan, 1084: tvtropes:action girl, 1086: tvtropes:affably evil, 1087: tvtropes:alcoholic, 19: movielens_tags:70mm, 581: imdb_keywords:key, 1095: tvtropes:berserk button, 584: imdb_keywords:killing-an-animal, 585: imdb_keywords:king, 587: imdb_keywords:kissing-while-having-sex, 588: imdb_keywords:kitchen, 77: movielens_tags:reviewed, 1105: tvtropes:butt monkey, 83: movielens_tags:story, 599: imdb_keywords:letter, 1112: tvtropes:chekhovs skill, 603: imdb_keywords:lifting-someone-into-the-air, 604: imdb_keywords:lightning, 1117: tvtropes:cult classic, 263: imdb_keywords:chicken, 1122: tvtropes:does this remind you of anything, 99: imdb_keywords:1990s, 101: imdb_keywords:2000s, 1126: tvtropes:establishing character moment, 259: imdb_keywords:chase, 618: imdb_keywords:loss-of-mother, 1131: tvtropes:fan service, 108: imdb_keywords:actress, 111: imdb_keywords:africa, 113: imdb_keywords:airplane, 1139: tvtropes:heroic b s o d, 118: imdb_keywords:alcoholism, 873: imdb_keywords:shaving, 789: imdb_keywords:race-against-time, 1147: tvtropes:jerk with a heart of gold, 124: imdb_keywords:american-flag, 106: imdb_keywords:actor, 126: imdb_keywords:animal-attack, 1151: tvtropes:lampshade hanging, 1152: tvtropes:large ham, 644: imdb_keywords:marriage-proposal, 646: imdb_keywords:mask, 1159: tvtropes:my god what have i done, 136: imdb_keywords:arrest, 145: imdb_keywords:audition, 659: imdb_keywords:mirror, 1172: tvtropes:red herring, 1174: tvtropes:running gag, 663: imdb_keywords:mistress, 964: imdb_keywords:taxi-driver, 154: imdb_keywords:bank, 667: imdb_keywords:monster, 669: imdb_keywords:motel, 1183: tvtropes:title drop, 674: imdb_keywords:murder, 675: imdb_keywords:murder-of-a-police-officer, 165: imdb_keywords:based-on-book, 1190: tvtropes:wham line, 625: imdb_keywords:machine-gun, 1194: average_rating, 683: imdb_keywords:neighbor, 173: imdb_keywords:bathroom, 686: imdb_keywords:new-york-city, 177: imdb_keywords:beach, 178: imdb_keywords:beaten-to-death, 182: imdb_keywords:beer, 699: imdb_keywords:nun, 188: imdb_keywords:binoculars, 703: imdb_keywords:ocean, 704: imdb_keywords:office, 32: movielens_tags:DVD-Video, 706: imdb_keywords:old-woman, 707: imdb_keywords:older-man-younger-woman-relationship, 196: imdb_keywords:black-panties, 198: imdb_keywords:blindness, 203: imdb_keywords:boat, 206: imdb_keywords:book, 719: imdb_keywords:orphan, 210: imdb_keywords:boy, 718: imdb_keywords:orgasm, 730: imdb_keywords:park, 219: imdb_keywords:british, 732: imdb_keywords:party, 222: imdb_keywords:brother-brother-relationship, 735: imdb_keywords:penis, 736: imdb_keywords:person-on-fire, 225: imdb_keywords:brutality, 226: imdb_keywords:bully, 635: imdb_keywords:male-rear-nudity, 38: movielens_tags:R, 230: imdb_keywords:businessman, 636: imdb_keywords:man-with-glasses, 39: movielens_tags:To See, 238: imdb_keywords:candle, 125: imdb_keywords:anger, 241: imdb_keywords:car, 754: imdb_keywords:police-detective, 760: imdb_keywords:politician, 639: imdb_keywords:manipulation, 605: imdb_keywords:limousine, 640: imdb_keywords:mansion, 770: imdb_keywords:prison, 771: imdb_keywords:prisoner, 261: imdb_keywords:chess, 775: imdb_keywords:promise, 264: imdb_keywords:child, 777: imdb_keywords:prostitution, 128: imdb_keywords:answering-machine, 267: imdb_keywords:child-murder, 780: imdb_keywords:psychopath, 783: imdb_keywords:public-nudity, 472: imdb_keywords:friendship, 274: imdb_keywords:church, 1049: imdb_keywords:waiter, 277: imdb_keywords:city, 790: imdb_keywords:race-relations, 792: imdb_keywords:racism, 303: imdb_keywords:corruption, 287: imdb_keywords:colonel, 290: imdb_keywords:coming-of-age, 803: imdb_keywords:redemption, 805: imdb_keywords:reference-to-god, 811: imdb_keywords:reporter, 300: imdb_keywords:cooking, 1074: imdb_keywords:world-war-two, 302: imdb_keywords:corrupt-cop, 815: imdb_keywords:reverse-footage, 816: imdb_keywords:revolution, 1033: imdb_keywords:urination, 734: imdb_keywords:pay-phone, 677: imdb_keywords:museum, 312: imdb_keywords:cowboy-hat, 820: imdb_keywords:riot, 827: imdb_keywords:rooftop, 316: imdb_keywords:cross, 1076: imdb_keywords:wristwatch, 318: imdb_keywords:crucifix, 834: imdb_keywords:russian, 829: imdb_keywords:rope, 326: imdb_keywords:dance, 327: imdb_keywords:dancer, 329: imdb_keywords:dark-comedy, 330: imdb_keywords:darkness, 567: imdb_keywords:italy, 334: imdb_keywords:death, 1068: imdb_keywords:wine, 848: imdb_keywords:scream, 337: imdb_keywords:death-of-father, 739: imdb_keywords:photographer, 340: imdb_keywords:death-of-mother, 271: imdb_keywords:christian, 949: imdb_keywords:suspense, 346: imdb_keywords:demon, 348: imdb_keywords:depression, 58: movielens_tags:history, 862: imdb_keywords:sequel, 351: imdb_keywords:detective, 864: imdb_keywords:serial-killer, 354: imdb_keywords:diner, 872: imdb_keywords:sexuality, 361: imdb_keywords:dismemberment, 874: imdb_keywords:sheriff, 876: imdb_keywords:shooting, 878: imdb_keywords:shot-in-the-arm, 317: imdb_keywords:cross-dressing, 880: imdb_keywords:shot-in-the-chest, 881: imdb_keywords:shot-in-the-forehead, 370: imdb_keywords:dream-sequence, 372: imdb_keywords:drinking, 373: imdb_keywords:drowning, 888: imdb_keywords:showdown, 660: imdb_keywords:missing-person, 895: imdb_keywords:sister-sister-relationship, 384: imdb_keywords:eating, 150: imdb_keywords:b-movie, 393: imdb_keywords:epic, 151: imdb_keywords:baby, 396: imdb_keywords:escape, 400: imdb_keywords:ex-boyfriend-ex-girlfriend-relationship, 404: imdb_keywords:exploding-body, 409: imdb_keywords:extramarital-affair, 408: imdb_keywords:explosion, 921: imdb_keywords:stage, 410: imdb_keywords:eyeglasses, 411: imdb_keywords:f-rated, 415: imdb_keywords:fainting, 422: imdb_keywords:famous-score, 943: imdb_keywords:supernatural-power, 432: imdb_keywords:female-frontal-nudity, 433: imdb_keywords:female-full-frontal-nudity, 437: imdb_keywords:female-rear-nudity, 441: imdb_keywords:fight, 954: imdb_keywords:switchblade, 443: imdb_keywords:film-within-a-film, 956: imdb_keywords:sword-fight, 562: imdb_keywords:interrogation, 452: imdb_keywords:fishing, 965: imdb_keywords:tea, 455: imdb_keywords:flashback, 1055: imdb_keywords:watching-tv, 969: imdb_keywords:teen-angst, 459: imdb_keywords:flower, 973: imdb_keywords:telephone, 944: imdb_keywords:surgery, 466: imdb_keywords:forgiveness, 308: imdb_keywords:cousin-cousin-relationship, 471: imdb_keywords:friend, 984: imdb_keywords:thief, 851: imdb_keywords:search, 478: imdb_keywords:gangster, 991: imdb_keywords:title-directed-by-female, 992: imdb_keywords:title-spoken-by-character, 488: imdb_keywords:ghost, 1004: imdb_keywords:training, 1008: imdb_keywords:travel, 498: imdb_keywords:graveyard, 1011: imdb_keywords:truck, 766: imdb_keywords:pregnancy, 1017: imdb_keywords:typewriter, 508: imdb_keywords:gunshot-wound, 170: imdb_keywords:basement, 510: imdb_keywords:hairy-chest, 511: imdb_keywords:hallucination
+Loading indicators
+Building indicator distributions
+Loading user profiles
+Processing user 891, movie 86898 (Tree of Life, The (2011))
+Original predicted rating: 3.94370755641
+User profile: {'neg_name': 'imdb_keywords:piano', 'neg': 741, 'profile_id': 0, 'pos_name': 'imdb_keywords:pregnancy', 'pos': 766}
+Non-zero qiis:
+average_rating (1194): -0.633757039757
+imdb_keywords:church (274): -0.108093529786
+imdb_keywords:graveyard (498): 0.0349739673922
+imdb_keywords:fainting (415): 0.0240030974948
+imdb_keywords:boat (203): -0.0169906128783
+imdb_keywords:motel (669): 0.0145091059706
+imdb_keywords:death (334): 0.0137149046044
+imdb_keywords:reporter (811): 0.0136730495437
+imdb_keywords:wedding (1059): 0.010196998375
+imdb_keywords:dream-sequence (370): -0.00988716821422
+imdb_keywords:rope (829): 0.00870459056237
+imdb_keywords:crucifix (318): -0.0079861860352
+imdb_keywords:rooftop (827): -0.0054858326616
+movielens_tags:ClearPlay (28): 0.00408681249095
+imdb_keywords:corruption (303): -0.00281129432549
+imdb_keywords:shaving (873): 0.000721127578855
+tvtropes:butt monkey (1105): -0.000683772176529
+imdb_keywords:flashback (455): 0.000345366912695
+imdb_keywords:1930s (93): -0.000135911975066
+Correctness score: 0.0
+Processing user 643, movie 8810 (AVP: Alien vs. Predator (2004))
+Original predicted rating: 2.07206736043
+User profile: {'neg_name': 'movielens_genre:Animation', 'neg': 3, 'profile_id': 7, 'pos_name': 'imdb_keywords:graveyard', 'pos': 498}
+Non-zero qiis:
+average_rating (1194): 0.235004717509
+tvtropes:red herring (1172): -0.0238442307502
+imdb_keywords:promise (775): 0.021214976386
+imdb_keywords:dream-sequence (370): -0.0175383803611
+imdb_keywords:flashback (455): 0.0161500004385
+imdb_keywords:darkness (330): 0.0138945066732
+imdb_keywords:hotel (544): 0.0138272866235
+imdb_keywords:lifting-someone-into-the-air (603): 0.0118718453536
+imdb_keywords:search (851): -0.00900439345348
+movielens_tags:Bob*ola (25): -0.00832184561536
+imdb_keywords:party (732): -0.00703128071075
+imdb_keywords:death (334): 0.00695092029114
+imdb_keywords:motel (669): 0.0030524988396
+imdb_keywords:wedding (1059): 0.00214529591073
+movielens_tags:DVD-Video (32): -0.00120102357615
+imdb_keywords:corruption (303): 0.000741805968846
+Correctness score: 0.0
+Processing user 656, movie 106542 (Charlie Countryman (2013))
+Original predicted rating: 2.32328860595
+User profile: {'neg_name': 'imdb_keywords:apartment', 'neg': 130, 'profile_id': 8, 'pos_name': 'imdb_keywords:creature', 'pos': 313}
+Non-zero qiis:
+average_rating (1194): -0.227077685598
+imdb_keywords:shot-in-the-forehead (881): -0.0852353287794
+imdb_keywords:mansion (640): -0.0367584559009
+imdb_keywords:death (334): -0.0157874780827
+imdb_keywords:darkness (330): -0.0126233195252
+movielens_tags:DVD-Video (32): 0.0114623995224
+imdb_keywords:flashback (455): 0.0108982981518
+tvtropes:red herring (1172): 0.0108313792879
+imdb_keywords:ex-boyfriend-ex-girlfriend-relationship (400): -0.0105434022562
+imdb_keywords:famous-score (422): -0.00841825519278
+imdb_keywords:surgery (944): -0.00784037648189
+imdb_keywords:corruption (303): -0.00707969148303
+imdb_keywords:hotel (544): 0.00699816818092
+imdb_keywords:1930s (93): -0.0061670690519
+imdb_keywords:graveyard (498): -0.00595866586072
+imdb_keywords:public-nudity (783): -0.00567673193594
+imdb_keywords:murder-of-a-police-officer (675): -0.00480821815933
+imdb_keywords:reporter (811): 0.00452424838127
+tvtropes:action girl (1084): -0.00400694706867
+imdb_keywords:shaving (873): 0.00344230873334
+imdb_keywords:cross-dressing (317): 0.00308844865989
+imdb_keywords:wedding (1059): -0.00146065088308
+imdb_keywords:ghost (488): -0.000296898090175
+tvtropes:jerk with a heart of gold (1147): -0.000239035763
+Correctness score: 0.0
+Processing user 78, movie 92243 (Flowers of War, The (Jin líng shí san chai) (2011))
+Original predicted rating: 3.16805659185
+User profile: {'neg_name': 'imdb_keywords:judge', 'neg': 577, 'profile_id': 9, 'pos_name': 'tvtropes:brick joke', 'pos': 1104}
+Non-zero qiis:
+average_rating (1194): 0.337398046202
+imdb_keywords:child (264): -0.160304383169
+imdb_keywords:promise (775): -0.0985151718419
+imdb_keywords:cross-dressing (317): -0.0461298713197
+imdb_keywords:teen-angst (969): -0.0353800699551
+imdb_keywords:reverse-footage (815): -0.0305442019293
+imdb_keywords:chase (259): -0.0297945134836
+tvtropes:action girl (1084): 0.0252383751662
+imdb_keywords:colonel (287): 0.0220315743586
+imdb_keywords:manipulation (639): 0.0199300231417
+imdb_keywords:answering-machine (128): 0.01775836906
+imdb_keywords:motel (669): -0.015398694657
+imdb_keywords:lifting-someone-into-the-air (603): 0.0136336806925
+imdb_keywords:fainting (415): 0.0118152878682
+imdb_keywords:crucifix (318): 0.0104427956205
+imdb_keywords:shot-in-the-forehead (881): 0.00958699991372
+imdb_keywords:supernatural-power (943): -0.00811624812035
+imdb_keywords:wedding (1059): 0.00439843065603
+imdb_keywords:death (334): 0.00337578183429
+tvtropes:red herring (1172): -0.00289504546332
+imdb_keywords:bank (154): 0.00183166366356
+imdb_keywords:graveyard (498): -0.00178763909294
+movielens_tags:Bob*ola (25): -0.00167245734249
+imdb_keywords:racism (792): -0.00159773161507
+imdb_keywords:person-on-fire (736): -0.00137943040245
+imdb_keywords:1930s (93): -0.000925080713009
+imdb_keywords:reporter (811): 0.000678652190069
+Correctness score: 0.0
+Processing user 717, movie 26915 (Tromeo and Juliet (1996))
+Original predicted rating: 0.969573684578
+User profile: {'neg_name': 'imdb_keywords:piano', 'neg': 741, 'profile_id': 0, 'pos_name': 'imdb_keywords:pregnancy', 'pos': 766}
+Non-zero qiis:
+average_rating (1194): 0.229293316996
+imdb_keywords:b-movie (150): -0.175310061707
+imdb_keywords:switchblade (954): -0.0670267493013
+imdb_keywords:fainting (415): 0.0667675501843
+imdb_keywords:explosion (408): -0.0417736876646
+tvtropes:cult classic (1117): 0.0401197141644
+imdb_keywords:heavy-rain (521): -0.0247849790083
+tvtropes:red herring (1172): -0.0169947804215
+imdb_keywords:extramarital-affair (409): 0.0153949949016
+imdb_keywords:lifting-someone-into-the-air (603): 0.0128006993786
+imdb_keywords:murder (674): 0.0120870904118
+imdb_keywords:person-on-fire (736): -0.0101058775862
+imdb_keywords:death (334): -0.00383597287498
+imdb_keywords:racism (792): 0.00324244607115
+imdb_keywords:gangster (478): 0.00291336179028
+imdb_keywords:hotel (544): -0.000577678017259
+movielens_genre:Children (4): -0.00037577093247
+imdb_keywords:flashback (455): 0.000368291173298
+imdb_keywords:redemption (803): 0.000264026825678
+imdb_keywords:shaving (873): 0.000116168942795
+imdb_keywords:shooting (876): 0.000104823568305
+Correctness score: 0.0
+Processing user 665, movie 247 (Heavenly Creatures (1994))
+Original predicted rating: 1.72757204039
+User profile: {'neg_name': 'imdb_keywords:children', 'neg': 269, 'profile_id': 6, 'pos_name': 'imdb_keywords:single-parent', 'pos': 894}
+Non-zero qiis:
+imdb_keywords:teen-angst (969): 0.183684056016
+average_rating (1194): 0.144136466054
+imdb_keywords:lifting-someone-into-the-air (603): 0.0508933110134
+imdb_keywords:reverse-footage (815): -0.0082478816698
+movielens_tags:DVD-Video (32): -0.00770766253969
+imdb_keywords:bank (154): 0.00687107987583
+imdb_keywords:shot-in-the-forehead (881): 0.00507953117416
+imdb_keywords:ex-boyfriend-ex-girlfriend-relationship (400): -0.0050161590548
+imdb_keywords:race-relations (790): 0.00497491092051
+imdb_keywords:supernatural-power (943): -0.00453572987897
+imdb_keywords:office (704): 0.00384363698163
+imdb_keywords:flashback (455): -0.00347836250485
+imdb_keywords:corruption (303): -0.00311706506065
+imdb_keywords:graveyard (498): -0.0023385395582
+imdb_keywords:racism (792): -0.00209010789705
+imdb_keywords:reporter (811): 0.0017755877
+imdb_keywords:dream-sequence (370): 0.00146728270398
+imdb_keywords:crucifix (318): -0.00120912107575
+imdb_keywords:death (334): -0.000872283948969
+imdb_keywords:famous-score (422): 0.000824656264145
+imdb_keywords:winter (1069): -0.00071679291502
+Correctness score: 0.0
+Processing user 311, movie 2210 (Sabotage (1936))
+Original predicted rating: 3.15934461159
+User profile: {'neg_name': 'imdb_keywords:piano', 'neg': 741, 'profile_id': 0, 'pos_name': 'imdb_keywords:pregnancy', 'pos': 766}
+Non-zero qiis:
+average_rating (1194): 0.160994116414
+imdb_keywords:fainting (415): 0.0403386444079
+imdb_keywords:reporter (811): -0.029337387339
+movielens_tags:story (83): -0.0231257119892
+imdb_keywords:based-on-book (165): 0.0202323498673
+imdb_keywords:museum (677): 0.0136372758981
+imdb_keywords:extramarital-affair (409): -0.0127600507928
+movielens_tags:DVD-Video (32): -0.0121728106125
+movielens_tags:Bob*ola (25): 0.0117588661866
+imdb_keywords:famous-score (422): 0.0111508826636
+imdb_keywords:murder (674): 0.00968676651694
+imdb_keywords:russian (834): 0.00277205825189
+imdb_keywords:death (334): 0.00224571634169
+imdb_keywords:flashback (455): -0.00138962462215
+imdb_keywords:hotel (544): 0.00108983822402
+imdb_keywords:person-on-fire (736): -0.000917656871528
+imdb_keywords:cross-dressing (317): 0.000880400347725
+imdb_keywords:shaving (873): -0.000109581246403
+Correctness score: 0.0
+Processing user 377, movie 1925 (Wings (1927))
+Original predicted rating: 2.53508390239
+User profile: {'neg_name': 'imdb_keywords:night', 'neg': 690, 'profile_id': 3, 'pos_name': 'imdb_keywords:england', 'pos': 392}
+Non-zero qiis:
+average_rating (1194): -0.231817073096
+tvtropes:jerk with a heart of gold (1147): -0.109081680456
+imdb_keywords:answering-machine (128): -0.0523876524166
+imdb_keywords:wedding (1059): 0.0443883696422
+imdb_keywords:audition (145): 0.0371139105574
+imdb_keywords:motel (669): 0.0253433501064
+imdb_keywords:office (704): 0.0225286442255
+imdb_keywords:reverse-footage (815): -0.0202390001711
+imdb_keywords:promise (775): 0.0180395769056
+imdb_keywords:manipulation (639): 0.0167330688304
+imdb_keywords:shot-in-the-forehead (881): 0.0160983184306
+imdb_keywords:death (334): -0.0119733304087
+imdb_keywords:person-on-fire (736): -0.010514586986
+movielens_tags:DVD-Video (32): 0.00813302768418
+imdb_keywords:park (730): 0.00748470076765
+imdb_keywords:murder-of-a-police-officer (675): -0.00685530295216
+imdb_keywords:colonel (287): 0.0054345847498
+imdb_keywords:hotel (544): 0.00521306906519
+imdb_keywords:search (851): -0.00418842937524
+imdb_keywords:graveyard (498): 0.00394062592172
+imdb_keywords:reporter (811): -0.00299200708082
+imdb_keywords:lifting-someone-into-the-air (603): 0.00259444636028
+imdb_keywords:corruption (303): -0.00251166113668
+imdb_keywords:diner (354): 0.00187590868706
+imdb_keywords:fainting (415): 0.00156330705679
+imdb_keywords:sister-sister-relationship (895): 0.00133441571872
+Correctness score: 0.0
+Processing user 227, movie 68899 (Monster, The (1925))
+Original predicted rating: 2.68695447332
+User profile: {'neg_name': 'imdb_keywords:lie', 'neg': 602, 'profile_id': 1, 'pos_name': 'imdb_keywords:bathroom', 'pos': 173}
+Non-zero qiis:
+average_rating (1194): 0.264316183305
+imdb_keywords:b-movie (150): 0.0545024810142
+imdb_keywords:redemption (803): 0.028102734534
+imdb_keywords:colonel (287): -0.0266142141278
+imdb_keywords:murder (674): -0.0253200752034
+imdb_keywords:child-murder (267): -0.016032905863
+movielens_genre:Animation (3): 0.015252038783
+imdb_keywords:death (334): -0.013813962267
+imdb_keywords:park (730): 0.0129529592589
+imdb_keywords:shooting (876): 0.011157309131
+imdb_keywords:politician (760): -0.00859502697234
+imdb_keywords:hotel (544): 0.00753974707539
+imdb_keywords:flashback (455): -0.0072103028343
+imdb_keywords:gangster (478): -0.00633744357629
+imdb_keywords:supernatural-power (943): 0.00425849729093
+imdb_keywords:graveyard (498): -0.00315473701076
+movielens_tags:DVD-Video (32): -0.0031454002637
+imdb_keywords:cross-dressing (317): 0.00304540426305
+imdb_keywords:famous-score (422): 0.00296213985687
+imdb_keywords:racism (792): -0.0028195976913
+tvtropes:does this remind you of anything (1122): -0.00242373407008
+imdb_keywords:fainting (415): -0.0016789152793
+imdb_keywords:shaving (873): -0.000758107821764
+Correctness score: 0.0
+Processing user 121, movie 73413 (My One and Only (2009))
+Original predicted rating: 1.14943375587
+User profile: {'neg_name': 'imdb_keywords:die-hard-scenario', 'neg': 352, 'profile_id': 4, 'pos_name': 'movielens_tags:Bob*ola', 'pos': 25}
+Non-zero qiis:
+average_rating (1194): -0.350210197064
+imdb_keywords:new-york-city (686): 0.145929616759
+imdb_keywords:colonel (287): -0.0991272214321
+imdb_keywords:candle (238): 0.0977346301265
+imdb_keywords:winter (1069): 0.0658614232368
+imdb_keywords:motel (669): -0.057202174937
+imdb_keywords:bank (154): -0.0307620224938
+imdb_keywords:corruption (303): -0.0289880206789
+imdb_keywords:rope (829): 0.0289795495517
+imdb_keywords:cowboy-hat (312): 0.0214551479214
+imdb_keywords:suspense (949): -0.0201209361249
+imdb_keywords:insanity (560): 0.015116961545
+imdb_keywords:sister-sister-relationship (895): 0.0137799343384
+tvtropes:butt monkey (1105): -0.0087069157125
+imdb_keywords:hotel (544): -0.00859296589284
+imdb_keywords:fainting (415): 0.00837611245928
+imdb_keywords:church (274): 0.00750882273918
+imdb_keywords:racism (792): -0.00639910099895
+imdb_keywords:reporter (811): 0.00543616195166
+imdb_keywords:boat (203): -0.00509206540814
+imdb_keywords:1930s (93): -0.00370505587978
+imdb_keywords:ghost (488): -0.00247383118581
+imdb_keywords:shaving (873): -0.002216986463
+tvtropes:red herring (1172): -0.000494028164811
+imdb_keywords:death (334): 0.000432047957155
+Correctness score: 0.0
+Processing user 263, movie 8870 (Forgotten, The (2004))
+Original predicted rating: 3.02274455627
+User profile: {'neg_name': 'imdb_keywords:night', 'neg': 690, 'profile_id': 3, 'pos_name': 'imdb_keywords:england', 'pos': 392}
+Non-zero qiis:
+average_rating (1194): -0.279206009738
+imdb_keywords:park (730): -0.0549631496211
+imdb_keywords:motel (669): -0.0417037968429
+imdb_keywords:answering-machine (128): -0.0417027144572
+imdb_keywords:death (334): -0.034808654088
+imdb_keywords:supernatural-power (943): -0.0298451105598
+imdb_keywords:audition (145): 0.0234841672869
+imdb_keywords:manipulation (639): 0.0211760055318
+imdb_keywords:shot-in-the-forehead (881): 0.0203727172581
+imdb_keywords:ghost (488): 0.0181117021722
+imdb_keywords:cross (316): -0.0167834595802
+imdb_keywords:boat (203): -0.0135806568795
+tvtropes:red herring (1172): -0.0119886498931
+imdb_keywords:depression (348): -0.0115510988211
+imdb_keywords:flashback (455): -0.00481224791542
+imdb_keywords:graveyard (498): -0.0045160201146
+imdb_keywords:hotel (544): -0.00412014423673
+tvtropes:action girl (1084): -0.00393887484475
+imdb_keywords:reverse-footage (815): -0.00348855160007
+imdb_keywords:reporter (811): 0.00342888780322
+imdb_keywords:rooftop (827): 0.000751389039013
+imdb_keywords:winter (1069): -0.000628827492408
+Correctness score: 0.0
+Processing user 95, movie 60647 (Transsiberian (2008))
+Original predicted rating: 1.60256196335
+User profile: {'neg_name': 'imdb_keywords:children', 'neg': 269, 'profile_id': 6, 'pos_name': 'imdb_keywords:single-parent', 'pos': 894}
+Non-zero qiis:
+average_rating (1194): -0.476947916271
+movielens_tags:ClearPlay (28): -0.249504182006
+imdb_keywords:mirror (659): -0.155006634309
+imdb_keywords:beach (177): -0.144181726441
+imdb_keywords:suspense (949): 0.0934632212729
+imdb_keywords:hotel (544): 0.0820462422832
+imdb_keywords:ghost (488): 0.0446159685841
+imdb_keywords:diner (354): 0.0405665690536
+imdb_keywords:sister-sister-relationship (895): 0.0288567710001
+imdb_keywords:nun (699): -0.0207233853548
+movielens_tags:boring (46): 0.0172591861781
+imdb_keywords:kissing-while-having-sex (587): 0.0130051341735
+imdb_keywords:boat (203): -0.0107511533536
+imdb_keywords:office (704): 0.00847802945887
+imdb_keywords:death (334): 0.00759747596084
+imdb_keywords:rooftop (827): 0.00589266025146
+movielens_tags:DVD-Video (32): 0.00512394477014
+imdb_keywords:wedding (1059): 0.00502709217801
+imdb_keywords:motel (669): 0.00476863291546
+imdb_keywords:person-on-fire (736): -0.00413936280512
+movielens_tags:Bob*ola (25): -0.00345417743954
+imdb_keywords:famous-score (422): 0.00287447955629
+imdb_keywords:graveyard (498): 0.00272515447362
+imdb_keywords:public-nudity (783): 0.00193836484197
+imdb_keywords:fainting (415): -0.00162923017827
+imdb_keywords:corruption (303): 0.00141478466156
+tvtropes:butt monkey (1105): 0.00125746995073
+imdb_keywords:crucifix (318): -0.000653253803507
+Correctness score: 0.0
+Processing user 900, movie 1627 (U Turn (1997))
+Original predicted rating: 3.32860873658
+User profile: {'neg_name': 'imdb_keywords:jail-cell', 'neg': 569, 'profile_id': 2, 'pos_name': 'imdb_keywords:friend', 'pos': 471}
+Non-zero qiis:
+average_rating (1194): 0.254056724359
+imdb_keywords:hotel (544): 0.0398990623105
+imdb_keywords:teen-angst (969): -0.036634713971
+imdb_keywords:surgery (944): 0.0304789376829
+imdb_keywords:dark-comedy (329): 0.0266542989544
+imdb_keywords:flashback (455): -0.0264790019162
+imdb_keywords:reverse-footage (815): -0.025154461605
+imdb_keywords:audition (145): 0.0154776683925
+tvtropes:action girl (1084): -0.0142007754804
+imdb_keywords:death (334): 0.0132124527356
+imdb_keywords:cross-dressing (317): -0.0120061370088
+tvtropes:red herring (1172): 0.0117072117238
+imdb_keywords:wedding (1059): 0.00964481462002
+imdb_keywords:murder-of-a-police-officer (675): -0.0085202556175
+imdb_keywords:manipulation (639): 0.00697821616359
+imdb_keywords:shot-in-the-forehead (881): 0.00671350527619
+imdb_keywords:office (704): 0.00489507947569
+imdb_keywords:shaving (873): -0.00446058143641
+imdb_keywords:corruption (303): -0.00212982855586
+imdb_keywords:answering-machine (128): -0.00119336956733
+imdb_keywords:fainting (415): -0.000995079771657
+imdb_keywords:crucifix (318): -0.000879251985218
+imdb_keywords:graveyard (498): -0.000639854757597
+Correctness score: 0.0
+Processing user 108, movie 4801 (Little Foxes, The (1941))
+Original predicted rating: 2.3323350966
+User profile: {'neg_name': 'imdb_keywords:night', 'neg': 690, 'profile_id': 3, 'pos_name': 'imdb_keywords:england', 'pos': 392}
+Non-zero qiis:
+average_rating (1194): 0.644872218511
+imdb_keywords:reporter (811): -0.0237345112847
+imdb_keywords:investigation (564): 0.0164643084851
+tvtropes:red herring (1172): 0.0148730371054
+imdb_keywords:murder (674): 0.0133441519532
+imdb_keywords:shaving (873): 0.0126418061762
+imdb_keywords:interrogation (562): 0.0114780808398
+imdb_keywords:corruption (303): -0.0112805875132
+imdb_keywords:famous-score (422): 0.0111207629873
+imdb_keywords:racism (792): -0.00884577760681
+imdb_keywords:russian (834): -0.00846952147067
+imdb_keywords:drowning (373): 0.00780965353926
+imdb_keywords:shooting (876): 0.00340918712965
+imdb_keywords:redemption (803): 0.00286232339585
+movielens_tags:story (83): -0.00228138476881
+imdb_keywords:death (334): -0.0013369278136
+imdb_keywords:cross-dressing (317): 0.00115937156262
+imdb_keywords:british (219): -0.000746912150448
+imdb_keywords:person-on-fire (736): 0.000437042193481
+Correctness score: 0.0
+Processing user 717, movie 69436 (Year One (2009))
+Original predicted rating: 1.71457707993
+User profile: {'neg_name': 'imdb_keywords:piano', 'neg': 741, 'profile_id': 0, 'pos_name': 'imdb_keywords:pregnancy', 'pos': 766}
+Non-zero qiis:
+average_rating (1194): 0.315312145621
+imdb_keywords:person-on-fire (736): 0.0505293879312
+imdb_keywords:heavy-rain (521): -0.0247849790083
+tvtropes:does this remind you of anything (1122): -0.0227628784069
+imdb_keywords:extramarital-affair (409): 0.0153949949016
+imdb_keywords:lifting-someone-into-the-air (603): 0.0128006993786
+imdb_keywords:ghost (488): 0.0112936199546
+imdb_keywords:answering-machine (128): -0.0101580617807
+imdb_keywords:murder (674): 0.00755443150739
+movielens_tags:Bob*ola (25): -0.00710426786164
+imdb_keywords:russian (834): -0.00668897378979
+imdb_keywords:high-school-student (530): 0.00544973706108
+imdb_keywords:hotel (544): -0.00115535603452
+imdb_keywords:flashback (455): 0.00110487351989
+imdb_keywords:gangster (478): 0.000971120596761
+imdb_keywords:graveyard (498): 0.000906961359915
+imdb_keywords:redemption (803): 0.000264026825678
+imdb_keywords:shooting (876): 0.000209647136609
+imdb_keywords:shaving (873): 5.80844713975e-05
+Correctness score: 0.0
+Processing user 180, movie 104406 (Fill the Void (Lemale et ha'halal) (2012))
+Original predicted rating: 2.05930496499
+User profile: {'neg_name': 'imdb_keywords:children', 'neg': 269, 'profile_id': 6, 'pos_name': 'imdb_keywords:single-parent', 'pos': 894}
+Non-zero qiis:
+average_rating (1194): 0.2291685655
+imdb_keywords:redemption (803): -0.0647134567592
+imdb_keywords:murder (674): -0.061824738948
+movielens_genre:Animation (3): 0.0589405815917
+imdb_keywords:death (334): -0.0422117904369
+imdb_keywords:promise (775): 0.0259377344838
+movielens_tags:story (83): -0.0241445213446
+imdb_keywords:murder-of-a-police-officer (675): -0.0216977379805
+imdb_keywords:hotel (544): -0.0148809293565
+imdb_keywords:ghost (488): 0.0111425288343
+imdb_keywords:darkness (330): -0.00710457735859
+tvtropes:red herring (1172): 0.00609604881646
+imdb_keywords:fainting (415): 0.00551270347907
+imdb_keywords:gangster (478): -0.0047968322239
+imdb_keywords:shooting (876): -0.00390210088899
+imdb_keywords:flashback (455): -0.0036383348757
+imdb_keywords:person-on-fire (736): 0.00290464352937
+imdb_keywords:graveyard (498): -0.00119897172895
+imdb_keywords:heavy-rain (521): -0.00115732731684
+Correctness score: 0.0
+Processing user 503, movie 330 (Tales from the Hood (1995))
+Original predicted rating: 1.73965328509
+User profile: {'neg_name': 'imdb_keywords:children', 'neg': 269, 'profile_id': 6, 'pos_name': 'imdb_keywords:single-parent', 'pos': 894}
+Non-zero qiis:
+average_rating (1194): -0.258922374814
+imdb_keywords:dream-sequence (370): 0.151044622917
+imdb_keywords:ghost (488): 0.0891513302332
+imdb_keywords:death (334): 0.0723904385702
+imdb_keywords:japan (570): -0.0512634850673
+imdb_keywords:racism (792): 0.0496864105438
+imdb_keywords:supernatural-power (943): 0.0370920275372
+imdb_keywords:cooking (300): 0.0217125129177
+imdb_keywords:photographer (739): 0.01852557084
+imdb_keywords:nun (699): -0.011680458726
+imdb_keywords:boat (203): -0.00882545061695
+imdb_keywords:corruption (303): 0.00504263140114
+imdb_keywords:hotel (544): -0.00418572371598
+imdb_keywords:flashback (455): 0.00400283129807
+imdb_keywords:crucifix (318): 0.00376329558898
+imdb_keywords:gangster (478): 0.00351825964594
+imdb_keywords:church (274): 0.00264259844909
+imdb_keywords:rooftop (827): -0.00228540610974
+imdb_keywords:famous-score (422): -0.00219027988801
+imdb_keywords:fainting (415): 0.00124143171748
+Correctness score: 0.0
+Processing user 328, movie 1631 (Assignment, The (1997))
+Original predicted rating: 1.96584878277
+User profile: {'neg_name': 'imdb_keywords:jail-cell', 'neg': 569, 'profile_id': 2, 'pos_name': 'imdb_keywords:friend', 'pos': 471}
+Non-zero qiis:
+average_rating (1194): -0.332809636223
+imdb_keywords:shot-in-the-forehead (881): -0.157928715918
+imdb_keywords:mansion (640): -0.0766216051549
+imdb_keywords:dark-comedy (329): 0.0266745957578
+imdb_keywords:audition (145): 0.0257710571846
+imdb_keywords:heavy-rain (521): -0.0231361844811
+movielens_tags:DVD-Video (32): 0.0140423791321
+imdb_keywords:famous-score (422): -0.012927313115
+imdb_keywords:colonel (287): 0.00938328288627
+imdb_keywords:search (851): -0.00507700232306
+imdb_keywords:gangster (478): 0.00504542534525
+imdb_keywords:graveyard (498): -0.00370524146776
+imdb_keywords:person-on-fire (736): -0.00362481726341
+imdb_keywords:motel (669): 0.00322439587533
+imdb_keywords:death (334): -0.00275180469595
+imdb_keywords:bank (154): 0.0024116090407
+imdb_keywords:wedding (1059): 0.00226610513203
+imdb_keywords:flashback (455): 0.00191344476308
+imdb_keywords:ghost (488): 0.00179945803364
+imdb_keywords:reverse-footage (815): -0.00131939630971
+imdb_keywords:murder-of-a-police-officer (675): -0.000893805162364
+imdb_keywords:shaving (873): 0.000301775974201
+Correctness score: 0.0
+Processing user 624, movie 71246 (Amreeka (2009))
+Original predicted rating: 2.20761546002
+User profile: {'neg_name': 'movielens_genre:Animation', 'neg': 3, 'profile_id': 7, 'pos_name': 'imdb_keywords:graveyard', 'pos': 498}
+Non-zero qiis:
+average_rating (1194): 0.636125087177
+imdb_keywords:cooking (300): 0.0492118684889
+imdb_keywords:fight (441): -0.0331232982455
+imdb_keywords:murder (674): -0.0266743497701
+imdb_keywords:extramarital-affair (409): 0.0248352353644
+imdb_keywords:racism (792): 0.0227855168454
+tvtropes:does this remind you of anything (1122): -0.018360559598
+movielens_genre:Comedy (5): 0.0180624767818
+imdb_keywords:serial-killer (864): 0.014583928142
+imdb_keywords:russian (834): -0.0107906653739
+imdb_keywords:park (730): 0.0100707508665
+imdb_keywords:hotel (544): -0.00995001270752
+imdb_keywords:flashback (455): -0.00973097240908
+imdb_keywords:fainting (415): 0.00948402773922
+movielens_tags:story (83): -0.0069666494701
+imdb_keywords:gangster (478): -0.00641472591397
+imdb_keywords:death (334): -0.00447507044817
+movielens_tags:DVD-Video (32): 0.00306152654644
+imdb_keywords:person-on-fire (736): -0.00235791626338
+imdb_keywords:ghost (488): 0.00145682458151
+imdb_keywords:answering-machine (128): -0.00090452846295
+imdb_keywords:shaving (873): -0.000383676306645
+Correctness score: 0.0
+Processing user 736, movie 924 (2001: A Space Odyssey (1968))
+Original predicted rating: 2.08191208796
+User profile: {'neg_name': 'imdb_keywords:jail-cell', 'neg': 569, 'profile_id': 2, 'pos_name': 'imdb_keywords:friend', 'pos': 471}
+Non-zero qiis:
+average_rating (1194): -0.140034195122
+movielens_tags:DVD-Video (32): -0.0356324755349
+imdb_keywords:lifting-someone-into-the-air (603): 0.0263826492396
+imdb_keywords:audition (145): 0.0201092830306
+imdb_keywords:famous-score (422): -0.0200009448876
+imdb_keywords:shot-in-the-forehead (881): 0.0174449761169
+imdb_keywords:promise (775): 0.0128299597686
+imdb_keywords:search (851): -0.0109446177963
+imdb_keywords:supernatural-power (943): 0.0098794771038
+imdb_keywords:race-against-time (789): 0.00909348729104
+imdb_keywords:manipulation (639): 0.00906641235124
+imdb_keywords:hotel (544): 0.00723897442562
+imdb_keywords:friendship (472): -0.00716726561277
+imdb_keywords:surgery (944): -0.00405508151365
+imdb_keywords:flashback (455): 0.00352290858321
+imdb_keywords:wedding (1059): 0.00251282866069
+imdb_keywords:graveyard (498): -0.00218220580338
+imdb_keywords:racism (792): -0.00195038205219
+imdb_keywords:answering-machine (128): -0.00191678738229
+imdb_keywords:death (334): -0.0015298034997
+imdb_keywords:park (730): 0.00114756256157
+imdb_keywords:1930s (93): -0.00112926401559
+imdb_keywords:reporter (811): 0.000828443925564
+imdb_keywords:person-on-fire (736): -0.000806054026075
+Correctness score: 0.0
+Correctness scores: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+Average correctness: 0.0

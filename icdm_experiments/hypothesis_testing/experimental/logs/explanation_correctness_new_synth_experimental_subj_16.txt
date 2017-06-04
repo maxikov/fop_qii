@@ -1,0 +1,311 @@
+Loading results dict
+Original recommender relative to ground truth on training set mean absolute error: 0.0133520571867, RMSE: 0.0196253816346
+Shadow model relative to the baseline recommender on test set MAE: 0.33165161604, RMSE: 0.419244355238
+Randomized model relative to the baseline recommender on test set MAE: 1.07090410954, RMSE: 1.33120370195
+Shadow model is 3.22900313988 times better than random on the test set
+Loading movies
+Loading ALS model
+Loading decision trees
+102 features are used: 0: year, 1: movielens_genre:Action, 259: imdb_keywords:chase, 516: imdb_keywords:hanging, 5: movielens_genre:Comedy, 6: movielens_genre:Crime, 8: movielens_genre:Drama, 9: movielens_genre:Fantasy, 266: imdb_keywords:child-in-peril, 11: movielens_genre:Horror, 15: movielens_genre:Sci-Fi, 18: movielens_genre:Western, 533: imdb_keywords:hitman, 23: movielens_tags:Betamax, 24: movielens_tags:Bibliothek, 388: imdb_keywords:electronic-music-score, 26: movielens_tags:CLV, 1051: imdb_keywords:walkie-talkie, 48: movielens_tags:classic, 1059: imdb_keywords:wedding, 292: imdb_keywords:computer, 38: movielens_tags:R, 807: imdb_keywords:reference-to-william-shakespeare, 42: movielens_tags:action, 560: imdb_keywords:insanity, 1032: imdb_keywords:urban-setting, 564: imdb_keywords:investigation, 309: imdb_keywords:cover-up, 777: imdb_keywords:prostitution, 569: imdb_keywords:jail-cell, 314: imdb_keywords:crime-boss, 10: movielens_genre:Film-Noir, 321: imdb_keywords:crying, 1092: tvtropes:ax crazy, 1093: tvtropes:badass, 326: imdb_keywords:dance, 330: imdb_keywords:darkness, 336: imdb_keywords:death-of-child, 337: imdb_keywords:death-of-father, 1123: tvtropes:downer ending, 341: imdb_keywords:death-of-son, 603: imdb_keywords:lifting-someone-into-the-air, 1117: tvtropes:cult classic, 96: imdb_keywords:1960s, 354: imdb_keywords:diner, 867: imdb_keywords:severed-hand, 104: imdb_keywords:accidental-death, 617: imdb_keywords:loss-of-friend, 619: imdb_keywords:loss-of-virginity, 366: imdb_keywords:domestic-violence, 114: imdb_keywords:airport, 374: imdb_keywords:drug-addict, 1145: tvtropes:infant immortality, 891: imdb_keywords:singer, 1151: tvtropes:lampshade hanging, 129: imdb_keywords:anti-hero, 387: imdb_keywords:electrocution, 1156: tvtropes:mind screw, 906: imdb_keywords:snow, 465: imdb_keywords:forest, 149: imdb_keywords:axe, 406: imdb_keywords:exploding-car, 407: imdb_keywords:exploitation, 917: imdb_keywords:stabbed-in-the-back, 581: imdb_keywords:key, 417: imdb_keywords:falling-down-stairs, 420: imdb_keywords:false-accusation, 167: imdb_keywords:based-on-novel, 168: imdb_keywords:based-on-play, 1194: average_rating, 171: imdb_keywords:basketball, 684: imdb_keywords:neo-noir, 174: imdb_keywords:bathtub, 434: imdb_keywords:female-nudity, 435: imdb_keywords:female-protagonist, 182: imdb_keywords:beer, 244: imdb_keywords:car-crash, 186: imdb_keywords:bicycle, 325: imdb_keywords:cynicism, 962: imdb_keywords:tattoo, 964: imdb_keywords:taxi-driver, 966: imdb_keywords:teacher, 455: imdb_keywords:flashback, 206: imdb_keywords:book, 209: imdb_keywords:boxing, 468: imdb_keywords:france, 470: imdb_keywords:french, 731: imdb_keywords:parking-garage, 990: imdb_keywords:tied-up, 225: imdb_keywords:brutality, 379: imdb_keywords:drunkenness, 229: imdb_keywords:bus, 487: imdb_keywords:german, 161: imdb_keywords:barn, 746: imdb_keywords:pistol, 423: imdb_keywords:fantasy-sequence, 1005: imdb_keywords:traitor, 750: imdb_keywords:police, 495: imdb_keywords:grandfather-grandson-relationship, 755: imdb_keywords:police-officer, 25: movielens_tags:Bob*ola, 501: imdb_keywords:guilt
+Loading indicators
+Building indicator distributions
+Loading user profiles
+Processing user 447, movie 71327 (Bright Star (2009))
+Original predicted rating: 1.99635517421
+User profile: {'neg_name': 'tvtropes:downer ending', 'neg': 1123, 'profile_id': 3, 'pos_name': 'imdb_keywords:teacher', 'pos': 966}
+Non-zero qiis:
+average_rating (1194): -0.203922426384
+imdb_keywords:loss-of-friend (617): -0.122979689887
+imdb_keywords:singer (891): -0.118814113897
+imdb_keywords:french (470): -0.108620490462
+imdb_keywords:loss-of-virginity (619): -0.0682643469091
+imdb_keywords:parking-garage (731): -0.0523510682582
+imdb_keywords:false-accusation (420): -0.0504685628684
+imdb_keywords:computer (292): -0.050134353049
+imdb_keywords:reference-to-william-shakespeare (807): 0.0430966100076
+movielens_genre:Crime (6): -0.0166348801157
+imdb_keywords:falling-down-stairs (417): -0.00994660366762
+imdb_keywords:police-officer (755): -0.00094370468723
+Correctness score: 0.0
+Processing user 471, movie 38061 (Kiss Kiss Bang Bang (2005))
+Original predicted rating: 2.7011531645
+User profile: {'neg_name': 'imdb_keywords:taxi-driver', 'neg': 964, 'profile_id': 1, 'pos_name': 'imdb_keywords:french', 'pos': 470}
+Non-zero qiis:
+average_rating (1194): 0.771057401847
+movielens_genre:Crime (6): 0.492144663719
+imdb_keywords:teacher (966): 0.380424851095
+imdb_keywords:police-officer (755): 0.131158801444
+imdb_keywords:walkie-talkie (1051): -0.0422562370188
+imdb_keywords:dance (326): 0.00105941853443
+Correctness score: 0.0
+Processing user 547, movie 43953 (Agata and the Storm (Agata e la tempesta) (2004))
+Original predicted rating: 1.29274763122
+User profile: {'neg_name': 'tvtropes:mind screw', 'neg': 1156, 'profile_id': 0, 'pos_name': 'imdb_keywords:reference-to-william-shakespeare', 'pos': 807}
+Non-zero qiis:
+average_rating (1194): -0.280961571702
+imdb_keywords:loss-of-virginity (619): -0.223190237786
+imdb_keywords:singer (891): -0.110252603879
+imdb_keywords:parking-garage (731): -0.0790718989887
+imdb_keywords:computer (292): 0.0420606045821
+imdb_keywords:loss-of-friend (617): -0.0366122217445
+imdb_keywords:false-accusation (420): -0.0292351639997
+imdb_keywords:teacher (966): 0.0226170285078
+movielens_genre:Crime (6): 0.0155863010452
+imdb_keywords:police-officer (755): -0.0101897656683
+Correctness score: 0.0
+Processing user 270, movie 4269 (Rat (2000))
+Original predicted rating: 1.98057225877
+User profile: {'neg_name': 'imdb_keywords:singer', 'neg': 891, 'profile_id': 2, 'pos_name': 'imdb_keywords:death-of-son', 'pos': 341}
+Non-zero qiis:
+average_rating (1194): -0.0860607141267
+imdb_keywords:parking-garage (731): -0.074262697449
+imdb_keywords:french (470): -0.0531357241482
+movielens_genre:Crime (6): 0.0518776582378
+imdb_keywords:teacher (966): 0.0518548765628
+imdb_keywords:loss-of-friend (617): -0.041358583312
+imdb_keywords:singer (891): 0.0247743530851
+imdb_keywords:reference-to-william-shakespeare (807): -0.0128811203011
+imdb_keywords:false-accusation (420): -0.00582108216983
+imdb_keywords:computer (292): -0.00148230363958
+Correctness score: 0.154527357182
+Processing user 222, movie 79242 (Kids Are All Right, The (2010))
+Original predicted rating: 1.5726492991
+User profile: {'neg_name': 'tvtropes:mind screw', 'neg': 1156, 'profile_id': 0, 'pos_name': 'imdb_keywords:reference-to-william-shakespeare', 'pos': 807}
+Non-zero qiis:
+average_rating (1194): -0.280336860567
+imdb_keywords:singer (891): -0.0821007971746
+imdb_keywords:walkie-talkie (1051): -0.0615715882285
+imdb_keywords:parking-garage (731): -0.0582044857478
+imdb_keywords:taxi-driver (964): -0.0506748414907
+imdb_keywords:computer (292): 0.0498479762574
+imdb_keywords:french (470): -0.0384280393679
+imdb_keywords:loss-of-friend (617): -0.03395996738
+movielens_genre:Crime (6): 0.0323374405683
+imdb_keywords:police-officer (755): -0.0232195696227
+imdb_keywords:teacher (966): 0.0132141776419
+imdb_keywords:death-of-son (341): 0.0129103682655
+Correctness score: 0.0
+Processing user 404, movie 2017 (Babes in Toyland (1961))
+Original predicted rating: 1.51989798423
+User profile: {'neg_name': 'imdb_keywords:falling-down-stairs', 'neg': 417, 'profile_id': 5, 'pos_name': 'movielens_genre:Crime', 'pos': 6}
+Non-zero qiis:
+average_rating (1194): -0.256023287397
+imdb_keywords:singer (891): -0.18472980609
+movielens_genre:Crime (6): -0.157105118823
+imdb_keywords:teacher (966): 0.141466996107
+imdb_keywords:reference-to-william-shakespeare (807): -0.0648249373143
+imdb_keywords:computer (292): -0.044561798917
+imdb_keywords:false-accusation (420): -0.0163395430454
+imdb_keywords:taxi-driver (964): -0.0143998027654
+imdb_keywords:police-officer (755): -0.00854636947176
+Correctness score: 0.356447002062
+Processing user 652, movie 4632 (Package, The (1989))
+Original predicted rating: 1.392914805
+User profile: {'neg_name': 'imdb_keywords:taxi-driver', 'neg': 964, 'profile_id': 1, 'pos_name': 'imdb_keywords:french', 'pos': 470}
+Non-zero qiis:
+imdb_keywords:french (470): -0.163529688337
+average_rating (1194): -0.120270008821
+imdb_keywords:teacher (966): 0.0659160850414
+movielens_genre:Crime (6): 0.0397524051333
+imdb_keywords:police-officer (755): -0.024181893134
+tvtropes:ax crazy (1092): -0.0201595873748
+imdb_keywords:singer (891): 0.0198196230461
+tvtropes:mind screw (1156): -0.0175050633628
+imdb_keywords:falling-down-stairs (417): -0.00515455523392
+imdb_keywords:key (581): 0.00503089384366
+Correctness score: 0.576215161519
+Processing user 491, movie 115955 (Category 7: The End of the World (2005))
+Original predicted rating: 2.40363087957
+User profile: {'neg_name': 'imdb_keywords:false-accusation', 'neg': 420, 'profile_id': 8, 'pos_name': 'imdb_keywords:walkie-talkie', 'pos': 1051}
+Non-zero qiis:
+imdb_keywords:police-officer (755): 0.639384374939
+average_rating (1194): 0.369248788695
+imdb_keywords:loss-of-virginity (619): -0.170533037774
+imdb_keywords:french (470): -0.0474715669534
+imdb_keywords:loss-of-friend (617): -0.0439443873506
+movielens_genre:Crime (6): 0.0330291057398
+imdb_keywords:parking-garage (731): -0.0210421055585
+imdb_keywords:teacher (966): -0.00756551626489
+imdb_keywords:false-accusation (420): 0.00737790634904
+Correctness score: 0.00731475685615
+Processing user 219, movie 5391 (Thirteen Conversations About One Thing (a.k.a. 13 Conversations) (2001))
+Original predicted rating: 3.88071377872
+User profile: {'neg_name': 'tvtropes:downer ending', 'neg': 1123, 'profile_id': 3, 'pos_name': 'imdb_keywords:teacher', 'pos': 966}
+Non-zero qiis:
+imdb_keywords:teacher (966): 1.47450896324
+imdb_keywords:false-accusation (420): 0.126179262217
+imdb_keywords:guilt (501): 0.112194457614
+average_rating (1194): 0.0818011688606
+imdb_keywords:police-officer (755): 0.0600528954981
+imdb_keywords:loss-of-friend (617): 0.0364337868676
+imdb_keywords:reference-to-william-shakespeare (807): 0.0322158516312
+imdb_keywords:parking-garage (731): -0.0202315353259
+imdb_keywords:falling-down-stairs (417): 0.0200677291183
+imdb_keywords:walkie-talkie (1051): -0.0120254177665
+movielens_genre:Crime (6): 0.00336490999744
+imdb_keywords:death-of-son (341): -0.00187311477489
+imdb_keywords:singer (891): 0.000206450722382
+Correctness score: 0.921171868319
+Processing user 395, movie 109072 (Sabotage (2014))
+Original predicted rating: 1.93330623965
+User profile: {'neg_name': 'imdb_keywords:singer', 'neg': 891, 'profile_id': 2, 'pos_name': 'imdb_keywords:death-of-son', 'pos': 341}
+Non-zero qiis:
+imdb_keywords:parking-garage (731): 0.0899386372106
+imdb_keywords:hanging (516): 0.0833235346992
+average_rating (1194): -0.0788913905783
+imdb_keywords:falling-down-stairs (417): 0.0503829827839
+imdb_keywords:loss-of-virginity (619): -0.0440203523844
+movielens_genre:Crime (6): -0.0381522738201
+imdb_keywords:singer (891): 0.0333847305802
+imdb_keywords:teacher (966): -0.0300376212764
+imdb_keywords:investigation (564): -0.0281305861532
+imdb_keywords:reference-to-william-shakespeare (807): 0.00306458767935
+imdb_keywords:police-officer (755): 0.00244732174152
+Correctness score: 0.192683320382
+Processing user 371, movie 5668 (White Oleander (2002))
+Original predicted rating: 2.81334866374
+User profile: {'neg_name': 'tvtropes:mind screw', 'neg': 1156, 'profile_id': 0, 'pos_name': 'imdb_keywords:reference-to-william-shakespeare', 'pos': 807}
+Non-zero qiis:
+average_rating (1194): 0.365716538939
+imdb_keywords:teacher (966): 0.30744199057
+imdb_keywords:police-officer (755): 0.258568723731
+imdb_keywords:reference-to-william-shakespeare (807): -0.0667170134989
+imdb_keywords:walkie-talkie (1051): -0.0563385726388
+imdb_keywords:death-of-son (341): -0.0396926107239
+imdb_keywords:parking-garage (731): 0.0375413063034
+imdb_keywords:false-accusation (420): -0.00611545013477
+Correctness score: 0.0991104035294
+Processing user 798, movie 1375 (Star Trek III: The Search for Spock (1984))
+Original predicted rating: 2.36698590843
+User profile: {'neg_name': 'imdb_keywords:key', 'neg': 581, 'profile_id': 9, 'pos_name': 'imdb_keywords:loss-of-virginity', 'pos': 619}
+Non-zero qiis:
+imdb_keywords:death-of-son (341): 0.656918630322
+average_rating (1194): 0.164168384026
+imdb_keywords:loss-of-virginity (619): -0.152592250979
+imdb_keywords:police-officer (755): -0.120569881591
+movielens_genre:Crime (6): -0.0891650005586
+imdb_keywords:teacher (966): -0.0765573216251
+imdb_keywords:french (470): -0.0616899277401
+imdb_keywords:loss-of-friend (617): -0.05996224179
+imdb_keywords:reference-to-william-shakespeare (807): -0.0407111933283
+imdb_keywords:singer (891): -0.00124389629472
+Correctness score: 0.185841754057
+Processing user 662, movie 5502 (Signs (2002))
+Original predicted rating: 3.98293376994
+User profile: {'neg_name': 'imdb_keywords:false-accusation', 'neg': 420, 'profile_id': 8, 'pos_name': 'imdb_keywords:walkie-talkie', 'pos': 1051}
+Non-zero qiis:
+imdb_keywords:walkie-talkie (1051): 1.84930197278
+average_rating (1194): 0.566760878987
+imdb_keywords:police-officer (755): 0.175479756529
+imdb_keywords:death-of-son (341): -0.0723629311574
+imdb_keywords:false-accusation (420): 0.0502703847636
+imdb_keywords:falling-down-stairs (417): 0.0373341186247
+movielens_genre:Crime (6): 0.0269566193665
+imdb_keywords:teacher (966): -0.023168841382
+imdb_keywords:car-crash (244): 0.0225047458641
+Correctness score: 0.786226383207
+Processing user 420, movie 4466 (Above the Law (1988))
+Original predicted rating: 2.93085624279
+User profile: {'neg_name': 'tvtropes:downer ending', 'neg': 1123, 'profile_id': 3, 'pos_name': 'imdb_keywords:teacher', 'pos': 966}
+Non-zero qiis:
+imdb_keywords:walkie-talkie (1051): 0.950383234915
+imdb_keywords:computer (292): -0.174493036409
+imdb_keywords:falling-down-stairs (417): -0.125262811446
+movielens_genre:Crime (6): -0.0984697908205
+imdb_keywords:police-officer (755): 0.0700372623146
+imdb_keywords:electrocution (387): -0.06619760385
+average_rating (1194): 0.0658424007743
+imdb_keywords:parking-garage (731): 0.065743412029
+imdb_keywords:wedding (1059): 0.0370168889732
+year (0): 0.0288942514685
+imdb_keywords:chase (259): 0.0247947442587
+movielens_tags:CLV (26): -0.0244342813904
+imdb_keywords:flashback (455): -0.0196849130955
+imdb_keywords:child-in-peril (266): -0.0158435194502
+imdb_keywords:teacher (966): -0.0103832055872
+imdb_keywords:german (487): 0.00594090526302
+imdb_keywords:false-accusation (420): -0.00548329506806
+Correctness score: 0.00923053126095
+Processing user 708, movie 1876 (Deep Impact (1998))
+Original predicted rating: 1.61770487334
+User profile: {'neg_name': 'tvtropes:ax crazy', 'neg': 1092, 'profile_id': 4, 'pos_name': 'imdb_keywords:police-officer', 'pos': 755}
+Non-zero qiis:
+average_rating (1194): -0.266665137351
+imdb_keywords:parking-garage (731): -0.0433880578338
+movielens_genre:Crime (6): -0.0374135011558
+imdb_keywords:false-accusation (420): -0.031768032482
+imdb_keywords:teacher (966): 0.0315700209999
+imdb_keywords:singer (891): 0.0287866288744
+imdb_keywords:police-officer (755): -0.025957428408
+tvtropes:mind screw (1156): -0.0214346800933
+imdb_keywords:falling-down-stairs (417): -0.0177985042504
+Correctness score: 0.0837192740185
+Processing user 14, movie 82271 (Western (1997))
+Original predicted rating: 1.51697804524
+User profile: {'neg_name': 'tvtropes:downer ending', 'neg': 1123, 'profile_id': 3, 'pos_name': 'imdb_keywords:teacher', 'pos': 966}
+Non-zero qiis:
+average_rating (1194): -0.408734803518
+imdb_keywords:singer (891): -0.141165321534
+imdb_keywords:teacher (966): 0.0507958087554
+imdb_keywords:walkie-talkie (1051): -0.0396383416833
+imdb_keywords:death-of-son (341): -0.0340374648418
+movielens_genre:Crime (6): 0.024738976765
+imdb_keywords:computer (292): -0.0210627214749
+imdb_keywords:falling-down-stairs (417): -0.0104470552591
+Correctness score: 0.0923727899691
+Processing user 414, movie 586 (Home Alone (1990))
+Original predicted rating: 1.11233158579
+User profile: {'neg_name': 'imdb_keywords:computer', 'neg': 292, 'profile_id': 6, 'pos_name': 'imdb_keywords:parking-garage', 'pos': 731}
+Non-zero qiis:
+imdb_keywords:parking-garage (731): -0.151746230699
+average_rating (1194): -0.112969815889
+imdb_keywords:teacher (966): 0.08350959386
+imdb_keywords:loss-of-friend (617): -0.0754275734966
+imdb_keywords:falling-down-stairs (417): 0.0649419223276
+imdb_keywords:singer (891): 0.0184263915062
+imdb_keywords:false-accusation (420): -0.0111523962411
+imdb_keywords:reference-to-william-shakespeare (807): 0.0103950806516
+imdb_keywords:police-officer (755): 0.00974383850395
+imdb_keywords:jail-cell (569): 0.0052309468397
+movielens_genre:Crime (6): -0.00193916560313
+Correctness score: 0.573241526741
+Processing user 81, movie 97938 (Life of Pi (2012))
+Original predicted rating: 2.94514948023
+User profile: {'neg_name': 'tvtropes:ax crazy', 'neg': 1092, 'profile_id': 4, 'pos_name': 'imdb_keywords:police-officer', 'pos': 755}
+Non-zero qiis:
+imdb_keywords:police-officer (755): -0.421979016626
+imdb_keywords:teacher (966): 0.350880531946
+average_rating (1194): 0.338346982113
+imdb_keywords:death-of-son (341): -0.187525634472
+imdb_keywords:parking-garage (731): -0.160564114237
+movielens_genre:Crime (6): -0.0701187937274
+imdb_keywords:french (470): -0.0596321948027
+imdb_keywords:loss-of-friend (617): -0.0184840417166
+Correctness score: 0.545997028057
+Processing user 279, movie 4969 (And Then There Were None (1945))
+Original predicted rating: 3.14873996889
+User profile: {'neg_name': 'tvtropes:ax crazy', 'neg': 1092, 'profile_id': 4, 'pos_name': 'imdb_keywords:police-officer', 'pos': 755}
+Non-zero qiis:
+movielens_genre:Crime (6): 0.374790590684
+imdb_keywords:reference-to-william-shakespeare (807): -0.150128521772
+imdb_keywords:police-officer (755): -0.145590047912
+average_rating (1194): 0.109686440948
+imdb_keywords:french (470): -0.0896841407567
+imdb_keywords:loss-of-friend (617): -0.0891519512548
+imdb_keywords:teacher (966): -0.0564721727452
+Correctness score: 0.277357109805
+Processing user 26, movie 113767 (Cantinflas (2014))
+Original predicted rating: 3.49773649204
+User profile: {'neg_name': 'tvtropes:downer ending', 'neg': 1123, 'profile_id': 3, 'pos_name': 'imdb_keywords:teacher', 'pos': 966}
+Non-zero qiis:
+imdb_keywords:reference-to-william-shakespeare (807): 0.927891262106
+average_rating (1194): 0.588493604077
+imdb_keywords:teacher (966): -0.184819105051
+movielens_genre:Crime (6): -0.12760065061
+imdb_keywords:tattoo (962): 0.094499675744
+imdb_keywords:french (470): -0.0393790012925
+imdb_keywords:walkie-talkie (1051): -0.0377271825422
+imdb_keywords:police-officer (755): -0.00845905275271
+Correctness score: 0.121881396453
+Correctness scores: [0.0, 0.0, 0.0, 0.15452735718166075, 0.0, 0.3564470020620126, 0.5762151615189324, 0.007314756856152598, 0.9211718683187949, 0.19268332038189534, 0.09911040352941897, 0.18584175405650571, 0.7862263832066231, 0.00923053126095459, 0.0837192740184783, 0.09237278996907199, 0.5732415267405767, 0.5459970280574938, 0.2773571098047627, 0.12188139645322162]
+Average correctness: 0.249166883171

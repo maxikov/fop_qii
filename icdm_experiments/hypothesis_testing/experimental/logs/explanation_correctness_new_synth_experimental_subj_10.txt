@@ -1,0 +1,320 @@
+Loading results dict
+Original recommender relative to ground truth on training set mean absolute error: 0.012876448332, RMSE: 0.0186035840111
+Shadow model relative to the baseline recommender on test set MAE: 0.295014026454, RMSE: 0.382064641879
+Randomized model relative to the baseline recommender on test set MAE: 1.0823973702, RMSE: 1.35304072425
+Shadow model is 3.66896917821 times better than random on the test set
+Loading movies
+Loading ALS model
+Loading decision trees
+105 features are used: 0: year, 1: movielens_genre:Action, 2: movielens_genre:Adventure, 5: movielens_genre:Comedy, 774: imdb_keywords:prologue, 8: movielens_genre:Drama, 1033: imdb_keywords:urination, 778: imdb_keywords:protest, 525: imdb_keywords:henchman, 14: movielens_genre:Romance, 15: movielens_genre:Sci-Fi, 784: imdb_keywords:punched-in-the-face, 17: movielens_genre:War, 20: movielens_tags:BD-R, 24: movielens_tags:Bibliothek, 538: imdb_keywords:hope, 47: movielens_tags:cinematography, 28: movielens_tags:ClearPlay, 29: movielens_tags:Criterion, 543: imdb_keywords:hostage, 32: movielens_tags:DVD-Video, 289: imdb_keywords:combat, 35: movielens_tags:Netflix Finland, 37: movielens_tags:Nudity (Topless), 550: imdb_keywords:hypodermic-needle, 295: imdb_keywords:confession, 41: movielens_tags:acting, 42: movielens_tags:action, 43: movielens_tags:adapted from:book, 556: imdb_keywords:independent-film, 46: movielens_tags:boring, 303: imdb_keywords:corruption, 1073: imdb_keywords:woods, 52: movielens_tags:drama, 567: imdb_keywords:italy, 827: imdb_keywords:rooftop, 752: imdb_keywords:police-car, 1090: tvtropes:arch enemy, 323: imdb_keywords:cult-film, 69: movielens_tags:nudity (topless), 1099: tvtropes:bittersweet ending, 79: movielens_tags:sci-fi, 684: imdb_keywords:neo-noir, 1123: tvtropes:downer ending, 87: movielens_tags:thriller, 89: movielens_tags:violence, 1039: imdb_keywords:vengeance, 92: imdb_keywords:1920s, 698: imdb_keywords:number-in-title, 353: imdb_keywords:digit-in-title, 1122: tvtropes:does this remind you of anything, 867: imdb_keywords:severed-hand, 1131: tvtropes:fan service, 877: imdb_keywords:shootout, 879: imdb_keywords:shot-in-the-back, 880: imdb_keywords:shot-in-the-chest, 625: imdb_keywords:machine-gun, 116: imdb_keywords:alcohol, 117: imdb_keywords:alcoholic, 55: movielens_tags:fantasy, 379: imdb_keywords:drunkenness, 124: imdb_keywords:american-flag, 1154: tvtropes:meaningful echo, 645: imdb_keywords:martial-arts, 135: imdb_keywords:army, 136: imdb_keywords:arrest, 393: imdb_keywords:epic, 650: imdb_keywords:mayor, 908: imdb_keywords:social-commentary, 175: imdb_keywords:battle, 1005: imdb_keywords:traitor, 67: movielens_tags:netflix, 663: imdb_keywords:mistress, 1178: tvtropes:smug snake, 155: imdb_keywords:bank-robbery, 687: imdb_keywords:news-report, 415: imdb_keywords:fainting, 1008: imdb_keywords:travel, 420: imdb_keywords:false-accusation, 421: imdb_keywords:family-relationships, 1194: average_rating, 172: imdb_keywords:bath, 431: imdb_keywords:fellatio, 688: imdb_keywords:newspaper, 692: imdb_keywords:nightmare, 181: imdb_keywords:bedroom, 1140: tvtropes:heroic sacrifice, 6: movielens_genre:Crime, 193: imdb_keywords:bisexual, 968: imdb_keywords:tears, 504: imdb_keywords:gun, 291: imdb_keywords:competition, 470: imdb_keywords:french, 121: imdb_keywords:ambush, 478: imdb_keywords:gangster, 223: imdb_keywords:brother-sister-relationship, 736: imdb_keywords:person-on-fire, 225: imdb_keywords:brutality, 228: imdb_keywords:burned-alive, 746: imdb_keywords:pistol, 493: imdb_keywords:good-versus-evil, 240: imdb_keywords:captain, 59: movielens_tags:imdb top 250, 500: imdb_keywords:grief, 248: imdb_keywords:cat
+Loading indicators
+Building indicator distributions
+Loading user profiles
+Processing user 361, movie 33585 (9 Songs (2004))
+Original predicted rating: 2.15035287894
+User profile: {'neg_name': 'imdb_keywords:travel', 'neg': 1008, 'profile_id': 5, 'pos_name': 'tvtropes:arch enemy', 'pos': 1090}
+Non-zero qiis:
+tvtropes:arch enemy (1090): -0.168655683091
+imdb_keywords:shot-in-the-back (879): -0.121683833722
+imdb_keywords:fellatio (431): 0.0964360415359
+tvtropes:bittersweet ending (1099): -0.0919792982171
+imdb_keywords:grief (500): -0.0522428439345
+average_rating (1194): 0.0420923520506
+imdb_keywords:gangster (478): 0.0379597724586
+imdb_keywords:battle (175): -0.00134910716276
+imdb_keywords:news-report (687): 0.000483140637498
+Correctness score: 0.580891243955
+Processing user 851, movie 4567 (American Ninja 3: Blood Hunt (1989))
+Original predicted rating: 1.2293273071
+User profile: {'neg_name': 'imdb_keywords:protest', 'neg': 778, 'profile_id': 1, 'pos_name': 'imdb_keywords:grief', 'pos': 500}
+Non-zero qiis:
+average_rating (1194): -0.317263717021
+imdb_keywords:grief (500): -0.22001027263
+tvtropes:bittersweet ending (1099): -0.111990426712
+imdb_keywords:fellatio (431): -0.109625997168
+tvtropes:arch enemy (1090): -0.0877183624629
+imdb_keywords:false-accusation (420): -0.0840134963088
+imdb_keywords:shot-in-the-back (879): -0.0788774405564
+imdb_keywords:burned-alive (228): -0.069423286212
+movielens_tags:acting (41): -0.0245018662892
+imdb_keywords:nightmare (692): -0.0115982834606
+imdb_keywords:battle (175): -0.00523376560694
+imdb_keywords:news-report (687): 0.00428791103971
+Correctness score: 0.409493623119
+Processing user 74, movie 1969 (Nightmare on Elm Street 2: Freddy's Revenge, A (1985))
+Original predicted rating: 1.95876603161
+User profile: {'neg_name': 'movielens_tags:acting', 'neg': 41, 'profile_id': 8, 'pos_name': 'imdb_keywords:italy', 'pos': 567}
+Non-zero qiis:
+imdb_keywords:burned-alive (228): 0.82974819828
+average_rating (1194): 0.634420775244
+imdb_keywords:digit-in-title (353): 0.315932417125
+imdb_keywords:fellatio (431): -0.159078373087
+imdb_keywords:italy (567): -0.108643929777
+imdb_keywords:hope (538): 0.0670908018214
+imdb_keywords:bank-robbery (155): -0.0601980294567
+imdb_keywords:shot-in-the-back (879): 0.0523838813025
+imdb_keywords:nightmare (692): 0.0416259850354
+year (0): 0.0183073220199
+imdb_keywords:gangster (478): -0.00155277020301
+imdb_keywords:news-report (687): -0.000492958116757
+Correctness score: 0.0742017702477
+Processing user 927, movie 25934 (3 Godfathers (1948))
+Original predicted rating: 2.18169331857
+User profile: {'neg_name': 'imdb_keywords:gangster', 'neg': 478, 'profile_id': 0, 'pos_name': 'imdb_keywords:fellatio', 'pos': 431}
+Non-zero qiis:
+average_rating (1194): 0.290710679594
+imdb_keywords:fellatio (431): -0.201722517506
+imdb_keywords:false-accusation (420): -0.0769358558536
+imdb_keywords:burned-alive (228): -0.0718852216532
+imdb_keywords:gangster (478): -0.0468830314191
+imdb_keywords:news-report (687): 0.0228867455906
+imdb_keywords:travel (1008): 0.0153485766275
+imdb_keywords:protest (778): 0.0114066718652
+tvtropes:bittersweet ending (1099): -0.00900199630065
+imdb_keywords:shot-in-the-back (879): -0.00566835926154
+imdb_keywords:bank-robbery (155): 0.00449042727159
+imdb_keywords:battle (175): 0.00390378418472
+imdb_keywords:grief (500): -0.0035347173467
+imdb_keywords:person-on-fire (736): -0.00278577239368
+Correctness score: 0.504851318696
+Processing user 177, movie 2086 (One Magic Christmas (1985))
+Original predicted rating: 3.49287660705
+User profile: {'neg_name': 'imdb_keywords:digit-in-title', 'neg': 353, 'profile_id': 2, 'pos_name': 'imdb_keywords:shot-in-the-back', 'pos': 879}
+Non-zero qiis:
+imdb_keywords:bank-robbery (155): 0.733080700192
+imdb_keywords:burned-alive (228): -0.253580229298
+average_rating (1194): 0.234881128032
+imdb_keywords:fellatio (431): -0.144714946464
+movielens_tags:Netflix Finland (35): -0.122715667814
+imdb_keywords:news-report (687): 0.115434984178
+imdb_keywords:shot-in-the-back (879): -0.0921577133826
+tvtropes:arch enemy (1090): -0.088329136374
+tvtropes:bittersweet ending (1099): -0.0783824315262
+imdb_keywords:italy (567): -0.0734292914007
+imdb_keywords:travel (1008): 0.0254782931501
+imdb_keywords:battle (175): -0.000534873163642
+Correctness score: 0.0934036310025
+Processing user 127, movie 50944 (S.P.L.: Kill Zone (Saat po long) (2005))
+Original predicted rating: 1.34503864251
+User profile: {'neg_name': 'imdb_keywords:protest', 'neg': 778, 'profile_id': 1, 'pos_name': 'imdb_keywords:grief', 'pos': 500}
+Non-zero qiis:
+imdb_keywords:gangster (478): 0.339172168817
+imdb_keywords:grief (500): -0.218941017935
+imdb_keywords:shot-in-the-back (879): -0.133947723481
+average_rating (1194): -0.112484366626
+imdb_keywords:burned-alive (228): -0.080120851261
+imdb_keywords:bank-robbery (155): -0.0774070878895
+tvtropes:bittersweet ending (1099): -0.0502619406266
+imdb_keywords:fellatio (431): -0.0354906944924
+imdb_keywords:battle (175): 0.0151482081354
+imdb_keywords:italy (567): -0.013164842205
+imdb_keywords:nightmare (692): -0.0069823436553
+Correctness score: 0.39228784256
+Processing user 563, movie 56848 (Ricochet (1991))
+Original predicted rating: 2.72747394624
+User profile: {'neg_name': 'imdb_keywords:battle', 'neg': 175, 'profile_id': 9, 'pos_name': 'imdb_keywords:burned-alive', 'pos': 228}
+Non-zero qiis:
+imdb_keywords:false-accusation (420): 0.880584236306
+imdb_keywords:burned-alive (228): -0.208127765051
+imdb_keywords:battle (175): 0.0737632841985
+average_rating (1194): 0.0720780810701
+imdb_keywords:hope (538): 0.0195423763628
+imdb_keywords:shot-in-the-back (879): -0.0174193589141
+movielens_tags:Netflix Finland (35): 0.0139202872631
+imdb_keywords:fellatio (431): -0.00265560192885
+imdb_keywords:italy (567): -0.00132995544389
+imdb_keywords:news-report (687): 0.000281552227969
+Correctness score: 0.258921596251
+Processing user 2, movie 2412 (Rocky V (1990))
+Original predicted rating: 1.81038482966
+User profile: {'neg_name': 'imdb_keywords:digit-in-title', 'neg': 353, 'profile_id': 2, 'pos_name': 'imdb_keywords:shot-in-the-back', 'pos': 879}
+Non-zero qiis:
+average_rating (1194): -0.400645103051
+imdb_keywords:shot-in-the-back (879): -0.383458514878
+imdb_keywords:news-report (687): 0.180629145465
+movielens_tags:Netflix Finland (35): -0.0916244680337
+tvtropes:bittersweet ending (1099): -0.0911683506166
+imdb_keywords:gangster (478): -0.0110501758426
+imdb_keywords:fainting (415): -0.0106478952154
+imdb_keywords:travel (1008): -0.00983000801714
+imdb_keywords:nightmare (692): -0.00612009189831
+Correctness score: 0.489040614161
+Processing user 308, movie 4915 (Beastmaster, The (1982))
+Original predicted rating: 0.948274533882
+User profile: {'neg_name': 'imdb_keywords:news-report', 'neg': 687, 'profile_id': 4, 'pos_name': 'imdb_keywords:bank-robbery', 'pos': 155}
+Non-zero qiis:
+average_rating (1194): -0.245936026904
+tvtropes:arch enemy (1090): -0.100333721338
+imdb_keywords:shot-in-the-back (879): -0.0714699692926
+imdb_keywords:battle (175): 0.0418723436476
+imdb_keywords:burned-alive (228): -0.018924715029
+movielens_tags:acting (41): -0.0110397365886
+imdb_keywords:nightmare (692): -0.00461187172333
+Correctness score: 0.0
+Processing user 218, movie 7011 (Bullfighter, The (Matador) (1986))
+Original predicted rating: 2.19271064115
+User profile: {'neg_name': 'imdb_keywords:gangster', 'neg': 478, 'profile_id': 0, 'pos_name': 'imdb_keywords:fellatio', 'pos': 431}
+Non-zero qiis:
+average_rating (1194): 0.322924629985
+imdb_keywords:grief (500): 0.221019179614
+imdb_keywords:fellatio (431): -0.203133321755
+tvtropes:bittersweet ending (1099): -0.025299344191
+imdb_keywords:shot-in-the-back (879): 0.0251550387108
+imdb_keywords:false-accusation (420): -0.0241397020067
+imdb_keywords:gangster (478): -0.0238886223276
+movielens_tags:Netflix Finland (35): 0.00492824464928
+Correctness score: 0.417362860053
+Processing user 222, movie 71810 (Legionnaire (1998))
+Original predicted rating: 1.22027676646
+User profile: {'neg_name': 'imdb_keywords:travel', 'neg': 1008, 'profile_id': 5, 'pos_name': 'tvtropes:arch enemy', 'pos': 1090}
+Non-zero qiis:
+average_rating (1194): -0.362311141128
+imdb_keywords:shot-in-the-back (879): -0.193776284721
+imdb_keywords:fellatio (431): -0.0749178772628
+imdb_keywords:bank-robbery (155): -0.0487331218476
+imdb_keywords:news-report (687): -0.0413500882555
+imdb_keywords:travel (1008): -0.0405221260258
+imdb_keywords:battle (175): 0.0305816237742
+Correctness score: 0.0728700634867
+Processing user 822, movie 822 (Hedd Wyn (1992))
+Original predicted rating: 1.07047012178
+User profile: {'neg_name': 'imdb_keywords:nightmare', 'neg': 692, 'profile_id': 6, 'pos_name': 'movielens_tags:Netflix Finland', 'pos': 35}
+Non-zero qiis:
+average_rating (1194): -0.380081984936
+imdb_keywords:battle (175): -0.112045570073
+imdb_keywords:burned-alive (228): -0.0909374177996
+tvtropes:bittersweet ending (1099): -0.0778217597897
+imdb_keywords:false-accusation (420): -0.0748801584493
+imdb_keywords:grief (500): -0.0734046445154
+imdb_keywords:shot-in-the-back (879): -0.0648200880253
+imdb_keywords:fellatio (431): -0.0628210569374
+movielens_tags:acting (41): -0.0196250105494
+Correctness score: 0.0
+Processing user 966, movie 1611 (My Own Private Idaho (1991))
+Original predicted rating: 2.76466966533
+User profile: {'neg_name': 'imdb_keywords:hope', 'neg': 538, 'profile_id': 7, 'pos_name': 'imdb_keywords:false-accusation', 'pos': 420}
+Non-zero qiis:
+imdb_keywords:italy (567): -0.458569934641
+imdb_keywords:fellatio (431): 0.284800404219
+imdb_keywords:grief (500): 0.251525052759
+imdb_keywords:rooftop (827): -0.127831374127
+tvtropes:bittersweet ending (1099): -0.109872768971
+average_rating (1194): -0.107008835344
+imdb_keywords:tears (968): -0.0925364749275
+imdb_keywords:false-accusation (420): -0.0573346549999
+imdb_keywords:brother-sister-relationship (223): 0.0258825372206
+imdb_keywords:bank-robbery (155): -0.0248862512587
+year (0): -0.0188560678574
+imdb_keywords:1920s (92): 0.0186057442482
+tvtropes:does this remind you of anything (1122): 0.0098932078436
+movielens_tags:drama (52): 0.00124583466765
+tvtropes:fan service (1131): 0.000143438254879
+Correctness score: 0.0771279831905
+Processing user 799, movie 72998 (Avatar (2009))
+Original predicted rating: 3.96614673264
+User profile: {'neg_name': 'imdb_keywords:fainting', 'neg': 415, 'profile_id': 3, 'pos_name': 'tvtropes:bittersweet ending', 'pos': 1099}
+Non-zero qiis:
+tvtropes:bittersweet ending (1099): 0.717046094661
+tvtropes:arch enemy (1090): 0.365928577009
+average_rating (1194): 0.188315395971
+imdb_keywords:false-accusation (420): 0.116173985972
+imdb_keywords:bedroom (181): 0.0290614880821
+imdb_keywords:fellatio (431): -0.0257293153034
+imdb_keywords:vengeance (1039): 0.0116075243018
+imdb_keywords:fainting (415): -0.0104352970841
+imdb_keywords:shot-in-the-back (879): -0.00645429301873
+imdb_keywords:news-report (687): 0.00235060708664
+movielens_tags:Netflix Finland (35): 0.00209598641584
+Correctness score: 0.671743680416
+Processing user 159, movie 62374 (Body of Lies (2008))
+Original predicted rating: 3.9834731193
+User profile: {'neg_name': 'imdb_keywords:digit-in-title', 'neg': 353, 'profile_id': 2, 'pos_name': 'imdb_keywords:shot-in-the-back', 'pos': 879}
+Non-zero qiis:
+imdb_keywords:shot-in-the-back (879): 0.50501803273
+imdb_keywords:false-accusation (420): 0.217309891167
+average_rating (1194): 0.11264619823
+movielens_tags:Netflix Finland (35): 0.102190515979
+tvtropes:arch enemy (1090): -0.0362747809349
+imdb_keywords:italy (567): -0.0311815632291
+imdb_keywords:battle (175): 0.0125893359384
+imdb_keywords:burned-alive (228): 0.00167733040641
+imdb_keywords:news-report (687): -8.66159172679e-06
+Correctness score: 0.699153412214
+Processing user 161, movie 39234 (North Country (2005))
+Original predicted rating: 2.8940818376
+User profile: {'neg_name': 'imdb_keywords:nightmare', 'neg': 692, 'profile_id': 6, 'pos_name': 'movielens_tags:Netflix Finland', 'pos': 35}
+Non-zero qiis:
+imdb_keywords:bank-robbery (155): 0.566052196019
+average_rating (1194): 0.188957359153
+imdb_keywords:shot-in-the-back (879): -0.131721476894
+tvtropes:arch enemy (1090): -0.0558915904537
+imdb_keywords:fellatio (431): 0.0403260116302
+tvtropes:fan service (1131): -0.0279278729502
+tvtropes:bittersweet ending (1099): -0.0208594355729
+imdb_keywords:gangster (478): 0.0196184098587
+imdb_keywords:rooftop (827): 0.010754361224
+imdb_keywords:battle (175): 0.00227979430253
+Correctness score: 0.0
+Processing user 595, movie 55100 (I Could Never Be Your Woman (2007))
+Original predicted rating: 2.88200000159
+User profile: {'neg_name': 'imdb_keywords:digit-in-title', 'neg': 353, 'profile_id': 2, 'pos_name': 'imdb_keywords:shot-in-the-back', 'pos': 879}
+Non-zero qiis:
+imdb_keywords:fellatio (431): 0.375749494874
+imdb_keywords:grief (500): -0.236062352293
+imdb_keywords:shot-in-the-back (879): -0.214480143519
+average_rating (1194): 0.159435683299
+tvtropes:bittersweet ending (1099): -0.150289532558
+imdb_keywords:bank-robbery (155): -0.0790327269089
+imdb_keywords:gangster (478): 0.0435690160867
+imdb_keywords:battle (175): 0.00442705863538
+imdb_keywords:news-report (687): -5.12292725414e-06
+Correctness score: 0.350565528458
+Processing user 330, movie 52717 (Condemned, The (2007))
+Original predicted rating: 2.34479841171
+User profile: {'neg_name': 'movielens_tags:acting', 'neg': 41, 'profile_id': 8, 'pos_name': 'imdb_keywords:italy', 'pos': 567}
+Non-zero qiis:
+imdb_keywords:burned-alive (228): 0.426346931324
+imdb_keywords:italy (567): -0.313241292279
+average_rating (1194): 0.307243635628
+imdb_keywords:battle (175): -0.280624957122
+imdb_keywords:martial-arts (645): -0.0999649439986
+imdb_keywords:shot-in-the-back (879): -0.0982608316333
+imdb_keywords:bank-robbery (155): -0.0716516349554
+movielens_tags:Netflix Finland (35): 0.0387305563551
+tvtropes:arch enemy (1090): -0.0284881448774
+imdb_keywords:corruption (303): -0.0155561765024
+imdb_keywords:grief (500): -0.0114847087043
+tvtropes:bittersweet ending (1099): -0.000463558973403
+imdb_keywords:news-report (687): -0.000180142574249
+Correctness score: 0.42353472146
+Processing user 659, movie 2348 (Sid and Nancy (1986))
+Original predicted rating: 1.0554698008
+User profile: {'neg_name': 'imdb_keywords:news-report', 'neg': 687, 'profile_id': 4, 'pos_name': 'imdb_keywords:bank-robbery', 'pos': 155}
+Non-zero qiis:
+average_rating (1194): -0.389580093188
+imdb_keywords:italy (567): 0.0569247404664
+imdb_keywords:news-report (687): -0.0562763907051
+imdb_keywords:burned-alive (228): -0.0397553303089
+imdb_keywords:gangster (478): -0.0378400453162
+imdb_keywords:shot-in-the-back (879): -0.0319468646346
+imdb_keywords:fainting (415): -0.00614923032503
+imdb_keywords:battle (175): -0.00427226029688
+imdb_keywords:nightmare (692): -0.00284272792368
+Correctness score: 0.126037584508
+Processing user 69, movie 2704 (Lovers on the Bridge, The (Amants du Pont-Neuf, Les) (1991))
+Original predicted rating: 1.31996469582
+User profile: {'neg_name': 'imdb_keywords:battle', 'neg': 175, 'profile_id': 9, 'pos_name': 'imdb_keywords:burned-alive', 'pos': 228}
+Non-zero qiis:
+imdb_keywords:burned-alive (228): -0.211539505722
+imdb_keywords:false-accusation (420): -0.209509724436
+average_rating (1194): -0.141633228574
+imdb_keywords:shot-in-the-back (879): -0.072512175533
+imdb_keywords:nightmare (692): 0.0438518948652
+imdb_keywords:italy (567): 0.0292948218566
+imdb_keywords:battle (175): -0.0192344514155
+movielens_tags:acting (41): -0.0137637608487
+imdb_keywords:news-report (687): -0.0102784779902
+imdb_keywords:gangster (478): -0.0096518773569
+Correctness score: 0.548092575899
+Correctness scores: [0.5808912439552711, 0.4094936231192311, 0.07420177024773604, 0.5048513186958146, 0.09340363100252454, 0.3922878425595146, 0.2589215962513423, 0.48904061416127886, 0.0, 0.4173628600529072, 0.07287006348671922, 0.0, 0.07712798319049897, 0.6717436804160424, 0.6991534122142722, 0.0, 0.3505655284579891, 0.4235347214598673, 0.12603758450836747, 0.5480925758994882]
+Average correctness: 0.309479002484

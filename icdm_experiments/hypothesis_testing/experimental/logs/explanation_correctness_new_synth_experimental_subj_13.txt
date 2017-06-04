@@ -1,0 +1,346 @@
+Loading results dict
+Original recommender relative to ground truth on training set mean absolute error: 0.0150726397803, RMSE: 0.0213091053954
+Shadow model relative to the baseline recommender on test set MAE: 0.315152882194, RMSE: 0.405704073807
+Randomized model relative to the baseline recommender on test set MAE: 1.08503154255, RMSE: 1.28670221479
+Shadow model is 3.44287361423 times better than random on the test set
+Loading movies
+Loading ALS model
+Loading decision trees
+111 features are used: 0: year, 1: movielens_genre:Action, 514: imdb_keywords:handcuffs, 1028: imdb_keywords:unfaithfulness, 5: movielens_genre:Comedy, 6: movielens_genre:Crime, 8: movielens_genre:Drama, 9: movielens_genre:Fantasy, 11: movielens_genre:Horror, 2: movielens_genre:Adventure, 1042: imdb_keywords:villain, 19: movielens_tags:70mm, 1044: imdb_keywords:virgin, 533: imdb_keywords:hitman, 22: movielens_tags:Bechdel Test:Fail, 217: imdb_keywords:breasts, 4: movielens_genre:Children, 26: movielens_tags:CLV, 261: imdb_keywords:chess, 32: movielens_tags:DVD-Video, 688: imdb_keywords:newspaper, 802: imdb_keywords:recording, 803: imdb_keywords:redemption, 36: movielens_tags:Nudity (Topless - Brief), 293: imdb_keywords:concert, 550: imdb_keywords:hypodermic-needle, 557: imdb_keywords:infidelity, 1074: imdb_keywords:world-war-two, 53: movielens_tags:drugs, 1081: imdb_keywords:zombie, 830: imdb_keywords:rowboat, 328: imdb_keywords:dancing, 329: imdb_keywords:dark-comedy, 586: imdb_keywords:kiss, 333: imdb_keywords:dead-woman, 525: imdb_keywords:henchman, 851: imdb_keywords:search, 341: imdb_keywords:death-of-son, 342: imdb_keywords:death-of-wife, 953: imdb_keywords:swimming-pool, 348: imdb_keywords:depression, 349: imdb_keywords:desert, 1118: tvtropes:deadpan snarker, 95: imdb_keywords:1950s, 99: imdb_keywords:1990s, 869: imdb_keywords:sex, 875: imdb_keywords:ship, 620: imdb_keywords:love, 786: imdb_keywords:punctuation-in-title, 366: imdb_keywords:domestic-violence, 701: imdb_keywords:obscene-finger-gesture, 113: imdb_keywords:airplane, 117: imdb_keywords:alcoholic, 886: imdb_keywords:shot-to-death, 887: imdb_keywords:shotgun, 890: imdb_keywords:silencer, 123: imdb_keywords:american-abroad, 896: imdb_keywords:skeleton, 130: imdb_keywords:apartment, 389: imdb_keywords:elevator, 108: imdb_keywords:actress, 140: imdb_keywords:assassin, 397: imdb_keywords:espionage, 1169: tvtropes:precision f strike, 146: imdb_keywords:aunt-niece-relationship, 963: imdb_keywords:taxi, 1172: tvtropes:red herring, 407: imdb_keywords:exploitation, 409: imdb_keywords:extramarital-affair, 410: imdb_keywords:eyeglasses, 1179: tvtropes:soundtrack dissonance, 156: imdb_keywords:bar, 1186: tvtropes:trailers always spoil, 167: imdb_keywords:based-on-novel, 937: imdb_keywords:subway, 1194: average_rating, 432: imdb_keywords:female-frontal-nudity, 179: imdb_keywords:beating, 201: imdb_keywords:blood, 441: imdb_keywords:fight, 188: imdb_keywords:binoculars, 957: imdb_keywords:syringe, 629: imdb_keywords:magic, 450: imdb_keywords:fish, 707: imdb_keywords:older-man-younger-woman-relationship, 200: imdb_keywords:blonde, 713: imdb_keywords:one-word-title, 458: imdb_keywords:flirting, 971: imdb_keywords:teenage-girl, 460: imdb_keywords:flowers, 465: imdb_keywords:forest, 212: imdb_keywords:bra, 471: imdb_keywords:friend, 472: imdb_keywords:friendship, 292: imdb_keywords:computer, 474: imdb_keywords:funeral, 481: imdb_keywords:gas-station, 739: imdb_keywords:photographer, 38: movielens_tags:R, 230: imdb_keywords:businessman, 488: imdb_keywords:ghost, 234: imdb_keywords:camera, 1006: imdb_keywords:transformation, 495: imdb_keywords:grandfather-grandson-relationship, 755: imdb_keywords:police-officer, 244: imdb_keywords:car-crash, 757: imdb_keywords:police-shootout, 1015: imdb_keywords:twenty-something, 153: imdb_keywords:band, 1021: imdb_keywords:uncle-nephew-relationship, 511: imdb_keywords:hallucination
+Loading indicators
+Building indicator distributions
+Loading user profiles
+Processing user 646, movie 8690 (Slaughterhouse-Five (1972))
+Original predicted rating: 3.07450117197
+User profile: {'neg_name': 'imdb_keywords:death-of-son', 'neg': 341, 'profile_id': 8, 'pos_name': 'imdb_keywords:handcuffs', 'pos': 514}
+Non-zero qiis:
+imdb_keywords:world-war-two (1074): 0.369551733697
+imdb_keywords:swimming-pool (953): -0.253740084334
+average_rating (1194): 0.228263116293
+imdb_keywords:dancing (328): -0.189260017294
+imdb_keywords:handcuffs (514): -0.135568394716
+imdb_keywords:assassin (140): 0.117242817605
+imdb_keywords:friend (471): 0.0896649859352
+imdb_keywords:blonde (200): -0.0805919584437
+imdb_keywords:death-of-wife (342): 0.0604452819789
+imdb_keywords:beating (179): 0.0466674751102
+tvtropes:deadpan snarker (1118): 0.0437710742484
+imdb_keywords:death-of-son (341): 0.038627280635
+imdb_keywords:sex (869): 0.0279312134339
+imdb_keywords:unfaithfulness (1028): -0.0209676331204
+imdb_keywords:chess (261): 0.0157812130387
+imdb_keywords:hitman (533): -0.0145336369425
+imdb_keywords:teenage-girl (971): 0.0124047289261
+movielens_tags:CLV (26): 0.0106333573535
+year (0): 0.00734444400534
+Correctness score: 0.279476916449
+Processing user 576, movie 26476 (Merry Christmas Mr. Lawrence (1983))
+Original predicted rating: 3.38882222698
+User profile: {'neg_name': 'imdb_keywords:blonde', 'neg': 200, 'profile_id': 1, 'pos_name': 'imdb_keywords:unfaithfulness', 'pos': 1028}
+Non-zero qiis:
+imdb_keywords:world-war-two (1074): 0.500545310841
+imdb_keywords:beating (179): -0.257955160337
+average_rating (1194): 0.127731044075
+imdb_keywords:swimming-pool (953): 0.0657799065157
+imdb_keywords:dancing (328): -0.0454015037122
+imdb_keywords:friend (471): -0.0296685152041
+imdb_keywords:handcuffs (514): -0.017489359555
+imdb_keywords:domestic-violence (366): 0.00423282910496
+imdb_keywords:hitman (533): 0.00342928811936
+imdb_keywords:blonde (200): -0.00118046082489
+Correctness score: 0.00155630862437
+Processing user 180, movie 40732 (Descent, The (2005))
+Original predicted rating: 2.87702984943
+User profile: {'neg_name': 'imdb_keywords:zombie', 'neg': 1081, 'profile_id': 5, 'pos_name': 'imdb_keywords:assassin', 'pos': 140}
+Non-zero qiis:
+imdb_keywords:beating (179): 0.385835369957
+average_rating (1194): 0.376121712132
+imdb_keywords:friend (471): -0.14143220965
+movielens_tags:CLV (26): 0.0651428178409
+imdb_keywords:ghost (488): 0.0546523941993
+imdb_keywords:dancing (328): 0.0519728714702
+imdb_keywords:unfaithfulness (1028): 0.0457429168201
+imdb_keywords:swimming-pool (953): 0.0440842673929
+imdb_keywords:hitman (533): -0.0431652303149
+imdb_keywords:sex (869): -0.00448498899232
+Correctness score: 0.0
+Processing user 300, movie 4117 (Hope and Glory (1987))
+Original predicted rating: 3.99628213314
+User profile: {'neg_name': 'imdb_keywords:exploitation', 'neg': 407, 'profile_id': 2, 'pos_name': 'imdb_keywords:world-war-two', 'pos': 1074}
+Non-zero qiis:
+imdb_keywords:world-war-two (1074): 1.07210799403
+average_rating (1194): 0.32956467559
+imdb_keywords:dancing (328): 0.17638530687
+movielens_tags:CLV (26): 0.161257815831
+imdb_keywords:chess (261): 0.068966859304
+movielens_genre:Fantasy (9): 0.0523815702554
+imdb_keywords:beating (179): 0.0357259359474
+imdb_keywords:swimming-pool (953): 0.0305915040761
+imdb_keywords:transformation (1006): -0.0225524120557
+imdb_keywords:friend (471): 0.0180086488469
+imdb_keywords:unfaithfulness (1028): -0.0141188415931
+imdb_keywords:handcuffs (514): -0.00466801271856
+Correctness score: 0.764877576103
+Processing user 350, movie 46839 (Three Times (Zui hao de shi guang) (2005))
+Original predicted rating: 1.72686764326
+User profile: {'neg_name': 'imdb_keywords:zombie', 'neg': 1081, 'profile_id': 5, 'pos_name': 'imdb_keywords:assassin', 'pos': 140}
+Non-zero qiis:
+average_rating (1194): -0.452209253408
+imdb_keywords:assassin (140): -0.150540005391
+imdb_keywords:dancing (328): 0.0944468998413
+imdb_keywords:hitman (533): -0.0917478354282
+imdb_keywords:handcuffs (514): -0.0652968306542
+imdb_keywords:unfaithfulness (1028): -0.0569147151181
+imdb_keywords:sex (869): 0.0440882622906
+imdb_keywords:beating (179): -0.0323251971398
+imdb_keywords:friend (471): -0.0292062887327
+movielens_genre:Fantasy (9): -0.0202901111767
+movielens_tags:CLV (26): -0.00996726604099
+Correctness score: 0.24975560433
+Processing user 770, movie 61041 (Take, The (2007))
+Original predicted rating: 2.21951495453
+User profile: {'neg_name': 'movielens_tags:violence', 'neg': 89, 'profile_id': 9, 'pos_name': 'movielens_genre:Fantasy', 'pos': 9}
+Non-zero qiis:
+average_rating (1194): 0.426549662921
+imdb_keywords:dancing (328): 0.117825591907
+imdb_keywords:beating (179): 0.0994891056974
+movielens_tags:CLV (26): -0.0290535672446
+imdb_keywords:sex (869): 0.0254671505822
+imdb_keywords:assassin (140): 0.0252770966641
+imdb_keywords:swimming-pool (953): 0.00298659215671
+Correctness score: 0.0
+Processing user 192, movie 10 (GoldenEye (1995))
+Original predicted rating: 3.62038198004
+User profile: {'neg_name': 'imdb_keywords:sex', 'neg': 869, 'profile_id': 6, 'pos_name': 'imdb_keywords:hitman', 'pos': 533}
+Non-zero qiis:
+imdb_keywords:assassin (140): 0.722691348222
+movielens_tags:CLV (26): 0.312191917519
+imdb_keywords:dancing (328): -0.110043663782
+average_rating (1194): 0.0992361820164
+imdb_keywords:hitman (533): -0.0976756612754
+imdb_keywords:handcuffs (514): -0.0812362211995
+imdb_keywords:friend (471): -0.0642028496578
+imdb_keywords:beating (179): -0.0440902409453
+imdb_keywords:death-of-son (341): -0.0373629648436
+imdb_keywords:sex (869): 0.0315472811566
+imdb_keywords:friendship (472): -0.0267972171486
+imdb_keywords:swimming-pool (953): -0.0166798333642
+imdb_keywords:unfaithfulness (1028): 0.00895912275553
+Correctness score: 0.124867167834
+Processing user 233, movie 56003 (Southland Tales (2006))
+Original predicted rating: 2.65750430665
+User profile: {'neg_name': 'imdb_keywords:chess', 'neg': 261, 'profile_id': 0, 'pos_name': 'movielens_tags:CLV', 'pos': 26}
+Non-zero qiis:
+average_rating (1194): 0.497174793893
+movielens_tags:CLV (26): -0.40262303533
+imdb_keywords:beating (179): 0.176457271724
+imdb_keywords:dancing (328): -0.134328518768
+imdb_keywords:friend (471): -0.0767843833274
+imdb_keywords:swimming-pool (953): 0.0546522928456
+imdb_keywords:handcuffs (514): -0.0439416960054
+imdb_keywords:unfaithfulness (1028): -0.0235475019754
+imdb_keywords:assassin (140): 0.00608401981809
+imdb_keywords:sex (869): 0.00347619062882
+Correctness score: 0.447459442837
+Processing user 455, movie 46322 (Jet Li's Fearless (Huo Yuan Jia) (2006))
+Original predicted rating: 2.46865446484
+User profile: {'neg_name': 'imdb_keywords:sex', 'neg': 869, 'profile_id': 6, 'pos_name': 'imdb_keywords:hitman', 'pos': 533}
+Non-zero qiis:
+imdb_keywords:beating (179): 0.508754549255
+average_rating (1194): 0.257194087822
+imdb_keywords:friend (471): 0.135547007124
+imdb_keywords:handcuffs (514): -0.0542558022952
+movielens_genre:Fantasy (9): 0.0407785886857
+imdb_keywords:dancing (328): 0.0371803434005
+imdb_keywords:swimming-pool (953): 0.0254897513146
+movielens_tags:CLV (26): -0.0105367410547
+imdb_keywords:sex (869): -0.00888932222122
+Correctness score: 0.0116056374944
+Processing user 958, movie 50944 (S.P.L.: Kill Zone (Saat po long) (2005))
+Original predicted rating: 2.23424138605
+User profile: {'neg_name': 'imdb_keywords:blonde', 'neg': 200, 'profile_id': 1, 'pos_name': 'imdb_keywords:unfaithfulness', 'pos': 1028}
+Non-zero qiis:
+imdb_keywords:hitman (533): 0.362154101216
+imdb_keywords:dancing (328): -0.208257430466
+imdb_keywords:beating (179): -0.199105938124
+average_rating (1194): 0.165134709769
+imdb_keywords:friend (471): -0.112201060689
+imdb_keywords:sex (869): 0.0465696657997
+imdb_keywords:assassin (140): -0.0394288454815
+imdb_keywords:handcuffs (514): 0.0221139797964
+imdb_keywords:twenty-something (1015): -0.0053425854511
+imdb_keywords:extramarital-affair (409): 0.0010533083181
+Correctness score: 0.0
+Processing user 798, movie 928 (Rebecca (1940))
+Original predicted rating: 1.37780357763
+User profile: {'neg_name': 'imdb_keywords:death-of-son', 'neg': 341, 'profile_id': 8, 'pos_name': 'imdb_keywords:handcuffs', 'pos': 514}
+Non-zero qiis:
+average_rating (1194): -0.540658302546
+imdb_keywords:handcuffs (514): -0.185535645818
+imdb_keywords:beating (179): -0.116869126511
+movielens_tags:CLV (26): -0.102587131734
+imdb_keywords:transformation (1006): 0.0965166034158
+imdb_keywords:unfaithfulness (1028): -0.0578270348806
+imdb_keywords:blonde (200): 0.0482138709241
+imdb_keywords:dancing (328): 0.0460683921814
+imdb_keywords:sex (869): -0.0384961992232
+imdb_keywords:swimming-pool (953): 0.0323607458698
+imdb_keywords:assassin (140): -0.0299127987384
+imdb_keywords:exploitation (407): 0.0278120573521
+imdb_keywords:friend (471): 0.0221966504392
+Correctness score: 0.255490487405
+Processing user 572, movie 2056 (In Search of the Castaways (1962))
+Original predicted rating: 3.04147438731
+User profile: {'neg_name': 'imdb_keywords:hypodermic-needle', 'neg': 550, 'profile_id': 7, 'pos_name': 'imdb_keywords:friend', 'pos': 471}
+Non-zero qiis:
+average_rating (1194): 0.365706546402
+imdb_keywords:friend (471): -0.35248951762
+imdb_keywords:dancing (328): 0.237892272533
+movielens_tags:CLV (26): -0.129722936946
+imdb_keywords:unfaithfulness (1028): -0.0901876574775
+imdb_keywords:swimming-pool (953): 0.0448976845121
+imdb_keywords:handcuffs (514): -0.0410025572855
+imdb_keywords:beating (179): 0.0282467975295
+imdb_keywords:sex (869): -0.0148743995973
+movielens_genre:Fantasy (9): 0.00917080257461
+imdb_keywords:assassin (140): 0.00341487593311
+Correctness score: 0.490798453623
+Processing user 371, movie 521 (Romeo Is Bleeding (1993))
+Original predicted rating: 2.15140574582
+User profile: {'neg_name': 'imdb_keywords:sex', 'neg': 869, 'profile_id': 6, 'pos_name': 'imdb_keywords:hitman', 'pos': 533}
+Non-zero qiis:
+imdb_keywords:handcuffs (514): 0.334815606405
+imdb_keywords:assassin (140): 0.328522383916
+imdb_keywords:dancing (328): 0.263720400526
+imdb_keywords:swimming-pool (953): -0.235092393152
+average_rating (1194): 0.133076205387
+imdb_keywords:world-war-two (1074): 0.122118095772
+imdb_keywords:sex (869): -0.0495494570116
+movielens_tags:CLV (26): 0.0482523395248
+movielens_genre:Action (1): 0.0461998260542
+imdb_keywords:blonde (200): -0.0457496943002
+imdb_keywords:hitman (533): -0.040763657797
+imdb_keywords:one-word-title (713): -0.0356904014156
+imdb_keywords:1990s (99): 0.0252637954774
+imdb_keywords:beating (179): -0.0214853550125
+imdb_keywords:unfaithfulness (1028): -0.0101559177976
+imdb_keywords:skeleton (896): 0.00768238214784
+imdb_keywords:hypodermic-needle (550): -0.00673897661964
+movielens_genre:Crime (6): 0.00542016984943
+imdb_keywords:shot-to-death (886): 0.00361414324946
+imdb_keywords:friend (471): 0.00122651312239
+Correctness score: 0.136149468486
+Processing user 916, movie 50796 (Blood and Chocolate (2007))
+Original predicted rating: 2.17993365536
+User profile: {'neg_name': 'imdb_keywords:zombie', 'neg': 1081, 'profile_id': 5, 'pos_name': 'imdb_keywords:assassin', 'pos': 140}
+Non-zero qiis:
+imdb_keywords:assassin (140): -0.369110326345
+imdb_keywords:beating (179): -0.179775037192
+movielens_genre:Fantasy (9): 0.164231225026
+average_rating (1194): 0.131003844842
+imdb_keywords:hitman (533): -0.0674083846755
+imdb_keywords:friend (471): -0.0618935969774
+imdb_keywords:world-war-two (1074): -0.0521838113307
+imdb_keywords:chess (261): 0.0368821606214
+imdb_keywords:handcuffs (514): -0.0299098834702
+imdb_keywords:dancing (328): -0.0204572260076
+movielens_tags:CLV (26): -0.00926052122624
+imdb_keywords:sex (869): -0.00509276061843
+Correctness score: 0.672472524985
+Processing user 607, movie 6990 (Great Train Robbery, The (a.k.a. First Great Train Robbery, The) (1979))
+Original predicted rating: 3.0834556805
+User profile: {'neg_name': 'imdb_keywords:swimming-pool', 'neg': 953, 'profile_id': 4, 'pos_name': 'imdb_keywords:dancing', 'pos': 328}
+Non-zero qiis:
+imdb_keywords:handcuffs (514): 0.275832937462
+movielens_tags:CLV (26): 0.145004269238
+average_rating (1194): 0.132229298221
+imdb_keywords:dancing (328): -0.130904236708
+imdb_keywords:friend (471): -0.0684085668496
+imdb_keywords:beating (179): -0.0611516988539
+imdb_keywords:hitman (533): 0.0277453228603
+imdb_keywords:world-war-two (1074): -0.0171086884787
+imdb_keywords:death-of-son (341): 0.0143247048559
+movielens_genre:Fantasy (9): -0.00749313022769
+imdb_keywords:camera (234): -0.000564591838175
+imdb_keywords:computer (292): 0.000343349771707
+imdb_keywords:swimming-pool (953): 0.000325255838281
+Correctness score: 0.311829587443
+Processing user 701, movie 98054 (Stolen (2012))
+Original predicted rating: 2.79299208455
+User profile: {'neg_name': 'imdb_keywords:chess', 'neg': 261, 'profile_id': 0, 'pos_name': 'movielens_tags:CLV', 'pos': 26}
+Non-zero qiis:
+imdb_keywords:beating (179): 0.175947569395
+average_rating (1194): 0.153990942847
+imdb_keywords:handcuffs (514): 0.136820445204
+imdb_keywords:unfaithfulness (1028): 0.134525980694
+movielens_tags:CLV (26): -0.0841144313995
+imdb_keywords:dancing (328): -0.046347502205
+movielens_genre:Fantasy (9): -0.0275524305417
+imdb_keywords:hitman (533): 0.0176685045107
+imdb_keywords:swimming-pool (953): 0.0148123209157
+imdb_keywords:assassin (140): 0.00876380523457
+imdb_keywords:chess (261): 0.00770197945472
+imdb_keywords:friend (471): 0.00640627935735
+Correctness score: 0.278283399626
+Processing user 859, movie 66652 (Urban Justice (2007))
+Original predicted rating: 2.30506000903
+User profile: {'neg_name': 'imdb_keywords:chess', 'neg': 261, 'profile_id': 0, 'pos_name': 'movielens_tags:CLV', 'pos': 26}
+Non-zero qiis:
+average_rating (1194): -0.357705319384
+imdb_keywords:beating (179): 0.303779574576
+movielens_tags:CLV (26): -0.139917995829
+imdb_keywords:dancing (328): 0.105297898552
+movielens_genre:Fantasy (9): -0.043152833033
+imdb_keywords:swimming-pool (953): 0.0170907801704
+imdb_keywords:handcuffs (514): -0.00871208650326
+imdb_keywords:sex (869): -0.00294357383578
+Correctness score: 0.211521074943
+Processing user 441, movie 25944 (Pirate, The (1948))
+Original predicted rating: 2.52684056453
+User profile: {'neg_name': 'imdb_keywords:sex', 'neg': 869, 'profile_id': 6, 'pos_name': 'imdb_keywords:hitman', 'pos': 533}
+Non-zero qiis:
+imdb_keywords:handcuffs (514): 0.688089412883
+imdb_keywords:dancing (328): 0.23853101496
+imdb_keywords:hitman (533): -0.0904685928781
+imdb_keywords:friend (471): 0.0630137861215
+imdb_keywords:swimming-pool (953): 0.0425679117212
+imdb_keywords:beating (179): 0.0382615989649
+imdb_keywords:zombie (1081): 0.0331385385445
+movielens_genre:Fantasy (9): 0.0231326012255
+imdb_keywords:unfaithfulness (1028): -0.0152560359927
+average_rating (1194): 0.0138423819711
+imdb_keywords:chess (261): -0.0099158612626
+Correctness score: 0.097632849611
+Processing user 835, movie 4361 (Tootsie (1982))
+Original predicted rating: 1.91549941653
+User profile: {'neg_name': 'imdb_keywords:sex', 'neg': 869, 'profile_id': 6, 'pos_name': 'imdb_keywords:hitman', 'pos': 533}
+Non-zero qiis:
+average_rating (1194): 0.173813766335
+imdb_keywords:hitman (533): -0.104720462681
+imdb_keywords:beating (179): -0.0877968578196
+imdb_keywords:assassin (140): -0.0845587634447
+imdb_keywords:world-war-two (1074): -0.0468091561319
+imdb_keywords:friend (471): -0.0298755797812
+imdb_keywords:unfaithfulness (1028): -0.0218004833954
+imdb_keywords:sex (869): -0.010012765088
+imdb_keywords:swimming-pool (953): 0.00295163357124
+imdb_keywords:dancing (328): -0.000342908347488
+Correctness score: 0.411917875136
+Processing user 567, movie 32392 (800 Bullets (800 Balas) (2002))
+Original predicted rating: 2.63122675994
+User profile: {'neg_name': 'imdb_keywords:blonde', 'neg': 200, 'profile_id': 1, 'pos_name': 'imdb_keywords:unfaithfulness', 'pos': 1028}
+Non-zero qiis:
+imdb_keywords:dancing (328): 0.469723228366
+average_rating (1194): 0.464626036174
+imdb_keywords:swimming-pool (953): 0.1557271184
+imdb_keywords:unfaithfulness (1028): -0.141773046701
+imdb_keywords:friend (471): -0.138111289533
+imdb_keywords:handcuffs (514): -0.0879681365427
+movielens_tags:CLV (26): -0.0345247537964
+imdb_keywords:beating (179): -0.0342993969472
+imdb_keywords:sex (869): 0.02587329128
+imdb_keywords:hitman (533): -0.0200773447126
+movielens_genre:Fantasy (9): -5.05387401649e-05
+Correctness score: 0.151734530204
+Correctness scores: [0.2794769164492424, 0.001556308624374864, 0.0, 0.7648775761030254, 0.2497556043304393, 0.0, 0.1248671678341814, 0.44745944283727357, 0.011605637494363625, 0.0, 0.25549048740519, 0.4907984536228171, 0.13614946848582893, 0.6724725249853929, 0.31182958744317774, 0.2782833996256323, 0.21152107494312558, 0.09763284961101541, 0.4119178751357707, 0.151734530203867]
+Average correctness: 0.244871445257

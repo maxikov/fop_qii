@@ -1,0 +1,533 @@
+Loading results dict
+Original recommender relative to ground truth on training set mean absolute error: 0.0221136500302, RMSE: 0.0279864584958
+Shadow model relative to the baseline recommender on test set MAE: 0.858773142286, RMSE: 1.01533435017
+Randomized model relative to the baseline recommender on test set MAE: 1.15428520542, RMSE: 1.41093682767
+Shadow model is 1.34410957747 times better than random on the test set
+Loading movies
+Loading ALS model
+Loading decision trees
+264 features are used: 0: year, 1: movielens_genre:Action, 2: movielens_genre:Adventure, 3: movielens_genre:Animation, 516: imdb_keywords:hanging, 5: movielens_genre:Comedy, 1031: imdb_keywords:upskirt, 8: movielens_genre:Drama, 13: movielens_genre:Mystery, 14: movielens_genre:Romance, 528: imdb_keywords:hiding, 19: movielens_tags:70mm, 20: movielens_tags:BD-R, 1045: imdb_keywords:voice-over-narration, 535: imdb_keywords:homosexual, 24: movielens_tags:Bibliothek, 1049: imdb_keywords:waiter, 431: imdb_keywords:fellatio, 28: movielens_tags:ClearPlay, 1053: imdb_keywords:washington-d.c., 542: imdb_keywords:hospital, 543: imdb_keywords:hostage, 32: movielens_tags:DVD-Video, 34: movielens_tags:National Film Registry, 35: movielens_tags:Netflix Finland, 36: movielens_tags:Nudity (Topless - Brief), 1061: imdb_keywords:wheelchair, 1062: imdb_keywords:whipping, 945: imdb_keywords:surprise-ending, 1065: imdb_keywords:widow, 554: imdb_keywords:impersonation, 555: imdb_keywords:incest, 45: movielens_tags:based on a book, 47: movielens_tags:cinematography, 99: imdb_keywords:1990s, 561: imdb_keywords:interracial-relationship, 94: imdb_keywords:1940s, 569: imdb_keywords:jail-cell, 59: movielens_tags:imdb top 250, 572: imdb_keywords:jealousy, 61: movielens_tags:library, 1086: tvtropes:affably evil, 1089: tvtropes:arc words, 583: imdb_keywords:kidnapping, 72: movielens_tags:politics, 585: imdb_keywords:king, 588: imdb_keywords:kitchen, 78: movielens_tags:romance, 79: movielens_tags:sci-fi, 592: imdb_keywords:laboratory, 83: movielens_tags:story, 86: movielens_tags:tense, 87: movielens_tags:thriller, 612: imdb_keywords:loneliness, 1115: tvtropes:cool car, 605: imdb_keywords:limousine, 1118: tvtropes:deadpan snarker, 1125: tvtropes:driven to suicide, 608: imdb_keywords:little-boy, 16: movielens_genre:Thriller, 98: imdb_keywords:1980s, 1123: tvtropes:downer ending, 100: imdb_keywords:19th-century, 613: imdb_keywords:long-take, 614: imdb_keywords:looking-at-oneself-in-a-mirror, 618: imdb_keywords:loss-of-mother, 619: imdb_keywords:loss-of-virginity, 786: imdb_keywords:punctuation-in-title, 110: imdb_keywords:adultery, 111: imdb_keywords:africa, 1137: tvtropes:groin attack, 115: imdb_keywords:ak-47, 116: imdb_keywords:alcohol, 1141: tvtropes:hey its that guy, 630: imdb_keywords:maid, 873: imdb_keywords:shaving, 532: imdb_keywords:hit-in-the-crotch, 122: imdb_keywords:american, 124: imdb_keywords:american-flag, 1149: tvtropes:karma houdini, 126: imdb_keywords:animal-attack, 21: movielens_tags:BD-Video, 131: imdb_keywords:apology, 645: imdb_keywords:martial-arts, 961: imdb_keywords:target-practice, 136: imdb_keywords:arrest, 650: imdb_keywords:mayor, 139: imdb_keywords:artist, 1169: tvtropes:precision f strike, 1171: tvtropes:reason you suck speech, 1173: tvtropes:reveal, 1174: tvtropes:running gag, 537: imdb_keywords:honor, 153: imdb_keywords:band, 363: imdb_keywords:doctor, 668: imdb_keywords:montage, 1184: tvtropes:too dumb to live, 674: imdb_keywords:murder, 261: imdb_keywords:chess, 113: imdb_keywords:airplane, 168: imdb_keywords:based-on-play, 681: imdb_keywords:neck-breaking, 1194: average_rating, 173: imdb_keywords:bathroom, 686: imdb_keywords:new-york-city, 175: imdb_keywords:battle, 177: imdb_keywords:beach, 1191: tvtropes:what happened to the mouse, 415: imdb_keywords:fainting, 1054: imdb_keywords:watching-a-movie, 183: imdb_keywords:best-friend, 23: movielens_tags:Betamax, 187: imdb_keywords:bikini, 189: imdb_keywords:bird, 702: imdb_keywords:obsession, 705: imdb_keywords:old-man, 196: imdb_keywords:black-panties, 710: imdb_keywords:on-the-run, 204: imdb_keywords:bodyguard, 716: imdb_keywords:orchestral-music-score, 207: imdb_keywords:bound-and-gagged, 721: imdb_keywords:pain, 1059: imdb_keywords:wedding, 633: imdb_keywords:male-nudity, 1047: imdb_keywords:voyeur, 217: imdb_keywords:breasts, 730: imdb_keywords:park, 219: imdb_keywords:british, 732: imdb_keywords:party, 733: imdb_keywords:passion, 549: imdb_keywords:husband-wife-relationship, 939: imdb_keywords:suicide-attempt, 227: imdb_keywords:burial, 231: imdb_keywords:butler, 233: imdb_keywords:california, 238: imdb_keywords:candle, 125: imdb_keywords:anger, 243: imdb_keywords:car-chase, 756: imdb_keywords:police-officer-killed, 758: imdb_keywords:police-station, 1066: imdb_keywords:widower, 257: imdb_keywords:character-repeating-someone-else's-dialogue, 770: imdb_keywords:prison, 773: imdb_keywords:professor, 263: imdb_keywords:chicken, 776: imdb_keywords:prostitute, 827: imdb_keywords:rooftop, 269: imdb_keywords:children, 274: imdb_keywords:church, 793: imdb_keywords:radio, 282: imdb_keywords:cocaine, 283: imdb_keywords:coffee, 796: imdb_keywords:rain, 797: imdb_keywords:rainstorm, 286: imdb_keywords:college-student, 799: imdb_keywords:rat, 291: imdb_keywords:competition, 805: imdb_keywords:reference-to-god, 49: movielens_tags:comedy, 296: imdb_keywords:conspiracy, 813: imdb_keywords:restaurant, 814: imdb_keywords:revenge, 815: imdb_keywords:reverse-footage, 306: imdb_keywords:court, 307: imdb_keywords:courtroom, 823: imdb_keywords:river, 826: imdb_keywords:robot, 223: imdb_keywords:brother-sister-relationship, 138: imdb_keywords:art, 830: imdb_keywords:rowboat, 321: imdb_keywords:crying, 834: imdb_keywords:russian, 323: imdb_keywords:cult-film, 840: imdb_keywords:satire, 329: imdb_keywords:dark-comedy, 844: imdb_keywords:scene-during-end-credits, 333: imdb_keywords:dead-woman, 334: imdb_keywords:death, 340: imdb_keywords:death-of-mother, 853: imdb_keywords:secret, 342: imdb_keywords:death-of-wife, 344: imdb_keywords:decapitation, 346: imdb_keywords:demon, 574: imdb_keywords:jew, 211: imdb_keywords:boyfriend-girlfriend-relationship, 355: imdb_keywords:dinner, 359: imdb_keywords:disarming-someone, 872: imdb_keywords:sexuality, 60: movielens_tags:less than 300 ratings, 362: imdb_keywords:divorce, 999: imdb_keywords:tough-guy, 829: imdb_keywords:rope, 880: imdb_keywords:shot-in-the-chest, 881: imdb_keywords:shot-in-the-forehead, 882: imdb_keywords:shot-in-the-head, 659: imdb_keywords:mirror, 372: imdb_keywords:drinking, 318: imdb_keywords:crucifix, 745: imdb_keywords:pipe-smoking, 379: imdb_keywords:drunkenness, 892: imdb_keywords:singing, 895: imdb_keywords:sister-sister-relationship, 149: imdb_keywords:axe, 386: imdb_keywords:eccentric, 918: imdb_keywords:stabbed-in-the-chest, 902: imdb_keywords:small-town, 903: imdb_keywords:snake, 394: imdb_keywords:erection, 908: imdb_keywords:social-commentary, 397: imdb_keywords:espionage, 406: imdb_keywords:exploding-car, 239: imdb_keywords:cannon, 525: imdb_keywords:henchman, 167: imdb_keywords:based-on-novel, 927: imdb_keywords:strangulation, 411: imdb_keywords:f-rated, 781: imdb_keywords:pub, 421: imdb_keywords:family-relationships, 422: imdb_keywords:famous-score, 156: imdb_keywords:bar, 426: imdb_keywords:farmer, 427: imdb_keywords:father-daughter-relationship, 940: imdb_keywords:suitcase, 679: imdb_keywords:native-american, 943: imdb_keywords:supernatural-power, 432: imdb_keywords:female-frontal-nudity, 328: imdb_keywords:dancing, 947: imdb_keywords:surveillance, 948: imdb_keywords:survival, 439: imdb_keywords:femme-fatale, 953: imdb_keywords:swimming-pool, 955: imdb_keywords:sword, 957: imdb_keywords:syringe, 449: imdb_keywords:first-part, 452: imdb_keywords:fishing, 965: imdb_keywords:tea, 455: imdb_keywords:flashback, 456: imdb_keywords:flashlight, 972: imdb_keywords:teenager, 462: imdb_keywords:food, 975: imdb_keywords:television, 465: imdb_keywords:forest, 846: imdb_keywords:school, 544: imdb_keywords:hotel, 474: imdb_keywords:funeral, 1103: tvtropes:box office bomb, 479: imdb_keywords:garage, 480: imdb_keywords:garden, 769: imdb_keywords:priest, 995: imdb_keywords:topless-female-nudity, 485: imdb_keywords:gay-slur, 487: imdb_keywords:german, 1002: imdb_keywords:train, 491: imdb_keywords:girl-in-panties, 493: imdb_keywords:good-versus-evil, 1007: imdb_keywords:trap, 680: imdb_keywords:nazi, 1010: imdb_keywords:trial, 501: imdb_keywords:guilt, 503: imdb_keywords:guitarist, 735: imdb_keywords:penis, 1019: imdb_keywords:u.s.-president, 508: imdb_keywords:gunshot-wound, 1022: imdb_keywords:uncle-niece-relationship
+Loading indicators
+Building indicator distributions
+Loading user profiles
+Processing user 697, movie 50774 (R-Point (Arpointeu) (2004))
+Original predicted rating: 2.41238688075
+User profile: {'neg_name': 'imdb_keywords:1940s', 'neg': 94, 'profile_id': 2, 'pos_name': 'imdb_keywords:subjective-camera', 'pos': 934}
+Non-zero qiis:
+average_rating (1194): -0.308743927911
+imdb_keywords:old-man (705): 0.21193065264
+imdb_keywords:passion (733): -0.115859597379
+imdb_keywords:surprise-ending (945): 0.0818148568085
+imdb_keywords:reverse-footage (815): -0.0752614154781
+imdb_keywords:long-take (613): 0.0690818261695
+imdb_keywords:shot-in-the-forehead (881): -0.0271501775614
+imdb_keywords:airplane (113): -0.0198205499995
+imdb_keywords:black-panties (196): -0.0194650121078
+imdb_keywords:fellatio (431): -0.0181645757642
+imdb_keywords:hospital (542): -0.0158341522432
+imdb_keywords:loss-of-virginity (619): -0.0130035864637
+imdb_keywords:jew (574): -0.0114205670514
+imdb_keywords:tea (965): 0.0108872685543
+imdb_keywords:u.s.-president (1019): -0.0107644219137
+imdb_keywords:burial (227): -0.010333586876
+tvtropes:karma houdini (1149): 0.010140137325
+imdb_keywords:cocaine (282): 0.00947307655598
+tvtropes:too dumb to live (1184): -0.00922503515335
+imdb_keywords:singing (892): -0.00897413888011
+tvtropes:downer ending (1123): -0.0058562954979
+imdb_keywords:professor (773): 0.00440020866934
+imdb_keywords:artist (139): -0.0024269267811
+imdb_keywords:exploding-car (406): -0.00186697146044
+Correctness score: 0.0
+Processing user 575, movie 71464 (Serious Man, A (2009))
+Original predicted rating: 2.25832437439
+User profile: {'neg_name': 'imdb_keywords:audition', 'neg': 145, 'profile_id': 4, 'pos_name': 'imdb_keywords:terminal-illness', 'pos': 977}
+Non-zero qiis:
+average_rating (1194): 0.831748779942
+imdb_keywords:rowboat (830): -0.362100675171
+imdb_keywords:stabbed-in-the-chest (918): -0.236575294848
+imdb_keywords:coffee (283): 0.197360471402
+imdb_keywords:singing (892): -0.0840211888673
+imdb_keywords:pipe-smoking (745): -0.0736377373081
+imdb_keywords:beach (177): 0.0578594970332
+imdb_keywords:scene-during-end-credits (844): 0.057039189929
+imdb_keywords:swimming-pool (953): 0.0478668815882
+imdb_keywords:kidnapping (583): -0.0457344389328
+year (0): -0.0309428760845
+movielens_tags:DVD-Video (32): 0.0130233595039
+imdb_keywords:bar (156): 0.0112734824791
+imdb_keywords:best-friend (183): -0.00538188332575
+imdb_keywords:drunkenness (379): 0.00536287016932
+imdb_keywords:flashlight (456): 0.00396014270597
+tvtropes:karma houdini (1149): 0.00327625822965
+movielens_tags:tense (86): 0.00171865606983
+imdb_keywords:fellatio (431): -0.00146723458787
+imdb_keywords:children (269): 0.00134234820483
+imdb_keywords:chicken (263): -0.00065835591452
+imdb_keywords:robot (826): -0.000567949781002
+imdb_keywords:gay-slur (485): -0.000482588647662
+Correctness score: 0.0
+Processing user 14, movie 80463 (Social Network, The (2010))
+Original predicted rating: 2.63296711686
+User profile: {'neg_name': 'imdb_keywords:audition', 'neg': 145, 'profile_id': 4, 'pos_name': 'imdb_keywords:terminal-illness', 'pos': 977}
+Non-zero qiis:
+imdb_keywords:chicken (263): -0.488706701025
+average_rating (1194): 0.20633450773
+imdb_keywords:singing (892): -0.130193559093
+year (0): -0.125122890455
+imdb_keywords:apology (131): 0.0906249864967
+imdb_keywords:revenge (814): 0.0415671267884
+imdb_keywords:character-repeating-someone-else's-dialogue (257): 0.0350567675964
+movielens_genre:Comedy (5): 0.0153117329029
+imdb_keywords:artist (139): -0.0140346466813
+imdb_keywords:airplane (113): 0.0121276093375
+tvtropes:hey its that guy (1141): 0.0109012985595
+imdb_keywords:church (274): 0.00783174235744
+imdb_keywords:femme-fatale (439): 0.00727882310646
+tvtropes:karma houdini (1149): -0.0061662513615
+imdb_keywords:fellatio (431): 0.00552296958353
+movielens_tags:DVD-Video (32): 0.00449587051064
+imdb_keywords:flashlight (456): 0.000871848854068
+Correctness score: 0.0
+Processing user 707, movie 99305 (Kumaré (2011))
+Original predicted rating: 2.43653293303
+User profile: {'neg_name': 'imdb_keywords:shot-in-the-shoulder', 'neg': 884, 'profile_id': 0, 'pos_name': 'imdb_keywords:jewish', 'pos': 575}
+Non-zero qiis:
+average_rating (1194): 0.228672088004
+imdb_keywords:singing (892): 0.0246153409294
+imdb_keywords:wheelchair (1061): -0.0189586945111
+imdb_keywords:swimming-pool (953): 0.016780165797
+imdb_keywords:waiter (1049): 0.0162565699779
+imdb_keywords:bathroom (173): 0.0153367728307
+imdb_keywords:little-boy (608): 0.0136505959513
+imdb_keywords:beach (177): -0.0130483030263
+imdb_keywords:farmer (426): -0.0108813164584
+imdb_keywords:pipe-smoking (745): 0.0108722914388
+imdb_keywords:mayor (650): 0.010030489905
+imdb_keywords:fellatio (431): 0.00911305156963
+imdb_keywords:hostage (543): -0.00858007431842
+imdb_keywords:dinner (355): -0.00840190357308
+movielens_tags:DVD-Video (32): 0.00522380689931
+imdb_keywords:best-friend (183): -0.00443316606785
+imdb_keywords:prison (770): 0.00430704828094
+imdb_keywords:drunkenness (379): -0.00315009079164
+imdb_keywords:robot (826): 0.00105163344633
+imdb_keywords:gay-slur (485): 0.000893576121824
+imdb_keywords:church (274): 0.000453194025601
+imdb_keywords:coffee (283): -0.00039005517514
+Correctness score: 0.0
+Processing user 397, movie 3472 (Horror Hotel (a.k.a. City of the Dead, The) (1960))
+Original predicted rating: 2.38606471721
+User profile: {'neg_name': 'imdb_keywords:engagement', 'neg': 391, 'profile_id': 5, 'pos_name': 'imdb_keywords:suicide-attempt', 'pos': 939}
+Non-zero qiis:
+average_rating (1194): 0.148862478847
+imdb_keywords:church (274): -0.0525802026203
+tvtropes:downer ending (1123): -0.0458868784508
+imdb_keywords:apology (131): -0.0440349156731
+movielens_genre:Comedy (5): 0.0310359079532
+imdb_keywords:trap (1007): 0.0234555092456
+imdb_keywords:singing (892): -0.0194974878057
+imdb_keywords:gay-slur (485): 0.0181149795964
+imdb_keywords:children (269): -0.0147649253939
+imdb_keywords:pipe-smoking (745): 0.0132591111383
+imdb_keywords:flashlight (456): 0.011950237531
+imdb_keywords:waiter (1049): 0.00911707992467
+imdb_keywords:femme-fatale (439): 0.00885222666982
+imdb_keywords:swimming-pool (953): -0.00389843102367
+imdb_keywords:drunkenness (379): 0.00334246171351
+imdb_keywords:revenge (814): -0.00331125337921
+imdb_keywords:erection (394): 0.00263981295065
+imdb_keywords:montage (668): -0.00240153241984
+imdb_keywords:dinner (355): -0.00183955078726
+movielens_tags:DVD-Video (32): -0.00128242297171
+imdb_keywords:best-friend (183): -0.000161769573193
+Correctness score: 0.0
+Processing user 81, movie 48567 (Dillinger (1945))
+Original predicted rating: 2.10171539932
+User profile: {'neg_name': 'movielens_tags:Nudity (Topless)', 'neg': 37, 'profile_id': 8, 'pos_name': 'tvtropes:driven to suicide', 'pos': 1125}
+Non-zero qiis:
+average_rating (1194): 0.351633259722
+imdb_keywords:pipe-smoking (745): -0.160837800844
+imdb_keywords:femme-fatale (439): -0.102488167048
+imdb_keywords:prostitute (776): 0.0493936531715
+imdb_keywords:impersonation (554): -0.04257254381
+tvtropes:cool car (1115): -0.0363732995219
+imdb_keywords:children (269): -0.0275085106702
+imdb_keywords:shaving (873): -0.0201152571215
+imdb_keywords:gay-slur (485): -0.0184903057536
+imdb_keywords:swimming-pool (953): -0.0125055542743
+imdb_keywords:hit-in-the-crotch (532): 0.0114980503808
+imdb_keywords:revenge (814): -0.0110831705467
+imdb_keywords:syringe (957): -0.00825840503654
+tvtropes:running gag (1174): 0.00676588635904
+tvtropes:karma houdini (1149): -0.0067308703357
+imdb_keywords:death-of-wife (342): 0.00618121709548
+imdb_keywords:little-boy (608): 0.00411004791748
+imdb_keywords:widow (1065): 0.00389790141167
+imdb_keywords:flashlight (456): 0.00374614855096
+imdb_keywords:prison (770): -0.00171733031069
+imdb_keywords:police-officer-killed (756): 0.00129039824723
+imdb_keywords:singing (892): 7.71299833474e-05
+Correctness score: 0.0
+Processing user 851, movie 74795 (Green Zone (2010))
+Original predicted rating: 2.69121738166
+User profile: {'neg_name': 'imdb_keywords:engagement', 'neg': 391, 'profile_id': 5, 'pos_name': 'imdb_keywords:suicide-attempt', 'pos': 939}
+Non-zero qiis:
+average_rating (1194): 0.465067489974
+tvtropes:box office bomb (1103): -0.196473821947
+tvtropes:karma houdini (1149): -0.0795866765334
+imdb_keywords:arrest (136): 0.0708190842495
+imdb_keywords:chess (261): -0.0488433489215
+imdb_keywords:widow (1065): 0.0332721940627
+imdb_keywords:chicken (263): 0.0265791655887
+imdb_keywords:beach (177): -0.0258820573579
+imdb_keywords:dinner (355): 0.0168677158706
+imdb_keywords:flashlight (456): 0.0159884215134
+imdb_keywords:swimming-pool (953): 0.0102539369201
+imdb_keywords:mayor (650): -0.0100686381537
+imdb_keywords:artist (139): -0.00986348442759
+imdb_keywords:airplane (113): 0.00945551807521
+imdb_keywords:montage (668): 0.00919875487159
+imdb_keywords:singing (892): 0.00898514228696
+imdb_keywords:pipe-smoking (745): 0.00861191157736
+imdb_keywords:children (269): -0.00703440572891
+movielens_tags:DVD-Video (32): 0.00690781370941
+imdb_keywords:death-of-wife (342): 0.00484911279604
+imdb_keywords:best-friend (183): 0.00445002641301
+imdb_keywords:revenge (814): 0.00422777388601
+imdb_keywords:nazi (680): -0.00214995371649
+imdb_keywords:drunkenness (379): -0.00164260065712
+imdb_keywords:prison (770): 0.00112294546483
+imdb_keywords:apology (131): 0.000696139991141
+Correctness score: 0.0
+Processing user 526, movie 4845 (Corky Romano (2001))
+Original predicted rating: 2.35002453159
+User profile: {'neg_name': 'movielens_tags:Nudity (Topless)', 'neg': 37, 'profile_id': 8, 'pos_name': 'tvtropes:driven to suicide', 'pos': 1125}
+Non-zero qiis:
+average_rating (1194): -0.212955743528
+imdb_keywords:fishing (452): 0.0444619686387
+movielens_tags:Nudity (Topless - Brief) (36): -0.023877824398
+imdb_keywords:cocaine (282): 0.0236604958287
+imdb_keywords:radio (793): -0.0177124048651
+tvtropes:too dumb to live (1184): 0.013325839694
+imdb_keywords:singing (892): -0.0124632605705
+imdb_keywords:impersonation (554): -0.0121550475927
+imdb_keywords:gunshot-wound (508): -0.00955212997838
+imdb_keywords:surprise-ending (945): 0.00910883935327
+movielens_tags:less than 300 ratings (60): 0.00764971382424
+imdb_keywords:hospital (542): 0.00652404637616
+imdb_keywords:bathroom (173): 0.0051470184263
+imdb_keywords:forest (465): -0.00339087922091
+tvtropes:downer ending (1123): 0.00180173382503
+tvtropes:karma houdini (1149): -0.00103989677521
+imdb_keywords:stabbed-in-the-chest (918): -0.000232880363272
+Correctness score: 0.0
+Processing user 237, movie 2765 (Acid House, The (1998))
+Original predicted rating: 2.82804698152
+User profile: {'neg_name': 'imdb_keywords:hospital', 'neg': 542, 'profile_id': 3, 'pos_name': 'imdb_keywords:criminal', 'pos': 315}
+Non-zero qiis:
+average_rating (1194): 0.5707853941
+imdb_keywords:children (269): -0.0551081987076
+imdb_keywords:drunkenness (379): 0.0245498105514
+imdb_keywords:fellatio (431): -0.0184301587146
+imdb_keywords:chicken (263): 0.0180185779056
+imdb_keywords:beach (177): -0.0149150780351
+imdb_keywords:dinner (355): -0.0145675797229
+imdb_keywords:apology (131): 0.0129595440917
+imdb_keywords:impersonation (554): -0.0126554501701
+movielens_tags:thriller (87): -0.0100262423698
+imdb_keywords:hit-in-the-crotch (532): -0.00918585967185
+imdb_keywords:death-of-wife (342): -0.00795132266618
+tvtropes:karma houdini (1149): -0.0078013899591
+imdb_keywords:prison (770): 0.00590471606026
+imdb_keywords:nazi (680): -0.00567361428975
+imdb_keywords:little-boy (608): -0.00358257896846
+imdb_keywords:wheelchair (1061): -0.00338533278066
+movielens_genre:Comedy (5): -0.00337676714009
+imdb_keywords:train (1002): -0.00331171665238
+imdb_keywords:bathroom (173): 0.0020539420495
+imdb_keywords:swimming-pool (953): -0.00190163971349
+imdb_keywords:femme-fatale (439): 0.00131075240096
+imdb_keywords:singing (892): -0.000469032179808
+imdb_keywords:stabbed-in-the-chest (918): -0.000185864021074
+Correctness score: 0.0
+Processing user 505, movie 7035 (Streets of Fire (1984))
+Original predicted rating: 2.57655297841
+User profile: {'neg_name': 'imdb_keywords:shot-in-the-shoulder', 'neg': 884, 'profile_id': 0, 'pos_name': 'imdb_keywords:jewish', 'pos': 575}
+Non-zero qiis:
+average_rating (1194): -0.280426938886
+movielens_tags:70mm (19): 0.184117469312
+imdb_keywords:revenge (814): -0.0308900224807
+imdb_keywords:surprise-ending (945): 0.0209771859195
+imdb_keywords:beach (177): 0.0182458932875
+imdb_keywords:old-man (705): -0.0173838194956
+imdb_keywords:airplane (113): -0.0151013974564
+imdb_keywords:jail-cell (569): 0.0145835539157
+imdb_keywords:singing (892): -0.0107626206041
+tvtropes:downer ending (1123): 0.00581619997871
+imdb_keywords:montage (668): 0.00367916386823
+imdb_keywords:crucifix (318): 0.00256305328886
+imdb_keywords:drunkenness (379): -0.0023687741704
+imdb_keywords:syringe (957): -0.00204486591599
+imdb_keywords:fellatio (431): 0.00149276453424
+imdb_keywords:prison (770): 0.000809692909934
+imdb_keywords:apology (131): 0.000501947452306
+Correctness score: 0.0
+Processing user 836, movie 58103 (Vantage Point (2008))
+Original predicted rating: 3.18116096323
+User profile: {'neg_name': 'imdb_keywords:engagement', 'neg': 391, 'profile_id': 5, 'pos_name': 'imdb_keywords:suicide-attempt', 'pos': 939}
+Non-zero qiis:
+average_rating (1194): 0.260783919625
+imdb_keywords:singing (892): -0.120729302986
+imdb_keywords:church (274): -0.0969214946441
+imdb_keywords:mayor (650): -0.0789798534122
+imdb_keywords:hostage (543): 0.0361555650496
+imdb_keywords:little-boy (608): 0.0182783570917
+imdb_keywords:flashlight (456): 0.0167837811908
+imdb_keywords:airplane (113): -0.016046058033
+imdb_keywords:dinner (355): -0.0145136254433
+movielens_genre:Comedy (5): -0.0124951042564
+imdb_keywords:robot (826): 0.0111218681848
+imdb_keywords:swimming-pool (953): -0.0109558922491
+imdb_keywords:revenge (814): -0.0107618278426
+imdb_keywords:pipe-smoking (745): 0.00970544319248
+imdb_keywords:erection (394): 0.0085795948718
+imdb_keywords:impersonation (554): -0.00799206375088
+imdb_keywords:prison (770): -0.00618511009449
+imdb_keywords:apology (131): -0.00383429349087
+imdb_keywords:syringe (957): 0.00337158116453
+Correctness score: 0.0
+Processing user 330, movie 106646 (Somewhat Gentle Man, A (En ganske snill mann) (2010))
+Original predicted rating: 2.49054686117
+User profile: {'neg_name': 'imdb_keywords:audition', 'neg': 145, 'profile_id': 4, 'pos_name': 'imdb_keywords:terminal-illness', 'pos': 977}
+Non-zero qiis:
+average_rating (1194): 0.440925041174
+imdb_keywords:coffee (283): 0.14950443975
+imdb_keywords:train (1002): -0.0485697215084
+movielens_genre:Comedy (5): -0.0471654796499
+imdb_keywords:dinner (355): 0.0412439643063
+imdb_keywords:upskirt (1031): 0.0339468348005
+imdb_keywords:widow (1065): 0.0275308986062
+imdb_keywords:waiter (1049): 0.0178601173524
+imdb_keywords:little-boy (608): 0.0172635064448
+imdb_keywords:revenge (814): -0.0153149375711
+imdb_keywords:airplane (113): -0.0150531385119
+imdb_keywords:swimming-pool (953): -0.0123953319533
+imdb_keywords:beach (177): 0.00822379505033
+imdb_keywords:gay-slur (485): -0.00798842104331
+tvtropes:hey its that guy (1141): 0.00782117862953
+tvtropes:karma houdini (1149): 0.0061448255039
+imdb_keywords:flashlight (456): 0.00529181346719
+imdb_keywords:trap (1007): 0.00519329341294
+imdb_keywords:farmer (426): -0.00396494446155
+imdb_keywords:character-repeating-someone-else's-dialogue (257): -0.00370739944478
+movielens_tags:DVD-Video (32): -0.00329234516058
+imdb_keywords:hostage (543): -0.00312641565737
+imdb_keywords:death-of-wife (342): 0.00267048935679
+imdb_keywords:drunkenness (379): -0.00071867373427
+imdb_keywords:singing (892): 0.000685155149267
+Correctness score: 0.0
+Processing user 504, movie 66686 (Unsuspected, The (1947))
+Original predicted rating: 2.16291758609
+User profile: {'neg_name': 'movielens_tags:Nudity (Topless)', 'neg': 37, 'profile_id': 8, 'pos_name': 'tvtropes:driven to suicide', 'pos': 1125}
+Non-zero qiis:
+average_rating (1194): -0.516672308639
+imdb_keywords:radio (793): 0.150227921037
+imdb_keywords:widower (1066): -0.110231574428
+imdb_keywords:airplane (113): -0.0501244710766
+imdb_keywords:jail-cell (569): 0.0446820808392
+imdb_keywords:singing (892): -0.0383110341289
+imdb_keywords:hospital (542): 0.0205561679005
+imdb_keywords:crucifix (318): -0.0197948560252
+imdb_keywords:impersonation (554): -0.0189447540259
+imdb_keywords:old-man (705): -0.0158014685043
+imdb_keywords:court (306): 0.0156791894732
+imdb_keywords:garden (480): -0.0146082950869
+imdb_keywords:surprise-ending (945): 0.0141969597151
+imdb_keywords:alcohol (116): 0.0119107990892
+tvtropes:too dumb to live (1184): 0.010475726057
+imdb_keywords:forest (465): -0.00729280469185
+imdb_keywords:penis (735): 0.00621508731262
+imdb_keywords:battle (175): -0.00613262302631
+imdb_keywords:u.s.-president (1019): -0.0059797900647
+imdb_keywords:erection (394): -0.00247035988637
+imdb_keywords:shot-in-the-forehead (881): -0.00182937804615
+imdb_keywords:jew (574): 0.00160700096422
+imdb_keywords:syringe (957): -0.000551014804307
+Correctness score: 0.0
+Processing user 272, movie 32216 (Into the Sun (2005))
+Original predicted rating: 1.91140259125
+User profile: {'neg_name': 'imdb_keywords:1940s', 'neg': 94, 'profile_id': 2, 'pos_name': 'imdb_keywords:subjective-camera', 'pos': 934}
+Non-zero qiis:
+average_rating (1194): -0.434122659986
+imdb_keywords:revenge (814): -0.0431357687894
+imdb_keywords:old-man (705): -0.0390733003573
+imdb_keywords:death (334): 0.0272834100617
+imdb_keywords:pub (781): 0.0214355757399
+imdb_keywords:long-take (613): 0.0193458097262
+imdb_keywords:incest (555): 0.0181954007334
+imdb_keywords:airplane (113): 0.0152395475873
+imdb_keywords:sword (955): -0.0115168259441
+imdb_keywords:sexuality (872): 0.00671629579355
+imdb_keywords:punctuation-in-title (786): -0.00619189860186
+imdb_keywords:radio (793): 0.00521956551689
+imdb_keywords:professor (773): -0.00477281885094
+imdb_keywords:surprise-ending (945): -0.00455641625592
+movielens_tags:less than 300 ratings (60): -0.00450849930264
+imdb_keywords:alcohol (116): -0.00430903108186
+imdb_keywords:syringe (957): 0.0040473042605
+imdb_keywords:hospital (542): -0.00384506652316
+tvtropes:karma houdini (1149): 0.0032986854079
+tvtropes:downer ending (1123): -0.00190510994912
+imdb_keywords:artist (139): -0.000789502913254
+imdb_keywords:singing (892): 0.000771918108486
+Correctness score: 0.0
+Processing user 376, movie 67896 (Law and Order (1953))
+Original predicted rating: 1.53947667467
+User profile: {'neg_name': 'imdb_keywords:audition', 'neg': 145, 'profile_id': 4, 'pos_name': 'imdb_keywords:terminal-illness', 'pos': 977}
+Non-zero qiis:
+average_rating (1194): -0.44112898598
+imdb_keywords:jail-cell (569): -0.220624692612
+tvtropes:downer ending (1123): 0.112568302934
+tvtropes:reason you suck speech (1171): 0.0917876408346
+imdb_keywords:professor (773): 0.0450040876456
+imdb_keywords:gay-slur (485): 0.0244662105289
+imdb_keywords:small-town (902): -0.0221127242695
+imdb_keywords:garden (480): 0.0174965716616
+imdb_keywords:reverse-footage (815): -0.0143044012342
+imdb_keywords:revenge (814): 0.0101719870252
+imdb_keywords:drunkenness (379): -0.00435957627214
+imdb_keywords:suitcase (940): -0.00388170942636
+imdb_keywords:bound-and-gagged (207): -0.00309183409224
+imdb_keywords:artist (139): 0.00241327689029
+imdb_keywords:airplane (113): 0.000994568515356
+imdb_keywords:prison (770): 0.00099345842869
+imdb_keywords:singing (892): 0.000945092543161
+imdb_keywords:erection (394): -8.29436411092e-06
+Correctness score: 0.0
+Processing user 788, movie 54614 (American Pastime (2007))
+Original predicted rating: 1.95515311089
+User profile: {'neg_name': 'imdb_keywords:talking-to-the-camera', 'neg': 958, 'profile_id': 6, 'pos_name': 'tvtropes:product placement', 'pos': 1170}
+Non-zero qiis:
+average_rating (1194): 0.379611202636
+imdb_keywords:children (269): 0.0467570100903
+imdb_keywords:artist (139): 0.0431178402553
+imdb_keywords:coffee (283): -0.0246046895781
+imdb_keywords:hit-in-the-crotch (532): -0.0152059677822
+movielens_genre:Comedy (5): 0.0127854414833
+imdb_keywords:dinner (355): -0.0120573444319
+imdb_keywords:waiter (1049): 0.0120034019349
+imdb_keywords:nazi (680): 0.0107075951108
+tvtropes:karma houdini (1149): 0.00848926011127
+imdb_keywords:gay-slur (485): -0.0080159018131
+imdb_keywords:beach (177): -0.00747582185328
+imdb_keywords:drunkenness (379): 0.00613558653507
+imdb_keywords:little-boy (608): -0.00479166228602
+imdb_keywords:swimming-pool (953): -0.00401495920506
+imdb_keywords:singing (892): 0.00268852045255
+imdb_keywords:stabbed-in-the-chest (918): 0.00194248574287
+imdb_keywords:apology (131): -0.00173352224013
+imdb_keywords:bathroom (173): 0.00088324712409
+imdb_keywords:wheelchair (1061): -0.000727889436642
+Correctness score: 0.0
+Processing user 932, movie 87994 (Gilles' Wife (La femme de Gilles) (2004))
+Original predicted rating: 3.70910290911
+User profile: {'neg_name': 'imdb_keywords:talking-to-the-camera', 'neg': 958, 'profile_id': 6, 'pos_name': 'tvtropes:product placement', 'pos': 1170}
+Non-zero qiis:
+imdb_keywords:forest (465): 0.781315718555
+imdb_keywords:watching-a-movie (1054): 0.610100679194
+average_rating (1194): 0.321538812225
+imdb_keywords:social-commentary (908): -0.0221829284641
+imdb_keywords:drunkenness (379): 0.0194518400574
+imdb_keywords:jew (574): -0.0102461688042
+tvtropes:reason you suck speech (1171): 0.00919348611812
+imdb_keywords:cocaine (282): 0.00849894239499
+imdb_keywords:singing (892): 0.00714991371442
+imdb_keywords:montage (668): -0.00366625915287
+imdb_keywords:revenge (814): 0.00336424483037
+imdb_keywords:apology (131): -0.00329750355486
+imdb_keywords:prison (770): -0.00265960633587
+imdb_keywords:gay-slur (485): -0.00202220569005
+tvtropes:karma houdini (1149): 0.00101742045022
+imdb_keywords:fellatio (431): -0.000455640053478
+tvtropes:downer ending (1123): -0.000293798526151
+Correctness score: 0.0
+Processing user 718, movie 71466 (City Island (2009))
+Original predicted rating: 2.89963668867
+User profile: {'neg_name': 'imdb_keywords:fish-out-of-water', 'neg': 451, 'profile_id': 9, 'pos_name': 'imdb_keywords:map', 'pos': 641}
+Non-zero qiis:
+average_rating (1194): -0.287072550501
+imdb_keywords:prison (770): 0.0723835719201
+imdb_keywords:femme-fatale (439): 0.0383579552343
+imdb_keywords:social-commentary (908): -0.0273175738268
+imdb_keywords:suitcase (940): -0.0245802707426
+imdb_keywords:singing (892): 0.0244105940135
+imdb_keywords:train (1002): -0.0242285802809
+movielens_genre:Comedy (5): -0.0235828168466
+imdb_keywords:orchestral-music-score (716): -0.02131840104
+imdb_keywords:maid (630): -0.0204744489448
+imdb_keywords:swimming-pool (953): -0.0185499084211
+imdb_keywords:survival (948): 0.0153344958833
+imdb_keywords:montage (668): 0.0108719691638
+movielens_tags:library (61): 0.0108392953216
+imdb_keywords:revenge (814): 0.00999357586144
+imdb_keywords:hit-in-the-crotch (532): -0.00929437014223
+imdb_keywords:forest (465): -0.00817898965033
+imdb_keywords:erection (394): -0.00597534406789
+imdb_keywords:hostage (543): 0.00479985791824
+tvtropes:karma houdini (1149): 0.00382642169768
+imdb_keywords:bound-and-gagged (207): -0.00233953039444
+Correctness score: 0.0
+Processing user 930, movie 2007 (Polish Wedding (1998))
+Original predicted rating: 2.83684915918
+User profile: {'neg_name': 'imdb_keywords:hospital', 'neg': 542, 'profile_id': 3, 'pos_name': 'imdb_keywords:criminal', 'pos': 315}
+Non-zero qiis:
+average_rating (1194): -0.311364887292
+imdb_keywords:hostage (543): -0.0316825115033
+imdb_keywords:jail-cell (569): 0.0315575672647
+imdb_keywords:death-of-wife (342): -0.0155541474536
+imdb_keywords:fellatio (431): 0.0150339064544
+imdb_keywords:art (138): -0.0143815439046
+imdb_keywords:hit-in-the-crotch (532): -0.0131960868462
+movielens_tags:tense (86): -0.00889489638683
+imdb_keywords:drunkenness (379): 0.00834952699814
+imdb_keywords:forest (465): -0.00792585180378
+imdb_keywords:prison (770): -0.00570806022471
+imdb_keywords:airplane (113): 0.00502824018663
+imdb_keywords:montage (668): 0.00489169906338
+imdb_keywords:swimming-pool (953): -0.0045678051842
+imdb_keywords:revenge (814): 0.00449647758791
+movielens_genre:Comedy (5): -0.00414794935928
+imdb_keywords:apology (131): -0.00353855918985
+imdb_keywords:best-friend (183): -0.00276050843253
+imdb_keywords:singing (892): 0.00119452612672
+imdb_keywords:suitcase (940): 0.000128844888575
+Correctness score: 0.0
+Processing user 665, movie 4946 (Eye for an Eye, An (1981))
+Original predicted rating: 1.57333420754
+User profile: {'neg_name': 'imdb_keywords:world-war-two', 'neg': 1074, 'profile_id': 1, 'pos_name': 'imdb_keywords:assassination-attempt', 'pos': 142}
+Non-zero qiis:
+average_rating (1194): -0.33246142836
+imdb_keywords:surprise-ending (945): -0.0449864008918
+imdb_keywords:survival (948): 0.0316529068121
+imdb_keywords:long-take (613): 0.0260120288037
+tvtropes:precision f strike (1169): 0.0251798753581
+imdb_keywords:pub (781): 0.0222189871065
+imdb_keywords:forest (465): -0.0168827719665
+imdb_keywords:fishing (452): 0.015538102722
+imdb_keywords:hospital (542): 0.00695306488387
+imdb_keywords:radio (793): -0.00629238835202
+imdb_keywords:gunshot-wound (508): -0.00571708845199
+imdb_keywords:professor (773): 0.00552975117319
+movielens_tags:less than 300 ratings (60): 0.00543517049555
+imdb_keywords:jail-cell (569): -0.00510777894513
+imdb_keywords:alcohol (116): 0.00499241023479
+imdb_keywords:revenge (814): 0.00483253190066
+tvtropes:karma houdini (1149): -0.00472817670743
+imdb_keywords:cocaine (282): 0.00204670599937
+imdb_keywords:reverse-footage (815): -0.001992054409
+imdb_keywords:character-repeating-someone-else's-dialogue (257): 0.00136482091439
+imdb_keywords:singing (892): -0.000100891645613
+Correctness score: 0.0
+Correctness scores: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+Average correctness: 0.0

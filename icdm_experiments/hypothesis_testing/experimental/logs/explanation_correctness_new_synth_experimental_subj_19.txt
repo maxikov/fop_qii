@@ -1,0 +1,285 @@
+Loading results dict
+Original recommender relative to ground truth on training set mean absolute error: 0.012445315829, RMSE: 0.0178722401898
+Shadow model relative to the baseline recommender on test set MAE: 0.288900876358, RMSE: 0.367949715661
+Randomized model relative to the baseline recommender on test set MAE: 1.07786219082, RMSE: 1.35407306961
+Shadow model is 3.73090661547 times better than random on the test set
+Loading movies
+Loading ALS model
+Loading decision trees
+74 features are used: 0: year, 1: movielens_genre:Action, 1026: imdb_keywords:undressing, 5: movielens_genre:Comedy, 6: movielens_genre:Crime, 8: movielens_genre:Drama, 11: movielens_genre:Horror, 13: movielens_genre:Mystery, 14: movielens_genre:Romance, 16: movielens_genre:Thriller, 472: imdb_keywords:friendship, 532: imdb_keywords:hit-in-the-crotch, 21: movielens_tags:BD-Video, 24: movielens_tags:Bibliothek, 1156: tvtropes:mind screw, 31: movielens_tags:DVD-RAM, 547: imdb_keywords:humiliation, 36: movielens_tags:Nudity (Topless - Brief), 549: imdb_keywords:husband-wife-relationship, 177: imdb_keywords:beach, 1066: imdb_keywords:widower, 300: imdb_keywords:cooking, 48: movielens_tags:classic, 51: movielens_tags:disturbing, 821: imdb_keywords:ritual, 61: movielens_tags:library, 64: movielens_tags:movie to see, 65: movielens_tags:murder, 66: movielens_tags:music, 323: imdb_keywords:cult-film, 325: imdb_keywords:cynicism, 839: imdb_keywords:san-francisco-california, 1096: tvtropes:big bad, 73: movielens_tags:predictable, 2: movielens_genre:Adventure, 184: imdb_keywords:betrayal, 1168: tvtropes:police are useless, 98: imdb_keywords:1980s, 99: imdb_keywords:1990s, 101: imdb_keywords:2000s, 102: imdb_keywords:abortion, 317: imdb_keywords:cross-dressing, 112: imdb_keywords:african-american, 117: imdb_keywords:alcoholic, 430: imdb_keywords:fear, 1144: tvtropes:idiot ball, 121: imdb_keywords:ambush, 891: imdb_keywords:singer, 1152: tvtropes:large ham, 643: imdb_keywords:marriage, 388: imdb_keywords:electronic-music-score, 389: imdb_keywords:elevator, 400: imdb_keywords:ex-boyfriend-ex-girlfriend-relationship, 411: imdb_keywords:f-rated, 156: imdb_keywords:bar, 1184: tvtropes:too dumb to live, 418: imdb_keywords:falling-from-height, 1194: average_rating, 174: imdb_keywords:bathtub, 200: imdb_keywords:blonde, 437: imdb_keywords:female-rear-nudity, 1097: tvtropes:big damn heroes, 952: imdb_keywords:swimming, 186: imdb_keywords:bicycle, 191: imdb_keywords:birthday-cake, 449: imdb_keywords:first-part, 968: imdb_keywords:tears, 461: imdb_keywords:following-someone, 974: imdb_keywords:telephone-call, 728: imdb_keywords:paranoia, 483: imdb_keywords:gay-interest, 496: imdb_keywords:grandmother-grandson-relationship, 245: imdb_keywords:card-playing, 511: imdb_keywords:hallucination
+Loading indicators
+Building indicator distributions
+Loading user profiles
+Processing user 287, movie 32385 (Toolbox Murders, The (1978))
+Original predicted rating: 3.18826020039
+User profile: {'neg_name': 'imdb_keywords:grandmother-grandson-relationship', 'neg': 496, 'profile_id': 2, 'pos_name': 'movielens_tags:Nudity (Topless - Brief)', 'pos': 36}
+Non-zero qiis:
+average_rating (1194): 1.01723939275
+tvtropes:mind screw (1156): 0.558435063201
+tvtropes:too dumb to live (1184): 0.298689982325
+movielens_tags:Nudity (Topless - Brief) (36): -0.198123242637
+imdb_keywords:husband-wife-relationship (549): 0.185142989939
+imdb_keywords:bicycle (186): 0.0858187802137
+imdb_keywords:falling-from-height (418): 0.0188680539477
+imdb_keywords:following-someone (461): 0.0156229880381
+imdb_keywords:african-american (112): 0.00726510223647
+Correctness score: 0.125738690432
+Processing user 704, movie 55178 (Stephanie Daley (2006))
+Original predicted rating: 2.73528963415
+User profile: {'neg_name': 'movielens_tags:DVD-RAM', 'neg': 31, 'profile_id': 8, 'pos_name': 'imdb_keywords:following-someone', 'pos': 461}
+Non-zero qiis:
+imdb_keywords:f-rated (411): 0.521528721756
+average_rating (1194): 0.321866983333
+imdb_keywords:bicycle (186): -0.168816656783
+tvtropes:big bad (1096): 0.0121020904748
+imdb_keywords:ambush (121): -0.00856147307097
+tvtropes:too dumb to live (1184): -0.00230750806307
+Correctness score: 0.0
+Processing user 390, movie 6952 (Gothika (2003))
+Original predicted rating: 3.09033537803
+User profile: {'neg_name': 'imdb_keywords:birthday-cake', 'neg': 191, 'profile_id': 7, 'pos_name': 'imdb_keywords:bicycle', 'pos': 186}
+Non-zero qiis:
+average_rating (1194): 0.760482996681
+imdb_keywords:bicycle (186): -0.286712292402
+imdb_keywords:f-rated (411): 0.256532338168
+imdb_keywords:gay-interest (483): -0.0449151988694
+tvtropes:mind screw (1156): -0.0313667581118
+imdb_keywords:following-someone (461): -0.0297630286187
+movielens_tags:disturbing (51): 0.0212219551218
+tvtropes:too dumb to live (1184): 0.0211643154592
+imdb_keywords:ambush (121): 0.00927923599456
+tvtropes:big bad (1096): 0.000280829183177
+Correctness score: 0.273790662918
+Processing user 664, movie 26169 (Branded to Kill (Koroshi no rakuin) (1967))
+Original predicted rating: 1.98591706453
+User profile: {'neg_name': 'imdb_keywords:husband-wife-relationship', 'neg': 549, 'profile_id': 6, 'pos_name': 'tvtropes:mind screw', 'pos': 1156}
+Non-zero qiis:
+average_rating (1194): -0.404086277108
+imdb_keywords:husband-wife-relationship (549): 0.210342939085
+imdb_keywords:card-playing (245): -0.119426083275
+imdb_keywords:f-rated (411): -0.0694402039653
+imdb_keywords:ambush (121): -0.0679790028769
+imdb_keywords:bicycle (186): 0.0171019046355
+movielens_tags:disturbing (51): -0.0148992114505
+imdb_keywords:grandmother-grandson-relationship (496): -0.0132091337514
+imdb_keywords:blonde (200): 0.0071527572123
+imdb_keywords:electronic-music-score (388): -0.00597826067861
+Correctness score: 0.342338765055
+Processing user 553, movie 5002 (Fritz the Cat (1972))
+Original predicted rating: 3.98454154938
+User profile: {'neg_name': 'imdb_keywords:card-playing', 'neg': 245, 'profile_id': 4, 'pos_name': 'tvtropes:too dumb to live', 'pos': 1184}
+Non-zero qiis:
+tvtropes:too dumb to live (1184): 1.46716911814
+average_rating (1194): 0.494405282239
+imdb_keywords:bicycle (186): 0.0754097048811
+imdb_keywords:birthday-cake (191): 0.0341695765454
+imdb_keywords:ritual (821): 0.0340187089521
+imdb_keywords:cross-dressing (317): 0.0338164988576
+imdb_keywords:f-rated (411): 0.0287678192522
+Correctness score: 0.747954866181
+Processing user 938, movie 121235 (The Anomaly (2014))
+Original predicted rating: 1.41623923396
+User profile: {'neg_name': 'movielens_tags:DVD-RAM', 'neg': 31, 'profile_id': 8, 'pos_name': 'imdb_keywords:following-someone', 'pos': 461}
+Non-zero qiis:
+average_rating (1194): -0.438241054457
+imdb_keywords:ambush (121): 0.31911308225
+imdb_keywords:f-rated (411): -0.138827830857
+imdb_keywords:husband-wife-relationship (549): -0.0879473791668
+imdb_keywords:following-someone (461): -0.0693341602031
+imdb_keywords:gay-interest (483): 0.0619139558589
+imdb_keywords:bicycle (186): -0.0605241794454
+tvtropes:too dumb to live (1184): -0.0526936252015
+movielens_tags:disturbing (51): -0.0397227367138
+imdb_keywords:ritual (821): -0.036278322417
+imdb_keywords:card-playing (245): 0.0323715386772
+imdb_keywords:birthday-cake (191): -0.019055306415
+imdb_keywords:hit-in-the-crotch (532): -0.0120398813879
+tvtropes:mind screw (1156): 0.00837266794133
+Correctness score: 0.0915478728413
+Processing user 994, movie 55257 (Postal (2007))
+Original predicted rating: 1.18876561468
+User profile: {'neg_name': 'imdb_keywords:electronic-music-score', 'neg': 388, 'profile_id': 0, 'pos_name': 'imdb_keywords:cross-dressing', 'pos': 317}
+Non-zero qiis:
+average_rating (1194): -0.581517628482
+imdb_keywords:ambush (121): -0.165611560102
+imdb_keywords:husband-wife-relationship (549): -0.134522801443
+imdb_keywords:f-rated (411): -0.128286044922
+tvtropes:too dumb to live (1184): -0.0301090703884
+imdb_keywords:grandmother-grandson-relationship (496): -0.0255102326727
+movielens_tags:Nudity (Topless - Brief) (36): -0.0208345645169
+movielens_tags:disturbing (51): -0.020270696775
+imdb_keywords:electronic-music-score (388): -0.0137269095784
+imdb_keywords:hit-in-the-crotch (532): -0.0132938443407
+imdb_keywords:card-playing (245): 0.011657171023
+Correctness score: 0.018372872842
+Processing user 740, movie 6335 (Dancer Upstairs, The (2002))
+Original predicted rating: 2.45014326434
+User profile: {'neg_name': 'imdb_keywords:electronic-music-score', 'neg': 388, 'profile_id': 0, 'pos_name': 'imdb_keywords:cross-dressing', 'pos': 317}
+Non-zero qiis:
+imdb_keywords:f-rated (411): -0.27352051937
+average_rating (1194): 0.195041856178
+imdb_keywords:following-someone (461): 0.128603161156
+imdb_keywords:ritual (821): -0.0399609957551
+imdb_keywords:birthday-cake (191): 0.0304431454552
+imdb_keywords:ambush (121): -0.0200068262218
+tvtropes:mind screw (1156): -0.00926255086321
+imdb_keywords:bicycle (186): -0.00642776279393
+movielens_tags:disturbing (51): 0.000401981621163
+Correctness score: 0.0
+Processing user 711, movie 7357 (Peyton Place (1957))
+Original predicted rating: 3.17842218042
+User profile: {'neg_name': 'imdb_keywords:san-francisco-california', 'neg': 839, 'profile_id': 1, 'pos_name': 'imdb_keywords:f-rated', 'pos': 411}
+Non-zero qiis:
+average_rating (1194): 0.449167411974
+imdb_keywords:bicycle (186): 0.35320953711
+imdb_keywords:f-rated (411): -0.0972283796326
+tvtropes:too dumb to live (1184): 0.08129255935
+imdb_keywords:birthday-cake (191): 0.0489286018235
+imdb_keywords:cross-dressing (317): -0.0484334595144
+imdb_keywords:gay-interest (483): -0.0167920646179
+imdb_keywords:ritual (821): -0.0153262904266
+imdb_keywords:ambush (121): 0.00327040658642
+Correctness score: 0.121175439728
+Processing user 265, movie 7361 (Eternal Sunshine of the Spotless Mind (2004))
+Original predicted rating: 3.98274762682
+User profile: {'neg_name': 'imdb_keywords:grandmother-grandson-relationship', 'neg': 496, 'profile_id': 2, 'pos_name': 'movielens_tags:Nudity (Topless - Brief)', 'pos': 36}
+Non-zero qiis:
+movielens_tags:Nudity (Topless - Brief) (36): 1.54645603911
+average_rating (1194): 0.352840752643
+tvtropes:mind screw (1156): 0.129849748224
+imdb_keywords:beach (177): 0.115940079904
+imdb_keywords:grandmother-grandson-relationship (496): 0.107330909027
+imdb_keywords:following-someone (461): 0.0437115091525
+imdb_keywords:f-rated (411): -0.0245885910972
+imdb_keywords:card-playing (245): -0.00692081796459
+imdb_keywords:bicycle (186): 0.00599359407035
+imdb_keywords:ambush (121): -0.00206799456658
+imdb_keywords:husband-wife-relationship (549): 0.00203762519803
+Correctness score: 0.870736451153
+Processing user 629, movie 84395 (Rite, The (2011))
+Original predicted rating: 2.66688543836
+User profile: {'neg_name': 'imdb_keywords:san-francisco-california', 'neg': 839, 'profile_id': 1, 'pos_name': 'imdb_keywords:f-rated', 'pos': 411}
+Non-zero qiis:
+average_rating (1194): 0.487226228135
+imdb_keywords:ritual (821): 0.0901002337471
+tvtropes:too dumb to live (1184): -0.0326831213514
+imdb_keywords:ambush (121): 0.00275032686759
+Correctness score: 0.0
+Processing user 399, movie 89759 (Separation, A (Jodaeiye Nader az Simin) (2011))
+Original predicted rating: 2.35364270726
+User profile: {'neg_name': 'imdb_keywords:widower', 'neg': 1066, 'profile_id': 5, 'pos_name': 'imdb_keywords:ritual', 'pos': 821}
+Non-zero qiis:
+imdb_keywords:f-rated (411): 0.42943950003
+average_rating (1194): 0.0993642347833
+imdb_keywords:ambush (121): 0.0421053218585
+imdb_keywords:birthday-cake (191): 0.0365541678742
+imdb_keywords:bicycle (186): -0.024866583227
+imdb_keywords:cross-dressing (317): -0.012462232669
+Correctness score: 0.0
+Processing user 462, movie 7897 (Ballad of Cable Hogue, The (1970))
+Original predicted rating: 1.31389317467
+User profile: {'neg_name': 'imdb_keywords:ambush', 'neg': 121, 'profile_id': 3, 'pos_name': 'imdb_keywords:gay-interest', 'pos': 483}
+Non-zero qiis:
+average_rating (1194): -0.41037830201
+imdb_keywords:husband-wife-relationship (549): 0.121228187636
+imdb_keywords:bicycle (186): 0.0628659914523
+imdb_keywords:ambush (121): -0.043864684951
+imdb_keywords:following-someone (461): 0.0344959998139
+movielens_tags:Nudity (Topless - Brief) (36): -0.0114990446664
+imdb_keywords:birthday-cake (191): -0.00999525013372
+imdb_keywords:f-rated (411): -0.0075549854231
+movielens_tags:disturbing (51): -0.0050530779958
+Correctness score: 0.0825134489616
+Processing user 566, movie 51304 (Karla (2006))
+Original predicted rating: 2.65872370159
+User profile: {'neg_name': 'imdb_keywords:card-playing', 'neg': 245, 'profile_id': 4, 'pos_name': 'tvtropes:too dumb to live', 'pos': 1184}
+Non-zero qiis:
+movielens_tags:Nudity (Topless - Brief) (36): 0.419062955666
+average_rating (1194): 0.387838279345
+tvtropes:too dumb to live (1184): -0.105536627776
+imdb_keywords:birthday-cake (191): 0.0570452780767
+tvtropes:mind screw (1156): -0.052203753683
+imdb_keywords:f-rated (411): -0.0373809537289
+imdb_keywords:ambush (121): 0.0173480546301
+imdb_keywords:bicycle (186): -0.0160145043294
+Correctness score: 0.130792497517
+Processing user 893, movie 2674 (Loss of Sexual Innocence, The (1999))
+Original predicted rating: 1.96239603545
+User profile: {'neg_name': 'imdb_keywords:husband-wife-relationship', 'neg': 549, 'profile_id': 6, 'pos_name': 'tvtropes:mind screw', 'pos': 1156}
+Non-zero qiis:
+average_rating (1194): -0.3023033215
+imdb_keywords:husband-wife-relationship (549): 0.12042505627
+imdb_keywords:following-someone (461): 0.0531648573423
+tvtropes:mind screw (1156): -0.0431921290897
+imdb_keywords:f-rated (411): -0.0105188539059
+movielens_tags:disturbing (51): 0.00546563333815
+movielens_tags:Nudity (Topless - Brief) (36): -0.00107313183059
+imdb_keywords:cross-dressing (317): 0.000251213923115
+Correctness score: 0.387050394447
+Processing user 513, movie 90943 (Into the Abyss (2011))
+Original predicted rating: 1.23987889893
+User profile: {'neg_name': 'imdb_keywords:electronic-music-score', 'neg': 388, 'profile_id': 0, 'pos_name': 'imdb_keywords:cross-dressing', 'pos': 317}
+Non-zero qiis:
+average_rating (1194): -0.508641392831
+imdb_keywords:husband-wife-relationship (549): 0.13611837324
+imdb_keywords:f-rated (411): -0.0575131358368
+imdb_keywords:ambush (121): -0.0332795852996
+imdb_keywords:grandmother-grandson-relationship (496): -0.022906572373
+imdb_keywords:bicycle (186): 0.0145940068756
+imdb_keywords:following-someone (461): -0.0115469008667
+imdb_keywords:card-playing (245): 0.011267281466
+imdb_keywords:birthday-cake (191): -0.0103261677398
+movielens_tags:Nudity (Topless - Brief) (36): 0.00913097801806
+imdb_keywords:gay-interest (483): 0.000973531336426
+Correctness score: 0.0
+Processing user 287, movie 6770 (My Life Without Me (2003))
+Original predicted rating: 2.34312457414
+User profile: {'neg_name': 'imdb_keywords:grandmother-grandson-relationship', 'neg': 496, 'profile_id': 2, 'pos_name': 'movielens_tags:Nudity (Topless - Brief)', 'pos': 36}
+Non-zero qiis:
+average_rating (1194): 0.530341221325
+imdb_keywords:f-rated (411): 0.436827867565
+imdb_keywords:following-someone (461): 0.068932250616
+imdb_keywords:cross-dressing (317): 0.0263312590347
+imdb_keywords:bicycle (186): 0.02227879678
+imdb_keywords:ritual (821): 0.0158720210338
+imdb_keywords:ambush (121): 0.0127598371357
+Correctness score: 0.0
+Processing user 702, movie 56805 (Walk Hard: The Dewey Cox Story (2007))
+Original predicted rating: 1.18961405205
+User profile: {'neg_name': 'imdb_keywords:widower', 'neg': 1066, 'profile_id': 5, 'pos_name': 'imdb_keywords:ritual', 'pos': 821}
+Non-zero qiis:
+average_rating (1194): -0.181615338836
+imdb_keywords:husband-wife-relationship (549): -0.113631315216
+imdb_keywords:hit-in-the-crotch (532): 0.0683355760983
+tvtropes:too dumb to live (1184): -0.0604833783983
+imdb_keywords:f-rated (411): -0.0455084409152
+imdb_keywords:bicycle (186): -0.0364952906946
+imdb_keywords:ambush (121): -0.0233025503299
+imdb_keywords:following-someone (461): 0.013001062792
+Correctness score: 0.0
+Processing user 463, movie 5807 (Love In the Time of Money (2002))
+Original predicted rating: 1.97031347082
+User profile: {'neg_name': 'imdb_keywords:husband-wife-relationship', 'neg': 549, 'profile_id': 6, 'pos_name': 'tvtropes:mind screw', 'pos': 1156}
+Non-zero qiis:
+average_rating (1194): -0.29492283511
+imdb_keywords:husband-wife-relationship (549): 0.11414590122
+imdb_keywords:ambush (121): 0.0236211412564
+imdb_keywords:card-playing (245): 0.0130665419003
+imdb_keywords:electronic-music-score (388): -0.00693041504671
+imdb_keywords:birthday-cake (191): -0.00521632396926
+imdb_keywords:cross-dressing (317): -0.000573344976871
+Correctness score: 0.279038438
+Processing user 482, movie 113378 (Giver, The (2014))
+Original predicted rating: 1.93942897324
+User profile: {'neg_name': 'imdb_keywords:husband-wife-relationship', 'neg': 549, 'profile_id': 6, 'pos_name': 'tvtropes:mind screw', 'pos': 1156}
+Non-zero qiis:
+average_rating (1194): 0.257090413804
+imdb_keywords:bicycle (186): -0.144845031656
+tvtropes:too dumb to live (1184): 0.0440219605071
+imdb_keywords:ambush (121): -0.0376212185565
+imdb_keywords:following-someone (461): 0.0246850185607
+imdb_keywords:birthday-cake (191): 0.0187333271348
+imdb_keywords:ritual (821): 0.00528643982329
+Correctness score: 0.0
+Correctness scores: [0.12573869043150085, 0.0, 0.2737906629175207, 0.3423387650546501, 0.747954866180864, 0.09154787284125605, 0.018372872842038788, 0.0, 0.12117543972777343, 0.8707364511532376, 0.0, 0.0, 0.08251344896157015, 0.13079249751672942, 0.38705039444701556, 0.0, 0.0, 0.0, 0.2790384379998173, 0.0]
+Average correctness: 0.173552520004

@@ -1,0 +1,282 @@
+Loading results dict
+Original recommender relative to ground truth on training set mean absolute error: 0.0133030375224, RMSE: 0.0200030927124
+Shadow model relative to the baseline recommender on test set MAE: 0.273188830368, RMSE: 0.355892346657
+Randomized model relative to the baseline recommender on test set MAE: 1.00645440193, RMSE: 1.25415540928
+Shadow model is 3.68409792074 times better than random on the test set
+Loading movies
+Loading ALS model
+Loading decision trees
+109 features are used: 0: year, 1025: imdb_keywords:underwear, 2: movielens_genre:Adventure, 4: movielens_genre:Children, 5: movielens_genre:Comedy, 6: movielens_genre:Crime, 7: movielens_genre:Documentary, 8: movielens_genre:Drama, 9: movielens_genre:Fantasy, 522: imdb_keywords:heist, 471: imdb_keywords:friend, 13: movielens_genre:Mystery, 14: movielens_genre:Romance, 15: movielens_genre:Sci-Fi, 17: movielens_genre:War, 19: movielens_tags:70mm, 20: movielens_tags:BD-R, 21: movielens_tags:BD-Video, 278: imdb_keywords:class, 23: movielens_tags:Betamax, 24: movielens_tags:Bibliothek, 25: movielens_tags:Bob*ola, 28: movielens_tags:ClearPlay, 797: imdb_keywords:rainstorm, 31: movielens_tags:DVD-RAM, 1057: imdb_keywords:waterfall, 804: imdb_keywords:redhead, 37: movielens_tags:Nudity (Topless), 1062: imdb_keywords:whipping, 809: imdb_keywords:religion, 556: imdb_keywords:independent-film, 301: imdb_keywords:corpse, 46: movielens_tags:boring, 49: movielens_tags:comedy, 51: movielens_tags:disturbing, 52: movielens_tags:drama, 311: imdb_keywords:cowboy, 826: imdb_keywords:robot, 428: imdb_keywords:father-son-relationship, 61: movielens_tags:library, 321: imdb_keywords:crying, 66: movielens_tags:music, 11: movielens_genre:Horror, 324: imdb_keywords:curse, 581: imdb_keywords:key, 70: movielens_tags:on dvr, 225: imdb_keywords:brutality, 332: imdb_keywords:dead-body, 77: movielens_tags:reviewed, 269: imdb_keywords:children, 1104: tvtropes:brick joke, 526: imdb_keywords:hero, 599: imdb_keywords:letter, 602: imdb_keywords:lie, 350: imdb_keywords:desire, 354: imdb_keywords:diner, 1188: tvtropes:villain protagonist, 869: imdb_keywords:sex, 80: movielens_tags:seen more than once, 110: imdb_keywords:adultery, 624: imdb_keywords:lust, 113: imdb_keywords:airplane, 370: imdb_keywords:dream-sequence, 120: imdb_keywords:ambulance, 276: imdb_keywords:cigarette-smoking, 123: imdb_keywords:american-abroad, 892: imdb_keywords:singing, 127: imdb_keywords:animal-in-title, 387: imdb_keywords:electrocution, 134: imdb_keywords:argument, 392: imdb_keywords:england, 651: imdb_keywords:melodrama, 143: imdb_keywords:attempted-murder, 656: imdb_keywords:microphone, 146: imdb_keywords:aunt-niece-relationship, 150: imdb_keywords:b-movie, 68: movielens_tags:nudity (full frontal), 156: imdb_keywords:bar, 671: imdb_keywords:mother-son-relationship, 676: imdb_keywords:murderer, 838: imdb_keywords:sadness, 1191: tvtropes:what happened to the mouse, 1194: average_rating, 427: imdb_keywords:father-daughter-relationship, 858: imdb_keywords:seduction, 174: imdb_keywords:bathtub, 434: imdb_keywords:female-nudity, 948: imdb_keywords:survival, 188: imdb_keywords:binoculars, 702: imdb_keywords:obsession, 960: imdb_keywords:tape-recorder, 705: imdb_keywords:old-man, 195: imdb_keywords:black-comedy, 462: imdb_keywords:food, 723: imdb_keywords:painting, 983: imdb_keywords:theft, 217: imdb_keywords:breasts, 250: imdb_keywords:catholic-church, 421: imdb_keywords:family-relationships, 481: imdb_keywords:gas-station, 482: imdb_keywords:gay, 38: movielens_tags:R, 489: imdb_keywords:gift, 496: imdb_keywords:grandmother-grandson-relationship, 497: imdb_keywords:grave, 501: imdb_keywords:guilt, 1017: imdb_keywords:typewriter, 136: imdb_keywords:arrest, 252: imdb_keywords:cell-phone
+Loading indicators
+Building indicator distributions
+Loading user profiles
+Processing user 140, movie 3761 (Bound by Honor (a.k.a. Blood In, Blood Out) (1993))
+Original predicted rating: 2.01474020966
+User profile: {'neg_name': 'imdb_keywords:sex', 'neg': 869, 'profile_id': 2, 'pos_name': 'imdb_keywords:curse', 'pos': 324}
+Non-zero qiis:
+imdb_keywords:painting (723): 0.168866881293
+imdb_keywords:american-abroad (123): -0.0225095327984
+average_rating (1194): 0.0199174277225
+imdb_keywords:underwear (1025): 0.00679445496386
+tvtropes:brick joke (1104): 0.00555465672481
+imdb_keywords:guilt (501): 0.00528658692246
+imdb_keywords:survival (948): 0.00173568105157
+imdb_keywords:mother-son-relationship (671): 0.00123471674462
+Correctness score: 0.0
+Processing user 723, movie 2502 (Office Space (1999))
+Original predicted rating: 2.35659902841
+User profile: {'neg_name': 'movielens_tags:reviewed', 'neg': 77, 'profile_id': 7, 'pos_name': 'tvtropes:what happened to the mouse', 'pos': 1191}
+Non-zero qiis:
+average_rating (1194): 0.196603544863
+imdb_keywords:guilt (501): 0.0957975057535
+imdb_keywords:underwear (1025): -0.0942788713313
+movielens_tags:seen more than once (80): -0.0801064740597
+imdb_keywords:painting (723): -0.0770648006921
+imdb_keywords:whipping (1062): -0.0360576500389
+imdb_keywords:american-abroad (123): -0.0307542798905
+imdb_keywords:mother-son-relationship (671): -0.0102894597159
+imdb_keywords:redhead (804): -0.0046288584524
+Correctness score: 0.0
+Processing user 342, movie 26822 (Puppetmaster, The (Xi meng ren sheng) (1993))
+Original predicted rating: 3.73300962588
+User profile: {'neg_name': 'imdb_keywords:waterfall', 'neg': 1057, 'profile_id': 3, 'pos_name': 'imdb_keywords:mother-son-relationship', 'pos': 671}
+Non-zero qiis:
+imdb_keywords:curse (324): 1.01715001105
+average_rating (1194): 1.01104380622
+imdb_keywords:sex (869): 0.200687062669
+imdb_keywords:gift (489): 0.0734087485189
+movielens_tags:seen more than once (80): 0.056431177725
+imdb_keywords:underwear (1025): -0.0360993412262
+year (0): 0.0299298645656
+imdb_keywords:mother-son-relationship (671): 0.0229774470046
+imdb_keywords:whipping (1062): -0.020048147589
+imdb_keywords:religion (809): 0.0167790119825
+imdb_keywords:painting (723): 0.0164403874929
+Correctness score: 0.0113290193516
+Processing user 191, movie 53769 (In Search of a Midnight Kiss (2007))
+Original predicted rating: 1.99142244062
+User profile: {'neg_name': 'imdb_keywords:aunt-niece-relationship', 'neg': 146, 'profile_id': 6, 'pos_name': 'imdb_keywords:gift', 'pos': 489}
+Non-zero qiis:
+average_rating (1194): 0.258956878907
+imdb_keywords:american-abroad (123): 0.0369874591887
+imdb_keywords:guilt (501): -0.0356030469278
+imdb_keywords:mother-son-relationship (671): 0.0260697754726
+imdb_keywords:underwear (1025): -0.00149368345685
+Correctness score: 0.0
+Processing user 100, movie 26602 (Pathfinder (Ofelas) (1987))
+Original predicted rating: 2.04206299761
+User profile: {'neg_name': 'imdb_keywords:aunt-niece-relationship', 'neg': 146, 'profile_id': 6, 'pos_name': 'imdb_keywords:gift', 'pos': 489}
+Non-zero qiis:
+average_rating (1194): 0.36712935166
+imdb_keywords:gift (489): -0.150550989624
+movielens_tags:seen more than once (80): -0.124149956001
+imdb_keywords:painting (723): -0.0706546411543
+imdb_keywords:american-abroad (123): 0.0356171785107
+imdb_keywords:mother-son-relationship (671): 0.0325008895102
+imdb_keywords:underwear (1025): 0.00105724930754
+Correctness score: 0.290818440682
+Processing user 304, movie 31606 (Siberia (1998))
+Original predicted rating: 3.53369781722
+User profile: {'neg_name': 'imdb_keywords:redhead', 'neg': 804, 'profile_id': 5, 'pos_name': 'imdb_keywords:guilt', 'pos': 501}
+Non-zero qiis:
+average_rating (1194): 0.239187801853
+imdb_keywords:gift (489): 0.213175474995
+imdb_keywords:underwear (1025): 0.171122870031
+tvtropes:what happened to the mouse (1191): -0.0604961053924
+imdb_keywords:ambulance (120): -0.0558772506324
+movielens_tags:seen more than once (80): -0.0406956121366
+imdb_keywords:painting (723): -0.0181081317009
+imdb_keywords:american-abroad (123): 0.0153121828378
+imdb_keywords:mother-son-relationship (671): 0.00496591866126
+Correctness score: 0.0
+Processing user 176, movie 31598 (Ballad of the Sad Cafe, The (1991))
+Original predicted rating: 2.32387588499
+User profile: {'neg_name': 'imdb_keywords:survival', 'neg': 948, 'profile_id': 1, 'pos_name': 'imdb_keywords:painting', 'pos': 723}
+Non-zero qiis:
+average_rating (1194): 0.418146232213
+imdb_keywords:painting (723): -0.175360771799
+imdb_keywords:underwear (1025): -0.16085799188
+movielens_tags:seen more than once (80): -0.0393502618674
+imdb_keywords:mother-son-relationship (671): 0.036520844171
+imdb_keywords:american-abroad (123): -0.0209074470156
+tvtropes:what happened to the mouse (1191): -0.00574451406193
+Correctness score: 0.295465378864
+Processing user 71, movie 8723 (Warriors (Guerreros) (2002))
+Original predicted rating: 1.79084507715
+User profile: {'neg_name': 'imdb_keywords:sex', 'neg': 869, 'profile_id': 2, 'pos_name': 'imdb_keywords:curse', 'pos': 324}
+Non-zero qiis:
+average_rating (1194): 0.178451033734
+tvtropes:what happened to the mouse (1191): -0.048371501299
+imdb_keywords:underwear (1025): 0.0365191482741
+imdb_keywords:painting (723): -0.024776098097
+imdb_keywords:redhead (804): 0.00903874521477
+imdb_keywords:american-abroad (123): -0.0082033110711
+imdb_keywords:mother-son-relationship (671): -0.00802877141995
+Correctness score: 0.0
+Processing user 873, movie 40851 (Zathura (2005))
+Original predicted rating: 2.54470382662
+User profile: {'neg_name': 'imdb_keywords:aunt-niece-relationship', 'neg': 146, 'profile_id': 6, 'pos_name': 'imdb_keywords:gift', 'pos': 489}
+Non-zero qiis:
+tvtropes:what happened to the mouse (1191): 0.461038979233
+average_rating (1194): 0.451292929224
+imdb_keywords:gift (489): -0.110138335548
+imdb_keywords:painting (723): -0.0611819070434
+imdb_keywords:american-abroad (123): 0.0503380386232
+imdb_keywords:desire (350): -0.0330487295166
+imdb_keywords:mother-son-relationship (671): -0.0269780585945
+imdb_keywords:guilt (501): -0.0136329846219
+imdb_keywords:underwear (1025): 0.00412255405113
+Correctness score: 0.120721783955
+Processing user 708, movie 91542 (Sherlock Holmes: A Game of Shadows (2011))
+Original predicted rating: 1.87215697307
+User profile: {'neg_name': 'imdb_keywords:waterfall', 'neg': 1057, 'profile_id': 3, 'pos_name': 'imdb_keywords:mother-son-relationship', 'pos': 671}
+Non-zero qiis:
+average_rating (1194): -0.785172915918
+imdb_keywords:sex (869): -0.202907903711
+imdb_keywords:guilt (501): -0.189445111415
+movielens_tags:reviewed (77): -0.162204902045
+imdb_keywords:mother-son-relationship (671): -0.00792086604912
+Correctness score: 0.00801641514718
+Processing user 651, movie 1950 (In the Heat of the Night (1967))
+Original predicted rating: 1.63878207701
+User profile: {'neg_name': 'imdb_keywords:gas-station', 'neg': 481, 'profile_id': 4, 'pos_name': 'imdb_keywords:underwear', 'pos': 1025}
+Non-zero qiis:
+average_rating (1194): -1.18644991612
+imdb_keywords:sex (869): -0.259033253468
+imdb_keywords:theft (983): -0.128077425443
+imdb_keywords:underwear (1025): -0.119270090031
+imdb_keywords:guilt (501): -0.0941596695429
+imdb_keywords:aunt-niece-relationship (146): -0.028782913471
+imdb_keywords:painting (723): 0.0283580700878
+imdb_keywords:mother-son-relationship (671): -0.027881566263
+imdb_keywords:gas-station (481): 0.00363789880004
+Correctness score: 0.0850290002793
+Processing user 455, movie 55765 (American Gangster (2007))
+Original predicted rating: 2.98183103801
+User profile: {'neg_name': 'imdb_keywords:survival', 'neg': 948, 'profile_id': 1, 'pos_name': 'imdb_keywords:painting', 'pos': 723}
+Non-zero qiis:
+imdb_keywords:painting (723): -0.436261719915
+average_rating (1194): 0.156818959301
+imdb_keywords:underwear (1025): -0.102623735836
+imdb_keywords:guilt (501): -0.0792899853779
+imdb_keywords:mother-son-relationship (671): 0.029628958413
+Correctness score: 0.735585789932
+Processing user 994, movie 592 (Batman (1989))
+Original predicted rating: 2.57190267194
+User profile: {'neg_name': 'imdb_keywords:microphone', 'neg': 656, 'profile_id': 9, 'pos_name': 'imdb_keywords:whipping', 'pos': 1062}
+Non-zero qiis:
+average_rating (1194): 0.631709251944
+imdb_keywords:whipping (1062): -0.181172456167
+imdb_keywords:corpse (301): -0.0661585794276
+tvtropes:what happened to the mouse (1191): 0.0567633537206
+imdb_keywords:underwear (1025): -0.0375503034917
+imdb_keywords:painting (723): -0.0333815944898
+imdb_keywords:england (392): -0.0277020730875
+imdb_keywords:seduction (858): -0.0200032181442
+imdb_keywords:american-abroad (123): -0.0199039897302
+imdb_keywords:theft (983): -0.017027736444
+movielens_tags:seen more than once (80): 0.0168484841895
+imdb_keywords:desire (350): -0.0159465571835
+imdb_keywords:guilt (501): -0.00986727259412
+imdb_keywords:mother-son-relationship (671): -0.00947870314881
+movielens_genre:Mystery (13): 0.000394118707561
+Correctness score: 0.222876778207
+Processing user 121, movie 7027 (Silverado (1985))
+Original predicted rating: 2.19417597894
+User profile: {'neg_name': 'imdb_keywords:microphone', 'neg': 656, 'profile_id': 9, 'pos_name': 'imdb_keywords:whipping', 'pos': 1062}
+Non-zero qiis:
+tvtropes:what happened to the mouse (1191): 0.372938957838
+average_rating (1194): 0.209807703392
+movielens_tags:seen more than once (80): -0.0410578614768
+imdb_keywords:painting (723): -0.0317562068399
+imdb_keywords:mother-son-relationship (671): -0.018163136098
+imdb_keywords:underwear (1025): -0.00850419336294
+Correctness score: 0.0
+Processing user 168, movie 69640 (Public Enemies (2009))
+Original predicted rating: 3.99055693472
+User profile: {'neg_name': 'movielens_tags:reviewed', 'neg': 77, 'profile_id': 7, 'pos_name': 'tvtropes:what happened to the mouse', 'pos': 1191}
+Non-zero qiis:
+tvtropes:what happened to the mouse (1191): 1.54250240995
+average_rating (1194): 0.242501339378
+imdb_keywords:mother-son-relationship (671): -0.0351512762229
+imdb_keywords:painting (723): -0.0276184075995
+imdb_keywords:underwear (1025): 0.0180325376749
+imdb_keywords:guilt (501): 0.00705043906016
+Correctness score: 0.86414519327
+Processing user 734, movie 37729 (Corpse Bride (2005))
+Original predicted rating: 2.35149260039
+User profile: {'neg_name': 'imdb_keywords:sex', 'neg': 869, 'profile_id': 2, 'pos_name': 'imdb_keywords:curse', 'pos': 324}
+Non-zero qiis:
+imdb_keywords:painting (723): 0.238469165512
+average_rating (1194): 0.111377746184
+tvtropes:what happened to the mouse (1191): 0.102579503055
+imdb_keywords:whipping (1062): -0.0728140967578
+movielens_tags:reviewed (77): 0.0519099080877
+imdb_keywords:guilt (501): -0.0402012275039
+imdb_keywords:gift (489): 0.0371240256986
+imdb_keywords:underwear (1025): -0.0259258637221
+imdb_keywords:survival (948): 0.0240096758663
+imdb_keywords:gas-station (481): -0.0105571644978
+imdb_keywords:mother-son-relationship (671): -0.00377206520266
+Correctness score: 0.0
+Processing user 841, movie 3580 (Up at the Villa (2000))
+Original predicted rating: 1.50802227479
+User profile: {'neg_name': 'imdb_keywords:microphone', 'neg': 656, 'profile_id': 9, 'pos_name': 'imdb_keywords:whipping', 'pos': 1062}
+Non-zero qiis:
+average_rating (1194): -0.233864168208
+imdb_keywords:guilt (501): -0.0754445734719
+imdb_keywords:gift (489): 0.0611508661698
+imdb_keywords:curse (324): -0.0541638280798
+imdb_keywords:sex (869): 0.0353666115641
+imdb_keywords:mother-son-relationship (671): -0.0340000386844
+imdb_keywords:theft (983): 0.0176580942069
+imdb_keywords:painting (723): -0.0110664671864
+imdb_keywords:underwear (1025): -0.0028316999011
+Correctness score: 0.0
+Processing user 774, movie 356 (Forrest Gump (1994))
+Original predicted rating: 2.73231648478
+User profile: {'neg_name': 'imdb_keywords:aunt-niece-relationship', 'neg': 146, 'profile_id': 6, 'pos_name': 'imdb_keywords:gift', 'pos': 489}
+Non-zero qiis:
+average_rating (1194): 0.522371734211
+movielens_tags:seen more than once (80): 0.484549179033
+tvtropes:what happened to the mouse (1191): 0.364882747515
+imdb_keywords:painting (723): -0.12860258107
+imdb_keywords:gift (489): -0.0505195387746
+imdb_keywords:mother-son-relationship (671): 0.0329377073036
+imdb_keywords:guilt (501): 0.0188071486325
+imdb_keywords:corpse (301): 0.00571658710268
+imdb_keywords:seduction (858): 0.00345684988537
+movielens_tags:disturbing (51): -0.000860164072089
+Correctness score: 0.0501723006347
+Processing user 47, movie 26122 (Onibaba (1964))
+Original predicted rating: 1.98809449715
+User profile: {'neg_name': 'imdb_keywords:survival', 'neg': 948, 'profile_id': 1, 'pos_name': 'imdb_keywords:painting', 'pos': 723}
+Non-zero qiis:
+average_rating (1194): -0.812541351831
+imdb_keywords:sex (869): -0.188221658045
+imdb_keywords:guilt (501): -0.112477966851
+imdb_keywords:painting (723): -0.0999388850618
+imdb_keywords:father-son-relationship (428): -0.0712212478487
+imdb_keywords:underwear (1025): -0.0538271279145
+imdb_keywords:theft (983): -0.0368767353173
+imdb_keywords:survival (948): 0.0244211009523
+imdb_keywords:mother-son-relationship (671): -0.0202634921598
+imdb_keywords:american-abroad (123): 0.0186538592928
+imdb_keywords:gas-station (481): 0.00171438171917
+Correctness score: 0.124265170462
+Processing user 164, movie 8395 (Last of Sheila, The (1973))
+Original predicted rating: 2.42114168324
+User profile: {'neg_name': 'imdb_keywords:microphone', 'neg': 656, 'profile_id': 9, 'pos_name': 'imdb_keywords:whipping', 'pos': 1062}
+Non-zero qiis:
+imdb_keywords:american-abroad (123): 0.371387309619
+imdb_keywords:guilt (501): 0.185907575206
+imdb_keywords:redhead (804): 0.0213491918235
+imdb_keywords:painting (723): -0.0205226352852
+imdb_keywords:survival (948): 0.0182835540048
+imdb_keywords:mother-son-relationship (671): -0.0174921670105
+movielens_tags:seen more than once (80): 0.0107800240824
+imdb_keywords:underwear (1025): -0.00281321065915
+imdb_keywords:cell-phone (252): 0.000605497846406
+Correctness score: 0.0
+Correctness scores: [0.0, 0.0, 0.011329019351582478, 0.0, 0.2908184406815815, 0.0, 0.29546537886412744, 0.0, 0.1207217839551041, 0.008016415147182205, 0.08502900027926535, 0.7355857899324293, 0.22287677820667018, 0.0, 0.8641451932695525, 0.0, 0.0, 0.050172300634691795, 0.12426517046178251, 0.0]
+Average correctness: 0.140421263539

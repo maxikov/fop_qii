@@ -1,0 +1,319 @@
+Loading results dict
+Original recommender relative to ground truth on training set mean absolute error: 0.0128466518603, RMSE: 0.0189466505743
+Shadow model relative to the baseline recommender on test set MAE: 0.258859218448, RMSE: 0.328558266041
+Randomized model relative to the baseline recommender on test set MAE: 1.02247573299, RMSE: 1.31071344789
+Shadow model is 3.94992976926 times better than random on the test set
+Loading movies
+Loading ALS model
+Loading decision trees
+97 features are used: 0: year, 1: movielens_genre:Action, 2: movielens_genre:Adventure, 515: imdb_keywords:handgun, 519: imdb_keywords:head-butt, 8: movielens_genre:Drama, 9: movielens_genre:Fantasy, 780: imdb_keywords:psychopath, 13: movielens_genre:Mystery, 14: movielens_genre:Romance, 15: movielens_genre:Sci-Fi, 19: movielens_tags:70mm, 276: imdb_keywords:cigarette-smoking, 21: movielens_tags:BD-Video, 23: movielens_tags:Betamax, 24: movielens_tags:Bibliothek, 25: movielens_tags:Bob*ola, 542: imdb_keywords:hospital, 31: movielens_tags:DVD-RAM, 32: movielens_tags:DVD-Video, 35: movielens_tags:Netflix Finland, 548: imdb_keywords:hunting, 37: movielens_tags:Nudity (Topless), 41: movielens_tags:acting, 1068: imdb_keywords:wine, 818: imdb_keywords:rifle, 562: imdb_keywords:interrogation, 1075: imdb_keywords:wound, 308: imdb_keywords:cousin-cousin-relationship, 313: imdb_keywords:creature, 59: movielens_tags:imdb top 250, 60: movielens_tags:less than 300 ratings, 36: movielens_tags:Nudity (Topless - Brief), 836: imdb_keywords:sadism, 69: movielens_tags:nudity (topless), 582: imdb_keywords:kicked-in-the-face, 81: movielens_tags:slow, 1106: tvtropes:california doubling, 143: imdb_keywords:attempted-murder, 1121: tvtropes:disproportionate retribution, 99: imdb_keywords:1990s, 102: imdb_keywords:abortion, 1129: tvtropes:eye scream, 362: imdb_keywords:divorce, 1133: tvtropes:foreshadowing, 113: imdb_keywords:airplane, 118: imdb_keywords:alcoholism, 361: imdb_keywords:dismemberment, 1146: tvtropes:ironic echo, 379: imdb_keywords:drunkenness, 1045: imdb_keywords:voice-over-narration, 130: imdb_keywords:apartment, 387: imdb_keywords:electrocution, 649: imdb_keywords:masturbation, 395: imdb_keywords:erotica, 142: imdb_keywords:assassination-attempt, 399: imdb_keywords:evil-man, 144: imdb_keywords:attempted-rape, 401: imdb_keywords:ex-convict, 404: imdb_keywords:exploding-body, 149: imdb_keywords:axe, 667: imdb_keywords:monster, 52: movielens_tags:drama, 160: imdb_keywords:bare-chested-male, 418: imdb_keywords:falling-from-height, 165: imdb_keywords:based-on-book, 1190: tvtropes:wham line, 935: imdb_keywords:subtitled-scene, 668: imdb_keywords:montage, 1194: average_rating, 683: imdb_keywords:neighbor, 686: imdb_keywords:new-york-city, 431: imdb_keywords:fellatio, 176: imdb_keywords:battlefield, 954: imdb_keywords:switchblade, 703: imdb_keywords:ocean, 967: imdb_keywords:teacher-student-relationship, 535: imdb_keywords:homosexual, 201: imdb_keywords:blood, 970: imdb_keywords:teenage-boy, 459: imdb_keywords:flower, 109: imdb_keywords:adoption, 720: imdb_keywords:outer-space, 1047: imdb_keywords:voyeur, 217: imdb_keywords:breasts, 655: imdb_keywords:mexico, 225: imdb_keywords:brutality, 639: imdb_keywords:manipulation, 234: imdb_keywords:camera, 748: imdb_keywords:poetry, 751: imdb_keywords:police-brutality, 498: imdb_keywords:graveyard, 755: imdb_keywords:police-officer, 246: imdb_keywords:casino, 127: imdb_keywords:animal-in-title, 766: imdb_keywords:pregnancy, 455: imdb_keywords:flashback
+Loading indicators
+Building indicator distributions
+Loading user profiles
+Processing user 608, movie 99721 (Texas Chainsaw 3D (2013))
+Original predicted rating: 1.63835270482
+User profile: {'neg_name': 'imdb_keywords:poetry', 'neg': 748, 'profile_id': 5, 'pos_name': 'imdb_keywords:teenage-boy', 'pos': 970}
+Non-zero qiis:
+average_rating (1194): -0.828915083245
+imdb_keywords:teenage-boy (970): -0.463839294347
+imdb_keywords:new-york-city (686): -0.11003091842
+imdb_keywords:assassination-attempt (142): -0.0901042293059
+imdb_keywords:monster (667): -0.0776780888838
+imdb_keywords:erotica (395): -0.0296696594714
+imdb_keywords:drunkenness (379): -0.021519402858
+imdb_keywords:casino (246): 0.0187936118572
+imdb_keywords:based-on-book (165): 0.00655193464355
+imdb_keywords:kicked-in-the-face (582): 0.00578995826655
+imdb_keywords:montage (668): -0.000171967404264
+Correctness score: 0.358799244765
+Processing user 621, movie 5524 (Blue Crush (2002))
+Original predicted rating: 2.02428833366
+User profile: {'neg_name': 'imdb_keywords:drunkenness', 'neg': 379, 'profile_id': 8, 'pos_name': 'imdb_keywords:based-on-book', 'pos': 165}
+Non-zero qiis:
+average_rating (1194): 0.446081632308
+imdb_keywords:based-on-book (165): -0.143456976621
+imdb_keywords:ocean (703): 0.119534772071
+imdb_keywords:montage (668): -0.104237817339
+imdb_keywords:teenage-boy (970): -0.0472187596732
+imdb_keywords:ex-convict (401): -0.0454190654112
+imdb_keywords:drunkenness (379): -0.0372779121685
+imdb_keywords:new-york-city (686): -0.0260101709369
+imdb_keywords:monster (667): -0.0170244492542
+imdb_keywords:voice-over-narration (1045): 0.0123405765761
+movielens_genre:Adventure (2): 0.00299661708851
+year (0): 0.00201751668943
+Correctness score: 0.306570063525
+Processing user 367, movie 3508 (Outlaw Josey Wales, The (1976))
+Original predicted rating: 2.48617159601
+User profile: {'neg_name': 'imdb_keywords:new-york-city', 'neg': 686, 'profile_id': 7, 'pos_name': 'imdb_keywords:electrocution', 'pos': 387}
+Non-zero qiis:
+average_rating (1194): 0.439207365344
+imdb_keywords:sadism (836): 0.21988518863
+imdb_keywords:ex-convict (401): -0.0301497788773
+imdb_keywords:drunkenness (379): -0.0243177871329
+imdb_keywords:new-york-city (686): -0.0204744638402
+imdb_keywords:switchblade (954): 0.0167698711312
+imdb_keywords:pregnancy (766): -0.0166204368275
+imdb_keywords:teenage-boy (970): -0.0109143893203
+imdb_keywords:ocean (703): 0.00516904811171
+imdb_keywords:montage (668): -0.000407974946643
+tvtropes:ironic echo (1146): -7.19607014278e-05
+Correctness score: 0.0310646262301
+Processing user 913, movie 233 (Exotica (1994))
+Original predicted rating: 1.63368435494
+User profile: {'neg_name': 'imdb_keywords:poetry', 'neg': 748, 'profile_id': 5, 'pos_name': 'imdb_keywords:teenage-boy', 'pos': 970}
+Non-zero qiis:
+average_rating (1194): -0.775490988219
+imdb_keywords:pregnancy (766): 0.204383351693
+imdb_keywords:sadism (836): -0.121827333698
+imdb_keywords:drunkenness (379): -0.015608973477
+imdb_keywords:montage (668): -0.0104011273879
+tvtropes:wham line (1190): 0.0018993848253
+Correctness score: 0.0
+Processing user 318, movie 80094 (Last Exorcism, The (2010))
+Original predicted rating: 1.37248812773
+User profile: {'neg_name': 'imdb_keywords:kicked-in-the-face', 'neg': 582, 'profile_id': 2, 'pos_name': 'imdb_keywords:switchblade', 'pos': 954}
+Non-zero qiis:
+average_rating (1194): -0.343391780651
+imdb_keywords:pregnancy (766): 0.168772852898
+imdb_keywords:new-york-city (686): 0.043434361997
+tvtropes:ironic echo (1146): -0.0305144774008
+imdb_keywords:monster (667): -0.0293214941557
+imdb_keywords:teenage-boy (970): -0.0281804427089
+imdb_keywords:sadism (836): -0.0217411788962
+imdb_keywords:drunkenness (379): -0.011366483246
+imdb_keywords:ex-convict (401): 0.00926777464601
+imdb_keywords:electrocution (387): 0.00751168366345
+imdb_keywords:montage (668): -3.50128826457e-05
+Correctness score: 0.0
+Processing user 934, movie 56367 (Juno (2007))
+Original predicted rating: 3.96791841962
+User profile: {'neg_name': 'imdb_keywords:poetry', 'neg': 748, 'profile_id': 5, 'pos_name': 'imdb_keywords:teenage-boy', 'pos': 970}
+Non-zero qiis:
+imdb_keywords:teenage-boy (970): 0.924644022708
+average_rating (1194): 0.452534581156
+imdb_keywords:based-on-book (165): 0.0473905226404
+imdb_keywords:erotica (395): 0.0228476243268
+imdb_keywords:switchblade (954): 0.0198876291055
+imdb_keywords:sadism (836): -0.0143368402338
+imdb_keywords:new-york-city (686): 0.00978686128458
+imdb_keywords:drunkenness (379): -0.00405550538863
+imdb_keywords:kicked-in-the-face (582): -0.0014926281638
+Correctness score: 0.671404580432
+Processing user 531, movie 3433 (Death Wish 4: The Crackdown (1987))
+Original predicted rating: 2.3188569326
+User profile: {'neg_name': 'imdb_keywords:drunkenness', 'neg': 379, 'profile_id': 8, 'pos_name': 'imdb_keywords:based-on-book', 'pos': 165}
+Non-zero qiis:
+average_rating (1194): 0.472597261339
+imdb_keywords:electrocution (387): 0.241186183604
+imdb_keywords:based-on-book (165): -0.0925429581809
+imdb_keywords:drunkenness (379): 0.0923986525498
+imdb_keywords:new-york-city (686): 0.0630769070641
+imdb_keywords:ex-convict (401): -0.0538123893639
+imdb_keywords:sadism (836): -0.0361020293373
+imdb_keywords:teenage-boy (970): 0.0237756642121
+imdb_keywords:kicked-in-the-face (582): -0.00509859459309
+Correctness score: 0.25910044852
+Processing user 118, movie 80549 (Easy A (2010))
+Original predicted rating: 2.40967806135
+User profile: {'neg_name': 'tvtropes:wham line', 'neg': 1190, 'profile_id': 1, 'pos_name': 'imdb_keywords:ex-convict', 'pos': 401}
+Non-zero qiis:
+average_rating (1194): 0.689366699336
+imdb_keywords:ex-convict (401): -0.111052633884
+imdb_keywords:teenage-boy (970): 0.0684394635651
+imdb_keywords:erotica (395): -0.00690114451985
+imdb_keywords:monster (667): -0.00659179353691
+imdb_keywords:kicked-in-the-face (582): -0.00566447957277
+imdb_keywords:poetry (748): 0.00444938464833
+imdb_keywords:drunkenness (379): 0.000773131061841
+Correctness score: 0.138743067884
+Processing user 393, movie 3044 (Dead Again (1991))
+Original predicted rating: 1.17574478124
+User profile: {'neg_name': 'imdb_keywords:new-york-city', 'neg': 686, 'profile_id': 7, 'pos_name': 'imdb_keywords:electrocution', 'pos': 387}
+Non-zero qiis:
+average_rating (1194): -0.54296334729
+imdb_keywords:drunkenness (379): -0.0903907977561
+imdb_keywords:casino (246): 0.0481680505938
+imdb_keywords:new-york-city (686): -0.0344849273025
+imdb_keywords:switchblade (954): 0.0223813135447
+imdb_keywords:monster (667): -0.015547121048
+imdb_keywords:pregnancy (766): -0.0153054551663
+tvtropes:wham line (1190): 0.0120784491915
+imdb_keywords:montage (668): 0.00728063012984
+imdb_keywords:erotica (395): 0.00688695622108
+imdb_keywords:teenage-boy (970): -0.00283475598899
+Correctness score: 0.0544480960175
+Processing user 122, movie 4995 (Beautiful Mind, A (2001))
+Original predicted rating: 2.71340529616
+User profile: {'neg_name': 'imdb_keywords:assassination-attempt', 'neg': 142, 'profile_id': 3, 'pos_name': 'imdb_keywords:casino', 'pos': 246}
+Non-zero qiis:
+average_rating (1194): 0.811058580198
+imdb_keywords:casino (246): -0.119203157986
+imdb_keywords:based-on-book (165): 0.104941407245
+imdb_keywords:erotica (395): -0.0514738906388
+imdb_keywords:sadism (836): -0.03534155673
+imdb_keywords:drunkenness (379): 0.0298834416399
+imdb_keywords:monster (667): 0.0182816541609
+imdb_keywords:new-york-city (686): -0.00948874499653
+imdb_keywords:teenage-boy (970): -0.00831831458127
+imdb_keywords:montage (668): -0.00561505304709
+imdb_keywords:kicked-in-the-face (582): -0.00174828755687
+Correctness score: 0.128139375289
+Processing user 157, movie 58975 (Ruins, The (2008))
+Original predicted rating: 2.32802558107
+User profile: {'neg_name': 'imdb_keywords:assassination-attempt', 'neg': 142, 'profile_id': 3, 'pos_name': 'imdb_keywords:casino', 'pos': 246}
+Non-zero qiis:
+average_rating (1194): 0.490641367157
+imdb_keywords:drunkenness (379): -0.0968555199058
+imdb_keywords:monster (667): -0.0870908095302
+imdb_keywords:electrocution (387): -0.0676247025834
+imdb_keywords:sadism (836): -0.066645530608
+imdb_keywords:ex-convict (401): 0.0163973371762
+imdb_keywords:switchblade (954): 0.0142506220199
+imdb_keywords:new-york-city (686): -0.0107047239964
+imdb_keywords:poetry (748): 0.00270541746379
+imdb_keywords:montage (668): -0.000327197290659
+Correctness score: 0.0
+Processing user 347, movie 49035 (Daddy Long Legs (1955))
+Original predicted rating: 1.55427796921
+User profile: {'neg_name': 'imdb_keywords:assassination-attempt', 'neg': 142, 'profile_id': 3, 'pos_name': 'imdb_keywords:casino', 'pos': 246}
+Non-zero qiis:
+average_rating (1194): -0.313961071964
+imdb_keywords:montage (668): 0.107317448328
+imdb_keywords:pregnancy (766): -0.0836970182308
+imdb_keywords:casino (246): -0.0415561411781
+imdb_keywords:new-york-city (686): 0.0290965527033
+imdb_keywords:drunkenness (379): -0.0255982282618
+imdb_keywords:ex-convict (401): -0.017706205948
+imdb_keywords:electrocution (387): 0.00895685944947
+imdb_keywords:teenage-boy (970): 0.00800249292855
+Correctness score: 0.0986429147856
+Processing user 432, movie 48516 (Departed, The (2006))
+Original predicted rating: 1.99763662776
+User profile: {'neg_name': 'tvtropes:ironic echo', 'neg': 1146, 'profile_id': 9, 'pos_name': 'imdb_keywords:monster', 'pos': 667}
+Non-zero qiis:
+average_rating (1194): 0.41121347704
+imdb_keywords:montage (668): -0.193281396796
+imdb_keywords:switchblade (954): -0.154937919168
+imdb_keywords:drunkenness (379): -0.0720063149189
+imdb_keywords:teenage-boy (970): -0.0358339591297
+imdb_keywords:kicked-in-the-face (582): -0.0057448062772
+Correctness score: 0.0
+Processing user 954, movie 858 (Godfather, The (1972))
+Original predicted rating: 2.0712285849
+User profile: {'neg_name': 'imdb_keywords:new-york-city', 'neg': 686, 'profile_id': 7, 'pos_name': 'imdb_keywords:electrocution', 'pos': 387}
+Non-zero qiis:
+imdb_keywords:assassination-attempt (142): -0.450363850797
+average_rating (1194): 0.432938757816
+imdb_keywords:electrocution (387): -0.222818032652
+imdb_keywords:ex-convict (401): -0.169345874257
+movielens_tags:imdb top 250 (59): 0.100659787665
+imdb_keywords:casino (246): -0.0945959803819
+movielens_tags:70mm (19): -0.0344960181496
+movielens_genre:Action (1): -0.0245872481807
+imdb_keywords:based-on-book (165): -0.0226241961619
+tvtropes:california doubling (1106): 0.0220373981693
+imdb_keywords:sadism (836): -0.014064849364
+imdb_keywords:bare-chested-male (160): -0.0104679565954
+imdb_keywords:teenage-boy (970): -0.00948609109254
+imdb_keywords:montage (668): 0.00920973799616
+imdb_keywords:kicked-in-the-face (582): -0.00652878115348
+imdb_keywords:drunkenness (379): 0.00379513310744
+movielens_tags:DVD-RAM (31): 0.00250004636121
+imdb_keywords:interrogation (562): -0.00163339613038
+Correctness score: 0.252255603549
+Processing user 892, movie 233 (Exotica (1994))
+Original predicted rating: 1.40798865087
+User profile: {'neg_name': 'tvtropes:ironic echo', 'neg': 1146, 'profile_id': 9, 'pos_name': 'imdb_keywords:monster', 'pos': 667}
+Non-zero qiis:
+average_rating (1194): -0.500379768392
+imdb_keywords:monster (667): -0.0944791033588
+imdb_keywords:sadism (836): -0.0799451946936
+imdb_keywords:erotica (395): -0.0567269171748
+imdb_keywords:teenage-boy (970): -0.044631732768
+imdb_keywords:drunkenness (379): -0.0312423185031
+imdb_keywords:assassination-attempt (142): -0.0270782106521
+imdb_keywords:based-on-book (165): -0.0186851766612
+imdb_keywords:montage (668): -0.00979151465617
+imdb_keywords:electrocution (387): 0.00817649737319
+imdb_keywords:new-york-city (686): -0.00413744057346
+imdb_keywords:pregnancy (766): 0.00406042724996
+imdb_keywords:ex-convict (401): 0.00206683405053
+Correctness score: 0.158826081018
+Processing user 968, movie 33330 (Edges of the Lord (2001))
+Original predicted rating: 1.15543127641
+User profile: {'neg_name': 'imdb_keywords:new-york-city', 'neg': 686, 'profile_id': 7, 'pos_name': 'imdb_keywords:electrocution', 'pos': 387}
+Non-zero qiis:
+average_rating (1194): -0.399144527238
+imdb_keywords:drunkenness (379): 0.134310492098
+imdb_keywords:casino (246): 0.0819553396946
+imdb_keywords:new-york-city (686): -0.0714387555421
+imdb_keywords:sadism (836): -0.0405700355916
+imdb_keywords:based-on-book (165): 0.0397706064371
+imdb_keywords:pregnancy (766): 0.0235010823053
+imdb_keywords:teenage-boy (970): -0.0229502458024
+tvtropes:ironic echo (1146): -0.0227171624585
+imdb_keywords:monster (667): -0.00011555122121
+Correctness score: 0.133917111945
+Processing user 218, movie 1090 (Platoon (1986))
+Original predicted rating: 1.04935279624
+User profile: {'neg_name': 'imdb_keywords:drunkenness', 'neg': 379, 'profile_id': 8, 'pos_name': 'imdb_keywords:based-on-book', 'pos': 165}
+Non-zero qiis:
+average_rating (1194): -0.206817192573
+imdb_keywords:drunkenness (379): -0.124801289597
+imdb_keywords:monster (667): -0.0603758223929
+tvtropes:ironic echo (1146): 0.0286137826904
+imdb_keywords:pregnancy (766): -0.0281560984509
+imdb_keywords:sadism (836): 0.010791149446
+imdb_keywords:montage (668): 0.00184997161978
+imdb_keywords:teenage-boy (970): 0.00133811918543
+imdb_keywords:new-york-city (686): 0.000911488993421
+Correctness score: 0.376339969896
+Processing user 14, movie 75962 (Egg and I, The (1947))
+Original predicted rating: 2.2940472732
+User profile: {'neg_name': 'imdb_keywords:kicked-in-the-face', 'neg': 582, 'profile_id': 2, 'pos_name': 'imdb_keywords:switchblade', 'pos': 954}
+Non-zero qiis:
+average_rating (1194): 0.607203057348
+imdb_keywords:switchblade (954): -0.127205312046
+imdb_keywords:teenage-boy (970): 0.121023289271
+imdb_keywords:electrocution (387): 0.0488222055488
+imdb_keywords:kicked-in-the-face (582): -0.0444383377122
+imdb_keywords:ocean (703): -0.0321955434261
+imdb_keywords:drunkenness (379): -0.0253988502381
+imdb_keywords:poetry (748): 0.00829270717217
+imdb_keywords:new-york-city (686): -0.00828200502818
+Correctness score: 0.233716903171
+Processing user 964, movie 8718 (Snake Pit, The (1948))
+Original predicted rating: 1.42804618472
+User profile: {'neg_name': 'tvtropes:ironic echo', 'neg': 1146, 'profile_id': 9, 'pos_name': 'imdb_keywords:monster', 'pos': 667}
+Non-zero qiis:
+average_rating (1194): -0.545613334651
+imdb_keywords:new-york-city (686): 0.16377838127
+imdb_keywords:sadism (836): -0.0878492854304
+imdb_keywords:erotica (395): -0.0656570843841
+imdb_keywords:teenage-boy (970): -0.0596884588229
+imdb_keywords:assassination-attempt (142): -0.0365424974009
+imdb_keywords:ocean (703): -0.0217323387071
+imdb_keywords:pregnancy (766): 0.021626682178
+imdb_keywords:drunkenness (379): -0.019632867225
+imdb_keywords:electrocution (387): -0.00614102220159
+tvtropes:wham line (1190): -0.00275694880127
+Correctness score: 0.0
+Processing user 795, movie 4017 (Pollock (2000))
+Original predicted rating: 2.47707320263
+User profile: {'neg_name': 'imdb_keywords:pregnancy', 'neg': 766, 'profile_id': 6, 'pos_name': 'imdb_keywords:erotica', 'pos': 395}
+Non-zero qiis:
+average_rating (1194): 0.739674945351
+imdb_keywords:based-on-book (165): 0.126150622932
+imdb_keywords:erotica (395): -0.121257720756
+imdb_keywords:ocean (703): -0.0430404884549
+imdb_keywords:monster (667): 0.0413847003918
+imdb_keywords:teenage-boy (970): 0.032003536165
+imdb_keywords:casino (246): -0.0184955991982
+imdb_keywords:drunkenness (379): 0.012177897762
+imdb_keywords:kicked-in-the-face (582): -0.00887757296472
+imdb_keywords:montage (668): 0.00739633285468
+imdb_keywords:sadism (836): -0.00533652059822
+Correctness score: 0.140048671693
+Correctness scores: [0.3587992447654801, 0.3065700635248949, 0.03106462623006457, 0.0, 0.0, 0.6714045804322254, 0.25910044851966185, 0.13874306788360563, 0.0544480960174555, 0.12813937528923355, 0.0, 0.09864291478556636, 0.0, 0.25225560354896304, 0.15882608101783757, 0.13391711194516745, 0.37633996989626556, 0.2337169031712374, 0.0, 0.14004867169281113]
+Average correctness: 0.167100837936

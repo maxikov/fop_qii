@@ -1,0 +1,314 @@
+Loading results dict
+Original recommender relative to ground truth on training set mean absolute error: 0.0125643052523, RMSE: 0.0185773376863
+Shadow model relative to the baseline recommender on test set MAE: 0.320922227034, RMSE: 0.399242472666
+Randomized model relative to the baseline recommender on test set MAE: 1.09232443027, RMSE: 1.36317355628
+Shadow model is 3.40370450611 times better than random on the test set
+Loading movies
+Loading ALS model
+Loading decision trees
+103 features are used: 0: year, 1: movielens_genre:Action, 171: imdb_keywords:basketball, 5: movielens_genre:Comedy, 6: movielens_genre:Crime, 775: imdb_keywords:promise, 8: movielens_genre:Drama, 11: movielens_genre:Horror, 12: movielens_genre:Musical, 1037: imdb_keywords:van, 14: movielens_genre:Romance, 271: imdb_keywords:christian, 16: movielens_genre:Thriller, 17: movielens_genre:War, 274: imdb_keywords:church, 19: movielens_tags:70mm, 276: imdb_keywords:cigarette-smoking, 22: movielens_tags:Bechdel Test:Fail, 24: movielens_tags:Bibliothek, 26: movielens_tags:CLV, 1055: imdb_keywords:watching-tv, 32: movielens_tags:DVD-Video, 34: movielens_tags:National Film Registry, 293: imdb_keywords:concert, 38: movielens_tags:R, 553: imdb_keywords:impalement, 1067: imdb_keywords:wig, 44: movielens_tags:atmospheric, 45: movielens_tags:based on a book, 46: movielens_tags:boring, 47: movielens_tags:cinematography, 52: movielens_tags:drama, 53: movielens_tags:drugs, 570: imdb_keywords:japan, 60: movielens_tags:less than 300 ratings, 608: imdb_keywords:little-boy, 69: movielens_tags:nudity (topless), 71: movielens_tags:perrot library, 1097: tvtropes:big damn heroes, 77: movielens_tags:reviewed, 850: imdb_keywords:sea, 851: imdb_keywords:search, 599: imdb_keywords:letter, 229: imdb_keywords:bus, 96: imdb_keywords:1960s, 272: imdb_keywords:christmas, 98: imdb_keywords:1980s, 612: imdb_keywords:loneliness, 875: imdb_keywords:ship, 878: imdb_keywords:shot-in-the-arm, 113: imdb_keywords:airplane, 882: imdb_keywords:shot-in-the-head, 885: imdb_keywords:shot-in-the-stomach, 886: imdb_keywords:shot-to-death, 122: imdb_keywords:american, 379: imdb_keywords:drunkenness, 125: imdb_keywords:anger, 865: imdb_keywords:servant, 387: imdb_keywords:electrocution, 389: imdb_keywords:elevator, 136: imdb_keywords:arrest, 354: imdb_keywords:diner, 400: imdb_keywords:ex-boyfriend-ex-girlfriend-relationship, 921: imdb_keywords:stage, 1179: tvtropes:soundtrack dissonance, 282: imdb_keywords:cocaine, 158: imdb_keywords:bare-breasts, 159: imdb_keywords:bare-butt, 1184: tvtropes:too dumb to live, 161: imdb_keywords:barn, 163: imdb_keywords:baseball, 168: imdb_keywords:based-on-play, 1194: average_rating, 939: imdb_keywords:suicide-attempt, 684: imdb_keywords:neo-noir, 947: imdb_keywords:surveillance, 773: imdb_keywords:professor, 438: imdb_keywords:female-removes-her-clothes, 183: imdb_keywords:best-friend, 192: imdb_keywords:birthday-party, 160: imdb_keywords:bare-chested-male, 262: imdb_keywords:chicago-illinois, 200: imdb_keywords:blonde, 202: imdb_keywords:blood-splatter, 461: imdb_keywords:following-someone, 464: imdb_keywords:foreign-language-adaptation, 465: imdb_keywords:forest, 471: imdb_keywords:friend, 218: imdb_keywords:bridge, 476: imdb_keywords:gambling, 976: imdb_keywords:tent, 741: imdb_keywords:piano, 230: imdb_keywords:businessman, 1002: imdb_keywords:train, 235: imdb_keywords:camera-shot-of-feet, 988: imdb_keywords:throat-slitting, 1192: tvtropes:what the hell hero, 131: imdb_keywords:apology, 246: imdb_keywords:casino, 504: imdb_keywords:gun, 249: imdb_keywords:catholic, 763: imdb_keywords:poverty, 252: imdb_keywords:cell-phone
+Loading indicators
+Building indicator distributions
+Loading user profiles
+Processing user 16, movie 113573 (Sin City: A Dame to Kill For (2014))
+Original predicted rating: 2.6338612371
+User profile: {'neg_name': 'movielens_tags:reviewed', 'neg': 77, 'profile_id': 7, 'pos_name': 'tvtropes:too dumb to live', 'pos': 1184}
+Non-zero qiis:
+average_rating (1194): 0.3399438334
+imdb_keywords:impalement (553): -0.258019272673
+tvtropes:too dumb to live (1184): -0.0966345686846
+imdb_keywords:surveillance (947): -0.0364389990234
+imdb_keywords:japan (570): 0.0316179537802
+imdb_keywords:promise (775): 0.0253607554257
+imdb_keywords:catholic (249): 0.0117002691221
+imdb_keywords:basketball (171): 0.0116758011519
+Correctness score: 0.161606239086
+Processing user 985, movie 1221 (Godfather: Part II, The (1974))
+Original predicted rating: 2.53642935618
+User profile: {'neg_name': 'movielens_tags:less than 300 ratings', 'neg': 60, 'profile_id': 0, 'pos_name': 'imdb_keywords:basketball', 'pos': 171}
+Non-zero qiis:
+average_rating (1194): 0.330010302742
+imdb_keywords:catholic (249): -0.122311514285
+imdb_keywords:basketball (171): -0.108063816167
+tvtropes:too dumb to live (1184): 0.0463243101445
+imdb_keywords:surveillance (947): 0.0449374875431
+imdb_keywords:baseball (163): -0.0391292927421
+imdb_keywords:impalement (553): 0.0348773652755
+imdb_keywords:little-boy (608): 0.0281261923593
+Correctness score: 0.238909139685
+Processing user 659, movie 90254 (Dream Catcher, The (1999))
+Original predicted rating: 1.68065006582
+User profile: {'neg_name': 'imdb_keywords:servant', 'neg': 865, 'profile_id': 9, 'pos_name': 'imdb_keywords:surveillance', 'pos': 947}
+Non-zero qiis:
+average_rating (1194): -0.619640099588
+imdb_keywords:surveillance (947): -0.165359874811
+imdb_keywords:van (1037): 0.164700457772
+imdb_keywords:basketball (171): -0.116001310027
+imdb_keywords:gun (504): 0.101698444327
+imdb_keywords:christian (271): 0.0970891322124
+imdb_keywords:based-on-play (168): 0.0401822207173
+imdb_keywords:concert (293): 0.0286726585084
+imdb_keywords:blood-splatter (202): -0.0281830853914
+movielens_tags:reviewed (77): -0.0226914523544
+movielens_tags:less than 300 ratings (60): -0.0156218537972
+imdb_keywords:female-removes-her-clothes (438): -0.00715055586612
+imdb_keywords:little-boy (608): 0.00525278341224
+Correctness score: 0.210649528922
+Processing user 426, movie 69481 (Hurt Locker, The (2008))
+Original predicted rating: 1.93175306529
+User profile: {'neg_name': 'imdb_keywords:female-removes-her-clothes', 'neg': 438, 'profile_id': 5, 'pos_name': 'imdb_keywords:impalement', 'pos': 553}
+Non-zero qiis:
+average_rating (1194): -0.943705412355
+imdb_keywords:impalement (553): -0.152867741849
+imdb_keywords:based-on-play (168): -0.12060392352
+imdb_keywords:blood-splatter (202): 0.0292925428739
+imdb_keywords:surveillance (947): 0.0258386675707
+imdb_keywords:gun (504): 0.0225442759631
+tvtropes:too dumb to live (1184): -0.00895664356186
+movielens_tags:nudity (topless) (69): -0.00663645518315
+imdb_keywords:van (1037): -0.00588106880351
+imdb_keywords:japan (570): -0.0024407245809
+Correctness score: 0.139404964697
+Processing user 750, movie 34624 (Summer Magic (1963))
+Original predicted rating: 2.38363429363
+User profile: {'neg_name': 'imdb_keywords:blood-splatter', 'neg': 202, 'profile_id': 3, 'pos_name': 'imdb_keywords:baseball', 'pos': 163}
+Non-zero qiis:
+average_rating (1194): 0.380262646999
+imdb_keywords:little-boy (608): 0.172385343594
+imdb_keywords:based-on-play (168): -0.0628464508558
+imdb_keywords:catholic (249): -0.0403636556462
+imdb_keywords:gun (504): -0.0304870362197
+imdb_keywords:surveillance (947): -0.0234417000281
+imdb_keywords:impalement (553): 0.00517989062029
+Correctness score: 0.0
+Processing user 863, movie 73228 (Agent Red (2000))
+Original predicted rating: 3.98844301795
+User profile: {'neg_name': 'imdb_keywords:female-removes-her-clothes', 'neg': 438, 'profile_id': 5, 'pos_name': 'imdb_keywords:impalement', 'pos': 553}
+Non-zero qiis:
+imdb_keywords:impalement (553): 0.795831679229
+average_rating (1194): 0.415056024292
+imdb_keywords:catholic (249): 0.104924451237
+imdb_keywords:promise (775): 0.0483479525083
+tvtropes:too dumb to live (1184): 0.0283596028687
+movielens_tags:reviewed (77): -0.0178246595593
+imdb_keywords:surveillance (947): 0.00741367662573
+Correctness score: 0.657229961883
+Processing user 211, movie 8959 (Birth (2004))
+Original predicted rating: 1.23428819748
+User profile: {'neg_name': 'movielens_tags:nudity (topless)', 'neg': 69, 'profile_id': 4, 'pos_name': 'imdb_keywords:little-boy', 'pos': 608}
+Non-zero qiis:
+imdb_keywords:concert (293): -0.291519452476
+average_rating (1194): -0.261056988772
+imdb_keywords:based-on-play (168): -0.104626362757
+imdb_keywords:gun (504): -0.0815449866611
+movielens_tags:nudity (topless) (69): -0.0702432614943
+imdb_keywords:impalement (553): 0.064795299522
+imdb_keywords:catholic (249): -0.0388147687166
+imdb_keywords:surveillance (947): 0.0369200719732
+imdb_keywords:american (122): 0.0349580287491
+imdb_keywords:blood-splatter (202): -0.0346528145572
+tvtropes:too dumb to live (1184): 0.0293231721874
+movielens_tags:reviewed (77): -0.0100334465822
+imdb_keywords:baseball (163): 0.00798802187116
+Correctness score: 0.127119537228
+Processing user 665, movie 27826 (Touch of Pink (2004))
+Original predicted rating: 1.23735842261
+User profile: {'neg_name': 'movielens_tags:nudity (topless)', 'neg': 69, 'profile_id': 4, 'pos_name': 'imdb_keywords:little-boy', 'pos': 608}
+Non-zero qiis:
+average_rating (1194): -0.58783903217
+tvtropes:too dumb to live (1184): 0.115647051726
+imdb_keywords:gun (504): -0.0819521355657
+imdb_keywords:impalement (553): 0.0564100448355
+imdb_keywords:surveillance (947): 0.0436050684681
+imdb_keywords:concert (293): 0.0308323568545
+imdb_keywords:blood-splatter (202): -0.020815037045
+imdb_keywords:little-boy (608): 0.0119231833056
+movielens_tags:reviewed (77): -0.00435087041911
+imdb_keywords:basketball (171): 0.00226279198012
+imdb_keywords:van (1037): 0.00147765125506
+Correctness score: 0.016948712389
+Processing user 316, movie 5421 (Dangerous Lives of Altar Boys, The (2002))
+Original predicted rating: 2.98240887984
+User profile: {'neg_name': 'movielens_tags:reviewed', 'neg': 77, 'profile_id': 7, 'pos_name': 'tvtropes:too dumb to live', 'pos': 1184}
+Non-zero qiis:
+imdb_keywords:catholic (249): -0.501030592972
+average_rating (1194): 0.486257604442
+imdb_keywords:basketball (171): -0.37357770746
+imdb_keywords:surveillance (947): 0.0545005396861
+imdb_keywords:baseball (163): -0.0529436336488
+imdb_keywords:impalement (553): 0.0166919908496
+imdb_keywords:piano (741): 0.00916635819763
+movielens_tags:perrot library (71): 0.00320810817771
+imdb_keywords:arrest (136): 0.00311279991677
+Correctness score: 0.0
+Processing user 936, movie 7017 (Passenger 57 (1992))
+Original predicted rating: 2.00371659931
+User profile: {'neg_name': 'imdb_keywords:blood-splatter', 'neg': 202, 'profile_id': 3, 'pos_name': 'imdb_keywords:baseball', 'pos': 163}
+Non-zero qiis:
+average_rating (1194): -0.117007617205
+imdb_keywords:catholic (249): -0.0944159134493
+imdb_keywords:blood-splatter (202): 0.0912549619772
+imdb_keywords:promise (775): -0.0767163309762
+imdb_keywords:basketball (171): -0.0532538122039
+imdb_keywords:japan (570): -0.0452389413445
+imdb_keywords:gun (504): 0.0334708794668
+imdb_keywords:impalement (553): 0.0154529837962
+imdb_keywords:little-boy (608): 0.00432119898697
+imdb_keywords:female-removes-her-clothes (438): -0.00120192292028
+Correctness score: 0.431621597154
+Processing user 720, movie 2959 (Fight Club (1999))
+Original predicted rating: 1.54600726668
+User profile: {'neg_name': 'movielens_tags:less than 300 ratings', 'neg': 60, 'profile_id': 0, 'pos_name': 'imdb_keywords:basketball', 'pos': 171}
+Non-zero qiis:
+average_rating (1194): -0.870632821106
+imdb_keywords:basketball (171): -0.2873610539
+imdb_keywords:based-on-play (168): -0.0338282972475
+imdb_keywords:surveillance (947): -0.0275004712157
+imdb_keywords:gun (504): 0.0250672403339
+movielens_tags:reviewed (77): -0.0190763339918
+imdb_keywords:blood-splatter (202): -0.0143610561214
+movielens_tags:nudity (topless) (69): -0.0102069449692
+imdb_keywords:businessman (230): 0.00788557060752
+Correctness score: 0.248154208846
+Processing user 342, movie 6587 (Gigli (2003))
+Original predicted rating: 1.89921033309
+User profile: {'neg_name': 'movielens_tags:nudity (topless)', 'neg': 69, 'profile_id': 4, 'pos_name': 'imdb_keywords:little-boy', 'pos': 608}
+Non-zero qiis:
+average_rating (1194): -0.632049669922
+imdb_keywords:based-on-play (168): -0.0916885927145
+imdb_keywords:gun (504): 0.0649095538644
+imdb_keywords:catholic (249): -0.0519299074196
+imdb_keywords:basketball (171): -0.0411697231895
+imdb_keywords:blood-splatter (202): -0.017253464395
+imdb_keywords:van (1037): -0.0151686451314
+movielens_tags:nudity (topless) (69): -0.0139087407242
+movielens_tags:reviewed (77): -0.00839219241844
+movielens_tags:less than 300 ratings (60): -0.00697905843871
+imdb_keywords:concert (293): 0.00224771729785
+Correctness score: 0.0192179154291
+Processing user 741, movie 79667 (Call Me Madam (1953))
+Original predicted rating: 1.22015440967
+User profile: {'neg_name': 'movielens_tags:less than 300 ratings', 'neg': 60, 'profile_id': 0, 'pos_name': 'imdb_keywords:basketball', 'pos': 171}
+Non-zero qiis:
+average_rating (1194): -0.54867992394
+tvtropes:too dumb to live (1184): 0.0599123753535
+imdb_keywords:gun (504): -0.0542394467124
+imdb_keywords:impalement (553): 0.0500408859699
+imdb_keywords:van (1037): -0.0220894765724
+imdb_keywords:american (122): -0.0208239486376
+imdb_keywords:surveillance (947): -0.0201743765746
+imdb_keywords:concert (293): 0.0122715118947
+imdb_keywords:japan (570): -0.0102147289662
+imdb_keywords:little-boy (608): -0.00301773172444
+imdb_keywords:blood-splatter (202): -0.00194210233186
+Correctness score: 0.0
+Processing user 921, movie 4537 (Running on Empty (1988))
+Original predicted rating: 2.36897703738
+User profile: {'neg_name': 'imdb_keywords:gun', 'neg': 504, 'profile_id': 8, 'pos_name': 'imdb_keywords:promise', 'pos': 775}
+Non-zero qiis:
+imdb_keywords:baseball (163): 0.496260581177
+average_rating (1194): 0.327508600056
+imdb_keywords:promise (775): -0.152787343445
+imdb_keywords:blood-splatter (202): 0.136531091941
+imdb_keywords:gun (504): 0.0818395866618
+imdb_keywords:surveillance (947): -0.0688441811415
+year (0): -0.0281558419859
+imdb_keywords:little-boy (608): -0.023384393246
+imdb_keywords:female-removes-her-clothes (438): 0.0185329818604
+imdb_keywords:bare-chested-male (160): -0.0153466876983
+imdb_keywords:basketball (171): -0.0151527733246
+imdb_keywords:sea (850): -0.0116388458964
+imdb_keywords:impalement (553): -0.00894953902928
+imdb_keywords:catholic (249): -0.00534961586088
+imdb_keywords:throat-slitting (988): 0.00428032933739
+Correctness score: 0.284821204109
+Processing user 991, movie 102242 (Cheerful Weather for the Wedding (2012))
+Original predicted rating: 3.61722822096
+User profile: {'neg_name': 'imdb_keywords:gun', 'neg': 504, 'profile_id': 8, 'pos_name': 'imdb_keywords:promise', 'pos': 775}
+Non-zero qiis:
+imdb_keywords:promise (775): 1.08593166931
+average_rating (1194): 0.572001059929
+imdb_keywords:little-boy (608): 0.201515074522
+imdb_keywords:shot-in-the-head (882): 0.161591339979
+imdb_keywords:casino (246): 0.080780813244
+imdb_keywords:gun (504): 0.0798720533531
+imdb_keywords:surveillance (947): -0.0574663701241
+imdb_keywords:camera-shot-of-feet (235): 0.0514483266578
+imdb_keywords:catholic (249): 0.0483648674726
+imdb_keywords:impalement (553): 0.0141461543735
+imdb_keywords:airplane (113): 0.0114250355279
+Correctness score: 0.703167083986
+Processing user 225, movie 102802 (Lords of Salem, The (2012))
+Original predicted rating: 1.80235212867
+User profile: {'neg_name': 'imdb_keywords:female-removes-her-clothes', 'neg': 438, 'profile_id': 5, 'pos_name': 'imdb_keywords:impalement', 'pos': 553}
+Non-zero qiis:
+imdb_keywords:impalement (553): -0.483298867685
+average_rating (1194): -0.400102717181
+imdb_keywords:blood-splatter (202): -0.0956859074953
+imdb_keywords:catholic (249): -0.0516345130983
+imdb_keywords:van (1037): -0.0159463064451
+imdb_keywords:basketball (171): 0.0141175195383
+imdb_keywords:gun (504): -0.0115392147167
+imdb_keywords:surveillance (947): 0.00904915592232
+imdb_keywords:baseball (163): 0.00633614373935
+tvtropes:too dumb to live (1184): -0.00224978209029
+imdb_keywords:little-boy (608): -0.00217437950455
+Correctness score: 0.547088522326
+Processing user 919, movie 2793 (American Werewolf in Paris, An (1997))
+Original predicted rating: 1.65342557907
+User profile: {'neg_name': 'imdb_keywords:servant', 'neg': 865, 'profile_id': 9, 'pos_name': 'imdb_keywords:surveillance', 'pos': 947}
+Non-zero qiis:
+average_rating (1194): -0.365254124064
+imdb_keywords:gun (504): 0.248495878572
+imdb_keywords:christmas (272): 0.102125718087
+imdb_keywords:catholic (249): -0.0423849695786
+imdb_keywords:american (122): -0.0247277523439
+imdb_keywords:concert (293): -0.0239272926909
+imdb_keywords:blood-splatter (202): -0.0118852783505
+imdb_keywords:van (1037): 0.00932713923049
+imdb_keywords:impalement (553): 0.00902172742932
+imdb_keywords:female-removes-her-clothes (438): -0.00732121420782
+tvtropes:too dumb to live (1184): -0.00357656990393
+Correctness score: 0.0
+Processing user 56, movie 27811 (Buddy (2003))
+Original predicted rating: 1.37044787015
+User profile: {'neg_name': 'movielens_tags:nudity (topless)', 'neg': 69, 'profile_id': 4, 'pos_name': 'imdb_keywords:little-boy', 'pos': 608}
+Non-zero qiis:
+average_rating (1194): -0.31232359242
+imdb_keywords:impalement (553): 0.0939986728062
+imdb_keywords:japan (570): -0.0551364794622
+imdb_keywords:surveillance (947): 0.0509671498025
+imdb_keywords:gun (504): -0.0492263353086
+imdb_keywords:blood-splatter (202): -0.0448386528052
+imdb_keywords:catholic (249): -0.0401887469878
+imdb_keywords:little-boy (608): -0.0255223965016
+imdb_keywords:van (1037): -0.0131202748704
+movielens_tags:nudity (topless) (69): -0.00955937355458
+imdb_keywords:american (122): -0.00536450903748
+Correctness score: 0.0863397678604
+Processing user 104, movie 5051 (Italian for Beginners (Italiensk for begyndere) (2000))
+Original predicted rating: 2.55938521119
+User profile: {'neg_name': 'imdb_keywords:servant', 'neg': 865, 'profile_id': 9, 'pos_name': 'imdb_keywords:surveillance', 'pos': 947}
+Non-zero qiis:
+average_rating (1194): 0.243791802706
+imdb_keywords:catholic (249): -0.184312689036
+imdb_keywords:surveillance (947): -0.105371166494
+imdb_keywords:based-on-play (168): 0.023172207224
+imdb_keywords:impalement (553): 0.0225871965111
+imdb_keywords:little-boy (608): 0.0187954726518
+Correctness score: 0.246134223132
+Processing user 155, movie 7212 (I Was a Male War Bride (1949))
+Original predicted rating: 1.45755796295
+User profile: {'neg_name': 'imdb_keywords:van', 'neg': 1037, 'profile_id': 1, 'pos_name': 'imdb_keywords:based-on-play', 'pos': 168}
+Non-zero qiis:
+imdb_keywords:american (122): -0.259338553815
+average_rating (1194): -0.185718323204
+imdb_keywords:gun (504): -0.134309030213
+imdb_keywords:catholic (249): -0.101425458618
+imdb_keywords:van (1037): -0.060340305102
+imdb_keywords:blood-splatter (202): -0.0479191666351
+imdb_keywords:little-boy (608): -0.0419400636323
+tvtropes:too dumb to live (1184): -0.011686736526
+Correctness score: 0.135578862428
+Correctness scores: [0.16160623908591892, 0.23890913968468153, 0.2106495289223784, 0.13940496469691346, 0.0, 0.6572299618826224, 0.12711953722767005, 0.01694871238897657, 0.0, 0.4316215971544921, 0.24815420884550726, 0.019217915429124214, 0.0, 0.2848212041088819, 0.703167083985746, 0.5470885223263087, 0.0, 0.08633976786043586, 0.2461342231317052, 0.13557886242806327]
+Average correctness: 0.212699573458

@@ -1,0 +1,322 @@
+Loading results dict
+Original recommender relative to ground truth on training set mean absolute error: 0.0134850110738, RMSE: 0.0201559187535
+Shadow model relative to the baseline recommender on test set MAE: 0.291676222673, RMSE: 0.377142475336
+Randomized model relative to the baseline recommender on test set MAE: 1.05342301343, RMSE: 1.33383937603
+Shadow model is 3.61161771699 times better than random on the test set
+Loading movies
+Loading ALS model
+Loading decision trees
+108 features are used: 0: year, 1: movielens_genre:Action, 2: movielens_genre:Adventure, 4: movielens_genre:Children, 5: movielens_genre:Comedy, 6: movielens_genre:Crime, 8: movielens_genre:Drama, 522: imdb_keywords:heist, 11: movielens_genre:Horror, 14: movielens_genre:Romance, 16: movielens_genre:Thriller, 17: movielens_genre:War, 19: movielens_tags:70mm, 277: imdb_keywords:city, 23: movielens_tags:Betamax, 28: movielens_tags:ClearPlay, 29: movielens_tags:Criterion, 803: imdb_keywords:redemption, 774: imdb_keywords:prologue, 38: movielens_tags:R, 1007: imdb_keywords:trap, 470: imdb_keywords:french, 41: movielens_tags:acting, 42: movielens_tags:action, 813: imdb_keywords:restaurant, 47: movielens_tags:cinematography, 49: movielens_tags:comedy, 819: imdb_keywords:ring, 566: imdb_keywords:italian-american, 315: imdb_keywords:criminal, 60: movielens_tags:less than 300 ratings, 232: imdb_keywords:cafe, 321: imdb_keywords:crying, 1092: tvtropes:ax crazy, 69: movielens_tags:nudity (topless), 73: movielens_tags:predictable, 79: movielens_tags:sci-fi, 339: imdb_keywords:death-of-husband, 340: imdb_keywords:death-of-mother, 600: imdb_keywords:liar, 399: imdb_keywords:evil-man, 349: imdb_keywords:desert, 94: imdb_keywords:1940s, 827: imdb_keywords:rooftop, 1041: imdb_keywords:village, 106: imdb_keywords:actor, 364: imdb_keywords:dog, 109: imdb_keywords:adoption, 110: imdb_keywords:adultery, 367: imdb_keywords:double-cross, 112: imdb_keywords:african-american, 881: imdb_keywords:shot-in-the-forehead, 371: imdb_keywords:drink, 120: imdb_keywords:ambulance, 121: imdb_keywords:ambush, 379: imdb_keywords:drunkenness, 124: imdb_keywords:american-flag, 125: imdb_keywords:anger, 638: imdb_keywords:maniac, 389: imdb_keywords:elevator, 135: imdb_keywords:army, 1132: tvtropes:faux affably evil, 1163: tvtropes:noodle incident, 1167: tvtropes:pet the dog, 656: imdb_keywords:microphone, 916: imdb_keywords:spy, 155: imdb_keywords:bank-robbery, 671: imdb_keywords:mother-son-relationship, 1184: tvtropes:too dumb to live, 752: imdb_keywords:police-car, 418: imdb_keywords:falling-from-height, 675: imdb_keywords:murder-of-a-police-officer, 421: imdb_keywords:family-relationships, 65: movielens_tags:murder, 679: imdb_keywords:native-american, 1194: average_rating, 942: imdb_keywords:supermarket, 175: imdb_keywords:battle, 456: imdb_keywords:flashlight, 186: imdb_keywords:bicycle, 160: imdb_keywords:bare-chested-male, 450: imdb_keywords:fish, 963: imdb_keywords:taxi, 964: imdb_keywords:taxi-driver, 200: imdb_keywords:blonde, 203: imdb_keywords:boat, 975: imdb_keywords:television, 632: imdb_keywords:male-full-frontal-nudity, 724: imdb_keywords:panic, 982: imdb_keywords:theatre-audience, 984: imdb_keywords:thief, 730: imdb_keywords:park, 463: imdb_keywords:foot-chase, 732: imdb_keywords:party, 459: imdb_keywords:flower, 549: imdb_keywords:husband-wife-relationship, 738: imdb_keywords:photograph, 877: imdb_keywords:shootout, 744: imdb_keywords:pilot, 746: imdb_keywords:pistol, 893: imdb_keywords:single-mother, 240: imdb_keywords:captain, 753: imdb_keywords:police-chase, 499: imdb_keywords:greed, 504: imdb_keywords:gun, 1018: imdb_keywords:u.s.-army, 1019: imdb_keywords:u.s.-president, 426: imdb_keywords:farmer
+Loading indicators
+Building indicator distributions
+Loading user profiles
+Processing user 966, movie 2414 (Young Sherlock Holmes (1985))
+Original predicted rating: 2.29319718144
+User profile: {'neg_name': 'imdb_keywords:u.s.-army', 'neg': 1018, 'profile_id': 1, 'pos_name': 'imdb_keywords:single-mother', 'pos': 893}
+Non-zero qiis:
+average_rating (1194): 0.543753259246
+movielens_genre:Thriller (16): 0.349166767429
+imdb_keywords:trap (1007): -0.0775251619179
+imdb_keywords:thief (984): -0.0322684337257
+imdb_keywords:taxi (963): -0.0265244393136
+tvtropes:too dumb to live (1184): 0.0202674796147
+imdb_keywords:spy (916): -0.0199066876608
+imdb_keywords:criminal (315): -0.0152889514101
+imdb_keywords:party (732): 0.0139823706681
+imdb_keywords:elevator (389): -0.0054574898389
+Correctness score: 0.0
+Processing user 650, movie 1769 (Replacement Killers, The (1998))
+Original predicted rating: 2.35134433565
+User profile: {'neg_name': 'imdb_keywords:french', 'neg': 470, 'profile_id': 5, 'pos_name': 'tvtropes:faux affably evil', 'pos': 1132}
+Non-zero qiis:
+average_rating (1194): 0.382504565415
+tvtropes:too dumb to live (1184): -0.0705287115179
+imdb_keywords:party (732): 0.0449841614167
+imdb_keywords:criminal (315): -0.0383321901741
+imdb_keywords:taxi (963): -0.0306078747712
+movielens_genre:Thriller (16): 0.0166084182579
+imdb_keywords:elevator (389): -0.00579992057743
+imdb_keywords:thief (984): 0.00533253874949
+Correctness score: 0.0
+Processing user 702, movie 52241 (Lookout, The (2007))
+Original predicted rating: 2.32221933188
+User profile: {'neg_name': 'imdb_keywords:elevator', 'neg': 389, 'profile_id': 7, 'pos_name': 'imdb_keywords:spy', 'pos': 916}
+Non-zero qiis:
+average_rating (1194): 0.419756304309
+movielens_genre:Thriller (16): 0.100681226854
+imdb_keywords:thief (984): 0.0721417299201
+tvtropes:faux affably evil (1132): -0.0656645037103
+imdb_keywords:taxi (963): -0.0222761079468
+imdb_keywords:single-mother (893): 0.0211284371424
+imdb_keywords:party (732): -0.0125767954324
+Correctness score: 0.0
+Processing user 228, movie 116799 (Inherent Vice (2014))
+Original predicted rating: 2.98075943363
+User profile: {'neg_name': 'imdb_keywords:elevator', 'neg': 389, 'profile_id': 7, 'pos_name': 'imdb_keywords:spy', 'pos': 916}
+Non-zero qiis:
+imdb_keywords:spy (916): 1.25077765246
+average_rating (1194): 0.267442681483
+imdb_keywords:thief (984): -0.148733745433
+movielens_genre:Thriller (16): 0.0998235488145
+imdb_keywords:party (732): -0.0716702808795
+imdb_keywords:elevator (389): -0.0661921491977
+year (0): 0.0360621347306
+imdb_keywords:flower (459): 0.0172009622829
+imdb_keywords:flashlight (456): -0.0155247714019
+imdb_keywords:death-of-husband (339): 0.010374408539
+imdb_keywords:taxi (963): -0.0062455672868
+imdb_keywords:anger (125): 0.00105012927604
+Correctness score: 0.867443132077
+Processing user 287, movie 6283 (Cowboy Bebop: The Movie (Cowboy Bebop: Tengoku no Tobira) (2001))
+Original predicted rating: 2.23221562253
+User profile: {'neg_name': 'imdb_keywords:murder-of-a-police-officer', 'neg': 675, 'profile_id': 4, 'pos_name': 'imdb_keywords:u.s.-president', 'pos': 1019}
+Non-zero qiis:
+average_rating (1194): 0.32939059612
+imdb_keywords:gun (504): -0.16152375378
+movielens_genre:Drama (8): 0.11195287335
+imdb_keywords:taxi (963): 0.0819581204646
+imdb_keywords:party (732): -0.0641295910907
+movielens_genre:Thriller (16): 0.0589980870295
+imdb_keywords:elevator (389): 0.0424989448124
+imdb_keywords:thief (984): -0.0117082616232
+imdb_keywords:single-mother (893): 0.0105986271554
+imdb_keywords:criminal (315): -0.00296213626479
+Correctness score: 0.0
+Processing user 163, movie 98629 (Purge (Puhdistus) (2012))
+Original predicted rating: 2.95083917933
+User profile: {'neg_name': 'imdb_keywords:theatre-audience', 'neg': 982, 'profile_id': 6, 'pos_name': 'imdb_keywords:trap', 'pos': 1007}
+Non-zero qiis:
+tvtropes:too dumb to live (1184): 1.05289584807
+average_rating (1194): 0.260253108338
+imdb_keywords:trap (1007): -0.0834621489689
+imdb_keywords:criminal (315): 0.0403009941314
+imdb_keywords:thief (984): 0.018518279073
+imdb_keywords:actor (106): 0.0163248229021
+movielens_genre:Thriller (16): 0.0158158846316
+imdb_keywords:taxi (963): -0.0132038949401
+imdb_keywords:party (732): 0.010927830439
+imdb_keywords:male-full-frontal-nudity (632): 0.00751219390347
+Correctness score: 0.0635587825445
+Processing user 111, movie 1198 (Raiders of the Lost Ark (Indiana Jones and the Raiders of the Lost Ark) (1981))
+Original predicted rating: 2.17445568075
+User profile: {'neg_name': 'imdb_keywords:murder-of-a-police-officer', 'neg': 675, 'profile_id': 4, 'pos_name': 'imdb_keywords:u.s.-president', 'pos': 1019}
+Non-zero qiis:
+average_rating (1194): 0.334539390563
+tvtropes:too dumb to live (1184): 0.225628009086
+imdb_keywords:taxi (963): -0.0736845031627
+imdb_keywords:party (732): 0.0247778967263
+imdb_keywords:thief (984): 0.0147780095229
+imdb_keywords:u.s.-army (1018): -0.0105432761292
+movielens_genre:Thriller (16): 0.00757917664622
+imdb_keywords:elevator (389): -0.00060543397323
+Correctness score: 0.0
+Processing user 769, movie 104879 (Prisoners (2013))
+Original predicted rating: 1.62757828261
+User profile: {'neg_name': 'imdb_keywords:fish', 'neg': 450, 'profile_id': 3, 'pos_name': 'movielens_genre:Thriller', 'pos': 16}
+Non-zero qiis:
+average_rating (1194): -1.08597754489
+imdb_keywords:elevator (389): -0.175367183938
+movielens_genre:Drama (8): 0.110141553318
+imdb_keywords:criminal (315): 0.0210146145946
+imdb_keywords:murder-of-a-police-officer (675): -0.019885400522
+tvtropes:faux affably evil (1132): -0.0197761894484
+movielens_genre:Thriller (16): 0.0195600544737
+imdb_keywords:taxi (963): 0.00938991726278
+imdb_keywords:party (732): -0.00478292818762
+Correctness score: 0.0155073026641
+Processing user 116, movie 58806 (Smart People (2008))
+Original predicted rating: 2.44071135518
+User profile: {'neg_name': 'imdb_keywords:party', 'neg': 732, 'profile_id': 9, 'pos_name': 'imdb_keywords:thief', 'pos': 984}
+Non-zero qiis:
+imdb_keywords:thief (984): -0.328328255495
+average_rating (1194): 0.124679487308
+movielens_genre:Thriller (16): -0.0912253630021
+imdb_keywords:criminal (315): -0.0733976482958
+movielens_genre:Drama (8): -0.0648703488138
+imdb_keywords:taxi (963): 0.0636536227192
+imdb_keywords:supermarket (942): 0.0332745404952
+imdb_keywords:elevator (389): -0.0287983333176
+imdb_keywords:party (732): -0.010338302197
+Correctness score: 0.747595517013
+Processing user 311, movie 59173 (Killer Elite, The (1975))
+Original predicted rating: 1.96141806568
+User profile: {'neg_name': 'imdb_keywords:u.s.-army', 'neg': 1018, 'profile_id': 1, 'pos_name': 'imdb_keywords:single-mother', 'pos': 893}
+Non-zero qiis:
+average_rating (1194): 0.382362679759
+movielens_genre:Thriller (16): -0.223492993432
+imdb_keywords:italian-american (566): -0.188142499134
+imdb_keywords:single-mother (893): -0.16252239618
+imdb_keywords:greed (499): -0.0678188388826
+imdb_keywords:thief (984): 0.0660525706179
+imdb_keywords:trap (1007): -0.0614965405956
+imdb_keywords:spy (916): -0.0528243796181
+movielens_genre:Drama (8): -0.0482993610064
+imdb_keywords:taxi (963): 0.039326751792
+imdb_keywords:u.s.-president (1019): 0.0132515250582
+imdb_keywords:evil-man (399): -0.00869060490532
+Correctness score: 0.268252660447
+Processing user 621, movie 5447 (Sunshine State (2002))
+Original predicted rating: 1.03285194818
+User profile: {'neg_name': 'imdb_keywords:elevator', 'neg': 389, 'profile_id': 7, 'pos_name': 'imdb_keywords:spy', 'pos': 916}
+Non-zero qiis:
+imdb_keywords:spy (916): -0.232056381961
+movielens_genre:Thriller (16): -0.213513070233
+imdb_keywords:thief (984): 0.165088115243
+average_rating (1194): -0.10660057749
+imdb_keywords:actor (106): 0.0872976605157
+imdb_keywords:single-mother (893): -0.0373139209815
+imdb_keywords:elevator (389): -0.0275357772094
+imdb_keywords:taxi (963): 0.0250776091303
+imdb_keywords:party (732): 0.021117753993
+movielens_genre:Drama (8): 0.0199855426089
+tvtropes:too dumb to live (1184): 0.00475890775607
+imdb_keywords:theatre-audience (982): -0.00437750743559
+Correctness score: 0.582607622431
+Processing user 964, movie 104870 (Deathsport (1978))
+Original predicted rating: 1.4816828031
+User profile: {'neg_name': 'imdb_keywords:murder-of-a-police-officer', 'neg': 675, 'profile_id': 4, 'pos_name': 'imdb_keywords:u.s.-president', 'pos': 1019}
+Non-zero qiis:
+average_rating (1194): -0.534014691337
+imdb_keywords:u.s.-president (1019): -0.28766211049
+imdb_keywords:elevator (389): 0.140659574501
+imdb_keywords:thief (984): 0.111182463742
+movielens_genre:Drama (8): -0.0991709780573
+imdb_keywords:trap (1007): 0.0179506786986
+imdb_keywords:theatre-audience (982): -0.0115468329477
+imdb_keywords:french (470): -0.0050722279562
+movielens_genre:Thriller (16): 0.00161898703082
+imdb_keywords:party (732): -0.00100199213325
+imdb_keywords:fish (450): -0.000999009795309
+Correctness score: 0.350091556498
+Processing user 630, movie 34224 (No Blade of Grass (1970))
+Original predicted rating: 1.3484179717
+User profile: {'neg_name': 'imdb_keywords:french', 'neg': 470, 'profile_id': 5, 'pos_name': 'tvtropes:faux affably evil', 'pos': 1132}
+Non-zero qiis:
+average_rating (1194): -0.517312695548
+imdb_keywords:murder-of-a-police-officer (675): -0.10863321629
+imdb_keywords:french (470): -0.0778326336001
+imdb_keywords:spy (916): -0.0745645827072
+imdb_keywords:thief (984): 0.0582105166707
+imdb_keywords:panic (724): -0.0398676278332
+imdb_keywords:party (732): 0.037234722771
+imdb_keywords:criminal (315): 0.0330691813739
+imdb_keywords:elevator (389): -0.0299771053193
+movielens_genre:Thriller (16): -0.00220620748438
+imdb_keywords:u.s.-army (1018): 0.00149774667666
+Correctness score: 0.124344024185
+Processing user 194, movie 8057 (Sweet Bird of Youth (1962))
+Original predicted rating: 1.61282149158
+User profile: {'neg_name': 'imdb_keywords:elevator', 'neg': 389, 'profile_id': 7, 'pos_name': 'imdb_keywords:spy', 'pos': 916}
+Non-zero qiis:
+imdb_keywords:spy (916): -0.24577058264
+average_rating (1194): 0.160500605768
+movielens_genre:Thriller (16): -0.100130403849
+imdb_keywords:actor (106): 0.0978229713963
+imdb_keywords:single-mother (893): -0.091953373901
+imdb_keywords:party (732): -0.0908937397733
+imdb_keywords:thief (984): -0.0814956164661
+imdb_keywords:u.s.-president (1019): -0.0666774805685
+movielens_genre:Drama (8): -0.0583040182915
+imdb_keywords:taxi (963): 0.0331413552975
+imdb_keywords:elevator (389): -0.013607788105
+imdb_keywords:trap (1007): -0.00703758270393
+imdb_keywords:theatre-audience (982): -0.00515405333063
+tvtropes:too dumb to live (1184): 0.00099369182929
+Correctness score: 0.638436537332
+Processing user 596, movie 7918 (Indian Runner, The (1991))
+Original predicted rating: 2.95512486714
+User profile: {'neg_name': 'imdb_keywords:party', 'neg': 732, 'profile_id': 9, 'pos_name': 'imdb_keywords:thief', 'pos': 984}
+Non-zero qiis:
+imdb_keywords:thief (984): 0.868004698713
+average_rating (1194): 0.533744984866
+imdb_keywords:party (732): -0.469282848724
+movielens_genre:Thriller (16): 0.0428790732609
+imdb_keywords:u.s.-president (1019): -0.0282090675412
+imdb_keywords:taxi-driver (964): 0.0199845914219
+imdb_keywords:taxi (963): -0.0103145588233
+movielens_genre:Crime (6): 0.00844418645361
+imdb_keywords:elevator (389): -0.000485410588258
+Correctness score: 0.954013090285
+Processing user 883, movie 3909 (Woman on Top (2000))
+Original predicted rating: 2.65934250418
+User profile: {'neg_name': 'imdb_keywords:actor', 'neg': 106, 'profile_id': 8, 'pos_name': 'tvtropes:too dumb to live', 'pos': 1184}
+Non-zero qiis:
+imdb_keywords:taxi (963): 0.242394460477
+average_rating (1194): 0.187021705013
+imdb_keywords:trap (1007): -0.186357752306
+imdb_keywords:spy (916): -0.119137284978
+tvtropes:faux affably evil (1132): -0.116167002685
+movielens_genre:Drama (8): 0.108411245016
+imdb_keywords:elevator (389): -0.058721688671
+imdb_keywords:single-mother (893): -0.0586463186177
+imdb_keywords:u.s.-president (1019): -0.0526836349676
+movielens_genre:Thriller (16): -0.0417209524744
+imdb_keywords:criminal (315): -0.0351250938456
+imdb_keywords:party (732): 0.034945282534
+imdb_keywords:gun (504): 0.0321958358679
+imdb_keywords:thief (984): -0.0118735530769
+Correctness score: 0.0
+Processing user 552, movie 55854 (Fugitive, The (1947))
+Original predicted rating: 3.97194264923
+User profile: {'neg_name': 'imdb_keywords:u.s.-army', 'neg': 1018, 'profile_id': 1, 'pos_name': 'imdb_keywords:single-mother', 'pos': 893}
+Non-zero qiis:
+imdb_keywords:single-mother (893): 2.26456576194
+average_rating (1194): 0.222168670724
+movielens_genre:Thriller (16): 0.206166255488
+imdb_keywords:taxi (963): 0.0553860342365
+imdb_keywords:spy (916): -0.0443695491285
+imdb_keywords:elevator (389): -0.0311590798071
+tvtropes:too dumb to live (1184): -0.0225031873855
+imdb_keywords:party (732): -0.00534544869809
+Correctness score: 0.910658465252
+Processing user 746, movie 2937 (Palm Beach Story, The (1942))
+Original predicted rating: 2.00545173998
+User profile: {'neg_name': 'imdb_keywords:elevator', 'neg': 389, 'profile_id': 7, 'pos_name': 'imdb_keywords:spy', 'pos': 916}
+Non-zero qiis:
+imdb_keywords:taxi (963): 0.152835071419
+average_rating (1194): 0.139855455414
+movielens_genre:Drama (8): 0.123534239694
+imdb_keywords:elevator (389): 0.119667701203
+tvtropes:faux affably evil (1132): -0.0999499540215
+movielens_genre:Thriller (16): -0.0845192364046
+imdb_keywords:party (732): -0.0683330015706
+tvtropes:too dumb to live (1184): -0.0563204699924
+imdb_keywords:thief (984): -0.043769397906
+imdb_keywords:gun (504): 0.02407587256
+Correctness score: 0.408854029196
+Processing user 490, movie 101362 (Olympus Has Fallen (2013))
+Original predicted rating: 2.94984477602
+User profile: {'neg_name': 'imdb_keywords:murder-of-a-police-officer', 'neg': 675, 'profile_id': 4, 'pos_name': 'imdb_keywords:u.s.-president', 'pos': 1019}
+Non-zero qiis:
+imdb_keywords:u.s.-president (1019): 0.864062479414
+imdb_keywords:murder-of-a-police-officer (675): -0.846032769891
+tvtropes:too dumb to live (1184): 0.265151752086
+movielens_genre:Drama (8): -0.261610754426
+imdb_keywords:u.s.-army (1018): 0.183084059064
+average_rating (1194): 0.130087131091
+imdb_keywords:single-mother (893): 0.0936538146272
+imdb_keywords:spy (916): -0.0684505142886
+year (0): -0.0313875295588
+movielens_genre:Thriller (16): -0.024775627845
+imdb_keywords:party (732): 0.0186742604686
+imdb_keywords:farmer (426): 0.00908017501004
+imdb_keywords:thief (984): 0.00174546048851
+imdb_keywords:criminal (315): -0.00161112673082
+Correctness score: 1.0
+Processing user 512, movie 5108 (John Q (2002))
+Original predicted rating: 1.75384710089
+User profile: {'neg_name': 'imdb_keywords:french', 'neg': 470, 'profile_id': 5, 'pos_name': 'tvtropes:faux affably evil', 'pos': 1132}
+Non-zero qiis:
+average_rating (1194): 0.283381850948
+imdb_keywords:thief (984): -0.127692989852
+imdb_keywords:spy (916): -0.093369462471
+imdb_keywords:trap (1007): -0.0929490956892
+imdb_keywords:single-mother (893): -0.0466926235201
+imdb_keywords:party (732): 0.0457667279086
+movielens_genre:Thriller (16): 0.0137477654079
+imdb_keywords:criminal (315): -0.00714374163981
+imdb_keywords:elevator (389): -0.00708913528477
+imdb_keywords:taxi (963): -0.000750118861808
+Correctness score: 0.0
+Correctness scores: [0.0, 0.0, 0.0, 0.8674431320766118, 0.0, 0.0635587825444986, 0.0, 0.015507302664095403, 0.7475955170133416, 0.268252660447198, 0.5826076224310116, 0.35009155649792884, 0.12434402418498419, 0.6384365373321611, 0.9540130902854174, 0.0, 0.9106584652524484, 0.4088540291962958, 1.0, 0.0]
+Average correctness: 0.346568135996

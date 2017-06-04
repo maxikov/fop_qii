@@ -1,0 +1,551 @@
+Loading results dict
+Original recommender relative to ground truth on training set mean absolute error: 0.0224987455762, RMSE: 0.0283878488995
+Shadow model relative to the baseline recommender on test set MAE: 0.856326428054, RMSE: 1.01333222653
+Randomized model relative to the baseline recommender on test set MAE: 1.1278658224, RMSE: 1.38880413143
+Shadow model is 1.3170979961 times better than random on the test set
+Loading movies
+Loading ALS model
+Loading decision trees
+262 features are used: 0: year, 1: movielens_genre:Action, 514: imdb_keywords:handcuffs, 427: imdb_keywords:father-daughter-relationship, 4: movielens_genre:Children, 5: movielens_genre:Comedy, 6: movielens_genre:Crime, 8: movielens_genre:Drama, 9: movielens_genre:Fantasy, 11: movielens_genre:Horror, 13: movielens_genre:Mystery, 15: movielens_genre:Sci-Fi, 16: movielens_genre:Thriller, 1041: imdb_keywords:village, 20: movielens_tags:BD-R, 1045: imdb_keywords:voice-over-narration, 23: movielens_tags:Betamax, 24: movielens_tags:Bibliothek, 26: movielens_tags:CLV, 540: imdb_keywords:horse-and-carriage, 29: movielens_tags:Criterion, 542: imdb_keywords:hospital, 1055: imdb_keywords:watching-tv, 32: movielens_tags:DVD-Video, 33: movielens_tags:In Netflix queue, 35: movielens_tags:Netflix Finland, 36: movielens_tags:Nudity (Topless - Brief), 37: movielens_tags:Nudity (Topless), 1024: imdb_keywords:underwater-scene, 1064: imdb_keywords:white-panties, 44: movielens_tags:atmospheric, 178: imdb_keywords:beaten-to-death, 559: imdb_keywords:injection, 49: movielens_tags:comedy, 52: movielens_tags:drama, 53: movielens_tags:drugs, 57: movielens_tags:funny, 1082: imdb_director:, 1085: tvtropes:adult fear, 1086: tvtropes:affably evil, 63: movielens_tags:might like, 64: movielens_tags:movie to see, 65: movielens_tags:murder, 66: movielens_tags:music, 580: imdb_keywords:karate, 581: imdb_keywords:key, 583: imdb_keywords:kidnapping, 1098: tvtropes:bilingual bonus, 75: movielens_tags:religion, 76: movielens_tags:revenge, 590: imdb_keywords:knocked-out, 1103: tvtropes:box office bomb, 1105: tvtropes:butt monkey, 1123: tvtropes:downer ending, 87: movielens_tags:thriller, 1114: tvtropes:cluster f bomb, 609: imdb_keywords:little-girl, 611: imdb_keywords:london-england, 612: imdb_keywords:loneliness, 101: imdb_keywords:2000s, 1126: tvtropes:establishing character moment, 103: imdb_keywords:accident, 104: imdb_keywords:accidental-death, 617: imdb_keywords:loss-of-friend, 106: imdb_keywords:actor, 107: imdb_keywords:actor-shares-first-name-with-character, 549: imdb_keywords:husband-wife-relationship, 622: imdb_keywords:low-budget-film, 113: imdb_keywords:airplane, 114: imdb_keywords:airport, 1139: tvtropes:heroic b s o d, 629: imdb_keywords:magic, 630: imdb_keywords:maid, 1144: tvtropes:idiot ball, 1145: tvtropes:infant immortality, 1095: tvtropes:berserk button, 635: imdb_keywords:male-rear-nudity, 1148: tvtropes:jerkass, 703: imdb_keywords:ocean, 789: imdb_keywords:race-against-time, 640: imdb_keywords:mansion, 619: imdb_keywords:loss-of-virginity, 1157: tvtropes:mood whiplash, 1160: tvtropes:mythology gag, 141: imdb_keywords:assassination, 654: imdb_keywords:mercenary, 143: imdb_keywords:attempted-murder, 144: imdb_keywords:attempted-rape, 963: imdb_keywords:taxi, 148: imdb_keywords:automobile, 110: imdb_keywords:adultery, 1177: tvtropes:shown their work, 1179: tvtropes:soundtrack dissonance, 668: imdb_keywords:montage, 670: imdb_keywords:mother-daughter-relationship, 163: imdb_keywords:baseball, 167: imdb_keywords:based-on-novel, 168: imdb_keywords:based-on-play, 1194: average_rating, 173: imdb_keywords:bathroom, 142: imdb_keywords:assassination-attempt, 175: imdb_keywords:battle, 688: imdb_keywords:newspaper, 690: imdb_keywords:night, 179: imdb_keywords:beating, 180: imdb_keywords:bed, 693: imdb_keywords:nipples, 695: imdb_keywords:no-opening-credits, 696: imdb_keywords:nonlinear-timeline, 698: imdb_keywords:number-in-title, 187: imdb_keywords:bikini, 188: imdb_keywords:binoculars, 970: imdb_keywords:teenage-boy, 191: imdb_keywords:birthday-cake, 192: imdb_keywords:birthday-party, 705: imdb_keywords:old-man, 194: imdb_keywords:black-american, 707: imdb_keywords:older-man-younger-woman-relationship, 708: imdb_keywords:older-woman-younger-man-relationship, 198: imdb_keywords:blindness, 201: imdb_keywords:blood, 205: imdb_keywords:bomb, 718: imdb_keywords:orgasm, 207: imdb_keywords:bound-and-gagged, 721: imdb_keywords:pain, 722: imdb_keywords:painter, 547: imdb_keywords:humiliation, 215: imdb_keywords:breaking-and-entering, 218: imdb_keywords:bridge, 223: imdb_keywords:brother-sister-relationship, 225: imdb_keywords:brutality, 738: imdb_keywords:photograph, 123: imdb_keywords:american-abroad, 229: imdb_keywords:bus, 748: imdb_keywords:poetry, 210: imdb_keywords:boy, 238: imdb_keywords:candle, 239: imdb_keywords:cannon, 40: movielens_tags:Tumey's DVDs, 754: imdb_keywords:police-detective, 247: imdb_keywords:castle, 760: imdb_keywords:politician, 767: imdb_keywords:prejudice, 768: imdb_keywords:premarital-sex, 772: imdb_keywords:product-placement, 262: imdb_keywords:chicago-illinois, 776: imdb_keywords:prostitute, 556: imdb_keywords:independent-film, 779: imdb_keywords:psychiatrist, 472: imdb_keywords:friendship, 277: imdb_keywords:city, 280: imdb_keywords:classroom, 794: imdb_keywords:rage, 47: movielens_tags:cinematography, 284: imdb_keywords:coffin, 125: imdb_keywords:anger, 287: imdb_keywords:colonel, 801: imdb_keywords:record-player, 805: imdb_keywords:reference-to-god, 296: imdb_keywords:conspiracy, 809: imdb_keywords:religion, 301: imdb_keywords:corpse, 814: imdb_keywords:revenge, 817: imdb_keywords:revolver, 307: imdb_keywords:courtroom, 308: imdb_keywords:cousin-cousin-relationship, 309: imdb_keywords:cover-up, 822: imdb_keywords:rivalry, 283: imdb_keywords:coffee, 319: imdb_keywords:cruelty, 1077: imdb_keywords:writer, 322: imdb_keywords:cult-director, 836: imdb_keywords:sadism, 327: imdb_keywords:dancer, 840: imdb_keywords:satire, 330: imdb_keywords:darkness, 2: movielens_genre:Adventure, 336: imdb_keywords:death-of-child, 340: imdb_keywords:death-of-mother, 1166: tvtropes:only sane man, 854: imdb_keywords:secret-agent, 858: imdb_keywords:seduction, 351: imdb_keywords:detective, 354: imdb_keywords:diner, 355: imdb_keywords:dinner, 359: imdb_keywords:disarming-someone, 875: imdb_keywords:ship, 364: imdb_keywords:dog, 366: imdb_keywords:domestic-violence, 700: imdb_keywords:nurse, 370: imdb_keywords:dream-sequence, 599: imdb_keywords:letter, 372: imdb_keywords:drinking, 374: imdb_keywords:drug-addict, 889: imdb_keywords:shower, 379: imdb_keywords:drunkenness, 892: imdb_keywords:singing, 893: imdb_keywords:single-mother, 896: imdb_keywords:skeleton, 899: imdb_keywords:slasher, 900: imdb_keywords:sleeping, 901: imdb_keywords:slow-motion-scene, 906: imdb_keywords:snow, 371: imdb_keywords:drink, 1009: imdb_keywords:tree, 397: imdb_keywords:espionage, 910: imdb_keywords:soldier, 400: imdb_keywords:ex-boyfriend-ex-girlfriend-relationship, 403: imdb_keywords:execution, 404: imdb_keywords:exploding-body, 750: imdb_keywords:police, 921: imdb_keywords:stage, 922: imdb_keywords:stalking, 184: imdb_keywords:betrayal, 415: imdb_keywords:fainting, 460: imdb_keywords:flowers, 931: imdb_keywords:stripper, 932: imdb_keywords:student, 421: imdb_keywords:family-relationships, 423: imdb_keywords:fantasy-sequence, 939: imdb_keywords:suicide-attempt, 428: imdb_keywords:father-son-relationship, 431: imdb_keywords:fellatio, 328: imdb_keywords:dancing, 948: imdb_keywords:survival, 949: imdb_keywords:suspense, 867: imdb_keywords:severed-hand, 957: imdb_keywords:syringe, 960: imdb_keywords:tape-recorder, 331: imdb_keywords:dating, 455: imdb_keywords:flashback, 968: imdb_keywords:tears, 458: imdb_keywords:flirting, 972: imdb_keywords:teenager, 461: imdb_keywords:following-someone, 363: imdb_keywords:doctor, 463: imdb_keywords:foot-chase, 978: imdb_keywords:terrorism, 981: imdb_keywords:theatre, 471: imdb_keywords:friend, 984: imdb_keywords:thief, 985: imdb_keywords:threat, 989: imdb_keywords:tied-to-a-chair, 993: imdb_keywords:toilet, 483: imdb_keywords:gay-interest, 1002: imdb_keywords:train, 1004: imdb_keywords:training, 1005: imdb_keywords:traitor, 183: imdb_keywords:best-friend, 495: imdb_keywords:grandfather-grandson-relationship, 496: imdb_keywords:grandmother-grandson-relationship, 680: imdb_keywords:nazi, 1010: imdb_keywords:trial, 595: imdb_keywords:leg-spreading, 1012: imdb_keywords:trust, 501: imdb_keywords:guilt, 1016: imdb_keywords:two-word-title, 136: imdb_keywords:arrest, 1019: imdb_keywords:u.s.-president, 1020: imdb_keywords:umbrella, 170: imdb_keywords:basement, 1022: imdb_keywords:uncle-niece-relationship
+Loading indicators
+Building indicator distributions
+Loading user profiles
+Processing user 716, movie 6633 (Prince of Jutland (a.k.a. Royal Deceit) (1994))
+Original predicted rating: 1.16254358369
+User profile: {'neg_name': 'imdb_keywords:speech', 'neg': 913, 'profile_id': 7, 'pos_name': 'imdb_keywords:dead-woman', 'pos': 333}
+Non-zero qiis:
+average_rating (1194): -0.157507641459
+imdb_keywords:suicide-attempt (939): 0.0353222730348
+year (0): -0.0287143867425
+tvtropes:box office bomb (1103): -0.0257657773292
+imdb_keywords:doctor (363): -0.0193993020925
+movielens_genre:Mystery (13): -0.0184268296604
+imdb_keywords:conspiracy (296): 0.0176813696421
+imdb_keywords:premarital-sex (768): 0.0169972296073
+imdb_keywords:brother-sister-relationship (223): 0.0154483321947
+imdb_keywords:low-budget-film (622): 0.0151617017594
+imdb_keywords:drink (371): 0.0135207228288
+imdb_keywords:birthday-party (192): 0.0127293500905
+tvtropes:downer ending (1123): 0.0099611215351
+imdb_keywords:arrest (136): -0.008723547805
+tvtropes:mood whiplash (1157): -0.00855385340981
+imdb_keywords:survival (948): 0.00559677833288
+imdb_keywords:best-friend (183): 0.00550599342498
+tvtropes:only sane man (1166): -0.00543037467236
+imdb_keywords:old-man (705): -0.00511675260547
+imdb_keywords:older-man-younger-woman-relationship (707): 0.00441503359759
+imdb_keywords:little-girl (609): -0.00389682825619
+imdb_keywords:teenager (972): -0.00335169157625
+imdb_keywords:loneliness (612): -0.00274669625075
+imdb_keywords:leg-spreading (595): 0.00201234571081
+Correctness score: 0.0
+Processing user 356, movie 47044 (Miami Vice (2006))
+Original predicted rating: 1.60239196686
+User profile: {'neg_name': 'imdb_keywords:machismo', 'neg': 626, 'profile_id': 3, 'pos_name': 'imdb_keywords:based-on-comic-book', 'pos': 166}
+Non-zero qiis:
+average_rating (1194): 0.0860839033078
+imdb_keywords:suspense (949): 0.0601155899182
+imdb_keywords:letter (599): -0.046360496604
+imdb_keywords:airplane (113): -0.0411534726865
+imdb_keywords:detective (351): -0.0340088641175
+imdb_keywords:conspiracy (296): -0.0161819355391
+year (0): -0.0132437307006
+imdb_keywords:coffin (284): 0.00888168823628
+imdb_keywords:loss-of-friend (617): -0.00712254905214
+imdb_keywords:slow-motion-scene (901): -0.00577279830376
+imdb_keywords:blood (201): 0.00220153261439
+imdb_keywords:teenager (972): -0.00196250187394
+imdb_keywords:domestic-violence (366): -0.00171663421717
+imdb_keywords:number-in-title (698): -0.00105054995217
+movielens_tags:comedy (49): 0.00102448966356
+imdb_keywords:hospital (542): -0.000922603669753
+Correctness score: 0.0
+Processing user 319, movie 61041 (Take, The (2007))
+Original predicted rating: 2.97703265025
+User profile: {'neg_name': 'imdb_keywords:shootout', 'neg': 877, 'profile_id': 5, 'pos_name': 'tvtropes:chekhovs gun', 'pos': 1110}
+Non-zero qiis:
+average_rating (1194): -0.19391472297
+imdb_keywords:threat (985): 0.110601486288
+imdb_keywords:shower (889): 0.0846420772234
+imdb_keywords:coffin (284): -0.0276246186733
+imdb_keywords:drink (371): -0.0208290271697
+year (0): 0.0173114470073
+imdb_keywords:terrorism (978): 0.0170972386636
+imdb_keywords:toilet (993): 0.0156928703554
+imdb_keywords:dream-sequence (370): -0.013298234852
+imdb_keywords:white-panties (1064): -0.0108465893374
+imdb_keywords:revolver (817): -0.00914675566666
+imdb_keywords:slow-motion-scene (901): -0.00866489821634
+imdb_keywords:loneliness (612): -0.00164565070653
+tvtropes:soundtrack dissonance (1179): -0.00076162541377
+Correctness score: 0.0
+Processing user 167, movie 88163 (Crazy, Stupid, Love. (2011))
+Original predicted rating: 2.92360287476
+User profile: {'neg_name': 'imdb_keywords:', 'neg': 90, 'profile_id': 1, 'pos_name': 'imdb_keywords:fishing', 'pos': 452}
+Non-zero qiis:
+average_rating (1194): 1.06338624797
+imdb_keywords:basement (170): 0.438246072647
+imdb_keywords:montage (668): 0.38332398225
+imdb_keywords:baseball (163): 0.260828289599
+imdb_keywords:reference-to-god (805): 0.21055553048
+imdb_keywords:record-player (801): 0.198789031694
+imdb_keywords:guilt (501): 0.0636360882429
+imdb_keywords:hospital (542): 0.0506483805122
+imdb_keywords:mother-daughter-relationship (670): 0.0500741155622
+movielens_tags:comedy (49): -0.0454439911706
+imdb_keywords:mansion (640): 0.0377584312632
+imdb_keywords:slow-motion-scene (901): -0.0324664208361
+tvtropes:soundtrack dissonance (1179): -0.0313098085285
+imdb_keywords:courtroom (307): 0.0249286348686
+imdb_keywords:shower (889): 0.0214316078983
+imdb_keywords:airplane (113): 0.0210706306469
+imdb_keywords:disarming-someone (359): 0.0198026296672
+imdb_keywords:low-budget-film (622): -0.0173941447681
+imdb_keywords:poetry (748): 0.0142201115046
+tvtropes:only sane man (1166): 0.0139110100646
+imdb_keywords:terrorism (978): 0.00993579041315
+imdb_keywords:suspense (949): -0.00849268416861
+imdb_keywords:leg-spreading (595): -0.0082692463611
+imdb_keywords:knocked-out (590): -0.00424106406867
+imdb_keywords:rivalry (822): 0.00422878707366
+imdb_keywords:domestic-violence (366): -0.00198393735274
+imdb_keywords:anger (125): -0.00174735891398
+imdb_keywords:loneliness (612): -0.000507317154156
+imdb_keywords:product-placement (772): 0.000345749867325
+Correctness score: 0.0
+Processing user 532, movie 9 (Sudden Death (1995))
+Original predicted rating: 3.44537158029
+User profile: {'neg_name': 'imdb_keywords:crucifix', 'neg': 318, 'profile_id': 6, 'pos_name': 'imdb_keywords:watching-a-movie', 'pos': 1054}
+Non-zero qiis:
+average_rating (1194): 0.300576500176
+imdb_keywords:suspense (949): 0.149191690865
+imdb_keywords:disarming-someone (359): -0.120956806122
+imdb_keywords:magic (629): -0.0425797246691
+imdb_keywords:mother-daughter-relationship (670): -0.0360491317957
+imdb_keywords:race-against-time (789): -0.0348866809322
+imdb_keywords:execution (403): -0.0228298843613
+imdb_keywords:detective (351): 0.0141269833967
+imdb_keywords:baseball (163): -0.0124979123052
+imdb_keywords:espionage (397): 0.0109679145447
+imdb_keywords:number-in-title (698): 0.00869020319097
+movielens_tags:comedy (49): -0.00847463114441
+imdb_keywords:loneliness (612): 0.00789099608536
+imdb_keywords:loss-of-friend (617): 0.00700067093547
+imdb_keywords:attempted-rape (144): -0.00696498239084
+imdb_keywords:slow-motion-scene (901): -0.00647717384602
+imdb_keywords:shower (889): 0.00540980826013
+imdb_keywords:hospital (542): -0.00504716568565
+imdb_keywords:horse-and-carriage (540): 0.00478679263489
+imdb_keywords:teenager (972): 0.00405847908802
+imdb_keywords:cannon (239): -0.00208985239811
+tvtropes:soundtrack dissonance (1179): 0.00174301901102
+imdb_keywords:accident (103): -0.000774829308046
+imdb_keywords:guilt (501): 7.33371108665e-05
+Correctness score: 0.0
+Processing user 969, movie 2309 (Inheritors, The (Siebtelbauern, Die) (1998))
+Original predicted rating: 2.11924423851
+User profile: {'neg_name': 'imdb_keywords:crucifix', 'neg': 318, 'profile_id': 6, 'pos_name': 'imdb_keywords:watching-a-movie', 'pos': 1054}
+Non-zero qiis:
+average_rating (1194): 0.151421112708
+imdb_keywords:village (1041): -0.145105663297
+imdb_keywords:horse-and-carriage (540): 0.0781000858551
+imdb_keywords:mother-daughter-relationship (670): -0.0472444962121
+tvtropes:cluster f bomb (1114): -0.0413245207053
+imdb_keywords:independent-film (556): 0.0358178291845
+imdb_keywords:seduction (858): 0.0265383718326
+imdb_keywords:boy (210): -0.0256498292586
+imdb_keywords:airplane (113): 0.0242065027707
+imdb_keywords:gay-interest (483): 0.0183847697125
+imdb_keywords:number-in-title (698): -0.0179726117225
+imdb_keywords:teenager (972): 0.0176368696272
+imdb_keywords:domestic-violence (366): 0.0154272738732
+imdb_keywords:mansion (640): -0.0125654142594
+movielens_tags:comedy (49): -0.00920701828139
+imdb_keywords:magic (629): -0.00780081362276
+imdb_keywords:courtroom (307): 0.00746995274682
+imdb_keywords:anger (125): 0.00735295494204
+imdb_keywords:detective (351): 0.00462855955419
+tvtropes:soundtrack dissonance (1179): 0.00212227799882
+imdb_keywords:cult-director (322): -0.00200491645697
+imdb_keywords:coffin (284): 0.00170455579336
+imdb_keywords:slow-motion-scene (901): -0.00110790387264
+imdb_keywords:hospital (542): -0.000793399674789
+Correctness score: 0.0
+Processing user 233, movie 61246 (Hamlet 2 (2008))
+Original predicted rating: 1.34598059196
+User profile: {'neg_name': 'imdb_keywords:machismo', 'neg': 626, 'profile_id': 3, 'pos_name': 'imdb_keywords:based-on-comic-book', 'pos': 166}
+Non-zero qiis:
+imdb_keywords:theatre (981): 0.183232569956
+imdb_keywords:number-in-title (698): 0.158285087721
+average_rating (1194): 0.148789179327
+imdb_keywords:dancer (327): 0.112627666082
+imdb_keywords:montage (668): -0.0965800408387
+imdb_keywords:shower (889): 0.0478931841083
+imdb_keywords:magic (629): -0.0382791911965
+imdb_keywords:mansion (640): -0.0347377713748
+imdb_keywords:product-placement (772): 0.0323809576864
+imdb_keywords:hospital (542): -0.0272286110991
+imdb_keywords:disarming-someone (359): 0.0261439615762
+imdb_keywords:cover-up (309): 0.0201353971772
+imdb_keywords:horse-and-carriage (540): -0.0150815944685
+tvtropes:cluster f bomb (1114): -0.0146899873841
+imdb_keywords:espionage (397): 0.0129720088851
+imdb_keywords:slow-motion-scene (901): -0.00699200106086
+imdb_keywords:race-against-time (789): -0.00653674280711
+imdb_keywords:airplane (113): 0.00573659761396
+imdb_keywords:mother-daughter-relationship (670): -0.00419860316271
+imdb_keywords:anger (125): 0.0036236121167
+imdb_keywords:dream-sequence (370): 0.00190995931334
+imdb_keywords:detective (351): 0.00164535438759
+tvtropes:only sane man (1166): -0.00146100713171
+imdb_keywords:guilt (501): -0.00118523779711
+imdb_keywords:courtroom (307): -0.000615610101309
+imdb_keywords:suspense (949): 0.000222986542315
+Correctness score: 0.0
+Processing user 434, movie 27220 (Cruel Intentions 2 (Cruel Intentions 2: Manchester Prep) (2000))
+Original predicted rating: 2.34757811253
+User profile: {'neg_name': 'imdb_keywords:recording', 'neg': 802, 'profile_id': 2, 'pos_name': 'imdb_keywords:arson', 'pos': 137}
+Non-zero qiis:
+average_rating (1194): -0.204734863225
+imdb_keywords:shower (889): -0.0468112209517
+imdb_keywords:grandmother-grandson-relationship (496): -0.0328231862694
+tvtropes:downer ending (1123): 0.0327942808608
+imdb_keywords:drunkenness (379): 0.0264830304108
+tvtropes:mood whiplash (1157): -0.0140806168349
+imdb_keywords:stage (921): -0.0131845227659
+imdb_keywords:loneliness (612): -0.0108651365292
+imdb_keywords:old-man (705): -0.00762411945344
+year (0): -0.00543055261244
+imdb_keywords:doctor (363): 0.00489551662301
+imdb_keywords:drink (371): 0.00410834926536
+imdb_keywords:theatre (981): 0.00383379388929
+movielens_tags:drama (52): 0.00222086090652
+imdb_keywords:key (581): -0.00187800160647
+imdb_keywords:number-in-title (698): 0.00133767695311
+imdb_keywords:birthday-cake (191): -0.000339791958488
+imdb_keywords:premarital-sex (768): 0.00013875169836
+Correctness score: 0.0
+Processing user 791, movie 72574 (Until Death (2007))
+Original predicted rating: 2.34872442206
+User profile: {'neg_name': 'imdb_keywords:one-man-army', 'neg': 712, 'profile_id': 4, 'pos_name': 'movielens_tags:classic', 'pos': 48}
+Non-zero qiis:
+imdb_keywords:disarming-someone (359): -0.263232381805
+imdb_keywords:no-opening-credits (695): 0.239284376141
+average_rating (1194): 0.214509969979
+imdb_keywords:hospital (542): -0.168714051814
+imdb_keywords:magic (629): -0.150895633974
+imdb_keywords:blood (201): -0.0897762330671
+imdb_keywords:knocked-out (590): 0.0746344724366
+imdb_keywords:loss-of-friend (617): 0.0555660123101
+imdb_keywords:soldier (910): -0.0511986961174
+imdb_keywords:rivalry (822): 0.0477363448353
+imdb_keywords:guilt (501): 0.0428534899136
+imdb_keywords:shower (889): 0.0400705333329
+imdb_keywords:baseball (163): -0.0384252111045
+imdb_keywords:product-placement (772): -0.0370462812517
+tvtropes:affably evil (1086): -0.0359443244668
+tvtropes:heroic b s o d (1139): -0.0333709824599
+imdb_keywords:detective (351): -0.028934328225
+imdb_keywords:birthday-party (192): -0.0165196915045
+imdb_keywords:voice-over-narration (1045): -0.0158135733692
+tvtropes:shown their work (1177): 0.0127214737722
+imdb_keywords:gay-interest (483): 0.0125796169354
+imdb_keywords:cult-director (322): 0.0114345762806
+imdb_keywords:leg-spreading (595): 0.00932834519768
+imdb_keywords:diner (354): -0.0086382125601
+imdb_keywords:suspense (949): 0.00602550500031
+imdb_keywords:number-in-title (698): -0.00338781935002
+imdb_keywords:reference-to-god (805): 0.00263805108765
+imdb_keywords:candle (238): -0.00135608778138
+tvtropes:idiot ball (1144): -0.00129356339312
+imdb_keywords:slow-motion-scene (901): -0.000761482740766
+imdb_keywords:poetry (748): 0.000381171656435
+Correctness score: 0.0
+Processing user 553, movie 1517 (Austin Powers: International Man of Mystery (1997))
+Original predicted rating: 3.56821718057
+User profile: {'neg_name': 'imdb_keywords:ocean', 'neg': 703, 'profile_id': 9, 'pos_name': 'imdb_keywords:cleavage', 'pos': 281}
+Non-zero qiis:
+imdb_keywords:secret-agent (854): -0.305885592676
+average_rating (1194): -0.270361837749
+imdb_keywords:loneliness (612): -0.200258737379
+imdb_keywords:knocked-out (590): 0.121047793266
+imdb_keywords:drink (371): -0.0276083627109
+imdb_keywords:rivalry (822): 0.0241745178443
+imdb_keywords:doctor (363): 0.0227529514595
+year (0): -0.017599105265
+imdb_keywords:brother-sister-relationship (223): 0.0147146018753
+imdb_keywords:cult-director (322): -0.0145077398173
+imdb_keywords:leg-spreading (595): -0.0139638599171
+imdb_keywords:stage (921): 0.0135713164857
+movielens_genre:Mystery (13): -0.0133243865109
+tvtropes:box office bomb (1103): -0.0126335173101
+tvtropes:mood whiplash (1157): -0.0123705326516
+imdb_keywords:shower (889): 0.0121477054927
+imdb_keywords:survival (948): -0.0118522431852
+imdb_keywords:revolver (817): -0.0108532050317
+movielens_tags:comedy (49): -0.00715146003014
+movielens_tags:Betamax (23): 0.00483711989101
+imdb_keywords:coffee (283): -0.00445106602724
+imdb_keywords:premarital-sex (768): 0.00273242243024
+imdb_keywords:number-in-title (698): -0.00144848341576
+Correctness score: 0.0
+Processing user 218, movie 101142 (Croods, The (2013))
+Original predicted rating: 2.57325616271
+User profile: {'neg_name': 'imdb_keywords:one-man-army', 'neg': 712, 'profile_id': 4, 'pos_name': 'movielens_tags:classic', 'pos': 48}
+Non-zero qiis:
+average_rating (1194): 0.241833794163
+imdb_keywords:assassination (141): 0.0852396797923
+imdb_keywords:survival (948): -0.0717383039128
+imdb_keywords:skeleton (896): -0.0714184709074
+imdb_keywords:city (277): 0.0430104475723
+imdb_keywords:stage (921): 0.0282410592888
+movielens_tags:comedy (49): 0.0265706862626
+imdb_keywords:loneliness (612): 0.0252254769146
+imdb_keywords:slow-motion-scene (901): -0.0229228720879
+imdb_keywords:dream-sequence (370): 0.0197654211437
+imdb_keywords:domestic-violence (366): 0.0168380185147
+imdb_keywords:attempted-rape (144): -0.0164328254097
+imdb_keywords:coffee (283): 0.0117989933718
+imdb_keywords:coffin (284): 0.0117559279834
+imdb_keywords:nipples (693): 0.011401100515
+imdb_keywords:shower (889): 0.00980256734605
+tvtropes:mythology gag (1160): 0.0089724970136
+imdb_keywords:loss-of-friend (617): -0.00768278555885
+imdb_keywords:number-in-title (698): 0.00597969555781
+imdb_keywords:drink (371): -0.00426296169825
+year (0): 0.0040394702619
+imdb_keywords:nonlinear-timeline (696): -0.00397110876478
+movielens_tags:drama (52): 0.00323733459901
+imdb_keywords:best-friend (183): 0.000566076398504
+Correctness score: 0.0
+Processing user 233, movie 522 (Romper Stomper (1992))
+Original predicted rating: 1.43887143986
+User profile: {'neg_name': 'imdb_keywords:machismo', 'neg': 626, 'profile_id': 3, 'pos_name': 'imdb_keywords:based-on-comic-book', 'pos': 166}
+Non-zero qiis:
+average_rating (1194): -0.17925343165
+imdb_keywords:doctor (363): 0.0415139137221
+imdb_keywords:domestic-violence (366): -0.0407650312555
+imdb_keywords:politician (760): -0.0217146696124
+year (0): -0.0184040232968
+imdb_keywords:grandmother-grandson-relationship (496): 0.0148937544454
+movielens_genre:Comedy (5): 0.014732247609
+imdb_keywords:brother-sister-relationship (223): 0.0103639772482
+imdb_keywords:survival (948): -0.00991324249129
+imdb_keywords:conspiracy (296): -0.00405505756988
+movielens_tags:drama (52): -0.00305174855305
+tvtropes:mood whiplash (1157): -0.00302900083707
+imdb_keywords:number-in-title (698): -0.00158175490213
+imdb_keywords:maid (630): 0.00154280606173
+imdb_keywords:fantasy-sequence (423): -0.00109837755984
+imdb_keywords:father-son-relationship (428): 0.00102824572607
+imdb_keywords:leg-spreading (595): 0.00100785887405
+imdb_keywords:death-of-child (336): 0.000961629183666
+Correctness score: 0.0
+Processing user 764, movie 117372 (V/H/S: Viral (2014))
+Original predicted rating: 2.69682016357
+User profile: {'neg_name': 'imdb_keywords:one-man-army', 'neg': 712, 'profile_id': 4, 'pos_name': 'movielens_tags:classic', 'pos': 48}
+Non-zero qiis:
+average_rating (1194): -0.455596915222
+imdb_keywords:doctor (363): 0.0401693863041
+imdb_keywords:loneliness (612): 0.0226839370351
+tvtropes:downer ending (1123): 0.015454550221
+tvtropes:only sane man (1166): -0.0123239644536
+imdb_keywords:knocked-out (590): -0.0115251737932
+imdb_keywords:prejudice (767): -0.0113217681485
+imdb_keywords:teenager (972): 0.00964549476686
+imdb_keywords:assassination (141): 0.00835722382553
+imdb_keywords:conspiracy (296): 0.00773650674962
+imdb_keywords:premarital-sex (768): -0.00692026953771
+imdb_keywords:birthday-party (192): -0.00610541855708
+imdb_keywords:number-in-title (698): 0.00516334491218
+year (0): 0.00421272281275
+imdb_keywords:brother-sister-relationship (223): 0.00305781465623
+imdb_keywords:cult-director (322): -0.00160428790953
+imdb_keywords:drink (371): -0.00114654449918
+imdb_keywords:best-friend (183): 0.000509042561383
+Correctness score: 0.0
+Processing user 128, movie 3788 (Blow-Up (Blowup) (1966))
+Original predicted rating: 1.79279049886
+User profile: {'neg_name': 'imdb_keywords:crucifix', 'neg': 318, 'profile_id': 6, 'pos_name': 'imdb_keywords:watching-a-movie', 'pos': 1054}
+Non-zero qiis:
+average_rating (1194): 0.230706618953
+imdb_keywords:bikini (187): -0.149256778578
+imdb_keywords:gay-interest (483): 0.0483047555304
+imdb_keywords:loneliness (612): -0.0336851134639
+imdb_keywords:village (1041): -0.03364067825
+imdb_keywords:mother-daughter-relationship (670): -0.0334642208298
+imdb_keywords:seduction (858): -0.019935794198
+imdb_keywords:slow-motion-scene (901): -0.0180679379071
+imdb_keywords:anger (125): -0.0110046906402
+imdb_keywords:hospital (542): 0.00972720962805
+imdb_keywords:taxi (963): -0.00735320029056
+imdb_keywords:accident (103): -0.00601284058206
+imdb_keywords:death-of-mother (340): 0.00563232297171
+imdb_keywords:loss-of-friend (617): 0.00553004018161
+movielens_tags:comedy (49): -0.00509567879284
+imdb_keywords:race-against-time (789): -0.00319096183566
+imdb_keywords:montage (668): -0.00258271678172
+Correctness score: 0.0
+Processing user 55, movie 115955 (Category 7: The End of the World (2005))
+Original predicted rating: 2.26998162745
+User profile: {'neg_name': 'imdb_keywords:speech', 'neg': 913, 'profile_id': 7, 'pos_name': 'imdb_keywords:dead-woman', 'pos': 333}
+Non-zero qiis:
+average_rating (1194): 0.152240675567
+imdb_keywords:hospital (542): 0.0546963752694
+imdb_keywords:mother-daughter-relationship (670): -0.0231975660235
+imdb_keywords:anger (125): 0.0198823647424
+imdb_keywords:detective (351): 0.0187620344468
+imdb_keywords:blood (201): 0.016637599267
+tvtropes:cluster f bomb (1114): -0.0162326344749
+imdb_keywords:loneliness (612): 0.0128278227575
+imdb_keywords:number-in-title (698): 0.00969862303805
+imdb_keywords:seduction (858): 0.00897061275636
+imdb_keywords:magic (629): -0.00711841912653
+tvtropes:infant immortality (1145): 0.00659038641252
+imdb_keywords:low-budget-film (622): -0.00571875378142
+imdb_keywords:coffin (284): -0.00565528734421
+movielens_tags:In Netflix queue (33): -0.00502889426188
+imdb_keywords:product-placement (772): 0.00454504545
+tvtropes:soundtrack dissonance (1179): -0.00453435322962
+imdb_keywords:leg-spreading (595): -0.00271871854165
+imdb_keywords:u.s.-president (1019): 0.00189815711865
+imdb_keywords:taxi (963): 0.000511573961902
+imdb_keywords:courtroom (307): -0.00045280260048
+imdb_keywords:guilt (501): -1.61441484394e-06
+Correctness score: 0.0
+Processing user 755, movie 474 (In the Line of Fire (1993))
+Original predicted rating: 2.58251232877
+User profile: {'neg_name': 'imdb_keywords:speech', 'neg': 913, 'profile_id': 7, 'pos_name': 'imdb_keywords:dead-woman', 'pos': 333}
+Non-zero qiis:
+average_rating (1194): 0.234510159611
+imdb_keywords:revolver (817): 0.0772311508449
+imdb_keywords:uncle-niece-relationship (1022): 0.0379706607114
+imdb_keywords:drink (371): -0.0369899710431
+imdb_keywords:toilet (993): 0.026216849096
+year (0): 0.0246506608179
+imdb_keywords:shower (889): -0.024006534702
+imdb_keywords:doctor (363): 0.0195450004218
+imdb_keywords:assassination (141): 0.0190397839789
+imdb_keywords:conspiracy (296): -0.0162776281943
+imdb_keywords:best-friend (183): -0.0162213425503
+imdb_keywords:loss-of-friend (617): -0.00804768445014
+imdb_keywords:attempted-rape (144): -0.00668463721578
+imdb_keywords:coffin (284): -0.0066062490899
+movielens_tags:In Netflix queue (33): -0.00587452522191
+imdb_keywords:number-in-title (698): 0.00493218424989
+imdb_keywords:slow-motion-scene (901): -0.00310823164472
+imdb_keywords:leg-spreading (595): -0.00135103412089
+imdb_keywords:loneliness (612): 0.00108369999215
+imdb_keywords:birthday-party (192): -0.000770549017812
+Correctness score: 0.0
+Processing user 345, movie 53468 (Fido (2006))
+Original predicted rating: 2.02820272286
+User profile: {'neg_name': 'imdb_keywords:', 'neg': 90, 'profile_id': 1, 'pos_name': 'imdb_keywords:fishing', 'pos': 452}
+Non-zero qiis:
+average_rating (1194): -0.325137317247
+movielens_tags:comedy (49): -0.0734047383436
+imdb_keywords:doctor (363): 0.0325710506304
+imdb_keywords:slow-motion-scene (901): -0.027567199515
+imdb_keywords:revolver (817): -0.0239879662124
+imdb_keywords:toilet (993): 0.0205777905074
+imdb_keywords:number-in-title (698): -0.016519633082
+tvtropes:only sane man (1166): -0.014529932624
+year (0): -0.0134886683865
+imdb_keywords:politician (760): 0.0113441894161
+imdb_keywords:knocked-out (590): -0.0103076787751
+imdb_keywords:drink (371): -0.00762756796211
+imdb_keywords:survival (948): -0.0060656010289
+imdb_keywords:shower (889): 0.00489667230269
+imdb_keywords:poetry (748): 0.00380510812491
+imdb_keywords:candle (238): -0.00338434177089
+imdb_keywords:suspense (949): 0.00322969936498
+imdb_keywords:leg-spreading (595): -0.000553038565971
+Correctness score: 0.0
+Processing user 936, movie 26356 (Supervixens (1975))
+Original predicted rating: 1.13193990548
+User profile: {'neg_name': 'imdb_keywords:wig', 'neg': 1067, 'profile_id': 8, 'pos_name': 'imdb_keywords:king', 'pos': 585}
+Non-zero qiis:
+average_rating (1194): -0.307880957636
+imdb_keywords:nipples (693): -0.23217281066
+imdb_keywords:low-budget-film (622): -0.125017693019
+movielens_tags:CLV (26): -0.0750634582881
+imdb_keywords:attempted-rape (144): -0.0310406417011
+movielens_genre:Comedy (5): -0.0307703804704
+year (0): -0.023996511341
+imdb_keywords:birthday-party (192): -0.0219742868509
+imdb_keywords:stage (921): 0.0185045912878
+tvtropes:jerkass (1148): -0.0155371416656
+imdb_keywords:shower (889): 0.0149032768425
+movielens_tags:In Netflix queue (33): -0.0136394112867
+movielens_tags:DVD-Video (32): -0.0132877290102
+imdb_keywords:conspiracy (296): -0.0129228786355
+imdb_keywords:loneliness (612): -0.0126302380289
+imdb_keywords:best-friend (183): 0.0107169325472
+imdb_keywords:assassination (141): 0.00948202303298
+imdb_keywords:coffee (283): 0.00888297699913
+imdb_keywords:slow-motion-scene (901): -0.00721665975977
+imdb_keywords:doctor (363): -0.00644332360333
+movielens_tags:comedy (49): -0.00604087852992
+imdb_keywords:survival (948): 0.00584356271389
+imdb_keywords:premarital-sex (768): -0.00545308594642
+imdb_keywords:politician (760): 0.00425348140089
+imdb_keywords:drink (371): -0.00383729604764
+imdb_keywords:revolver (817): -0.00301698157247
+Correctness score: 0.0
+Processing user 600, movie 2338 (I Still Know What You Did Last Summer (1998))
+Original predicted rating: 2.25307263011
+User profile: {'neg_name': 'imdb_keywords:machismo', 'neg': 626, 'profile_id': 3, 'pos_name': 'imdb_keywords:based-on-comic-book', 'pos': 166}
+Non-zero qiis:
+average_rating (1194): -0.480617552207
+imdb_keywords:dream-sequence (370): 0.352104598681
+imdb_keywords:slasher (899): 0.274559577235
+imdb_keywords:cruelty (319): 0.0542934065189
+movielens_genre:Mystery (13): 0.0499878849306
+movielens_tags:revenge (76): 0.0442038948907
+imdb_keywords:survival (948): -0.0429568343792
+imdb_keywords:premarital-sex (768): 0.0333451430687
+imdb_keywords:old-man (705): -0.0272589635545
+imdb_keywords:politician (760): -0.0268600645864
+imdb_keywords:newspaper (688): -0.0244631317664
+year (0): -0.0220545965994
+imdb_keywords:stage (921): 0.0141725912533
+imdb_keywords:brother-sister-relationship (223): 0.0124440356098
+imdb_keywords:sadism (836): 0.0108761916063
+imdb_keywords:teenager (972): 0.00936392045058
+imdb_keywords:loneliness (612): -0.00662189429818
+imdb_keywords:coffee (283): 0.00419772161643
+imdb_keywords:birthday-party (192): 0.002652286871
+imdb_keywords:tape-recorder (960): -0.00195892231497
+imdb_keywords:older-man-younger-woman-relationship (707): -0.00184868404061
+imdb_keywords:skeleton (896): 0.00174677520614
+imdb_keywords:little-girl (609): 0.00163169861497
+Correctness score: 0.0
+Processing user 840, movie 96821 (Perks of Being a Wallflower, The (2012))
+Original predicted rating: 2.25264851265
+User profile: {'neg_name': 'imdb_keywords:ocean', 'neg': 703, 'profile_id': 9, 'pos_name': 'imdb_keywords:cleavage', 'pos': 281}
+Non-zero qiis:
+imdb_keywords:photograph (738): 0.267733103033
+imdb_keywords:tears (968): 0.219487622102
+average_rating (1194): -0.214901770373
+imdb_keywords:suicide-attempt (939): 0.100405046499
+imdb_keywords:doctor (363): 0.051085304597
+imdb_keywords:birthday-cake (191): 0.0422922399605
+imdb_keywords:brother-sister-relationship (223): -0.0395760620208
+imdb_keywords:loneliness (612): -0.036203575202
+imdb_keywords:politician (760): -0.0252387329721
+imdb_keywords:teenager (972): 0.0222596063682
+movielens_genre:Mystery (13): -0.0147708644115
+imdb_keywords:taxi (963): -0.0132437057996
+imdb_keywords:threat (985): -0.0128167576374
+year (0): 0.0119693469905
+imdb_keywords:old-man (705): -0.0109654338644
+imdb_keywords:nurse (700): 0.0105785158041
+imdb_keywords:survival (948): 0.00998806088029
+tvtropes:downer ending (1123): 0.00798479056318
+imdb_keywords:birthday-party (192): -0.00525264267649
+movielens_tags:comedy (49): 0.00505556445716
+imdb_keywords:older-woman-younger-man-relationship (708): 0.00488097337286
+imdb_keywords:older-man-younger-woman-relationship (707): -0.0022478863787
+Correctness score: 0.0
+Correctness scores: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+Average correctness: 0.0

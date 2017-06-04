@@ -1,0 +1,316 @@
+Loading results dict
+Original recommender relative to ground truth on training set mean absolute error: 0.0138627757173, RMSE: 0.0198231144678
+Shadow model relative to the baseline recommender on test set MAE: 0.289746693813, RMSE: 0.370203677063
+Randomized model relative to the baseline recommender on test set MAE: 1.14133775135, RMSE: 1.39999685493
+Shadow model is 3.93908809219 times better than random on the test set
+Loading movies
+Loading ALS model
+Loading decision trees
+97 features are used: 0: year, 1: movielens_genre:Action, 1026: imdb_keywords:undressing, 1028: imdb_keywords:unfaithfulness, 5: movielens_genre:Comedy, 6: movielens_genre:Crime, 520: imdb_keywords:heart-attack, 524: imdb_keywords:helicopter, 14: movielens_genre:Romance, 18: movielens_genre:Western, 22: movielens_tags:Bechdel Test:Fail, 280: imdb_keywords:classroom, 26: movielens_tags:CLV, 38: movielens_tags:R, 551: imdb_keywords:illness, 794: imdb_keywords:rage, 43: movielens_tags:adapted from:book, 8: movielens_genre:Drama, 564: imdb_keywords:investigation, 822: imdb_keywords:rivalry, 56: movielens_tags:franchise, 52: movielens_tags:drama, 1089: tvtropes:arc words, 322: imdb_keywords:cult-director, 839: imdb_keywords:san-francisco-california, 73: movielens_tags:predictable, 74: movielens_tags:quirky, 420: imdb_keywords:false-accusation, 589: imdb_keywords:knife, 334: imdb_keywords:death, 1103: tvtropes:box office bomb, 849: imdb_keywords:screaming, 83: movielens_tags:story, 343: imdb_keywords:debt, 602: imdb_keywords:lie, 609: imdb_keywords:little-girl, 611: imdb_keywords:london-england, 100: imdb_keywords:19th-century, 102: imdb_keywords:abortion, 619: imdb_keywords:loss-of-virginity, 876: imdb_keywords:shooting, 109: imdb_keywords:adoption, 12: movielens_genre:Musical, 112: imdb_keywords:african-american, 113: imdb_keywords:airplane, 114: imdb_keywords:airport, 702: imdb_keywords:obsession, 889: imdb_keywords:shower, 122: imdb_keywords:american, 379: imdb_keywords:drunkenness, 893: imdb_keywords:single-mother, 382: imdb_keywords:dysfunctional-family, 385: imdb_keywords:eavesdropping, 130: imdb_keywords:apartment, 901: imdb_keywords:slow-motion-scene, 1158: tvtropes:ms fanservice, 649: imdb_keywords:masturbation, 140: imdb_keywords:assassin, 141: imdb_keywords:assassination, 1168: tvtropes:police are useless, 1169: tvtropes:precision f strike, 878: imdb_keywords:shot-in-the-arm, 151: imdb_keywords:baby, 154: imdb_keywords:bank, 411: imdb_keywords:f-rated, 413: imdb_keywords:face-slap, 160: imdb_keywords:bare-chested-male, 164: imdb_keywords:baseball-bat, 421: imdb_keywords:family-relationships, 678: imdb_keywords:musician, 1194: average_rating, 173: imdb_keywords:bathroom, 174: imdb_keywords:bathtub, 483: imdb_keywords:gay-interest, 108: imdb_keywords:actress, 445: imdb_keywords:fire, 190: imdb_keywords:birthday, 1141: tvtropes:hey its that guy, 960: imdb_keywords:tape-recorder, 1024: imdb_keywords:underwater-scene, 198: imdb_keywords:blindness, 969: imdb_keywords:teen-angst, 970: imdb_keywords:teenage-boy, 78: movielens_tags:romance, 983: imdb_keywords:theft, 217: imdb_keywords:breasts, 733: imdb_keywords:passion, 224: imdb_keywords:brunette, 481: imdb_keywords:gas-station, 1147: tvtropes:jerk with a heart of gold, 1090: tvtropes:arch enemy, 742: imdb_keywords:pickup-truck, 144: imdb_keywords:attempted-rape, 177: imdb_keywords:beach, 503: imdb_keywords:guitarist, 509: imdb_keywords:haircut, 945: imdb_keywords:surprise-ending
+Loading indicators
+Building indicator distributions
+Loading user profiles
+Processing user 839, movie 1734 (My Life in Pink (Ma vie en rose) (1997))
+Original predicted rating: 1.30664055422
+User profile: {'neg_name': 'imdb_keywords:death', 'neg': 334, 'profile_id': 2, 'pos_name': 'imdb_keywords:teenage-boy', 'pos': 970}
+Non-zero qiis:
+imdb_keywords:musician (678): 0.243302052669
+average_rating (1194): -0.224111584246
+tvtropes:precision f strike (1169): -0.0588150354924
+movielens_tags:Bechdel Test:Fail (22): -0.0567573789254
+imdb_keywords:little-girl (609): 0.0169778341012
+imdb_keywords:investigation (564): 0.0159914358889
+tvtropes:hey its that guy (1141): -0.0139515752474
+tvtropes:box office bomb (1103): -0.0130134343747
+imdb_keywords:tape-recorder (960): -0.0107367975005
+imdb_keywords:unfaithfulness (1028): 0.00602554328803
+imdb_keywords:london-england (611): -0.00584356879197
+imdb_keywords:masturbation (649): 0.00552397800445
+imdb_keywords:death (334): 0.00429676979627
+imdb_keywords:19th-century (100): 0.00318095860652
+Correctness score: 0.00919264962963
+Processing user 781, movie 338 (Virtuosity (1995))
+Original predicted rating: 1.1302127214
+User profile: {'neg_name': 'imdb_keywords:tape-recorder', 'neg': 960, 'profile_id': 5, 'pos_name': 'imdb_keywords:assassin', 'pos': 140}
+Non-zero qiis:
+average_rating (1194): -0.2630463446
+tvtropes:precision f strike (1169): -0.213670331498
+tvtropes:box office bomb (1103): 0.114343254128
+imdb_keywords:illness (551): -0.0868007302235
+imdb_keywords:tape-recorder (960): -0.0497342706139
+imdb_keywords:investigation (564): -0.03309431276
+imdb_keywords:unfaithfulness (1028): -0.0291984338022
+imdb_keywords:teenage-boy (970): 0.0289906221104
+imdb_keywords:death (334): -0.0267330445658
+imdb_keywords:musician (678): 0.0247212035999
+imdb_keywords:gas-station (481): -0.0213272632733
+imdb_keywords:dysfunctional-family (382): -0.0202190304016
+imdb_keywords:little-girl (609): 0.0154398266327
+movielens_tags:Bechdel Test:Fail (22): 0.0124005511882
+tvtropes:hey its that guy (1141): -0.00769823891712
+Correctness score: 0.104326685236
+Processing user 344, movie 7018 (Presumed Innocent (1990))
+Original predicted rating: 2.01688656103
+User profile: {'neg_name': 'imdb_keywords:death', 'neg': 334, 'profile_id': 2, 'pos_name': 'imdb_keywords:teenage-boy', 'pos': 970}
+Non-zero qiis:
+average_rating (1194): 0.381794144867
+imdb_keywords:unfaithfulness (1028): 0.181590146687
+imdb_keywords:teenage-boy (970): -0.0799378999822
+tvtropes:precision f strike (1169): -0.0360063019779
+imdb_keywords:investigation (564): -0.0064264205525
+Correctness score: 0.141888762574
+Processing user 352, movie 3894 (Solas (1999))
+Original predicted rating: 2.26230144671
+User profile: {'neg_name': 'imdb_keywords:london-england', 'neg': 611, 'profile_id': 3, 'pos_name': 'imdb_keywords:musician', 'pos': 678}
+Non-zero qiis:
+average_rating (1194): 0.200783091255
+imdb_keywords:musician (678): -0.132981021096
+imdb_keywords:illness (551): -0.101616735242
+imdb_keywords:teenage-boy (970): -0.0833449111807
+imdb_keywords:assassin (140): 0.055031293976
+imdb_keywords:unfaithfulness (1028): -0.0186582699612
+imdb_keywords:19th-century (100): 0.00106904172681
+imdb_keywords:investigation (564): 0.000885024264387
+imdb_keywords:tape-recorder (960): -0.000473747762052
+Correctness score: 0.398428159815
+Processing user 888, movie 40966 (Libertine, The (2004))
+Original predicted rating: 3.91991468353
+User profile: {'neg_name': 'imdb_keywords:little-girl', 'neg': 609, 'profile_id': 7, 'pos_name': 'imdb_keywords:illness', 'pos': 551}
+Non-zero qiis:
+imdb_keywords:illness (551): 0.832962817068
+average_rating (1194): 0.41647037871
+imdb_keywords:teenage-boy (970): 0.175949552954
+imdb_keywords:unfaithfulness (1028): 0.12632877745
+imdb_keywords:death (334): -0.122744935004
+imdb_keywords:investigation (564): 0.0585559249413
+imdb_keywords:19th-century (100): 0.0311712495037
+imdb_keywords:little-girl (609): 0.0178168815539
+Correctness score: 0.680932523241
+Processing user 455, movie 6257 (I Am Curious (Yellow) (Jag är nyfiken - en film i gult) (1967))
+Original predicted rating: 3.05692094375
+User profile: {'neg_name': 'tvtropes:hey its that guy', 'neg': 1141, 'profile_id': 0, 'pos_name': 'imdb_keywords:investigation', 'pos': 564}
+Non-zero qiis:
+average_rating (1194): 1.16838062468
+imdb_keywords:unfaithfulness (1028): 0.268940491938
+imdb_keywords:investigation (564): -0.253093669786
+imdb_keywords:guitarist (503): 0.148985279161
+imdb_keywords:musician (678): 0.0309649241833
+imdb_keywords:bathroom (173): -0.0263654856457
+tvtropes:precision f strike (1169): -0.016324973333
+imdb_keywords:19th-century (100): 0.00780150378741
+imdb_keywords:assassin (140): 0.00155008751353
+Correctness score: 0.176087073974
+Processing user 264, movie 55272 (We Own the Night (2007))
+Original predicted rating: 3.76496608794
+User profile: {'neg_name': 'movielens_tags:Bechdel Test:Fail', 'neg': 22, 'profile_id': 1, 'pos_name': 'imdb_keywords:unfaithfulness', 'pos': 1028}
+Non-zero qiis:
+imdb_keywords:investigation (564): 0.693006782498
+average_rating (1194): 0.510612060865
+imdb_keywords:dysfunctional-family (382): 0.314382321655
+imdb_keywords:musician (678): -0.0728687018205
+imdb_keywords:breasts (217): -0.0720492578734
+tvtropes:hey its that guy (1141): 0.0558812064921
+imdb_keywords:bathroom (173): 0.0449775795041
+movielens_genre:Action (1): 0.0370002833157
+imdb_keywords:unfaithfulness (1028): -0.0192588759274
+imdb_keywords:assassin (140): 0.0187228600371
+imdb_keywords:teenage-boy (970): -0.0105157088699
+year (0): 0.00387218877558
+Correctness score: 0.0160008095866
+Processing user 83, movie 61314 (Return to House on Haunted Hill (2007))
+Original predicted rating: 1.17786031377
+User profile: {'neg_name': 'tvtropes:box office bomb', 'neg': 1103, 'profile_id': 9, 'pos_name': 'imdb_keywords:guitarist', 'pos': 503}
+Non-zero qiis:
+average_rating (1194): -0.550166968827
+imdb_keywords:illness (551): -0.11679585569
+imdb_keywords:death (334): -0.105628713514
+imdb_keywords:investigation (564): 0.0918385503339
+imdb_keywords:guitarist (503): -0.0742161505973
+imdb_keywords:teenage-boy (970): 0.0589229274102
+imdb_keywords:bathroom (173): -0.0450722837699
+tvtropes:box office bomb (1103): -0.0386799399221
+imdb_keywords:gas-station (481): -0.0221778570904
+tvtropes:hey its that guy (1141): -0.0174810554073
+movielens_tags:Bechdel Test:Fail (22): -0.0157340316369
+imdb_keywords:dysfunctional-family (382): -0.0133732169831
+imdb_keywords:tape-recorder (960): 0.00416760859885
+Correctness score: 0.169268940291
+Processing user 185, movie 60128 (Young People Fucking (a.k.a. YPF) (2007))
+Original predicted rating: 1.02545588522
+User profile: {'neg_name': 'imdb_keywords:death', 'neg': 334, 'profile_id': 2, 'pos_name': 'imdb_keywords:teenage-boy', 'pos': 970}
+Non-zero qiis:
+average_rating (1194): -0.247203618627
+movielens_tags:Bechdel Test:Fail (22): 0.0888834097946
+imdb_keywords:teenage-boy (970): 0.0282003196333
+imdb_keywords:gas-station (481): -0.0272122943135
+tvtropes:precision f strike (1169): -0.0165022776512
+imdb_keywords:death (334): 0.0152049458732
+imdb_keywords:unfaithfulness (1028): 0.00971511533019
+imdb_keywords:dysfunctional-family (382): -0.00703150775903
+imdb_keywords:london-england (611): -0.00613285012476
+imdb_keywords:assassin (140): -0.00131197911205
+imdb_keywords:little-girl (609): -1.08810976085e-05
+Correctness score: 0.129148886556
+Processing user 927, movie 8272 (Cromwell (1970))
+Original predicted rating: 1.98326957602
+User profile: {'neg_name': 'tvtropes:box office bomb', 'neg': 1103, 'profile_id': 9, 'pos_name': 'imdb_keywords:guitarist', 'pos': 503}
+Non-zero qiis:
+average_rating (1194): -0.603483798846
+imdb_keywords:investigation (564): 0.11726794093
+imdb_keywords:death (334): -0.0729197464912
+imdb_keywords:musician (678): -0.0710449789257
+imdb_keywords:unfaithfulness (1028): -0.0647362329368
+imdb_keywords:illness (551): -0.0471414286923
+imdb_keywords:london-england (611): 0.0409909843661
+imdb_keywords:teenage-boy (970): 0.0357824315415
+tvtropes:box office bomb (1103): -0.0316042486879
+movielens_tags:Bechdel Test:Fail (22): -0.0191505357034
+imdb_keywords:dysfunctional-family (382): -0.00547497288755
+Correctness score: 0.0438490078397
+Processing user 940, movie 7160 (Monster (2003))
+Original predicted rating: 3.97654300879
+User profile: {'neg_name': 'movielens_tags:Bechdel Test:Fail', 'neg': 22, 'profile_id': 1, 'pos_name': 'imdb_keywords:unfaithfulness', 'pos': 1028}
+Non-zero qiis:
+imdb_keywords:unfaithfulness (1028): 1.32406047624
+average_rating (1194): 0.503157961042
+imdb_keywords:teenage-boy (970): 0.210342916831
+imdb_keywords:death (334): -0.0775011897896
+imdb_keywords:investigation (564): 0.0445064581369
+imdb_keywords:assassin (140): 0.0224510486988
+imdb_keywords:illness (551): 0.0181080292318
+tvtropes:precision f strike (1169): -0.00972359852664
+imdb_keywords:guitarist (503): 0.00152989990017
+Correctness score: 0.724631740368
+Processing user 873, movie 101088 (Stoker (2013))
+Original predicted rating: 1.41898010445
+User profile: {'neg_name': 'imdb_keywords:bathroom', 'neg': 173, 'profile_id': 4, 'pos_name': 'imdb_keywords:dysfunctional-family', 'pos': 382}
+Non-zero qiis:
+average_rating (1194): -0.54202138118
+imdb_keywords:musician (678): 0.152372078476
+imdb_keywords:dysfunctional-family (382): -0.133033014736
+imdb_keywords:death (334): -0.056024270821
+imdb_keywords:unfaithfulness (1028): -0.0514336522453
+imdb_keywords:bathroom (173): -0.0463350724233
+imdb_keywords:illness (551): -0.0438332323696
+imdb_keywords:teenage-boy (970): -0.0358077842349
+imdb_keywords:guitarist (503): 0.0111187113126
+imdb_keywords:tape-recorder (960): 0.00729390236654
+Correctness score: 0.258309010065
+Processing user 817, movie 3409 (Final Destination (2000))
+Original predicted rating: 2.03257462263
+User profile: {'neg_name': 'imdb_keywords:gas-station', 'neg': 481, 'profile_id': 8, 'pos_name': 'imdb_keywords:19th-century', 'pos': 100}
+Non-zero qiis:
+average_rating (1194): 0.656680733225
+imdb_keywords:investigation (564): 0.229980660466
+movielens_tags:Bechdel Test:Fail (22): 0.0760649191973
+tvtropes:precision f strike (1169): -0.0566674361787
+imdb_keywords:assassin (140): -0.0238738780121
+imdb_keywords:teenage-boy (970): -0.000742470281523
+Correctness score: 0.0
+Processing user 248, movie 5715 (Burning, The (1981))
+Original predicted rating: 2.86877345882
+User profile: {'neg_name': 'imdb_keywords:death', 'neg': 334, 'profile_id': 2, 'pos_name': 'imdb_keywords:teenage-boy', 'pos': 970}
+Non-zero qiis:
+imdb_keywords:teenage-boy (970): 0.86324627924
+average_rating (1194): 0.546437020233
+imdb_keywords:death (334): -0.188483110771
+imdb_keywords:musician (678): 0.084537590485
+imdb_keywords:illness (551): 0.0422430646482
+imdb_keywords:unfaithfulness (1028): -0.0288885553501
+imdb_keywords:investigation (564): -0.0161196101586
+imdb_keywords:dysfunctional-family (382): -0.000946716136955
+Correctness score: 0.746074944921
+Processing user 359, movie 6649 (Tunes of Glory (1960))
+Original predicted rating: 2.3059823932
+User profile: {'neg_name': 'imdb_keywords:london-england', 'neg': 611, 'profile_id': 3, 'pos_name': 'imdb_keywords:musician', 'pos': 678}
+Non-zero qiis:
+average_rating (1194): 0.805883258768
+imdb_keywords:musician (678): -0.451594556654
+imdb_keywords:19th-century (100): 0.0912866922263
+tvtropes:precision f strike (1169): -0.0809088999678
+tvtropes:hey its that guy (1141): 0.0426598968982
+movielens_tags:Bechdel Test:Fail (22): 0.0375964831139
+imdb_keywords:teenage-boy (970): -0.0290068324812
+imdb_keywords:illness (551): 0.0225721645967
+imdb_keywords:investigation (564): 0.018512257369
+imdb_keywords:guitarist (503): -0.0182794519781
+imdb_keywords:unfaithfulness (1028): -0.0129830961897
+imdb_keywords:assassin (140): 0.0127652867939
+Correctness score: 0.35912725546
+Processing user 8, movie 44590 (Don't Torture a Duckling (Non si sevizia un paperino) (1972))
+Original predicted rating: 1.1273215266
+User profile: {'neg_name': 'imdb_keywords:london-england', 'neg': 611, 'profile_id': 3, 'pos_name': 'imdb_keywords:musician', 'pos': 678}
+Non-zero qiis:
+average_rating (1194): -0.384681677562
+imdb_keywords:gas-station (481): 0.238642247423
+imdb_keywords:death (334): -0.0223838053965
+imdb_keywords:musician (678): -0.019883867926
+imdb_keywords:unfaithfulness (1028): -0.0164149500652
+imdb_keywords:investigation (564): 0.0158322481094
+tvtropes:hey its that guy (1141): -0.0129008904763
+tvtropes:precision f strike (1169): -0.00280990763669
+imdb_keywords:tape-recorder (960): 0.00272008395359
+Correctness score: 0.0318997348393
+Processing user 959, movie 32966 (Let Him Have It (1991))
+Original predicted rating: 1.37472501024
+User profile: {'neg_name': 'tvtropes:hey its that guy', 'neg': 1141, 'profile_id': 0, 'pos_name': 'imdb_keywords:investigation', 'pos': 564}
+Non-zero qiis:
+average_rating (1194): -0.909307004609
+imdb_keywords:teenage-boy (970): -0.145645192869
+tvtropes:hey its that guy (1141): -0.125609486823
+imdb_keywords:investigation (564): -0.101100241839
+imdb_keywords:assassin (140): -0.0656728072286
+imdb_keywords:unfaithfulness (1028): -0.0627505587781
+imdb_keywords:london-england (611): 0.0414864440545
+movielens_tags:Bechdel Test:Fail (22): -0.0271948897498
+imdb_keywords:death (334): -0.0175466883811
+imdb_keywords:dysfunctional-family (382): -0.0119174488428
+imdb_keywords:musician (678): 0.00975463871869
+imdb_keywords:tape-recorder (960): 0.00680460004524
+imdb_keywords:19th-century (100): -0.00260105249541
+Correctness score: 0.214900475305
+Processing user 706, movie 4411 (Sons of Katie Elder (1965))
+Original predicted rating: 3.97193920652
+User profile: {'neg_name': 'tvtropes:box office bomb', 'neg': 1103, 'profile_id': 9, 'pos_name': 'imdb_keywords:guitarist', 'pos': 503}
+Non-zero qiis:
+imdb_keywords:guitarist (503): 1.32571096647
+average_rating (1194): 0.937254274864
+imdb_keywords:investigation (564): 0.0986699298119
+imdb_keywords:19th-century (100): -0.0978214299638
+year (0): -0.0691235216432
+tvtropes:jerk with a heart of gold (1147): 0.041244964334
+imdb_keywords:bathroom (173): -0.0310990041207
+imdb_keywords:death (334): -0.0289284151331
+imdb_keywords:birthday (190): 0.0222302325973
+imdb_keywords:teenage-boy (970): -0.0191532485143
+imdb_keywords:airport (114): 0.0116311641142
+imdb_keywords:assassin (140): 0.00339819262439
+Correctness score: 0.5858291335
+Processing user 437, movie 7461 (Strayed (égarés, Les) (2003))
+Original predicted rating: 1.73595319632
+User profile: {'neg_name': 'tvtropes:box office bomb', 'neg': 1103, 'profile_id': 9, 'pos_name': 'imdb_keywords:guitarist', 'pos': 503}
+Non-zero qiis:
+imdb_keywords:unfaithfulness (1028): -0.408455291088
+average_rating (1194): 0.398592683121
+imdb_keywords:death (334): -0.161817750922
+imdb_keywords:musician (678): -0.126273073421
+imdb_keywords:guitarist (503): -0.0938436294567
+imdb_keywords:19th-century (100): 0.0755237917356
+imdb_keywords:teenage-boy (970): 0.0751258065766
+imdb_keywords:investigation (564): -0.0735703522079
+imdb_keywords:bathroom (173): -0.0240844374682
+Correctness score: 0.116280112776
+Processing user 983, movie 6063 (May (2002))
+Original predicted rating: 2.1691473391
+User profile: {'neg_name': 'tvtropes:arch enemy', 'neg': 1090, 'profile_id': 6, 'pos_name': 'tvtropes:precision f strike', 'pos': 1169}
+Non-zero qiis:
+average_rating (1194): 0.565246294066
+imdb_keywords:unfaithfulness (1028): -0.236547641554
+imdb_keywords:death (334): -0.0493738437149
+imdb_keywords:illness (551): -0.0355753495951
+imdb_keywords:assassin (140): -0.028420974748
+imdb_keywords:teenage-boy (970): 0.016525950356
+imdb_keywords:musician (678): -0.0133130027418
+Correctness score: 0.0
+Correctness scores: [0.009192649629632914, 0.10432668523586314, 0.14188876257394714, 0.39842815981507107, 0.6809325232409528, 0.17608707397401926, 0.01600080958655184, 0.169268940291063, 0.12914888655603332, 0.043849007839670606, 0.7246317403676712, 0.25830901006548357, 0.0, 0.7460749449214351, 0.3591272554595326, 0.03189973483928184, 0.21490047530499518, 0.5858291334997706, 0.11628011277612292, 0.0]
+Average correctness: 0.245308795299

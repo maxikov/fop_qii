@@ -1,0 +1,543 @@
+Loading results dict
+Original recommender relative to ground truth on training set mean absolute error: 0.0214722146687, RMSE: 0.0271934128114
+Shadow model relative to the baseline recommender on test set MAE: 0.85386391851, RMSE: 1.01212466776
+Randomized model relative to the baseline recommender on test set MAE: 1.1317087505, RMSE: 1.38457262004
+Shadow model is 1.32539708725 times better than random on the test set
+Loading movies
+Loading ALS model
+Loading decision trees
+254 features are used: 0: year, 1: movielens_genre:Action, 514: imdb_keywords:handcuffs, 3: movielens_genre:Animation, 517: imdb_keywords:hat, 6: movielens_genre:Crime, 513: imdb_keywords:hand-to-hand-combat, 8: movielens_genre:Drama, 9: movielens_genre:Fantasy, 522: imdb_keywords:heist, 11: movielens_genre:Horror, 2: movielens_genre:Adventure, 14: movielens_genre:Romance, 528: imdb_keywords:hiding, 17: movielens_genre:War, 1045: imdb_keywords:voice-over-narration, 22: movielens_tags:Bechdel Test:Fail, 23: movielens_tags:Betamax, 24: movielens_tags:Bibliothek, 1049: imdb_keywords:waiter, 538: imdb_keywords:hope, 1051: imdb_keywords:walkie-talkie, 1052: imdb_keywords:warrior, 541: imdb_keywords:horse-riding, 543: imdb_keywords:hostage, 544: imdb_keywords:hotel, 34: movielens_tags:National Film Registry, 1059: imdb_keywords:wedding, 37: movielens_tags:Nudity (Topless), 7: movielens_genre:Documentary, 45: movielens_tags:based on a book, 1070: imdb_keywords:witness, 559: imdb_keywords:injection, 48: movielens_tags:classic, 1032: imdb_keywords:urban-setting, 562: imdb_keywords:interrogation, 51: movielens_tags:disturbing, 54: movielens_tags:erlend's DVDs, 55: movielens_tags:fantasy, 1080: imdb_keywords:written-by-director, 569: imdb_keywords:jail-cell, 58: movielens_tags:history, 571: imdb_keywords:japanese, 61: movielens_tags:library, 1091: tvtropes:asshole victim, 580: imdb_keywords:karate, 581: imdb_keywords:key, 70: movielens_tags:on dvr, 71: movielens_tags:perrot library, 584: imdb_keywords:killing-an-animal, 73: movielens_tags:predictable, 1098: tvtropes:bilingual bonus, 587: imdb_keywords:kissing-while-having-sex, 76: movielens_tags:revenge, 1122: tvtropes:does this remind you of anything, 80: movielens_tags:seen more than once, 855: imdb_keywords:secretary, 84: movielens_tags:stylized, 86: movielens_tags:tense, 88: movielens_tags:true story, 91: imdb_keywords:1910s, 605: imdb_keywords:limousine, 98: imdb_keywords:1980s, 99: imdb_keywords:1990s, 612: imdb_keywords:loneliness, 1125: tvtropes:driven to suicide, 102: imdb_keywords:abortion, 529: imdb_keywords:high-school, 106: imdb_keywords:actor, 615: imdb_keywords:los-angeles-california, 108: imdb_keywords:actress, 110: imdb_keywords:adultery, 112: imdb_keywords:african-american, 113: imdb_keywords:airplane, 275: imdb_keywords:cigar-smoking, 116: imdb_keywords:alcohol, 446: imdb_keywords:fired-from-the-job, 632: imdb_keywords:male-full-frontal-nudity, 633: imdb_keywords:male-nudity, 636: imdb_keywords:man-with-glasses, 21: movielens_tags:BD-Video, 128: imdb_keywords:answering-machine, 642: imdb_keywords:marijuana, 133: imdb_keywords:archive-footage, 136: imdb_keywords:arrest, 138: imdb_keywords:art, 139: imdb_keywords:artist, 1166: tvtropes:only sane man, 144: imdb_keywords:attempted-rape, 1169: tvtropes:precision f strike, 146: imdb_keywords:aunt-niece-relationship, 659: imdb_keywords:mirror, 1172: tvtropes:red herring, 1174: tvtropes:running gag, 151: imdb_keywords:baby, 152: imdb_keywords:backstage, 667: imdb_keywords:monster, 1181: tvtropes:take that, 1182: tvtropes:tempting fate, 159: imdb_keywords:bare-butt, 673: imdb_keywords:mountain, 164: imdb_keywords:baseball-bat, 677: imdb_keywords:museum, 167: imdb_keywords:based-on-novel, 1192: tvtropes:what the hell hero, 681: imdb_keywords:neck-breaking, 1194: average_rating, 172: imdb_keywords:bath, 685: imdb_keywords:new-york, 175: imdb_keywords:battle, 688: imdb_keywords:newspaper, 177: imdb_keywords:beach, 691: imdb_keywords:nightclub, 692: imdb_keywords:nightmare, 695: imdb_keywords:no-opening-credits, 1055: imdb_keywords:watching-tv, 700: imdb_keywords:nurse, 189: imdb_keywords:bird, 190: imdb_keywords:birthday, 704: imdb_keywords:office, 705: imdb_keywords:old-man, 196: imdb_keywords:black-panties, 710: imdb_keywords:on-the-run, 712: imdb_keywords:one-man-army, 202: imdb_keywords:blood-splatter, 718: imdb_keywords:orgasm, 207: imdb_keywords:bound-and-gagged, 208: imdb_keywords:bow-and-arrow, 722: imdb_keywords:painter, 35: movielens_tags:Netflix Finland, 724: imdb_keywords:panic, 206: imdb_keywords:book, 726: imdb_keywords:pantyhose, 222: imdb_keywords:brother-brother-relationship, 1061: imdb_keywords:wheelchair, 229: imdb_keywords:bus, 230: imdb_keywords:businessman, 233: imdb_keywords:california, 748: imdb_keywords:poetry, 749: imdb_keywords:poison, 93: imdb_keywords:1930s, 752: imdb_keywords:police-car, 241: imdb_keywords:car, 755: imdb_keywords:police-officer, 244: imdb_keywords:car-crash, 758: imdb_keywords:police-station, 759: imdb_keywords:policeman, 762: imdb_keywords:pot-smoking, 252: imdb_keywords:cell-phone, 766: imdb_keywords:pregnancy, 213: imdb_keywords:brawl, 256: imdb_keywords:character-name-in-title, 771: imdb_keywords:prisoner, 263: imdb_keywords:chicken, 777: imdb_keywords:prostitution, 266: imdb_keywords:child-in-peril, 779: imdb_keywords:psychiatrist, 783: imdb_keywords:public-nudity, 784: imdb_keywords:punched-in-the-face, 273: imdb_keywords:christmas-tree, 725: imdb_keywords:panties, 787: imdb_keywords:pursuit, 276: imdb_keywords:cigarette-smoking, 46: movielens_tags:boring, 745: imdb_keywords:pipe-smoking, 284: imdb_keywords:coffin, 285: imdb_keywords:college, 798: imdb_keywords:rape, 799: imdb_keywords:rat, 289: imdb_keywords:combat, 290: imdb_keywords:coming-of-age, 902: imdb_keywords:small-town, 828: imdb_keywords:roommate, 428: imdb_keywords:father-son-relationship, 809: imdb_keywords:religion, 903: imdb_keywords:snake, 812: imdb_keywords:rescue, 814: imdb_keywords:revenge, 817: imdb_keywords:revolver, 563: imdb_keywords:interview, 308: imdb_keywords:cousin-cousin-relationship, 734: imdb_keywords:pay-phone, 822: imdb_keywords:rivalry, 314: imdb_keywords:crime-boss, 316: imdb_keywords:cross, 906: imdb_keywords:snow, 831: imdb_keywords:running, 322: imdb_keywords:cult-director, 323: imdb_keywords:cult-film, 838: imdb_keywords:sadness, 327: imdb_keywords:dancer, 841: imdb_keywords:scandal, 851: imdb_keywords:search, 342: imdb_keywords:death-of-wife, 343: imdb_keywords:debt, 858: imdb_keywords:seduction, 826: imdb_keywords:robot, 865: imdb_keywords:servant, 354: imdb_keywords:diner, 873: imdb_keywords:shaving, 874: imdb_keywords:sheriff, 363: imdb_keywords:doctor, 364: imdb_keywords:dog, 878: imdb_keywords:shot-in-the-arm, 317: imdb_keywords:cross-dressing, 147: imdb_keywords:author, 372: imdb_keywords:drinking, 886: imdb_keywords:shot-to-death, 1148: tvtropes:jerkass, 891: imdb_keywords:singer, 894: imdb_keywords:single-parent, 384: imdb_keywords:eating, 900: imdb_keywords:sleeping, 390: imdb_keywords:employer-employee-relationship, 391: imdb_keywords:engagement, 392: imdb_keywords:england, 393: imdb_keywords:epic, 394: imdb_keywords:erection, 907: imdb_keywords:soccer, 396: imdb_keywords:escape, 402: imdb_keywords:ex-husband-ex-wife-relationship, 1053: imdb_keywords:washington-d.c., 405: imdb_keywords:exploding-building, 919: imdb_keywords:stabbed-to-death, 68: movielens_tags:nudity (full frontal), 410: imdb_keywords:eyeglasses, 413: imdb_keywords:face-slap, 928: imdb_keywords:street-life, 425: imdb_keywords:farm, 940: imdb_keywords:suitcase, 430: imdb_keywords:fear, 329: imdb_keywords:dark-comedy, 955: imdb_keywords:sword, 958: imdb_keywords:talking-to-the-camera, 447: imdb_keywords:fireplace, 1099: tvtropes:bittersweet ending, 965: imdb_keywords:tea, 966: imdb_keywords:teacher, 970: imdb_keywords:teenage-boy, 459: imdb_keywords:flower, 271: imdb_keywords:christian, 465: imdb_keywords:forest, 466: imdb_keywords:forgiveness, 988: imdb_keywords:throat-slitting, 480: imdb_keywords:garden, 994: imdb_keywords:told-in-flashback, 489: imdb_keywords:gift, 1026: imdb_keywords:undressing, 1006: imdb_keywords:transformation, 499: imdb_keywords:greed, 501: imdb_keywords:guilt, 596: imdb_keywords:lesbian, 507: imdb_keywords:gunshot, 767: imdb_keywords:prejudice
+Loading indicators
+Building indicator distributions
+Loading user profiles
+Processing user 386, movie 50804 (Hannibal Rising (2007))
+Original predicted rating: 2.82704992112
+User profile: {'neg_name': 'imdb_keywords:doctor', 'neg': 363, 'profile_id': 2, 'pos_name': 'imdb_keywords:trap', 'pos': 1007}
+Non-zero qiis:
+average_rating (1194): 0.143771921199
+imdb_keywords:male-full-frontal-nudity (632): -0.0218345267987
+imdb_keywords:pay-phone (734): 0.0165907951843
+imdb_keywords:robot (826): -0.0135012347294
+imdb_keywords:washington-d.c. (1053): 0.0113858327729
+imdb_keywords:sadness (838): -0.0104201555489
+imdb_keywords:limousine (605): -0.0100732816789
+imdb_keywords:fear (430): 0.00745945935249
+imdb_keywords:guilt (501): 0.0059238665041
+imdb_keywords:california (233): -0.00446128192369
+imdb_keywords:poetry (748): 0.00422946933331
+imdb_keywords:wedding (1059): 0.00326254347287
+tvtropes:precision f strike (1169): -0.00255818258615
+movielens_tags:library (61): 0.00121048900368
+imdb_keywords:urban-setting (1032): 0.000814413916828
+movielens_tags:stylized (84): -0.000497128479101
+imdb_keywords:stabbed-to-death (919): 0.000495163279604
+imdb_keywords:nightmare (692): -0.000412355924186
+imdb_keywords:death-of-wife (342): 0.000301338786574
+imdb_keywords:pursuit (787): -0.000187092342134
+imdb_keywords:car-crash (244): 0.000149849267423
+imdb_keywords:baby (151): -0.000104391264076
+Correctness score: 0.0
+Processing user 526, movie 102684 (Only God Forgives (2013))
+Original predicted rating: 2.75699284201
+User profile: {'neg_name': 'imdb_keywords:concert', 'neg': 293, 'profile_id': 5, 'pos_name': 'imdb_keywords:ship', 'pos': 875}
+Non-zero qiis:
+average_rating (1194): 0.449209711864
+imdb_keywords:written-by-director (1080): 0.0947558899625
+imdb_keywords:male-full-frontal-nudity (632): -0.0766950686719
+imdb_keywords:punched-in-the-face (784): -0.0397090109134
+imdb_keywords:kissing-while-having-sex (587): 0.0333003349677
+imdb_keywords:karate (580): 0.031655706392
+imdb_keywords:stabbed-to-death (919): 0.0246116136133
+imdb_keywords:battle (175): 0.0191105226785
+imdb_keywords:killing-an-animal (584): 0.0130077940389
+imdb_keywords:tea (965): -0.012317738928
+imdb_keywords:coming-of-age (290): 0.006544725088
+imdb_keywords:male-nudity (633): -0.00510200457255
+imdb_keywords:sadness (838): -0.00470406664881
+imdb_keywords:wedding (1059): 0.00466037044102
+imdb_keywords:cigar-smoking (275): 0.00425323423362
+imdb_keywords:california (233): -0.00402799505433
+imdb_keywords:voice-over-narration (1045): 0.00309186804113
+imdb_keywords:forgiveness (466): -0.00249811201802
+imdb_keywords:death-of-wife (342): 0.00107042884814
+imdb_keywords:public-nudity (783): 0.000932257128328
+Correctness score: 0.0
+Processing user 623, movie 2903 (Psycho III (1986))
+Original predicted rating: 1.75073592684
+User profile: {'neg_name': 'imdb_keywords:doctor', 'neg': 363, 'profile_id': 2, 'pos_name': 'imdb_keywords:trap', 'pos': 1007}
+Non-zero qiis:
+average_rating (1194): -0.315662040602
+imdb_keywords:sadness (838): -0.0355466565998
+imdb_keywords:1980s (98): -0.0290267980758
+imdb_keywords:interview (563): 0.0266129548716
+imdb_keywords:search (851): 0.0235893466483
+tvtropes:precision f strike (1169): -0.0174536430829
+imdb_keywords:california (233): -0.015218933709
+imdb_keywords:fear (430): -0.0124873785245
+imdb_keywords:nightmare (692): -0.0123442549438
+imdb_keywords:limousine (605): -0.00849759000764
+imdb_keywords:killing-an-animal (584): 0.00701861315284
+imdb_keywords:stabbed-to-death (919): 0.00282292237552
+imdb_keywords:coming-of-age (290): 0.00135120972274
+imdb_keywords:male-full-frontal-nudity (632): -0.000695644900752
+imdb_keywords:museum (677): 0.000652895813967
+imdb_keywords:baby (151): 0.000267653197052
+imdb_keywords:urban-setting (1032): 5.01438368683e-05
+Correctness score: 0.0
+Processing user 771, movie 3312 (McCullochs, The (1975))
+Original predicted rating: 1.43781268132
+User profile: {'neg_name': 'imdb_keywords:concert', 'neg': 293, 'profile_id': 5, 'pos_name': 'imdb_keywords:ship', 'pos': 875}
+Non-zero qiis:
+average_rating (1194): 0.288977358249
+imdb_keywords:wedding (1059): -0.0304306309947
+imdb_keywords:warrior (1052): -0.0255885297039
+imdb_keywords:coming-of-age (290): 0.0205285008601
+imdb_keywords:battle (175): 0.0163271379622
+imdb_keywords:male-nudity (633): -0.0153867729304
+imdb_keywords:chicken (263): -0.0153715635123
+imdb_keywords:told-in-flashback (994): -0.0136810744466
+imdb_keywords:written-by-director (1080): -0.00772605687812
+imdb_keywords:seduction (858): 0.00747556857103
+imdb_keywords:cigar-smoking (275): -0.00701851133011
+imdb_keywords:running (831): 0.00439681398279
+tvtropes:running gag (1174): 0.00413351338807
+imdb_keywords:forgiveness (466): 0.00412228119575
+imdb_keywords:punched-in-the-face (784): 0.00371084345074
+imdb_keywords:voice-over-narration (1045): -0.00343607523645
+imdb_keywords:marijuana (642): 0.00336740559276
+imdb_keywords:urban-setting (1032): 0.00326452201173
+imdb_keywords:death-of-wife (342): 0.00294950408536
+imdb_keywords:shaving (873): 0.0025086747977
+imdb_keywords:injection (559): -0.00168499104229
+imdb_keywords:baseball-bat (164): -0.000695294365996
+Correctness score: 0.0
+Processing user 128, movie 27899 (What the #$*! Do We Know!? (a.k.a. What the Bleep Do We Know!?) (2004))
+Original predicted rating: 1.83954905418
+User profile: {'neg_name': 'imdb_keywords:doctor', 'neg': 363, 'profile_id': 2, 'pos_name': 'imdb_keywords:trap', 'pos': 1007}
+Non-zero qiis:
+average_rating (1194): -0.194628921771
+imdb_keywords:cigarette-smoking (276): 0.0379764261988
+imdb_keywords:marijuana (642): -0.0317961747884
+movielens_genre:Documentary (7): 0.0289281483201
+imdb_keywords:artist (139): 0.0210453959685
+imdb_keywords:interview (563): 0.0191340838788
+movielens_tags:stylized (84): -0.0189517362122
+imdb_keywords:wedding (1059): -0.0174211220602
+movielens_tags:library (61): 0.0160080912069
+imdb_keywords:nightclub (691): -0.0145790603931
+imdb_keywords:orgasm (718): 0.0136416596759
+imdb_keywords:washington-d.c. (1053): -0.0134771288571
+imdb_keywords:shaving (873): 0.0125209956396
+imdb_keywords:hiding (528): -0.0119519244436
+imdb_keywords:key (581): 0.00931426017461
+imdb_keywords:fear (430): -0.00910284752441
+imdb_keywords:tea (965): -0.00705184084525
+imdb_keywords:search (851): 0.00682909816678
+imdb_keywords:policeman (759): 0.00680403900343
+imdb_keywords:guilt (501): -0.00460039407853
+imdb_keywords:new-york (685): -0.00442509101688
+imdb_keywords:ex-husband-ex-wife-relationship (402): -0.00429990748203
+imdb_keywords:injection (559): -0.00420496222
+imdb_keywords:rape (798): 0.00351854974628
+imdb_keywords:one-man-army (712): 0.00280351818945
+imdb_keywords:baby (151): 0.00215390967047
+imdb_keywords:limousine (605): 0.00206488682828
+imdb_keywords:1980s (98): 0.00200593729573
+imdb_keywords:nightmare (692): -0.00140633040464
+imdb_keywords:death-of-wife (342): -0.000312994342337
+Correctness score: 0.0
+Processing user 28, movie 26819 (Fortress (1992))
+Original predicted rating: 1.9236215918
+User profile: {'neg_name': 'tvtropes:shout out', 'neg': 1176, 'profile_id': 0, 'pos_name': 'imdb_keywords:melodrama', 'pos': 651}
+Non-zero qiis:
+average_rating (1194): -0.429732893105
+imdb_keywords:kissing-while-having-sex (587): -0.0349968740425
+imdb_keywords:teenage-boy (970): -0.0248591415327
+imdb_keywords:revenge (814): 0.0190628109036
+imdb_keywords:high-school (529): -0.0177127249748
+imdb_keywords:sadness (838): -0.0167396930808
+movielens_tags:stylized (84): 0.0143569440828
+imdb_keywords:undressing (1026): -0.0118164004816
+imdb_keywords:greed (499): -0.01162348841
+imdb_keywords:1990s (99): 0.00939177057392
+imdb_keywords:california (233): -0.0071669266163
+imdb_keywords:marijuana (642): 0.00602182167339
+imdb_keywords:baby (151): -0.00448823231025
+imdb_keywords:crime-boss (314): -0.00348942472511
+imdb_keywords:urban-setting (1032): -0.00256118562769
+imdb_keywords:guilt (501): 0.00251714553377
+imdb_keywords:injection (559): 0.00230078156155
+imdb_keywords:coming-of-age (290): 0.00216961787448
+Correctness score: 0.0
+Processing user 603, movie 26796 (Heart in Winter, A (Un coeur en hiver) (1992))
+Original predicted rating: 2.61324702045
+User profile: {'neg_name': 'imdb_keywords:twenty-something', 'neg': 1015, 'profile_id': 3, 'pos_name': 'imdb_keywords:warrior', 'pos': 1052}
+Non-zero qiis:
+average_rating (1194): 0.137228637911
+imdb_keywords:waiter (1049): -0.0530226194373
+imdb_keywords:seduction (858): -0.0398051577536
+imdb_keywords:fear (430): 0.0395033439922
+imdb_keywords:robot (826): -0.0377711744844
+imdb_keywords:shaving (873): 0.0283002934797
+imdb_keywords:washington-d.c. (1053): 0.0177443459932
+imdb_keywords:museum (677): 0.0159685419278
+imdb_keywords:interview (563): 0.0157043372861
+imdb_keywords:combat (289): 0.0136251349271
+imdb_keywords:one-man-army (712): 0.0105578463373
+imdb_keywords:crime-boss (314): -0.00734387798346
+imdb_keywords:baby (151): 0.00608360079776
+tvtropes:take that (1181): -0.00590912366313
+imdb_keywords:guilt (501): 0.00545512934206
+imdb_keywords:search (851): -0.00481716170981
+imdb_keywords:orgasm (718): -0.0037073559885
+imdb_keywords:baseball-bat (164): 0.00286755334151
+imdb_keywords:killing-an-animal (584): 0.00223025387522
+imdb_keywords:pay-phone (734): -0.00211892534565
+imdb_keywords:poetry (748): -0.00192299457331
+imdb_keywords:wedding (1059): 0.00159808945389
+imdb_keywords:nightmare (692): -0.00132403459763
+imdb_keywords:stabbed-to-death (919): 0.00117917400291
+Correctness score: 0.0
+Processing user 398, movie 7748 (Pierrot le fou (1965))
+Original predicted rating: 2.31597189343
+User profile: {'neg_name': 'tvtropes:disappeared dad', 'neg': 1120, 'profile_id': 8, 'pos_name': 'imdb_keywords:band', 'pos': 153}
+Non-zero qiis:
+average_rating (1194): -0.416612225966
+imdb_keywords:suitcase (940): -0.184860187589
+imdb_keywords:walkie-talkie (1051): -0.117939467366
+imdb_keywords:nightmare (692): 0.0883121735647
+imdb_keywords:loneliness (612): -0.0843602414143
+imdb_keywords:pursuit (787): 0.080137233017
+imdb_keywords:secretary (855): -0.0329246244394
+imdb_keywords:teenage-boy (970): 0.0318788294147
+imdb_keywords:baby (151): 0.0223569467322
+imdb_keywords:high-school (529): -0.0207470718049
+movielens_tags:stylized (84): 0.0154800443324
+imdb_keywords:revenge (814): 0.0118770109528
+imdb_keywords:car (241): -0.00878839978913
+tvtropes:precision f strike (1169): 0.00311378871957
+imdb_keywords:guilt (501): -0.00274229341317
+imdb_keywords:injection (559): -0.00250657661098
+imdb_keywords:stabbed-to-death (919): -0.00229214091283
+imdb_keywords:urban-setting (1032): -0.00188498575685
+imdb_keywords:limousine (605): 0.00167608547481
+imdb_keywords:search (851): 0.000520702537289
+Correctness score: 0.0
+Processing user 615, movie 7007 (Last Boy Scout, The (1991))
+Original predicted rating: 1.29466789841
+User profile: {'neg_name': 'imdb_keywords:doctor', 'neg': 363, 'profile_id': 2, 'pos_name': 'imdb_keywords:trap', 'pos': 1007}
+Non-zero qiis:
+imdb_keywords:punched-in-the-face (784): -0.452894534831
+imdb_keywords:karate (580): -0.416201984803
+average_rating (1194): -0.262898010856
+imdb_keywords:killing-an-animal (584): -0.139415609012
+imdb_keywords:pay-phone (734): 0.0945741155978
+imdb_keywords:tea (965): -0.0806910020365
+imdb_keywords:author (147): 0.0665166412731
+imdb_keywords:warrior (1052): -0.0583193060788
+imdb_keywords:fireplace (447): -0.0278845092978
+movielens_tags:on dvr (70): 0.0250601954254
+imdb_keywords:talking-to-the-camera (958): 0.0184091159204
+imdb_keywords:sadness (838): -0.0139853188059
+imdb_keywords:art (138): -0.0128802052994
+imdb_keywords:california (233): -0.00598766973228
+imdb_keywords:washington-d.c. (1053): 0.00536920725985
+imdb_keywords:stabbed-to-death (919): -0.00506297242455
+imdb_keywords:marijuana (642): -0.00409095732179
+imdb_keywords:shaving (873): -0.00402825419996
+imdb_keywords:wedding (1059): -0.00395172893874
+imdb_keywords:coming-of-age (290): 0.00352707354953
+tvtropes:precision f strike (1169): -0.00343344193501
+imdb_keywords:forgiveness (466): 0.00116808303923
+imdb_keywords:horse-riding (541): 0.00100286109651
+imdb_keywords:guilt (501): 0.000986692395275
+imdb_keywords:search (851): -0.000574156466031
+Correctness score: 0.0
+Processing user 804, movie 1954 (Rocky (1976))
+Original predicted rating: 2.33465030409
+User profile: {'neg_name': 'imdb_keywords:concert', 'neg': 293, 'profile_id': 5, 'pos_name': 'imdb_keywords:ship', 'pos': 875}
+Non-zero qiis:
+average_rating (1194): -0.250985015927
+imdb_keywords:interview (563): -0.15793026769
+imdb_keywords:roommate (828): -0.0448639812164
+imdb_keywords:horse-riding (541): 0.0373971137833
+imdb_keywords:combat (289): 0.035350873432
+movielens_genre:Documentary (7): -0.0270667462051
+imdb_keywords:baby (151): -0.0213862179359
+imdb_keywords:male-full-frontal-nudity (632): -0.0204545782854
+imdb_keywords:seduction (858): -0.0155899814367
+imdb_keywords:tea (965): -0.0111160701081
+imdb_keywords:1910s (91): 0.0106328199439
+imdb_keywords:museum (677): 0.00959879711947
+imdb_keywords:wedding (1059): 0.00841144707721
+imdb_keywords:baseball-bat (164): 0.0075465966922
+imdb_keywords:marijuana (642): -0.00702258165144
+imdb_keywords:key (581): -0.00513825052997
+imdb_keywords:waiter (1049): 0.00451158809964
+imdb_keywords:california (233): 0.00215227285931
+imdb_keywords:1980s (98): -0.00158290520473
+imdb_keywords:search (851): 0.000619143056026
+imdb_keywords:coming-of-age (290): -0.000305789220408
+imdb_keywords:urban-setting (1032): 0.000180488685502
+Correctness score: 0.0
+Processing user 378, movie 6546 (Km. 0 - Kilometer Zero (Kilómetro cero) (2000))
+Original predicted rating: 4.01175896698
+User profile: {'neg_name': 'imdb_keywords:brother-sister-relationship', 'neg': 223, 'profile_id': 6, 'pos_name': 'imdb_keywords:whiskey', 'pos': 1063}
+Non-zero qiis:
+average_rating (1194): 0.210196290411
+imdb_keywords:orgasm (718): -0.129889357159
+imdb_keywords:shot-in-the-arm (878): -0.102371586614
+imdb_keywords:male-nudity (633): 0.0519193757563
+imdb_keywords:roommate (828): -0.0489314805257
+imdb_keywords:warrior (1052): -0.0433173392673
+imdb_keywords:battle (175): 0.0307587589193
+imdb_keywords:sword (955): -0.0264710692369
+imdb_keywords:guilt (501): -0.0192991231901
+movielens_tags:on dvr (70): 0.0158463345526
+imdb_keywords:talking-to-the-camera (958): 0.0141632283179
+tvtropes:bilingual bonus (1098): -0.00797456892057
+imdb_keywords:waiter (1049): 0.0054119016264
+imdb_keywords:death-of-wife (342): 0.00462930916358
+imdb_keywords:killing-an-animal (584): 0.00431778857291
+imdb_keywords:wedding (1059): 0.00309391341461
+imdb_keywords:baseball-bat (164): 0.00277580260879
+imdb_keywords:drinking (372): 0.00231736624913
+imdb_keywords:coming-of-age (290): -0.00220691156963
+imdb_keywords:cigar-smoking (275): 0.00125374487766
+tvtropes:running gag (1174): 0.00101358616204
+imdb_keywords:california (233): 5.51908637528e-05
+Correctness score: 0.0
+Processing user 825, movie 4905 (Hell Up in Harlem (1973))
+Original predicted rating: 3.44770559059
+User profile: {'neg_name': 'imdb_keywords:new-york', 'neg': 685, 'profile_id': 7, 'pos_name': 'imdb_keywords:train-station', 'pos': 1003}
+Non-zero qiis:
+average_rating (1194): -0.491248123336
+imdb_keywords:baby (151): -0.107595650007
+imdb_keywords:revenge (814): -0.0956115811026
+imdb_keywords:limousine (605): -0.0163271108079
+imdb_keywords:stabbed-to-death (919): -0.0144452650712
+imdb_keywords:undressing (1026): -0.0124503286847
+imdb_keywords:orgasm (718): -0.0106864604853
+imdb_keywords:coming-of-age (290): 0.0100631621262
+imdb_keywords:nightmare (692): 0.00744430883819
+imdb_keywords:one-man-army (712): -0.00742011093797
+imdb_keywords:waiter (1049): -0.00530703957009
+imdb_keywords:wedding (1059): 0.00425194143189
+imdb_keywords:horse-riding (541): 0.00366286331362
+imdb_keywords:marijuana (642): 0.00359575128462
+movielens_genre:Documentary (7): 0.00334725788825
+imdb_keywords:injection (559): 0.00329403926457
+imdb_keywords:art (138): -0.00322092990002
+movielens_tags:stylized (84): 0.00214320528442
+imdb_keywords:crime-boss (314): 0.00161057420073
+imdb_keywords:greed (499): -0.0012805842355
+imdb_keywords:walkie-talkie (1051): -0.00122851280663
+imdb_keywords:lesbian (596): -0.000792309761548
+imdb_keywords:1990s (99): 0.000689807449434
+movielens_tags:nudity (full frontal) (68): -0.000308901947246
+Correctness score: 0.0
+Processing user 483, movie 2660 (Thing from Another World, The (1951))
+Original predicted rating: 2.33959790499
+User profile: {'neg_name': 'tvtropes:disappeared dad', 'neg': 1120, 'profile_id': 8, 'pos_name': 'imdb_keywords:band', 'pos': 153}
+Non-zero qiis:
+average_rating (1194): -0.191060646651
+imdb_keywords:revenge (814): 0.0211752791264
+imdb_keywords:limousine (605): -0.0146347001618
+imdb_keywords:lesbian (596): 0.0135624994178
+movielens_tags:stylized (84): 0.00987358316614
+imdb_keywords:secretary (855): 0.00872961959263
+imdb_keywords:tea (965): -0.00770623890088
+imdb_keywords:shaving (873): -0.00500945846871
+imdb_keywords:death-of-wife (342): -0.00460867316253
+imdb_keywords:killing-an-animal (584): 0.00406897601189
+imdb_keywords:coming-of-age (290): 0.00351711849648
+imdb_keywords:baseball-bat (164): 0.00261584698699
+imdb_keywords:1990s (99): -0.00147598729458
+tvtropes:precision f strike (1169): 0.00116227750609
+imdb_keywords:injection (559): -0.00093046003927
+imdb_keywords:baby (151): -0.000618560957544
+imdb_keywords:search (851): 0.000388723128612
+imdb_keywords:teenage-boy (970): -0.000356032855191
+imdb_keywords:undressing (1026): 0.000309153622191
+imdb_keywords:1980s (98): -0.000288033085006
+imdb_keywords:high-school (529): 0.000231709863479
+Correctness score: 0.0
+Processing user 477, movie 1954 (Rocky (1976))
+Original predicted rating: 1.72476043445
+User profile: {'neg_name': 'imdb_keywords:concert', 'neg': 293, 'profile_id': 5, 'pos_name': 'imdb_keywords:ship', 'pos': 875}
+Non-zero qiis:
+average_rating (1194): -0.327537097155
+imdb_keywords:interview (563): -0.127797471504
+imdb_keywords:combat (289): -0.0404160256548
+imdb_keywords:robot (826): -0.0304912145216
+imdb_keywords:male-full-frontal-nudity (632): -0.027276987993
+imdb_keywords:new-york (685): 0.0158907701751
+imdb_keywords:crime-boss (314): -0.0143095913253
+imdb_keywords:california (233): 0.0103323094792
+imdb_keywords:key (581): 0.00939915289571
+imdb_keywords:killing-an-animal (584): 0.00770408771725
+imdb_keywords:1980s (98): 0.00585004036793
+imdb_keywords:poetry (748): 0.00457214336388
+imdb_keywords:orgasm (718): -0.00273138712447
+imdb_keywords:seduction (858): 0.00179722898793
+imdb_keywords:marijuana (642): 0.00161914077516
+imdb_keywords:shaving (873): -0.00125350166651
+imdb_keywords:guilt (501): 0.000921109121038
+imdb_keywords:injection (559): 0.000841934188322
+imdb_keywords:pay-phone (734): 0.000121933337478
+imdb_keywords:fear (430): 5.48229765078e-05
+Correctness score: 0.0
+Processing user 473, movie 3525 (Bachelor Party (1984))
+Original predicted rating: 2.72151148502
+User profile: {'neg_name': 'tvtropes:shout out', 'neg': 1176, 'profile_id': 0, 'pos_name': 'imdb_keywords:melodrama', 'pos': 651}
+Non-zero qiis:
+average_rating (1194): -0.146091658525
+imdb_keywords:art (138): 0.0149923272329
+imdb_keywords:fear (430): -0.0145615487658
+imdb_keywords:killing-an-animal (584): 0.0111056525553
+imdb_keywords:guilt (501): -0.0107707994927
+imdb_keywords:coming-of-age (290): 0.00803153916373
+imdb_keywords:wedding (1059): 0.00795776051524
+imdb_keywords:shaving (873): 0.00732878157725
+imdb_keywords:nightmare (692): -0.0047051659722
+imdb_keywords:marijuana (642): -0.00418424815043
+imdb_keywords:limousine (605): -0.00296119660721
+imdb_keywords:death-of-wife (342): -0.00175402767136
+imdb_keywords:washington-d.c. (1053): 0.00165041528122
+imdb_keywords:search (851): 0.00104338756544
+imdb_keywords:key (581): 0.000527627478051
+Correctness score: 0.0
+Processing user 704, movie 1777 (Wedding Singer, The (1998))
+Original predicted rating: 2.87181000377
+User profile: {'neg_name': 'imdb_keywords:class-differences', 'neg': 279, 'profile_id': 9, 'pos_name': 'imdb_keywords:reporter', 'pos': 811}
+Non-zero qiis:
+average_rating (1194): -0.483209727841
+imdb_keywords:limousine (605): 0.11305980677
+imdb_keywords:1980s (98): -0.0623516915656
+imdb_keywords:garden (480): 0.0606115935541
+tvtropes:precision f strike (1169): -0.0468146258986
+imdb_keywords:brother-brother-relationship (222): 0.0292260128154
+imdb_keywords:wedding (1059): 0.0206479516587
+imdb_keywords:hiding (528): 0.0159364363528
+imdb_keywords:seduction (858): -0.012853853512
+imdb_keywords:revenge (814): 0.0114583126057
+imdb_keywords:undressing (1026): -0.00583419166327
+imdb_keywords:guilt (501): -0.00516054852276
+imdb_keywords:marijuana (642): 0.00402017597804
+imdb_keywords:coming-of-age (290): -0.00348952438454
+imdb_keywords:injection (559): -0.00235848399097
+imdb_keywords:death-of-wife (342): 0.00152417169501
+imdb_keywords:crime-boss (314): -0.000620753055076
+imdb_keywords:baby (151): 0.000574938701319
+imdb_keywords:walkie-talkie (1051): 0.000473497636788
+Correctness score: 0.0
+Processing user 759, movie 71135 (Pandorum (2009))
+Original predicted rating: 1.70425485417
+User profile: {'neg_name': 'imdb_keywords:fainting', 'neg': 415, 'profile_id': 1, 'pos_name': 'imdb_keywords:gun', 'pos': 504}
+Non-zero qiis:
+average_rating (1194): -0.358926534431
+imdb_keywords:stabbed-to-death (919): 0.0427705546388
+movielens_tags:nudity (full frontal) (68): 0.0402063223388
+imdb_keywords:garden (480): 0.026354988003
+imdb_keywords:baby (151): 0.0191797979932
+imdb_keywords:teenage-boy (970): 0.0164508803846
+imdb_keywords:undressing (1026): -0.0142847750846
+imdb_keywords:nightmare (692): -0.0125228710574
+imdb_keywords:one-man-army (712): 0.0124821651718
+movielens_tags:library (61): -0.0123574906405
+imdb_keywords:coming-of-age (290): 0.0102361988016
+imdb_keywords:waiter (1049): 0.00420793185563
+imdb_keywords:1910s (91): 0.00407509907504
+imdb_keywords:revenge (814): 0.00293537069714
+imdb_keywords:marijuana (642): 0.00159266697245
+imdb_keywords:search (851): 0.00115494222039
+imdb_keywords:1990s (99): 0.00112304521382
+imdb_keywords:crime-boss (314): 0.000628575688057
+Correctness score: 0.0
+Processing user 489, movie 4121 (Innerspace (1987))
+Original predicted rating: 1.86984686679
+User profile: {'neg_name': 'tvtropes:shout out', 'neg': 1176, 'profile_id': 0, 'pos_name': 'imdb_keywords:melodrama', 'pos': 651}
+Non-zero qiis:
+average_rating (1194): -0.366843315346
+tvtropes:does this remind you of anything (1122): 0.0926703738812
+imdb_keywords:limousine (605): -0.0747930739959
+imdb_keywords:garden (480): 0.0448713884526
+imdb_keywords:pantyhose (726): -0.0324047960638
+imdb_keywords:injection (559): 0.023372503943
+imdb_keywords:sheriff (874): 0.0218962660222
+imdb_keywords:flower (459): 0.0167889154599
+imdb_keywords:ex-husband-ex-wife-relationship (402): 0.0133881570021
+movielens_tags:library (61): -0.0128672813161
+imdb_keywords:car (241): 0.0119040139176
+imdb_keywords:search (851): 0.0114811198057
+movielens_genre:Documentary (7): 0.00899518420433
+imdb_keywords:baby (151): 0.00887274760314
+imdb_keywords:poetry (748): 0.00741963032909
+imdb_keywords:walkie-talkie (1051): -0.00660283692619
+imdb_keywords:revenge (814): 0.00598434149958
+imdb_keywords:nightmare (692): -0.00579319313994
+imdb_keywords:one-man-army (712): 0.00577436222997
+imdb_keywords:seduction (858): -0.00529989947551
+imdb_keywords:stabbed-to-death (919): -0.00526349698073
+imdb_keywords:marijuana (642): -0.00477473009988
+imdb_keywords:nightclub (691): 0.00451687798765
+imdb_keywords:child-in-peril (266): -0.00413601930266
+imdb_keywords:death-of-wife (342): -0.00320317733289
+imdb_keywords:guilt (501): -0.000219793477064
+imdb_keywords:secretary (855): 0.000159722941492
+imdb_keywords:greed (499): 0.000100268580435
+imdb_keywords:lesbian (596): 6.20371334056e-05
+imdb_keywords:1990s (99): -2.7005647817e-05
+Correctness score: 0.0
+Processing user 462, movie 67331 (Submerged (2005))
+Original predicted rating: 1.85827248468
+User profile: {'neg_name': 'imdb_keywords:fainting', 'neg': 415, 'profile_id': 1, 'pos_name': 'imdb_keywords:gun', 'pos': 504}
+Non-zero qiis:
+average_rating (1194): -0.358804172381
+imdb_keywords:garden (480): 0.0595794670242
+imdb_keywords:limousine (605): 0.037313412765
+imdb_keywords:undressing (1026): -0.0295097175594
+imdb_keywords:tea (965): -0.0277200151251
+imdb_keywords:greed (499): -0.0269526903089
+imdb_keywords:nightmare (692): 0.0153880937161
+imdb_keywords:one-man-army (712): -0.0132396587191
+imdb_keywords:waiter (1049): -0.00959287234599
+imdb_keywords:california (233): -0.00915264352027
+imdb_keywords:seduction (858): -0.00650490262067
+imdb_keywords:1990s (99): 0.00362962584614
+movielens_tags:library (61): 0.00359275986771
+imdb_keywords:stabbed-to-death (919): 0.0029393125481
+imdb_keywords:shaving (873): 0.00125649552695
+imdb_keywords:urban-setting (1032): 0.00120859984155
+Correctness score: 0.0
+Processing user 95, movie 34523 (The Chumscrubber (2005))
+Original predicted rating: 2.43306470199
+User profile: {'neg_name': 'imdb_keywords:class-differences', 'neg': 279, 'profile_id': 9, 'pos_name': 'imdb_keywords:reporter', 'pos': 811}
+Non-zero qiis:
+average_rating (1194): -0.201385581133
+imdb_keywords:key (581): -0.146052078605
+imdb_keywords:fear (430): 0.118503891328
+imdb_keywords:cigarette-smoking (276): -0.101455341327
+imdb_keywords:artist (139): 0.0757907244223
+imdb_keywords:california (233): 0.0719296751517
+imdb_keywords:male-full-frontal-nudity (632): 0.0703575851978
+imdb_keywords:wedding (1059): -0.052749725714
+imdb_keywords:crime-boss (314): -0.0264380544821
+movielens_tags:fantasy (55): 0.0252875368692
+imdb_keywords:roommate (828): -0.0163729907254
+imdb_keywords:washington-d.c. (1053): 0.0153151328773
+imdb_keywords:stabbed-to-death (919): -0.00995511730957
+imdb_keywords:coming-of-age (290): 0.00693514165212
+imdb_keywords:seduction (858): 0.00601602635914
+imdb_keywords:interview (563): 0.00444737859026
+imdb_keywords:marijuana (642): 0.00361326376993
+imdb_keywords:nightmare (692): -0.00348696311574
+imdb_keywords:art (138): -0.00323661688254
+imdb_keywords:baby (151): 0.00267028414901
+imdb_keywords:shaving (873): 0.00264680280175
+imdb_keywords:1980s (98): 0.00248683713998
+imdb_keywords:guilt (501): -0.00194494691743
+imdb_keywords:injection (559): -0.00177776689738
+Correctness score: 0.0
+Correctness scores: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+Average correctness: 0.0

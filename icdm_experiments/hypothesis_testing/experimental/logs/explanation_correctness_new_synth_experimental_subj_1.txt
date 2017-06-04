@@ -1,0 +1,310 @@
+Loading results dict
+Original recommender relative to ground truth on training set mean absolute error: 0.0136976277894, RMSE: 0.0197113791817
+Shadow model relative to the baseline recommender on test set MAE: 0.333983882699, RMSE: 0.431020439323
+Randomized model relative to the baseline recommender on test set MAE: 1.10036310479, RMSE: 1.33955399267
+Shadow model is 3.29465929882 times better than random on the test set
+Loading movies
+Loading ALS model
+Loading decision trees
+104 features are used: 0: year, 1: movielens_genre:Action, 2: movielens_genre:Adventure, 5: movielens_genre:Comedy, 1030: imdb_keywords:unrequited-love, 8: movielens_genre:Drama, 266: imdb_keywords:child-in-peril, 11: movielens_genre:Horror, 258: imdb_keywords:character-says-i-love-you, 14: movielens_genre:Romance, 45: movielens_tags:based on a book, 784: imdb_keywords:punched-in-the-face, 18: movielens_genre:Western, 531: imdb_keywords:hit-by-a-car, 21: movielens_tags:BD-Video, 22: movielens_tags:Bechdel Test:Fail, 279: imdb_keywords:class-differences, 537: imdb_keywords:honor, 431: imdb_keywords:fellatio, 28: movielens_tags:ClearPlay, 797: imdb_keywords:rainstorm, 543: imdb_keywords:hostage, 32: movielens_tags:DVD-Video, 33: movielens_tags:In Netflix queue, 36: movielens_tags:Nudity (Topless - Brief), 551: imdb_keywords:illness, 41: movielens_tags:acting, 42: movielens_tags:action, 813: imdb_keywords:restaurant, 1070: imdb_keywords:witness, 47: movielens_tags:cinematography, 816: imdb_keywords:revolution, 49: movielens_tags:comedy, 52: movielens_tags:drama, 393: imdb_keywords:epic, 312: imdb_keywords:cowboy-hat, 825: imdb_keywords:robbery, 249: imdb_keywords:catholic, 61: movielens_tags:library, 318: imdb_keywords:crucifix, 67: movielens_tags:netflix, 70: movielens_tags:on dvr, 97: imdb_keywords:1970s, 73: movielens_tags:predictable, 332: imdb_keywords:dead-body, 476: imdb_keywords:gambling, 847: imdb_keywords:scientist, 349: imdb_keywords:desert, 862: imdb_keywords:sequel, 865: imdb_keywords:servant, 610: imdb_keywords:locker-room, 613: imdb_keywords:long-take, 360: imdb_keywords:disguise, 361: imdb_keywords:dismemberment, 108: imdb_keywords:actress, 109: imdb_keywords:adoption, 104: imdb_keywords:accidental-death, 628: imdb_keywords:mafia, 373: imdb_keywords:drowning, 121: imdb_keywords:ambush, 124: imdb_keywords:american-flag, 125: imdb_keywords:anger, 895: imdb_keywords:sister-sister-relationship, 1152: tvtropes:large ham, 137: imdb_keywords:arson, 23: movielens_tags:Betamax, 143: imdb_keywords:attempted-murder, 149: imdb_keywords:axe, 151: imdb_keywords:baby, 1184: tvtropes:too dumb to live, 422: imdb_keywords:famous-score, 369: imdb_keywords:dream, 1194: average_rating, 939: imdb_keywords:suicide-attempt, 172: imdb_keywords:bath, 29: movielens_tags:Criterion, 434: imdb_keywords:female-nudity, 692: imdb_keywords:nightmare, 183: imdb_keywords:best-friend, 188: imdb_keywords:binoculars, 193: imdb_keywords:bisexual, 454: imdb_keywords:flash-forward, 206: imdb_keywords:book, 464: imdb_keywords:foreign-language-adaptation, 211: imdb_keywords:boyfriend-girlfriend-relationship, 633: imdb_keywords:male-nudity, 472: imdb_keywords:friendship, 218: imdb_keywords:bridge, 732: imdb_keywords:party, 477: imdb_keywords:gang, 481: imdb_keywords:gas-station, 995: imdb_keywords:topless-female-nudity, 484: imdb_keywords:gay-kiss, 234: imdb_keywords:camera, 935: imdb_keywords:subtitled-scene, 1006: imdb_keywords:transformation, 753: imdb_keywords:police-chase, 242: imdb_keywords:car-accident, 766: imdb_keywords:pregnancy, 553: imdb_keywords:impalement, 505: imdb_keywords:gunfight, 506: imdb_keywords:gunfire, 170: imdb_keywords:basement, 605: imdb_keywords:limousine
+Loading indicators
+Building indicator distributions
+Loading user profiles
+Processing user 728, movie 25934 (3 Godfathers (1948))
+Original predicted rating: 1.62368753494
+User profile: {'neg_name': 'imdb_keywords:rainstorm', 'neg': 797, 'profile_id': 3, 'pos_name': 'imdb_keywords:gunfight', 'pos': 505}
+Non-zero qiis:
+average_rating (1194): -0.81235081433
+imdb_keywords:robbery (825): -0.215377418983
+imdb_keywords:actress (108): 0.112675584243
+imdb_keywords:subtitled-scene (935): -0.0993363639018
+imdb_keywords:gunfight (505): -0.0642219031672
+imdb_keywords:honor (537): -0.0480873595494
+imdb_keywords:male-nudity (633): 0.0458928005193
+imdb_keywords:rainstorm (797): -0.0328876608407
+imdb_keywords:disguise (360): -0.0301622183983
+imdb_keywords:hit-by-a-car (531): 0.00417523798313
+Correctness score: 0.094489536105
+Processing user 331, movie 4269 (Rat (2000))
+Original predicted rating: 2.44730317828
+User profile: {'neg_name': 'tvtropes:black comedy', 'neg': 1100, 'profile_id': 8, 'pos_name': 'imdb_keywords:unrequited-love', 'pos': 1030}
+Non-zero qiis:
+imdb_keywords:male-nudity (633): 0.518451392093
+average_rating (1194): 0.312308314434
+imdb_keywords:class-differences (279): -0.0744262488618
+imdb_keywords:hit-by-a-car (531): -0.0278811631824
+imdb_keywords:robbery (825): 0.00996091978774
+imdb_keywords:gunfight (505): -0.00364676687964
+imdb_keywords:subtitled-scene (935): -0.0028037936947
+Correctness score: 0.0
+Processing user 747, movie 49979 (Desert Heat (Inferno) (1999))
+Original predicted rating: 2.54496649274
+User profile: {'neg_name': 'tvtropes:too dumb to live', 'neg': 1184, 'profile_id': 5, 'pos_name': 'imdb_keywords:subtitled-scene', 'pos': 935}
+Non-zero qiis:
+average_rating (1194): 0.286260186222
+imdb_keywords:gunfight (505): 0.262240397694
+imdb_keywords:male-nudity (633): 0.199109161776
+imdb_keywords:subtitled-scene (935): -0.128330339492
+imdb_keywords:disguise (360): 0.0686808391196
+imdb_keywords:cowboy-hat (312): -0.0484109057841
+imdb_keywords:robbery (825): 0.0158260133055
+Correctness score: 0.233965729947
+Processing user 996, movie 2477 (Firewalker (1986))
+Original predicted rating: 1.43444629251
+User profile: {'neg_name': 'imdb_keywords:honor', 'neg': 537, 'profile_id': 6, 'pos_name': 'imdb_keywords:actress', 'pos': 108}
+Non-zero qiis:
+average_rating (1194): 0.238152745022
+imdb_keywords:male-nudity (633): -0.193329692161
+imdb_keywords:disguise (360): -0.103521975521
+imdb_keywords:robbery (825): -0.0869752518169
+imdb_keywords:subtitled-scene (935): -0.056017869757
+imdb_keywords:long-take (613): 0.0230619673595
+imdb_keywords:gunfight (505): 0.021842818306
+imdb_keywords:gunfire (506): -0.0152541421176
+imdb_keywords:hit-by-a-car (531): 0.000727402224836
+Correctness score: 0.0
+Processing user 241, movie 1516 (Children of the Revolution (1996))
+Original predicted rating: 2.32874487979
+User profile: {'neg_name': 'imdb_keywords:rainstorm', 'neg': 797, 'profile_id': 3, 'pos_name': 'imdb_keywords:gunfight', 'pos': 505}
+Non-zero qiis:
+imdb_keywords:gunfight (505): -0.292181982257
+imdb_keywords:subtitled-scene (935): -0.122286636584
+imdb_keywords:male-nudity (633): 0.105785726047
+imdb_keywords:hit-by-a-car (531): -0.0933492171169
+average_rating (1194): 0.0912883422934
+imdb_keywords:robbery (825): -0.027063570249
+imdb_keywords:actress (108): -0.00824009605131
+Correctness score: 0.70495562022
+Processing user 300, movie 95 (Broken Arrow (1996))
+Original predicted rating: 2.20087316306
+User profile: {'neg_name': 'tvtropes:black comedy', 'neg': 1100, 'profile_id': 8, 'pos_name': 'imdb_keywords:unrequited-love', 'pos': 1030}
+Non-zero qiis:
+imdb_keywords:male-nudity (633): -0.261184422623
+average_rating (1194): 0.234158258732
+imdb_keywords:class-differences (279): -0.227573908307
+imdb_keywords:subtitled-scene (935): -0.11407574555
+imdb_keywords:hit-by-a-car (531): -0.110015625036
+imdb_keywords:gunfight (505): -0.103536081991
+imdb_keywords:robbery (825): -0.0636599805289
+imdb_keywords:rainstorm (797): 0.0437742851634
+imdb_keywords:actress (108): -0.0073281262413
+imdb_keywords:scientist (847): -0.00200131906835
+Correctness score: 0.0
+Processing user 735, movie 1594 (In the Company of Men (1997))
+Original predicted rating: 2.30507745273
+User profile: {'neg_name': 'imdb_keywords:cowboy-hat', 'neg': 312, 'profile_id': 0, 'pos_name': 'imdb_keywords:male-nudity', 'pos': 633}
+Non-zero qiis:
+imdb_keywords:unrequited-love (1030): 0.863909531662
+imdb_keywords:male-nudity (633): -0.291977461335
+imdb_keywords:robbery (825): -0.211165316642
+imdb_keywords:gunfight (505): -0.115014834102
+imdb_keywords:actress (108): -0.0788591564894
+average_rating (1194): 0.062654700076
+imdb_keywords:american-flag (124): 0.0354787721542
+imdb_keywords:class-differences (279): -0.0341012789414
+imdb_keywords:gunfire (506): -0.0149509525228
+imdb_keywords:disguise (360): 0.0120798012119
+Correctness score: 0.252600352028
+Processing user 10, movie 5329 (Salton Sea, The (2002))
+Original predicted rating: 3.98794314284
+User profile: {'neg_name': 'imdb_keywords:long-take', 'neg': 613, 'profile_id': 7, 'pos_name': 'imdb_keywords:disguise', 'pos': 360}
+Non-zero qiis:
+imdb_keywords:disguise (360): 0.671695232947
+imdb_keywords:sister-sister-relationship (895): 0.324925541659
+imdb_keywords:hit-by-a-car (531): -0.184196410882
+movielens_tags:In Netflix queue (33): -0.179203990854
+average_rating (1194): 0.126829878626
+imdb_keywords:unrequited-love (1030): 0.062230966087
+imdb_keywords:gunfight (505): 0.0542340096896
+imdb_keywords:arson (137): -0.0479239866173
+imdb_keywords:class-differences (279): -0.0370477500218
+imdb_keywords:illness (551): 0.0336413248286
+imdb_keywords:dismemberment (361): 0.0271112561725
+imdb_keywords:gunfire (506): 0.00740656050322
+imdb_keywords:robbery (825): 0.00437615803559
+imdb_keywords:male-nudity (633): 0.00428917150704
+Correctness score: 0.673972738741
+Processing user 861, movie 2530 (Beneath the Planet of the Apes (1970))
+Original predicted rating: 3.93439644309
+User profile: {'neg_name': 'imdb_keywords:rainstorm', 'neg': 797, 'profile_id': 3, 'pos_name': 'imdb_keywords:gunfight', 'pos': 505}
+Non-zero qiis:
+imdb_keywords:gunfight (505): 1.27997102402
+average_rating (1194): 0.176724858188
+imdb_keywords:scientist (847): -0.114715203349
+movielens_tags:DVD-Video (32): 0.090079583927
+imdb_keywords:actress (108): 0.0578167988703
+imdb_keywords:male-nudity (633): 0.0503173666274
+imdb_keywords:disguise (360): 0.0405115425458
+imdb_keywords:robbery (825): -0.0184949434407
+imdb_keywords:hit-by-a-car (531): 0.0166985335314
+imdb_keywords:subtitled-scene (935): 0.0109627652351
+imdb_keywords:unrequited-love (1030): -0.01049849704
+Correctness score: 0.878681020283
+Processing user 852, movie 33393 (Keys of the Kingdom, The (1944))
+Original predicted rating: 3.90171217954
+User profile: {'neg_name': 'imdb_keywords:topless-female-nudity', 'neg': 995, 'profile_id': 1, 'pos_name': 'imdb_keywords:gunfire', 'pos': 506}
+Non-zero qiis:
+imdb_keywords:gunfire (506): 1.75348910692
+imdb_keywords:revolution (816): -0.34236558348
+imdb_keywords:female-nudity (434): 0.126544452799
+imdb_keywords:hit-by-a-car (531): 0.0905978441908
+imdb_keywords:male-nudity (633): 0.0811137355404
+average_rating (1194): 0.0608682727391
+imdb_keywords:gunfight (505): -0.0452982712523
+imdb_keywords:scientist (847): 0.0373822464801
+imdb_keywords:disguise (360): 0.03072645835
+imdb_keywords:robbery (825): -0.022132714032
+imdb_keywords:unrequited-love (1030): 0.0110852743745
+Correctness score: 0.836646316633
+Processing user 523, movie 7063 (Aguirre: The Wrath of God (Aguirre, der Zorn Gottes) (1972))
+Original predicted rating: 1.01216001414
+User profile: {'neg_name': 'imdb_keywords:honor', 'neg': 537, 'profile_id': 6, 'pos_name': 'imdb_keywords:actress', 'pos': 108}
+Non-zero qiis:
+average_rating (1194): -0.386787509376
+imdb_keywords:male-nudity (633): -0.190585972136
+imdb_keywords:robbery (825): -0.171819651508
+imdb_keywords:illness (551): 0.156961889573
+imdb_keywords:disguise (360): 0.111893054672
+movielens_tags:BD-Video (21): 0.0930383414847
+imdb_keywords:unrequited-love (1030): -0.0618874227958
+imdb_keywords:gunfight (505): 0.054048889357
+imdb_keywords:hit-by-a-car (531): 0.0249462507109
+imdb_keywords:scientist (847): 0.0189545269863
+imdb_keywords:honor (537): -0.0148166815076
+imdb_keywords:subtitled-scene (935): 0.0114622084513
+Correctness score: 0.0256622134235
+Processing user 518, movie 737 (Barb Wire (1996))
+Original predicted rating: 1.02852720707
+User profile: {'neg_name': 'tvtropes:black comedy', 'neg': 1100, 'profile_id': 8, 'pos_name': 'imdb_keywords:unrequited-love', 'pos': 1030}
+Non-zero qiis:
+average_rating (1194): -0.527878452989
+imdb_keywords:unrequited-love (1030): -0.196804703937
+imdb_keywords:robbery (825): -0.141081709178
+imdb_keywords:male-nudity (633): -0.107334940211
+imdb_keywords:subtitled-scene (935): -0.044263282809
+imdb_keywords:gunfight (505): 0.0385355188132
+imdb_keywords:hit-by-a-car (531): 0.0212234674013
+imdb_keywords:disguise (360): -0.019199935599
+imdb_keywords:long-take (613): -0.0179825874292
+imdb_keywords:actress (108): -0.0178891836205
+imdb_keywords:honor (537): -0.0115703547591
+tvtropes:too dumb to live (1184): -0.00435942598584
+imdb_keywords:illness (551): -0.00175805112183
+Correctness score: 0.271573448418
+Processing user 811, movie 846 (Flirt (1995))
+Original predicted rating: 1.76945248917
+User profile: {'neg_name': 'imdb_keywords:rainstorm', 'neg': 797, 'profile_id': 3, 'pos_name': 'imdb_keywords:gunfight', 'pos': 505}
+Non-zero qiis:
+average_rating (1194): -0.718136277614
+imdb_keywords:robbery (825): -0.295042032718
+imdb_keywords:long-take (613): -0.0778843060805
+imdb_keywords:gunfight (505): -0.0691793034014
+imdb_keywords:actress (108): 0.0553513035909
+imdb_keywords:subtitled-scene (935): -0.0404550294352
+imdb_keywords:illness (551): -0.0248899466705
+imdb_keywords:cowboy-hat (312): 0.0198194378695
+imdb_keywords:hit-by-a-car (531): 0.00705667012287
+tvtropes:too dumb to live (1184): -0.00654462060765
+imdb_keywords:male-nudity (633): 0.00176200266161
+Correctness score: 0.0682794950267
+Processing user 382, movie 1992 (Child's Play 2 (1990))
+Original predicted rating: 1.2961629568
+User profile: {'neg_name': 'tvtropes:too dumb to live', 'neg': 1184, 'profile_id': 5, 'pos_name': 'imdb_keywords:subtitled-scene', 'pos': 935}
+Non-zero qiis:
+average_rating (1194): -0.38874511961
+imdb_keywords:male-nudity (633): -0.284491482875
+imdb_keywords:robbery (825): -0.198670310573
+imdb_keywords:subtitled-scene (935): -0.152504789094
+imdb_keywords:hit-by-a-car (531): 0.0399906185087
+imdb_keywords:actress (108): 0.0390996348833
+imdb_keywords:gunfight (505): -0.0180728172504
+imdb_keywords:illness (551): -0.0152367483837
+tvtropes:too dumb to live (1184): -0.00541997166947
+Correctness score: 0.234575422935
+Processing user 200, movie 26547 (Police Story (Ging chaat goo si) (1985))
+Original predicted rating: 1.95433568878
+User profile: {'neg_name': 'imdb_keywords:topless-female-nudity', 'neg': 995, 'profile_id': 1, 'pos_name': 'imdb_keywords:gunfire', 'pos': 506}
+Non-zero qiis:
+imdb_keywords:gunfight (505): 0.380444717464
+imdb_keywords:male-nudity (633): 0.358388371741
+average_rating (1194): 0.273580088862
+imdb_keywords:subtitled-scene (935): -0.0731653411629
+imdb_keywords:nightmare (692): 0.0513264718272
+imdb_keywords:robbery (825): -0.0326439967479
+imdb_keywords:hit-by-a-car (531): 0.0257922666806
+imdb_keywords:unrequited-love (1030): 0.0110259787948
+Correctness score: 0.0
+Processing user 196, movie 5559 (Mad Love (Juana la Loca) (2001))
+Original predicted rating: 1.94828684338
+User profile: {'neg_name': 'imdb_keywords:topless-female-nudity', 'neg': 995, 'profile_id': 1, 'pos_name': 'imdb_keywords:gunfire', 'pos': 506}
+Non-zero qiis:
+imdb_keywords:male-nudity (633): 0.4038266201
+imdb_keywords:gunfire (506): -0.170387918309
+average_rating (1194): 0.125865073384
+imdb_keywords:gunfight (505): -0.0894363727381
+imdb_keywords:subtitled-scene (935): -0.0639245276412
+imdb_keywords:disguise (360): -0.052851796272
+imdb_keywords:actress (108): 0.0179595071213
+Correctness score: 0.296732156558
+Processing user 159, movie 3022 (General, The (1926))
+Original predicted rating: 2.94190413881
+User profile: {'neg_name': 'imdb_keywords:child-in-peril', 'neg': 266, 'profile_id': 4, 'pos_name': 'imdb_keywords:class-differences', 'pos': 279}
+Non-zero qiis:
+imdb_keywords:gunfire (506): 0.292626829578
+imdb_keywords:robbery (825): -0.193151207875
+imdb_keywords:disguise (360): -0.124599347778
+imdb_keywords:gunfight (505): 0.0966512902154
+average_rating (1194): 0.094680125813
+imdb_keywords:male-nudity (633): -0.0588320412627
+imdb_keywords:long-take (613): 0.0551489511532
+imdb_keywords:hit-by-a-car (531): -0.0460078929974
+imdb_keywords:subtitled-scene (935): -0.0433545200127
+imdb_keywords:scientist (847): 0.00531711498586
+Correctness score: 0.0
+Processing user 346, movie 25855 (Roaring Twenties, The (1939))
+Original predicted rating: 4.10557020158
+User profile: {'neg_name': 'imdb_keywords:cowboy-hat', 'neg': 312, 'profile_id': 0, 'pos_name': 'imdb_keywords:male-nudity', 'pos': 633}
+Non-zero qiis:
+imdb_keywords:gunfire (506): -0.330981661408
+imdb_keywords:unrequited-love (1030): 0.294301692469
+average_rating (1194): 0.236892306064
+imdb_keywords:male-nudity (633): 0.216146509101
+imdb_keywords:gunfight (505): 0.198664342367
+imdb_keywords:disguise (360): 0.164319664971
+imdb_keywords:long-take (613): 0.132820489136
+imdb_keywords:robbery (825): -0.0924485609124
+imdb_keywords:subtitled-scene (935): 0.0143947662954
+imdb_keywords:revolution (816): 0.0136764460115
+imdb_keywords:scientist (847): 0.00825332274542
+Correctness score: 0.345677695977
+Processing user 993, movie 7027 (Silverado (1985))
+Original predicted rating: 3.06817173075
+User profile: {'neg_name': 'imdb_keywords:long-take', 'neg': 613, 'profile_id': 7, 'pos_name': 'imdb_keywords:disguise', 'pos': 360}
+Non-zero qiis:
+imdb_keywords:gunfight (505): 0.921700319386
+average_rating (1194): 0.46800783603
+imdb_keywords:actress (108): 0.0983058890626
+imdb_keywords:male-nudity (633): -0.0434007471925
+imdb_keywords:disguise (360): -0.0269348716282
+imdb_keywords:subtitled-scene (935): -0.0108706661513
+imdb_keywords:scientist (847): 0.00792879485202
+imdb_keywords:hit-by-a-car (531): 0.00763455782077
+imdb_keywords:robbery (825): 0.00677836283998
+Correctness score: 0.019381674867
+Processing user 55, movie 5425 (Dark Blue World (Tmavomodrý svet) (2001))
+Original predicted rating: 0.841230999774
+User profile: {'neg_name': 'imdb_keywords:child-in-peril', 'neg': 266, 'profile_id': 4, 'pos_name': 'imdb_keywords:class-differences', 'pos': 279}
+Non-zero qiis:
+average_rating (1194): -0.445653468307
+imdb_keywords:unrequited-love (1030): -0.137213142109
+imdb_keywords:illness (551): 0.133631715405
+imdb_keywords:robbery (825): -0.0843227059224
+imdb_keywords:male-nudity (633): 0.0755061928644
+imdb_keywords:gunfire (506): -0.056017069767
+imdb_keywords:gunfight (505): 0.0479681114431
+imdb_keywords:subtitled-scene (935): -0.00789882914533
+imdb_keywords:hit-by-a-car (531): -0.0031279026739
+imdb_keywords:disguise (360): -0.00138037266979
+Correctness score: 0.0
+Correctness scores: [0.09448953610500989, 0.0, 0.23396572994681236, 0.0, 0.704955620220107, 0.0, 0.2526003520277311, 0.6739727387407093, 0.8786810202830557, 0.8366463166327197, 0.025662213423450257, 0.27157344841796416, 0.06827949502668158, 0.2345754229347765, 0.0, 0.29673215655767166, 0.0, 0.3456776959773151, 0.019381674866950208, 0.0]
+Average correctness: 0.246859671058

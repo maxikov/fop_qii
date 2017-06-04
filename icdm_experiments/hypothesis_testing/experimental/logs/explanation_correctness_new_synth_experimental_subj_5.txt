@@ -1,0 +1,316 @@
+Loading results dict
+Original recommender relative to ground truth on training set mean absolute error: 0.0128459361115, RMSE: 0.0185322472199
+Shadow model relative to the baseline recommender on test set MAE: 0.278749017115, RMSE: 0.363604032429
+Randomized model relative to the baseline recommender on test set MAE: 1.08187810537, RMSE: 1.35703569496
+Shadow model is 3.88119074489 times better than random on the test set
+Loading movies
+Loading ALS model
+Loading decision trees
+96 features are used: 0: year, 1: movielens_genre:Action, 2: movielens_genre:Adventure, 259: imdb_keywords:chase, 5: movielens_genre:Comedy, 6: movielens_genre:Crime, 7: movielens_genre:Documentary, 8: movielens_genre:Drama, 9: movielens_genre:Fantasy, 11: movielens_genre:Horror, 268: imdb_keywords:childbirth, 13: movielens_genre:Mystery, 14: movielens_genre:Romance, 15: movielens_genre:Sci-Fi, 16: movielens_genre:Thriller, 276: imdb_keywords:cigarette-smoking, 21: movielens_tags:BD-Video, 793: imdb_keywords:radio, 539: imdb_keywords:horse, 1052: imdb_keywords:warrior, 29: movielens_tags:Criterion, 546: imdb_keywords:house, 35: movielens_tags:Netflix Finland, 36: movielens_tags:Nudity (Topless - Brief), 817: imdb_keywords:revolver, 40: movielens_tags:Tumey's DVDs, 298: imdb_keywords:convertible, 299: imdb_keywords:cook, 45: movielens_tags:based on a book, 46: movielens_tags:boring, 815: imdb_keywords:reverse-footage, 561: imdb_keywords:interracial-relationship, 818: imdb_keywords:rifle, 57: movielens_tags:funny, 215: imdb_keywords:breaking-and-entering, 1095: tvtropes:berserk button, 76: movielens_tags:revenge, 589: imdb_keywords:knife, 269: imdb_keywords:children, 336: imdb_keywords:death-of-child, 338: imdb_keywords:death-of-friend, 854: imdb_keywords:secret-agent, 601: imdb_keywords:library, 860: imdb_keywords:self-sacrifice, 784: imdb_keywords:punched-in-the-face, 866: imdb_keywords:severed-arm, 1128: tvtropes:expy, 106: imdb_keywords:actor, 363: imdb_keywords:doctor, 1132: tvtropes:faux affably evil, 878: imdb_keywords:shot-in-the-arm, 879: imdb_keywords:shot-in-the-back, 112: imdb_keywords:african-american, 369: imdb_keywords:dream, 114: imdb_keywords:airport, 117: imdb_keywords:alcoholic, 126: imdb_keywords:animal-attack, 127: imdb_keywords:animal-in-title, 896: imdb_keywords:skeleton, 129: imdb_keywords:anti-hero, 136: imdb_keywords:arrest, 141: imdb_keywords:assassination, 1167: tvtropes:pet the dog, 661: imdb_keywords:mission, 151: imdb_keywords:baby, 111: imdb_keywords:africa, 670: imdb_keywords:mother-daughter-relationship, 164: imdb_keywords:baseball-bat, 1194: average_rating, 428: imdb_keywords:father-son-relationship, 434: imdb_keywords:female-nudity, 958: imdb_keywords:talking-to-the-camera, 960: imdb_keywords:tape-recorder, 705: imdb_keywords:old-man, 354: imdb_keywords:diner, 709: imdb_keywords:on-the-road, 562: imdb_keywords:interrogation, 455: imdb_keywords:flashback, 460: imdb_keywords:flowers, 206: imdb_keywords:book, 210: imdb_keywords:boy, 505: imdb_keywords:gunfight, 49: movielens_tags:comedy, 732: imdb_keywords:party, 221: imdb_keywords:brothel, 1104: tvtropes:brick joke, 485: imdb_keywords:gay-slur, 1001: imdb_keywords:tragic-event, 1002: imdb_keywords:train, 594: imdb_keywords:lawyer, 1011: imdb_keywords:truck, 245: imdb_keywords:card-playing, 761: imdb_keywords:politics, 251: imdb_keywords:cave, 1021: imdb_keywords:uncle-nephew-relationship, 254: imdb_keywords:champagne
+Loading indicators
+Building indicator distributions
+Loading user profiles
+Processing user 86, movie 74452 (Wolfman, The (2010))
+Original predicted rating: 1.9848689063
+User profile: {'neg_name': 'imdb_keywords:knife', 'neg': 589, 'profile_id': 5, 'pos_name': 'imdb_keywords:tape-recorder', 'pos': 960}
+Non-zero qiis:
+imdb_keywords:animal-attack (126): -0.591487606023
+average_rating (1194): 0.183092015892
+imdb_keywords:tape-recorder (960): -0.18042848497
+imdb_keywords:talking-to-the-camera (958): -0.164009551905
+movielens_tags:boring (46): -0.137998636252
+imdb_keywords:cave (251): -0.0857906853538
+imdb_keywords:shot-in-the-arm (878): -0.0591049887944
+tvtropes:expy (1128): -0.042016134838
+imdb_keywords:death-of-child (336): -0.0376325764531
+imdb_keywords:knife (589): -0.00755251113713
+imdb_keywords:convertible (298): -0.00588587893111
+imdb_keywords:punched-in-the-face (784): 0.00564340752774
+Correctness score: 0.242687763515
+Processing user 345, movie 6802 (Consenting Adults (1992))
+Original predicted rating: 1.53897321003
+User profile: {'neg_name': 'movielens_genre:Documentary', 'neg': 7, 'profile_id': 3, 'pos_name': 'imdb_keywords:truck', 'pos': 1011}
+Non-zero qiis:
+average_rating (1194): -1.11335385302
+imdb_keywords:shot-in-the-arm (878): -0.156050704903
+imdb_keywords:talking-to-the-camera (958): -0.12517954382
+imdb_keywords:truck (1011): -0.108962024782
+imdb_keywords:tape-recorder (960): -0.0905989649629
+tvtropes:expy (1128): -0.0879121128995
+imdb_keywords:interracial-relationship (561): -0.0753894824278
+imdb_keywords:flowers (460): -0.0393526342364
+imdb_keywords:children (269): 0.0376069707175
+imdb_keywords:uncle-nephew-relationship (1021): 0.0344041392008
+imdb_keywords:knife (589): -0.0290617731466
+imdb_keywords:punched-in-the-face (784): -0.0193193287919
+imdb_keywords:cave (251): 0.00544609701663
+imdb_keywords:animal-attack (126): 0.00428954957035
+movielens_tags:Nudity (Topless - Brief) (36): 0.00129348456919
+imdb_keywords:mother-daughter-relationship (670): 0.000222382191361
+Correctness score: 0.0858371148128
+Processing user 215, movie 71571 (Sorority Row (2009))
+Original predicted rating: 3.35373961413
+User profile: {'neg_name': 'imdb_keywords:brothel', 'neg': 221, 'profile_id': 1, 'pos_name': 'imdb_keywords:children', 'pos': 269}
+Non-zero qiis:
+average_rating (1194): 0.282399607856
+imdb_keywords:interracial-relationship (561): -0.181881324598
+imdb_keywords:punched-in-the-face (784): 0.158866471242
+tvtropes:expy (1128): -0.116634787265
+imdb_keywords:shot-in-the-arm (878): -0.0936717957125
+imdb_keywords:children (269): -0.0768040385986
+imdb_keywords:animal-attack (126): 0.0656752392436
+imdb_keywords:truck (1011): -0.0241904461227
+movielens_tags:boring (46): 0.0229234866067
+movielens_tags:Tumey's DVDs (40): -0.0174893842694
+Correctness score: 0.16542578691
+Processing user 348, movie 1644 (I Know What You Did Last Summer (1997))
+Original predicted rating: 1.4983735385
+User profile: {'neg_name': 'imdb_keywords:brothel', 'neg': 221, 'profile_id': 1, 'pos_name': 'imdb_keywords:children', 'pos': 269}
+Non-zero qiis:
+average_rating (1194): -0.765078342148
+movielens_tags:boring (46): -0.114449087886
+imdb_keywords:punched-in-the-face (784): -0.114302841969
+imdb_keywords:children (269): -0.100550292677
+imdb_keywords:truck (1011): -0.0617689951022
+imdb_keywords:knife (589): -0.0539002833424
+imdb_keywords:flowers (460): -0.0375655762757
+imdb_keywords:baseball-bat (164): -0.0123045238921
+imdb_keywords:tape-recorder (960): 0.00899684300282
+imdb_keywords:shot-in-the-arm (878): -0.00763262591974
+Correctness score: 0.114323089017
+Processing user 420, movie 982 (Picnic (1955))
+Original predicted rating: 1.12231461925
+User profile: {'neg_name': 'imdb_keywords:knife', 'neg': 589, 'profile_id': 5, 'pos_name': 'imdb_keywords:tape-recorder', 'pos': 960}
+Non-zero qiis:
+average_rating (1194): -0.578649023531
+imdb_keywords:convertible (298): -0.285265690268
+imdb_keywords:shot-in-the-arm (878): -0.104874690938
+imdb_keywords:punched-in-the-face (784): -0.0937332726433
+tvtropes:expy (1128): -0.0897955856411
+movielens_tags:boring (46): -0.0685722098823
+imdb_keywords:children (269): -0.0367008233209
+imdb_keywords:knife (589): -0.0234271584697
+imdb_keywords:cave (251): 0.0229224777683
+imdb_keywords:tape-recorder (960): 0.0108472891457
+Correctness score: 0.0396734157528
+Processing user 8, movie 6711 (Lost in Translation (2003))
+Original predicted rating: 1.31994450404
+User profile: {'neg_name': 'imdb_keywords:flowers', 'neg': 460, 'profile_id': 6, 'pos_name': 'imdb_keywords:animal-attack', 'pos': 126}
+Non-zero qiis:
+average_rating (1194): -0.52056503979
+imdb_keywords:knife (589): 0.0715463872719
+movielens_tags:boring (46): -0.0439910928706
+imdb_keywords:children (269): 0.041813656019
+imdb_keywords:convertible (298): 0.0282442469988
+imdb_keywords:punched-in-the-face (784): -0.0253974426649
+imdb_keywords:truck (1011): 0.0129445868974
+imdb_keywords:flowers (460): -0.0108471589658
+Correctness score: 0.0183194555451
+Processing user 832, movie 104680 (Last of Robin Hood, The (2013))
+Original predicted rating: 3.61655302383
+User profile: {'neg_name': 'imdb_keywords:uncle-nephew-relationship', 'neg': 1021, 'profile_id': 0, 'pos_name': 'imdb_keywords:talking-to-the-camera', 'pos': 958}
+Non-zero qiis:
+average_rating (1194): 0.758482402028
+imdb_keywords:tape-recorder (960): 0.71125127083
+imdb_keywords:talking-to-the-camera (958): -0.117229439516
+imdb_keywords:death-of-child (336): 0.0835488091596
+imdb_keywords:knife (589): 0.0733443404977
+imdb_keywords:cave (251): 0.0118402227002
+imdb_keywords:punched-in-the-face (784): 0.00284215884032
+imdb_keywords:children (269): 0.00170033350337
+Correctness score: 0.0797623689792
+Processing user 827, movie 5893 (Last Seduction, The (1994))
+Original predicted rating: 1.75993558532
+User profile: {'neg_name': 'imdb_keywords:baseball-bat', 'neg': 164, 'profile_id': 4, 'pos_name': 'imdb_keywords:cave', 'pos': 251}
+Non-zero qiis:
+imdb_keywords:flowers (460): 0.38400850998
+average_rating (1194): -0.331857959736
+imdb_keywords:shot-in-the-arm (878): -0.0921298742321
+imdb_keywords:punched-in-the-face (784): 0.0471484991743
+imdb_keywords:animal-attack (126): -0.0150442748644
+imdb_keywords:knife (589): -0.0134658739234
+imdb_keywords:truck (1011): -0.0100101609785
+imdb_keywords:children (269): -0.00958020211572
+imdb_keywords:uncle-nephew-relationship (1021): 0.00529786357335
+imdb_keywords:convertible (298): 0.00293353762146
+imdb_keywords:baseball-bat (164): 0.00096205241528
+Correctness score: 0.00134389925493
+Processing user 871, movie 2316 (Practical Magic (1998))
+Original predicted rating: 3.00098850127
+User profile: {'neg_name': 'imdb_keywords:knife', 'neg': 589, 'profile_id': 5, 'pos_name': 'imdb_keywords:tape-recorder', 'pos': 960}
+Non-zero qiis:
+imdb_keywords:tape-recorder (960): 0.941159166852
+average_rating (1194): 0.859532919618
+imdb_keywords:knife (589): -0.410639702506
+imdb_keywords:interracial-relationship (561): 0.135230352288
+imdb_keywords:shot-in-the-arm (878): -0.0420829974118
+imdb_keywords:animal-attack (126): 0.027348977092
+imdb_keywords:rifle (818): 0.0256302346577
+tvtropes:expy (1128): -0.0246713733982
+imdb_keywords:children (269): 0.0191715859888
+imdb_keywords:punched-in-the-face (784): 0.00450851866898
+Correctness score: 0.750710729233
+Processing user 105, movie 34148 (Beat That My Heart Skipped, The (battre mon coeur s'est arrêté, De) (2005))
+Original predicted rating: 2.77851272999
+User profile: {'neg_name': 'imdb_keywords:knife', 'neg': 589, 'profile_id': 5, 'pos_name': 'imdb_keywords:tape-recorder', 'pos': 960}
+Non-zero qiis:
+imdb_keywords:tape-recorder (960): 1.15514569056
+average_rating (1194): 0.701916093338
+imdb_keywords:knife (589): -0.305855796054
+imdb_keywords:baseball-bat (164): 0.103636542035
+imdb_keywords:rifle (818): 0.0489617225495
+tvtropes:expy (1128): -0.0405188542023
+imdb_keywords:punched-in-the-face (784): -0.016394238399
+imdb_keywords:truck (1011): -0.0101244720656
+imdb_keywords:severed-arm (866): -0.00580651500064
+imdb_keywords:children (269): 0.00182495323841
+Correctness score: 0.786727452625
+Processing user 246, movie 101319 (Operation Daybreak (1975))
+Original predicted rating: 1.44986129352
+User profile: {'neg_name': 'imdb_keywords:house', 'neg': 546, 'profile_id': 8, 'pos_name': 'imdb_keywords:death-of-child', 'pos': 336}
+Non-zero qiis:
+average_rating (1194): -1.11673692449
+imdb_keywords:convertible (298): -0.399681059912
+imdb_keywords:punched-in-the-face (784): -0.122989210629
+imdb_keywords:flowers (460): -0.0487485243928
+imdb_keywords:shot-in-the-arm (878): -0.0347737222932
+imdb_keywords:knife (589): -0.0281909881711
+imdb_keywords:house (546): -0.0222238998101
+imdb_keywords:talking-to-the-camera (958): -0.0195607028589
+imdb_keywords:uncle-nephew-relationship (1021): 0.0178237026168
+imdb_keywords:children (269): -0.0164180803752
+imdb_keywords:truck (1011): -0.0161606125741
+imdb_keywords:cave (251): -0.0137093289085
+imdb_keywords:tape-recorder (960): 0.00534914340552
+tvtropes:expy (1128): 0.00527041220214
+Correctness score: 0.0146555237663
+Processing user 190, movie 42943 (Revolution (1985))
+Original predicted rating: 3.98625574873
+User profile: {'neg_name': 'movielens_tags:boring', 'neg': 46, 'profile_id': 2, 'pos_name': 'tvtropes:expy', 'pos': 1128}
+Non-zero qiis:
+tvtropes:expy (1128): 1.5288526488
+average_rating (1194): 0.30445870651
+movielens_tags:boring (46): 0.0603690817563
+imdb_keywords:tape-recorder (960): 0.0370426315884
+imdb_keywords:animal-attack (126): 0.0344055791488
+imdb_keywords:truck (1011): -0.0290383971486
+imdb_keywords:shot-in-the-arm (878): 0.0135133841447
+imdb_keywords:punched-in-the-face (784): 0.00688244182495
+imdb_keywords:knife (589): -0.00270173766774
+imdb_keywords:interracial-relationship (561): 0.00175699161335
+imdb_keywords:children (269): -0.00159655065438
+Correctness score: 0.866858608579
+Processing user 755, movie 6219 (Hunted, The (2003))
+Original predicted rating: 1.11141393306
+User profile: {'neg_name': 'movielens_tags:boring', 'neg': 46, 'profile_id': 2, 'pos_name': 'tvtropes:expy', 'pos': 1128}
+Non-zero qiis:
+average_rating (1194): -0.902214467842
+imdb_keywords:flowers (460): -0.0736337087043
+imdb_keywords:truck (1011): -0.0732236565045
+imdb_keywords:animal-attack (126): -0.0529272705551
+movielens_tags:boring (46): -0.0434334017921
+imdb_keywords:uncle-nephew-relationship (1021): 0.0393378470903
+imdb_keywords:baseball-bat (164): -0.0373368887605
+imdb_keywords:knife (589): -0.0361891027452
+imdb_keywords:punched-in-the-face (784): -0.0271444796304
+imdb_keywords:tape-recorder (960): 0.00887291094507
+imdb_keywords:children (269): 0.00433084670064
+imdb_keywords:convertible (298): 0.00286534420227
+imdb_keywords:house (546): -0.00172858347321
+Correctness score: 0.0445083598413
+Processing user 657, movie 2420 (Karate Kid, The (1984))
+Original predicted rating: 1.38238999395
+User profile: {'neg_name': 'imdb_keywords:brothel', 'neg': 221, 'profile_id': 1, 'pos_name': 'imdb_keywords:children', 'pos': 269}
+Non-zero qiis:
+average_rating (1194): -0.815077366503
+imdb_keywords:convertible (298): -0.483605186152
+imdb_keywords:children (269): -0.192389325072
+imdb_keywords:knife (589): -0.113630510143
+movielens_tags:boring (46): -0.0400646335218
+imdb_keywords:punched-in-the-face (784): -0.0363143987567
+imdb_keywords:flowers (460): -0.0353689627716
+imdb_keywords:shot-in-the-arm (878): -0.0276660046054
+imdb_keywords:interracial-relationship (561): -0.0235023181438
+imdb_keywords:death-of-child (336): -0.0100443158795
+Correctness score: 0.148141918653
+Processing user 956, movie 6699 (Once Upon a Time in the Midlands (2002))
+Original predicted rating: 2.12914940248
+User profile: {'neg_name': 'imdb_keywords:knife', 'neg': 589, 'profile_id': 5, 'pos_name': 'imdb_keywords:tape-recorder', 'pos': 960}
+Non-zero qiis:
+average_rating (1194): 0.253694666252
+imdb_keywords:children (269): 0.171239686321
+tvtropes:expy (1128): -0.00996066632736
+Correctness score: 0.0
+Processing user 425, movie 79430 (8: The Mormon Proposition (2010))
+Original predicted rating: 1.85207193161
+User profile: {'neg_name': 'imdb_keywords:convertible', 'neg': 298, 'profile_id': 9, 'pos_name': 'imdb_keywords:interracial-relationship', 'pos': 561}
+Non-zero qiis:
+movielens_genre:Documentary (7): -0.209882757111
+imdb_keywords:shot-in-the-arm (878): -0.132063044987
+imdb_keywords:talking-to-the-camera (958): -0.0781530343192
+average_rating (1194): 0.0624783718893
+imdb_keywords:death-of-child (336): -0.0606806114836
+imdb_keywords:cave (251): -0.0468680330081
+imdb_keywords:animal-attack (126): 0.00405625826932
+imdb_keywords:children (269): -0.000397259717952
+Correctness score: 0.0
+Processing user 73, movie 56587 (Bucket List, The (2007))
+Original predicted rating: 1.84521409027
+User profile: {'neg_name': 'imdb_keywords:brothel', 'neg': 221, 'profile_id': 1, 'pos_name': 'imdb_keywords:children', 'pos': 269}
+Non-zero qiis:
+average_rating (1194): -0.316859701465
+imdb_keywords:flowers (460): 0.122296239959
+imdb_keywords:children (269): -0.0996986632314
+movielens_tags:boring (46): 0.0850141762917
+imdb_keywords:knife (589): -0.0602726910236
+imdb_keywords:talking-to-the-camera (958): -0.0577675285211
+imdb_keywords:tape-recorder (960): 0.0382787154656
+imdb_keywords:convertible (298): 0.0320678573694
+tvtropes:expy (1128): 0.0201407650833
+imdb_keywords:shot-in-the-arm (878): -0.0185836618516
+imdb_keywords:punched-in-the-face (784): -0.016922419078
+imdb_keywords:interracial-relationship (561): -0.0144173204482
+imdb_keywords:truck (1011): -0.00495668689109
+Correctness score: 0.22702337331
+Processing user 771, movie 104312 (Mortal Instruments: City of Bones, The (2013))
+Original predicted rating: 1.23980628023
+User profile: {'neg_name': 'imdb_keywords:uncle-nephew-relationship', 'neg': 1021, 'profile_id': 0, 'pos_name': 'imdb_keywords:talking-to-the-camera', 'pos': 958}
+Non-zero qiis:
+average_rating (1194): -0.390353635731
+imdb_keywords:punched-in-the-face (784): -0.0831437491297
+imdb_keywords:knife (589): -0.0642995684936
+imdb_keywords:tape-recorder (960): 0.0320303870483
+imdb_keywords:flowers (460): -0.0262914892354
+imdb_keywords:interracial-relationship (561): -0.0149730452609
+movielens_tags:boring (46): -0.0127904888542
+imdb_keywords:uncle-nephew-relationship (1021): -0.00761313101996
+imdb_keywords:house (546): -0.00493257564532
+imdb_keywords:convertible (298): 0.00408818181088
+Correctness score: 0.0160785070063
+Processing user 140, movie 51886 (Omagh (2004))
+Original predicted rating: 2.11796216267
+User profile: {'neg_name': 'imdb_keywords:knife', 'neg': 589, 'profile_id': 5, 'pos_name': 'imdb_keywords:tape-recorder', 'pos': 960}
+Non-zero qiis:
+imdb_keywords:children (269): 0.214379342489
+average_rating (1194): 0.206872481341
+imdb_keywords:tape-recorder (960): -0.190269736657
+imdb_keywords:animal-attack (126): 0.0744899425549
+imdb_keywords:shot-in-the-arm (878): -0.00926417896722
+imdb_keywords:interracial-relationship (561): -0.00447383290937
+tvtropes:expy (1128): -0.00353062957438
+imdb_keywords:talking-to-the-camera (958): 0.00323413745062
+Correctness score: 0.45167694451
+Processing user 562, movie 8118 (Delta Force 2 (Delta Force 2: The Colombian Connection) (1990))
+Original predicted rating: 2.82506705733
+User profile: {'neg_name': 'movielens_genre:Documentary', 'neg': 7, 'profile_id': 3, 'pos_name': 'imdb_keywords:truck', 'pos': 1011}
+Non-zero qiis:
+average_rating (1194): 0.5468314498
+imdb_keywords:tape-recorder (960): 0.0629604075084
+imdb_keywords:death-of-child (336): 0.0540799471846
+imdb_keywords:talking-to-the-camera (958): 0.0333445451476
+imdb_keywords:shot-in-the-arm (878): 0.0266538534009
+imdb_keywords:punched-in-the-face (784): 0.006692387131
+imdb_keywords:brothel (221): 0.00410503177579
+Correctness score: 0.0
+Correctness scores: [0.2426877635154901, 0.08583711481281336, 0.16542578691001164, 0.11432308901710342, 0.03967341575278557, 0.018319455545131723, 0.07976236897920169, 0.001343899254929891, 0.7507107292328591, 0.7867274526250823, 0.014655523766318592, 0.8668586085793205, 0.04450835984125466, 0.14814191865322562, 0.0, 0.0, 0.2270233733102405, 0.016078507006311808, 0.45167694450982215, 0.0]
+Average correctness: 0.202687715566

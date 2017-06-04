@@ -1,0 +1,523 @@
+Loading results dict
+Original recommender relative to ground truth on training set mean absolute error: 0.0215299379074, RMSE: 0.0272629976948
+Shadow model relative to the baseline recommender on test set MAE: 0.857154664237, RMSE: 1.01651863422
+Randomized model relative to the baseline recommender on test set MAE: 1.14603601936, RMSE: 1.40051965322
+Shadow model is 1.33702360516 times better than random on the test set
+Loading movies
+Loading ALS model
+Loading decision trees
+251 features are used: 0: year, 1: movielens_genre:Action, 3: movielens_genre:Animation, 516: imdb_keywords:hanging, 5: movielens_genre:Comedy, 6: movielens_genre:Crime, 513: imdb_keywords:hand-to-hand-combat, 8: movielens_genre:Drama, 9: movielens_genre:Fantasy, 522: imdb_keywords:heist, 12: movielens_genre:Musical, 770: imdb_keywords:prison, 526: imdb_keywords:hero, 1039: imdb_keywords:vengeance, 1040: imdb_keywords:video-camera, 19: movielens_tags:70mm, 20: movielens_tags:BD-R, 21: movielens_tags:BD-Video, 23: movielens_tags:Betamax, 444: imdb_keywords:filmmaking, 29: movielens_tags:Criterion, 542: imdb_keywords:hospital, 544: imdb_keywords:hotel, 33: movielens_tags:In Netflix queue, 35: movielens_tags:Netflix Finland, 36: movielens_tags:Nudity (Topless - Brief), 38: movielens_tags:R, 945: imdb_keywords:surprise-ending, 604: imdb_keywords:lightning, 554: imdb_keywords:impersonation, 43: movielens_tags:adapted from:book, 1068: imdb_keywords:wine, 45: movielens_tags:based on a book, 1117: tvtropes:cult classic, 1073: imdb_keywords:woods, 1076: imdb_keywords:wristwatch, 53: movielens_tags:drugs, 568: imdb_keywords:jail, 569: imdb_keywords:jail-cell, 570: imdb_keywords:japan, 574: imdb_keywords:jew, 822: imdb_keywords:rivalry, 1089: tvtropes:arc words, 1093: tvtropes:badass, 582: imdb_keywords:kicked-in-the-face, 1096: tvtropes:big bad, 585: imdb_keywords:king, 586: imdb_keywords:kiss, 77: movielens_tags:reviewed, 80: movielens_tags:seen more than once, 696: imdb_keywords:nonlinear-timeline, 594: imdb_keywords:lawyer, 1109: tvtropes:catchphrase, 598: imdb_keywords:lesbianism, 599: imdb_keywords:letter, 88: movielens_tags:true story, 1116: tvtropes:creator cameo, 605: imdb_keywords:limousine, 96: imdb_keywords:1960s, 97: imdb_keywords:1970s, 610: imdb_keywords:locker-room, 1124: tvtropes:dragon, 614: imdb_keywords:looking-at-oneself-in-a-mirror, 102: imdb_keywords:abortion, 103: imdb_keywords:accident, 104: imdb_keywords:accidental-death, 105: imdb_keywords:action-hero, 1130: tvtropes:fan disservice, 107: imdb_keywords:actor-shares-first-name-with-character, 621: imdb_keywords:love-triangle, 624: imdb_keywords:lust, 1138: tvtropes:heel face turn, 115: imdb_keywords:ak-47, 1140: tvtropes:heroic sacrifice, 629: imdb_keywords:magic, 630: imdb_keywords:maid, 631: imdb_keywords:male-frontal-nudity, 1149: tvtropes:karma houdini, 128: imdb_keywords:answering-machine, 1153: tvtropes:laser guided karma, 643: imdb_keywords:marriage, 646: imdb_keywords:mask, 1160: tvtropes:mythology gag, 650: imdb_keywords:mayor, 1163: tvtropes:noodle incident, 141: imdb_keywords:assassination, 143: imdb_keywords:attempted-murder, 656: imdb_keywords:microphone, 658: imdb_keywords:mini-skirt, 659: imdb_keywords:mirror, 1172: tvtropes:red herring, 149: imdb_keywords:axe, 150: imdb_keywords:b-movie, 1175: tvtropes:scenery porn, 664: imdb_keywords:mixed-martial-arts, 1180: tvtropes:spiritual successor, 1181: tvtropes:take that, 671: imdb_keywords:mother-son-relationship, 160: imdb_keywords:bare-chested-male, 1185: tvtropes:took a level in badass, 674: imdb_keywords:murder, 675: imdb_keywords:murder-of-a-police-officer, 164: imdb_keywords:baseball-bat, 1194: average_rating, 174: imdb_keywords:bathtub, 177: imdb_keywords:beach, 690: imdb_keywords:night, 179: imdb_keywords:beating, 30: movielens_tags:DVD-R, 694: imdb_keywords:nipples-visible-through-clothing, 183: imdb_keywords:best-friend, 184: imdb_keywords:betrayal, 116: imdb_keywords:alcohol, 186: imdb_keywords:bicycle, 188: imdb_keywords:binoculars, 189: imdb_keywords:bird, 702: imdb_keywords:obsession, 1098: tvtropes:bilingual bonus, 1142: tvtropes:hilarity ensues, 199: imdb_keywords:blockbuster, 499: imdb_keywords:greed, 721: imdb_keywords:pain, 547: imdb_keywords:humiliation, 212: imdb_keywords:bra, 725: imdb_keywords:panties, 728: imdb_keywords:paranoia, 731: imdb_keywords:parking-garage, 732: imdb_keywords:party, 221: imdb_keywords:brothel, 293: imdb_keywords:concert, 737: imdb_keywords:phone-booth, 1062: imdb_keywords:whipping, 231: imdb_keywords:butler, 744: imdb_keywords:pilot, 39: movielens_tags:To See, 238: imdb_keywords:candle, 241: imdb_keywords:car, 723: imdb_keywords:painting, 244: imdb_keywords:car-crash, 760: imdb_keywords:politician, 761: imdb_keywords:politics, 253: imdb_keywords:cemetery, 256: imdb_keywords:character-name-in-title, 258: imdb_keywords:character-says-i-love-you, 259: imdb_keywords:chase, 776: imdb_keywords:prostitute, 780: imdb_keywords:psychopath, 557: imdb_keywords:infidelity, 272: imdb_keywords:christmas, 273: imdb_keywords:christmas-tree, 275: imdb_keywords:cigar-smoking, 280: imdb_keywords:classroom, 793: imdb_keywords:radio, 282: imdb_keywords:cocaine, 796: imdb_keywords:rain, 797: imdb_keywords:rainstorm, 798: imdb_keywords:rape, 389: imdb_keywords:elevator, 1158: tvtropes:ms fanservice, 294: imdb_keywords:condom, 296: imdb_keywords:conspiracy, 112: imdb_keywords:african-american, 811: imdb_keywords:reporter, 300: imdb_keywords:cooking, 305: imdb_keywords:courage, 306: imdb_keywords:court, 309: imdb_keywords:cover-up, 310: imdb_keywords:cow, 320: imdb_keywords:crushed-to-death, 321: imdb_keywords:crying, 323: imdb_keywords:cult-film, 325: imdb_keywords:cynicism, 328: imdb_keywords:dancing, 329: imdb_keywords:dark-comedy, 334: imdb_keywords:death, 854: imdb_keywords:secret-agent, 857: imdb_keywords:security-guard, 858: imdb_keywords:seduction, 348: imdb_keywords:depression, 351: imdb_keywords:detective, 356: imdb_keywords:directed-by-star, 361: imdb_keywords:dismemberment, 364: imdb_keywords:dog, 366: imdb_keywords:domestic-violence, 232: imdb_keywords:cafe, 372: imdb_keywords:drinking, 373: imdb_keywords:drowning, 379: imdb_keywords:drunkenness, 381: imdb_keywords:dying, 382: imdb_keywords:dysfunctional-family, 895: imdb_keywords:sister-sister-relationship, 384: imdb_keywords:eating, 901: imdb_keywords:slow-motion-scene, 392: imdb_keywords:england, 342: imdb_keywords:death-of-wife, 907: imdb_keywords:soccer, 399: imdb_keywords:evil-man, 401: imdb_keywords:ex-convict, 404: imdb_keywords:exploding-body, 406: imdb_keywords:exploding-car, 926: imdb_keywords:storytelling, 928: imdb_keywords:street-life, 418: imdb_keywords:falling-from-height, 932: imdb_keywords:student, 933: imdb_keywords:stylized-violence, 934: imdb_keywords:subjective-camera, 427: imdb_keywords:father-daughter-relationship, 428: imdb_keywords:father-son-relationship, 941: imdb_keywords:sunglasses, 430: imdb_keywords:fear, 669: imdb_keywords:motel, 840: imdb_keywords:satire, 946: imdb_keywords:surrealism, 755: imdb_keywords:police-officer, 73: movielens_tags:predictable, 756: imdb_keywords:police-officer-killed, 956: imdb_keywords:sword-fight, 445: imdb_keywords:fire, 1174: tvtropes:running gag, 449: imdb_keywords:first-part, 962: imdb_keywords:tattoo, 963: imdb_keywords:taxi, 452: imdb_keywords:fishing, 455: imdb_keywords:flashback, 968: imdb_keywords:tears, 458: imdb_keywords:flirting, 972: imdb_keywords:teenager, 975: imdb_keywords:television, 982: imdb_keywords:theatre-audience, 472: imdb_keywords:friendship, 985: imdb_keywords:threat, 989: imdb_keywords:tied-to-a-chair, 991: imdb_keywords:title-directed-by-female, 992: imdb_keywords:title-spoken-by-character, 995: imdb_keywords:topless-female-nudity, 16: movielens_genre:Thriller, 488: imdb_keywords:ghost, 491: imdb_keywords:girl-in-panties, 492: imdb_keywords:gold, 1005: imdb_keywords:traitor, 765: imdb_keywords:prayer, 1008: imdb_keywords:travel, 1009: imdb_keywords:tree, 498: imdb_keywords:graveyard, 1011: imdb_keywords:truck, 501: imdb_keywords:guilt, 503: imdb_keywords:guitarist, 504: imdb_keywords:gun, 506: imdb_keywords:gunfire, 1021: imdb_keywords:uncle-nephew-relationship, 1023: imdb_keywords:undercover
+Loading indicators
+Building indicator distributions
+Loading user profiles
+Processing user 585, movie 27032 (Who Am I? (Wo shi shei) (1998))
+Original predicted rating: 2.40572239893
+User profile: {'neg_name': 'movielens_genre:Horror', 'neg': 11, 'profile_id': 6, 'pos_name': 'imdb_keywords:mixed-martial-arts', 'pos': 664}
+Non-zero qiis:
+average_rating (1194): -0.474546042129
+imdb_keywords:taxi (963): 0.423376186185
+imdb_keywords:directed-by-star (356): 0.138594410315
+imdb_keywords:car-crash (244): -0.101241105516
+imdb_keywords:paranoia (728): 0.0697668964324
+imdb_keywords:infidelity (557): 0.0645154997517
+tvtropes:mythology gag (1160): -0.0334217676991
+imdb_keywords:prayer (765): -0.0252486287465
+imdb_keywords:bicycle (186): 0.0156402563663
+tvtropes:took a level in badass (1185): 0.0131135209929
+imdb_keywords:ghost (488): -0.0129097381277
+movielens_tags:predictable (73): -0.0116329562491
+imdb_keywords:truck (1011): 0.00924715260211
+imdb_keywords:obsession (702): 0.00830713578401
+imdb_keywords:looking-at-oneself-in-a-mirror (614): -0.00516512546502
+imdb_keywords:male-frontal-nudity (631): 0.0031134926304
+imdb_keywords:cigar-smoking (275): -0.00157708761217
+imdb_keywords:magic (629): 0.000522505014124
+imdb_keywords:panties (725): -2.63739120863e-06
+Correctness score: 0.0
+Processing user 108, movie 1424 (Inside (1996))
+Original predicted rating: 2.26958059106
+User profile: {'neg_name': 'imdb_keywords:trust', 'neg': 1012, 'profile_id': 0, 'pos_name': 'imdb_keywords:island', 'pos': 565}
+Non-zero qiis:
+average_rating (1194): 0.339806609209
+imdb_keywords:politics (761): 0.0801981828825
+imdb_keywords:prostitute (776): -0.0310393444649
+imdb_keywords:dysfunctional-family (382): 0.0303863206956
+imdb_keywords:looking-at-oneself-in-a-mirror (614): 0.0198037709292
+movielens_genre:Fantasy (9): 0.0183734053104
+imdb_keywords:crying (321): 0.0104766753802
+imdb_keywords:humiliation (547): -0.0103961119853
+imdb_keywords:jew (574): -0.00897456111166
+imdb_keywords:male-frontal-nudity (631): -0.00895315543539
+imdb_keywords:flirting (458): -0.00569695966988
+imdb_keywords:tattoo (962): -0.00341762328923
+imdb_keywords:locker-room (610): -0.00276267122052
+imdb_keywords:wristwatch (1076): 0.00263261366883
+tvtropes:red herring (1172): 0.00200345027681
+imdb_keywords:surrealism (946): -0.00102686534328
+imdb_keywords:cult-film (323): 0.000633070893971
+imdb_keywords:infidelity (557): 0.000336187619038
+Correctness score: 0.0
+Processing user 800, movie 93980 (Three Stooges, The (2012))
+Original predicted rating: 2.1287781281
+User profile: {'neg_name': 'imdb_keywords:mexico', 'neg': 655, 'profile_id': 7, 'pos_name': 'imdb_keywords:female-frontal-nudity', 'pos': 432}
+Non-zero qiis:
+average_rating (1194): 0.280157540991
+imdb_keywords:dismemberment (361): 0.099977451616
+imdb_keywords:male-frontal-nudity (631): -0.0533414425407
+imdb_keywords:mini-skirt (658): -0.0328794722857
+imdb_keywords:politics (761): -0.0199119881178
+imdb_keywords:tattoo (962): -0.0141987132752
+tvtropes:arc words (1089): 0.0140442270341
+imdb_keywords:courage (305): 0.00991700377847
+imdb_keywords:mayor (650): -0.0086567010781
+imdb_keywords:street-life (928): -0.00830550767626
+imdb_keywords:cult-film (323): 0.00614786471412
+imdb_keywords:prayer (765): 0.00419484478202
+imdb_keywords:locker-room (610): 0.00241548194987
+imdb_keywords:infidelity (557): 0.00160086884456
+imdb_keywords:heist (522): -0.00121709556004
+imdb_keywords:crying (321): 0.000987850516287
+imdb_keywords:1960s (96): 0.000195390733757
+imdb_keywords:cigar-smoking (275): -0.000167761448567
+imdb_keywords:panties (725): -0.000166498971741
+Correctness score: 0.0
+Processing user 321, movie 786 (Eraser (1996))
+Original predicted rating: 1.8587582004
+User profile: {'neg_name': 'imdb_keywords:heist', 'neg': 522, 'profile_id': 1, 'pos_name': 'imdb_keywords:army', 'pos': 135}
+Non-zero qiis:
+average_rating (1194): -0.336962667513
+imdb_keywords:truck (1011): 0.0827919970273
+imdb_keywords:mayor (650): -0.0650719671156
+imdb_keywords:prison (770): 0.0375726895971
+imdb_keywords:infidelity (557): 0.0324778036371
+tvtropes:heroic sacrifice (1140): 0.0205939452224
+imdb_keywords:beach (177): 0.0198592701597
+tvtropes:big bad (1096): 0.0159860994397
+imdb_keywords:microphone (656): -0.0132069565876
+imdb_keywords:male-frontal-nudity (631): -0.00917899907384
+imdb_keywords:evil-man (399): -0.00888016001284
+imdb_keywords:slow-motion-scene (901): 0.00875800188613
+imdb_keywords:prayer (765): -0.00749108849958
+tvtropes:took a level in badass (1185): 0.00709569147775
+imdb_keywords:subjective-camera (934): -0.00464202864641
+movielens_tags:reviewed (77): -0.00438722722744
+imdb_keywords:lawyer (594): 0.00304153388738
+imdb_keywords:theatre-audience (982): -0.00133917595341
+imdb_keywords:pilot (744): -0.00132715499411
+Correctness score: 0.0
+Processing user 135, movie 74795 (Green Zone (2010))
+Original predicted rating: 2.36322546464
+User profile: {'neg_name': 'imdb_keywords:mexico', 'neg': 655, 'profile_id': 7, 'pos_name': 'imdb_keywords:female-frontal-nudity', 'pos': 432}
+Non-zero qiis:
+average_rating (1194): 0.246660464728
+imdb_keywords:politics (761): -0.0327351637465
+imdb_keywords:hero (526): 0.0176428786549
+tvtropes:fan disservice (1130): 0.0172977863436
+imdb_keywords:beach (177): 0.0157504290212
+imdb_keywords:cult-film (323): 0.0133998372179
+imdb_keywords:dysfunctional-family (382): -0.0124030389203
+imdb_keywords:evil-man (399): -0.00815046167741
+imdb_keywords:crying (321): 0.00776621475283
+imdb_keywords:locker-room (610): -0.00730877874592
+imdb_keywords:woods (1073): 0.00590664524378
+imdb_keywords:male-frontal-nudity (631): 0.00362660387741
+imdb_keywords:cigar-smoking (275): 0.00349562832728
+imdb_keywords:panties (725): 0.00346932222541
+imdb_keywords:bird (189): 0.0019479240729
+imdb_keywords:classroom (280): -0.00116151625215
+Correctness score: 0.0
+Processing user 58, movie 91626 (Faces in the Crowd (2011))
+Original predicted rating: 1.62994674145
+User profile: {'neg_name': 'imdb_keywords:wealth', 'neg': 1058, 'profile_id': 5, 'pos_name': 'imdb_keywords:prostitute', 'pos': 776}
+Non-zero qiis:
+average_rating (1194): 0.475108365822
+imdb_keywords:crying (321): -0.0405849301117
+imdb_keywords:classroom (280): -0.0318784019949
+imdb_keywords:prostitute (776): -0.0255819138831
+imdb_keywords:tattoo (962): -0.021286536415
+imdb_keywords:surrealism (946): -0.0199945819801
+imdb_keywords:dog (364): -0.0085880079518
+imdb_keywords:magic (629): 0.00808943907
+imdb_keywords:locker-room (610): 0.00760416059346
+imdb_keywords:cult-film (323): 0.00616341177133
+imdb_keywords:humiliation (547): 0.00605409169212
+imdb_keywords:dismemberment (361): 0.0057209123048
+imdb_keywords:lightning (604): 0.00533382003824
+imdb_keywords:looking-at-oneself-in-a-mirror (614): 0.00442619940925
+imdb_keywords:b-movie (150): -0.00277087705121
+imdb_keywords:flirting (458): -0.00254657354051
+movielens_genre:Fantasy (9): -0.00184668566004
+imdb_keywords:prayer (765): 0.000978481656501
+imdb_keywords:car (241): -0.000631726267538
+tvtropes:badass (1093): 0.000348606653707
+imdb_keywords:infidelity (557): -0.000231134521875
+Correctness score: 0.0496068381825
+Processing user 624, movie 5959 (Narc (2002))
+Original predicted rating: 2.51092380959
+User profile: {'neg_name': 'imdb_keywords:wealth', 'neg': 1058, 'profile_id': 5, 'pos_name': 'imdb_keywords:prostitute', 'pos': 776}
+Non-zero qiis:
+average_rating (1194): -0.379087352208
+imdb_keywords:car (241): 0.273059548527
+tvtropes:badass (1093): 0.22928503748
+imdb_keywords:infidelity (557): 0.124836855551
+imdb_keywords:murder (674): 0.0655529679861
+imdb_keywords:crying (321): 0.0252192107937
+tvtropes:fan disservice (1130): 0.0224684242683
+imdb_keywords:panties (725): 0.0184421422856
+imdb_keywords:blockbuster (199): -0.0170308477629
+imdb_keywords:cult-film (323): 0.0147880547533
+imdb_keywords:magic (629): 0.0125643153863
+imdb_keywords:male-frontal-nudity (631): -0.0124319604127
+tvtropes:red herring (1172): 0.0113808137949
+imdb_keywords:cigar-smoking (275): 0.00619399321642
+imdb_keywords:1970s (97): 0.00578164903838
+imdb_keywords:evil-man (399): -0.00572669027416
+imdb_keywords:microphone (656): -0.00483589835847
+imdb_keywords:flirting (458): -0.00395527462912
+imdb_keywords:beach (177): 0.00363586460395
+movielens_tags:predictable (73): 0.00313748869221
+imdb_keywords:classroom (280): -0.00301743118218
+imdb_keywords:lightning (604): -0.00110163987969
+Correctness score: 0.0
+Processing user 207, movie 127315 (Alien Outpost (2014))
+Original predicted rating: 2.50791407048
+User profile: {'neg_name': 'imdb_keywords:trust', 'neg': 1012, 'profile_id': 0, 'pos_name': 'imdb_keywords:island', 'pos': 565}
+Non-zero qiis:
+average_rating (1194): 0.573526904545
+imdb_keywords:ak-47 (115): 0.1387235583
+tvtropes:dragon (1124): 0.0342660081211
+imdb_keywords:dismemberment (361): 0.0333198673917
+imdb_keywords:politician (760): -0.0144874513875
+imdb_keywords:parking-garage (731): 0.0142908975124
+imdb_keywords:brothel (221): -0.0125762186842
+imdb_keywords:whipping (1062): -0.00987687523626
+imdb_keywords:panties (725): 0.00957297037491
+imdb_keywords:mayor (650): -0.00867946269098
+imdb_keywords:locker-room (610): -0.00487739986722
+imdb_keywords:cult-film (323): 0.00383639493762
+imdb_keywords:tattoo (962): -0.00211408813828
+imdb_keywords:wristwatch (1076): 0.00193375194959
+imdb_keywords:hero (526): 0.00161060098241
+imdb_keywords:politics (761): -0.00148237720818
+imdb_keywords:crying (321): 0.000774425233356
+imdb_keywords:infidelity (557): 0.000246942219985
+Correctness score: 0.0
+Processing user 344, movie 106822 (Shadows of a Hot Summer (Stíny horkého léta) (1978))
+Original predicted rating: 3.05453828207
+User profile: {'neg_name': 'imdb_keywords:tragedy', 'neg': 1000, 'profile_id': 2, 'pos_name': 'imdb_keywords:second-part', 'pos': 852}
+Non-zero qiis:
+average_rating (1194): -0.403902763262
+imdb_keywords:prison (770): 0.03778288388
+tvtropes:heroic sacrifice (1140): 0.02270221576
+tvtropes:mythology gag (1160): -0.0218359358515
+imdb_keywords:ghost (488): -0.0216379775463
+imdb_keywords:actor-shares-first-name-with-character (107): -0.0211466577836
+imdb_keywords:looking-at-oneself-in-a-mirror (614): -0.0102587769753
+imdb_keywords:male-frontal-nudity (631): 0.00927585207541
+imdb_keywords:paranoia (728): -0.00889852340652
+imdb_keywords:subjective-camera (934): -0.00796696545345
+imdb_keywords:infidelity (557): -0.00635434379965
+imdb_keywords:court (306): -0.00491984551186
+imdb_keywords:theatre-audience (982): -0.00408799581618
+imdb_keywords:flirting (458): 0.00295114697598
+imdb_keywords:microphone (656): -0.0021023555417
+imdb_keywords:beach (177): 0.00158065358954
+imdb_keywords:truck (1011): 0.000858227039483
+imdb_keywords:obsession (702): -0.000717626153857
+imdb_keywords:threat (985): 0.000477164048078
+Correctness score: 0.0
+Processing user 719, movie 71978 (Mother (Mat) (1926))
+Original predicted rating: 2.73452343695
+User profile: {'neg_name': 'imdb_keywords:sniper-rifle', 'neg': 905, 'profile_id': 9, 'pos_name': 'imdb_keywords:racism', 'pos': 792}
+Non-zero qiis:
+average_rating (1194): -0.369243627485
+imdb_keywords:cigar-smoking (275): 0.0372197643183
+imdb_keywords:panties (725): 0.0369396696343
+imdb_keywords:lesbianism (598): -0.0204055378508
+imdb_keywords:beach (177): 0.0153450952235
+imdb_keywords:paranoia (728): -0.0141610533687
+imdb_keywords:prayer (765): -0.0125980996865
+imdb_keywords:theatre-audience (982): -0.0111074536139
+imdb_keywords:actor-shares-first-name-with-character (107): -0.0103102977797
+imdb_keywords:microphone (656): -0.0102049070696
+imdb_keywords:truck (1011): 0.00888400130667
+imdb_keywords:subjective-camera (934): -0.00757822928589
+imdb_keywords:infidelity (557): -0.00505613108823
+tvtropes:took a level in badass (1185): -0.00464563451865
+imdb_keywords:looking-at-oneself-in-a-mirror (614): 0.00335224257348
+imdb_keywords:male-frontal-nudity (631): -0.00303105392653
+imdb_keywords:lightning (604): -0.0026812425099
+tvtropes:heroic sacrifice (1140): 0.00217684093816
+imdb_keywords:car-crash (244): 0.00106224562553
+Correctness score: 0.0
+Processing user 761, movie 233 (Exotica (1994))
+Original predicted rating: 1.06211565185
+User profile: {'neg_name': 'movielens_genre:Horror', 'neg': 11, 'profile_id': 6, 'pos_name': 'imdb_keywords:mixed-martial-arts', 'pos': 664}
+Non-zero qiis:
+average_rating (1194): -0.297600446299
+imdb_keywords:cult-film (323): -0.126986993017
+imdb_keywords:microphone (656): -0.0707191890228
+imdb_keywords:mayor (650): -0.0523705518898
+imdb_keywords:beach (177): 0.0495765065506
+imdb_keywords:panties (725): -0.0490729944246
+imdb_keywords:cow (310): -0.0391610968197
+imdb_keywords:obsession (702): -0.0390154376727
+imdb_keywords:radio (793): 0.0255463404128
+imdb_keywords:car-crash (244): 0.0129413304939
+imdb_keywords:looking-at-oneself-in-a-mirror (614): 0.00817015536532
+imdb_keywords:tattoo (962): -0.00810545469395
+imdb_keywords:1970s (97): 0.00767296261253
+imdb_keywords:male-frontal-nudity (631): -0.00738734771055
+imdb_keywords:infidelity (557): 0.00289498561197
+imdb_keywords:blockbuster (199): -0.00197784754948
+imdb_keywords:whipping (1062): 0.000808393688578
+imdb_keywords:b-movie (150): -0.000290929445805
+imdb_keywords:crying (321): 6.64321027993e-05
+imdb_keywords:hero (526): 5.35746832556e-05
+imdb_keywords:woods (1073): 3.5872450775e-05
+imdb_keywords:classroom (280): -1.32474604462e-05
+Correctness score: 0.0
+Processing user 601, movie 3266 (Man Bites Dog (C'est arrivé près de chez vous) (1992))
+Original predicted rating: 0.30236307579
+User profile: {'neg_name': 'imdb_keywords:sniper-rifle', 'neg': 905, 'profile_id': 9, 'pos_name': 'imdb_keywords:racism', 'pos': 792}
+Non-zero qiis:
+imdb_keywords:beach (177): -0.383682675497
+average_rating (1194): -0.227808657556
+imdb_keywords:subjective-camera (934): 0.087117944762
+imdb_keywords:panties (725): -0.0666366660019
+imdb_keywords:actor-shares-first-name-with-character (107): 0.0614049289036
+imdb_keywords:dying (381): -0.0466161023379
+imdb_keywords:infidelity (557): -0.0391271425867
+imdb_keywords:male-frontal-nudity (631): 0.0201214098181
+imdb_keywords:butler (231): -0.0152747638075
+imdb_keywords:lightning (604): -0.0146623815146
+movielens_genre:Fantasy (9): 0.0142186804335
+imdb_keywords:truck (1011): 0.0125639176995
+imdb_keywords:car-crash (244): 0.0112715400865
+imdb_keywords:limousine (605): -0.0100664306729
+imdb_keywords:abortion (102): 0.0080680722137
+imdb_keywords:lawyer (594): 0.00746238240381
+imdb_keywords:evil-man (399): 0.00525573818497
+imdb_keywords:locker-room (610): -0.00522585609002
+tvtropes:took a level in badass (1185): -0.0041995973715
+imdb_keywords:prayer (765): 0.00291649328264
+imdb_keywords:bicycle (186): -0.0016058220446
+imdb_keywords:axe (149): -0.000243619183155
+Correctness score: 0.0
+Processing user 174, movie 1095 (Glengarry Glen Ross (1992))
+Original predicted rating: 2.25172603798
+User profile: {'neg_name': 'imdb_keywords:heist', 'neg': 522, 'profile_id': 1, 'pos_name': 'imdb_keywords:army', 'pos': 135}
+Non-zero qiis:
+average_rating (1194): -0.340826574066
+movielens_tags:reviewed (77): 0.0590272800352
+imdb_keywords:directed-by-star (356): 0.0320932832095
+imdb_keywords:evil-man (399): -0.0279410925431
+tvtropes:took a level in badass (1185): 0.0223263287993
+imdb_keywords:cigar-smoking (275): 0.0210437257386
+tvtropes:spiritual successor (1180): -0.0144632541226
+imdb_keywords:obsession (702): 0.0141432529825
+imdb_keywords:car-crash (244): 0.0141334513084
+tvtropes:mythology gag (1160): -0.0139291154919
+movielens_tags:predictable (73): -0.0116080684302
+imdb_keywords:lightning (604): -0.0110748167443
+imdb_keywords:bicycle (186): 0.0101930733946
+imdb_keywords:subjective-camera (934): -0.00856000012281
+imdb_keywords:microphone (656): -0.00436586143519
+imdb_keywords:truck (1011): -0.00388156114522
+imdb_keywords:prayer (765): -0.0036067469101
+imdb_keywords:paranoia (728): 0.00309359446459
+imdb_keywords:threat (985): -0.00247418738003
+imdb_keywords:beach (177): 0.00164123394262
+imdb_keywords:mayor (650): 0.000117980316226
+Correctness score: 0.0
+Processing user 558, movie 4105 (Evil Dead, The (1981))
+Original predicted rating: 1.22095282391
+User profile: {'neg_name': 'movielens_genre:Horror', 'neg': 11, 'profile_id': 6, 'pos_name': 'imdb_keywords:mixed-martial-arts', 'pos': 664}
+Non-zero qiis:
+average_rating (1194): 0.449939986864
+imdb_keywords:flashback (455): 0.182786708411
+imdb_keywords:best-friend (183): 0.0691576246327
+imdb_keywords:prostitute (776): 0.0419694353115
+imdb_keywords:humiliation (547): -0.0418456330405
+movielens_genre:Fantasy (9): -0.0414889026749
+imdb_keywords:car (241): -0.0363198370582
+imdb_keywords:male-frontal-nudity (631): 0.0358139895816
+imdb_keywords:christmas (272): 0.0205093124639
+imdb_keywords:magic (629): 0.0135062069096
+imdb_keywords:storytelling (926): 0.0123429174893
+imdb_keywords:cult-film (323): -0.0119869829568
+imdb_keywords:motel (669): 0.00939579971287
+imdb_keywords:depression (348): -0.00867028258078
+imdb_keywords:flirting (458): -0.00850356838119
+imdb_keywords:mask (646): 0.00572597150526
+tvtropes:cult classic (1117): -0.00436580813635
+imdb_keywords:dismemberment (361): 0.00251801422188
+imdb_keywords:dog (364): -0.00237628699861
+imdb_keywords:sister-sister-relationship (895): -0.00206611926553
+imdb_keywords:tattoo (962): -0.0012362886635
+imdb_keywords:politics (761): -0.000896675930898
+imdb_keywords:heist (522): 0.000236093509906
+imdb_keywords:crying (321): -0.000191624308977
+imdb_keywords:classroom (280): 3.82124808148e-05
+Correctness score: 0.0
+Processing user 263, movie 1339 (Dracula (Bram Stoker's Dracula) (1992))
+Original predicted rating: 1.33114066478
+User profile: {'neg_name': 'imdb_keywords:assassin', 'neg': 140, 'profile_id': 4, 'pos_name': 'imdb_keywords:title-spoken-by-character', 'pos': 992}
+Non-zero qiis:
+average_rating (1194): -0.87503434256
+tvtropes:big bad (1096): -0.235649518154
+imdb_keywords:evil-man (399): -0.0956604626541
+tvtropes:mythology gag (1160): 0.0568769721627
+tvtropes:heroic sacrifice (1140): 0.0464041518827
+movielens_tags:true story (88): 0.027789977022
+tvtropes:spiritual successor (1180): -0.0258499079309
+imdb_keywords:male-frontal-nudity (631): -0.023536063044
+imdb_keywords:bird (189): 0.0176673633522
+imdb_keywords:beach (177): 0.0146607001311
+imdb_keywords:theatre-audience (982): -0.0139855038122
+imdb_keywords:subjective-camera (934): 0.0116231492765
+imdb_keywords:magic (629): -0.00887594320049
+imdb_keywords:truck (1011): 0.00872676414909
+imdb_keywords:paranoia (728): -0.00695520906547
+imdb_keywords:bicycle (186): -0.00431772497864
+imdb_keywords:flirting (458): 0.00139708340133
+Correctness score: 0.0
+Processing user 12, movie 8239 (Viridiana (1961))
+Original predicted rating: 2.97187462202
+User profile: {'neg_name': 'imdb_keywords:heist', 'neg': 522, 'profile_id': 1, 'pos_name': 'imdb_keywords:army', 'pos': 135}
+Non-zero qiis:
+average_rating (1194): -0.270344618304
+imdb_keywords:surrealism (946): 0.131774577217
+imdb_keywords:microphone (656): -0.0838123866899
+tvtropes:red herring (1172): 0.0648118993535
+imdb_keywords:cult-film (323): 0.0603829874935
+imdb_keywords:male-frontal-nudity (631): -0.0337516917626
+imdb_keywords:crying (321): -0.0329606042328
+imdb_keywords:1970s (97): 0.0206164436532
+imdb_keywords:heist (522): -0.0154789376117
+imdb_keywords:beach (177): 0.0149168911665
+imdb_keywords:mayor (650): -0.0143002625638
+imdb_keywords:infidelity (557): 0.0116909405783
+tvtropes:fan disservice (1130): 0.0113866520157
+imdb_keywords:classroom (280): -0.00856395802673
+imdb_keywords:flirting (458): -0.00715881784731
+imdb_keywords:cigar-smoking (275): 0.00572296950612
+imdb_keywords:panties (725): 0.00567990170693
+imdb_keywords:hero (526): 0.00560428336062
+imdb_keywords:obsession (702): 0.00555942068203
+imdb_keywords:car-crash (244): 0.00426873324234
+imdb_keywords:tattoo (962): 0.00178622762298
+imdb_keywords:car (241): -0.0015360254029
+imdb_keywords:woods (1073): 0.00125083569805
+movielens_tags:predictable (73): -0.00113007787504
+Correctness score: 0.0384934063931
+Processing user 184, movie 27642 (Out for a Kill (2003))
+Original predicted rating: 3.13943326074
+User profile: {'neg_name': 'imdb_keywords:f-rated', 'neg': 411, 'profile_id': 3, 'pos_name': 'tvtropes:product placement', 'pos': 1170}
+Non-zero qiis:
+average_rating (1194): -0.436971937431
+imdb_keywords:pilot (744): 0.176640036079
+imdb_keywords:rainstorm (797): 0.0922373527107
+imdb_keywords:car-crash (244): -0.0875153958945
+imdb_keywords:cigar-smoking (275): -0.0748238767046
+imdb_keywords:beach (177): -0.030555969589
+imdb_keywords:subjective-camera (934): -0.0257010047839
+tvtropes:spiritual successor (1180): -0.0234262215975
+imdb_keywords:lightning (604): 0.0223323916648
+imdb_keywords:threat (985): 0.0219383090944
+imdb_keywords:prayer (765): -0.0157777337758
+imdb_keywords:male-frontal-nudity (631): -0.012310011972
+movielens_tags:predictable (73): 0.00954837937823
+imdb_keywords:court (306): -0.0085602317634
+imdb_keywords:infidelity (557): -0.00829212860925
+imdb_keywords:nipples-visible-through-clothing (694): 0.00801547350522
+imdb_keywords:paranoia (728): -0.00387072228834
+imdb_keywords:looking-at-oneself-in-a-mirror (614): 0.00340361366152
+imdb_keywords:obsession (702): 0.000961382340043
+imdb_keywords:panties (725): -0.00012512927823
+Correctness score: 0.0
+Processing user 433, movie 1248 (Touch of Evil (1958))
+Original predicted rating: 2.53866447109
+User profile: {'neg_name': 'movielens_tags:politics', 'neg': 72, 'profile_id': 8, 'pos_name': 'tvtropes:affably evil', 'pos': 1086}
+Non-zero qiis:
+average_rating (1194): -0.412649078728
+imdb_keywords:obsession (702): -0.0402877030411
+imdb_keywords:cult-film (323): 0.0359669847758
+imdb_keywords:beach (177): 0.0280860307354
+imdb_keywords:politics (761): -0.015992768334
+imdb_keywords:lightning (604): -0.0134455520396
+imdb_keywords:microphone (656): -0.0124519845781
+imdb_keywords:girl-in-panties (491): 0.0112683226466
+imdb_keywords:car-crash (244): 0.0110220676994
+imdb_keywords:1970s (97): 0.00998763204387
+imdb_keywords:locker-room (610): -0.00958432570315
+imdb_keywords:panties (725): 0.00714752149999
+imdb_keywords:cigar-smoking (275): -0.00513203500036
+imdb_keywords:woods (1073): 0.00342888770287
+imdb_keywords:magic (629): -0.00336600718636
+tvtropes:fan disservice (1130): 0.00252529711944
+imdb_keywords:crying (321): 0.00113378667968
+imdb_keywords:flirting (458): 0.00105962660251
+imdb_keywords:infidelity (557): 0.00092540981083
+imdb_keywords:truck (1011): -0.000542004800717
+imdb_keywords:paranoia (728): 0.000431976462188
+imdb_keywords:classroom (280): -0.000169569307163
+Correctness score: 0.0
+Processing user 440, movie 26569 (Dead End Drive-In (1986))
+Original predicted rating: 3.10569534303
+User profile: {'neg_name': 'imdb_keywords:trust', 'neg': 1012, 'profile_id': 0, 'pos_name': 'imdb_keywords:island', 'pos': 565}
+Non-zero qiis:
+average_rating (1194): -0.441956026803
+imdb_keywords:microphone (656): 0.122269939192
+movielens_tags:Criterion (29): -0.113844169957
+imdb_keywords:car-crash (244): -0.0782528379705
+imdb_keywords:truck (1011): -0.0638981614556
+imdb_keywords:beach (177): 0.0267748064961
+imdb_keywords:bicycle (186): -0.023245649614
+imdb_keywords:hero (526): 0.0222745528953
+imdb_keywords:evil-man (399): -0.0169659424325
+imdb_keywords:girl-in-panties (491): 0.0163378606889
+imdb_keywords:binoculars (188): 0.0145631268752
+movielens_tags:reviewed (77): 0.0106605828069
+imdb_keywords:infidelity (557): -0.0100264374096
+tvtropes:heroic sacrifice (1140): 0.00912325572932
+imdb_keywords:slow-motion-scene (901): -0.00540748128942
+imdb_keywords:magic (629): 0.00473433406633
+movielens_tags:predictable (73): -0.00458048499743
+imdb_keywords:mayor (650): -0.00297714106413
+imdb_keywords:looking-at-oneself-in-a-mirror (614): 0.00259042765095
+imdb_keywords:male-frontal-nudity (631): -0.00234223082927
+imdb_keywords:locker-room (610): -0.00155754636768
+imdb_keywords:crying (321): 0.0010537285443
+imdb_keywords:tattoo (962): -0.000817929251246
+imdb_keywords:politics (761): -0.000573523713603
+imdb_keywords:cigar-smoking (275): 0.000229355100927
+imdb_keywords:classroom (280): -0.000157595800336
+Correctness score: 0.0
+Processing user 217, movie 6440 (Barton Fink (1991))
+Original predicted rating: 3.17934566494
+User profile: {'neg_name': 'movielens_genre:Horror', 'neg': 11, 'profile_id': 6, 'pos_name': 'imdb_keywords:mixed-martial-arts', 'pos': 664}
+Non-zero qiis:
+average_rating (1194): 0.315114830792
+imdb_keywords:bird (189): -0.232157271876
+imdb_keywords:motel (669): 0.144322179281
+imdb_keywords:politics (761): -0.0779874512114
+imdb_keywords:cult-film (323): 0.0166998301128
+imdb_keywords:baseball-bat (164): 0.0136414800439
+imdb_keywords:crying (321): 0.012549329106
+tvtropes:cult classic (1117): -0.01252183891
+imdb_keywords:tattoo (962): 0.0121523276054
+imdb_keywords:dog (364): -0.0102867566398
+imdb_keywords:whipping (1062): -0.0102649625926
+imdb_keywords:prostitute (776): -0.0082823688326
+movielens_tags:predictable (73): -0.00745360974629
+imdb_keywords:lightning (604): -0.00711120566874
+imdb_keywords:magic (629): -0.00441535068143
+imdb_keywords:prayer (765): -0.00374582606966
+movielens_genre:Fantasy (9): 0.00353474346806
+imdb_keywords:wristwatch (1076): 0.00290965288532
+imdb_keywords:infidelity (557): 0.00148626330908
+imdb_keywords:classroom (280): -0.000938439778848
+Correctness score: 0.0
+Correctness scores: [0.0, 0.0, 0.0, 0.0, 0.0, 0.04960683818246538, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.03849340639313738, 0.0, 0.0, 0.0, 0.0]
+Average correctness: 0.00440501222878

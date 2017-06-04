@@ -1,0 +1,313 @@
+Loading results dict
+Original recommender relative to ground truth on training set mean absolute error: 0.0133228614175, RMSE: 0.0197295758424
+Shadow model relative to the baseline recommender on test set MAE: 0.320640119759, RMSE: 0.39123869329
+Randomized model relative to the baseline recommender on test set MAE: 1.07709031378, RMSE: 1.36407024318
+Shadow model is 3.35918759821 times better than random on the test set
+Loading movies
+Loading ALS model
+Loading decision trees
+107 features are used: 0: year, 1: movielens_genre:Action, 2: movielens_genre:Adventure, 939: imdb_keywords:suicide-attempt, 4: movielens_genre:Children, 5: movielens_genre:Comedy, 6: movielens_genre:Crime, 7: movielens_genre:Documentary, 776: imdb_keywords:prostitute, 10: movielens_genre:Film-Noir, 11: movielens_genre:Horror, 269: imdb_keywords:children, 15: movielens_genre:Sci-Fi, 16: movielens_genre:Thriller, 17: movielens_genre:War, 274: imdb_keywords:church, 1046: imdb_keywords:vomiting, 23: movielens_tags:Betamax, 25: movielens_tags:Bob*ola, 794: imdb_keywords:rage, 943: imdb_keywords:supernatural-power, 284: imdb_keywords:coffin, 29: movielens_tags:Criterion, 31: movielens_tags:DVD-RAM, 545: imdb_keywords:hotel-room, 36: movielens_tags:Nudity (Topless - Brief), 37: movielens_tags:Nudity (Topless), 550: imdb_keywords:hypodermic-needle, 553: imdb_keywords:impalement, 42: movielens_tags:action, 301: imdb_keywords:corpse, 46: movielens_tags:boring, 52: movielens_tags:drama, 53: movielens_tags:drugs, 55: movielens_tags:fantasy, 825: imdb_keywords:robbery, 315: imdb_keywords:criminal, 572: imdb_keywords:jealousy, 523: imdb_keywords:held-at-gunpoint, 580: imdb_keywords:karate, 1093: tvtropes:badass, 1095: tvtropes:berserk button, 328: imdb_keywords:dancing, 73: movielens_tags:predictable, 74: movielens_tags:quirky, 590: imdb_keywords:knocked-out, 340: imdb_keywords:death-of-mother, 57: movielens_tags:funny, 89: movielens_tags:violence, 997: imdb_keywords:torture, 352: imdb_keywords:die-hard-scenario, 1123: tvtropes:downer ending, 100: imdb_keywords:19th-century, 104: imdb_keywords:accidental-death, 60: movielens_tags:less than 300 ratings, 620: imdb_keywords:love, 109: imdb_keywords:adoption, 599: imdb_keywords:letter, 316: imdb_keywords:cross, 118: imdb_keywords:alcoholism, 888: imdb_keywords:showdown, 377: imdb_keywords:drug-use, 122: imdb_keywords:american, 38: movielens_tags:R, 124: imdb_keywords:american-flag, 128: imdb_keywords:answering-machine, 282: imdb_keywords:cocaine, 900: imdb_keywords:sleeping, 133: imdb_keywords:archive-footage, 1160: tvtropes:mythology gag, 910: imdb_keywords:soldier, 1171: tvtropes:reason you suck speech, 1179: tvtropes:soundtrack dissonance, 156: imdb_keywords:bar, 26: movielens_tags:CLV, 159: imdb_keywords:bare-butt, 496: imdb_keywords:grandmother-grandson-relationship, 162: imdb_keywords:bartender, 155: imdb_keywords:bank-robbery, 1188: tvtropes:villain protagonist, 28: movielens_tags:ClearPlay, 1194: average_rating, 71: movielens_tags:perrot library, 428: imdb_keywords:father-son-relationship, 174: imdb_keywords:bathtub, 431: imdb_keywords:fellatio, 180: imdb_keywords:bed, 951: imdb_keywords:swat-team, 184: imdb_keywords:betrayal, 954: imdb_keywords:switchblade, 956: imdb_keywords:sword-fight, 413: imdb_keywords:face-slap, 191: imdb_keywords:birthday-cake, 453: imdb_keywords:fistfight, 968: imdb_keywords:tears, 971: imdb_keywords:teenage-girl, 205: imdb_keywords:bomb, 719: imdb_keywords:orphan, 725: imdb_keywords:panties, 1061: imdb_keywords:wheelchair, 806: imdb_keywords:reference-to-jesus-christ, 223: imdb_keywords:brother-sister-relationship, 1006: imdb_keywords:transformation, 239: imdb_keywords:cannon, 752: imdb_keywords:police-car, 757: imdb_keywords:police-shootout, 169: imdb_keywords:based-on-true-story
+Loading indicators
+Building indicator distributions
+Loading user profiles
+Processing user 445, movie 88380 (Dylan Dog: Dead of Night (2010))
+Original predicted rating: 1.63403958369
+User profile: {'neg_name': 'imdb_keywords:sleeping', 'neg': 900, 'profile_id': 3, 'pos_name': 'imdb_keywords:robbery', 'pos': 825}
+Non-zero qiis:
+average_rating (1194): -0.532169528451
+imdb_keywords:robbery (825): -0.169909864302
+imdb_keywords:police-car (752): 0.0979765606245
+imdb_keywords:criminal (315): -0.0280668669652
+imdb_keywords:rage (794): 0.0254550800055
+movielens_tags:funny (57): 0.0207749167132
+imdb_keywords:fellatio (431): -0.0172628373892
+imdb_keywords:brother-sister-relationship (223): 0.0154346225907
+imdb_keywords:sword-fight (956): 0.0151962742541
+imdb_keywords:tears (968): 0.00325344813021
+Correctness score: 0.242009473652
+Processing user 407, movie 96239 (Chillerama (2011))
+Original predicted rating: 1.20182456204
+User profile: {'neg_name': 'imdb_keywords:police-car', 'neg': 752, 'profile_id': 8, 'pos_name': 'imdb_keywords:criminal', 'pos': 315}
+Non-zero qiis:
+imdb_keywords:fellatio (431): -0.132153664034
+average_rating (1194): -0.124292851299
+imdb_keywords:adoption (109): -0.0612079720254
+movielens_tags:funny (57): 0.0541611173644
+imdb_keywords:sword-fight (956): -0.0397833899287
+imdb_keywords:brother-sister-relationship (223): 0.0182306998906
+imdb_keywords:sleeping (900): -0.0150473339441
+tvtropes:mythology gag (1160): -0.0143663213024
+imdb_keywords:tears (968): -0.0133225987573
+Correctness score: 0.0
+Processing user 167, movie 1083 (Great Race, The (1965))
+Original predicted rating: 2.1607491174
+User profile: {'neg_name': 'imdb_keywords:die-hard-scenario', 'neg': 352, 'profile_id': 5, 'pos_name': 'imdb_keywords:rage', 'pos': 794}
+Non-zero qiis:
+average_rating (1194): 0.41624209925
+imdb_keywords:sword-fight (956): -0.320729786021
+imdb_keywords:rage (794): -0.155056293904
+Correctness score: 0.210396484592
+Processing user 774, movie 6642 (Showdown in Little Tokyo (1991))
+Original predicted rating: 1.83194761291
+User profile: {'neg_name': 'tvtropes:mythology gag', 'neg': 1160, 'profile_id': 0, 'pos_name': 'imdb_keywords:adoption', 'pos': 109}
+Non-zero qiis:
+average_rating (1194): 0.474448120871
+imdb_keywords:rage (794): -0.180502134705
+imdb_keywords:sword-fight (956): -0.146318298686
+imdb_keywords:adoption (109): -0.145356508577
+imdb_keywords:criminal (315): -0.043372173435
+imdb_keywords:police-shootout (757): 0.0207219832482
+Correctness score: 0.221935188725
+Processing user 193, movie 71156 (Men Who Stare at Goats, The (2009))
+Original predicted rating: 2.80952018567
+User profile: {'neg_name': 'imdb_keywords:controversy', 'neg': 297, 'profile_id': 9, 'pos_name': 'imdb_keywords:sword-fight', 'pos': 956}
+Non-zero qiis:
+average_rating (1194): 1.13879344745
+tvtropes:soundtrack dissonance (1179): 0.820770454424
+imdb_keywords:rage (794): 0.145113856774
+imdb_keywords:robbery (825): -0.140633866475
+imdb_keywords:sword-fight (956): -0.0741315653223
+tvtropes:berserk button (1095): 0.0371127130505
+imdb_keywords:tears (968): 0.0337028851042
+imdb_keywords:criminal (315): -0.0177877924053
+imdb_keywords:police-shootout (757): -0.0165601388204
+movielens_tags:funny (57): 0.0074757883402
+imdb_keywords:fellatio (431): -0.00488349648436
+Correctness score: 0.0378306444874
+Processing user 431, movie 51182 (Salon Kitty (1976))
+Original predicted rating: 2.20504642335
+User profile: {'neg_name': 'imdb_keywords:brother-sister-relationship', 'neg': 223, 'profile_id': 4, 'pos_name': 'movielens_tags:funny', 'pos': 57}
+Non-zero qiis:
+imdb_keywords:criminal (315): 0.320658856153
+tvtropes:soundtrack dissonance (1179): -0.102562269755
+average_rating (1194): 0.096489165205
+imdb_keywords:police-car (752): 0.088578585734
+imdb_keywords:police-shootout (757): -0.0406905176816
+imdb_keywords:robbery (825): -0.00633568657617
+imdb_keywords:hotel-room (545): -0.00369793626202
+Correctness score: 0.0
+Processing user 77, movie 288 (Natural Born Killers (1994))
+Original predicted rating: 2.42617051837
+User profile: {'neg_name': 'imdb_keywords:brother-sister-relationship', 'neg': 223, 'profile_id': 4, 'pos_name': 'movielens_tags:funny', 'pos': 57}
+Non-zero qiis:
+imdb_keywords:criminal (315): -0.531700265354
+tvtropes:berserk button (1095): -0.371898984396
+average_rating (1194): 0.314865075123
+tvtropes:villain protagonist (1188): -0.302235014368
+imdb_keywords:police-shootout (757): 0.284048627714
+imdb_keywords:bed (180): 0.0328163575932
+imdb_keywords:archive-footage (133): 0.0318302299776
+imdb_keywords:tears (968): -0.0271151974052
+imdb_keywords:hotel-room (545): 0.0183524907632
+imdb_keywords:police-car (752): 0.0165115333137
+imdb_keywords:sword-fight (956): -0.00952450206471
+imdb_keywords:reference-to-jesus-christ (806): -0.00819232363753
+imdb_keywords:torture (997): -0.000237163500928
+Correctness score: 0.0
+Processing user 935, movie 51471 (Amazing Grace (2006))
+Original predicted rating: 1.57531786444
+User profile: {'neg_name': 'imdb_keywords:police-car', 'neg': 752, 'profile_id': 8, 'pos_name': 'imdb_keywords:criminal', 'pos': 315}
+Non-zero qiis:
+imdb_keywords:criminal (315): -0.216637126032
+average_rating (1194): -0.214254057202
+imdb_keywords:hotel-room (545): -0.0787979066505
+imdb_keywords:tears (968): 0.023882123761
+tvtropes:berserk button (1095): -0.0217695792465
+imdb_keywords:sleeping (900): -0.0114603015125
+imdb_keywords:brother-sister-relationship (223): 0.0106400913254
+imdb_keywords:robbery (825): 0.00184655733002
+Correctness score: 0.502765279173
+Processing user 331, movie 129378 (What Have They Done to Your Daughters? (1974))
+Original predicted rating: 2.88968423608
+User profile: {'neg_name': 'imdb_keywords:police-car', 'neg': 752, 'profile_id': 8, 'pos_name': 'imdb_keywords:criminal', 'pos': 315}
+Non-zero qiis:
+imdb_keywords:criminal (315): 1.03673035077
+imdb_keywords:police-car (752): -0.366658666747
+average_rating (1194): 0.229334621546
+tvtropes:soundtrack dissonance (1179): -0.0685788277612
+imdb_keywords:robbery (825): 0.0290861851662
+imdb_keywords:sword-fight (956): -0.0260381683469
+movielens_tags:funny (57): 0.0245433447558
+imdb_keywords:police-shootout (757): 0.00420232290418
+tvtropes:berserk button (1095): -0.00250214388643
+Correctness score: 1.0
+Processing user 698, movie 61035 (W Delta Z (a.k.a. The Killing Gene) (2007))
+Original predicted rating: 1.27576202176
+User profile: {'neg_name': 'tvtropes:mythology gag', 'neg': 1160, 'profile_id': 0, 'pos_name': 'imdb_keywords:adoption', 'pos': 109}
+Non-zero qiis:
+average_rating (1194): -0.295974216665
+imdb_keywords:adoption (109): -0.120759172421
+imdb_keywords:criminal (315): -0.0569537656414
+imdb_keywords:police-car (752): 0.0458847741616
+imdb_keywords:rage (794): -0.0397860338052
+imdb_keywords:robbery (825): -0.0176757093413
+imdb_keywords:fellatio (431): -0.0176347582834
+tvtropes:mythology gag (1160): -0.0128241078476
+tvtropes:berserk button (1095): -0.0108396044882
+tvtropes:soundtrack dissonance (1179): 0.00108972659791
+Correctness score: 0.320548541986
+Processing user 250, movie 56995 (Nanking (2007))
+Original predicted rating: 1.54552236853
+User profile: {'neg_name': 'imdb_keywords:police-car', 'neg': 752, 'profile_id': 8, 'pos_name': 'imdb_keywords:criminal', 'pos': 315}
+Non-zero qiis:
+average_rating (1194): -0.37586289624
+imdb_keywords:tears (968): 0.053110941603
+imdb_keywords:brother-sister-relationship (223): -0.0483988453052
+imdb_keywords:robbery (825): -0.0165869639736
+imdb_keywords:sword-fight (956): 0.0142552153403
+imdb_keywords:fellatio (431): 0.0138888333779
+tvtropes:berserk button (1095): -0.011774459795
+tvtropes:soundtrack dissonance (1179): 0.0105801741278
+imdb_keywords:police-car (752): -0.00940123196808
+imdb_keywords:adoption (109): -0.00895367207122
+imdb_keywords:sleeping (900): -0.00879802086761
+Correctness score: 0.0219156301357
+Processing user 182, movie 42 (Dead Presidents (1995))
+Original predicted rating: 2.33506339948
+User profile: {'neg_name': 'imdb_keywords:tears', 'neg': 968, 'profile_id': 2, 'pos_name': 'tvtropes:soundtrack dissonance', 'pos': 1179}
+Non-zero qiis:
+imdb_keywords:police-shootout (757): -0.46087811985
+average_rating (1194): 0.38529030212
+tvtropes:berserk button (1095): -0.36970035305
+imdb_keywords:robbery (825): 0.168804417131
+movielens_tags:funny (57): -0.135248864147
+imdb_keywords:sword-fight (956): -0.0555268834687
+imdb_keywords:adoption (109): 0.0414181744058
+movielens_tags:boring (46): 0.033910400545
+year (0): 0.0326477502387
+imdb_keywords:criminal (315): -0.0200347419376
+movielens_tags:violence (89): -0.00404837768227
+Correctness score: 0.0
+Processing user 929, movie 58293 (10,000 BC (2008))
+Original predicted rating: 1.20648192613
+User profile: {'neg_name': 'imdb_keywords:die-hard-scenario', 'neg': 352, 'profile_id': 5, 'pos_name': 'imdb_keywords:rage', 'pos': 794}
+Non-zero qiis:
+average_rating (1194): -0.486361918134
+imdb_keywords:robbery (825): 0.0635293738888
+imdb_keywords:die-hard-scenario (352): -0.0608294927362
+imdb_keywords:rage (794): -0.0544139598226
+imdb_keywords:tears (968): -0.0263393098074
+imdb_keywords:fellatio (431): -0.0234410898801
+imdb_keywords:brother-sister-relationship (223): 0.0199132128852
+imdb_keywords:police-car (752): -0.0119616933434
+imdb_keywords:criminal (315): 0.00458902650416
+imdb_keywords:adoption (109): -0.00155266545622
+Correctness score: 0.209574972782
+Processing user 359, movie 27826 (Touch of Pink (2004))
+Original predicted rating: 1.20618950095
+User profile: {'neg_name': 'imdb_keywords:controversy', 'neg': 297, 'profile_id': 9, 'pos_name': 'imdb_keywords:sword-fight', 'pos': 956}
+Non-zero qiis:
+average_rating (1194): -0.405331196825
+imdb_keywords:sword-fight (956): -0.142419336255
+imdb_keywords:brother-sister-relationship (223): -0.101617538071
+imdb_keywords:hotel-room (545): -0.0772925480864
+imdb_keywords:fellatio (431): -0.0737759459211
+imdb_keywords:adoption (109): 0.0452276851714
+movielens_tags:funny (57): -0.035252080911
+tvtropes:mythology gag (1160): -0.0169462991668
+imdb_keywords:criminal (315): -0.0165269868178
+imdb_keywords:robbery (825): -0.00610786968319
+imdb_keywords:police-shootout (757): -0.00531492738943
+imdb_keywords:police-car (752): -0.00383388974298
+imdb_keywords:tears (968): -0.00111644622423
+Correctness score: 0.260007663441
+Processing user 359, movie 112623 (Dawn of the Planet of the Apes (2014))
+Original predicted rating: 0.950245391095
+User profile: {'neg_name': 'imdb_keywords:controversy', 'neg': 297, 'profile_id': 9, 'pos_name': 'imdb_keywords:sword-fight', 'pos': 956}
+Non-zero qiis:
+average_rating (1194): -0.271872631534
+tvtropes:mythology gag (1160): 0.169462991668
+imdb_keywords:hotel-room (545): -0.147650004089
+imdb_keywords:sword-fight (956): -0.142419336255
+imdb_keywords:brother-sister-relationship (223): 0.0508087690355
+imdb_keywords:adoption (109): 0.0481635414427
+tvtropes:soundtrack dissonance (1179): 0.0479874280756
+imdb_keywords:die-hard-scenario (352): -0.0228135757354
+tvtropes:berserk button (1095): 0.0180585872537
+imdb_keywords:children (269): -0.00924061148434
+imdb_keywords:tears (968): 0.00885662948247
+movielens_tags:funny (57): 0.00635236307464
+imdb_keywords:police-shootout (757): -0.00531492738943
+imdb_keywords:police-car (752): 0.00523292137919
+Correctness score: 0.322700749197
+Processing user 928, movie 4734 (Jay and Silent Bob Strike Back (2001))
+Original predicted rating: 3.95304724423
+User profile: {'neg_name': 'imdb_keywords:controversy', 'neg': 297, 'profile_id': 9, 'pos_name': 'imdb_keywords:sword-fight', 'pos': 956}
+Non-zero qiis:
+imdb_keywords:sword-fight (956): 1.39572366778
+average_rating (1194): 0.265992954895
+movielens_tags:funny (57): 0.110274685443
+imdb_keywords:hotel-room (545): 0.0336223192843
+imdb_keywords:robbery (825): -0.0300005399917
+year (0): -0.0197425882262
+imdb_keywords:adoption (109): 0.0173205960275
+movielens_genre:War (17): -0.00873122072142
+imdb_keywords:police-shootout (757): 0.00861789027126
+imdb_keywords:cannon (239): -0.00281731093868
+imdb_keywords:bathtub (174): 0.00161125806602
+Correctness score: 0.839928811408
+Processing user 35, movie 61394 (Onion Movie, The (2008))
+Original predicted rating: 1.35701829722
+User profile: {'neg_name': 'imdb_keywords:controversy', 'neg': 297, 'profile_id': 9, 'pos_name': 'imdb_keywords:sword-fight', 'pos': 956}
+Non-zero qiis:
+imdb_keywords:sword-fight (956): -0.269970852142
+average_rating (1194): -0.201415569466
+imdb_keywords:fellatio (431): 0.165573573883
+imdb_keywords:die-hard-scenario (352): -0.0532683548086
+imdb_keywords:hotel-room (545): -0.0524887855991
+imdb_keywords:tears (968): 0.0278291900443
+tvtropes:berserk button (1095): 0.0204143753259
+imdb_keywords:brother-sister-relationship (223): 0.018477762488
+imdb_keywords:robbery (825): -0.0109252702712
+imdb_keywords:sleeping (900): -0.00877270875957
+imdb_keywords:police-shootout (757): -0.00765258701979
+Correctness score: 0.572716649794
+Processing user 192, movie 46194 (Adam & Steve (2005))
+Original predicted rating: 1.18167411426
+User profile: {'neg_name': 'imdb_keywords:tears', 'neg': 968, 'profile_id': 2, 'pos_name': 'tvtropes:soundtrack dissonance', 'pos': 1179}
+Non-zero qiis:
+average_rating (1194): -0.200539891216
+imdb_keywords:tears (968): 0.0578834453117
+imdb_keywords:criminal (315): -0.0481868365997
+imdb_keywords:brother-sister-relationship (223): -0.0353913004251
+movielens_tags:funny (57): -0.0304726441083
+tvtropes:berserk button (1095): 0.0296500884175
+imdb_keywords:police-car (752): -0.0152433935484
+imdb_keywords:sword-fight (956): -0.0145363174579
+imdb_keywords:rage (794): 0.0128870217318
+imdb_keywords:die-hard-scenario (352): -0.0124636746177
+imdb_keywords:hotel-room (545): -0.010030347079
+imdb_keywords:sleeping (900): -0.00464424774092
+imdb_keywords:fellatio (431): 0.000725665486056
+Correctness score: 0.223986912674
+Processing user 24, movie 5110 (Super Troopers (2001))
+Original predicted rating: 2.5857514039
+User profile: {'neg_name': 'imdb_keywords:die-hard-scenario', 'neg': 352, 'profile_id': 5, 'pos_name': 'imdb_keywords:rage', 'pos': 794}
+Non-zero qiis:
+average_rating (1194): 0.397064644629
+tvtropes:berserk button (1095): -0.024535846311
+imdb_keywords:sword-fight (956): 0.0195213339369
+imdb_keywords:hotel-room (545): -0.0162989452152
+imdb_keywords:criminal (315): 0.0144210382619
+movielens_tags:funny (57): -0.00834981546585
+imdb_keywords:robbery (825): -0.00804419563779
+imdb_keywords:fellatio (431): 0.00528021116426
+imdb_keywords:adoption (109): -0.00163428278757
+Correctness score: 0.0
+Processing user 345, movie 3033 (Spaceballs (1987))
+Original predicted rating: 2.62527502482
+User profile: {'neg_name': 'imdb_keywords:police-car', 'neg': 752, 'profile_id': 8, 'pos_name': 'imdb_keywords:criminal', 'pos': 315}
+Non-zero qiis:
+imdb_keywords:criminal (315): -0.244070264984
+average_rating (1194): 0.175939351035
+imdb_keywords:sword-fight (956): 0.156028036896
+movielens_tags:funny (57): -0.0934764572532
+tvtropes:berserk button (1095): 0.0806751726756
+imdb_keywords:brother-sister-relationship (223): 0.0724019504902
+imdb_keywords:19th-century (100): 0.0484041868201
+imdb_keywords:robbery (825): 0.0203917135727
+imdb_keywords:dancing (328): 0.00727571040405
+imdb_keywords:showdown (888): 0.00529713661556
+Correctness score: 0.581106373938
+Correctness scores: [0.24200947365221379, 0.0, 0.2103964845923504, 0.2219351887247438, 0.037830644487373694, 0.0, 0.0, 0.5027652791732095, 1.0, 0.3205485419857959, 0.02191563013573009, 0.0, 0.20957497278197276, 0.26000766344102155, 0.3227007491969869, 0.8399288114075467, 0.572716649794228, 0.2239869126741703, 0.0, 0.5811063739376626]
+Average correctness: 0.278371168799

@@ -1,0 +1,344 @@
+Loading results dict
+Original recommender relative to ground truth on training set mean absolute error: 0.0132639858955, RMSE: 0.0192474945235
+Shadow model relative to the baseline recommender on test set MAE: 0.267744070596, RMSE: 0.333143912317
+Randomized model relative to the baseline recommender on test set MAE: 1.06922060789, RMSE: 1.33165835064
+Shadow model is 3.99344271384 times better than random on the test set
+Loading movies
+Loading ALS model
+Loading decision trees
+97 features are used: 0: year, 1: movielens_genre:Action, 514: imdb_keywords:handcuffs, 5: movielens_genre:Comedy, 6: movielens_genre:Crime, 775: imdb_keywords:promise, 8: movielens_genre:Drama, 1033: imdb_keywords:urination, 11: movielens_genre:Horror, 13: movielens_genre:Mystery, 14: movielens_genre:Romance, 16: movielens_genre:Thriller, 17: movielens_genre:War, 19: movielens_tags:70mm, 20: movielens_tags:BD-R, 22: movielens_tags:Bechdel Test:Fail, 24: movielens_tags:Bibliothek, 799: imdb_keywords:rat, 544: imdb_keywords:hotel, 805: imdb_keywords:reference-to-god, 39: movielens_tags:To See, 41: movielens_tags:acting, 43: movielens_tags:adapted from:book, 563: imdb_keywords:interview, 1076: imdb_keywords:wristwatch, 309: imdb_keywords:cover-up, 52: movielens_tags:drama, 60: movielens_tags:less than 300 ratings, 1086: tvtropes:affably evil, 53: movielens_tags:drugs, 65: movielens_tags:murder, 435: imdb_keywords:female-protagonist, 582: imdb_keywords:kicked-in-the-face, 328: imdb_keywords:dancing, 74: movielens_tags:quirky, 589: imdb_keywords:knife, 590: imdb_keywords:knocked-out, 781: imdb_keywords:pub, 81: movielens_tags:slow, 99: imdb_keywords:1990s, 770: imdb_keywords:prison, 92: imdb_keywords:1920s, 97: imdb_keywords:1970s, 1123: tvtropes:downer ending, 105: imdb_keywords:action-hero, 362: imdb_keywords:divorce, 623: imdb_keywords:loyalty, 112: imdb_keywords:african-american, 113: imdb_keywords:airplane, 275: imdb_keywords:cigar-smoking, 121: imdb_keywords:ambush, 379: imdb_keywords:drunkenness, 636: imdb_keywords:man-with-glasses, 125: imdb_keywords:anger, 130: imdb_keywords:apartment, 141: imdb_keywords:assassination, 158: imdb_keywords:bare-breasts, 664: imdb_keywords:mixed-martial-arts, 147: imdb_keywords:author, 269: imdb_keywords:children, 408: imdb_keywords:explosion, 239: imdb_keywords:cannon, 413: imdb_keywords:face-slap, 926: imdb_keywords:storytelling, 929: imdb_keywords:street-shootout, 930: imdb_keywords:strip-club, 931: imdb_keywords:stripper, 164: imdb_keywords:baseball-bat, 422: imdb_keywords:famous-score, 1194: average_rating, 173: imdb_keywords:bathroom, 686: imdb_keywords:new-york-city, 72: movielens_tags:politics, 691: imdb_keywords:nightclub, 693: imdb_keywords:nipples, 441: imdb_keywords:fight, 187: imdb_keywords:bikini, 701: imdb_keywords:obscene-finger-gesture, 702: imdb_keywords:obsession, 192: imdb_keywords:birthday-party, 707: imdb_keywords:older-man-younger-woman-relationship, 417: imdb_keywords:falling-down-stairs, 1021: imdb_keywords:uncle-nephew-relationship, 1101: tvtropes:blatant lies, 724: imdb_keywords:panic, 124: imdb_keywords:american-flag, 207: imdb_keywords:bound-and-gagged, 991: imdb_keywords:title-directed-by-female, 195: imdb_keywords:black-comedy, 1000: imdb_keywords:tragedy, 380: imdb_keywords:duel, 1005: imdb_keywords:traitor, 495: imdb_keywords:grandfather-grandson-relationship, 242: imdb_keywords:car-accident, 247: imdb_keywords:castle, 761: imdb_keywords:politics, 765: imdb_keywords:prayer
+Loading indicators
+Building indicator distributions
+Loading user profiles
+Processing user 531, movie 109526 (Gabby Douglas Story, The (2014))
+Original predicted rating: 3.39993348316
+User profile: {'neg_name': 'movielens_tags:politics', 'neg': 72, 'profile_id': 6, 'pos_name': 'imdb_keywords:storytelling', 'pos': 926}
+Non-zero qiis:
+imdb_keywords:promise (775): 1.1699372027
+imdb_keywords:obsession (702): -0.213694842044
+imdb_keywords:storytelling (926): -0.187475850147
+average_rating (1194): 0.135634859079
+tvtropes:downer ending (1123): 0.0516841729756
+imdb_keywords:explosion (408): -0.0287623718784
+imdb_keywords:castle (247): -0.0212906948899
+imdb_keywords:mixed-martial-arts (664): 0.0209121740331
+imdb_keywords:handcuffs (514): -0.0134886639655
+imdb_keywords:interview (563): -0.00737421934485
+imdb_keywords:anger (125): 0.00633302392887
+imdb_keywords:politics (761): 0.00628782908046
+Correctness score: 0.135495452609
+Processing user 909, movie 40973 (Wild Geese, The (1978))
+Original predicted rating: 1.93662578082
+User profile: {'neg_name': 'imdb_keywords:traitor', 'neg': 1005, 'profile_id': 2, 'pos_name': 'imdb_keywords:stripper', 'pos': 931}
+Non-zero qiis:
+average_rating (1194): 0.192880089571
+imdb_keywords:stripper (931): -0.165031004897
+imdb_keywords:promise (775): -0.0694719714807
+imdb_keywords:interview (563): -0.062820546664
+imdb_keywords:cover-up (309): -0.0503254804517
+imdb_keywords:storytelling (926): -0.0327918438177
+imdb_keywords:castle (247): 0.0122203166941
+imdb_keywords:explosion (408): 0.0115703697664
+tvtropes:downer ending (1123): -0.00787894529254
+imdb_keywords:anger (125): 0.00260505490117
+Correctness score: 0.461094968689
+Processing user 42, movie 45329 (Soldier Blue (1970))
+Original predicted rating: 1.85661327213
+User profile: {'neg_name': 'tvtropes:downer ending', 'neg': 1123, 'profile_id': 1, 'pos_name': 'imdb_keywords:obsession', 'pos': 702}
+Non-zero qiis:
+average_rating (1194): 0.27083944879
+imdb_keywords:promise (775): -0.174308830039
+imdb_keywords:anger (125): -0.158920130469
+imdb_keywords:storytelling (926): -0.151849032861
+imdb_keywords:interview (563): -0.0698278666809
+tvtropes:downer ending (1123): -0.0636626593155
+imdb_keywords:explosion (408): 0.0601356246895
+imdb_keywords:castle (247): -0.0416596360579
+imdb_keywords:handcuffs (514): -0.0385046273618
+imdb_keywords:stripper (931): -0.0229954390321
+imdb_keywords:politics (761): -0.00537626537562
+Correctness score: 0.143014501781
+Processing user 961, movie 6257 (I Am Curious (Yellow) (Jag är nyfiken - en film i gult) (1967))
+Original predicted rating: 3.01131501537
+User profile: {'neg_name': 'imdb_keywords:rat', 'neg': 799, 'profile_id': 3, 'pos_name': 'imdb_keywords:interview', 'pos': 563}
+Non-zero qiis:
+imdb_keywords:interview (563): 1.61039231777
+imdb_keywords:rat (799): -0.178950149715
+average_rating (1194): 0.0889525547106
+imdb_keywords:politics (761): 0.0575724196243
+imdb_keywords:obscene-finger-gesture (701): -0.0441194282993
+imdb_keywords:stripper (931): -0.0302237457867
+imdb_keywords:anger (125): 0.0297992299544
+movielens_genre:Crime (6): -0.0153481903082
+imdb_keywords:storytelling (926): -0.00970048903167
+imdb_keywords:handcuffs (514): 0.00195127915865
+imdb_keywords:explosion (408): -0.00167309144505
+Correctness score: 1.0
+Processing user 426, movie 124 (Star Maker, The (Uomo delle stelle, L') (1995))
+Original predicted rating: 1.8395770495
+User profile: {'neg_name': 'imdb_keywords:traitor', 'neg': 1005, 'profile_id': 2, 'pos_name': 'imdb_keywords:stripper', 'pos': 931}
+Non-zero qiis:
+average_rating (1194): 0.174633066752
+imdb_keywords:politics (761): -0.145747452058
+imdb_keywords:obsession (702): -0.121504416872
+imdb_keywords:obscene-finger-gesture (701): -0.11071137178
+movielens_genre:Drama (8): -0.0682851284214
+imdb_keywords:title-directed-by-female (991): -0.0567789130394
+imdb_keywords:castle (247): -0.046870718775
+imdb_keywords:promise (775): -0.0455177644154
+movielens_genre:Thriller (16): -0.043359512328
+imdb_keywords:handcuffs (514): 0.0308730926634
+imdb_keywords:cannon (239): 0.0180520321692
+imdb_keywords:explosion (408): 0.0161666134148
+imdb_keywords:anger (125): -0.00407301762787
+imdb_keywords:storytelling (926): -0.00305860997119
+imdb_keywords:prison (770): -0.00169848297967
+Correctness score: 0.0
+Processing user 873, movie 90719 (J. Edgar (2011))
+Original predicted rating: 3.0482861906
+User profile: {'neg_name': 'tvtropes:downer ending', 'neg': 1123, 'profile_id': 1, 'pos_name': 'imdb_keywords:obsession', 'pos': 702}
+Non-zero qiis:
+imdb_keywords:promise (775): 0.653694353844
+imdb_keywords:obsession (702): -0.110095945495
+imdb_keywords:explosion (408): 0.0941193953469
+imdb_keywords:cover-up (309): 0.0766910616186
+imdb_keywords:interview (563): 0.0645762639179
+imdb_keywords:obscene-finger-gesture (701): 0.0502961026443
+imdb_keywords:1920s (92): 0.0486648166171
+imdb_keywords:handcuffs (514): 0.0473118986969
+average_rating (1194): -0.0410326412718
+imdb_keywords:rat (799): 0.0292913039303
+tvtropes:downer ending (1123): 0.0266869237871
+imdb_keywords:mixed-martial-arts (664): 0.0225962076134
+imdb_keywords:storytelling (926): -0.0101220003164
+Correctness score: 0.1790843238
+Processing user 44, movie 4389 (Lost and Delirious (2001))
+Original predicted rating: 1.99382906806
+User profile: {'neg_name': 'imdb_keywords:pub', 'neg': 781, 'profile_id': 7, 'pos_name': 'imdb_keywords:obscene-finger-gesture', 'pos': 701}
+Non-zero qiis:
+tvtropes:downer ending (1123): -1.12872923762
+imdb_keywords:obsession (702): 0.348493058497
+imdb_keywords:title-directed-by-female (991): -0.324699150094
+imdb_keywords:duel (380): 0.201586024976
+imdb_keywords:handcuffs (514): -0.141302339614
+imdb_keywords:explosion (408): -0.140532223256
+imdb_keywords:stripper (931): -0.0718690842552
+imdb_keywords:anger (125): 0.055717233846
+imdb_keywords:obscene-finger-gesture (701): -0.0544102152586
+average_rating (1194): 0.0533556736271
+year (0): 0.0438833809396
+imdb_keywords:cover-up (309): -0.0219407886633
+imdb_keywords:promise (775): -0.0180753878603
+imdb_keywords:storytelling (926): -0.017410037368
+imdb_keywords:older-man-younger-woman-relationship (707): 0.00133082622596
+Correctness score: 0.036832787727
+Processing user 982, movie 7202 (Beyond Re-Animator (2003))
+Original predicted rating: 2.9878503831
+User profile: {'neg_name': 'imdb_keywords:rat', 'neg': 799, 'profile_id': 3, 'pos_name': 'imdb_keywords:interview', 'pos': 563}
+Non-zero qiis:
+imdb_keywords:interview (563): 1.86416234071
+imdb_keywords:rat (799): -0.188810276107
+average_rating (1194): 0.0377701897365
+imdb_keywords:obsession (702): -0.0275531173652
+imdb_keywords:title-directed-by-female (991): -0.0191457349553
+movielens_genre:Crime (6): -0.0161938732907
+imdb_keywords:storytelling (926): -0.00662526796524
+imdb_keywords:anger (125): 0.00548352757371
+imdb_keywords:explosion (408): -0.00284180886543
+imdb_keywords:handcuffs (514): -0.00131776322811
+Correctness score: 1.0
+Processing user 58, movie 520 (Robin Hood: Men in Tights (1993))
+Original predicted rating: 3.38986420015
+User profile: {'neg_name': 'tvtropes:downer ending', 'neg': 1123, 'profile_id': 1, 'pos_name': 'imdb_keywords:obsession', 'pos': 702}
+Non-zero qiis:
+imdb_keywords:castle (247): 0.641023883387
+imdb_keywords:obscene-finger-gesture (701): 0.423879782481
+imdb_keywords:explosion (408): -0.0990681788478
+imdb_keywords:obsession (702): -0.0941598349145
+imdb_keywords:cover-up (309): -0.0603715537739
+imdb_keywords:storytelling (926): -0.0471274273104
+imdb_keywords:politics (761): 0.0338922389444
+tvtropes:downer ending (1123): -0.0227046856747
+imdb_keywords:older-man-younger-woman-relationship (707): 0.00931706912988
+Correctness score: 0.10974187087
+Processing user 60, movie 3897 (Almost Famous (2000))
+Original predicted rating: 2.63625817108
+User profile: {'neg_name': 'imdb_keywords:traitor', 'neg': 1005, 'profile_id': 2, 'pos_name': 'imdb_keywords:stripper', 'pos': 931}
+Non-zero qiis:
+imdb_keywords:obscene-finger-gesture (701): 0.214081188355
+imdb_keywords:obsession (702): -0.154012551549
+imdb_keywords:explosion (408): -0.126972742349
+imdb_keywords:interview (563): -0.108981799251
+imdb_keywords:pub (781): 0.0443990576855
+imdb_keywords:storytelling (926): -0.0416161431619
+imdb_keywords:castle (247): -0.0318136355332
+imdb_keywords:urination (1033): -0.0317185208644
+average_rating (1194): -0.0176837022422
+imdb_keywords:title-directed-by-female (991): 0.0153773344904
+imdb_keywords:promise (775): -0.012247142413
+year (0): 0.0107711201817
+tvtropes:downer ending (1123): 0.00910788646398
+imdb_keywords:cover-up (309): 0.00864226736504
+imdb_keywords:politics (761): -0.00792896357199
+movielens_genre:Action (1): -0.00702683704372
+Correctness score: 0.0
+Processing user 981, movie 2858 (American Beauty (1999))
+Original predicted rating: 2.68939157195
+User profile: {'neg_name': 'imdb_keywords:mixed-martial-arts', 'neg': 664, 'profile_id': 5, 'pos_name': 'imdb_keywords:promise', 'pos': 775}
+Non-zero qiis:
+imdb_keywords:obscene-finger-gesture (701): 0.543774115991
+imdb_keywords:obsession (702): 0.29347506393
+average_rating (1194): 0.162596971547
+imdb_keywords:promise (775): -0.0930794803507
+imdb_keywords:older-man-younger-woman-relationship (707): -0.0676098590656
+imdb_keywords:explosion (408): -0.0599564151929
+imdb_keywords:castle (247): -0.0516002881289
+imdb_keywords:storytelling (926): -0.0400218459584
+tvtropes:downer ending (1123): 0.0333974549508
+imdb_keywords:stripper (931): 0.0194836144071
+imdb_keywords:mixed-martial-arts (664): -0.00144782235985
+Correctness score: 0.11290223386
+Processing user 443, movie 733 (Rock, The (1996))
+Original predicted rating: 2.27681689617
+User profile: {'neg_name': 'imdb_keywords:pub', 'neg': 781, 'profile_id': 7, 'pos_name': 'imdb_keywords:obscene-finger-gesture', 'pos': 701}
+Non-zero qiis:
+imdb_keywords:explosion (408): 0.185500854115
+imdb_keywords:obsession (702): -0.0972761120637
+average_rating (1194): 0.0859363276003
+imdb_keywords:promise (775): -0.0834523064128
+imdb_keywords:interview (563): -0.0395472540561
+imdb_keywords:anger (125): 0.0207258190663
+imdb_keywords:handcuffs (514): 0.00698238302853
+imdb_keywords:stripper (931): -0.00135853628233
+Correctness score: 0.0
+Processing user 508, movie 3580 (Up at the Villa (2000))
+Original predicted rating: 2.21231596159
+User profile: {'neg_name': 'imdb_keywords:traitor', 'neg': 1005, 'profile_id': 2, 'pos_name': 'imdb_keywords:stripper', 'pos': 931}
+Non-zero qiis:
+imdb_keywords:cover-up (309): 0.394419633319
+imdb_keywords:stripper (931): -0.160383822512
+imdb_keywords:storytelling (926): -0.117929492608
+imdb_keywords:politics (761): 0.0744889231963
+imdb_keywords:promise (775): -0.0593281147206
+imdb_keywords:obsession (702): -0.0508384215376
+imdb_keywords:interview (563): 0.0177344306815
+imdb_keywords:explosion (408): -0.0079962969056
+average_rating (1194): 0.0057692657455
+Correctness score: 0.289082234125
+Processing user 352, movie 6093 (Last Unicorn, The (1982))
+Original predicted rating: 2.86378498512
+User profile: {'neg_name': 'imdb_keywords:handcuffs', 'neg': 514, 'profile_id': 0, 'pos_name': 'imdb_keywords:title-directed-by-female', 'pos': 991}
+Non-zero qiis:
+imdb_keywords:promise (775): 0.326745583685
+imdb_keywords:title-directed-by-female (991): -0.183857388992
+imdb_keywords:castle (247): 0.115362718656
+imdb_keywords:obscene-finger-gesture (701): -0.0623262640192
+imdb_keywords:cover-up (309): 0.0603475094602
+average_rating (1194): 0.0483420619184
+imdb_keywords:explosion (408): -0.0325196748888
+imdb_keywords:obsession (702): -0.0302104486959
+imdb_keywords:politics (761): 0.0200543821014
+imdb_keywords:handcuffs (514): -0.0191951825886
+year (0): -0.0183604135097
+movielens_tags:Bechdel Test:Fail (22): -0.0126885596473
+imdb_keywords:storytelling (926): -0.00944137338415
+imdb_keywords:anger (125): 0.00895442222058
+movielens_tags:70mm (19): 0.00822110487399
+tvtropes:downer ending (1123): 0.00747250340892
+Correctness score: 0.39767212971
+Processing user 343, movie 3886 (Steal This Movie! (2000))
+Original predicted rating: 2.03553898382
+User profile: {'neg_name': 'imdb_keywords:traitor', 'neg': 1005, 'profile_id': 2, 'pos_name': 'imdb_keywords:stripper', 'pos': 931}
+Non-zero qiis:
+imdb_keywords:interview (563): 0.261607974952
+imdb_keywords:promise (775): -0.152187133114
+imdb_keywords:explosion (408): 0.10511754607
+average_rating (1194): 0.0664123817318
+imdb_keywords:obsession (702): -0.0416721724525
+imdb_keywords:obscene-finger-gesture (701): -0.0339801213941
+imdb_keywords:cover-up (309): -0.0307955933817
+imdb_keywords:title-directed-by-female (991): -0.0286934712808
+imdb_keywords:handcuffs (514): -0.00685291193654
+Correctness score: 0.0
+Processing user 377, movie 5560 (À nous la liberté (Freedom for Us) (1931))
+Original predicted rating: 1.01849857765
+User profile: {'neg_name': 'movielens_tags:politics', 'neg': 72, 'profile_id': 6, 'pos_name': 'imdb_keywords:storytelling', 'pos': 926}
+Non-zero qiis:
+imdb_keywords:interview (563): -0.278056387789
+average_rating (1194): -0.237858358107
+imdb_keywords:obsession (702): -0.104507530727
+imdb_keywords:storytelling (926): -0.0966815851615
+imdb_keywords:explosion (408): 0.0605994362192
+imdb_keywords:mixed-martial-arts (664): 0.0521291346739
+imdb_keywords:anger (125): 0.0469659575286
+imdb_keywords:title-directed-by-female (991): 0.0302467406912
+imdb_keywords:handcuffs (514): -0.0254379748346
+imdb_keywords:politics (761): -0.00816858126636
+Correctness score: 0.187398375276
+Processing user 902, movie 95583 (Savages (2012))
+Original predicted rating: 2.39517329353
+User profile: {'neg_name': 'tvtropes:downer ending', 'neg': 1123, 'profile_id': 1, 'pos_name': 'imdb_keywords:obsession', 'pos': 702}
+Non-zero qiis:
+imdb_keywords:obscene-finger-gesture (701): 0.430486993285
+imdb_keywords:obsession (702): -0.162798484153
+imdb_keywords:storytelling (926): -0.0741897256667
+imdb_keywords:cover-up (309): -0.0450968159674
+imdb_keywords:interview (563): -0.0387497273883
+average_rating (1194): 0.0295451676493
+imdb_keywords:explosion (408): -0.0213222735271
+imdb_keywords:knocked-out (590): -0.00652892477869
+Correctness score: 0.274401599809
+Processing user 937, movie 34437 (Broken Flowers (2005))
+Original predicted rating: 1.52893828821
+User profile: {'neg_name': 'imdb_keywords:anger', 'neg': 125, 'profile_id': 8, 'pos_name': 'imdb_keywords:cover-up', 'pos': 309}
+Non-zero qiis:
+imdb_keywords:storytelling (926): 0.145526143941
+imdb_keywords:airplane (113): 0.106443882649
+imdb_keywords:title-directed-by-female (991): -0.10035537944
+imdb_keywords:interview (563): -0.0827859669
+imdb_keywords:obscene-finger-gesture (701): -0.0734242107475
+imdb_keywords:obsession (702): -0.0431026398767
+imdb_keywords:explosion (408): -0.0392244835264
+imdb_keywords:anger (125): -0.0243478253183
+movielens_genre:Drama (8): 0.0203744890732
+average_rating (1194): 0.0164806866544
+tvtropes:downer ending (1123): 0.0146049143313
+imdb_keywords:older-man-younger-woman-relationship (707): 0.00601328364223
+Correctness score: 0.0966298477949
+Processing user 796, movie 56612 (Sex and Fury (Furyô anego den: Inoshika Ochô) (1973))
+Original predicted rating: 1.15405484237
+User profile: {'neg_name': 'imdb_keywords:traitor', 'neg': 1005, 'profile_id': 2, 'pos_name': 'imdb_keywords:stripper', 'pos': 931}
+Non-zero qiis:
+average_rating (1194): -0.327289553752
+imdb_keywords:anger (125): -0.188601328958
+imdb_keywords:obscene-finger-gesture (701): -0.143230938471
+imdb_keywords:obsession (702): -0.0900680729467
+imdb_keywords:interview (563): -0.0830820434317
+imdb_keywords:promise (775): -0.0823027656518
+imdb_keywords:handcuffs (514): -0.0700930487601
+imdb_keywords:storytelling (926): -0.0656659123741
+imdb_keywords:rat (799): 0.0616204878352
+imdb_keywords:mixed-martial-arts (664): 0.0578926824055
+imdb_keywords:explosion (408): 0.032404832918
+imdb_keywords:stripper (931): -0.0267686016518
+imdb_keywords:title-directed-by-female (991): 0.0204163853857
+imdb_keywords:castle (247): -0.0168722207948
+imdb_keywords:politics (761): -0.00368550828483
+Correctness score: 0.0518881076386
+Processing user 612, movie 74851 (From Paris with Love (2010))
+Original predicted rating: 2.15718361206
+User profile: {'neg_name': 'imdb_keywords:rat', 'neg': 799, 'profile_id': 3, 'pos_name': 'imdb_keywords:interview', 'pos': 563}
+Non-zero qiis:
+imdb_keywords:explosion (408): 0.318829278972
+imdb_keywords:interview (563): -0.167464195416
+imdb_keywords:obsession (702): -0.166317923546
+imdb_keywords:promise (775): -0.15099440532
+imdb_keywords:title-directed-by-female (991): -0.100493818443
+average_rating (1194): 0.0745656385721
+imdb_keywords:storytelling (926): -0.042854216365
+imdb_keywords:stripper (931): -0.0384576025804
+tvtropes:downer ending (1123): -0.0160057137255
+imdb_keywords:handcuffs (514): -0.000591035577855
+Correctness score: 0.344368584478
+Correctness scores: [0.13549545260864024, 0.46109496868920075, 0.14301450178139996, 1.0, 0.0, 0.1790843237995437, 0.036832787727023, 1.0, 0.10974187087045474, 0.0, 0.11290223386008691, 0.0, 0.289082234125271, 0.39767212971022087, 0.0, 0.18739837527559713, 0.2744015998092092, 0.09662984779488261, 0.05188810763861006, 0.34436858447833735]
+Average correctness: 0.240980350908

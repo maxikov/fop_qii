@@ -1,0 +1,293 @@
+Loading results dict
+Original recommender relative to ground truth on training set mean absolute error: 0.0139154771449, RMSE: 0.0203909414427
+Shadow model relative to the baseline recommender on test set MAE: 0.268858269495, RMSE: 0.373666998461
+Randomized model relative to the baseline recommender on test set MAE: 0.98593742189, RMSE: 1.20022202331
+Shadow model is 3.66712700986 times better than random on the test set
+Loading movies
+Loading ALS model
+Loading decision trees
+97 features are used: 0: year, 1: movielens_genre:Action, 514: imdb_keywords:handcuffs, 5: movielens_genre:Comedy, 6: movielens_genre:Crime, 1031: imdb_keywords:upskirt, 8: movielens_genre:Drama, 9: movielens_genre:Fantasy, 11: movielens_genre:Horror, 13: movielens_genre:Mystery, 14: movielens_genre:Romance, 15: movielens_genre:Sci-Fi, 19: movielens_tags:70mm, 20: movielens_tags:BD-R, 789: imdb_keywords:race-against-time, 89: movielens_tags:violence, 24: movielens_tags:Bibliothek, 25: movielens_tags:Bob*ola, 1050: imdb_keywords:waitress, 303: imdb_keywords:corruption, 796: imdb_keywords:rain, 32: movielens_tags:DVD-Video, 33: movielens_tags:In Netflix queue, 36: movielens_tags:Nudity (Topless - Brief), 37: movielens_tags:Nudity (Topless), 39: movielens_tags:To See, 41: movielens_tags:acting, 1067: imdb_keywords:wig, 44: movielens_tags:atmospheric, 45: movielens_tags:based on a book, 1071: imdb_keywords:woman, 50: movielens_tags:crime, 307: imdb_keywords:courtroom, 821: imdb_keywords:ritual, 310: imdb_keywords:cow, 60: movielens_tags:less than 300 ratings, 61: movielens_tags:library, 556: imdb_keywords:independent-film, 65: movielens_tags:murder, 578: imdb_keywords:jungle, 1093: tvtropes:badass, 82: movielens_tags:soundtrack, 83: movielens_tags:story, 1111: tvtropes:chekhovs gunman, 857: imdb_keywords:security-guard, 860: imdb_keywords:self-sacrifice, 99: imdb_keywords:1990s, 100: imdb_keywords:19th-century, 103: imdb_keywords:accident, 104: imdb_keywords:accidental-death, 876: imdb_keywords:shooting, 112: imdb_keywords:african-american, 120: imdb_keywords:ambulance, 121: imdb_keywords:ambush, 1146: tvtropes:ironic echo, 1087: tvtropes:alcoholic, 126: imdb_keywords:animal-attack, 21: movielens_tags:BD-Video, 130: imdb_keywords:apartment, 131: imdb_keywords:apology, 389: imdb_keywords:elevator, 1159: tvtropes:my god what have i done, 392: imdb_keywords:england, 393: imdb_keywords:epic, 403: imdb_keywords:execution, 1177: tvtropes:shown their work, 1180: tvtropes:spiritual successor, 927: imdb_keywords:strangulation, 163: imdb_keywords:baseball, 422: imdb_keywords:famous-score, 210: imdb_keywords:boy, 412: imdb_keywords:f-word, 1194: average_rating, 444: imdb_keywords:filmmaking, 191: imdb_keywords:birthday-cake, 544: imdb_keywords:hotel, 707: imdb_keywords:older-man-younger-woman-relationship, 708: imdb_keywords:older-woman-younger-man-relationship, 205: imdb_keywords:bomb, 974: imdb_keywords:telephone-call, 1132: tvtropes:faux affably evil, 774: imdb_keywords:prologue, 468: imdb_keywords:france, 473: imdb_keywords:fugitive, 477: imdb_keywords:gang, 734: imdb_keywords:pay-phone, 223: imdb_keywords:brother-sister-relationship, 993: imdb_keywords:toilet, 228: imdb_keywords:burned-alive, 229: imdb_keywords:bus, 488: imdb_keywords:ghost, 1106: tvtropes:california doubling, 1021: imdb_keywords:uncle-nephew-relationship, 425: imdb_keywords:farm, 504: imdb_keywords:gun, 764: imdb_keywords:prank, 938: imdb_keywords:suicide
+Loading indicators
+Building indicator distributions
+Loading user profiles
+Processing user 886, movie 45652 (American Gun (2005))
+Original predicted rating: 2.07904885835
+User profile: {'neg_name': 'imdb_keywords:bus', 'neg': 229, 'profile_id': 7, 'pos_name': 'tvtropes:chekhovs gunman', 'pos': 1111}
+Non-zero qiis:
+imdb_keywords:gun (504): 0.200254383055
+tvtropes:shown their work (1177): -0.131649008424
+imdb_keywords:corruption (303): -0.116717871715
+imdb_keywords:elevator (389): 0.0667278984637
+imdb_keywords:shooting (876): 0.0516620127582
+imdb_keywords:independent-film (556): 0.0259020207537
+tvtropes:my god what have i done (1159): -0.0175453017961
+movielens_tags:murder (65): -0.0147647258748
+imdb_keywords:apology (131): -0.0040296454152
+Correctness score: 0.0
+Processing user 114, movie 6869 (Bus 174 (Ônibus 174) (2002))
+Original predicted rating: 2.00315308315
+User profile: {'neg_name': 'imdb_keywords:shooting', 'neg': 876, 'profile_id': 8, 'pos_name': 'imdb_keywords:race-against-time', 'pos': 789}
+Non-zero qiis:
+average_rating (1194): 0.116764299275
+imdb_keywords:apology (131): 0.0591368582439
+imdb_keywords:gun (504): 0.0365196475683
+imdb_keywords:independent-film (556): -0.0110572134011
+Correctness score: 0.0
+Processing user 532, movie 106983 (Young & Beautiful (2013))
+Original predicted rating: 2.21692551478
+User profile: {'neg_name': 'imdb_keywords:shooting', 'neg': 876, 'profile_id': 8, 'pos_name': 'imdb_keywords:race-against-time', 'pos': 789}
+Non-zero qiis:
+imdb_keywords:race-against-time (789): -0.272124502649
+imdb_keywords:independent-film (556): 0.269958966032
+average_rating (1194): 0.188719650264
+imdb_keywords:france (468): 0.154940340759
+imdb_keywords:elevator (389): -0.0893700750865
+imdb_keywords:gun (504): 0.0848346384664
+movielens_tags:atmospheric (44): 0.0226613042584
+imdb_keywords:apology (131): 0.0015658771774
+Correctness score: 0.501997419902
+Processing user 19, movie 36537 (Thumbsucker (2005))
+Original predicted rating: 2.74559599772
+User profile: {'neg_name': 'imdb_keywords:ritual', 'neg': 821, 'profile_id': 3, 'pos_name': 'imdb_keywords:corruption', 'pos': 303}
+Non-zero qiis:
+average_rating (1194): 0.277721176565
+imdb_keywords:apology (131): -0.214002367214
+imdb_keywords:corruption (303): -0.201978976192
+imdb_keywords:race-against-time (789): 0.141440957006
+imdb_keywords:gun (504): 0.100630083797
+imdb_keywords:independent-film (556): 0.0699769297877
+imdb_keywords:animal-attack (126): 0.0177611812934
+tvtropes:shown their work (1177): 0.0156482275964
+Correctness score: 0.41075718002
+Processing user 434, movie 1968 (Breakfast Club, The (1985))
+Original predicted rating: 3.38790477633
+User profile: {'neg_name': 'tvtropes:my god what have i done', 'neg': 1159, 'profile_id': 9, 'pos_name': 'imdb_keywords:gun', 'pos': 504}
+Non-zero qiis:
+imdb_keywords:corruption (303): -0.171998660181
+imdb_keywords:gun (504): -0.171488754301
+imdb_keywords:independent-film (556): 0.0701005793634
+imdb_keywords:elevator (389): 0.0255002409569
+imdb_keywords:apology (131): -0.0191349390354
+tvtropes:shown their work (1177): -0.000593314638616
+Correctness score: 0.499257751728
+Processing user 296, movie 89 (Nick of Time (1995))
+Original predicted rating: 3.8299031217
+User profile: {'neg_name': 'imdb_keywords:shooting', 'neg': 876, 'profile_id': 8, 'pos_name': 'imdb_keywords:race-against-time', 'pos': 789}
+Non-zero qiis:
+imdb_keywords:race-against-time (789): 0.829597669618
+tvtropes:chekhovs gunman (1111): -0.480434747698
+year (0): 0.113105038058
+average_rating (1194): 0.106211018396
+imdb_keywords:gun (504): -0.068721966439
+imdb_keywords:shooting (876): 0.0680613457522
+imdb_keywords:corruption (303): 0.0634644600659
+imdb_keywords:pay-phone (734): 0.0608486389356
+imdb_keywords:ritual (821): 0.048740171166
+imdb_keywords:f-word (412): -0.0435956747518
+imdb_keywords:france (468): -0.0336226265984
+imdb_keywords:bus (229): 0.0326756512579
+imdb_keywords:apology (131): -0.0241832652142
+imdb_keywords:famous-score (422): -0.0178027131182
+imdb_keywords:rain (796): 0.0114994025727
+imdb_keywords:elevator (389): -0.00642896202503
+imdb_keywords:independent-film (556): -0.0045055499412
+imdb_keywords:england (392): 0.00305406275894
+Correctness score: 0.685218933139
+Processing user 194, movie 91517 (Death King, The (Der Todesking) (1990))
+Original predicted rating: 2.21641493392
+User profile: {'neg_name': 'imdb_keywords:prank', 'neg': 764, 'profile_id': 5, 'pos_name': 'imdb_keywords:france', 'pos': 468}
+Non-zero qiis:
+average_rating (1194): 0.126924215195
+imdb_keywords:gun (504): 0.113503042719
+imdb_keywords:independent-film (556): -0.0838572639795
+imdb_keywords:elevator (389): -0.0618230323377
+imdb_keywords:apology (131): -0.0379019316694
+tvtropes:alcoholic (1087): 0.00300948137312
+Correctness score: 0.0
+Processing user 267, movie 73929 (Legion (2010))
+Original predicted rating: 2.98441400635
+User profile: {'neg_name': 'tvtropes:my god what have i done', 'neg': 1159, 'profile_id': 9, 'pos_name': 'imdb_keywords:gun', 'pos': 504}
+Non-zero qiis:
+tvtropes:shown their work (1177): -0.336792054977
+imdb_keywords:gun (504): -0.292705151993
+average_rating (1194): 0.123095503942
+imdb_keywords:independent-film (556): 0.0968778991879
+imdb_keywords:upskirt (1031): -0.0760949556395
+imdb_keywords:elevator (389): -0.0741220619869
+imdb_keywords:race-against-time (789): -0.0107518564577
+imdb_keywords:telephone-call (974): 0.00694818443846
+imdb_keywords:corruption (303): -0.00643129692911
+tvtropes:spiritual successor (1180): 0.00564057269011
+Correctness score: 0.464982447502
+Processing user 465, movie 7454 (Van Helsing (2004))
+Original predicted rating: 1.99372006263
+User profile: {'neg_name': 'tvtropes:spiritual successor', 'neg': 1180, 'profile_id': 0, 'pos_name': 'tvtropes:shown their work', 'pos': 1177}
+Non-zero qiis:
+tvtropes:spiritual successor (1180): 0.412753704747
+average_rating (1194): -0.403948882906
+imdb_keywords:gun (504): -0.0939466520509
+imdb_keywords:filmmaking (444): 0.0439147609835
+imdb_keywords:independent-film (556): 0.0388435969608
+imdb_keywords:shooting (876): 0.0230894558568
+imdb_keywords:race-against-time (789): -0.0141030204159
+imdb_keywords:older-man-younger-woman-relationship (707): -0.0126375498971
+imdb_keywords:elevator (389): 0.00960820490131
+imdb_keywords:bus (229): -0.00926900189928
+Correctness score: 0.505390470151
+Processing user 413, movie 494 (Executive Decision (1996))
+Original predicted rating: 3.91777183799
+User profile: {'neg_name': 'imdb_keywords:shooting', 'neg': 876, 'profile_id': 8, 'pos_name': 'imdb_keywords:race-against-time', 'pos': 789}
+Non-zero qiis:
+imdb_keywords:race-against-time (789): 0.956405890715
+tvtropes:chekhovs gunman (1111): -0.37302354209
+imdb_keywords:corruption (303): 0.126318851629
+imdb_keywords:gun (504): -0.0984081177737
+average_rating (1194): 0.0816032483627
+imdb_keywords:shooting (876): 0.0668061921182
+tvtropes:faux affably evil (1132): -0.0394678988253
+imdb_keywords:bus (229): 0.0354770145316
+imdb_keywords:ambulance (120): -0.0350228358411
+year (0): 0.0326405134965
+imdb_keywords:independent-film (556): -0.0283767462191
+imdb_keywords:famous-score (422): -0.0110099618664
+imdb_keywords:apology (131): -0.0086454252219
+tvtropes:shown their work (1177): -0.00693237130463
+imdb_keywords:pay-phone (734): -0.00568735563256
+tvtropes:alcoholic (1087): -0.00538684775105
+imdb_keywords:elevator (389): -0.00335870756665
+Correctness score: 0.76966257673
+Processing user 753, movie 3434 (Death Wish 5: The Face of Death (1994))
+Original predicted rating: 2.4259096321
+User profile: {'neg_name': 'imdb_keywords:ritual', 'neg': 821, 'profile_id': 3, 'pos_name': 'imdb_keywords:corruption', 'pos': 303}
+Non-zero qiis:
+average_rating (1194): 0.638711715757
+imdb_keywords:gun (504): 0.150606260755
+imdb_keywords:independent-film (556): 0.111669012328
+imdb_keywords:elevator (389): 0.0145742175069
+Correctness score: 0.0
+Processing user 614, movie 514 (Ref, The (1994))
+Original predicted rating: 3.00543361387
+User profile: {'neg_name': 'tvtropes:alcoholic', 'neg': 1087, 'profile_id': 2, 'pos_name': 'imdb_keywords:elevator', 'pos': 389}
+Non-zero qiis:
+average_rating (1194): 0.227364576956
+imdb_keywords:elevator (389): -0.217336573637
+imdb_keywords:gun (504): 0.106514831038
+imdb_keywords:corruption (303): -0.0904902559073
+imdb_keywords:independent-film (556): -0.0458543920145
+imdb_keywords:apology (131): 0.0192493142207
+tvtropes:chekhovs gunman (1111): -0.0153623969406
+imdb_keywords:famous-score (422): 0.00324143085825
+Correctness score: 0.488725008576
+Processing user 22, movie 207 (Walk in the Clouds, A (1995))
+Original predicted rating: 1.40266515216
+User profile: {'neg_name': 'imdb_keywords:prank', 'neg': 764, 'profile_id': 5, 'pos_name': 'imdb_keywords:france', 'pos': 468}
+Non-zero qiis:
+imdb_keywords:bus (229): 0.389443378108
+average_rating (1194): -0.381315640106
+imdb_keywords:ritual (821): 0.221229435601
+imdb_keywords:independent-film (556): 0.163947140776
+imdb_keywords:famous-score (422): -0.067074496745
+tvtropes:shown their work (1177): -0.0329666973581
+imdb_keywords:gun (504): 0.0302948956979
+imdb_keywords:jungle (578): -0.01751570224
+imdb_keywords:race-against-time (789): 0.0173358021216
+imdb_keywords:corruption (303): 0.0110939616597
+imdb_keywords:shooting (876): -0.00889505817669
+imdb_keywords:accident (103): -0.00388294475302
+imdb_keywords:filmmaking (444): 0.00301014010543
+Correctness score: 0.0
+Processing user 591, movie 32316 (River, The (1951))
+Original predicted rating: 2.44030170211
+User profile: {'neg_name': 'imdb_keywords:prank', 'neg': 764, 'profile_id': 5, 'pos_name': 'imdb_keywords:france', 'pos': 468}
+Non-zero qiis:
+imdb_keywords:apology (131): 0.342810424924
+tvtropes:chekhovs gunman (1111): -0.0752192929775
+imdb_keywords:independent-film (556): -0.0471031590491
+imdb_keywords:race-against-time (789): 0.0338777860201
+imdb_keywords:gun (504): -0.0041747409248
+Correctness score: 0.0
+Processing user 964, movie 7238 (Ashes and Diamonds (Popiól i diament) (1958))
+Original predicted rating: 4.04913349477
+User profile: {'neg_name': 'tvtropes:my god what have i done', 'neg': 1159, 'profile_id': 9, 'pos_name': 'imdb_keywords:gun', 'pos': 504}
+Non-zero qiis:
+average_rating (1194): 0.624560205033
+imdb_keywords:france (468): 0.112412418498
+imdb_keywords:elevator (389): -0.102589948703
+imdb_keywords:gun (504): 0.0971525679073
+imdb_keywords:famous-score (422): 0.0553353225014
+tvtropes:shown their work (1177): 0.0527360220495
+tvtropes:chekhovs gunman (1111): 0.0499608370585
+imdb_keywords:independent-film (556): 0.0399041227982
+movielens_tags:atmospheric (44): 0.00653734202694
+Correctness score: 0.131826562894
+Processing user 771, movie 94061 (Madhouse (1974))
+Original predicted rating: 2.0353080963
+User profile: {'neg_name': 'tvtropes:spiritual successor', 'neg': 1180, 'profile_id': 0, 'pos_name': 'tvtropes:shown their work', 'pos': 1177}
+Non-zero qiis:
+imdb_keywords:elevator (389): -0.102283726444
+average_rating (1194): 0.0868714763462
+imdb_keywords:race-against-time (789): -0.0762577587301
+imdb_keywords:gun (504): -0.0683230002953
+imdb_keywords:famous-score (422): -0.0585955271866
+tvtropes:chekhovs gunman (1111): -0.053350965755
+imdb_keywords:shooting (876): -0.0304596475124
+imdb_keywords:independent-film (556): 0.0158799902454
+tvtropes:my god what have i done (1159): -0.00641108747895
+Correctness score: 0.0
+Processing user 846, movie 27727 (Head-On (Gegen die Wand) (2004))
+Original predicted rating: 2.38698822785
+User profile: {'neg_name': 'tvtropes:spiritual successor', 'neg': 1180, 'profile_id': 0, 'pos_name': 'tvtropes:shown their work', 'pos': 1177}
+Non-zero qiis:
+average_rating (1194): 0.17485473241
+imdb_keywords:corruption (303): -0.133697270658
+imdb_keywords:apology (131): 0.106724922586
+tvtropes:shown their work (1177): -0.0773036388519
+imdb_keywords:gun (504): 0.0612368661823
+imdb_keywords:elevator (389): 0.0222304431497
+imdb_keywords:independent-film (556): -0.019594997894
+imdb_keywords:animal-attack (126): -0.0124515433267
+Correctness score: 0.250536823885
+Processing user 904, movie 39435 (Legend of Zorro, The (2005))
+Original predicted rating: 0.975332990264
+User profile: {'neg_name': 'tvtropes:spiritual successor', 'neg': 1180, 'profile_id': 0, 'pos_name': 'tvtropes:shown their work', 'pos': 1177}
+Non-zero qiis:
+average_rating (1194): -0.597982989431
+imdb_keywords:bus (229): -0.0818513238443
+imdb_keywords:shooting (876): 0.0626716648288
+imdb_keywords:gun (504): -0.0607264015456
+tvtropes:chekhovs gunman (1111): -0.0489769365915
+imdb_keywords:famous-score (422): -0.0447792203492
+imdb_keywords:apology (131): 0.0424812142048
+imdb_keywords:independent-film (556): -0.00571867410447
+tvtropes:alcoholic (1087): -0.00505203554569
+imdb_keywords:elevator (389): -0.000255059229546
+Correctness score: 0.0
+Processing user 177, movie 42 (Dead Presidents (1995))
+Original predicted rating: 2.77529991606
+User profile: {'neg_name': 'movielens_tags:acting', 'neg': 41, 'profile_id': 6, 'pos_name': 'imdb_keywords:apology', 'pos': 131}
+Non-zero qiis:
+imdb_keywords:apology (131): -0.161042189225
+average_rating (1194): 0.128816064909
+imdb_keywords:independent-film (556): -0.0509648664297
+imdb_keywords:race-against-time (789): 0.0430351306465
+imdb_keywords:france (468): -0.0359687949522
+imdb_keywords:elevator (389): -0.00830967136085
+imdb_keywords:gun (504): 0.00369315019881
+Correctness score: 0.555589454253
+Processing user 62, movie 3264 (Buffy the Vampire Slayer (1992))
+Original predicted rating: 1.98738022695
+User profile: {'neg_name': 'imdb_keywords:shooting', 'neg': 876, 'profile_id': 8, 'pos_name': 'imdb_keywords:race-against-time', 'pos': 789}
+Non-zero qiis:
+tvtropes:chekhovs gunman (1111): 0.559824332617
+imdb_keywords:gun (504): 0.150283321191
+average_rating (1194): 0.129260653673
+imdb_keywords:independent-film (556): 0.119188709978
+imdb_keywords:race-against-time (789): -0.0852396430474
+imdb_keywords:bus (229): 0.0635882902638
+imdb_keywords:france (468): -0.0596474906163
+imdb_keywords:ghost (488): 0.0253424577383
+imdb_keywords:apology (131): -0.0088142635996
+imdb_keywords:elevator (389): 0.00161636695105
+Correctness score: 0.120037634562
+Correctness scores: [0.0, 0.0, 0.501997419901533, 0.41075718002026895, 0.4992577517281109, 0.6852189331387565, 0.0, 0.46498244750222156, 0.5053904701509199, 0.7696625767299133, 0.0, 0.48872500857566736, 0.0, 0.0, 0.13182656289436717, 0.0, 0.2505368238846802, 0.0, 0.5555894542527992, 0.12003763456185544]
+Average correctness: 0.269199113167

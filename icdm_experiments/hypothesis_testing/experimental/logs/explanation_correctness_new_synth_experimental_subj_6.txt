@@ -1,0 +1,282 @@
+Loading results dict
+Original recommender relative to ground truth on training set mean absolute error: 0.0138121191569, RMSE: 0.0199856998991
+Shadow model relative to the baseline recommender on test set MAE: 0.296868583976, RMSE: 0.379433343611
+Randomized model relative to the baseline recommender on test set MAE: 1.05040742156, RMSE: 1.30760182451
+Shadow model is 3.5382909417 times better than random on the test set
+Loading movies
+Loading ALS model
+Loading decision trees
+98 features are used: 0: year, 1: movielens_genre:Action, 2: movielens_genre:Adventure, 3: movielens_genre:Animation, 4: movielens_genre:Children, 5: movielens_genre:Comedy, 6: movielens_genre:Crime, 7: movielens_genre:Documentary, 8: movielens_genre:Drama, 13: movielens_genre:Mystery, 14: movielens_genre:Romance, 15: movielens_genre:Sci-Fi, 18: movielens_genre:Western, 276: imdb_keywords:cigarette-smoking, 21: movielens_tags:BD-Video, 537: imdb_keywords:honor, 26: movielens_tags:CLV, 798: imdb_keywords:rape, 773: imdb_keywords:professor, 32: movielens_tags:DVD-Video, 34: movielens_tags:National Film Registry, 774: imdb_keywords:prologue, 39: movielens_tags:To See, 40: movielens_tags:Tumey's DVDs, 812: imdb_keywords:rescue, 939: imdb_keywords:suicide-attempt, 46: movielens_tags:boring, 47: movielens_tags:cinematography, 304: imdb_keywords:costume, 520: imdb_keywords:heart-attack, 50: movielens_tags:crime, 564: imdb_keywords:investigation, 54: movielens_tags:erlend's DVDs, 312: imdb_keywords:cowboy-hat, 57: movielens_tags:funny, 223: imdb_keywords:brother-sister-relationship, 68: movielens_tags:nudity (full frontal), 776: imdb_keywords:prostitute, 73: movielens_tags:predictable, 586: imdb_keywords:kiss, 590: imdb_keywords:knocked-out, 83: movielens_tags:story, 340: imdb_keywords:death-of-mother, 854: imdb_keywords:secret-agent, 89: movielens_tags:violence, 234: imdb_keywords:camera, 360: imdb_keywords:disguise, 874: imdb_keywords:sheriff, 876: imdb_keywords:shooting, 879: imdb_keywords:shot-in-the-back, 884: imdb_keywords:shot-in-the-shoulder, 374: imdb_keywords:drug-addict, 20: movielens_tags:BD-R, 124: imdb_keywords:american-flag, 1002: imdb_keywords:train, 385: imdb_keywords:eavesdropping, 814: imdb_keywords:revenge, 140: imdb_keywords:assassin, 148: imdb_keywords:automobile, 768: imdb_keywords:premarital-sex, 413: imdb_keywords:face-slap, 1183: tvtropes:title drop, 672: imdb_keywords:motorcycle, 162: imdb_keywords:bartender, 167: imdb_keywords:based-on-novel, 936: imdb_keywords:suburb, 937: imdb_keywords:subway, 1194: average_rating, 171: imdb_keywords:basketball, 941: imdb_keywords:sunglasses, 430: imdb_keywords:fear, 244: imdb_keywords:car-crash, 960: imdb_keywords:tape-recorder, 961: imdb_keywords:target-practice, 194: imdb_keywords:black-american, 451: imdb_keywords:fish-out-of-water, 710: imdb_keywords:on-the-run, 200: imdb_keywords:blonde, 290: imdb_keywords:coming-of-age, 207: imdb_keywords:bound-and-gagged, 254: imdb_keywords:champagne, 723: imdb_keywords:painting, 468: imdb_keywords:france, 334: imdb_keywords:death, 719: imdb_keywords:orphan, 991: imdb_keywords:title-directed-by-female, 226: imdb_keywords:bully, 227: imdb_keywords:burial, 998: imdb_keywords:tough-girl, 490: imdb_keywords:girl, 749: imdb_keywords:poison, 241: imdb_keywords:car, 756: imdb_keywords:police-officer-killed, 510: imdb_keywords:hairy-chest, 248: imdb_keywords:cat, 507: imdb_keywords:gunshot, 253: imdb_keywords:cemetery, 766: imdb_keywords:pregnancy
+Loading indicators
+Building indicator distributions
+Loading user profiles
+Processing user 253, movie 46231 (Stoned (2005))
+Original predicted rating: 2.97183583673
+User profile: {'neg_name': 'imdb_keywords:cowboy-hat', 'neg': 312, 'profile_id': 8, 'pos_name': 'imdb_keywords:eavesdropping', 'pos': 385}
+Non-zero qiis:
+imdb_keywords:hairy-chest (510): 0.493465544881
+average_rating (1194): 0.271167659495
+imdb_keywords:camera (234): 0.166810913224
+imdb_keywords:gunshot (507): 0.0874056030589
+movielens_tags:story (83): 0.0626588904936
+imdb_keywords:tough-girl (998): -0.0443392920933
+movielens_tags:BD-R (20): 0.0411713105933
+imdb_keywords:shot-in-the-shoulder (884): -0.0311116264561
+imdb_keywords:cigarette-smoking (276): 0.0273754147092
+imdb_keywords:subway (937): -0.00804929607084
+Correctness score: 0.0
+Processing user 66, movie 2191 (Merry War, A (1997))
+Original predicted rating: 2.23516559083
+User profile: {'neg_name': 'imdb_keywords:secret-agent', 'neg': 854, 'profile_id': 3, 'pos_name': 'imdb_keywords:tough-girl', 'pos': 998}
+Non-zero qiis:
+average_rating (1194): 0.475012257381
+imdb_keywords:tough-girl (998): -0.369605183133
+imdb_keywords:camera (234): -0.131110383886
+imdb_keywords:cigarette-smoking (276): 0.0967484957252
+imdb_keywords:gunshot (507): -0.0575762490669
+imdb_keywords:car (241): -0.0288802415219
+imdb_keywords:hairy-chest (510): -0.0252784073215
+imdb_keywords:subway (937): 5.86559189904e-05
+Correctness score: 0.43760069992
+Processing user 971, movie 3551 (Marathon Man (1976))
+Original predicted rating: 1.35744445577
+User profile: {'neg_name': 'imdb_keywords:rape', 'neg': 798, 'profile_id': 4, 'pos_name': 'imdb_keywords:shot-in-the-shoulder', 'pos': 884}
+Non-zero qiis:
+average_rating (1194): -0.618512041565
+imdb_keywords:secret-agent (854): 0.0882451002798
+imdb_keywords:shot-in-the-shoulder (884): -0.0836648231579
+imdb_keywords:camera (234): 0.0496067721008
+movielens_tags:BD-R (20): -0.0458083345126
+imdb_keywords:tough-girl (998): -0.0445259097789
+imdb_keywords:tape-recorder (960): -0.0435823031694
+imdb_keywords:hairy-chest (510): 0.035885227067
+movielens_genre:Western (18): 0.0121827510348
+imdb_keywords:train (1002): -0.00992220542576
+imdb_keywords:cigarette-smoking (276): 0.00770582033042
+imdb_keywords:knocked-out (590): 0.00298654622735
+Correctness score: 0.118378461574
+Processing user 225, movie 1673 (Boogie Nights (1997))
+Original predicted rating: 3.92247582135
+User profile: {'neg_name': 'imdb_keywords:rape', 'neg': 798, 'profile_id': 4, 'pos_name': 'imdb_keywords:shot-in-the-shoulder', 'pos': 884}
+Non-zero qiis:
+imdb_keywords:shot-in-the-shoulder (884): 1.25842342656
+average_rating (1194): 0.350835597644
+imdb_keywords:cigarette-smoking (276): -0.0850502315252
+imdb_keywords:camera (234): 0.055242837518
+imdb_keywords:gunshot (507): 0.0180822819028
+imdb_keywords:hairy-chest (510): -0.0123783326535
+imdb_keywords:eavesdropping (385): -0.00602941983343
+imdb_keywords:target-practice (961): -0.00258868665442
+imdb_keywords:tape-recorder (960): 0.0012774226011
+imdb_keywords:suburb (936): 0.00111327585695
+Correctness score: 0.781989355121
+Processing user 818, movie 31903 (Zelary (2003))
+Original predicted rating: 2.34381921147
+User profile: {'neg_name': 'imdb_keywords:target-practice', 'neg': 961, 'profile_id': 0, 'pos_name': 'imdb_keywords:suburb', 'pos': 936}
+Non-zero qiis:
+average_rating (1194): 0.0689461538971
+imdb_keywords:camera (234): -0.0462882280524
+imdb_keywords:shot-in-the-shoulder (884): 0.0451766981738
+imdb_keywords:hairy-chest (510): -0.0341876486335
+imdb_keywords:gunshot (507): -0.00758564576331
+imdb_keywords:subway (937): -0.00550535934013
+imdb_keywords:cigarette-smoking (276): 0.00300394978003
+year (0): 5.19939527218e-05
+Correctness score: 0.0
+Processing user 6, movie 79498 (Town That Dreaded Sundown, The (1976))
+Original predicted rating: 1.2585387561
+User profile: {'neg_name': 'imdb_keywords:secret-agent', 'neg': 854, 'profile_id': 3, 'pos_name': 'imdb_keywords:tough-girl', 'pos': 998}
+Non-zero qiis:
+movielens_tags:BD-R (20): 0.321223679456
+average_rating (1194): -0.308868726005
+imdb_keywords:eavesdropping (385): -0.170974495672
+imdb_keywords:gunshot (507): -0.0653446571882
+imdb_keywords:rape (798): -0.0423916396986
+imdb_keywords:car (241): -0.026735980078
+imdb_keywords:shot-in-the-shoulder (884): -0.0214232306355
+imdb_keywords:cigarette-smoking (276): -0.00865334248994
+imdb_keywords:knocked-out (590): -0.0035354347293
+Correctness score: 0.0
+Processing user 508, movie 7146 (What Alice Found (2003))
+Original predicted rating: 2.25762797055
+User profile: {'neg_name': 'imdb_keywords:cowboy-hat', 'neg': 312, 'profile_id': 8, 'pos_name': 'imdb_keywords:eavesdropping', 'pos': 385}
+Non-zero qiis:
+imdb_keywords:eavesdropping (385): -0.158882130482
+average_rating (1194): 0.149472232295
+imdb_keywords:cigarette-smoking (276): 0.0770231432479
+imdb_keywords:camera (234): -0.0553633979068
+imdb_keywords:hairy-chest (510): -0.0486882718239
+imdb_keywords:subway (937): -0.00460489596297
+movielens_tags:story (83): -0.000931539383429
+Correctness score: 0.51525825369
+Processing user 707, movie 116710 (Young Man with a Horn (1950))
+Original predicted rating: 2.33357036505
+User profile: {'neg_name': 'imdb_keywords:heart-attack', 'neg': 520, 'profile_id': 2, 'pos_name': 'imdb_keywords:gunshot', 'pos': 507}
+Non-zero qiis:
+imdb_keywords:cigarette-smoking (276): 0.125365850196
+imdb_keywords:camera (234): -0.120230201288
+imdb_keywords:suburb (936): -0.0652327203972
+imdb_keywords:shot-in-the-shoulder (884): -0.040880842439
+imdb_keywords:car (241): -0.0278595534241
+Correctness score: 0.0
+Processing user 862, movie 2209 (Young and Innocent (1937))
+Original predicted rating: 2.3445838636
+User profile: {'neg_name': 'imdb_keywords:heart-attack', 'neg': 520, 'profile_id': 2, 'pos_name': 'imdb_keywords:gunshot', 'pos': 507}
+Non-zero qiis:
+average_rating (1194): 0.466117121671
+imdb_keywords:suburb (936): -0.146599707324
+imdb_keywords:gunshot (507): -0.140690302106
+imdb_keywords:camera (234): -0.127218319969
+imdb_keywords:hairy-chest (510): -0.117114171037
+imdb_keywords:cigarette-smoking (276): 0.114093430637
+imdb_keywords:tough-girl (998): -0.0530880030528
+imdb_keywords:eavesdropping (385): -0.0366796397025
+Correctness score: 0.229617166443
+Processing user 563, movie 3274 (Single White Female (1992))
+Original predicted rating: 3.25809377871
+User profile: {'neg_name': 'imdb_keywords:subway', 'neg': 937, 'profile_id': 6, 'pos_name': 'imdb_keywords:camera', 'pos': 234}
+Non-zero qiis:
+imdb_keywords:eavesdropping (385): 0.266753964588
+imdb_keywords:camera (234): -0.241129046603
+average_rating (1194): 0.186263022096
+imdb_keywords:cigarette-smoking (276): 0.146315689817
+imdb_keywords:shot-in-the-shoulder (884): -0.118706830965
+imdb_keywords:rape (798): 0.00751162512851
+imdb_keywords:tough-girl (998): -0.00673810642884
+imdb_keywords:car (241): -0.000611334256439
+imdb_keywords:tape-recorder (960): -0.000434294148377
+Correctness score: 0.474772814388
+Processing user 491, movie 4814 (Don't Say a Word (2001))
+Original predicted rating: 2.00751887689
+User profile: {'neg_name': 'imdb_keywords:knocked-out', 'neg': 590, 'profile_id': 1, 'pos_name': 'imdb_keywords:car', 'pos': 241}
+Non-zero qiis:
+imdb_keywords:shot-in-the-shoulder (884): -0.406977013029
+average_rating (1194): 0.403618522953
+imdb_keywords:camera (234): -0.279150683087
+imdb_keywords:hairy-chest (510): -0.241154468583
+imdb_keywords:police-officer-killed (756): 0.204751980576
+imdb_keywords:gunshot (507): 0.100373200355
+imdb_keywords:car (241): -0.0794693821197
+imdb_keywords:cigarette-smoking (276): 0.0778633774892
+imdb_keywords:subway (937): 0.0693897713567
+imdb_keywords:tough-girl (998): 0.0635755999142
+movielens_genre:Action (1): -0.0296038567744
+imdb_keywords:suicide-attempt (939): -0.0201021476496
+imdb_keywords:bound-and-gagged (207): 0.0141701930168
+year (0): -0.00446827552763
+Correctness score: 0.098038267659
+Processing user 929, movie 93 (Vampire in Brooklyn (1995))
+Original predicted rating: 3.07944126962
+User profile: {'neg_name': 'imdb_keywords:subway', 'neg': 937, 'profile_id': 6, 'pos_name': 'imdb_keywords:camera', 'pos': 234}
+Non-zero qiis:
+imdb_keywords:eavesdropping (385): 0.690602415985
+average_rating (1194): 0.253973719032
+imdb_keywords:gunshot (507): -0.0702522861849
+imdb_keywords:car (241): -0.0210296296748
+imdb_keywords:cigarette-smoking (276): -0.00898699320891
+imdb_keywords:tape-recorder (960): -0.000437979904347
+Correctness score: 0.0
+Processing user 421, movie 5961 (Blue Steel (1990))
+Original predicted rating: 1.76355708361
+User profile: {'neg_name': 'imdb_keywords:knocked-out', 'neg': 590, 'profile_id': 1, 'pos_name': 'imdb_keywords:car', 'pos': 241}
+Non-zero qiis:
+imdb_keywords:rape (798): -0.265000028521
+average_rating (1194): 0.24412658682
+imdb_keywords:car (241): -0.147487250057
+imdb_keywords:cigarette-smoking (276): -0.128463114618
+imdb_keywords:hairy-chest (510): -0.112110157213
+imdb_keywords:suburb (936): -0.0459803778954
+imdb_keywords:shot-in-the-shoulder (884): -0.032388941129
+imdb_keywords:tough-girl (998): 0.0175437706835
+imdb_keywords:target-practice (961): -0.0173584577132
+imdb_keywords:camera (234): -0.00647243675075
+imdb_keywords:tape-recorder (960): -0.00309162015912
+Correctness score: 0.289686780484
+Processing user 560, movie 1892 (Perfect Murder, A (1998))
+Original predicted rating: 2.56752661126
+User profile: {'neg_name': 'imdb_keywords:secret-agent', 'neg': 854, 'profile_id': 3, 'pos_name': 'imdb_keywords:tough-girl', 'pos': 998}
+Non-zero qiis:
+imdb_keywords:shot-in-the-shoulder (884): 0.451152967921
+imdb_keywords:cigarette-smoking (276): -0.0886372560236
+imdb_keywords:rape (798): 0.0838988411336
+average_rating (1194): 0.0669125905714
+imdb_keywords:car (241): -0.0310948099162
+imdb_keywords:camera (234): -0.0244729396689
+imdb_keywords:tape-recorder (960): 0.00283435085531
+Correctness score: 0.0
+Processing user 499, movie 8726 (President's Analyst, The (1967))
+Original predicted rating: 2.18457086922
+User profile: {'neg_name': 'movielens_tags:BD-R', 'neg': 20, 'profile_id': 5, 'pos_name': 'imdb_keywords:hairy-chest', 'pos': 510}
+Non-zero qiis:
+average_rating (1194): 0.252775788926
+imdb_keywords:gunshot (507): -0.0736221977348
+imdb_keywords:tough-girl (998): 0.0444912551875
+imdb_keywords:cigarette-smoking (276): -0.0248418405349
+imdb_keywords:shot-in-the-shoulder (884): -0.0152288658225
+imdb_keywords:suburb (936): 0.00304246559169
+Correctness score: 0.0
+Processing user 174, movie 1919 (Madeline (1998))
+Original predicted rating: 2.30497773969
+User profile: {'neg_name': 'imdb_keywords:secret-agent', 'neg': 854, 'profile_id': 3, 'pos_name': 'imdb_keywords:tough-girl', 'pos': 998}
+Non-zero qiis:
+imdb_keywords:cigarette-smoking (276): -0.219385403779
+imdb_keywords:camera (234): 0.200184757909
+average_rating (1194): 0.0766071579703
+imdb_keywords:car (241): -0.0138550016356
+imdb_keywords:tape-recorder (960): -0.000310269636657
+Correctness score: 0.0
+Processing user 245, movie 52299 (American Hardcore (2006))
+Original predicted rating: 2.26956206961
+User profile: {'neg_name': 'imdb_keywords:secret-agent', 'neg': 854, 'profile_id': 3, 'pos_name': 'imdb_keywords:tough-girl', 'pos': 998}
+Non-zero qiis:
+imdb_keywords:suburb (936): 0.28318993757
+imdb_keywords:cigarette-smoking (276): -0.227374246493
+imdb_keywords:shot-in-the-shoulder (884): -0.0809912503243
+imdb_keywords:car (241): -0.038824284733
+imdb_keywords:gunshot (507): -0.0380285548553
+imdb_keywords:camera (234): -0.0142159725554
+imdb_keywords:target-practice (961): 0.00144299383414
+Correctness score: 0.0
+Processing user 701, movie 7037 (High Heels (Tacones lejanos) (1991))
+Original predicted rating: 2.48960907038
+User profile: {'neg_name': 'imdb_keywords:target-practice', 'neg': 961, 'profile_id': 0, 'pos_name': 'imdb_keywords:suburb', 'pos': 936}
+Non-zero qiis:
+imdb_keywords:eavesdropping (385): 0.296585146085
+average_rating (1194): 0.241779663769
+imdb_keywords:cigarette-smoking (276): -0.0813327237767
+imdb_keywords:hairy-chest (510): -0.0449397281006
+imdb_keywords:camera (234): -0.0173740017757
+imdb_keywords:rape (798): -0.00686357393977
+movielens_tags:story (83): 0.00340390715233
+imdb_keywords:gunshot (507): -0.0020295814816
+Correctness score: 0.0
+Processing user 568, movie 68157 (Inglourious Basterds (2009))
+Original predicted rating: 2.4565084147
+User profile: {'neg_name': 'imdb_keywords:cowboy-hat', 'neg': 312, 'profile_id': 8, 'pos_name': 'imdb_keywords:eavesdropping', 'pos': 385}
+Non-zero qiis:
+average_rating (1194): 0.161305158278
+imdb_keywords:eavesdropping (385): -0.144928924968
+movielens_tags:story (83): 0.0608380599315
+imdb_keywords:france (468): -0.0382870464099
+imdb_keywords:cigarette-smoking (276): -0.0357863860874
+imdb_keywords:car (241): -0.0157162817314
+imdb_keywords:shot-in-the-shoulder (884): -0.00570978367063
+imdb_keywords:gunshot (507): -0.00396342407763
+imdb_keywords:costume (304): 0.002229611164
+Correctness score: 0.473261902894
+Processing user 571, movie 45521 (Wassup Rockers (2005))
+Original predicted rating: 1.67889941374
+User profile: {'neg_name': 'imdb_keywords:target-practice', 'neg': 961, 'profile_id': 0, 'pos_name': 'imdb_keywords:suburb', 'pos': 936}
+Non-zero qiis:
+average_rating (1194): 0.360106036093
+imdb_keywords:car (241): -0.0998886958452
+imdb_keywords:camera (234): 0.0971194006841
+imdb_keywords:subway (937): 0.0897452488998
+imdb_keywords:hairy-chest (510): -0.0438648435236
+imdb_keywords:cigarette-smoking (276): 0.0372977207016
+imdb_keywords:heart-attack (520): 0.00035309854488
+imdb_keywords:shot-in-the-back (879): -0.000247445239417
+imdb_keywords:tape-recorder (960): -0.000217600270017
+Correctness score: 0.0
+Correctness scores: [0.0, 0.43760069991979494, 0.11837846157379002, 0.7819893551209373, 0.0, 0.0, 0.5152582536899994, 0.0, 0.22961716644284502, 0.47477281438803554, 0.09803826765895582, 0.0, 0.2896867804839228, 0.0, 0.0, 0.0, 0.0, 0.0, 0.4732619028937084, 0.0]
+Average correctness: 0.170930185109

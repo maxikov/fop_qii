@@ -1,0 +1,316 @@
+Loading results dict
+Original recommender relative to ground truth on training set mean absolute error: 0.0131202649509, RMSE: 0.019643945264
+Shadow model relative to the baseline recommender on test set MAE: 0.275515668165, RMSE: 0.343132331278
+Randomized model relative to the baseline recommender on test set MAE: 0.927387258389, RMSE: 1.22113120214
+Shadow model is 3.36600551456 times better than random on the test set
+Loading movies
+Loading ALS model
+Loading decision trees
+102 features are used: 256: imdb_keywords:character-name-in-title, 0: year, 770: imdb_keywords:prison, 771: imdb_keywords:prisoner, 516: imdb_keywords:hanging, 5: movielens_genre:Comedy, 6: movielens_genre:Crime, 1031: imdb_keywords:upskirt, 8: movielens_genre:Drama, 9: movielens_genre:Fantasy, 11: movielens_genre:Horror, 13: movielens_genre:Mystery, 14: movielens_genre:Romance, 16: movielens_genre:Thriller, 17: movielens_genre:War, 19: movielens_tags:70mm, 532: imdb_keywords:hit-in-the-crotch, 21: movielens_tags:BD-Video, 279: imdb_keywords:class-differences, 280: imdb_keywords:classroom, 1052: imdb_keywords:warrior, 286: imdb_keywords:college-student, 544: imdb_keywords:hotel, 1057: imdb_keywords:waterfall, 35: movielens_tags:Netflix Finland, 1: movielens_genre:Action, 37: movielens_tags:Nudity (Topless), 294: imdb_keywords:condom, 711: imdb_keywords:one-against-many, 40: movielens_tags:Tumey's DVDs, 43: movielens_tags:adapted from:book, 45: movielens_tags:based on a book, 814: imdb_keywords:revenge, 1073: imdb_keywords:woods, 50: movielens_tags:crime, 691: imdb_keywords:nightclub, 265: imdb_keywords:child-abuse, 321: imdb_keywords:crying, 2: movielens_genre:Adventure, 684: imdb_keywords:neo-noir, 838: imdb_keywords:sadness, 1037: imdb_keywords:van, 339: imdb_keywords:death-of-husband, 88: movielens_tags:true story, 91: imdb_keywords:1910s, 92: imdb_keywords:1920s, 862: imdb_keywords:sequel, 869: imdb_keywords:sex, 101: imdb_keywords:2000s, 616: imdb_keywords:loss-of-father, 361: imdb_keywords:dismemberment, 876: imdb_keywords:shooting, 1133: tvtropes:foreshadowing, 110: imdb_keywords:adultery, 112: imdb_keywords:african-american, 302: imdb_keywords:corrupt-cop, 372: imdb_keywords:drinking, 375: imdb_keywords:drug-addiction, 636: imdb_keywords:man-with-glasses, 1149: tvtropes:karma houdini, 1027: imdb_keywords:unemployment, 129: imdb_keywords:anti-hero, 115: imdb_keywords:ak-47, 132: imdb_keywords:applause, 1157: tvtropes:mood whiplash, 136: imdb_keywords:arrest, 919: imdb_keywords:stabbed-to-death, 140: imdb_keywords:assassin, 920: imdb_keywords:stabbing, 915: imdb_keywords:spoof, 407: imdb_keywords:exploitation, 1176: tvtropes:shout out, 410: imdb_keywords:eyeglasses, 414: imdb_keywords:factory, 160: imdb_keywords:bare-chested-male, 673: imdb_keywords:mountain, 674: imdb_keywords:murder, 164: imdb_keywords:baseball-bat, 1194: average_rating, 427: imdb_keywords:father-daughter-relationship, 428: imdb_keywords:father-son-relationship, 687: imdb_keywords:news-report, 944: imdb_keywords:surgery, 179: imdb_keywords:beating, 23: movielens_tags:Betamax, 202: imdb_keywords:blood-splatter, 32: movielens_tags:DVD-Video, 450: imdb_keywords:fish, 502: imdb_keywords:guitar, 967: imdb_keywords:teacher-student-relationship, 714: imdb_keywords:opening-action-scene, 978: imdb_keywords:terrorism, 211: imdb_keywords:boyfriend-girlfriend-relationship, 932: imdb_keywords:student, 486: imdb_keywords:general, 357: imdb_keywords:directorial-debut, 235: imdb_keywords:camera-shot-of-feet, 1014: imdb_keywords:tv-news, 247: imdb_keywords:castle, 818: imdb_keywords:rifle, 938: imdb_keywords:suicide, 1023: imdb_keywords:undercover
+Loading indicators
+Building indicator distributions
+Loading user profiles
+Processing user 3, movie 106405 (Making the Boys (2011) )
+Original predicted rating: 1.9906997902
+User profile: {'neg_name': 'imdb_keywords:tv-news', 'neg': 1014, 'profile_id': 1, 'pos_name': 'imdb_keywords:dismemberment', 'pos': 361}
+Non-zero qiis:
+imdb_keywords:tv-news (1014): 0.256231802433
+average_rating (1194): -0.190139213911
+imdb_keywords:murder (674): -0.0910804866818
+imdb_keywords:dismemberment (361): -0.0904568455958
+imdb_keywords:sex (869): -0.0397813428795
+imdb_keywords:revenge (814): 0.0357033103248
+imdb_keywords:woods (1073): -0.0144866890567
+imdb_keywords:general (486): -0.0125493192327
+imdb_keywords:student (932): -0.00566157786463
+imdb_keywords:opening-action-scene (714): -0.00547274303773
+imdb_keywords:adultery (110): -0.00377181405109
+Correctness score: 0.776682704151
+Processing user 154, movie 46910 (Coonskin (1975))
+Original predicted rating: 1.30047128228
+User profile: {'neg_name': 'imdb_keywords:general', 'neg': 486, 'profile_id': 5, 'pos_name': 'imdb_keywords:upskirt', 'pos': 1031}
+Non-zero qiis:
+average_rating (1194): -0.583257779709
+imdb_keywords:corrupt-cop (302): -0.368631183477
+imdb_keywords:african-american (112): -0.213695852736
+imdb_keywords:sex (869): -0.120501913812
+imdb_keywords:murder (674): -0.0631986588405
+imdb_keywords:woods (1073): 0.0496922151322
+imdb_keywords:revenge (814): 0.00945015422107
+imdb_keywords:adultery (110): -0.00171001201631
+Correctness score: 0.0
+Processing user 201, movie 7926 (High and Low (Tengoku to jigoku) (1963))
+Original predicted rating: 3.37413621577
+User profile: {'neg_name': 'tvtropes:karma houdini', 'neg': 1149, 'profile_id': 9, 'pos_name': 'imdb_keywords:adultery', 'pos': 110}
+Non-zero qiis:
+imdb_keywords:class-differences (279): 1.04333709744
+average_rating (1194): 0.65185748042
+imdb_keywords:revenge (814): 0.155946168292
+imdb_keywords:college-student (286): 0.0784449017083
+imdb_keywords:anti-hero (129): 0.0459500887147
+imdb_keywords:exploitation (407): 0.0435390172428
+imdb_keywords:sex (869): -0.0202181794334
+imdb_keywords:opening-action-scene (714): -0.0166840237462
+imdb_keywords:woods (1073): 0.00832392553426
+Correctness score: 0.0
+Processing user 16, movie 2159 (Henry: Portrait of a Serial Killer (1986))
+Original predicted rating: 2.09197711428
+User profile: {'neg_name': 'imdb_keywords:murder', 'neg': 674, 'profile_id': 3, 'pos_name': 'imdb_keywords:opening-action-scene', 'pos': 714}
+Non-zero qiis:
+imdb_keywords:dismemberment (361): 0.220440087591
+average_rating (1194): 0.183407808123
+imdb_keywords:adultery (110): -0.0251348703266
+imdb_keywords:spoof (915): -0.0231481058343
+imdb_keywords:murder (674): 0.017782463539
+imdb_keywords:drug-addiction (375): 0.00714486794956
+imdb_keywords:death-of-husband (339): 0.00656989887459
+imdb_keywords:student (932): -0.00640887417162
+imdb_keywords:tv-news (1014): 0.00590441610192
+imdb_keywords:african-american (112): 0.00412297133908
+Correctness score: 0.0440325769375
+Processing user 819, movie 91974 (Underworld: Awakening (2012))
+Original predicted rating: 1.74195737042
+User profile: {'neg_name': 'tvtropes:karma houdini', 'neg': 1149, 'profile_id': 9, 'pos_name': 'imdb_keywords:adultery', 'pos': 110}
+Non-zero qiis:
+average_rating (1194): -0.374239645876
+imdb_keywords:murder (674): 0.164461446768
+imdb_keywords:adultery (110): -0.164222965242
+imdb_keywords:upskirt (1031): -0.0682994078881
+imdb_keywords:sex (869): -0.0421261928393
+imdb_keywords:woods (1073): -0.0397027993229
+imdb_keywords:revenge (814): 0.0351101679422
+imdb_keywords:african-american (112): -0.0192300827228
+imdb_keywords:opening-action-scene (714): 0.01903124426
+imdb_keywords:class-differences (279): 0.0171751955003
+imdb_keywords:student (932): -0.0144044546725
+Correctness score: 0.30484988333
+Processing user 415, movie 1770 (B. Monkey (1998))
+Original predicted rating: 1.79551936696
+User profile: {'neg_name': 'imdb_keywords:african-american', 'neg': 112, 'profile_id': 7, 'pos_name': 'imdb_keywords:college-student', 'pos': 286}
+Non-zero qiis:
+imdb_keywords:revenge (814): -0.112054401554
+average_rating (1194): -0.110916473955
+imdb_keywords:spoof (915): -0.0990109210184
+imdb_keywords:murder (674): 0.0478353289269
+imdb_keywords:sex (869): 0.0416053243327
+imdb_keywords:opening-action-scene (714): 0.0309683438838
+imdb_keywords:african-american (112): -0.0259607863613
+imdb_keywords:student (932): -0.0142997961514
+imdb_keywords:death-of-husband (339): 0.00899561921904
+imdb_keywords:woods (1073): -0.00461057274461
+imdb_keywords:adultery (110): -0.0026867478329
+Correctness score: 0.116431288625
+Processing user 577, movie 60074 (Hancock (2008))
+Original predicted rating: 2.46678953169
+User profile: {'neg_name': 'imdb_keywords:general', 'neg': 486, 'profile_id': 5, 'pos_name': 'imdb_keywords:upskirt', 'pos': 1031}
+Non-zero qiis:
+average_rating (1194): 0.461140931547
+imdb_keywords:opening-action-scene (714): 0.171121164317
+imdb_keywords:adultery (110): -0.0415895637727
+imdb_keywords:woods (1073): 0.0326016811139
+imdb_keywords:sex (869): -0.0198541595558
+imdb_keywords:student (932): -0.0183625466919
+imdb_keywords:1920s (92): -0.0160521820393
+imdb_keywords:murder (674): 0.00848029764924
+Correctness score: 0.0
+Processing user 528, movie 90460 (2019: After the Fall of New York (1983))
+Original predicted rating: 1.92174654462
+User profile: {'neg_name': 'imdb_keywords:sex', 'neg': 869, 'profile_id': 6, 'pos_name': 'imdb_keywords:1920s', 'pos': 92}
+Non-zero qiis:
+imdb_keywords:sex (869): 0.239308468338
+average_rating (1194): -0.206483255191
+imdb_keywords:college-student (286): -0.175512194051
+imdb_keywords:woods (1073): 0.0690890700334
+imdb_keywords:murder (674): -0.0668472192629
+imdb_keywords:upskirt (1031): 0.0406279955289
+imdb_keywords:1920s (92): -0.0226210428768
+imdb_keywords:death-of-husband (339): 0.0224178562523
+imdb_keywords:revenge (814): 0.0184339000514
+imdb_keywords:adultery (110): -0.0123285608053
+imdb_keywords:african-american (112): -0.0113104415055
+Correctness score: 0.587560282952
+Processing user 790, movie 8123 (Sammy and Rosie Get Laid (1987))
+Original predicted rating: 1.92916273084
+User profile: {'neg_name': 'imdb_keywords:murder', 'neg': 674, 'profile_id': 3, 'pos_name': 'imdb_keywords:opening-action-scene', 'pos': 714}
+Non-zero qiis:
+imdb_keywords:adultery (110): -0.196657332131
+imdb_keywords:opening-action-scene (714): -0.0975671497366
+imdb_keywords:dismemberment (361): -0.0957190873453
+imdb_keywords:class-differences (279): -0.086155501594
+average_rating (1194): 0.0524571293745
+imdb_keywords:sex (869): 0.0476222908799
+imdb_keywords:upskirt (1031): -0.0328608524745
+imdb_keywords:murder (674): 0.0190116012439
+imdb_keywords:student (932): -0.00864812085019
+imdb_keywords:death-of-husband (339): 0.00553084124533
+imdb_keywords:african-american (112): 0.00372438043303
+tvtropes:karma houdini (1149): 0.000571410502228
+Correctness score: 0.396223829644
+Processing user 762, movie 3819 (Tampopo (1985))
+Original predicted rating: 2.69220864029
+User profile: {'neg_name': 'imdb_keywords:sex', 'neg': 869, 'profile_id': 6, 'pos_name': 'imdb_keywords:1920s', 'pos': 92}
+Non-zero qiis:
+imdb_keywords:spoof (915): 0.505933123771
+average_rating (1194): 0.215974618433
+imdb_keywords:death-of-husband (339): -0.0805987668934
+imdb_keywords:class-differences (279): -0.0698275109371
+imdb_keywords:sex (869): -0.056089638956
+imdb_keywords:surgery (944): 0.0471473950128
+imdb_keywords:student (932): 0.031071095682
+imdb_keywords:ak-47 (115): 0.0158645953233
+imdb_keywords:upskirt (1031): 0.0114883846838
+imdb_keywords:fish (450): 0.00780868152527
+imdb_keywords:murder (674): -0.00779216531554
+imdb_keywords:adultery (110): 0.00635118696024
+imdb_keywords:african-american (112): 0.00256852639897
+Correctness score: 0.0776964086639
+Processing user 172, movie 61350 (Babylon A.D. (2008))
+Original predicted rating: 1.50011435377
+User profile: {'neg_name': 'imdb_keywords:sex', 'neg': 869, 'profile_id': 6, 'pos_name': 'imdb_keywords:1920s', 'pos': 92}
+Non-zero qiis:
+average_rating (1194): -0.219934123089
+imdb_keywords:sex (869): -0.10215350247
+imdb_keywords:spoof (915): -0.0814941127386
+imdb_keywords:murder (674): 0.0791689313321
+imdb_keywords:revenge (814): -0.0503286160704
+imdb_keywords:death-of-husband (339): 0.0402967970295
+imdb_keywords:general (486): -0.0191250329122
+imdb_keywords:african-american (112): -0.0153777132575
+imdb_keywords:opening-action-scene (714): 0.00835495074421
+imdb_keywords:adultery (110): -0.00811760204433
+imdb_keywords:woods (1073): 0.00313587594648
+Correctness score: 0.317160593466
+Processing user 654, movie 114420 (When Eight Bells Toll (1971))
+Original predicted rating: 1.78147856457
+User profile: {'neg_name': 'tvtropes:karma houdini', 'neg': 1149, 'profile_id': 9, 'pos_name': 'imdb_keywords:adultery', 'pos': 110}
+Non-zero qiis:
+average_rating (1194): -0.287162996329
+imdb_keywords:murder (674): 0.146855554451
+imdb_keywords:student (932): -0.0482988891901
+imdb_keywords:adultery (110): -0.0434795258316
+imdb_keywords:revenge (814): 0.026392661065
+imdb_keywords:opening-action-scene (714): 0.0176738638752
+imdb_keywords:woods (1073): 0.0149054881186
+imdb_keywords:african-american (112): -0.00979288810335
+imdb_keywords:sex (869): -0.00926701211075
+Correctness score: 0.100178957221
+Processing user 432, movie 74750 ([REC]² (2009))
+Original predicted rating: 1.43021629945
+User profile: {'neg_name': 'imdb_keywords:general', 'neg': 486, 'profile_id': 5, 'pos_name': 'imdb_keywords:upskirt', 'pos': 1031}
+Non-zero qiis:
+average_rating (1194): -0.245698564304
+imdb_keywords:spoof (915): -0.108866507384
+imdb_keywords:upskirt (1031): -0.10518515654
+imdb_keywords:murder (674): 0.0969359045191
+imdb_keywords:college-student (286): -0.0802633441849
+imdb_keywords:sex (869): -0.0779746540619
+imdb_keywords:1920s (92): -0.0513732465171
+imdb_keywords:death-of-husband (339): -0.0459533570758
+imdb_keywords:general (486): -0.0282699040607
+imdb_keywords:revenge (814): -0.0165275239466
+imdb_keywords:african-american (112): -0.0106105332006
+imdb_keywords:adultery (110): -0.00376034058204
+Correctness score: 0.376390883527
+Processing user 60, movie 3267 (Mariachi, El (1992))
+Original predicted rating: 0.916683697604
+User profile: {'neg_name': 'imdb_keywords:murder', 'neg': 674, 'profile_id': 3, 'pos_name': 'imdb_keywords:opening-action-scene', 'pos': 714}
+Non-zero qiis:
+average_rating (1194): 0.256912702648
+imdb_keywords:opening-action-scene (714): 0.103887983126
+imdb_keywords:spoof (915): -0.027312817152
+imdb_keywords:sex (869): -0.0184514228053
+imdb_keywords:murder (674): -0.014913586388
+imdb_keywords:woods (1073): -0.0049155467515
+imdb_keywords:class-differences (279): 0.00446511806404
+Correctness score: 0.329272016929
+Processing user 739, movie 88042 (Cornered (1945))
+Original predicted rating: 1.561030905
+User profile: {'neg_name': 'imdb_keywords:fish', 'neg': 450, 'profile_id': 2, 'pos_name': 'imdb_keywords:woods', 'pos': 1073}
+Non-zero qiis:
+average_rating (1194): -0.313848037058
+imdb_keywords:woods (1073): -0.0851417066762
+imdb_keywords:revenge (814): 0.0651240368558
+imdb_keywords:murder (674): 0.0567034757789
+imdb_keywords:student (932): -0.0266585144984
+imdb_keywords:african-american (112): -0.026209255571
+imdb_keywords:1920s (92): 0.0156348515774
+imdb_keywords:sex (869): -0.00715401072419
+imdb_keywords:adultery (110): 0.0012557464718
+Correctness score: 0.213393221288
+Processing user 714, movie 5081 (Birthday Girl (2001))
+Original predicted rating: 2.0586634065
+User profile: {'neg_name': 'imdb_keywords:general', 'neg': 486, 'profile_id': 5, 'pos_name': 'imdb_keywords:upskirt', 'pos': 1031}
+Non-zero qiis:
+average_rating (1194): 0.375407435262
+imdb_keywords:woods (1073): -0.27009941044
+imdb_keywords:college-student (286): -0.0904911124535
+imdb_keywords:adultery (110): -0.0766777235157
+imdb_keywords:student (932): -0.0367877776625
+imdb_keywords:opening-action-scene (714): -0.0173990389254
+imdb_keywords:fish (450): -0.00834376348405
+imdb_keywords:sex (869): -0.00660239769822
+imdb_keywords:murder (674): -0.00485218766236
+imdb_keywords:african-american (112): 0.00275100198757
+Correctness score: 0.0
+Processing user 549, movie 60609 (Death Note (2006))
+Original predicted rating: 2.11063807018
+User profile: {'neg_name': 'tvtropes:karma houdini', 'neg': 1149, 'profile_id': 9, 'pos_name': 'imdb_keywords:adultery', 'pos': 110}
+Non-zero qiis:
+imdb_keywords:college-student (286): 0.297577344156
+average_rating (1194): 0.125008415872
+imdb_keywords:adultery (110): -0.070835099307
+imdb_keywords:murder (674): 0.0537059301872
+imdb_keywords:death-of-husband (339): 0.0407096008094
+imdb_keywords:woods (1073): -0.0347101335481
+imdb_keywords:sex (869): -0.0250100536548
+imdb_keywords:african-american (112): 0.00725078485116
+imdb_keywords:neo-noir (684): 0.00573261476815
+Correctness score: 0.167623015272
+Processing user 5, movie 3419 (Something for Everyone (1970))
+Original predicted rating: 1.96052299423
+User profile: {'neg_name': 'imdb_keywords:murder', 'neg': 674, 'profile_id': 3, 'pos_name': 'imdb_keywords:opening-action-scene', 'pos': 714}
+Non-zero qiis:
+imdb_keywords:sex (869): 0.107460603303
+imdb_keywords:woods (1073): 0.103358993868
+imdb_keywords:murder (674): 0.0963231818811
+imdb_keywords:general (486): 0.0795211713613
+average_rating (1194): -0.0776969258425
+imdb_keywords:revenge (814): 0.0540221984661
+imdb_keywords:opening-action-scene (714): 0.0316569069555
+imdb_keywords:tv-news (1014): -0.00788065010695
+imdb_keywords:student (932): -0.00761508765345
+imdb_keywords:death-of-husband (339): 0.00674173447807
+imdb_keywords:adultery (110): 0.00403301155299
+Correctness score: 0.607059735212
+Processing user 687, movie 1631 (Assignment, The (1997))
+Original predicted rating: 1.76364318436
+User profile: {'neg_name': 'imdb_keywords:general', 'neg': 486, 'profile_id': 5, 'pos_name': 'imdb_keywords:upskirt', 'pos': 1031}
+Non-zero qiis:
+average_rating (1194): -0.28571750759
+imdb_keywords:college-student (286): -0.165548751479
+imdb_keywords:upskirt (1031): -0.104618103549
+imdb_keywords:revenge (814): -0.0741165592114
+imdb_keywords:adultery (110): -0.0356706103849
+imdb_keywords:murder (674): 0.0317109092022
+imdb_keywords:sex (869): 0.0242562495868
+imdb_keywords:opening-action-scene (714): 0.0192183738825
+imdb_keywords:1920s (92): -0.0190343529195
+imdb_keywords:student (932): -0.0181435246698
+imdb_keywords:dismemberment (361): 0.0139751183075
+Correctness score: 0.231832319493
+Processing user 898, movie 74653 (Shinjuku Incident (San suk si gin) (2009))
+Original predicted rating: 1.43771558067
+User profile: {'neg_name': 'movielens_tags:70mm', 'neg': 19, 'profile_id': 0, 'pos_name': 'imdb_keywords:death-of-husband', 'pos': 339}
+Non-zero qiis:
+average_rating (1194): -0.298545600206
+imdb_keywords:sex (869): 0.209103908354
+imdb_keywords:death-of-husband (339): -0.17521127829
+imdb_keywords:murder (674): -0.106452563856
+imdb_keywords:revenge (814): -0.0547329842704
+imdb_keywords:adultery (110): -0.0425687436569
+imdb_keywords:opening-action-scene (714): -0.017600748068
+imdb_keywords:woods (1073): 0.0121197402734
+imdb_keywords:class-differences (279): 0.000510550419336
+Correctness score: 0.34514221985
+Correctness scores: [0.7766827041512487, 0.0, 0.0, 0.04403257693750403, 0.30484988333028606, 0.11643128862458363, 0.0, 0.5875602829522751, 0.3962238296437831, 0.07769640866394327, 0.31716059346586695, 0.10017895722060405, 0.3763908835268605, 0.32927201692858593, 0.21339322128770272, 0.0, 0.16762301527238335, 0.6070597352119511, 0.2318323194931256, 0.34514221985004107]
+Average correctness: 0.249576496828

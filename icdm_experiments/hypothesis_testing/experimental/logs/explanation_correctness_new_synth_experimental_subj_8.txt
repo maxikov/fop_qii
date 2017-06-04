@@ -1,0 +1,303 @@
+Loading results dict
+Original recommender relative to ground truth on training set mean absolute error: 0.0137781013393, RMSE: 0.0195841013574
+Shadow model relative to the baseline recommender on test set MAE: 0.266344212815, RMSE: 0.357801646624
+Randomized model relative to the baseline recommender on test set MAE: 1.07275216988, RMSE: 1.29949211543
+Shadow model is 4.02769092876 times better than random on the test set
+Loading movies
+Loading ALS model
+Loading decision trees
+100 features are used: 0: year, 1: movielens_genre:Action, 2: movielens_genre:Adventure, 259: imdb_keywords:chase, 516: imdb_keywords:hanging, 5: movielens_genre:Comedy, 6: movielens_genre:Crime, 8: movielens_genre:Drama, 1036: imdb_keywords:vampire, 14: movielens_genre:Romance, 1039: imdb_keywords:vengeance, 17: movielens_genre:War, 19: movielens_tags:70mm, 20: movielens_tags:BD-R, 21: movielens_tags:BD-Video, 536: imdb_keywords:homosexuality, 35: movielens_tags:Netflix Finland, 548: imdb_keywords:hunting, 805: imdb_keywords:reference-to-god, 294: imdb_keywords:condom, 43: movielens_tags:adapted from:book, 46: movielens_tags:boring, 819: imdb_keywords:ring, 568: imdb_keywords:jail, 315: imdb_keywords:criminal, 232: imdb_keywords:cafe, 574: imdb_keywords:jew, 63: movielens_tags:might like, 65: movielens_tags:murder, 322: imdb_keywords:cult-director, 68: movielens_tags:nudity (full frontal), 69: movielens_tags:nudity (topless), 12: movielens_genre:Musical, 1100: tvtropes:black comedy, 334: imdb_keywords:death, 335: imdb_keywords:death-of-brother, 1106: tvtropes:california doubling, 739: imdb_keywords:photographer, 340: imdb_keywords:death-of-mother, 85: movielens_tags:surreal, 94: imdb_keywords:1940s, 95: imdb_keywords:1950s, 99: imdb_keywords:1990s, 100: imdb_keywords:19th-century, 614: imdb_keywords:looking-at-oneself-in-a-mirror, 102: imdb_keywords:abortion, 103: imdb_keywords:accident, 105: imdb_keywords:action-hero, 870: imdb_keywords:sex-in-bed, 109: imdb_keywords:adoption, 878: imdb_keywords:shot-in-the-arm, 744: imdb_keywords:pilot, 882: imdb_keywords:shot-in-the-head, 1139: tvtropes:heroic b s o d, 884: imdb_keywords:shot-in-the-shoulder, 62: movielens_tags:memasa's movies, 361: imdb_keywords:dismemberment, 120: imdb_keywords:ambulance, 121: imdb_keywords:ambush, 575: imdb_keywords:jewish, 384: imdb_keywords:eating, 131: imdb_keywords:apology, 646: imdb_keywords:mask, 140: imdb_keywords:assassin, 911: imdb_keywords:song, 144: imdb_keywords:attempted-rape, 792: imdb_keywords:racism, 110: imdb_keywords:adultery, 156: imdb_keywords:bar, 158: imdb_keywords:bare-breasts, 420: imdb_keywords:false-accusation, 113: imdb_keywords:airplane, 1193: tvtropes:your cheating heart, 1194: average_rating, 173: imdb_keywords:bathroom, 174: imdb_keywords:bathtub, 687: imdb_keywords:news-report, 946: imdb_keywords:surrealism, 691: imdb_keywords:nightclub, 692: imdb_keywords:nightmare, 194: imdb_keywords:black-american, 195: imdb_keywords:black-comedy, 499: imdb_keywords:greed, 465: imdb_keywords:forest, 210: imdb_keywords:boy, 24: movielens_tags:Bibliothek, 992: imdb_keywords:title-spoken-by-character, 379: imdb_keywords:drunkenness, 740: imdb_keywords:pianist, 38: movielens_tags:R, 998: imdb_keywords:tough-girl, 999: imdb_keywords:tough-guy, 488: imdb_keywords:ghost, 1002: imdb_keywords:train, 1004: imdb_keywords:training, 493: imdb_keywords:good-versus-evil, 238: imdb_keywords:candle, 752: imdb_keywords:police-car, 741: imdb_keywords:piano, 1014: imdb_keywords:tv-news
+Loading indicators
+Building indicator distributions
+Loading user profiles
+Processing user 289, movie 61248 (Death Race (2008))
+Original predicted rating: 2.58244020856
+User profile: {'neg_name': 'imdb_keywords:tough-girl', 'neg': 998, 'profile_id': 9, 'pos_name': 'imdb_keywords:death-of-mother', 'pos': 340}
+Non-zero qiis:
+imdb_keywords:title-spoken-by-character (992): 0.365588868886
+imdb_keywords:shot-in-the-head (882): 0.0829773453105
+average_rating (1194): 0.0723777605621
+imdb_keywords:condom (294): -0.0237139485514
+imdb_keywords:attempted-rape (144): 0.0226849718462
+imdb_keywords:greed (499): -0.0135666682449
+imdb_keywords:training (1004): -0.0102981803914
+Correctness score: 0.0
+Processing user 943, movie 32316 (River, The (1951))
+Original predicted rating: 2.59122121552
+User profile: {'neg_name': 'movielens_tags:surreal', 'neg': 85, 'profile_id': 0, 'pos_name': 'imdb_keywords:hanging', 'pos': 516}
+Non-zero qiis:
+imdb_keywords:pianist (740): 0.629949881897
+average_rating (1194): 0.465844526014
+imdb_keywords:shot-in-the-head (882): -0.103896975605
+imdb_keywords:bare-breasts (158): -0.0647040941058
+movielens_genre:War (17): -0.064215696594
+imdb_keywords:training (1004): -0.044471899289
+imdb_keywords:apology (131): 0.0305356912147
+year (0): 0.0184128808961
+imdb_keywords:title-spoken-by-character (992): 0.00762539100868
+tvtropes:your cheating heart (1193): -0.00521701709412
+Correctness score: 0.0
+Processing user 860, movie 34338 (Aristocrats, The (2005))
+Original predicted rating: 2.01596211439
+User profile: {'neg_name': 'imdb_keywords:train', 'neg': 1002, 'profile_id': 3, 'pos_name': 'imdb_keywords:training', 'pos': 1004}
+Non-zero qiis:
+imdb_keywords:title-spoken-by-character (992): -0.108819139388
+average_rating (1194): 0.100010165133
+imdb_keywords:pianist (740): -0.0958392745248
+imdb_keywords:shot-in-the-head (882): 0.0828305409568
+imdb_keywords:train (1002): -0.0295588966398
+imdb_keywords:bare-breasts (158): -0.0130253176994
+Correctness score: 0.141545731369
+Processing user 689, movie 91500 (Hunger Games, The (2012))
+Original predicted rating: 2.30641447871
+User profile: {'neg_name': 'imdb_keywords:greed', 'neg': 499, 'profile_id': 4, 'pos_name': 'imdb_keywords:bare-breasts', 'pos': 158}
+Non-zero qiis:
+average_rating (1194): 0.458719828218
+imdb_keywords:training (1004): 0.380402251416
+imdb_keywords:title-spoken-by-character (992): 0.249130871357
+movielens_tags:adapted from:book (43): -0.168901316959
+imdb_keywords:train (1002): -0.117395850503
+imdb_keywords:attempted-rape (144): 0.093141425625
+imdb_keywords:pianist (740): -0.0865597762494
+imdb_keywords:bare-breasts (158): -0.0759059312656
+tvtropes:your cheating heart (1193): -0.0360681988402
+imdb_keywords:greed (499): 0.0305589942169
+imdb_keywords:death-of-mother (340): -0.0293512428769
+imdb_keywords:ghost (488): 0.00549820741981
+imdb_keywords:tv-news (1014): -0.00237145787317
+imdb_keywords:condom (294): 0.000564657305645
+Correctness score: 0.126876563097
+Processing user 549, movie 48783 (Flags of Our Fathers (2006))
+Original predicted rating: 2.27343579509
+User profile: {'neg_name': 'imdb_keywords:vengeance', 'neg': 1039, 'profile_id': 7, 'pos_name': 'tvtropes:your cheating heart', 'pos': 1193}
+Non-zero qiis:
+average_rating (1194): 0.408554168383
+imdb_keywords:shot-in-the-head (882): 0.195964735067
+imdb_keywords:title-spoken-by-character (992): -0.139972135093
+movielens_genre:War (17): -0.0504822250485
+imdb_keywords:pianist (740): -0.035517045826
+imdb_keywords:train (1002): -0.0220755343148
+imdb_keywords:death-of-mother (340): -0.0129746184901
+Correctness score: 0.0
+Processing user 604, movie 3732 (Fury, The (1978))
+Original predicted rating: 2.22570923865
+User profile: {'neg_name': 'imdb_keywords:reference-to-god', 'neg': 805, 'profile_id': 2, 'pos_name': 'imdb_keywords:attempted-rape', 'pos': 144}
+Non-zero qiis:
+average_rating (1194): 0.325507345038
+imdb_keywords:shot-in-the-head (882): 0.316324815881
+imdb_keywords:title-spoken-by-character (992): -0.134697314051
+imdb_keywords:pianist (740): -0.0585029293757
+imdb_keywords:death-of-mother (340): -0.0547136972169
+tvtropes:your cheating heart (1193): -0.0382309327145
+imdb_keywords:train (1002): -0.0113795719524
+Correctness score: 0.0
+Processing user 464, movie 8826 (Human Resources (Ressources humaines) (1999))
+Original predicted rating: 1.59634641761
+User profile: {'neg_name': 'imdb_keywords:condom', 'neg': 294, 'profile_id': 1, 'pos_name': 'imdb_keywords:shot-in-the-head', 'pos': 882}
+Non-zero qiis:
+average_rating (1194): -0.943752261227
+imdb_keywords:train (1002): 0.164001175982
+imdb_keywords:shot-in-the-head (882): -0.153550206898
+imdb_keywords:bare-breasts (158): 0.10329163183
+imdb_keywords:hanging (516): -0.0779851472001
+imdb_keywords:title-spoken-by-character (992): -0.0666957347514
+imdb_keywords:training (1004): -0.0427335870631
+imdb_keywords:death-of-mother (340): 0.0402777001133
+imdb_keywords:pianist (740): 0.0377108728864
+imdb_keywords:ghost (488): -0.0207471741325
+imdb_keywords:greed (499): -0.0124207202733
+imdb_keywords:reference-to-god (805): -0.0122163545708
+imdb_keywords:false-accusation (420): -0.0102920757685
+Correctness score: 0.138614064954
+Processing user 460, movie 97326 (Ill Manors (2012))
+Original predicted rating: 2.40535489534
+User profile: {'neg_name': 'imdb_keywords:false-accusation', 'neg': 420, 'profile_id': 5, 'pos_name': 'movielens_genre:War', 'pos': 17}
+Non-zero qiis:
+imdb_keywords:shot-in-the-head (882): 0.350898845573
+average_rating (1194): 0.152559325766
+imdb_keywords:train (1002): 0.0526570148192
+imdb_keywords:bare-breasts (158): 0.0486287582035
+imdb_keywords:death-of-mother (340): -0.0378341607331
+imdb_keywords:title-spoken-by-character (992): -0.0232866517377
+imdb_keywords:hanging (516): -0.0179301042252
+tvtropes:your cheating heart (1193): -0.012052596013
+Correctness score: 0.0
+Processing user 221, movie 5949 (Intact (Intacto) (2001))
+Original predicted rating: 2.81752264194
+User profile: {'neg_name': 'imdb_keywords:pilot', 'neg': 744, 'profile_id': 6, 'pos_name': 'imdb_keywords:title-spoken-by-character', 'pos': 992}
+Non-zero qiis:
+imdb_keywords:greed (499): -0.589185750575
+average_rating (1194): 0.481491546315
+imdb_keywords:pianist (740): 0.32662375047
+imdb_keywords:title-spoken-by-character (992): -0.22694612296
+imdb_keywords:bare-breasts (158): -0.173274245571
+imdb_keywords:shot-in-the-head (882): -0.0686217519381
+movielens_tags:BD-R (20): -0.0422470148357
+imdb_keywords:death-of-mother (340): -0.0374808549726
+movielens_genre:War (17): -0.0126818393998
+imdb_keywords:nightmare (692): 0.00400880624427
+Correctness score: 0.211965009083
+Processing user 907, movie 7897 (Ballad of Cable Hogue, The (1970))
+Original predicted rating: 1.38098642316
+User profile: {'neg_name': 'movielens_tags:surreal', 'neg': 85, 'profile_id': 0, 'pos_name': 'imdb_keywords:hanging', 'pos': 516}
+Non-zero qiis:
+average_rating (1194): -0.263285516707
+imdb_keywords:vengeance (1039): 0.187567897783
+imdb_keywords:train (1002): -0.173841605995
+imdb_keywords:shot-in-the-head (882): -0.117277605134
+imdb_keywords:death-of-mother (340): 0.0657299371242
+imdb_keywords:reference-to-god (805): -0.0491601311608
+imdb_keywords:greed (499): -0.0339729218899
+imdb_keywords:pianist (740): -0.0318011222687
+imdb_keywords:title-spoken-by-character (992): -0.0248209015948
+imdb_keywords:bare-breasts (158): 0.0163927907795
+movielens_tags:70mm (19): -0.0131234707041
+movielens_tags:murder (65): 0.011195751425
+movielens_tags:boring (46): -0.00835586690606
+imdb_keywords:ghost (488): -0.00395750689244
+movielens_genre:Romance (14): -0.00155607451444
+Correctness score: 0.0
+Processing user 494, movie 48678 (Feast (2005))
+Original predicted rating: 1.99334644285
+User profile: {'neg_name': 'movielens_tags:surreal', 'neg': 85, 'profile_id': 0, 'pos_name': 'imdb_keywords:hanging', 'pos': 516}
+Non-zero qiis:
+average_rating (1194): -0.515305521769
+imdb_keywords:train (1002): -0.217791727199
+imdb_keywords:shot-in-the-head (882): -0.183697822395
+imdb_keywords:vengeance (1039): -0.100416981466
+movielens_tags:surreal (85): -0.0645454889457
+movielens_genre:War (17): -0.0525513652213
+imdb_keywords:attempted-rape (144): 0.0404142973884
+imdb_keywords:title-spoken-by-character (992): -0.0373467853964
+imdb_keywords:pianist (740): -0.027874999307
+imdb_keywords:greed (499): -0.0256390654654
+imdb_keywords:sex-in-bed (870): -0.0210946506074
+imdb_keywords:ghost (488): -0.020797049245
+imdb_keywords:death-of-mother (340): 0.0193855267298
+imdb_keywords:bare-breasts (158): 0.0188766541268
+imdb_keywords:reference-to-god (805): 0.00122790279964
+Correctness score: 0.0880449204202
+Processing user 462, movie 92198 (Seeking Justice (2011))
+Original predicted rating: 2.00809608945
+User profile: {'neg_name': 'imdb_keywords:vengeance', 'neg': 1039, 'profile_id': 7, 'pos_name': 'tvtropes:your cheating heart', 'pos': 1193}
+Non-zero qiis:
+imdb_keywords:title-spoken-by-character (992): 0.225202287707
+average_rating (1194): 0.132825456195
+tvtropes:your cheating heart (1193): -0.0828216370066
+imdb_keywords:hanging (516): 0.0349296909504
+imdb_keywords:greed (499): -0.0165457151987
+imdb_keywords:shot-in-the-head (882): -0.0128981580641
+imdb_keywords:death-of-mother (340): 0.00992987533688
+imdb_keywords:bare-breasts (158): -0.00471714594066
+Correctness score: 0.231327427601
+Processing user 9, movie 113648 (Boom! (1968))
+Original predicted rating: 2.45190652274
+User profile: {'neg_name': 'imdb_keywords:greed', 'neg': 499, 'profile_id': 4, 'pos_name': 'imdb_keywords:bare-breasts', 'pos': 158}
+Non-zero qiis:
+average_rating (1194): 0.327315009843
+imdb_keywords:pianist (740): -0.233080925724
+imdb_keywords:bare-breasts (158): -0.132344164297
+imdb_keywords:shot-in-the-head (882): -0.104853301793
+imdb_keywords:title-spoken-by-character (992): 0.0560844440101
+imdb_keywords:death-of-mother (340): -0.0357817044877
+movielens_genre:War (17): -0.0295111500175
+imdb_keywords:condom (294): 0.0146938563843
+imdb_keywords:hanging (516): -0.000952578361108
+Correctness score: 0.236161891793
+Processing user 881, movie 307 (Three Colors: Blue (Trois couleurs: Bleu) (1993))
+Original predicted rating: 2.48664893789
+User profile: {'neg_name': 'movielens_tags:surreal', 'neg': 85, 'profile_id': 0, 'pos_name': 'imdb_keywords:hanging', 'pos': 516}
+Non-zero qiis:
+imdb_keywords:pianist (740): 0.721082304581
+average_rating (1194): 0.472335027988
+imdb_keywords:death-of-mother (340): -0.0968266602316
+imdb_keywords:shot-in-the-head (882): -0.0959458050575
+imdb_keywords:bare-breasts (158): -0.0614098924226
+imdb_keywords:title-spoken-by-character (992): -0.046596269502
+Correctness score: 0.0
+Processing user 843, movie 6709 (Once Upon a Time in Mexico (2003))
+Original predicted rating: 3.28792832689
+User profile: {'neg_name': 'imdb_keywords:greed', 'neg': 499, 'profile_id': 4, 'pos_name': 'imdb_keywords:bare-breasts', 'pos': 158}
+Non-zero qiis:
+imdb_keywords:bare-breasts (158): -0.441488374882
+imdb_keywords:title-spoken-by-character (992): -0.365718293225
+imdb_keywords:pianist (740): 0.218927185817
+average_rating (1194): 0.136052115102
+imdb_keywords:shot-in-the-head (882): -0.115829550966
+movielens_genre:War (17): -0.0288341646913
+imdb_keywords:death-of-mother (340): -0.0253276251467
+Correctness score: 0.546933508264
+Processing user 401, movie 1880 (Lawn Dogs (1997))
+Original predicted rating: 3.13039915945
+User profile: {'neg_name': 'imdb_keywords:pilot', 'neg': 744, 'profile_id': 6, 'pos_name': 'imdb_keywords:title-spoken-by-character', 'pos': 992}
+Non-zero qiis:
+average_rating (1194): 0.384229816916
+imdb_keywords:title-spoken-by-character (992): -0.3582366672
+tvtropes:your cheating heart (1193): 0.198703246661
+imdb_keywords:shot-in-the-head (882): -0.096743235833
+imdb_keywords:attempted-rape (144): -0.0473765673024
+imdb_keywords:death-of-mother (340): -0.028092582729
+imdb_keywords:train (1002): 0.010804605278
+imdb_keywords:ghost (488): 0.00649698127635
+movielens_genre:War (17): 0.00357097473072
+imdb_keywords:hanging (516): -0.000747193372442
+Correctness score: 0.482495405333
+Processing user 420, movie 75425 (Survival of the Dead (2009))
+Original predicted rating: 2.00858576325
+User profile: {'neg_name': 'imdb_keywords:train', 'neg': 1002, 'profile_id': 3, 'pos_name': 'imdb_keywords:training', 'pos': 1004}
+Non-zero qiis:
+average_rating (1194): 0.515295476137
+imdb_keywords:title-spoken-by-character (992): -0.116686160548
+imdb_keywords:pianist (740): -0.0972301126127
+imdb_keywords:attempted-rape (144): -0.0697586882312
+imdb_keywords:shot-in-the-head (882): 0.0487219752704
+movielens_genre:War (17): -0.0214855532177
+imdb_keywords:train (1002): -0.0141332973471
+imdb_keywords:death-of-mother (340): -0.00861352365299
+Correctness score: 0.0223634620481
+Processing user 851, movie 50912 (Paris, I Love You (Paris, je t'aime) (2006))
+Original predicted rating: 1.3411146905
+User profile: {'neg_name': 'imdb_keywords:condom', 'neg': 294, 'profile_id': 1, 'pos_name': 'imdb_keywords:shot-in-the-head', 'pos': 882}
+Non-zero qiis:
+average_rating (1194): -0.617273569069
+imdb_keywords:ghost (488): 0.338666035863
+imdb_keywords:title-spoken-by-character (992): -0.174349491181
+imdb_keywords:training (1004): -0.0825265075538
+imdb_keywords:bare-breasts (158): 0.0563252532713
+imdb_keywords:reference-to-god (805): 0.0550499556441
+imdb_keywords:false-accusation (420): 0.04713831126
+imdb_keywords:shot-in-the-head (882): -0.0464511788699
+imdb_keywords:death-of-mother (340): 0.0432733458144
+imdb_keywords:greed (499): -0.025472295842
+imdb_keywords:train (1002): -0.00589186972324
+imdb_keywords:black-american (194): -0.00474070825574
+Correctness score: 0.0485921690347
+Processing user 144, movie 1485 (Liar Liar (1997))
+Original predicted rating: 3.15498349775
+User profile: {'neg_name': 'imdb_keywords:condom', 'neg': 294, 'profile_id': 1, 'pos_name': 'imdb_keywords:shot-in-the-head', 'pos': 882}
+Non-zero qiis:
+tvtropes:your cheating heart (1193): 0.562115649138
+imdb_keywords:training (1004): -0.279665644394
+average_rating (1194): 0.193433339244
+imdb_keywords:shot-in-the-head (882): -0.172296879003
+imdb_keywords:bare-breasts (158): -0.152880242839
+imdb_keywords:title-spoken-by-character (992): -0.11498205409
+imdb_keywords:hanging (516): -0.0373080143303
+imdb_keywords:train (1002): -0.0293069653578
+imdb_keywords:death-of-mother (340): -0.0064736705298
+Correctness score: 0.204681287559
+Processing user 201, movie 58774 (Promised Land (Ziemia Obiecana) (1975))
+Original predicted rating: 3.48688087422
+User profile: {'neg_name': 'imdb_keywords:condom', 'neg': 294, 'profile_id': 1, 'pos_name': 'imdb_keywords:shot-in-the-head', 'pos': 882}
+Non-zero qiis:
+average_rating (1194): 0.548380920715
+imdb_keywords:shot-in-the-head (882): 0.52180263897
+imdb_keywords:title-spoken-by-character (992): -0.0964861305536
+tvtropes:your cheating heart (1193): -0.0312386249869
+imdb_keywords:death-of-mother (340): -0.0286316096119
+imdb_keywords:bare-breasts (158): 0.0256748025424
+imdb_keywords:attempted-rape (144): -0.0106157502288
+imdb_keywords:pianist (740): 0.00727008734272
+Correctness score: 0.487582372433
+Correctness scores: [0.0, 0.0, 0.14154573136934406, 0.126876563096654, 0.0, 0.0, 0.13861406495411124, 0.0, 0.21196500908284238, 0.0, 0.0880449204202273, 0.23132742760101993, 0.23616189179284555, 0.0, 0.5469335082641517, 0.48249540533308166, 0.022363462048072005, 0.04859216903473255, 0.20468128755850165, 0.4875823724331806]
+Average correctness: 0.148359190649

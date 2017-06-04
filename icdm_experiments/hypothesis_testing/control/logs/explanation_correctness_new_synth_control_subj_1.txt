@@ -1,0 +1,517 @@
+Loading results dict
+Original recommender relative to ground truth on training set mean absolute error: 0.0219900644066, RMSE: 0.0278971615294
+Shadow model relative to the baseline recommender on test set MAE: 0.848483000353, RMSE: 1.00399758031
+Randomized model relative to the baseline recommender on test set MAE: 1.14235341429, RMSE: 1.39341226178
+Shadow model is 1.34634802796 times better than random on the test set
+Loading movies
+Loading ALS model
+Loading decision trees
+245 features are used: 0: year, 513: imdb_keywords:hand-to-hand-combat, 2: movielens_genre:Adventure, 516: imdb_keywords:hanging, 5: movielens_genre:Comedy, 1030: imdb_keywords:unrequited-love, 1: movielens_genre:Action, 1032: imdb_keywords:urban-setting, 172: imdb_keywords:bath, 522: imdb_keywords:heist, 11: movielens_genre:Horror, 524: imdb_keywords:helicopter, 526: imdb_keywords:hero, 15: movielens_genre:Sci-Fi, 17: movielens_genre:War, 22: movielens_tags:Bechdel Test:Fail, 535: imdb_keywords:homosexual, 27: movielens_tags:Can't remember, 28: movielens_tags:ClearPlay, 29: movielens_tags:Criterion, 542: imdb_keywords:hospital, 32: movielens_tags:DVD-Video, 33: movielens_tags:In Netflix queue, 1058: imdb_keywords:wealth, 1059: imdb_keywords:wedding, 36: movielens_tags:Nudity (Topless - Brief), 6: movielens_genre:Crime, 554: imdb_keywords:impersonation, 7: movielens_genre:Documentary, 47: movielens_tags:cinematography, 8: movielens_genre:Drama, 50: movielens_tags:crime, 565: imdb_keywords:island, 54: movielens_tags:erlend's DVDs, 57: movielens_tags:funny, 59: movielens_tags:imdb top 250, 10: movielens_genre:Film-Noir, 64: movielens_tags:movie to see, 1089: tvtropes:arc words, 1090: tvtropes:arch enemy, 267: imdb_keywords:child-murder, 1025: imdb_keywords:underwear, 69: movielens_tags:nudity (topless), 583: imdb_keywords:kidnapping, 1096: tvtropes:big bad, 586: imdb_keywords:kiss, 587: imdb_keywords:kissing-while-having-sex, 588: imdb_keywords:kitchen, 81: movielens_tags:slow, 1108: tvtropes:cassandra truth, 597: imdb_keywords:lesbian-kiss, 601: imdb_keywords:library, 1116: tvtropes:creator cameo, 1117: tvtropes:cult classic, 95: imdb_keywords:1950s, 97: imdb_keywords:1970s, 1122: tvtropes:does this remind you of anything, 99: imdb_keywords:1990s, 612: imdb_keywords:loneliness, 613: imdb_keywords:long-take, 276: imdb_keywords:cigarette-smoking, 379: imdb_keywords:drunkenness, 1131: tvtropes:fan service, 1135: tvtropes:getting crap past the radar, 1137: tvtropes:groin attack, 1139: tvtropes:heroic b s o d, 1143: tvtropes:hoist by his own petard, 1144: tvtropes:idiot ball, 1145: tvtropes:infant immortality, 122: imdb_keywords:american, 123: imdb_keywords:american-abroad, 125: imdb_keywords:anger, 128: imdb_keywords:answering-machine, 641: imdb_keywords:map, 1157: tvtropes:mood whiplash, 650: imdb_keywords:mayor, 141: imdb_keywords:assassination, 142: imdb_keywords:assassination-attempt, 1167: tvtropes:pet the dog, 659: imdb_keywords:mirror, 148: imdb_keywords:automobile, 1113: tvtropes:cloud cuckoo lander, 151: imdb_keywords:baby, 1109: tvtropes:catchphrase, 153: imdb_keywords:band, 667: imdb_keywords:monster, 670: imdb_keywords:mother-daughter-relationship, 673: imdb_keywords:mountain, 1186: tvtropes:trailers always spoil, 163: imdb_keywords:baseball, 960: imdb_keywords:tape-recorder, 678: imdb_keywords:musician, 1191: tvtropes:what happened to the mouse, 1194: average_rating, 684: imdb_keywords:neo-noir, 686: imdb_keywords:new-york-city, 691: imdb_keywords:nightclub, 692: imdb_keywords:nightmare, 739: imdb_keywords:photographer, 184: imdb_keywords:betrayal, 697: imdb_keywords:nudity, 187: imdb_keywords:bikini, 701: imdb_keywords:obscene-finger-gesture, 702: imdb_keywords:obsession, 192: imdb_keywords:birthday-party, 193: imdb_keywords:bisexual, 706: imdb_keywords:old-woman, 194: imdb_keywords:black-american, 202: imdb_keywords:blood-splatter, 208: imdb_keywords:bow-and-arrow, 724: imdb_keywords:panic, 215: imdb_keywords:breaking-and-entering, 729: imdb_keywords:paris-france, 218: imdb_keywords:bridge, 222: imdb_keywords:brother-brother-relationship, 549: imdb_keywords:husband-wife-relationship, 227: imdb_keywords:burial, 744: imdb_keywords:pilot, 745: imdb_keywords:pipe-smoking, 746: imdb_keywords:pistol, 748: imdb_keywords:poetry, 750: imdb_keywords:police, 1149: tvtropes:karma houdini, 240: imdb_keywords:captain, 755: imdb_keywords:police-officer, 244: imdb_keywords:car-crash, 247: imdb_keywords:castle, 249: imdb_keywords:catholic, 251: imdb_keywords:cave, 605: imdb_keywords:limousine, 256: imdb_keywords:character-name-in-title, 260: imdb_keywords:cheating, 773: imdb_keywords:professor, 1153: tvtropes:laser guided karma, 776: imdb_keywords:prostitute, 727: imdb_keywords:parade, 452: imdb_keywords:fishing, 270: imdb_keywords:chinese, 785: imdb_keywords:punched-in-the-stomach, 786: imdb_keywords:punctuation-in-title, 787: imdb_keywords:pursuit, 788: imdb_keywords:rabbit, 277: imdb_keywords:city, 790: imdb_keywords:race-relations, 279: imdb_keywords:class-differences, 792: imdb_keywords:racism, 793: imdb_keywords:radio, 559: imdb_keywords:injection, 798: imdb_keywords:rape, 801: imdb_keywords:record-player, 804: imdb_keywords:redhead, 805: imdb_keywords:reference-to-god, 297: imdb_keywords:controversy, 298: imdb_keywords:convertible, 300: imdb_keywords:cooking, 814: imdb_keywords:revenge, 392: imdb_keywords:england, 307: imdb_keywords:courtroom, 824: imdb_keywords:road-trip, 825: imdb_keywords:robbery, 232: imdb_keywords:cafe, 831: imdb_keywords:running, 832: imdb_keywords:rural-setting, 833: imdb_keywords:russia, 323: imdb_keywords:cult-film, 326: imdb_keywords:dance, 328: imdb_keywords:dancing, 332: imdb_keywords:dead-body, 845: imdb_keywords:scene-during-opening-credits, 653: imdb_keywords:mental-illness, 336: imdb_keywords:death-of-child, 339: imdb_keywords:death-of-husband, 854: imdb_keywords:secret-agent, 855: imdb_keywords:secretary, 350: imdb_keywords:desire, 865: imdb_keywords:servant, 354: imdb_keywords:diner, 867: imdb_keywords:severed-hand, 869: imdb_keywords:sex, 275: imdb_keywords:cigar-smoking, 364: imdb_keywords:dog, 877: imdb_keywords:shootout, 878: imdb_keywords:shot-in-the-arm, 367: imdb_keywords:double-cross, 319: imdb_keywords:cruelty, 371: imdb_keywords:drink, 233: imdb_keywords:california, 940: imdb_keywords:suitcase, 891: imdb_keywords:singer, 383: imdb_keywords:dysfunctional-marriage, 320: imdb_keywords:crushed-to-death, 900: imdb_keywords:sleeping, 389: imdb_keywords:elevator, 390: imdb_keywords:employer-employee-relationship, 65: movielens_tags:murder, 623: imdb_keywords:loyalty, 906: imdb_keywords:snow, 408: imdb_keywords:explosion, 402: imdb_keywords:ex-husband-ex-wife-relationship, 918: imdb_keywords:stabbed-in-the-chest, 920: imdb_keywords:stabbing, 409: imdb_keywords:extramarital-affair, 926: imdb_keywords:storytelling, 415: imdb_keywords:fainting, 416: imdb_keywords:faith, 417: imdb_keywords:falling-down-stairs, 1088: tvtropes:anti hero, 938: imdb_keywords:suicide, 71: movielens_tags:perrot library, 428: imdb_keywords:father-son-relationship, 321: imdb_keywords:crying, 946: imdb_keywords:surrealism, 948: imdb_keywords:survival, 950: imdb_keywords:suspicion, 440: imdb_keywords:fictional-war, 443: imdb_keywords:film-within-a-film, 445: imdb_keywords:fire, 448: imdb_keywords:fireworks, 451: imdb_keywords:fish-out-of-water, 964: imdb_keywords:taxi-driver, 454: imdb_keywords:flash-forward, 967: imdb_keywords:teacher-student-relationship, 968: imdb_keywords:tears, 458: imdb_keywords:flirting, 462: imdb_keywords:food, 975: imdb_keywords:television, 982: imdb_keywords:theatre-audience, 544: imdb_keywords:hotel, 847: imdb_keywords:scientist, 990: imdb_keywords:tied-up, 480: imdb_keywords:garden, 993: imdb_keywords:toilet, 997: imdb_keywords:torture, 1000: imdb_keywords:tragedy, 490: imdb_keywords:girl, 1003: imdb_keywords:train-station, 492: imdb_keywords:gold, 424: imdb_keywords:farce, 1010: imdb_keywords:trial, 499: imdb_keywords:greed, 504: imdb_keywords:gun, 293: imdb_keywords:concert, 507: imdb_keywords:gunshot, 170: imdb_keywords:basement, 1023: imdb_keywords:undercover
+Loading indicators
+Building indicator distributions
+Loading user profiles
+Processing user 84, movie 85438 (Jane Eyre (2011))
+Original predicted rating: 3.69241177661
+User profile: {'neg_name': 'imdb_keywords:courage', 'neg': 305, 'profile_id': 7, 'pos_name': 'imdb_keywords:good-versus-evil', 'pos': 493}
+Non-zero qiis:
+average_rating (1194): 0.554621871447
+imdb_keywords:bridge (218): -0.103530153485
+imdb_keywords:kitchen (588): -0.0333712437005
+imdb_keywords:employer-employee-relationship (390): 0.0330202840826
+imdb_keywords:mayor (650): -0.0201574879438
+imdb_keywords:tape-recorder (960): -0.0142981411796
+imdb_keywords:california (233): 0.00992677581929
+imdb_keywords:rabbit (788): -0.00972175858402
+imdb_keywords:paris-france (729): 0.00694403363433
+imdb_keywords:elevator (389): -0.00627786422862
+imdb_keywords:hero (526): -0.00611838306771
+tvtropes:big bad (1096): -0.00569640232738
+imdb_keywords:breaking-and-entering (215): -0.00466997123366
+tvtropes:trailers always spoil (1186): 0.0046125295512
+movielens_tags:Bechdel Test:Fail (22): 0.00454956089594
+imdb_keywords:blood-splatter (202): -0.00370258350203
+imdb_keywords:american-abroad (123): 0.0034636463152
+imdb_keywords:loneliness (612): 0.0033424371099
+imdb_keywords:shootout (877): -0.00274792132265
+movielens_tags:crime (50): -0.00258697823656
+imdb_keywords:taxi-driver (964): -0.00124387678542
+Correctness score: 0.0
+Processing user 896, movie 173 (Judge Dredd (1995))
+Original predicted rating: 1.82073680996
+User profile: {'neg_name': 'imdb_keywords:promise', 'neg': 775, 'profile_id': 5, 'pos_name': 'imdb_keywords:male-frontal-nudity', 'pos': 631}
+Non-zero qiis:
+average_rating (1194): -0.343236186984
+imdb_keywords:trial (1010): -0.133638893269
+movielens_tags:Can't remember (27): 0.0385325877368
+imdb_keywords:assassination (141): 0.0345257646585
+imdb_keywords:bridge (218): 0.0137354346865
+imdb_keywords:storytelling (926): -0.0133462509089
+movielens_genre:Sci-Fi (15): 0.0127569411878
+year (0): 0.00986048913807
+imdb_keywords:gun (504): -0.0080223878633
+tvtropes:catchphrase (1109): -0.00735624452075
+imdb_keywords:tears (968): 0.0070674934883
+imdb_keywords:underwear (1025): -0.00579426737192
+imdb_keywords:california (233): -0.00555221005729
+imdb_keywords:blood-splatter (202): 0.00514199204023
+imdb_keywords:loneliness (612): -0.00373896082178
+imdb_keywords:assassination-attempt (142): 0.00240700164643
+imdb_keywords:map (641): 0.00142165448982
+imdb_keywords:hotel (544): 0.00133418649639
+imdb_keywords:scientist (847): 0.00123789744191
+Correctness score: 0.0
+Processing user 183, movie 5172 (Full Frontal (2002))
+Original predicted rating: 2.8262108695
+User profile: {'neg_name': 'imdb_keywords:fellatio', 'neg': 431, 'profile_id': 0, 'pos_name': 'imdb_keywords:pay-phone', 'pos': 734}
+Non-zero qiis:
+imdb_keywords:film-within-a-film (443): 0.644429569349
+average_rating (1194): -0.354751081482
+imdb_keywords:theatre-audience (982): 0.141638207363
+imdb_keywords:hotel (544): 0.121493487845
+imdb_keywords:injection (559): 0.0692932030348
+imdb_keywords:1970s (97): 0.0388275224479
+imdb_keywords:pistol (746): 0.0187349929534
+movielens_tags:perrot library (71): 0.0184190527033
+tvtropes:what happened to the mouse (1191): 0.0167087845916
+imdb_keywords:bisexual (193): -0.0150859860237
+imdb_keywords:assassination-attempt (142): -0.00884304188564
+imdb_keywords:garden (480): 0.00523774528372
+tvtropes:pet the dog (1167): 0.00166447002302
+movielens_tags:funny (57): 0.0015432586057
+imdb_keywords:courtroom (307): 0.00117751274817
+tvtropes:big bad (1096): 0.00103325951
+imdb_keywords:blood-splatter (202): -0.00078809405775
+Correctness score: 0.0
+Processing user 637, movie 520 (Robin Hood: Men in Tights (1993))
+Original predicted rating: 1.82759381617
+User profile: {'neg_name': 'imdb_keywords:courage', 'neg': 305, 'profile_id': 7, 'pos_name': 'imdb_keywords:good-versus-evil', 'pos': 493}
+Non-zero qiis:
+average_rating (1194): -0.384993908159
+imdb_keywords:bow-and-arrow (208): -0.340158843291
+imdb_keywords:cult-film (323): -0.24517042235
+imdb_keywords:bridge (218): -0.13562480552
+year (0): 0.107610491868
+imdb_keywords:england (392): -0.105156451406
+imdb_keywords:tragedy (1000): -0.0759735639149
+imdb_keywords:castle (247): -0.0740996394543
+imdb_keywords:dysfunctional-marriage (383): 0.0343061054277
+imdb_keywords:television (975): 0.0311139720344
+imdb_keywords:surrealism (946): -0.0304544895146
+tvtropes:hoist by his own petard (1143): 0.0210200883053
+imdb_keywords:map (641): -0.0184573258582
+imdb_keywords:loneliness (612): -0.0155297969772
+imdb_keywords:employer-employee-relationship (390): 0.00805540795086
+imdb_keywords:gun (504): -0.0047619362735
+imdb_keywords:cave (251): 0.00324552943655
+imdb_keywords:blood-splatter (202): -0.00301709212833
+tvtropes:trailers always spoil (1186): 0.00281892898425
+imdb_keywords:tape-recorder (960): -0.00239681847339
+imdb_keywords:mayor (650): -0.00168951470243
+imdb_keywords:rabbit (788): -0.00158597200836
+movielens_tags:crime (50): -0.00158102140088
+imdb_keywords:double-cross (367): 0.00140695904375
+imdb_keywords:paris-france (729): 0.00113282415666
+Correctness score: 0.0
+Processing user 79, movie 230 (Dolores Claiborne (1995))
+Original predicted rating: 2.88885541043
+User profile: {'neg_name': 'imdb_keywords:fellatio', 'neg': 431, 'profile_id': 0, 'pos_name': 'imdb_keywords:pay-phone', 'pos': 734}
+Non-zero qiis:
+average_rating (1194): 0.571697902494
+imdb_keywords:mother-daughter-relationship (670): 0.364049824365
+imdb_keywords:rural-setting (832): -0.253785888059
+imdb_keywords:employer-employee-relationship (390): -0.196270418185
+imdb_keywords:dysfunctional-marriage (383): -0.189679821591
+imdb_keywords:old-woman (706): -0.0575892773173
+movielens_tags:nudity (topless) (69): -0.0511872622171
+imdb_keywords:cave (251): -0.0196064235213
+imdb_keywords:concert (293): 0.0163907620484
+tvtropes:laser guided karma (1153): -0.013491388281
+imdb_keywords:bath (172): 0.0120420806129
+imdb_keywords:loneliness (612): -0.00728403973231
+tvtropes:trailers always spoil (1186): -0.00332267845775
+imdb_keywords:basement (170): -0.00297000279059
+imdb_keywords:castle (247): 0.00250070222517
+imdb_keywords:tape-recorder (960): -0.00221912153945
+imdb_keywords:shootout (877): -0.00193904604685
+imdb_keywords:blood-splatter (202): 0.0017781269191
+imdb_keywords:panic (724): -0.000205909639367
+imdb_keywords:pipe-smoking (745): -3.65624331601e-05
+Correctness score: 0.0
+Processing user 630, movie 3150 (War Zone, The (1999))
+Original predicted rating: 3.02343125373
+User profile: {'neg_name': 'imdb_keywords:hairy-chest', 'neg': 510, 'profile_id': 2, 'pos_name': 'imdb_keywords:family-relationships', 'pos': 421}
+Non-zero qiis:
+average_rating (1194): 0.301225815378
+imdb_keywords:toilet (993): -0.166701914919
+imdb_keywords:panic (724): 0.0583520938992
+imdb_keywords:taxi-driver (964): -0.0492421810577
+year (0): -0.0268207495608
+imdb_keywords:gunshot (507): 0.0236733345849
+tvtropes:getting crap past the radar (1135): 0.0221357176159
+tvtropes:laser guided karma (1153): -0.0207730215837
+imdb_keywords:hero (526): -0.0184622329687
+imdb_keywords:employer-employee-relationship (390): 0.0166413210635
+imdb_keywords:rabbit (788): -0.0133273739513
+tvtropes:idiot ball (1144): 0.00743823144749
+imdb_keywords:loneliness (612): 0.0069780225237
+imdb_keywords:undercover (1023): -0.00610293079189
+tvtropes:trailers always spoil (1186): 0.00553467105103
+imdb_keywords:blood-splatter (202): -0.00444280768182
+imdb_keywords:american-abroad (123): 0.00210439333516
+imdb_keywords:shootout (877): -0.0016695432474
+imdb_keywords:california (233): -0.000376007446678
+Correctness score: 0.0
+Processing user 801, movie 1876 (Deep Impact (1998))
+Original predicted rating: 2.55512774065
+User profile: {'neg_name': 'imdb_keywords:mass-murder', 'neg': 647, 'profile_id': 9, 'pos_name': 'movielens_genre:Horror', 'pos': 11}
+Non-zero qiis:
+average_rating (1194): 0.330110848905
+imdb_keywords:assassination-attempt (142): -0.0498493759605
+imdb_keywords:suitcase (940): -0.0469824129472
+tvtropes:trailers always spoil (1186): 0.0396249886117
+tvtropes:idiot ball (1144): -0.0324814453622
+tvtropes:catchphrase (1109): -0.0296982507262
+imdb_keywords:map (641): -0.0196284560791
+imdb_keywords:trial (1010): 0.0160940212119
+imdb_keywords:pilot (744): 0.0151837221495
+imdb_keywords:mayor (650): -0.011381247572
+imdb_keywords:blood-splatter (202): 0.010045523672
+tvtropes:mood whiplash (1157): 0.00913235234245
+imdb_keywords:convertible (298): 0.00884811280273
+imdb_keywords:bisexual (193): -0.00825064563731
+imdb_keywords:tape-recorder (960): -0.00807296450023
+imdb_keywords:gun (504): -0.00783031079625
+imdb_keywords:undercover (1023): -0.00591318681764
+imdb_keywords:bow-and-arrow (208): 0.00218931395572
+tvtropes:big bad (1096): -0.000916374692533
+imdb_keywords:chinese (270): 0.000268060506661
+year (0): 0.000244683267658
+imdb_keywords:panic (724): -4.94314953742e-05
+Correctness score: 0.0
+Processing user 968, movie 25920 (Blue Dahlia, The (1946))
+Original predicted rating: 1.78371637316
+User profile: {'neg_name': 'imdb_keywords:based-on-true-story', 'neg': 169, 'profile_id': 8, 'pos_name': 'imdb_keywords:mother-daughter-relationship', 'pos': 670}
+Non-zero qiis:
+average_rating (1194): -0.40594084683
+imdb_keywords:race-relations (790): -0.0639764420161
+imdb_keywords:torture (997): -0.0399911672151
+imdb_keywords:pistol (746): 0.0361415739492
+imdb_keywords:hotel (544): 0.0334817761015
+imdb_keywords:convertible (298): 0.0273741769261
+imdb_keywords:1970s (97): 0.0244662412133
+imdb_keywords:answering-machine (128): -0.0216331346921
+imdb_keywords:assassination-attempt (142): 0.0198838608357
+imdb_keywords:neo-noir (684): -0.0181405178491
+tvtropes:what happened to the mouse (1191): 0.0105286438183
+imdb_keywords:heist (522): -0.0103927250654
+imdb_keywords:bisexual (193): -0.00740082656434
+imdb_keywords:diner (354): -0.00680284614947
+movielens_tags:perrot library (71): 0.00671685171064
+imdb_keywords:map (641): 0.00391468781279
+imdb_keywords:storytelling (926): 0.00252230187664
+imdb_keywords:blood-splatter (202): 0.00146090737069
+tvtropes:big bad (1096): -0.000983018296992
+imdb_keywords:basement (170): -0.000764843257959
+Correctness score: 0.0
+Processing user 644, movie 77427 (Human Centipede, The (First Sequence) (2009))
+Original predicted rating: 3.12563076501
+User profile: {'neg_name': 'imdb_keywords:car-crash', 'neg': 244, 'profile_id': 6, 'pos_name': 'imdb_keywords:bathtub', 'pos': 174}
+Non-zero qiis:
+average_rating (1194): 0.3967112983
+imdb_keywords:suitcase (940): 0.0775920831659
+tvtropes:trailers always spoil (1186): -0.0654411985025
+imdb_keywords:hotel (544): -0.0314730627096
+year (0): -0.0308909490053
+imdb_keywords:gun (504): 0.0295710128618
+tvtropes:idiot ball (1144): 0.0291740537146
+movielens_tags:murder (65): -0.0188567347748
+imdb_keywords:basement (170): 0.0186477071765
+imdb_keywords:neo-noir (684): -0.0168782007967
+imdb_keywords:heist (522): 0.0158917373108
+imdb_keywords:bikini (187): -0.0138192199662
+tvtropes:catchphrase (1109): 0.0133371275855
+imdb_keywords:double-cross (367): 0.012396026204
+imdb_keywords:blood-splatter (202): -0.00829515832953
+imdb_keywords:england (392): 0.00788312978186
+imdb_keywords:bisexual (193): 0.00741053165334
+movielens_tags:Can't remember (27): 0.00734030424564
+imdb_keywords:california (233): 0.00530547913635
+imdb_keywords:loneliness (612): 0.00357280766162
+imdb_keywords:convertible (298): -0.00278312695809
+Correctness score: 0.0
+Processing user 849, movie 56931 (Mission, The (Cheung fo) (1999))
+Original predicted rating: 1.74665384381
+User profile: {'neg_name': 'imdb_keywords:woman', 'neg': 1071, 'profile_id': 3, 'pos_name': 'imdb_keywords:lesbianism', 'pos': 598}
+Non-zero qiis:
+average_rating (1194): 0.191579938176
+imdb_keywords:assassination-attempt (142): 0.0951821691723
+imdb_keywords:gun (504): 0.0231980867469
+imdb_keywords:map (641): 0.0077928887081
+imdb_keywords:shootout (877): -0.00667905913787
+imdb_keywords:concert (293): 0.00643963051009
+imdb_keywords:double-cross (367): 0.00486226313149
+tvtropes:big bad (1096): 0.00449923329656
+imdb_keywords:rabbit (788): -0.00414842663696
+imdb_keywords:blood-splatter (202): 0.00379248416402
+imdb_keywords:paris-france (729): 0.00296312789992
+imdb_keywords:american-abroad (123): 0.00280623009852
+tvtropes:idiot ball (1144): 0.00114319971533
+imdb_keywords:undercover (1023): -0.00093797413985
+tvtropes:hoist by his own petard (1143): -0.000859279544395
+tvtropes:catchphrase (1109): -0.000829733912741
+imdb_keywords:panic (724): 0.000242699663902
+imdb_keywords:pipe-smoking (745): -0.000167919445886
+Correctness score: 0.0
+Processing user 459, movie 32966 (Let Him Have It (1991))
+Original predicted rating: 1.78093390465
+User profile: {'neg_name': 'imdb_keywords:mass-murder', 'neg': 647, 'profile_id': 9, 'pos_name': 'movielens_genre:Horror', 'pos': 11}
+Non-zero qiis:
+average_rating (1194): -0.48071688642
+imdb_keywords:american (122): -0.0166645851036
+imdb_keywords:courtroom (307): -0.00993815783264
+imdb_keywords:pursuit (787): -0.00965680543097
+imdb_keywords:undercover (1023): 0.00770743865095
+imdb_keywords:race-relations (790): -0.00740600405412
+imdb_keywords:storytelling (926): 0.00643091317335
+imdb_keywords:hotel (544): -0.00563700996346
+imdb_keywords:breaking-and-entering (215): 0.00323301557001
+movielens_tags:crime (50): 0.00090867871684
+tvtropes:trailers always spoil (1186): 0.000311382802199
+imdb_keywords:panic (724): 0.000302028744713
+imdb_keywords:assassination-attempt (142): -0.00026337208227
+imdb_keywords:england (392): 0.000102986645959
+Correctness score: 0.0
+Processing user 44, movie 1252 (Chinatown (1974))
+Original predicted rating: 2.57852573781
+User profile: {'neg_name': 'imdb_keywords:mass-murder', 'neg': 647, 'profile_id': 9, 'pos_name': 'movielens_genre:Horror', 'pos': 11}
+Non-zero qiis:
+imdb_keywords:map (641): 0.333742621407
+imdb_keywords:shot-in-the-arm (878): 0.225439246878
+average_rating (1194): 0.223655996916
+imdb_keywords:convertible (298): -0.165975736551
+imdb_keywords:torture (997): -0.162210664243
+imdb_keywords:mayor (650): 0.131232962197
+imdb_keywords:mountain (673): 0.114884006432
+tvtropes:pet the dog (1167): -0.0662262929439
+tvtropes:catchphrase (1109): -0.0542522646716
+imdb_keywords:basement (170): -0.0523413795749
+imdb_keywords:ex-husband-ex-wife-relationship (402): 0.036311787633
+imdb_keywords:double-cross (367): -0.0360917530813
+imdb_keywords:hanging (516): -0.0347026231445
+imdb_keywords:tragedy (1000): -0.02604033153
+imdb_keywords:concert (293): 0.0145004587121
+imdb_keywords:paris-france (729): 0.0133444655572
+imdb_keywords:punctuation-in-title (786): -0.0124367825814
+imdb_keywords:california (233): -0.00809818107796
+movielens_tags:Bechdel Test:Fail (22): -0.0074229878122
+imdb_keywords:american-abroad (123): 0.00564081654408
+imdb_keywords:employer-employee-relationship (390): -0.00498235775779
+imdb_keywords:shootout (877): -0.00277045840541
+imdb_keywords:bridge (218): 0.00269578418188
+imdb_keywords:castle (247): 0.00238195873359
+imdb_keywords:blood-splatter (202): 0.00141800386523
+imdb_keywords:panic (724): -0.00062209119394
+Correctness score: 0.0
+Processing user 75, movie 34542 (Grizzly Man (2005))
+Original predicted rating: 2.9158669576
+User profile: {'neg_name': 'imdb_keywords:based-on-true-story', 'neg': 169, 'profile_id': 8, 'pos_name': 'imdb_keywords:mother-daughter-relationship', 'pos': 670}
+Non-zero qiis:
+average_rating (1194): 0.681808446529
+year (0): 0.0563984868906
+imdb_keywords:castle (247): 0.0337478618953
+imdb_keywords:toilet (993): 0.0294664584714
+imdb_keywords:gold (492): 0.0263910058572
+imdb_keywords:black-american (194): -0.0246706910289
+imdb_keywords:taxi-driver (964): -0.0209497490222
+imdb_keywords:bridge (218): 0.019559557082
+tvtropes:laser guided karma (1153): -0.0160541359737
+imdb_keywords:shootout (877): -0.0134041445847
+imdb_keywords:russia (833): -0.0123940702518
+imdb_keywords:pipe-smoking (745): -0.0123771068734
+imdb_keywords:punctuation-in-title (786): 0.00876550583619
+imdb_keywords:employer-employee-relationship (390): 0.00859788369501
+imdb_keywords:paris-france (729): 0.00672999723159
+imdb_keywords:breaking-and-entering (215): 0.00666355341105
+imdb_keywords:bath (172): 0.00557893329249
+imdb_keywords:california (233): 0.00511330961383
+tvtropes:trailers always spoil (1186): -0.000503734454734
+imdb_keywords:blood-splatter (202): 0.000404359226493
+movielens_tags:Bechdel Test:Fail (22): 0.000163177812675
+Correctness score: 0.0
+Processing user 216, movie 6647 (Business of Fancydancing, The (2002))
+Original predicted rating: 3.64151333817
+User profile: {'neg_name': 'imdb_keywords:courage', 'neg': 305, 'profile_id': 7, 'pos_name': 'imdb_keywords:good-versus-evil', 'pos': 493}
+Non-zero qiis:
+average_rating (1194): 0.325866293881
+imdb_keywords:pipe-smoking (745): -0.0433307615837
+imdb_keywords:mayor (650): -0.0262757003521
+movielens_tags:crime (50): -0.0140510817902
+imdb_keywords:assassination-attempt (142): -0.0127392649162
+imdb_keywords:shootout (877): -0.0117315742518
+imdb_keywords:england (392): 0.00996289473347
+imdb_keywords:map (641): -0.00752422965389
+imdb_keywords:concert (293): -0.00593850417272
+imdb_keywords:paris-france (729): -0.00546507982731
+imdb_keywords:blood-splatter (202): 0.00543135385837
+imdb_keywords:undercover (1023): -0.0051369013757
+imdb_keywords:double-cross (367): 0.00365366165027
+imdb_keywords:california (233): -0.00337159172574
+tvtropes:big bad (1096): 0.00228022786515
+imdb_keywords:loneliness (612): -0.00227049215349
+imdb_keywords:convertible (298): 0.00190147290001
+imdb_keywords:breaking-and-entering (215): 0.00186935506385
+imdb_keywords:basement (170): 0.00177414491125
+imdb_keywords:bow-and-arrow (208): 0.000940973798416
+Correctness score: 0.0
+Processing user 979, movie 68941 (Last House on the Left, The (2009))
+Original predicted rating: 3.1054867634
+User profile: {'neg_name': 'imdb_keywords:forest', 'neg': 465, 'profile_id': 4, 'pos_name': 'imdb_keywords:stabbed-in-the-back', 'pos': 917}
+Non-zero qiis:
+average_rating (1194): -0.61590342647
+tvtropes:mood whiplash (1157): -0.102172913913
+imdb_keywords:fictional-war (440): 0.0287757684771
+year (0): 0.0213269800076
+imdb_keywords:neo-noir (684): -0.0192442112562
+imdb_keywords:gun (504): -0.0135677185738
+imdb_keywords:bikini (187): -0.012342794111
+imdb_keywords:bow-and-arrow (208): -0.00970985400009
+tvtropes:big bad (1096): 0.00817460780054
+imdb_keywords:employer-employee-relationship (390): 0.00810073398338
+imdb_keywords:california (233): -0.0067425018418
+imdb_keywords:bisexual (193): 0.00314374524064
+imdb_keywords:england (392): 0.00224251368662
+imdb_keywords:radio (793): 0.00219239645982
+imdb_keywords:police-officer (755): 0.00186999076944
+imdb_keywords:blood-splatter (202): 0.000947419006274
+imdb_keywords:scientist (847): -0.000917244448441
+imdb_keywords:panic (724): 0.000773364943387
+imdb_keywords:basement (170): 0.000181430537093
+Correctness score: 0.0
+Processing user 661, movie 5313 (Scorpion King, The (2002))
+Original predicted rating: 2.45614658035
+User profile: {'neg_name': 'imdb_keywords:promise', 'neg': 775, 'profile_id': 5, 'pos_name': 'imdb_keywords:male-frontal-nudity', 'pos': 631}
+Non-zero qiis:
+average_rating (1194): 0.299788109494
+tvtropes:big bad (1096): 0.14060094487
+imdb_keywords:cult-film (323): 0.139678322395
+imdb_keywords:dysfunctional-marriage (383): 0.0324110440183
+imdb_keywords:police-officer (755): 0.0321633129683
+imdb_keywords:bow-and-arrow (208): -0.0307154503569
+imdb_keywords:bridge (218): 0.0232092579614
+imdb_keywords:train-station (1003): -0.0204189013708
+tvtropes:hoist by his own petard (1143): 0.0198589434399
+imdb_keywords:panic (724): 0.0133016585533
+tvtropes:laser guided karma (1153): -0.0126998302875
+imdb_keywords:television (975): 0.0119121344506
+imdb_keywords:tape-recorder (960): 0.00871614725637
+imdb_keywords:gun (504): -0.0080124383592
+imdb_keywords:assassination-attempt (142): -0.00580937862625
+imdb_keywords:courtroom (307): -0.00579501285243
+imdb_keywords:shootout (877): 0.00536501461788
+imdb_keywords:castle (247): -0.00345951144761
+imdb_keywords:basement (170): 0.0031205539845
+tvtropes:idiot ball (1144): -0.00124123044197
+imdb_keywords:employer-employee-relationship (390): 0.000813767525193
+tvtropes:catchphrase (1109): 0.000450442288174
+Correctness score: 0.0
+Processing user 255, movie 2844 (Minus Man, The (1999))
+Original predicted rating: 1.81669797952
+User profile: {'neg_name': 'imdb_keywords:fellatio', 'neg': 431, 'profile_id': 0, 'pos_name': 'imdb_keywords:pay-phone', 'pos': 734}
+Non-zero qiis:
+average_rating (1194): -0.542341880501
+imdb_keywords:injection (559): 0.187750978751
+imdb_keywords:panic (724): -0.156896725524
+tvtropes:catchphrase (1109): -0.0735127451098
+imdb_keywords:library (601): 0.0632412849059
+imdb_keywords:theatre-audience (982): 0.0570775911651
+imdb_keywords:reference-to-god (805): -0.0242989930245
+tvtropes:idiot ball (1144): -0.00981921524995
+imdb_keywords:blood-splatter (202): 0.00901058213627
+imdb_keywords:england (392): 0.00887364123016
+imdb_keywords:hotel (544): -0.0083636065756
+imdb_keywords:pursuit (787): -0.00667464343095
+imdb_keywords:breaking-and-entering (215): 0.00639275229228
+imdb_keywords:fish-out-of-water (451): 0.00568401571256
+imdb_keywords:stabbed-in-the-chest (918): -0.00391913127603
+imdb_keywords:storytelling (926): 0.00299747050782
+imdb_keywords:race-relations (790): 0.000549456482673
+imdb_keywords:1970s (97): -0.000320842134709
+tvtropes:what happened to the mouse (1191): -0.000276138253424
+Correctness score: 0.0
+Processing user 162, movie 4273 (Under the Sand (2000))
+Original predicted rating: 1.83105956523
+User profile: {'neg_name': 'imdb_keywords:mass-murder', 'neg': 647, 'profile_id': 9, 'pos_name': 'movielens_genre:Horror', 'pos': 11}
+Non-zero qiis:
+imdb_keywords:fainting (415): -0.538882426776
+imdb_keywords:panic (724): -0.475184740917
+average_rating (1194): 0.238591816893
+imdb_keywords:answering-machine (128): 0.188909436782
+imdb_keywords:basement (170): -0.0662888195771
+imdb_keywords:fictional-war (440): 0.0207623660837
+movielens_tags:crime (50): -0.0196050656616
+year (0): 0.0174820599934
+imdb_keywords:toilet (993): -0.0145007855434
+imdb_keywords:television (975): 0.0143289614811
+imdb_keywords:mayor (650): -0.0121524866244
+imdb_keywords:courtroom (307): -0.0113228095514
+imdb_keywords:blood-splatter (202): 0.00757821003497
+tvtropes:mood whiplash (1157): -0.00443538893603
+imdb_keywords:convertible (298): -0.00429733984831
+imdb_keywords:gun (504): -0.00305322087646
+imdb_keywords:neo-noir (684): 0.00304989679075
+imdb_keywords:heist (522): 0.00302691334709
+imdb_keywords:double-cross (367): 0.00270630882775
+imdb_keywords:bow-and-arrow (208): -0.0010633031373
+imdb_keywords:bisexual (193): -0.000813525592628
+imdb_keywords:undercover (1023): -0.00043339922522
+Correctness score: 0.0
+Processing user 226, movie 7010 (Lover, The (Amant, L') (1992))
+Original predicted rating: 3.65169177004
+User profile: {'neg_name': 'imdb_keywords:hairy-chest', 'neg': 510, 'profile_id': 2, 'pos_name': 'imdb_keywords:family-relationships', 'pos': 421}
+Non-zero qiis:
+average_rating (1194): 0.530028086245
+year (0): -0.0419470971823
+imdb_keywords:elevator (389): -0.0189719609346
+imdb_keywords:hero (526): -0.0184900023824
+movielens_tags:Bechdel Test:Fail (22): -0.0170803525618
+imdb_keywords:television (975): 0.0167605788184
+imdb_keywords:band (153): -0.0143280207576
+imdb_keywords:bridge (218): 0.0133016786683
+imdb_keywords:loneliness (612): -0.0125484646889
+imdb_keywords:bisexual (193): -0.0123006993663
+imdb_keywords:bath (172): 0.00691131185631
+imdb_keywords:rabbit (788): -0.00634185214543
+imdb_keywords:breaking-and-entering (215): -0.00608462815081
+imdb_keywords:paris-france (729): 0.00452984243759
+imdb_keywords:taxi-driver (964): -0.00449253921222
+tvtropes:trailers always spoil (1186): 0.00306660656622
+imdb_keywords:blood-splatter (202): -0.00246163558483
+imdb_keywords:courtroom (307): 0.00245199774822
+imdb_keywords:shootout (877): -0.00170030037544
+imdb_keywords:american-abroad (123): 0.00107158074025
+imdb_keywords:panic (724): -0.000800720873061
+Correctness score: 0.0
+Processing user 165, movie 77427 (Human Centipede, The (First Sequence) (2009))
+Original predicted rating: 2.77139473432
+User profile: {'neg_name': 'imdb_keywords:courage', 'neg': 305, 'profile_id': 7, 'pos_name': 'imdb_keywords:good-versus-evil', 'pos': 493}
+Non-zero qiis:
+average_rating (1194): -0.350206268113
+imdb_keywords:impersonation (554): -0.105100809131
+tvtropes:trailers always spoil (1186): 0.0914794629462
+year (0): -0.0715193456727
+imdb_keywords:crushed-to-death (320): -0.0508507615811
+imdb_keywords:gun (504): 0.0434565365659
+imdb_keywords:neo-noir (684): -0.0309957012148
+tvtropes:idiot ball (1144): -0.0294330489892
+imdb_keywords:assassination-attempt (142): -0.0227393291566
+imdb_keywords:hotel (544): 0.0130934761453
+imdb_keywords:double-cross (367): 0.0117107812803
+imdb_keywords:undercover (1023): -0.00535823191811
+imdb_keywords:map (641): -0.00447686570812
+imdb_keywords:basement (170): -0.00423566322669
+tvtropes:fan service (1131): 0.00286811270818
+imdb_keywords:storytelling (926): -0.00204902909163
+imdb_keywords:convertible (298): 0.000342608048593
+Correctness score: 0.0
+Correctness scores: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+Average correctness: 0.0

@@ -1,0 +1,542 @@
+Loading results dict
+Original recommender relative to ground truth on training set mean absolute error: 0.0225155228021, RMSE: 0.0285178545328
+Shadow model relative to the baseline recommender on test set MAE: 0.857545043564, RMSE: 1.01190137595
+Randomized model relative to the baseline recommender on test set MAE: 1.145351289, RMSE: 1.40028506813
+Shadow model is 1.33561647588 times better than random on the test set
+Loading movies
+Loading ALS model
+Loading decision trees
+258 features are used: 0: year, 1: movielens_genre:Action, 514: imdb_keywords:handcuffs, 1027: imdb_keywords:unemployment, 516: imdb_keywords:hanging, 5: movielens_genre:Comedy, 7: movielens_genre:Documentary, 8: movielens_genre:Drama, 1033: imdb_keywords:urination, 11: movielens_genre:Horror, 13: movielens_genre:Mystery, 526: imdb_keywords:hero, 1039: imdb_keywords:vengeance, 16: movielens_genre:Thriller, 1041: imdb_keywords:village, 19: movielens_tags:70mm, 1045: imdb_keywords:voice-over-narration, 512: imdb_keywords:hand-grenade, 23: movielens_tags:Betamax, 24: movielens_tags:Bibliothek, 25: movielens_tags:Bob*ola, 26: movielens_tags:CLV, 539: imdb_keywords:horse, 540: imdb_keywords:horse-and-carriage, 1055: imdb_keywords:watching-tv, 547: imdb_keywords:humiliation, 548: imdb_keywords:hunting, 549: imdb_keywords:husband-wife-relationship, 43: movielens_tags:adapted from:book, 556: imdb_keywords:independent-film, 558: imdb_keywords:inheritance, 47: movielens_tags:cinematography, 520: imdb_keywords:heart-attack, 51: movielens_tags:disturbing, 513: imdb_keywords:hand-to-hand-combat, 54: movielens_tags:erlend's DVDs, 1079: imdb_keywords:written-and-directed-by-cast-member, 568: imdb_keywords:jail, 57: movielens_tags:funny, 60: movielens_tags:less than 300 ratings, 61: movielens_tags:library, 575: imdb_keywords:jewish, 65: movielens_tags:murder, 578: imdb_keywords:jungle, 582: imdb_keywords:kicked-in-the-face, 1095: tvtropes:berserk button, 1096: tvtropes:big bad, 1097: tvtropes:big damn heroes, 589: imdb_keywords:knife, 593: imdb_keywords:lake, 1111: tvtropes:chekhovs gunman, 1144: tvtropes:idiot ball, 15: movielens_genre:Sci-Fi, 92: imdb_keywords:1920s, 93: imdb_keywords:1930s, 606: imdb_keywords:lingerie, 98: imdb_keywords:1980s, 1123: tvtropes:downer ending, 776: imdb_keywords:prostitute, 614: imdb_keywords:looking-at-oneself-in-a-mirror, 1126: tvtropes:establishing character moment, 1127: tvtropes:even evil has standards, 171: imdb_keywords:basketball, 619: imdb_keywords:loss-of-virginity, 108: imdb_keywords:actress, 1139: tvtropes:heroic b s o d, 1141: tvtropes:hey its that guy, 630: imdb_keywords:maid, 119: imdb_keywords:alien, 2: movielens_genre:Adventure, 633: imdb_keywords:male-nudity, 637: imdb_keywords:manhattan-new-york-city, 21: movielens_tags:BD-Video, 1152: tvtropes:large ham, 641: imdb_keywords:map, 130: imdb_keywords:apartment, 645: imdb_keywords:martial-arts, 134: imdb_keywords:argument, 135: imdb_keywords:army, 567: imdb_keywords:italy, 138: imdb_keywords:art, 1163: tvtropes:noodle incident, 140: imdb_keywords:assassin, 653: imdb_keywords:mental-illness, 280: imdb_keywords:classroom, 146: imdb_keywords:aunt-niece-relationship, 147: imdb_keywords:author, 1173: tvtropes:reveal, 152: imdb_keywords:backstage, 708: imdb_keywords:older-woman-younger-man-relationship, 156: imdb_keywords:bar, 669: imdb_keywords:motel, 1028: imdb_keywords:unfaithfulness, 1011: imdb_keywords:truck, 161: imdb_keywords:barn, 166: imdb_keywords:based-on-comic-book, 682: imdb_keywords:necklace, 683: imdb_keywords:neighbor, 179: imdb_keywords:beating, 693: imdb_keywords:nipples, 184: imdb_keywords:betrayal, 697: imdb_keywords:nudity, 698: imdb_keywords:number-in-title, 188: imdb_keywords:binoculars, 533: imdb_keywords:hitman, 117: imdb_keywords:alcoholic, 195: imdb_keywords:black-comedy, 196: imdb_keywords:black-panties, 197: imdb_keywords:blackmail, 289: imdb_keywords:combat, 713: imdb_keywords:one-word-title, 204: imdb_keywords:bodyguard, 718: imdb_keywords:orgasm, 720: imdb_keywords:outer-space, 209: imdb_keywords:boxing, 210: imdb_keywords:boy, 1059: imdb_keywords:wedding, 206: imdb_keywords:book, 121: imdb_keywords:ambush, 728: imdb_keywords:paranoia, 218: imdb_keywords:bridge, 220: imdb_keywords:broken-leg, 293: imdb_keywords:concert, 224: imdb_keywords:brunette, 208: imdb_keywords:bow-and-arrow, 379: imdb_keywords:drunkenness, 742: imdb_keywords:pickup-truck, 519: imdb_keywords:head-butt, 234: imdb_keywords:camera, 237: imdb_keywords:cancer, 451: imdb_keywords:fish-out-of-water, 241: imdb_keywords:car, 242: imdb_keywords:car-accident, 243: imdb_keywords:car-chase, 245: imdb_keywords:card-playing, 247: imdb_keywords:castle, 813: imdb_keywords:restaurant, 764: imdb_keywords:prank, 253: imdb_keywords:cemetery, 766: imdb_keywords:pregnancy, 767: imdb_keywords:prejudice, 769: imdb_keywords:priest, 770: imdb_keywords:prison, 259: imdb_keywords:chase, 772: imdb_keywords:product-placement, 775: imdb_keywords:promise, 264: imdb_keywords:child, 265: imdb_keywords:child-abuse, 386: imdb_keywords:eccentric, 270: imdb_keywords:chinese, 783: imdb_keywords:public-nudity, 272: imdb_keywords:christmas, 273: imdb_keywords:christmas-tree, 9: movielens_genre:Fantasy, 814: imdb_keywords:revenge, 792: imdb_keywords:racism, 793: imdb_keywords:radio, 794: imdb_keywords:rage, 795: imdb_keywords:railway-station, 284: imdb_keywords:coffin, 947: imdb_keywords:surveillance, 799: imdb_keywords:rat, 800: imdb_keywords:reading, 801: imdb_keywords:record-player, 802: imdb_keywords:recording, 292: imdb_keywords:computer, 805: imdb_keywords:reference-to-god, 561: imdb_keywords:interracial-relationship, 296: imdb_keywords:conspiracy, 812: imdb_keywords:rescue, 301: imdb_keywords:corpse, 1101: tvtropes:blatant lies, 815: imdb_keywords:reverse-footage, 824: imdb_keywords:road-trip, 52: movielens_tags:drama, 906: imdb_keywords:snow, 321: imdb_keywords:crying, 322: imdb_keywords:cult-director, 323: imdb_keywords:cult-film, 324: imdb_keywords:curse, 326: imdb_keywords:dance, 839: imdb_keywords:san-francisco-california, 652: imdb_keywords:memory, 843: imdb_keywords:scar, 847: imdb_keywords:scientist, 849: imdb_keywords:screaming, 338: imdb_keywords:death-of-friend, 340: imdb_keywords:death-of-mother, 341: imdb_keywords:death-of-son, 855: imdb_keywords:secretary, 345: imdb_keywords:deception, 347: imdb_keywords:demonstration, 997: imdb_keywords:torture, 357: imdb_keywords:directorial-debut, 364: imdb_keywords:dog, 881: imdb_keywords:shot-in-the-forehead, 371: imdb_keywords:drink, 373: imdb_keywords:drowning, 890: imdb_keywords:silencer, 891: imdb_keywords:singer, 380: imdb_keywords:duel, 381: imdb_keywords:dying, 521: imdb_keywords:heavy-rain, 1164: tvtropes:not so different, 900: imdb_keywords:sleeping, 902: imdb_keywords:small-town, 391: imdb_keywords:engagement, 746: imdb_keywords:pistol, 394: imdb_keywords:erection, 398: imdb_keywords:evil, 749: imdb_keywords:poison, 914: imdb_keywords:split-screen, 407: imdb_keywords:exploitation, 922: imdb_keywords:stalking, 412: imdb_keywords:f-word, 416: imdb_keywords:faith, 417: imdb_keywords:falling-down-stairs, 420: imdb_keywords:false-accusation, 70: movielens_tags:on dvr, 934: imdb_keywords:subjective-camera, 937: imdb_keywords:subway, 427: imdb_keywords:father-daughter-relationship, 754: imdb_keywords:police-detective, 946: imdb_keywords:surrealism, 435: imdb_keywords:female-protagonist, 1182: tvtropes:tempting fate, 955: imdb_keywords:sword, 444: imdb_keywords:filmmaking, 447: imdb_keywords:fireplace, 961: imdb_keywords:target-practice, 331: imdb_keywords:dating, 455: imdb_keywords:flashback, 970: imdb_keywords:teenage-boy, 972: imdb_keywords:teenager, 973: imdb_keywords:telephone, 974: imdb_keywords:telephone-call, 975: imdb_keywords:television, 465: imdb_keywords:forest, 978: imdb_keywords:terrorism, 471: imdb_keywords:friend, 472: imdb_keywords:friendship, 1158: tvtropes:ms fanservice, 481: imdb_keywords:gas-station, 485: imdb_keywords:gay-slur, 486: imdb_keywords:general, 490: imdb_keywords:girl, 493: imdb_keywords:good-versus-evil, 497: imdb_keywords:grave, 498: imdb_keywords:graveyard, 499: imdb_keywords:greed, 500: imdb_keywords:grief, 502: imdb_keywords:guitar, 1015: imdb_keywords:twenty-something, 1016: imdb_keywords:two-word-title, 507: imdb_keywords:gunshot, 508: imdb_keywords:gunshot-wound, 1194: average_rating, 511: imdb_keywords:hallucination
+Loading indicators
+Building indicator distributions
+Loading user profiles
+Processing user 343, movie 36535 (Everything Is Illuminated (2005))
+Original predicted rating: 3.98223475475
+User profile: {'neg_name': 'imdb_keywords:urban-setting', 'neg': 1032, 'profile_id': 3, 'pos_name': 'tvtropes:bilingual bonus', 'pos': 1098}
+Non-zero qiis:
+average_rating (1194): 0.41856115787
+movielens_tags:drama (52): 0.115894012872
+movielens_tags:Bibliothek (24): -0.0286916597093
+movielens_tags:erlend's DVDs (54): 0.0254658422369
+imdb_keywords:loss-of-virginity (619): 0.0216875518841
+imdb_keywords:map (641): -0.0215972355375
+movielens_tags:Bob*ola (25): 0.0163059031536
+imdb_keywords:product-placement (772): -0.0131164002773
+imdb_keywords:dog (364): 0.0117817066783
+imdb_keywords:orgasm (718): 0.0113089413928
+imdb_keywords:one-word-title (713): 0.0101315420483
+imdb_keywords:rage (794): 0.00889458805629
+imdb_keywords:martial-arts (645): -0.00876946241481
+movielens_genre:Thriller (16): 0.00704757235228
+imdb_keywords:neighbor (683): 0.00638462149441
+imdb_keywords:recording (802): -0.00626809772309
+imdb_keywords:conspiracy (296): 0.00491896521478
+imdb_keywords:brunette (224): -0.00424874363589
+imdb_keywords:motel (669): 0.00408183416419
+imdb_keywords:general (486): 0.00270205459861
+imdb_keywords:shot-in-the-forehead (881): -0.00209399498175
+imdb_keywords:wedding (1059): 0.00148501787323
+imdb_keywords:chinese (270): 0.00096679968889
+Correctness score: 0.0
+Processing user 834, movie 6534 (Hulk (2003))
+Original predicted rating: 1.72563280879
+User profile: {'neg_name': 'imdb_keywords:drink', 'neg': 371, 'profile_id': 1, 'pos_name': 'imdb_keywords:deception', 'pos': 345}
+Non-zero qiis:
+average_rating (1194): 0.245476950948
+movielens_tags:cinematography (47): 0.0383486131461
+imdb_keywords:basketball (171): 0.013199026082
+imdb_keywords:bridge (218): 0.0119720151967
+tvtropes:noodle incident (1163): 0.011798494427
+imdb_keywords:screaming (849): 0.00930241500389
+imdb_keywords:dance (326): 0.00916236431766
+tvtropes:not so different (1164): -0.00357253133227
+imdb_keywords:curse (324): 0.00313870347753
+imdb_keywords:flashback (455): -0.00279404260783
+imdb_keywords:one-word-title (713): -0.00213659232988
+imdb_keywords:dog (364): -0.00201261108051
+imdb_keywords:prison (770): -0.00142743535165
+imdb_keywords:neighbor (683): 0.00125934950603
+imdb_keywords:number-in-title (698): 0.00119650424938
+imdb_keywords:motel (669): 0.000370076918774
+tvtropes:big bad (1096): -0.000356201713553
+imdb_keywords:heavy-rain (521): 0.000246470363594
+movielens_tags:CLV (26): 0.00016960411726
+Correctness score: 0.0
+Processing user 455, movie 6176 (Mr. Majestyk (1974))
+Original predicted rating: 1.89751433936
+User profile: {'neg_name': 'imdb_keywords:drink', 'neg': 371, 'profile_id': 1, 'pos_name': 'imdb_keywords:deception', 'pos': 345}
+Non-zero qiis:
+average_rating (1194): 0.78634825625
+imdb_keywords:watching-tv (1055): 0.115744684245
+movielens_tags:Bob*ola (25): 0.0622879485678
+imdb_keywords:maid (630): -0.0530445681494
+movielens_genre:Thriller (16): 0.0403821996309
+imdb_keywords:product-placement (772): 0.0305608912546
+imdb_keywords:fireplace (447): -0.0302098861629
+tvtropes:tempting fate (1182): 0.0290097002999
+movielens_tags:drama (52): 0.0228692187154
+imdb_keywords:boy (210): -0.0210052687642
+imdb_keywords:neighbor (683): 0.0170886097293
+tvtropes:chekhovs gunman (1111): -0.0148356868618
+imdb_keywords:conspiracy (296): 0.00942270887505
+imdb_keywords:loss-of-virginity (619): 0.00901026174823
+imdb_keywords:dog (364): 0.00895307243292
+imdb_keywords:stalking (922): 0.00829340997859
+imdb_keywords:one-word-title (713): -0.00792403463842
+imdb_keywords:nudity (697): 0.00748363610938
+imdb_keywords:martial-arts (645): 0.00544019347658
+imdb_keywords:general (486): 0.00540809276073
+imdb_keywords:inheritance (558): 0.00349777314986
+imdb_keywords:forest (465): -0.00297136330477
+year (0): -0.00293964057775
+imdb_keywords:death-of-son (341): 0.00246027662911
+imdb_keywords:wedding (1059): -0.00245615325371
+imdb_keywords:motel (669): 0.00193443526711
+imdb_keywords:broken-leg (220): 0.00122718887342
+Correctness score: 0.0
+Processing user 642, movie 260 (Star Wars: Episode IV - A New Hope (1977))
+Original predicted rating: 1.60405971066
+User profile: {'neg_name': 'imdb_keywords:mafia', 'neg': 628, 'profile_id': 7, 'pos_name': 'imdb_keywords:dead-body', 'pos': 332}
+Non-zero qiis:
+average_rating (1194): 0.389173369169
+imdb_keywords:computer (292): 0.147752500771
+imdb_keywords:manhattan-new-york-city (637): -0.0450674916135
+imdb_keywords:nipples (693): 0.0364279519626
+imdb_keywords:general (486): -0.0323521895712
+imdb_keywords:bridge (218): 0.0269343525118
+imdb_keywords:concert (293): -0.0237626672925
+imdb_keywords:flashback (455): -0.0224302784006
+imdb_keywords:conspiracy (296): -0.0179333964122
+tvtropes:big bad (1096): -0.0153592070473
+imdb_keywords:coffin (284): -0.0121854921487
+movielens_genre:Sci-Fi (15): 0.0117278704351
+imdb_keywords:child (264): 0.0114404480934
+imdb_keywords:death-of-mother (340): -0.0112359097531
+movielens_tags:adapted from:book (43): -0.00547970399844
+imdb_keywords:male-nudity (633): 0.00518298345824
+imdb_keywords:hand-grenade (512): -0.00333954172641
+imdb_keywords:grief (500): 0.00237490981798
+imdb_keywords:death-of-son (341): -0.00144824620487
+imdb_keywords:rat (799): 0.00136429398556
+imdb_keywords:one-word-title (713): 0.00128295483045
+imdb_keywords:dog (364): 0.00120850808619
+imdb_keywords:shot-in-the-forehead (881): -0.000632477951269
+imdb_keywords:motel (669): 0.000616446107103
+Correctness score: 0.0
+Processing user 14, movie 3362 (Dog Day Afternoon (1975))
+Original predicted rating: 3.40398891082
+User profile: {'neg_name': 'imdb_keywords:urban-setting', 'neg': 1032, 'profile_id': 3, 'pos_name': 'tvtropes:bilingual bonus', 'pos': 1098}
+Non-zero qiis:
+average_rating (1194): 0.477275600279
+movielens_tags:Bob*ola (25): 0.0625095302508
+movielens_genre:Thriller (16): 0.0405258543179
+imdb_keywords:gas-station (481): 0.0287506509156
+imdb_keywords:loss-of-virginity (619): 0.0272842316145
+tvtropes:tempting fate (1182): -0.0181012316703
+imdb_keywords:brunette (224): -0.0162877803415
+imdb_keywords:orgasm (718): 0.0149955936896
+imdb_keywords:neighbor (683): -0.0125629182637
+imdb_keywords:one-word-title (713): -0.00945908202131
+imdb_keywords:shot-in-the-forehead (881): 0.00931311689198
+imdb_keywords:hanging (516): -0.00829737842686
+imdb_keywords:drowning (373): -0.00696421736122
+imdb_keywords:fireplace (447): -0.00546498023555
+imdb_keywords:stalking (922): -0.00432793720873
+imdb_keywords:dog (364): 0.00378700773539
+imdb_keywords:watching-tv (1055): 0.00316475530775
+imdb_keywords:martial-arts (645): -0.00290706465534
+imdb_keywords:conspiracy (296): -0.00284982233126
+imdb_keywords:forest (465): 0.00277481940667
+year (0): -0.00255330686547
+imdb_keywords:target-practice (961): 0.00111046268177
+imdb_keywords:maid (630): -0.00104767852357
+Correctness score: 0.0
+Processing user 903, movie 52458 (Disturbia (2007))
+Original predicted rating: 2.31580932115
+User profile: {'neg_name': 'imdb_keywords:teenage-girl', 'neg': 971, 'profile_id': 2, 'pos_name': 'imdb_keywords:voyeur', 'pos': 1047}
+Non-zero qiis:
+imdb_keywords:scar (843): -0.15933617603
+imdb_keywords:paranoia (728): 0.131386411767
+average_rating (1194): 0.117880037199
+imdb_keywords:one-word-title (713): 0.0921103759572
+tvtropes:downer ending (1123): -0.089761461074
+imdb_keywords:watching-tv (1055): -0.0858274853384
+imdb_keywords:broken-leg (220): -0.0788530957631
+imdb_keywords:revenge (814): 0.0531177218235
+imdb_keywords:boy (210): -0.0479992065601
+movielens_genre:Thriller (16): -0.0426129917164
+imdb_keywords:wedding (1059): -0.0249967297525
+imdb_keywords:rage (794): -0.0241507591281
+imdb_keywords:map (641): -0.02158247207
+imdb_keywords:nudity (697): -0.0162750218177
+tvtropes:establishing character moment (1126): 0.0161375653688
+imdb_keywords:conspiracy (296): 0.0124923013794
+imdb_keywords:stalking (922): -0.0118912178974
+year (0): 0.0102994442342
+imdb_keywords:filmmaking (444): -0.00790887434495
+movielens_tags:less than 300 ratings (60): -0.00550202519783
+imdb_keywords:shot-in-the-forehead (881): -0.00493028845168
+imdb_keywords:martial-arts (645): 0.00434454904577
+movielens_tags:drama (52): 0.000348382982141
+Correctness score: 0.0
+Processing user 590, movie 4169 (Blow Dry (a.k.a. Never Better) (2001))
+Original predicted rating: 1.13556151246
+User profile: {'neg_name': 'imdb_keywords:microphone', 'neg': 656, 'profile_id': 6, 'pos_name': 'imdb_keywords:revenge', 'pos': 814}
+Non-zero qiis:
+average_rating (1194): -0.334882028246
+imdb_keywords:screaming (849): -0.0548174908479
+imdb_keywords:twenty-something (1015): -0.032106022421
+tvtropes:noodle incident (1163): 0.0309411392059
+imdb_keywords:nipples (693): 0.0141356580513
+year (0): 0.0110858133545
+imdb_keywords:child (264): 0.00895373343474
+imdb_keywords:manhattan-new-york-city (637): -0.00874409095699
+imdb_keywords:dance (326): 0.00793172650381
+imdb_keywords:rat (799): -0.0074666996681
+imdb_keywords:basketball (171): 0.00742895115741
+imdb_keywords:flashback (455): -0.00482469420098
+imdb_keywords:general (486): 0.00423671505905
+tvtropes:not so different (1164): -0.00308448610506
+imdb_keywords:prison (770): -0.00114879799693
+imdb_keywords:death-of-son (341): 0.00082428150958
+imdb_keywords:one-word-title (713): 0.000369338171197
+imdb_keywords:conspiracy (296): -0.000174539096223
+imdb_keywords:dog (364): 0.000115968792207
+imdb_keywords:broken-leg (220): 6.25499696656e-05
+Correctness score: 0.0
+Processing user 751, movie 2563 (Dangerous Beauty (1998))
+Original predicted rating: 2.3298169809
+User profile: {'neg_name': 'imdb_keywords:burned-alive', 'neg': 228, 'profile_id': 5, 'pos_name': 'imdb_keywords:1910s', 'pos': 91}
+Non-zero qiis:
+average_rating (1194): -0.253277931987
+imdb_keywords:rat (799): 0.190182551141
+imdb_keywords:reading (800): 0.053554410257
+imdb_keywords:greed (499): 0.0424829350471
+imdb_keywords:prison (770): 0.0322015453425
+imdb_keywords:one-word-title (713): -0.0216398585777
+imdb_keywords:general (486): 0.0161014839408
+imdb_keywords:1920s (92): 0.0123113766829
+imdb_keywords:dog (364): -0.0101920751435
+imdb_keywords:demonstration (347): 0.0090535384797
+imdb_keywords:heavy-rain (521): 0.00836541262222
+imdb_keywords:broken-leg (220): 0.00618029582406
+movielens_tags:CLV (26): 0.00575650720281
+imdb_keywords:bridge (218): 0.00491131784752
+imdb_keywords:neighbor (683): 0.00318873947423
+imdb_keywords:concert (293): 0.00275796117083
+imdb_keywords:motel (669): 0.00255783439994
+tvtropes:big damn heroes (1097): 0.00233980460485
+imdb_keywords:flashback (455): 0.00130166020755
+Correctness score: 0.0
+Processing user 526, movie 54272 (Simpsons Movie, The (2007))
+Original predicted rating: 3.85103381624
+User profile: {'neg_name': 'imdb_keywords:burned-alive', 'neg': 228, 'profile_id': 5, 'pos_name': 'imdb_keywords:1910s', 'pos': 91}
+Non-zero qiis:
+average_rating (1194): 0.41816377412
+imdb_keywords:neighbor (683): -0.0643743662033
+imdb_keywords:pistol (746): 0.0475880836798
+imdb_keywords:concert (293): -0.0434495739161
+year (0): 0.0413513797691
+imdb_keywords:death-of-mother (340): 0.030212383141
+imdb_keywords:manhattan-new-york-city (637): -0.0270404227596
+imdb_keywords:friendship (472): 0.0236450838798
+imdb_keywords:combat (289): 0.0170371135932
+imdb_keywords:male-nudity (633): -0.0169593676746
+tvtropes:big bad (1096): -0.0148685228706
+imdb_keywords:grief (500): -0.0114240625899
+imdb_keywords:card-playing (245): -0.00986621651815
+imdb_keywords:flashback (455): -0.00860359144339
+imdb_keywords:one-word-title (713): -0.00668136420253
+tvtropes:not so different (1164): 0.00224776763891
+imdb_keywords:reading (800): -0.000665435502071
+imdb_keywords:general (486): 1.87751551509e-05
+Correctness score: 0.0
+Processing user 368, movie 80848 (Looking for Cheyenne (Oublier Cheyenne) (2005))
+Original predicted rating: 0.413396193746
+User profile: {'neg_name': 'imdb_keywords:cell-phone', 'neg': 252, 'profile_id': 9, 'pos_name': 'imdb_keywords:band', 'pos': 153}
+Non-zero qiis:
+average_rating (1194): 0.130530996001
+imdb_keywords:computer (292): 0.0451811553076
+imdb_keywords:nipples (693): 0.00613464402252
+imdb_keywords:card-playing (245): -0.00573354236243
+imdb_keywords:general (486): -0.003791993382
+imdb_keywords:grief (500): -0.00358555586188
+year (0): 0.00343318354782
+imdb_keywords:death-of-mother (340): 0.00247775090631
+imdb_keywords:death-of-son (341): 0.00230159494331
+imdb_keywords:flashback (455): -0.00218472560666
+imdb_keywords:male-nudity (633): 0.00158490163863
+imdb_keywords:dog (364): 0.00129525256905
+imdb_keywords:chinese (270): 0.00128854791296
+imdb_keywords:twenty-something (1015): 0.00115414449425
+imdb_keywords:reading (800): 0.000710426799178
+imdb_keywords:one-word-title (713): 0.000687521481694
+imdb_keywords:screaming (849): 0.000492643595186
+imdb_keywords:neighbor (683): -0.000405238671997
+movielens_tags:adapted from:book (43): 0.000355769178979
+imdb_keywords:motel (669): 0.000135015966046
+imdb_keywords:shot-in-the-forehead (881): -6.92636554998e-05
+Correctness score: 0.0
+Processing user 553, movie 8973 (Bad Education (La mala educación) (2004))
+Original predicted rating: 2.49141893237
+User profile: {'neg_name': 'tvtropes:dragon', 'neg': 1124, 'profile_id': 8, 'pos_name': 'imdb_keywords:high-school-student', 'pos': 530}
+Non-zero qiis:
+average_rating (1194): 0.290662227019
+movielens_genre:Sci-Fi (15): 0.0627752259916
+tvtropes:noodle incident (1163): -0.0458383993428
+imdb_keywords:conspiracy (296): 0.0339834295352
+imdb_keywords:manhattan-new-york-city (637): -0.0291633731203
+imdb_keywords:book (206): 0.0192592463955
+imdb_keywords:death-of-mother (340): -0.0176131202461
+imdb_keywords:twenty-something (1015): -0.0110821425162
+imdb_keywords:one-word-title (713): -0.0110273180616
+imdb_keywords:handcuffs (514): 0.00936123277453
+imdb_keywords:card-playing (245): -0.00931724084881
+imdb_keywords:railway-station (795): 0.00695974154304
+imdb_keywords:friendship (472): 0.00671315515432
+imdb_keywords:1920s (92): 0.00650858101992
+imdb_keywords:child (264): 0.0059779164116
+imdb_keywords:dog (364): -0.0051937148254
+imdb_keywords:bridge (218): 0.00469128792282
+imdb_keywords:prison (770): -0.00266646455711
+tvtropes:big bad (1096): 0.00187391360061
+imdb_keywords:reading (800): -0.00121437785707
+imdb_keywords:motel (669): -0.000692374216626
+imdb_keywords:shot-in-the-forehead (881): 0.000355190357273
+Correctness score: 0.0
+Processing user 633, movie 566 (Naked in New York (1994))
+Original predicted rating: 1.9948544661
+User profile: {'neg_name': 'tvtropes:dragon', 'neg': 1124, 'profile_id': 8, 'pos_name': 'imdb_keywords:high-school-student', 'pos': 530}
+Non-zero qiis:
+imdb_keywords:unemployment (1027): -0.25790312743
+imdb_keywords:loss-of-virginity (619): -0.184336337924
+average_rating (1194): -0.172236164321
+imdb_keywords:telephone-call (974): -0.144620064452
+imdb_keywords:independent-film (556): -0.138687222986
+imdb_keywords:watching-tv (1055): -0.102532057829
+imdb_keywords:forest (465): -0.0738320656198
+imdb_keywords:heart-attack (520): -0.0648121697939
+imdb_keywords:wedding (1059): 0.0546717208893
+imdb_keywords:motel (669): 0.0344007445491
+imdb_keywords:inheritance (558): 0.0320270441064
+imdb_keywords:small-town (902): 0.031031745513
+imdb_keywords:recording (802): -0.0262466297746
+imdb_keywords:television (975): -0.0180928706895
+imdb_keywords:grief (500): -0.0176816652125
+imdb_keywords:shot-in-the-forehead (881): 0.0156145334879
+imdb_keywords:scar (843): -0.0135647362236
+imdb_keywords:friendship (472): -0.0123761786583
+imdb_keywords:computer (292): -0.0110241997431
+imdb_keywords:manhattan-new-york-city (637): -0.0093150544476
+imdb_keywords:dog (364): -0.00871198378697
+tvtropes:big damn heroes (1097): -0.00581184072569
+movielens_genre:Sci-Fi (15): 0.00473041972667
+imdb_keywords:conspiracy (296): 0.00437066371491
+imdb_keywords:one-word-title (713): -0.00308288702133
+tvtropes:big bad (1096): 0.000547111508543
+Correctness score: 0.0
+Processing user 851, movie 3431 (Death Wish 2 (1982))
+Original predicted rating: 2.60606897483
+User profile: {'neg_name': 'imdb_keywords:dying', 'neg': 381, 'profile_id': 0, 'pos_name': 'imdb_keywords:london-england', 'pos': 611}
+Non-zero qiis:
+average_rating (1194): 0.426593325907
+imdb_keywords:maid (630): 0.0729683243888
+imdb_keywords:neighbor (683): 0.044152073834
+imdb_keywords:watching-tv (1055): 0.0377655614857
+imdb_keywords:one-word-title (713): -0.0239872190371
+imdb_keywords:conspiracy (296): 0.0200312639694
+year (0): -0.0193258551151
+imdb_keywords:drowning (373): 0.0183639645292
+movielens_tags:Bibliothek (24): -0.0170530236608
+imdb_keywords:loss-of-virginity (619): 0.010733488211
+imdb_keywords:map (641): -0.00978357289712
+movielens_genre:Thriller (16): 0.00786512309557
+imdb_keywords:wedding (1059): -0.00717657832519
+imdb_keywords:brunette (224): -0.00474161740063
+imdb_keywords:target-practice (961): 0.00317576006248
+imdb_keywords:shot-in-the-forehead (881): 0.00280925426391
+imdb_keywords:hanging (516): -0.00200228954455
+imdb_keywords:general (486): 0.00158470791561
+imdb_keywords:forest (465): -0.00157535914077
+tvtropes:chekhovs gunman (1111): 0.0014680287802
+imdb_keywords:stalking (922): -0.00111853436771
+Correctness score: 0.0
+Processing user 983, movie 59910 (And When Did You Last See Your Father? (2007))
+Original predicted rating: 3.22658022761
+User profile: {'neg_name': 'imdb_keywords:burned-alive', 'neg': 228, 'profile_id': 5, 'pos_name': 'imdb_keywords:1910s', 'pos': 91}
+Non-zero qiis:
+average_rating (1194): 0.173726971574
+imdb_keywords:television (975): 0.0405129792127
+imdb_keywords:grief (500): 0.0345221620032
+imdb_keywords:flashback (455): 0.0313746403442
+imdb_keywords:dog (364): 0.03031298905
+imdb_keywords:reading (800): 0.0272686232372
+imdb_keywords:conspiracy (296): 0.0189839056554
+imdb_keywords:screaming (849): -0.0188674070829
+imdb_keywords:male-nudity (633): -0.0173075339947
+imdb_keywords:manhattan-new-york-city (637): -0.0172796754562
+imdb_keywords:prejudice (767): 0.016470703113
+imdb_keywords:boxing (209): 0.0152475593802
+imdb_keywords:mental-illness (653): 0.0126530736
+imdb_keywords:shot-in-the-forehead (881): 0.00391603944291
+imdb_keywords:nudity (697): -0.00355651888697
+tvtropes:big bad (1096): -0.000325560151948
+Correctness score: 0.0
+Processing user 607, movie 5382 (Every Which Way But Loose (1978))
+Original predicted rating: 0.621928129207
+User profile: {'neg_name': 'imdb_keywords:teenage-girl', 'neg': 971, 'profile_id': 2, 'pos_name': 'imdb_keywords:voyeur', 'pos': 1047}
+Non-zero qiis:
+average_rating (1194): -0.227159144518
+year (0): 0.0305228546401
+imdb_keywords:bridge (218): 0.0190957675839
+imdb_keywords:conspiracy (296): 0.0163416054016
+imdb_keywords:manhattan-new-york-city (637): -0.0148213861984
+imdb_keywords:death-of-son (341): -0.0107850740029
+movielens_genre:Sci-Fi (15): 0.00999770836981
+imdb_keywords:twenty-something (1015): 0.00985370930096
+imdb_keywords:screaming (849): 0.00841206070842
+imdb_keywords:motel (669): -0.00753979261892
+imdb_keywords:one-word-title (713): -0.00644333189922
+movielens_tags:adapted from:book (43): 0.00607488245254
+imdb_keywords:dog (364): -0.00606944104143
+imdb_keywords:rat (799): -0.00498582160479
+imdb_keywords:flashback (455): -0.00483473646134
+imdb_keywords:friendship (472): 0.00427660220503
+tvtropes:big bad (1096): 0.00309315604056
+imdb_keywords:general (486): 0.00126288813164
+imdb_keywords:male-nudity (633): -0.000675819289144
+Correctness score: 0.0
+Processing user 709, movie 6820 (Ginger Snaps (2000))
+Original predicted rating: 2.54750556355
+User profile: {'neg_name': 'tvtropes:dragon', 'neg': 1124, 'profile_id': 8, 'pos_name': 'imdb_keywords:high-school-student', 'pos': 530}
+Non-zero qiis:
+average_rating (1194): -0.197988634675
+imdb_keywords:curse (324): -0.109701761848
+imdb_keywords:heavy-rain (521): 0.071559159138
+movielens_tags:CLV (26): -0.0376676441239
+imdb_keywords:television (975): -0.0283678216417
+imdb_keywords:manhattan-new-york-city (637): -0.014605078856
+imdb_keywords:dog (364): 0.0132492584345
+imdb_keywords:card-playing (245): -0.0127625294361
+imdb_keywords:surrealism (946): -0.00762228173231
+imdb_keywords:motel (669): -0.00611486600874
+tvtropes:big damn heroes (1097): 0.00560850323622
+movielens_tags:adapted from:book (43): -0.00505593616987
+year (0): -0.00401738591374
+imdb_keywords:bridge (218): 0.00401513689967
+imdb_keywords:railway-station (795): -0.00392177492647
+imdb_keywords:neighbor (683): 0.00269246327683
+imdb_keywords:general (486): -0.001683989346
+imdb_keywords:prison (770): 0.00134708436069
+tvtropes:big bad (1096): -0.00105593969658
+imdb_keywords:flashback (455): 0.000876695487427
+imdb_keywords:concert (293): 0.000464386192907
+imdb_keywords:one-word-title (713): -0.000204045832531
+Correctness score: 0.0
+Processing user 341, movie 89629 (Point Blank (À bout portant) (2010))
+Original predicted rating: 2.66465784648
+User profile: {'neg_name': 'imdb_keywords:dying', 'neg': 381, 'profile_id': 0, 'pos_name': 'imdb_keywords:london-england', 'pos': 611}
+Non-zero qiis:
+average_rating (1194): -0.34763668437
+imdb_keywords:conspiracy (296): -0.227100660463
+imdb_keywords:blackmail (197): -0.17486334126
+tvtropes:idiot ball (1144): -0.0681210126958
+imdb_keywords:reverse-footage (815): 0.0664540712788
+imdb_keywords:1920s (92): -0.0320316617877
+imdb_keywords:child (264): 0.0293865248107
+imdb_keywords:curse (324): 0.0255640964347
+imdb_keywords:hanging (516): 0.0205599230537
+imdb_keywords:television (975): -0.0204543650047
+imdb_keywords:screaming (849): -0.0196942311204
+imdb_keywords:combat (289): 0.0196930920408
+imdb_keywords:death-of-mother (340): -0.0192407580563
+tvtropes:big bad (1096): -0.0190960352396
+year (0): 0.0162022740552
+imdb_keywords:gas-station (481): -0.0142600486514
+movielens_tags:adapted from:book (43): -0.0142224531178
+imdb_keywords:drowning (373): 0.013580928956
+imdb_keywords:flashback (455): -0.0132046936614
+movielens_genre:Sci-Fi (15): 0.0100329498385
+imdb_keywords:shot-in-the-forehead (881): -0.00965639252579
+imdb_keywords:general (486): -0.00820244864538
+imdb_keywords:prejudice (767): -0.00693205042696
+imdb_keywords:prison (770): 0.00656143717046
+imdb_keywords:manhattan-new-york-city (637): -0.00526543098052
+imdb_keywords:friendship (472): 0.00429167703388
+imdb_keywords:false-accusation (420): 0.00118914448321
+Correctness score: 0.0
+Processing user 637, movie 46572 (Edmond (2005))
+Original predicted rating: 1.8032562385
+User profile: {'neg_name': 'imdb_keywords:urban-setting', 'neg': 1032, 'profile_id': 3, 'pos_name': 'tvtropes:bilingual bonus', 'pos': 1098}
+Non-zero qiis:
+average_rating (1194): -0.302414359468
+imdb_keywords:prison (770): -0.0462870144495
+imdb_keywords:card-playing (245): -0.0441220400376
+imdb_keywords:screaming (849): -0.0326186922619
+imdb_keywords:heavy-rain (521): 0.0184031897194
+imdb_keywords:gunshot (507): -0.01309317481
+movielens_tags:adapted from:book (43): -0.0117780130289
+imdb_keywords:1920s (92): 0.0111412160601
+imdb_keywords:reading (800): -0.0106374580106
+imdb_keywords:shot-in-the-forehead (881): 0.0105620356799
+imdb_keywords:bridge (218): 0.00877600903889
+tvtropes:noodle incident (1163): -0.00788261321582
+tvtropes:not so different (1164): 0.00355153249169
+imdb_keywords:graveyard (498): 0.00329993705466
+imdb_keywords:motel (669): -0.00303245880764
+imdb_keywords:flashback (455): -0.00282330919851
+imdb_keywords:one-word-title (713): 0.0023483480442
+imdb_keywords:concert (293): 0.00147130698972
+imdb_keywords:death-of-son (341): -0.00078759227534
+imdb_keywords:revenge (814): -0.000726372918972
+Correctness score: 0.0
+Processing user 695, movie 1260 (M (1931))
+Original predicted rating: 2.7389900473
+User profile: {'neg_name': 'imdb_keywords:drink', 'neg': 371, 'profile_id': 1, 'pos_name': 'imdb_keywords:deception', 'pos': 345}
+Non-zero qiis:
+average_rating (1194): 0.651501066591
+tvtropes:chekhovs gunman (1111): 0.10852590069
+imdb_keywords:one-word-title (713): 0.0479481316994
+imdb_keywords:friendship (472): 0.033518597825
+imdb_keywords:graveyard (498): 0.0262023604732
+imdb_keywords:watching-tv (1055): 0.0253536553787
+imdb_keywords:conspiracy (296): -0.0148261089627
+movielens_genre:Sci-Fi (15): 0.0130597902242
+imdb_keywords:revenge (814): -0.011535180669
+imdb_keywords:aunt-niece-relationship (146): -0.0114678528728
+imdb_keywords:map (641): -0.00907342395098
+imdb_keywords:grief (500): -0.00809721296454
+imdb_keywords:male-nudity (633): -0.00770597748404
+imdb_keywords:stalking (922): 0.00743891657293
+imdb_keywords:shot-in-the-forehead (881): -0.00676885567793
+imdb_keywords:filmmaking (444): -0.00395404827409
+imdb_keywords:reading (800): 0.0034085956645
+year (0): 0.00256957615263
+imdb_keywords:card-playing (245): -0.000887829862615
+tvtropes:big bad (1096): 0.000178563212176
+Correctness score: 0.0
+Processing user 242, movie 6534 (Hulk (2003))
+Original predicted rating: 1.97580120814
+User profile: {'neg_name': 'imdb_keywords:urban-setting', 'neg': 1032, 'profile_id': 3, 'pos_name': 'tvtropes:bilingual bonus', 'pos': 1098}
+Non-zero qiis:
+average_rating (1194): -0.179159537402
+imdb_keywords:gunshot (507): -0.0466101493737
+imdb_keywords:flashback (455): -0.0314687066162
+imdb_keywords:dance (326): 0.0162169101558
+imdb_keywords:surrealism (946): 0.015370515155
+imdb_keywords:dog (364): -0.0142563811964
+movielens_tags:CLV (26): 0.013855575644
+imdb_keywords:death-of-mother (340): -0.0133656061894
+imdb_keywords:prison (770): -0.00889882202381
+imdb_keywords:combat (289): 0.00633753078787
+tvtropes:big bad (1096): -0.00614538900275
+tvtropes:noodle incident (1163): 0.00577840380505
+imdb_keywords:one-word-title (713): -0.00504486849794
+imdb_keywords:neighbor (683): 0.00297354463087
+imdb_keywords:written-and-directed-by-cast-member (1079): -0.0025889036158
+imdb_keywords:twenty-something (1015): -0.0022059451488
+imdb_keywords:motel (669): 0.00197041158655
+imdb_keywords:reading (800): 0.0017279847679
+Correctness score: 0.0
+Correctness scores: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+Average correctness: 0.0

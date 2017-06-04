@@ -1,0 +1,530 @@
+Loading results dict
+Original recommender relative to ground truth on training set mean absolute error: 0.0224716977763, RMSE: 0.0285399633676
+Shadow model relative to the baseline recommender on test set MAE: 0.857387161202, RMSE: 1.00839867118
+Randomized model relative to the baseline recommender on test set MAE: 1.1404462839, RMSE: 1.39149345023
+Shadow model is 1.33014154574 times better than random on the test set
+Loading movies
+Loading ALS model
+Loading decision trees
+255 features are used: 0: year, 1: movielens_genre:Action, 2: movielens_genre:Adventure, 515: imdb_keywords:handgun, 1028: imdb_keywords:unfaithfulness, 5: movielens_genre:Comedy, 6: movielens_genre:Crime, 7: movielens_genre:Documentary, 8: movielens_genre:Drama, 521: imdb_keywords:heavy-rain, 11: movielens_genre:Horror, 1037: imdb_keywords:van, 1043: imdb_keywords:violence, 532: imdb_keywords:hit-in-the-crotch, 23: movielens_tags:Betamax, 536: imdb_keywords:homosexuality, 537: imdb_keywords:honor, 538: imdb_keywords:hope, 539: imdb_keywords:horse, 1053: imdb_keywords:washington-d.c., 30: movielens_tags:DVD-R, 543: imdb_keywords:hostage, 33: movielens_tags:In Netflix queue, 549: imdb_keywords:husband-wife-relationship, 1024: imdb_keywords:underwater-scene, 552: imdb_keywords:immigrant, 41: movielens_tags:acting, 42: movielens_tags:action, 1068: imdb_keywords:wine, 45: movielens_tags:based on a book, 47: movielens_tags:cinematography, 560: imdb_keywords:insanity, 691: imdb_keywords:nightclub, 52: movielens_tags:drama, 9: movielens_genre:Fantasy, 56: movielens_tags:franchise, 569: imdb_keywords:jail-cell, 58: movielens_tags:history, 59: movielens_tags:imdb top 250, 769: imdb_keywords:priest, 1085: tvtropes:adult fear, 579: imdb_keywords:justice, 70: movielens_tags:on dvr, 1095: tvtropes:berserk button, 73: movielens_tags:predictable, 258: imdb_keywords:character-says-i-love-you, 1099: tvtropes:bittersweet ending, 270: imdb_keywords:chinese, 1110: tvtropes:chekhovs gun, 953: imdb_keywords:swimming-pool, 200: imdb_keywords:blonde, 761: imdb_keywords:politics, 412: imdb_keywords:f-word, 92: imdb_keywords:1920s, 605: imdb_keywords:limousine, 94: imdb_keywords:1940s, 96: imdb_keywords:1960s, 97: imdb_keywords:1970s, 611: imdb_keywords:london-england, 1126: tvtropes:establishing character moment, 104: imdb_keywords:accidental-death, 583: imdb_keywords:kidnapping, 111: imdb_keywords:africa, 116: imdb_keywords:alcohol, 631: imdb_keywords:male-frontal-nudity, 1144: tvtropes:idiot ball, 122: imdb_keywords:american, 635: imdb_keywords:male-rear-nudity, 636: imdb_keywords:man-with-glasses, 637: imdb_keywords:manhattan-new-york-city, 4: movielens_genre:Children, 1153: tvtropes:laser guided karma, 130: imdb_keywords:apartment, 1156: tvtropes:mind screw, 1158: tvtropes:ms fanservice, 135: imdb_keywords:army, 139: imdb_keywords:artist, 140: imdb_keywords:assassin, 141: imdb_keywords:assassination, 654: imdb_keywords:mercenary, 660: imdb_keywords:missing-person, 976: imdb_keywords:tent, 1049: imdb_keywords:waiter, 154: imdb_keywords:bank, 156: imdb_keywords:bar, 1181: tvtropes:take that, 158: imdb_keywords:bare-breasts, 1183: tvtropes:title drop, 673: imdb_keywords:mountain, 674: imdb_keywords:murder, 677: imdb_keywords:museum, 1192: tvtropes:what the hell hero, 169: imdb_keywords:based-on-true-story, 1194: average_rating, 159: imdb_keywords:bare-butt, 176: imdb_keywords:battlefield, 177: imdb_keywords:beach, 178: imdb_keywords:beaten-to-death, 179: imdb_keywords:beating, 692: imdb_keywords:nightmare, 1054: imdb_keywords:watching-a-movie, 182: imdb_keywords:beer, 185: imdb_keywords:bible, 700: imdb_keywords:nurse, 189: imdb_keywords:bird, 706: imdb_keywords:old-woman, 710: imdb_keywords:on-the-run, 194: imdb_keywords:black-american, 203: imdb_keywords:boat, 716: imdb_keywords:orchestral-music-score, 717: imdb_keywords:organized-crime, 718: imdb_keywords:orgasm, 205: imdb_keywords:bomb, 75: movielens_tags:religion, 213: imdb_keywords:brawl, 377: imdb_keywords:drug-use, 216: imdb_keywords:breaking-the-fourth-wall, 804: imdb_keywords:redhead, 732: imdb_keywords:party, 222: imdb_keywords:brother-brother-relationship, 223: imdb_keywords:brother-sister-relationship, 736: imdb_keywords:person-on-fire, 225: imdb_keywords:brutality, 90: imdb_keywords:, 230: imdb_keywords:businessman, 232: imdb_keywords:cafe, 892: imdb_keywords:singing, 746: imdb_keywords:pistol, 148: imdb_keywords:automobile, 722: imdb_keywords:painter, 240: imdb_keywords:captain, 241: imdb_keywords:car, 242: imdb_keywords:car-accident, 756: imdb_keywords:police-officer-killed, 126: imdb_keywords:animal-attack, 248: imdb_keywords:cat, 249: imdb_keywords:catholic, 895: imdb_keywords:sister-sister-relationship, 1066: imdb_keywords:widower, 255: imdb_keywords:character's-point-of-view-camera-shot, 257: imdb_keywords:character-repeating-someone-else's-dialogue, 770: imdb_keywords:prison, 771: imdb_keywords:prisoner, 778: imdb_keywords:protest, 779: imdb_keywords:psychiatrist, 782: imdb_keywords:pubic-hair, 271: imdb_keywords:christian, 784: imdb_keywords:punched-in-the-face, 785: imdb_keywords:punched-in-the-stomach, 274: imdb_keywords:church, 787: imdb_keywords:pursuit, 276: imdb_keywords:cigarette-smoking, 280: imdb_keywords:classroom, 290: imdb_keywords:coming-of-age, 282: imdb_keywords:cocaine, 283: imdb_keywords:coffee, 796: imdb_keywords:rain, 797: imdb_keywords:rainstorm, 913: imdb_keywords:speech, 801: imdb_keywords:record-player, 802: imdb_keywords:recording, 180: imdb_keywords:bed, 292: imdb_keywords:computer, 296: imdb_keywords:conspiracy, 811: imdb_keywords:reporter, 816: imdb_keywords:revolution, 827: imdb_keywords:rooftop, 317: imdb_keywords:cross-dressing, 830: imdb_keywords:rowboat, 319: imdb_keywords:cruelty, 321: imdb_keywords:crying, 322: imdb_keywords:cult-director, 323: imdb_keywords:cult-film, 652: imdb_keywords:memory, 843: imdb_keywords:scar, 845: imdb_keywords:scene-during-opening-credits, 334: imdb_keywords:death, 848: imdb_keywords:scream, 339: imdb_keywords:death-of-husband, 142: imdb_keywords:assassination-attempt, 854: imdb_keywords:secret-agent, 856: imdb_keywords:security-camera, 860: imdb_keywords:self-sacrifice, 861: imdb_keywords:semiautomatic-pistol, 862: imdb_keywords:sequel, 351: imdb_keywords:detective, 353: imdb_keywords:digit-in-title, 866: imdb_keywords:severed-arm, 868: imdb_keywords:severed-head, 357: imdb_keywords:directorial-debut, 871: imdb_keywords:sex-scene, 874: imdb_keywords:sheriff, 363: imdb_keywords:doctor, 364: imdb_keywords:dog, 877: imdb_keywords:shootout, 878: imdb_keywords:shot-in-the-arm, 879: imdb_keywords:shot-in-the-back, 368: imdb_keywords:drawing, 881: imdb_keywords:shot-in-the-forehead, 863: imdb_keywords:sergeant, 889: imdb_keywords:shower, 379: imdb_keywords:drunkenness, 380: imdb_keywords:duel, 382: imdb_keywords:dysfunctional-family, 865: imdb_keywords:servant, 384: imdb_keywords:eating, 902: imdb_keywords:small-town, 1121: tvtropes:disproportionate retribution, 393: imdb_keywords:epic, 906: imdb_keywords:snow, 663: imdb_keywords:mistress, 908: imdb_keywords:social-commentary, 398: imdb_keywords:evil, 401: imdb_keywords:ex-convict, 404: imdb_keywords:exploding-body, 918: imdb_keywords:stabbed-in-the-chest, 919: imdb_keywords:stabbed-to-death, 920: imdb_keywords:stabbing, 924: imdb_keywords:stealing, 927: imdb_keywords:strangulation, 928: imdb_keywords:street-life, 418: imdb_keywords:falling-from-height, 932: imdb_keywords:student, 1180: tvtropes:spiritual successor, 71: movielens_tags:perrot library, 434: imdb_keywords:female-nudity, 435: imdb_keywords:female-protagonist, 670: imdb_keywords:mother-daughter-relationship, 950: imdb_keywords:suspicion, 440: imdb_keywords:fictional-war, 244: imdb_keywords:car-crash, 415: imdb_keywords:fainting, 441: imdb_keywords:fight, 451: imdb_keywords:fish-out-of-water, 964: imdb_keywords:taxi-driver, 456: imdb_keywords:flashlight, 459: imdb_keywords:flower, 395: imdb_keywords:erotica, 464: imdb_keywords:foreign-language-adaptation, 469: imdb_keywords:freeze-frame, 470: imdb_keywords:french, 471: imdb_keywords:friend, 472: imdb_keywords:friendship, 477: imdb_keywords:gang, 165: imdb_keywords:based-on-book, 992: imdb_keywords:title-spoken-by-character, 996: imdb_keywords:torch, 486: imdb_keywords:general, 1002: imdb_keywords:train, 1009: imdb_keywords:tree, 498: imdb_keywords:graveyard, 1011: imdb_keywords:truck, 937: imdb_keywords:subway, 506: imdb_keywords:gunfire, 507: imdb_keywords:gunshot
+Loading indicators
+Building indicator distributions
+Loading user profiles
+Processing user 401, movie 8867 (Anatomy of Hell (Anatomie de l'enfer) (2004))
+Original predicted rating: 3.46987392117
+User profile: {'neg_name': 'movielens_tags:soundtrack', 'neg': 82, 'profile_id': 8, 'pos_name': 'imdb_keywords:fireworks', 'pos': 448}
+Non-zero qiis:
+average_rating (1194): 0.466737479164
+imdb_keywords:alcohol (116): 0.132911779644
+imdb_keywords:death (334): -0.099188040982
+imdb_keywords:recording (802): 0.0397116242919
+imdb_keywords:pubic-hair (782): 0.0319007012891
+year (0): 0.0289590938493
+imdb_keywords:politics (761): -0.0205241366924
+imdb_keywords:friendship (472): -0.0151196436474
+imdb_keywords:catholic (249): 0.0125047589867
+imdb_keywords:1940s (94): 0.0104582313109
+imdb_keywords:fictional-war (440): -0.00829217865241
+imdb_keywords:freeze-frame (469): -0.00827347057639
+imdb_keywords:severed-head (868): -0.00663142936526
+imdb_keywords:character-says-i-love-you (258): -0.00445247793653
+imdb_keywords:person-on-fire (736): 0.00442561317838
+imdb_keywords:horse (539): -0.00430149688518
+imdb_keywords:sequel (862): -0.00247835043108
+imdb_keywords:drunkenness (379): -0.000454839306669
+imdb_keywords:digit-in-title (353): 4.49859763762e-05
+Correctness score: 0.0
+Processing user 863, movie 75990 (Apprenticeship of Duddy Kravitz, The (1974))
+Original predicted rating: 3.00704424866
+User profile: {'neg_name': 'imdb_keywords:immigrant', 'neg': 552, 'profile_id': 5, 'pos_name': 'imdb_keywords:father-daughter-relationship', 'pos': 427}
+Non-zero qiis:
+average_rating (1194): 0.281828094872
+imdb_keywords:brother-brother-relationship (222): 0.0506918556743
+year (0): -0.0500499819932
+imdb_keywords:f-word (412): 0.0274726552696
+imdb_keywords:assassination-attempt (142): -0.0272119143926
+imdb_keywords:washington-d.c. (1053): -0.0255421916163
+imdb_keywords:character-says-i-love-you (258): -0.0229245232217
+imdb_keywords:death-of-husband (339): -0.0192342603501
+imdb_keywords:truck (1011): -0.011926125666
+imdb_keywords:rainstorm (797): -0.00928205518704
+imdb_keywords:brawl (213): -0.00911133606966
+imdb_keywords:severed-head (868): -0.00853582873649
+imdb_keywords:drawing (368): -0.00626897373665
+imdb_keywords:gunfire (506): 0.00569846841076
+imdb_keywords:friendship (472): 0.00507166514623
+imdb_keywords:horse (539): -0.00400395923802
+imdb_keywords:speech (913): -0.00371030316841
+imdb_keywords:priest (769): -0.00299192205088
+imdb_keywords:ex-convict (401): 0.00237481226205
+imdb_keywords:drunkenness (379): 0.00175772094019
+movielens_genre:Horror (11): 0.000754022092596
+imdb_keywords:sequel (862): -0.000550280530931
+Correctness score: 0.0
+Processing user 62, movie 102388 (Candy Snatchers, The (1973))
+Original predicted rating: 2.88808465618
+User profile: {'neg_name': 'tvtropes:noodle incident', 'neg': 1163, 'profile_id': 0, 'pos_name': 'imdb_keywords:telephone-call', 'pos': 974}
+Non-zero qiis:
+average_rating (1194): -0.341468442258
+imdb_keywords:freeze-frame (469): 0.223585522519
+imdb_keywords:hostage (543): 0.135932820378
+movielens_tags:action (42): -0.0568677516305
+year (0): -0.0517244120266
+imdb_keywords:shot-in-the-arm (878): 0.0433947769539
+imdb_keywords:death-of-husband (339): -0.027459652532
+imdb_keywords:cigarette-smoking (276): 0.0203976529855
+imdb_keywords:record-player (801): 0.0114510105319
+imdb_keywords:exploding-body (404): 0.0108017020244
+imdb_keywords:pubic-hair (782): 0.00918520008262
+imdb_keywords:assassination-attempt (142): -0.00731754549557
+tvtropes:take that (1181): -0.00711128959087
+imdb_keywords:brother-brother-relationship (222): 0.00689848055253
+imdb_keywords:drunkenness (379): 0.00606763284737
+movielens_genre:Horror (11): 0.00520575150703
+imdb_keywords:flashlight (456): -0.00494463941087
+imdb_keywords:shot-in-the-back (879): -0.00403798756102
+tvtropes:berserk button (1095): 0.00397812006946
+Correctness score: 0.0
+Processing user 755, movie 45179 (Glass Key, The (1942))
+Original predicted rating: 2.86394607071
+User profile: {'neg_name': 'movielens_tags:soundtrack', 'neg': 82, 'profile_id': 8, 'pos_name': 'imdb_keywords:fireworks', 'pos': 448}
+Non-zero qiis:
+average_rating (1194): 0.646157153619
+imdb_keywords:politics (761): 0.137790414522
+imdb_keywords:car-crash (244): -0.0831992974895
+imdb_keywords:train (1002): 0.0341706971319
+imdb_keywords:rooftop (827): -0.0322907966819
+movielens_tags:imdb top 250 (59): -0.0316724353003
+imdb_keywords:drunkenness (379): -0.0311365900779
+imdb_keywords:friendship (472): -0.0287063052475
+imdb_keywords:chinese (270): -0.028374659199
+imdb_keywords:nightclub (691): 0.0221325699038
+imdb_keywords:brawl (213): -0.0155284226913
+imdb_keywords:digit-in-title (353): 0.0124234250867
+imdb_keywords:freeze-frame (469): -0.00889436243407
+imdb_keywords:drawing (368): -0.00714207337397
+imdb_keywords:apartment (130): -0.00649231131567
+imdb_keywords:1960s (96): -0.00580496503257
+imdb_keywords:horse (539): 0.00351080518467
+imdb_keywords:directorial-debut (357): -0.002957987966
+imdb_keywords:brother-brother-relationship (222): -0.00263555804241
+imdb_keywords:exploding-body (404): 0.00184246459789
+Correctness score: 0.0
+Processing user 608, movie 7042 (Betty Blue (37°2 le matin) (1986))
+Original predicted rating: 2.25038641181
+User profile: {'neg_name': 'imdb_keywords:map', 'neg': 641, 'profile_id': 1, 'pos_name': 'tvtropes:jerkass', 'pos': 1148}
+Non-zero qiis:
+average_rating (1194): -0.260352007063
+imdb_keywords:graveyard (498): 0.184698111226
+imdb_keywords:pubic-hair (782): 0.09132876899
+imdb_keywords:coming-of-age (290): 0.0705949080224
+year (0): 0.038104196271
+imdb_keywords:digit-in-title (353): 0.0252797219367
+imdb_keywords:cigarette-smoking (276): -0.0208562772837
+imdb_keywords:person-on-fire (736): 0.0208520072885
+imdb_keywords:flashlight (456): -0.0202388365637
+imdb_keywords:male-frontal-nudity (631): 0.0179557393648
+imdb_keywords:shot-in-the-back (879): -0.0165278321639
+tvtropes:what the hell hero (1192): 0.0133455072205
+imdb_keywords:death-of-husband (339): -0.011119191344
+imdb_keywords:based-on-book (165): -0.008618453302
+imdb_keywords:1960s (96): -0.00707765719923
+tvtropes:take that (1181): -0.00591568759779
+imdb_keywords:catholic (249): -0.00244043433399
+imdb_keywords:exploding-body (404): 0.00224641022856
+imdb_keywords:fictional-war (440): 0.00087797253571
+Correctness score: 0.0
+Processing user 271, movie 97950 (Man with the Iron Fists, The (2012))
+Original predicted rating: 4.18597497225
+User profile: {'neg_name': 'imdb_keywords:mistaken-identity', 'neg': 662, 'profile_id': 6, 'pos_name': 'imdb_keywords:erection', 'pos': 394}
+Non-zero qiis:
+average_rating (1194): -0.577301297837
+imdb_keywords:freeze-frame (469): 0.0660993748419
+imdb_keywords:hostage (543): -0.0476839864817
+year (0): 0.0468333061503
+imdb_keywords:cigarette-smoking (276): 0.0438475335929
+imdb_keywords:handgun (515): 0.0428993089327
+imdb_keywords:1920s (92): -0.0351883186914
+imdb_keywords:drunkenness (379): -0.0289764741678
+imdb_keywords:beer (182): 0.0226566222608
+imdb_keywords:snow (906): 0.015961148939
+imdb_keywords:washington-d.c. (1053): -0.0137000946188
+imdb_keywords:suspicion (950): 0.00808263152011
+imdb_keywords:nightclub (691): 0.00549256325954
+imdb_keywords:car-crash (244): -0.00495433420996
+imdb_keywords:exploding-body (404): -0.00494349771496
+imdb_keywords:rainstorm (797): 0.00362001035619
+tvtropes:take that (1181): -0.00127251012728
+imdb_keywords:shot-in-the-back (879): -0.00120050487074
+Correctness score: 0.0
+Processing user 590, movie 6548 (Bad Boys II (2003))
+Original predicted rating: 2.45295841902
+User profile: {'neg_name': 'imdb_keywords:witness', 'neg': 1070, 'profile_id': 2, 'pos_name': 'imdb_keywords:guitar', 'pos': 502}
+Non-zero qiis:
+average_rating (1194): 0.236666444795
+imdb_keywords:1920s (92): -0.0431555453732
+imdb_keywords:exploding-body (404): -0.0280107901997
+imdb_keywords:semiautomatic-pistol (861): -0.0258066890978
+imdb_keywords:snow (906): 0.0195750212815
+imdb_keywords:washington-d.c. (1053): 0.0171761179299
+imdb_keywords:death-of-husband (339): -0.013560731779
+year (0): 0.0118717316605
+imdb_keywords:cult-film (323): -0.0102357830061
+imdb_keywords:sequel (862): 0.00888336934178
+imdb_keywords:drawing (368): 0.00878818087232
+imdb_keywords:gunfire (506): -0.00798841615752
+imdb_keywords:nightmare (692): 0.00443311826978
+imdb_keywords:psychiatrist (779): -0.00353894914505
+imdb_keywords:based-on-book (165): 0.00342707078958
+imdb_keywords:fish-out-of-water (451): -0.00298703695938
+imdb_keywords:horse (539): -0.00250726333916
+movielens_genre:Horror (11): 0.0011840200565
+imdb_keywords:drunkenness (379): -0.000979529542593
+Correctness score: 0.0
+Processing user 729, movie 68028 (What Doesn't Kill You (2008))
+Original predicted rating: 2.06766542291
+User profile: {'neg_name': 'imdb_keywords:mistaken-identity', 'neg': 662, 'profile_id': 6, 'pos_name': 'imdb_keywords:erection', 'pos': 394}
+Non-zero qiis:
+average_rating (1194): -0.177831334257
+imdb_keywords:snow (906): -0.101525593932
+imdb_keywords:ex-convict (401): -0.0890842946016
+imdb_keywords:shot-in-the-back (879): -0.0370912017032
+imdb_keywords:bank (154): -0.0369629801928
+imdb_keywords:drawing (368): -0.0151578694221
+imdb_keywords:flashlight (456): -0.015139770737
+imdb_keywords:drunkenness (379): -0.0138890503449
+imdb_keywords:catholic (249): -0.0118823529269
+imdb_keywords:fictional-war (440): -0.00945974880387
+imdb_keywords:freeze-frame (469): -0.00943840655991
+year (0): 0.00831516635543
+imdb_keywords:exploding-body (404): 0.00600866121353
+imdb_keywords:brother-brother-relationship (222): -0.00361953148911
+imdb_keywords:cigarette-smoking (276): -0.00322590914295
+imdb_keywords:rainstorm (797): -0.00319479977399
+imdb_keywords:graveyard (498): -0.00308507146874
+imdb_keywords:male-frontal-nudity (631): 0.00198376670272
+imdb_keywords:psychiatrist (779): -0.00189134330774
+movielens_tags:acting (41): -0.00187039440209
+imdb_keywords:record-player (801): -0.00144158152669
+imdb_keywords:based-on-book (165): -0.00121745817136
+imdb_keywords:pubic-hair (782): 0.000236033778931
+Correctness score: 0.0
+Processing user 609, movie 109199 (Theatre Bizarre, The (2011))
+Original predicted rating: 2.25404515227
+User profile: {'neg_name': 'movielens_tags:soundtrack', 'neg': 82, 'profile_id': 8, 'pos_name': 'imdb_keywords:fireworks', 'pos': 448}
+Non-zero qiis:
+average_rating (1194): -0.300742144434
+imdb_keywords:psychiatrist (779): 0.0630922727559
+imdb_keywords:mercenary (654): 0.0610762542016
+imdb_keywords:cigarette-smoking (276): 0.0378295515532
+imdb_keywords:london-england (611): -0.0250021602501
+imdb_keywords:shot-in-the-back (879): -0.0176694630099
+imdb_keywords:flashlight (456): -0.0108183992456
+imdb_keywords:fish-out-of-water (451): 0.00734462691042
+imdb_keywords:suspicion (950): -0.00733195491344
+movielens_genre:Horror (11): -0.0031594033235
+imdb_keywords:exploding-body (404): 0.00297071882579
+imdb_keywords:swimming-pool (953): 0.00154991245668
+imdb_keywords:social-commentary (908): 0.000577398295079
+imdb_keywords:boat (203): 0.000430486220225
+imdb_keywords:digit-in-title (353): 0.000384074937605
+imdb_keywords:drunkenness (379): 0.000130770301245
+Correctness score: 0.0
+Processing user 995, movie 55116 (Hunting Party, The (2007))
+Original predicted rating: 1.20451618513
+User profile: {'neg_name': 'imdb_keywords:flatulence', 'neg': 457, 'profile_id': 9, 'pos_name': 'imdb_keywords:reference-to-jesus-christ', 'pos': 806}
+Non-zero qiis:
+average_rating (1194): 0.178975192667
+imdb_keywords:beer (182): -0.0731603933569
+year (0): -0.0480670438542
+imdb_keywords:stealing (924): 0.0297183426696
+imdb_keywords:1940s (94): 0.012129265346
+imdb_keywords:severed-arm (866): 0.0117689972929
+imdb_keywords:friendship (472): 0.00478702773189
+imdb_keywords:brother-brother-relationship (222): -0.00440604669777
+imdb_keywords:severed-head (868): -0.00439946691056
+imdb_keywords:sequel (862): -0.00386945302276
+imdb_keywords:horse (539): -0.00375988181322
+imdb_keywords:psychiatrist (779): -0.0034534912711
+imdb_keywords:f-word (412): -0.00327844437005
+imdb_keywords:truck (1011): -0.00307343298808
+imdb_keywords:freeze-frame (469): -0.00302712511414
+imdb_keywords:catholic (249): 0.00273256131225
+imdb_keywords:captain (240): 0.00207299084052
+imdb_keywords:pubic-hair (782): 0.00166129882694
+imdb_keywords:drunkenness (379): 0.000163046071244
+Correctness score: 0.0
+Processing user 399, movie 60647 (Transsiberian (2008))
+Original predicted rating: 2.01464143625
+User profile: {'neg_name': 'imdb_keywords:immigrant', 'neg': 552, 'profile_id': 5, 'pos_name': 'imdb_keywords:father-daughter-relationship', 'pos': 427}
+Non-zero qiis:
+average_rating (1194): -0.301443426734
+imdb_keywords:snow (906): -0.107547811221
+imdb_keywords:beer (182): 0.0539496742122
+imdb_keywords:bank (154): -0.0348049083498
+year (0): -0.0188122526813
+imdb_keywords:semiautomatic-pistol (861): -0.0181576073739
+imdb_keywords:drunkenness (379): 0.012427740777
+imdb_keywords:fictional-war (440): -0.0100545844623
+imdb_keywords:freeze-frame (469): -0.0100319002031
+imdb_keywords:shot-in-the-back (879): -0.00730903620558
+imdb_keywords:exploding-body (404): 0.00706976064108
+imdb_keywords:graveyard (498): 0.00652583371607
+imdb_keywords:horse (539): -0.00434275617667
+tvtropes:what the hell hero (1192): -0.00407428966088
+imdb_keywords:record-player (801): 0.00311552549462
+imdb_keywords:1960s (96): -0.002172968806
+movielens_genre:Horror (11): 0.00213248665192
+imdb_keywords:brother-brother-relationship (222): 0.00209449473728
+imdb_keywords:rainstorm (797): 0.00184871752971
+imdb_keywords:catholic (249): 0.00156574207869
+imdb_keywords:pubic-hair (782): -0.000409753176022
+tvtropes:idiot ball (1144): -0.000282750646951
+Correctness score: 0.0
+Processing user 731, movie 58411 (Hottest State, The (2006))
+Original predicted rating: 1.94507151976
+User profile: {'neg_name': 'imdb_keywords:witness', 'neg': 1070, 'profile_id': 2, 'pos_name': 'imdb_keywords:guitar', 'pos': 502}
+Non-zero qiis:
+average_rating (1194): -0.575733299336
+imdb_keywords:male-frontal-nudity (631): -0.169426125741
+imdb_keywords:cigarette-smoking (276): -0.137857829432
+imdb_keywords:coming-of-age (290): -0.120249583025
+imdb_keywords:cruelty (319): -0.0571918199889
+imdb_keywords:beer (182): 0.0270440532507
+year (0): -0.0188324470432
+imdb_keywords:shot-in-the-back (879): -0.0142137717689
+imdb_keywords:automobile (148): -0.0106982997057
+imdb_keywords:assassination-attempt (142): -0.00898115453818
+imdb_keywords:drunkenness (379): 0.00826480248011
+imdb_keywords:erotica (395): 0.00776606755871
+imdb_keywords:1960s (96): -0.0020374066375
+imdb_keywords:nightclub (691): -0.001958267515
+imdb_keywords:car-crash (244): 0.00176637232625
+imdb_keywords:speech (913): 0.000263978059779
+Correctness score: 0.0
+Processing user 899, movie 4756 (Musketeer, The (2001))
+Original predicted rating: 2.90176131008
+User profile: {'neg_name': 'imdb_keywords:mistaken-identity', 'neg': 662, 'profile_id': 6, 'pos_name': 'imdb_keywords:erection', 'pos': 394}
+Non-zero qiis:
+average_rating (1194): 0.518490625447
+imdb_keywords:rain (796): 0.112245364534
+imdb_keywords:eating (384): 0.0770697012279
+imdb_keywords:cult-director (322): -0.0550411983341
+imdb_keywords:pubic-hair (782): 0.0461769194301
+imdb_keywords:truck (1011): -0.0362010857012
+imdb_keywords:horse (539): -0.0357348773137
+imdb_keywords:rainstorm (797): -0.0325074581458
+imdb_keywords:directorial-debut (357): 0.0262970488733
+imdb_keywords:apartment (130): 0.0262029518841
+imdb_keywords:flower (459): 0.0217358245585
+imdb_keywords:erotica (395): 0.0188417386663
+imdb_keywords:brawl (213): 0.0178831241558
+imdb_keywords:freeze-frame (469): 0.0168088877723
+imdb_keywords:rooftop (827): -0.0130275492777
+imdb_keywords:assassination-attempt (142): -0.0110817061314
+imdb_keywords:drunkenness (379): 0.0100258752117
+imdb_keywords:1940s (94): 0.0082376609804
+imdb_keywords:sequel (862): -0.00527982243562
+imdb_keywords:nightclub (691): -0.00475107439863
+imdb_keywords:drawing (368): 0.00426564957613
+imdb_keywords:brother-brother-relationship (222): -0.00406003244191
+Correctness score: 0.0
+Processing user 727, movie 3427 (Coogan's Bluff (1968))
+Original predicted rating: 2.34373764497
+User profile: {'neg_name': 'tvtropes:noodle incident', 'neg': 1163, 'profile_id': 0, 'pos_name': 'imdb_keywords:telephone-call', 'pos': 974}
+Non-zero qiis:
+average_rating (1194): -0.107705675386
+imdb_keywords:gunfire (506): 0.0788177588486
+year (0): -0.0418110542228
+imdb_keywords:doctor (363): -0.0395186630354
+imdb_keywords:fish-out-of-water (451): -0.0350039024058
+imdb_keywords:drunkenness (379): 0.0317613474733
+imdb_keywords:wine (1068): -0.0293953274949
+imdb_keywords:death-of-husband (339): -0.0137033785515
+imdb_keywords:drawing (368): -0.0115802926629
+imdb_keywords:horse (539): -0.0115779438163
+imdb_keywords:suspicion (950): -0.0111891978435
+imdb_keywords:record-player (801): -0.0103196974146
+movielens_genre:Horror (11): 0.00941099911584
+imdb_keywords:social-commentary (908): 0.00772343099254
+imdb_keywords:1960s (96): 0.00675487228402
+imdb_keywords:pubic-hair (782): 0.00531447275015
+imdb_keywords:rainstorm (797): 0.00528454441871
+imdb_keywords:1920s (92): -0.00507822228063
+imdb_keywords:snow (906): 0.00460688462425
+imdb_keywords:shot-in-the-back (879): -0.00401449573521
+imdb_keywords:brother-brother-relationship (222): 0.00399139774682
+imdb_keywords:speech (913): 0.00331034458508
+tvtropes:berserk button (1095): 0.000659162755855
+imdb_keywords:semiautomatic-pistol (861): -0.000178417138562
+Correctness score: 0.0
+Processing user 413, movie 97870 (Sessions, The (Surrogate, The) (2012))
+Original predicted rating: 3.00667373773
+User profile: {'neg_name': 'imdb_keywords:bridge', 'neg': 218, 'profile_id': 3, 'pos_name': 'imdb_keywords:river', 'pos': 823}
+Non-zero qiis:
+average_rating (1194): 0.153705154793
+imdb_keywords:catholic (249): -0.153124153358
+imdb_keywords:beer (182): -0.0752317430096
+imdb_keywords:friendship (472): -0.0744129800186
+imdb_keywords:horse (539): -0.0516940274285
+imdb_keywords:brawl (213): -0.0509578055152
+imdb_keywords:orchestral-music-score (716): 0.0417665974393
+imdb_keywords:stealing (924): 0.0380414639472
+imdb_keywords:severed-arm (866): 0.0233196438598
+imdb_keywords:washington-d.c. (1053): -0.0166214589941
+tvtropes:establishing character moment (1126): 0.0157635218854
+year (0): -0.0141093699218
+imdb_keywords:sequel (862): -0.0123428021309
+imdb_keywords:fainting (415): 0.0118183510281
+imdb_keywords:alcohol (116): 0.0109054754372
+imdb_keywords:f-word (412): 0.0105326990848
+imdb_keywords:social-commentary (908): -0.0063018306904
+movielens_genre:Horror (11): -0.00511918628848
+imdb_keywords:pubic-hair (782): 0.00396014036935
+imdb_keywords:freeze-frame (469): -0.00245874078846
+imdb_keywords:drunkenness (379): -0.00229646700708
+imdb_keywords:1960s (96): 0.00204206124294
+imdb_keywords:drawing (368): -0.00197434130315
+imdb_keywords:person-on-fire (736): -0.000408038737886
+Correctness score: 0.0
+Processing user 475, movie 117851 (Penguins of Madagascar (2014))
+Original predicted rating: 2.75093012795
+User profile: {'neg_name': 'imdb_keywords:bridge', 'neg': 218, 'profile_id': 3, 'pos_name': 'imdb_keywords:river', 'pos': 823}
+Non-zero qiis:
+average_rating (1194): 0.349465552496
+tvtropes:establishing character moment (1126): 0.0572653297901
+imdb_keywords:directorial-debut (357): -0.0332451895601
+imdb_keywords:apartment (130): -0.0297884387023
+imdb_keywords:1940s (94): 0.0248161190403
+imdb_keywords:sequel (862): -0.018726897493
+imdb_keywords:orgasm (718): 0.0164480059868
+imdb_keywords:digit-in-title (353): -0.0100608003558
+imdb_keywords:character-says-i-love-you (258): -0.00836374157472
+imdb_keywords:rain (796): -0.00772202756699
+imdb_keywords:horse (539): -0.00651714010252
+imdb_keywords:recording (802): 0.00604450710316
+imdb_keywords:brawl (213): 0.0051680452045
+imdb_keywords:psychiatrist (779): 0.00454690984813
+imdb_keywords:captain (240): 0.00359319053366
+imdb_keywords:politics (761): -0.00303100667582
+imdb_keywords:ex-convict (401): 0.00264709185483
+imdb_keywords:friendship (472): -0.00230136125261
+imdb_keywords:drunkenness (379): 0.00195924909864
+imdb_keywords:brother-brother-relationship (222): 0.00193368541656
+movielens_genre:Horror (11): 0.00168094612915
+imdb_keywords:eating (384): 0.00160421581111
+imdb_keywords:speech (913): 0.00160374020681
+imdb_keywords:exploding-body (404): 0.0010494543883
+imdb_keywords:gunfire (506): 0.000625559165206
+imdb_keywords:pubic-hair (782): -0.000189146749037
+Correctness score: 0.0
+Processing user 768, movie 3830 (Psycho Beach Party (2000))
+Original predicted rating: 2.49244865476
+User profile: {'neg_name': 'imdb_keywords:mistaken-identity', 'neg': 662, 'profile_id': 6, 'pos_name': 'imdb_keywords:erection', 'pos': 394}
+Non-zero qiis:
+average_rating (1194): -0.276874872699
+imdb_keywords:1960s (96): 0.107856519668
+imdb_keywords:flashlight (456): -0.0937838720895
+imdb_keywords:semiautomatic-pistol (861): -0.0551649509548
+movielens_genre:Horror (11): -0.0186737354644
+movielens_tags:DVD-R (30): -0.0176144492169
+imdb_keywords:cigarette-smoking (276): 0.0169500386113
+imdb_keywords:graveyard (498): -0.0130903565894
+imdb_keywords:assassination-attempt (142): -0.0130677817435
+imdb_keywords:taxi-driver (964): -0.0113775937766
+imdb_keywords:subway (937): 0.00895095370895
+imdb_keywords:brother-brother-relationship (222): 0.00759131150223
+imdb_keywords:rainstorm (797): 0.00670051368375
+imdb_keywords:shot-in-the-back (879): -0.00667600010857
+imdb_keywords:automobile (148): -0.00536534722668
+imdb_keywords:psychiatrist (779): 0.00396674990946
+tvtropes:berserk button (1095): 0.00328851062742
+imdb_keywords:social-commentary (908): 0.0030335356721
+imdb_keywords:boat (203): 0.00255206779877
+imdb_keywords:digit-in-title (353): 0.00201785324604
+imdb_keywords:drunkenness (379): 0.00137408224811
+imdb_keywords:reporter (811): -0.000983128169107
+Correctness score: 0.0
+Processing user 268, movie 1391 (Mars Attacks! (1996))
+Original predicted rating: 2.06662585023
+User profile: {'neg_name': 'imdb_keywords:immigrant', 'neg': 552, 'profile_id': 5, 'pos_name': 'imdb_keywords:father-daughter-relationship', 'pos': 427}
+Non-zero qiis:
+average_rating (1194): 0.552964601942
+imdb_keywords:severed-head (868): 0.188735216628
+imdb_keywords:fictional-war (440): 0.0333718614136
+imdb_keywords:apartment (130): -0.0282944327953
+imdb_keywords:flower (459): 0.0193801473417
+imdb_keywords:social-commentary (908): -0.0185804627888
+imdb_keywords:catholic (249): 0.0151295871827
+tvtropes:establishing character moment (1126): 0.0107866563868
+imdb_keywords:rain (796): -0.0106867504347
+imdb_keywords:politics (761): -0.0095785270903
+imdb_keywords:underwater-scene (1024): -0.00904137503884
+imdb_keywords:brawl (213): 0.00899421320289
+imdb_keywords:eating (384): 0.00888049355846
+imdb_keywords:assassination-attempt (142): -0.00601295062034
+tvtropes:take that (1181): -0.00584346666279
+imdb_keywords:horse (539): -0.0052044083544
+imdb_keywords:sequel (862): 0.00444195331511
+imdb_keywords:f-word (412): 0.00376350268431
+imdb_keywords:recording (802): 0.00350652154673
+imdb_keywords:friendship (472): -0.00133505886938
+movielens_genre:Horror (11): -0.000847183567404
+imdb_keywords:1960s (96): -0.00068202954602
+imdb_keywords:rainstorm (797): -0.000572384912174
+imdb_keywords:psychiatrist (779): -0.000338855781169
+imdb_keywords:brother-brother-relationship (222): -0.000216160151921
+imdb_keywords:pubic-hair (782): 0.00016300626455
+imdb_keywords:freeze-frame (469): 7.52906258308e-06
+Correctness score: 0.0
+Processing user 957, movie 7713 (Cat People (1942))
+Original predicted rating: 2.17038214939
+User profile: {'neg_name': 'imdb_keywords:witness', 'neg': 1070, 'profile_id': 2, 'pos_name': 'imdb_keywords:guitar', 'pos': 502}
+Non-zero qiis:
+average_rating (1194): 0.115751482413
+imdb_keywords:museum (677): 0.0263967377487
+year (0): 0.0255959756924
+imdb_keywords:death-of-husband (339): -0.024391651049
+imdb_keywords:freeze-frame (469): 0.0241391031754
+imdb_keywords:psychiatrist (779): -0.0231270711189
+imdb_keywords:london-england (611): 0.0126665890826
+imdb_keywords:drawing (368): -0.0103824674324
+movielens_genre:Adventure (2): 0.00909919296318
+imdb_keywords:suspicion (950): -0.00904601604921
+imdb_keywords:secret-agent (854): 0.00769214980792
+imdb_keywords:sequel (862): -0.00445479366096
+imdb_keywords:horse (539): 0.00396788310429
+movielens_genre:Horror (11): 0.00201459129727
+imdb_keywords:f-word (412): -0.00188719091711
+imdb_keywords:pubic-hair (782): 0.00179552432327
+imdb_keywords:captain (240): -0.00109383562304
+imdb_keywords:drunkenness (379): -4.76489086893e-05
+imdb_keywords:exploding-body (404): -3.49770396331e-05
+Correctness score: 0.0
+Processing user 215, movie 6947 (Master and Commander: The Far Side of the World (2003))
+Original predicted rating: 2.90302002403
+User profile: {'neg_name': 'imdb_keywords:female-rear-nudity', 'neg': 437, 'profile_id': 4, 'pos_name': 'imdb_keywords:swat-team', 'pos': 951}
+Non-zero qiis:
+average_rating (1194): 0.244369734693
+imdb_keywords:friendship (472): 0.197753370563
+movielens_tags:history (58): 0.196266958137
+imdb_keywords:drawing (368): 0.0637373828928
+imdb_keywords:drunkenness (379): 0.0342023780011
+year (0): 0.0286865331048
+imdb_keywords:brawl (213): 0.0272406622981
+imdb_keywords:orchestral-music-score (716): 0.0270175027301
+imdb_keywords:horse (539): 0.0207525972017
+tvtropes:adult fear (1085): -0.0206409852249
+tvtropes:establishing character moment (1126): 0.0203938564158
+imdb_keywords:cross-dressing (317): -0.0158872182864
+imdb_keywords:social-commentary (908): 0.014449280785
+imdb_keywords:severed-arm (866): 0.01156528776
+imdb_keywords:f-word (412): -0.0102511714828
+imdb_keywords:catholic (249): 0.00896330904063
+imdb_keywords:alcohol (116): -0.00811043893454
+imdb_keywords:exploding-body (404): 0.00626228908508
+imdb_keywords:death-of-husband (339): 0.00359581254572
+imdb_keywords:brother-brother-relationship (222): 0.00106742451223
+Correctness score: 0.0
+Correctness scores: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+Average correctness: 0.0

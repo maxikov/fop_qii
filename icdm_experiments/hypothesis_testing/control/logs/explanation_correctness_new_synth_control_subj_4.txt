@@ -1,0 +1,584 @@
+Loading results dict
+Original recommender relative to ground truth on training set mean absolute error: 0.0229533533294, RMSE: 0.0290554464582
+Shadow model relative to the baseline recommender on test set MAE: 0.86205665876, RMSE: 1.0101975831
+Randomized model relative to the baseline recommender on test set MAE: 1.14867741736, RMSE: 1.40958060408
+Shadow model is 1.33248482648 times better than random on the test set
+Loading movies
+Loading ALS model
+Loading decision trees
+258 features are used: 0: year, 512: imdb_keywords:hand-grenade, 2: movielens_genre:Adventure, 517: imdb_keywords:hat, 1030: imdb_keywords:unrequited-love, 1: movielens_genre:Action, 10: movielens_genre:Film-Noir, 11: movielens_genre:Horror, 524: imdb_keywords:helicopter, 1037: imdb_keywords:van, 526: imdb_keywords:hero, 527: imdb_keywords:heroin, 16: movielens_genre:Thriller, 17: movielens_genre:War, 19: movielens_tags:70mm, 532: imdb_keywords:hit-in-the-crotch, 21: movielens_tags:BD-Video, 23: movielens_tags:Betamax, 25: movielens_tags:Bob*ola, 540: imdb_keywords:horse-and-carriage, 29: movielens_tags:Criterion, 5: movielens_genre:Comedy, 1057: imdb_keywords:waterfall, 34: movielens_tags:National Film Registry, 35: movielens_tags:Netflix Finland, 549: imdb_keywords:husband-wife-relationship, 1024: imdb_keywords:underwater-scene, 39: movielens_tags:To See, 40: movielens_tags:Tumey's DVDs, 519: imdb_keywords:head-butt, 45: movielens_tags:based on a book, 1070: imdb_keywords:witness, 559: imdb_keywords:injection, 49: movielens_tags:comedy, 50: movielens_tags:crime, 52: movielens_tags:drama, 55: movielens_tags:fantasy, 58: movielens_tags:history, 573: imdb_keywords:jeep, 64: movielens_tags:movie to see, 66: movielens_tags:music, 1093: tvtropes:badass, 583: imdb_keywords:kidnapping, 1096: tvtropes:big bad, 12: movielens_genre:Musical, 75: movielens_tags:religion, 76: movielens_tags:revenge, 589: imdb_keywords:knife, 80: movielens_tags:seen more than once, 81: movielens_tags:slow, 514: imdb_keywords:handcuffs, 83: movielens_tags:story, 596: imdb_keywords:lesbian, 85: movielens_tags:surreal, 88: movielens_tags:true story, 72: movielens_tags:politics, 604: imdb_keywords:lightning, 95: imdb_keywords:1950s, 97: imdb_keywords:1970s, 1026: imdb_keywords:undressing, 99: imdb_keywords:1990s, 612: imdb_keywords:loneliness, 101: imdb_keywords:2000s, 102: imdb_keywords:abortion, 529: imdb_keywords:high-school, 1128: tvtropes:expy, 1129: tvtropes:eye scream, 103: imdb_keywords:accident, 110: imdb_keywords:adultery, 1136: tvtropes:gory discretion shot, 113: imdb_keywords:airplane, 118: imdb_keywords:alcoholism, 120: imdb_keywords:ambulance, 121: imdb_keywords:ambush, 789: imdb_keywords:race-against-time, 1044: imdb_keywords:virgin, 1045: imdb_keywords:voice-over-narration, 1152: tvtropes:large ham, 1153: tvtropes:laser guided karma, 131: imdb_keywords:apology, 1156: tvtropes:mind screw, 133: imdb_keywords:archive-footage, 1160: tvtropes:mythology gag, 138: imdb_keywords:art, 450: imdb_keywords:fish, 654: imdb_keywords:mercenary, 1167: tvtropes:pet the dog, 147: imdb_keywords:author, 1172: tvtropes:red herring, 661: imdb_keywords:mission, 755: imdb_keywords:police-officer, 665: imdb_keywords:money, 667: imdb_keywords:monster, 156: imdb_keywords:bar, 1181: tvtropes:take that, 159: imdb_keywords:bare-butt, 160: imdb_keywords:bare-chested-male, 368: imdb_keywords:drawing, 676: imdb_keywords:murderer, 454: imdb_keywords:flash-forward, 1190: tvtropes:wham line, 167: imdb_keywords:based-on-novel, 681: imdb_keywords:neck-breaking, 1194: average_rating, 684: imdb_keywords:neo-noir, 175: imdb_keywords:battle, 359: imdb_keywords:disarming-someone, 177: imdb_keywords:beach, 179: imdb_keywords:beating, 398: imdb_keywords:evil, 183: imdb_keywords:best-friend, 184: imdb_keywords:betrayal, 698: imdb_keywords:number-in-title, 187: imdb_keywords:bikini, 188: imdb_keywords:binoculars, 189: imdb_keywords:bird, 190: imdb_keywords:birthday, 705: imdb_keywords:old-man, 196: imdb_keywords:black-panties, 199: imdb_keywords:blockbuster, 518: imdb_keywords:hate, 205: imdb_keywords:bomb, 208: imdb_keywords:bow-and-arrow, 211: imdb_keywords:boyfriend-girlfriend-relationship, 725: imdb_keywords:panties, 1106: tvtropes:california doubling, 215: imdb_keywords:breaking-and-entering, 216: imdb_keywords:breaking-the-fourth-wall, 217: imdb_keywords:breasts, 220: imdb_keywords:broken-leg, 221: imdb_keywords:brothel, 222: imdb_keywords:brother-brother-relationship, 224: imdb_keywords:brunette, 229: imdb_keywords:bus, 231: imdb_keywords:butler, 744: imdb_keywords:pilot, 233: imdb_keywords:california, 235: imdb_keywords:camera-shot-of-feet, 750: imdb_keywords:police, 242: imdb_keywords:car-accident, 243: imdb_keywords:car-chase, 349: imdb_keywords:desert, 249: imdb_keywords:catholic, 766: imdb_keywords:pregnancy, 213: imdb_keywords:brawl, 640: imdb_keywords:mansion, 262: imdb_keywords:chicago-illinois, 641: imdb_keywords:map, 777: imdb_keywords:prostitution, 266: imdb_keywords:child-in-peril, 779: imdb_keywords:psychiatrist, 782: imdb_keywords:pubic-hair, 272: imdb_keywords:christmas, 970: imdb_keywords:teenage-boy, 274: imdb_keywords:church, 277: imdb_keywords:city, 279: imdb_keywords:class-differences, 794: imdb_keywords:rage, 1011: imdb_keywords:truck, 289: imdb_keywords:combat, 805: imdb_keywords:reference-to-god, 297: imdb_keywords:controversy, 298: imdb_keywords:convertible, 812: imdb_keywords:rescue, 813: imdb_keywords:restaurant, 136: imdb_keywords:arrest, 819: imdb_keywords:ring, 822: imdb_keywords:rivalry, 313: imdb_keywords:creature, 827: imdb_keywords:rooftop, 316: imdb_keywords:cross, 320: imdb_keywords:crushed-to-death, 834: imdb_keywords:russian, 323: imdb_keywords:cult-film, 836: imdb_keywords:sadism, 328: imdb_keywords:dancing, 841: imdb_keywords:scandal, 334: imdb_keywords:death, 335: imdb_keywords:death-of-brother, 339: imdb_keywords:death-of-husband, 142: imdb_keywords:assassination-attempt, 825: imdb_keywords:robbery, 857: imdb_keywords:security-guard, 858: imdb_keywords:seduction, 1082: imdb_director:, 354: imdb_keywords:diner, 356: imdb_keywords:directed-by-star, 869: imdb_keywords:sex, 1137: tvtropes:groin attack, 558: imdb_keywords:inheritance, 364: imdb_keywords:dog, 877: imdb_keywords:shootout, 880: imdb_keywords:shot-in-the-chest, 882: imdb_keywords:shot-in-the-head, 884: imdb_keywords:shot-in-the-shoulder, 889: imdb_keywords:shower, 379: imdb_keywords:drunkenness, 892: imdb_keywords:singing, 893: imdb_keywords:single-mother, 383: imdb_keywords:dysfunctional-marriage, 490: imdb_keywords:girl, 386: imdb_keywords:eccentric, 396: imdb_keywords:escape, 910: imdb_keywords:soldier, 402: imdb_keywords:ex-husband-ex-wife-relationship, 915: imdb_keywords:spoof, 918: imdb_keywords:stabbed-in-the-chest, 413: imdb_keywords:face-slap, 927: imdb_keywords:strangulation, 928: imdb_keywords:street-life, 929: imdb_keywords:street-shootout, 420: imdb_keywords:false-accusation, 1122: tvtropes:does this remind you of anything, 1180: tvtropes:spiritual successor, 14: movielens_genre:Romance, 427: imdb_keywords:father-daughter-relationship, 428: imdb_keywords:father-son-relationship, 944: imdb_keywords:surgery, 840: imdb_keywords:satire, 946: imdb_keywords:surrealism, 435: imdb_keywords:female-protagonist, 949: imdb_keywords:suspense, 441: imdb_keywords:fight, 443: imdb_keywords:film-within-a-film, 445: imdb_keywords:fire, 962: imdb_keywords:tattoo, 963: imdb_keywords:taxi, 964: imdb_keywords:taxi-driver, 965: imdb_keywords:tea, 966: imdb_keywords:teacher, 545: imdb_keywords:hotel-room, 976: imdb_keywords:tent, 254: imdb_keywords:champagne, 466: imdb_keywords:forgiveness, 453: imdb_keywords:fistfight, 471: imdb_keywords:friend, 472: imdb_keywords:friendship, 164: imdb_keywords:baseball-bat, 988: imdb_keywords:throat-slitting, 484: imdb_keywords:gay-kiss, 593: imdb_keywords:lake, 489: imdb_keywords:gift, 1002: imdb_keywords:train, 679: imdb_keywords:native-american, 1004: imdb_keywords:training, 594: imdb_keywords:lawyer, 1007: imdb_keywords:trap, 801: imdb_keywords:record-player, 1107: tvtropes:cameo, 1012: imdb_keywords:trust, 1013: imdb_keywords:tunnel, 504: imdb_keywords:gun, 1017: imdb_keywords:typewriter, 835: imdb_keywords:sabotage, 511: imdb_keywords:hallucination, 682: imdb_keywords:necklace, 510: imdb_keywords:hairy-chest, 1125: tvtropes:driven to suicide
+Loading indicators
+Building indicator distributions
+Loading user profiles
+Processing user 842, movie 32728 (Little Girl Who Lives Down the Lane, The (1976))
+Original predicted rating: 2.2398150996
+User profile: {'neg_name': 'tvtropes:arch enemy', 'neg': 1090, 'profile_id': 5, 'pos_name': 'imdb_keywords:pipe-smoking', 'pos': 745}
+Non-zero qiis:
+average_rating (1194): -0.700883938895
+imdb_keywords:accident (103): -0.25956270811
+imdb_keywords:undressing (1026): -0.0371520875958
+imdb_keywords:teacher (966): -0.0313561899421
+movielens_tags:story (83): -0.0231888415396
+tvtropes:gory discretion shot (1136): -0.0169671830781
+imdb_keywords:father-daughter-relationship (427): -0.0162948572847
+imdb_keywords:rescue (812): 0.00822059979817
+tvtropes:cameo (1107): -0.00817208823862
+imdb_keywords:escape (396): -0.00807559403371
+imdb_keywords:rage (794): 0.0074140605902
+imdb_keywords:hat (517): 0.00598715946172
+imdb_keywords:black-panties (196): -0.00555458604735
+imdb_keywords:battle (175): 0.00462570255476
+imdb_keywords:fistfight (453): 0.00452577090007
+movielens_tags:comedy (49): -0.00312953307948
+imdb_keywords:surrealism (946): 0.00286451593497
+imdb_keywords:city (277): 0.00226965806832
+imdb_keywords:cross (316): 0.00212644624404
+imdb_keywords:high-school (529): 0.000291530850913
+imdb_keywords:father-son-relationship (428): 4.13273238595e-05
+imdb_keywords:satire (840): -1.77060245179e-05
+Correctness score: 0.0
+Processing user 121, movie 53569 (Amateurs, The (Moguls, The) (2005))
+Original predicted rating: 2.80429341471
+User profile: {'neg_name': 'imdb_keywords:death-of-husband', 'neg': 339, 'profile_id': 0, 'pos_name': 'movielens_tags:Bob*ola', 'pos': 25}
+Non-zero qiis:
+average_rating (1194): 0.107196990812
+imdb_keywords:bare-chested-male (160): -0.054388409739
+imdb_keywords:false-accusation (420): -0.0247648335717
+imdb_keywords:pubic-hair (782): -0.0227772303511
+imdb_keywords:car-accident (242): -0.0215994287803
+imdb_keywords:taxi-driver (964): 0.0190369481938
+imdb_keywords:brother-brother-relationship (222): -0.0100278706221
+imdb_keywords:christmas (272): 0.0097612418921
+imdb_keywords:shootout (877): -0.00803689180479
+tvtropes:mind screw (1156): -0.00637655970865
+imdb_keywords:handcuffs (514): -0.00530423701005
+imdb_keywords:1990s (99): 0.00407238254575
+imdb_keywords:adultery (110): -0.00405318732706
+imdb_keywords:spoof (915): 0.00395552031684
+imdb_keywords:head-butt (519): -0.00338194677352
+imdb_keywords:fish (450): 0.00271804669776
+imdb_keywords:hat (517): -0.00177046037537
+imdb_keywords:escape (396): 0.00159202031566
+imdb_keywords:lesbian (596): 0.0014367545421
+imdb_keywords:fistfight (453): 0.000835324157472
+tvtropes:big bad (1096): -0.000530496694787
+Correctness score: 0.0
+Processing user 291, movie 4975 (Vanilla Sky (2001))
+Original predicted rating: 2.38828444804
+User profile: {'neg_name': 'tvtropes:foreshadowing', 'neg': 1133, 'profile_id': 8, 'pos_name': 'imdb_keywords:breaking-the-fourth-wall', 'pos': 216}
+Non-zero qiis:
+average_rating (1194): 0.514505653136
+imdb_keywords:dancing (328): 0.0921488533662
+movielens_tags:surreal (85): 0.0825572772884
+imdb_keywords:car-accident (242): 0.0807295873089
+imdb_keywords:bare-chested-male (160): 0.0752365819962
+tvtropes:red herring (1172): 0.0658641858045
+imdb_keywords:hand-grenade (512): 0.0471707773359
+imdb_keywords:single-mother (893): 0.0422735296866
+imdb_keywords:train (1002): 0.0382834215924
+movielens_tags:slow (81): -0.0269031020744
+imdb_keywords:death-of-brother (335): 0.0259712637056
+imdb_keywords:horse-and-carriage (540): 0.025047580642
+imdb_keywords:surrealism (946): -0.0248937883211
+imdb_keywords:dysfunctional-marriage (383): 0.00754913800581
+imdb_keywords:adultery (110): 0.00745684237369
+imdb_keywords:female-protagonist (435): -0.00679047033952
+imdb_keywords:shootout (877): 0.00403898640802
+tvtropes:badass (1093): 0.00282324143671
+imdb_keywords:rage (794): 0.00183662606288
+imdb_keywords:virgin (1044): 0.00182395709511
+imdb_keywords:brother-brother-relationship (222): -0.00151849708866
+imdb_keywords:van (1037): -0.000729196579024
+imdb_keywords:fistfight (453): 0.000560566553817
+Correctness score: 0.0
+Processing user 447, movie 49422 (OSS 117: Cairo, Nest of Spies (OSS 117: Le Caire nid d'espions) (2006))
+Original predicted rating: 2.77610083842
+User profile: {'neg_name': 'movielens_tags:National Film Registry', 'neg': 34, 'profile_id': 6, 'pos_name': 'imdb_keywords:rope', 'pos': 829}
+Non-zero qiis:
+average_rating (1194): -0.564943820516
+imdb_keywords:spoof (915): -0.103202735317
+imdb_keywords:truck (1011): -0.0707468270823
+imdb_keywords:fish (450): 0.0213355707377
+movielens_tags:story (83): -0.0195522830473
+imdb_keywords:escape (396): 0.0187450764304
+imdb_keywords:undressing (1026): -0.015662881029
+tvtropes:badass (1093): -0.0151533885118
+imdb_keywords:shootout (877): -0.0147507231583
+imdb_keywords:rescue (812): 0.0141798431988
+tvtropes:big bad (1096): 0.0115010368268
+imdb_keywords:lake (593): 0.0101652968274
+movielens_tags:surreal (85): -0.00962654531333
+movielens_genre:Film-Noir (10): 0.00583858480613
+imdb_keywords:1990s (99): -0.00500768524606
+imdb_keywords:father-daughter-relationship (427): -0.00410731291587
+imdb_keywords:taxi-driver (964): 0.00301593915036
+imdb_keywords:rage (794): 0.00277763688143
+imdb_keywords:father-son-relationship (428): 0.00177514381986
+imdb_keywords:surrealism (946): -0.00145983138484
+imdb_keywords:satire (840): 0.00129124011289
+Correctness score: 0.0
+Processing user 563, movie 71464 (Serious Man, A (2009))
+Original predicted rating: 1.79696833123
+User profile: {'neg_name': 'imdb_keywords:extramarital-affair', 'neg': 409, 'profile_id': 9, 'pos_name': 'imdb_keywords:u.s.-army', 'pos': 1018}
+Non-zero qiis:
+movielens_tags:comedy (49): 0.176164935602
+average_rating (1194): 0.149742252495
+imdb_keywords:lake (593): -0.0257973178455
+imdb_keywords:brunette (224): -0.0255713711349
+imdb_keywords:chicago-illinois (262): 0.0244387152874
+imdb_keywords:butler (231): 0.0117489850987
+imdb_keywords:father-son-relationship (428): -0.0113937523714
+imdb_keywords:hat (517): 0.00915497111706
+imdb_keywords:shootout (877): -0.00844025182548
+imdb_keywords:neck-breaking (681): -0.00662472073905
+imdb_keywords:1990s (99): 0.00512847615238
+imdb_keywords:alcoholism (118): 0.004321949796
+imdb_keywords:adultery (110): 0.00254477911276
+imdb_keywords:drunkenness (379): -0.00253034796105
+imdb_keywords:evil (398): -0.00112286464805
+imdb_keywords:stabbed-in-the-chest (918): -0.00108503242559
+imdb_keywords:spoof (915): 0.000930629684634
+imdb_keywords:brother-brother-relationship (222): -0.000902125053072
+imdb_keywords:tent (976): -0.000872266225333
+imdb_keywords:christmas (272): 0.000663034416699
+imdb_keywords:battle (175): -0.000116231961806
+imdb_keywords:fistfight (453): -5.68604686717e-05
+Correctness score: 0.0
+Processing user 954, movie 792 (Hungarian Fairy Tale, A (Hol volt, hol nem volt) (1987))
+Original predicted rating: 4.16814374538
+User profile: {'neg_name': 'tvtropes:arch enemy', 'neg': 1090, 'profile_id': 5, 'pos_name': 'imdb_keywords:pipe-smoking', 'pos': 745}
+Non-zero qiis:
+average_rating (1194): 0.236837467277
+imdb_keywords:chicago-illinois (262): -0.0421442579172
+imdb_keywords:gun (504): 0.0366492572993
+movielens_tags:comedy (49): -0.0235571848477
+tvtropes:take that (1181): -0.0182823608661
+imdb_keywords:father-son-relationship (428): 0.0177609955312
+imdb_keywords:evil (398): 0.0139202978815
+imdb_keywords:rivalry (822): 0.0123049050873
+imdb_keywords:tea (965): -0.0121113337453
+tvtropes:red herring (1172): 0.0111212617634
+imdb_keywords:cross (316): -0.00990088824129
+imdb_keywords:alcoholism (118): 0.00828703436155
+imdb_keywords:battle (175): -0.00804165448512
+imdb_keywords:christmas (272): -0.00668847312292
+imdb_keywords:escape (396): 0.00609955573125
+imdb_keywords:1990s (99): -0.00593899518929
+tvtropes:spiritual successor (1180): -0.0054987870647
+imdb_keywords:van (1037): 0.00511738058255
+imdb_keywords:head-butt (519): 0.00485999050303
+imdb_keywords:fish (450): 0.00466057926997
+imdb_keywords:fistfight (453): -0.00393396304953
+imdb_keywords:brother-brother-relationship (222): -0.00230818031448
+tvtropes:big bad (1096): 0.00124918833995
+Correctness score: 0.0
+Processing user 351, movie 1626 (Fire Down Below (1997))
+Original predicted rating: 2.76884034415
+User profile: {'neg_name': 'imdb_keywords:hope', 'neg': 538, 'profile_id': 1, 'pos_name': 'movielens_tags:funny', 'pos': 57}
+Non-zero qiis:
+average_rating (1194): -0.709366344908
+imdb_keywords:fistfight (453): 0.0346264175107
+movielens_tags:To See (39): -0.0324121249901
+imdb_keywords:1990s (99): -0.0251281456341
+tvtropes:cameo (1107): -0.0194982732602
+imdb_keywords:rage (794): 0.0184922873365
+imdb_keywords:escape (396): -0.0182919474578
+imdb_keywords:alcoholism (118): -0.018017537111
+imdb_keywords:blockbuster (199): -0.0156691057465
+imdb_keywords:father-daughter-relationship (427): -0.0141436350915
+imdb_keywords:cross (316): -0.0133873825064
+imdb_keywords:teacher (966): -0.010756739716
+movielens_tags:story (83): -0.0105308182801
+imdb_keywords:van (1037): 0.00995864728807
+imdb_keywords:fish (450): 0.00552093950288
+imdb_keywords:rescue (812): 0.00380740282012
+tvtropes:spiritual successor (1180): 0.0020842149638
+imdb_keywords:surrealism (946): 0.0012058834266
+imdb_keywords:brother-brother-relationship (222): 0.000437436828703
+imdb_keywords:high-school (529): 0.000347790431827
+Correctness score: 0.0
+Processing user 867, movie 4034 (Traffic (2000))
+Original predicted rating: 3.56449649385
+User profile: {'neg_name': 'imdb_keywords:hope', 'neg': 538, 'profile_id': 1, 'pos_name': 'movielens_tags:funny', 'pos': 57}
+Non-zero qiis:
+average_rating (1194): 0.405035096344
+movielens_tags:politics (72): 0.071628305921
+imdb_keywords:hat (517): 0.0445621894526
+imdb_keywords:escape (396): 0.0345532463753
+imdb_keywords:father-son-relationship (428): 0.0339549496464
+movielens_tags:comedy (49): -0.0204668058532
+tvtropes:take that (1181): -0.015883966306
+imdb_keywords:shootout (877): -0.0131319544986
+tvtropes:badass (1093): -0.00845903950171
+movielens_genre:Film-Noir (10): 0.00591066864921
+tvtropes:spiritual successor (1180): -0.00510856467585
+imdb_keywords:christmas (272): 0.00403971476099
+imdb_keywords:lake (593): 0.00264997290708
+imdb_keywords:neck-breaking (681): -0.00264033448103
+imdb_keywords:fistfight (453): 0.00145430387907
+imdb_keywords:city (277): -0.00132614563499
+imdb_keywords:cross (316): -0.00124246794877
+imdb_keywords:brother-brother-relationship (222): -0.00107218994674
+imdb_keywords:adultery (110): 0.00101424170206
+tvtropes:big bad (1096): -0.000923597616756
+imdb_keywords:head-butt (519): 0.000846275085524
+Correctness score: 0.0
+Processing user 610, movie 51037 (Unknown (2006))
+Original predicted rating: 1.48860815918
+User profile: {'neg_name': 'movielens_tags:National Film Registry', 'neg': 34, 'profile_id': 6, 'pos_name': 'imdb_keywords:rope', 'pos': 829}
+Non-zero qiis:
+average_rating (1194): -0.254269527692
+imdb_keywords:head-butt (519): -0.0799321930759
+imdb_keywords:neck-breaking (681): -0.0227360384945
+imdb_keywords:father-son-relationship (428): 0.0223122539792
+tvtropes:wham line (1190): 0.0156898338399
+imdb_keywords:satire (840): -0.0119491561245
+imdb_keywords:chicago-illinois (262): 0.00973597222035
+imdb_keywords:adultery (110): -0.0071186051328
+imdb_keywords:cross (316): 0.00405706439693
+tvtropes:spiritual successor (1180): 0.0030046480967
+imdb_keywords:escape (396): 0.00146908094423
+imdb_keywords:surrealism (946): 0.000869213446186
+imdb_keywords:evil (398): -0.000693720534424
+imdb_keywords:battle (175): -0.000319092722758
+imdb_keywords:1990s (99): 0.000295970887385
+imdb_keywords:christmas (272): 0.000166660627122
+imdb_keywords:fistfight (453): -7.8049795787e-05
+Correctness score: 0.0
+Processing user 966, movie 100487 (Beautiful Creatures (2013))
+Original predicted rating: 2.24215397677
+User profile: {'neg_name': 'imdb_keywords:cigar-smoking', 'neg': 275, 'profile_id': 2, 'pos_name': 'imdb_keywords:snow', 'pos': 906}
+Non-zero qiis:
+average_rating (1194): 0.379636325334
+imdb_keywords:unrequited-love (1030): -0.337745026685
+imdb_keywords:christmas (272): -0.203723568469
+imdb_keywords:battle (175): -0.0620108552556
+imdb_keywords:adultery (110): 0.0574730483915
+year (0): 0.0558088324619
+movielens_tags:slow (81): 0.049536889883
+imdb_keywords:car-accident (242): 0.048365443382
+imdb_keywords:catholic (249): -0.0474105095194
+imdb_keywords:lesbian (596): 0.0426810922966
+imdb_keywords:bare-chested-male (160): 0.0423485008542
+imdb_keywords:art (138): 0.0275037707
+imdb_keywords:train (1002): 0.0241550259968
+imdb_keywords:head-butt (519): 0.0239775237224
+imdb_keywords:beating (179): 0.0225193828827
+imdb_keywords:surrealism (946): -0.0206165230577
+imdb_keywords:single-mother (893): 0.0195167110944
+movielens_tags:National Film Registry (34): -0.018062838419
+imdb_keywords:brunette (224): -0.0178870393676
+imdb_keywords:evil (398): -0.0172544119392
+movielens_tags:true story (88): 0.0122171637122
+imdb_keywords:female-protagonist (435): -0.00638485067097
+imdb_keywords:fistfight (453): -0.00633505106488
+imdb_keywords:bikini (187): 0.00574813964473
+imdb_keywords:pubic-hair (782): -0.00560107273129
+imdb_keywords:escape (396): -0.00504565150533
+imdb_keywords:tunnel (1013): -0.00430336965003
+imdb_keywords:typewriter (1017): -0.00403038999353
+tvtropes:badass (1093): -0.00255377179056
+imdb_keywords:hat (517): -0.00180755871878
+imdb_keywords:shootout (877): 0.000914395178105
+tvtropes:red herring (1172): 0.00046155963769
+Correctness score: 0.0
+Processing user 510, movie 3300 (Pitch Black (2000))
+Original predicted rating: 2.09999283303
+User profile: {'neg_name': 'tvtropes:arch enemy', 'neg': 1090, 'profile_id': 5, 'pos_name': 'imdb_keywords:pipe-smoking', 'pos': 745}
+Non-zero qiis:
+average_rating (1194): 0.439418480808
+imdb_keywords:brothel (221): -0.112655933219
+tvtropes:eye scream (1129): 0.0863409522546
+imdb_keywords:shootout (877): 0.0571196312527
+imdb_keywords:neck-breaking (681): 0.047413953196
+imdb_keywords:hat (517): -0.0411164416147
+imdb_keywords:beating (179): 0.0362383992284
+imdb_keywords:escape (396): 0.03546210885
+imdb_keywords:bare-chested-male (160): -0.0266838982769
+imdb_keywords:ex-husband-ex-wife-relationship (402): -0.0228025311962
+imdb_keywords:battle (175): 0.0227249040269
+imdb_keywords:handcuffs (514): -0.0211500896316
+imdb_keywords:brother-brother-relationship (222): -0.0137002325127
+imdb_keywords:car-accident (242): -0.0107656825532
+imdb_keywords:female-protagonist (435): -0.00857769438575
+imdb_keywords:car-chase (243): 0.00728774081086
+imdb_keywords:single-mother (893): 0.00610942273127
+movielens_tags:true story (88): -0.00481953387881
+imdb_keywords:van (1037): 0.00464826313964
+imdb_keywords:pubic-hair (782): 0.00441912057857
+imdb_keywords:fistfight (453): 0.00435297054629
+imdb_keywords:virgin (1044): -0.00333703002893
+imdb_keywords:1990s (99): -0.00269538221588
+Correctness score: 0.0
+Processing user 167, movie 72405 (Bad Lieutenant: Port of Call New Orleans (2009))
+Original predicted rating: 2.8874787227
+User profile: {'neg_name': 'imdb_keywords:torture', 'neg': 997, 'profile_id': 3, 'pos_name': 'imdb_keywords:psychopath', 'pos': 780}
+Non-zero qiis:
+average_rating (1194): 0.604390144226
+imdb_keywords:car-accident (242): -0.154471482173
+imdb_keywords:hand-grenade (512): 0.0594960635404
+imdb_keywords:virgin (1044): 0.0452448810505
+imdb_keywords:pubic-hair (782): -0.0449372458126
+movielens_tags:true story (88): 0.032672651306
+imdb_keywords:adultery (110): 0.0292828334506
+imdb_keywords:necklace (682): -0.0267667768727
+imdb_keywords:shootout (877): 0.0248300103168
+imdb_keywords:brothel (221): 0.0243409709802
+imdb_keywords:brother-brother-relationship (222): -0.0162342716355
+imdb_keywords:beating (179): 0.0155598782177
+imdb_keywords:bikini (187): 0.0154213224216
+imdb_keywords:single-mother (893): -0.0150985572282
+imdb_keywords:train (1002): 0.0138103747932
+movielens_tags:story (83): 0.0128271760025
+imdb_keywords:car-chase (243): -0.00826854320662
+imdb_keywords:evil (398): 0.00718742266527
+imdb_keywords:fish (450): 0.00408579211185
+imdb_keywords:bare-chested-male (160): -0.0040184386266
+tvtropes:badass (1093): 0.00350571173598
+imdb_keywords:surrealism (946): 0.0029172927804
+imdb_keywords:singing (892): 0.00105717039715
+imdb_keywords:hat (517): 0.000749684887414
+imdb_keywords:chicago-illinois (262): -0.000427130912501
+imdb_keywords:fistfight (453): 6.53558477518e-05
+Correctness score: 0.0
+Processing user 516, movie 3857 (Bless the Child (2000))
+Original predicted rating: 3.16435726541
+User profile: {'neg_name': 'imdb_keywords:extramarital-affair', 'neg': 409, 'profile_id': 9, 'pos_name': 'imdb_keywords:u.s.-army', 'pos': 1018}
+Non-zero qiis:
+imdb_keywords:single-mother (893): -0.281664509913
+average_rating (1194): 0.257719165713
+imdb_keywords:tattoo (962): 0.111031937753
+imdb_keywords:christmas (272): 0.0847894309098
+imdb_keywords:beating (179): -0.0688744699001
+imdb_keywords:lawyer (594): -0.0559563349162
+imdb_keywords:fish (450): 0.0412652185704
+imdb_keywords:restaurant (813): 0.0271111122453
+imdb_keywords:female-protagonist (435): 0.0167045259023
+imdb_keywords:neck-breaking (681): 0.01505886333
+imdb_keywords:hand-grenade (512): 0.0147493802089
+imdb_keywords:controversy (297): -0.0139988061654
+imdb_keywords:escape (396): 0.0120849774855
+imdb_keywords:chicago-illinois (262): 0.0113274990072
+imdb_keywords:bare-chested-male (160): -0.0107304585584
+movielens_tags:true story (88): 0.00654101817631
+imdb_keywords:rage (794): -0.00542193314753
+imdb_keywords:fistfight (453): 0.00497058522699
+imdb_keywords:adultery (110): 0.00474918913533
+tvtropes:big bad (1096): -0.0031567134872
+imdb_keywords:van (1037): -0.00215528005764
+imdb_keywords:handcuffs (514): 0.00212120557016
+imdb_keywords:pubic-hair (782): -0.00149939541637
+imdb_keywords:shootout (877): -0.00118386510322
+movielens_tags:surreal (85): -0.00115891244166
+imdb_keywords:car-accident (242): 0.000544189206026
+imdb_keywords:brother-brother-relationship (222): 0.00033224269188
+imdb_keywords:surrealism (946): 0.000228973607992
+Correctness score: 0.0
+Processing user 864, movie 1516 (Children of the Revolution (1996))
+Original predicted rating: 2.14845333927
+User profile: {'neg_name': 'imdb_keywords:extramarital-affair', 'neg': 409, 'profile_id': 9, 'pos_name': 'imdb_keywords:u.s.-army', 'pos': 1018}
+Non-zero qiis:
+imdb_keywords:car-accident (242): -0.414433672245
+imdb_keywords:typewriter (1017): -0.344706097768
+average_rating (1194): 0.288906503193
+imdb_keywords:husband-wife-relationship (549): -0.226919811249
+imdb_keywords:brunette (224): 0.131250630472
+imdb_keywords:reference-to-god (805): -0.103130725083
+tvtropes:big bad (1096): -0.0775311620968
+tvtropes:does this remind you of anything (1122): -0.0327857800772
+imdb_keywords:dancing (328): 0.0301576771493
+movielens_tags:National Film Registry (34): -0.0211633309865
+imdb_keywords:lesbian (596): 0.0100956295529
+imdb_keywords:rivalry (822): 0.00668700541925
+movielens_tags:surreal (85): -0.00625661086022
+imdb_keywords:bare-chested-male (160): -0.00616800330945
+imdb_keywords:alcoholism (118): 0.00490915009023
+imdb_keywords:christmas (272): -0.00363479894417
+imdb_keywords:shootout (877): -0.00319566129227
+imdb_keywords:fistfight (453): -0.00285753272688
+imdb_keywords:escape (396): -0.00256417058049
+imdb_keywords:chicago-illinois (262): -0.00240345004693
+tvtropes:red herring (1172): -0.00233761387617
+imdb_keywords:surrealism (946): -0.000395558948113
+Correctness score: 0.0
+Processing user 453, movie 33558 (Snow Walker, The (2003))
+Original predicted rating: 3.29105573003
+User profile: {'neg_name': 'imdb_keywords:extramarital-affair', 'neg': 409, 'profile_id': 9, 'pos_name': 'imdb_keywords:u.s.-army', 'pos': 1018}
+Non-zero qiis:
+average_rating (1194): 0.570120072228
+imdb_keywords:bare-chested-male (160): 0.134581348752
+movielens_tags:slow (81): 0.112186686504
+imdb_keywords:singing (892): -0.0329029010447
+imdb_keywords:dancing (328): -0.0299670473307
+imdb_keywords:dysfunctional-marriage (383): 0.0241511633149
+tvtropes:spiritual successor (1180): -0.0240773386348
+imdb_keywords:pubic-hair (782): -0.023182074642
+imdb_keywords:lesbian (596): 0.0201492245539
+imdb_keywords:female-protagonist (435): -0.0119563375542
+imdb_keywords:fish (450): 0.00948522418351
+imdb_keywords:car-accident (242): -0.0082978802021
+imdb_keywords:handcuffs (514): -0.00815094208659
+imdb_keywords:street-shootout (929): -0.00757392200952
+imdb_keywords:adultery (110): 0.00528537218384
+imdb_keywords:brother-brother-relationship (222): 0.00331272414162
+tvtropes:badass (1093): -0.00330740343727
+imdb_keywords:shootout (877): -0.00214634469107
+imdb_keywords:spoof (915): -0.00123969805375
+imdb_keywords:christmas (272): -0.000718695431697
+imdb_keywords:battle (175): -0.000385036542525
+imdb_keywords:rage (794): -0.000308567641556
+imdb_keywords:fistfight (453): -0.000188359190738
+imdb_keywords:van (1037): 0.000122510767525
+tvtropes:big bad (1096): 5.98114679347e-05
+Correctness score: 0.0
+Processing user 974, movie 98933 (Yossi (Ha-Sippur Shel Yossi) (2012))
+Original predicted rating: 2.82045515732
+User profile: {'neg_name': 'imdb_keywords:torture', 'neg': 997, 'profile_id': 3, 'pos_name': 'imdb_keywords:psychopath', 'pos': 780}
+Non-zero qiis:
+average_rating (1194): -0.304791155639
+movielens_tags:comedy (49): -0.0361098093776
+imdb_keywords:truck (1011): 0.0206534074373
+imdb_keywords:throat-slitting (988): -0.0149975407804
+imdb_keywords:father-daughter-relationship (427): -0.0143934710321
+imdb_keywords:archive-footage (133): 0.0134179539
+imdb_keywords:accident (103): 0.0109977712919
+imdb_keywords:shootout (877): 0.00700123207008
+imdb_keywords:fistfight (453): 0.00515927350078
+movielens_tags:surreal (85): 0.00456911007335
+tvtropes:red herring (1172): 0.00358304584586
+imdb_keywords:christmas (272): -0.00316004530865
+imdb_keywords:satire (840): -0.00284897801316
+imdb_keywords:father-son-relationship (428): 0.00265990001087
+imdb_keywords:brother-brother-relationship (222): -0.00233707851871
+imdb_keywords:taxi-driver (964): 0.00221835942854
+imdb_keywords:surrealism (946): -0.00214754380324
+imdb_keywords:escape (396): 0.001965153621
+imdb_keywords:chicago-illinois (262): 0.00184197907836
+tvtropes:big bad (1096): -0.00163827270837
+imdb_keywords:evil (398): -0.00156573420165
+imdb_keywords:city (277): 0.00128228818079
+imdb_keywords:1990s (99): 0.000668009260322
+Correctness score: 0.0
+Processing user 915, movie 2236 (Simon Birch (1998))
+Original predicted rating: 3.1515002475
+User profile: {'neg_name': 'tvtropes:noodle incident', 'neg': 1163, 'profile_id': 4, 'pos_name': 'imdb_keywords:supermarket', 'pos': 942}
+Non-zero qiis:
+average_rating (1194): 0.639653208171
+imdb_keywords:rage (794): 0.1491539762
+imdb_keywords:training (1004): 0.0664111061559
+imdb_keywords:necklace (682): -0.047816882708
+movielens_tags:Bob*ola (25): -0.045110744016
+imdb_keywords:tattoo (962): -0.0401764706885
+imdb_keywords:adultery (110): -0.0399138769513
+imdb_keywords:beating (179): 0.0250733902094
+imdb_keywords:brothel (221): 0.0191345263604
+tvtropes:big bad (1096): 0.0178065362436
+imdb_keywords:christmas (272): -0.0152169471838
+tvtropes:badass (1093): -0.013442345429
+imdb_keywords:neck-breaking (681): 0.0134226128127
+imdb_keywords:bare-chested-male (160): -0.0107679685936
+imdb_keywords:shootout (877): -0.00872343132437
+imdb_keywords:virgin (1044): 0.00838410025876
+imdb_keywords:evil (398): -0.00785570948539
+imdb_keywords:single-mother (893): -0.00736894847768
+imdb_keywords:chicago-illinois (262): -0.00668498995711
+imdb_keywords:pubic-hair (782): -0.00555139595166
+imdb_keywords:brunette (224): -0.00542275683686
+imdb_keywords:escape (396): -0.00356601016127
+imdb_keywords:restaurant (813): 0.00221844421439
+imdb_keywords:tunnel (1013): -0.00163627254973
+imdb_keywords:lawyer (594): -0.00146393789237
+imdb_keywords:car-accident (242): 0.00141034823588
+imdb_keywords:handcuffs (514): 0.0013853739163
+imdb_keywords:street-shootout (929): 0.00128730076654
+Correctness score: 0.0
+Processing user 79, movie 59014 (Superhero Movie (2008))
+Original predicted rating: 1.51782010664
+User profile: {'neg_name': 'movielens_tags:National Film Registry', 'neg': 34, 'profile_id': 6, 'pos_name': 'imdb_keywords:rope', 'pos': 829}
+Non-zero qiis:
+average_rating (1194): -0.488525220841
+imdb_keywords:rescue (812): -0.0615877852423
+imdb_keywords:spoof (915): 0.0503434389799
+imdb_keywords:chicago-illinois (262): -0.0306267979084
+imdb_keywords:father-son-relationship (428): 0.0220816161119
+movielens_tags:story (83): -0.0185779323632
+imdb_keywords:undressing (1026): -0.0148823512664
+tvtropes:spiritual successor (1180): -0.013718576583
+imdb_keywords:death-of-husband (339): -0.0115458252255
+imdb_keywords:escape (396): 0.00857996196902
+imdb_keywords:fish (450): 0.00585940696043
+imdb_keywords:gun (504): 0.00547700278552
+imdb_keywords:1990s (99): 0.00542845423708
+imdb_keywords:father-daughter-relationship (427): -0.00437077447923
+imdb_keywords:lake (593): 0.00423604994457
+imdb_keywords:christmas (272): 0.00397228120571
+imdb_keywords:surrealism (946): -0.00396864153296
+imdb_keywords:hat (517): -0.00381665548835
+imdb_keywords:black-panties (196): 0.00259401287532
+imdb_keywords:shootout (877): 0.00251810422402
+imdb_keywords:battle (175): -0.00220994395304
+imdb_keywords:city (277): -0.00211987795369
+imdb_keywords:van (1037): 0.000703159051084
+imdb_keywords:fistfight (453): -0.000540550322629
+Correctness score: 0.0
+Processing user 753, movie 610 (Heavy Metal (1981))
+Original predicted rating: 2.32421602062
+User profile: {'neg_name': 'imdb_keywords:extramarital-affair', 'neg': 409, 'profile_id': 9, 'pos_name': 'imdb_keywords:u.s.-army', 'pos': 1018}
+Non-zero qiis:
+average_rating (1194): -0.19922384715
+tvtropes:spiritual successor (1180): -0.190847164147
+movielens_genre:Horror (11): -0.118337867418
+imdb_keywords:satire (840): 0.0760050023529
+imdb_keywords:birthday (190): -0.0643689159401
+imdb_keywords:brother-brother-relationship (222): -0.0433713340321
+imdb_keywords:father-son-relationship (428): 0.041807022433
+imdb_keywords:father-daughter-relationship (427): -0.0256124254663
+imdb_keywords:tea (965): -0.0165947049138
+imdb_keywords:fish (450): -0.0139423923435
+imdb_keywords:escape (396): -0.0122495532608
+imdb_keywords:battle (175): 0.0121641944544
+imdb_keywords:accident (103): 0.0108183895376
+imdb_keywords:hat (517): 0.00908168840597
+imdb_keywords:chicago-illinois (262): -0.00765450618704
+tvtropes:big bad (1096): 0.00708625237498
+movielens_tags:drama (52): 0.00700018980955
+tvtropes:groin attack (1137): -0.0049289293858
+tvtropes:badass (1093): -0.00481407832205
+imdb_keywords:fistfight (453): 0.00396713483937
+tvtropes:does this remind you of anything (1122): -0.00119697529224
+imdb_keywords:rivalry (822): 0.000271066638221
+imdb_keywords:1990s (99): -0.000261662068735
+Correctness score: 0.0
+Processing user 371, movie 61132 (Tropic Thunder (2008))
+Original predicted rating: 2.46049395931
+User profile: {'neg_name': 'imdb_keywords:extramarital-affair', 'neg': 409, 'profile_id': 9, 'pos_name': 'imdb_keywords:u.s.-army', 'pos': 1018}
+Non-zero qiis:
+average_rating (1194): 0.2477276599
+imdb_keywords:spoof (915): 0.128656620026
+imdb_keywords:female-protagonist (435): -0.0440926448344
+imdb_keywords:brother-brother-relationship (222): -0.0425134424803
+imdb_keywords:pubic-hair (782): -0.0423349614823
+imdb_keywords:dancing (328): 0.033927309673
+tvtropes:mind screw (1156): -0.0284606483835
+imdb_keywords:rivalry (822): -0.0184163011755
+imdb_keywords:bare-chested-male (160): -0.014850937243
+imdb_keywords:brothel (221): 0.0146695942015
+imdb_keywords:fistfight (453): -0.0139477468028
+imdb_keywords:adultery (110): 0.0130278256639
+movielens_tags:surreal (85): -0.0122913346767
+imdb_keywords:bikini (187): 0.00929398182839
+imdb_keywords:christmas (272): 0.00913632949332
+imdb_keywords:head-butt (519): 0.00724687501707
+imdb_keywords:taxi-driver (964): 0.00704031393445
+imdb_keywords:shootout (877): -0.0062779903264
+imdb_keywords:1990s (99): 0.00624277889467
+imdb_keywords:fish (450): -0.00619385148603
+imdb_keywords:battle (175): -0.00617110670862
+imdb_keywords:escape (396): -0.00544181456083
+imdb_keywords:brunette (224): -0.0054061103316
+imdb_keywords:van (1037): 0.00392704034996
+tvtropes:big bad (1096): 0.0038344719034
+imdb_keywords:surrealism (946): -0.00340778468274
+Correctness score: 0.0
+Correctness scores: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+Average correctness: 0.0

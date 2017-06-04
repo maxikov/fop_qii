@@ -1,0 +1,486 @@
+Loading results dict
+Original recommender relative to ground truth on training set mean absolute error: 0.0214497847771, RMSE: 0.0271781856209
+Shadow model relative to the baseline recommender on test set MAE: 0.86171241364, RMSE: 1.01705647028
+Randomized model relative to the baseline recommender on test set MAE: 1.13382131099, RMSE: 1.38334702479
+Shadow model is 1.31577692632 times better than random on the test set
+Loading movies
+Loading ALS model
+Loading decision trees
+253 features are used: 0: year, 2: movielens_genre:Adventure, 4: movielens_genre:Children, 5: movielens_genre:Comedy, 6: movielens_genre:Crime, 8: movielens_genre:Drama, 9: movielens_genre:Fantasy, 10: movielens_genre:Film-Noir, 11: movielens_genre:Horror, 1037: imdb_keywords:van, 14: movielens_genre:Romance, 527: imdb_keywords:heroin, 1040: imdb_keywords:video-camera, 1041: imdb_keywords:village, 1044: imdb_keywords:virgin, 533: imdb_keywords:hitman, 535: imdb_keywords:homosexual, 26: movielens_tags:CLV, 539: imdb_keywords:horse, 1052: imdb_keywords:warrior, 543: imdb_keywords:hostage, 32: movielens_tags:DVD-Video, 546: imdb_keywords:house, 547: imdb_keywords:humiliation, 548: imdb_keywords:hunting, 38: movielens_tags:R, 1067: imdb_keywords:wig, 44: movielens_tags:atmospheric, 45: movielens_tags:based on a book, 1070: imdb_keywords:witness, 560: imdb_keywords:insanity, 561: imdb_keywords:interracial-relationship, 1081: imdb_keywords:zombie, 59: movielens_tags:imdb top 250, 572: imdb_keywords:jealousy, 573: imdb_keywords:jeep, 574: imdb_keywords:jew, 576: imdb_keywords:journalist, 1091: tvtropes:asshole victim, 1092: tvtropes:ax crazy, 583: imdb_keywords:kidnapping, 584: imdb_keywords:killing-an-animal, 1097: tvtropes:big damn heroes, 1098: tvtropes:bilingual bonus, 1101: tvtropes:blatant lies, 590: imdb_keywords:knocked-out, 593: imdb_keywords:lake, 82: movielens_tags:soundtrack, 611: imdb_keywords:london-england, 1108: tvtropes:cassandra truth, 1109: tvtropes:catchphrase, 88: movielens_tags:true story, 601: imdb_keywords:library, 488: imdb_keywords:ghost, 1039: imdb_keywords:vengeance, 1116: tvtropes:creator cameo, 606: imdb_keywords:lingerie, 95: imdb_keywords:1950s, 16: movielens_genre:Thriller, 99: imdb_keywords:1990s, 100: imdb_keywords:19th-century, 614: imdb_keywords:looking-at-oneself-in-a-mirror, 103: imdb_keywords:accident, 616: imdb_keywords:loss-of-father, 617: imdb_keywords:loss-of-friend, 1127: tvtropes:even evil has standards, 620: imdb_keywords:love, 621: imdb_keywords:love-triangle, 111: imdb_keywords:africa, 856: imdb_keywords:security-camera, 113: imdb_keywords:airplane, 839: imdb_keywords:san-francisco-california, 1139: tvtropes:heroic b s o d, 630: imdb_keywords:maid, 1143: tvtropes:hoist by his own petard, 532: imdb_keywords:hit-in-the-crotch, 1147: tvtropes:jerk with a heart of gold, 686: imdb_keywords:new-york-city, 1045: imdb_keywords:voice-over-narration, 128: imdb_keywords:answering-machine, 129: imdb_keywords:anti-hero, 1154: tvtropes:meaningful echo, 131: imdb_keywords:apology, 1158: tvtropes:ms fanservice, 1161: tvtropes:nice job breaking it hero, 23: movielens_tags:Betamax, 1164: tvtropes:not so different, 451: imdb_keywords:fish-out-of-water, 663: imdb_keywords:mistress, 153: imdb_keywords:band, 666: imdb_keywords:monkey, 668: imdb_keywords:montage, 158: imdb_keywords:bare-breasts, 671: imdb_keywords:mother-son-relationship, 160: imdb_keywords:bare-chested-male, 673: imdb_keywords:mountain, 674: imdb_keywords:murder, 675: imdb_keywords:murder-of-a-police-officer, 676: imdb_keywords:murderer, 625: imdb_keywords:machine-gun, 1192: tvtropes:what the hell hero, 1194: average_rating, 173: imdb_keywords:bathroom, 174: imdb_keywords:bathtub, 175: imdb_keywords:battle, 688: imdb_keywords:newspaper, 177: imdb_keywords:beach, 91: imdb_keywords:1910s, 627: imdb_keywords:madness, 182: imdb_keywords:beer, 184: imdb_keywords:betrayal, 698: imdb_keywords:number-in-title, 699: imdb_keywords:nun, 188: imdb_keywords:binoculars, 701: imdb_keywords:obscene-finger-gesture, 702: imdb_keywords:obsession, 193: imdb_keywords:bisexual, 708: imdb_keywords:older-woman-younger-man-relationship, 709: imdb_keywords:on-the-road, 710: imdb_keywords:on-the-run, 200: imdb_keywords:blonde, 204: imdb_keywords:bodyguard, 716: imdb_keywords:orchestral-music-score, 973: imdb_keywords:telephone, 35: movielens_tags:Netflix Finland, 213: imdb_keywords:brawl, 1145: tvtropes:infant immortality, 216: imdb_keywords:breaking-the-fourth-wall, 218: imdb_keywords:bridge, 732: imdb_keywords:party, 221: imdb_keywords:brothel, 224: imdb_keywords:brunette, 225: imdb_keywords:brutality, 226: imdb_keywords:bully, 635: imdb_keywords:male-rear-nudity, 742: imdb_keywords:pickup-truck, 234: imdb_keywords:camera, 751: imdb_keywords:police-brutality, 241: imdb_keywords:car, 754: imdb_keywords:police-detective, 243: imdb_keywords:car-chase, 756: imdb_keywords:police-officer-killed, 189: imdb_keywords:bird, 247: imdb_keywords:castle, 254: imdb_keywords:champagne, 767: imdb_keywords:prejudice, 258: imdb_keywords:character-says-i-love-you, 259: imdb_keywords:chase, 262: imdb_keywords:chicago-illinois, 264: imdb_keywords:child, 265: imdb_keywords:child-abuse, 266: imdb_keywords:child-in-peril, 268: imdb_keywords:childbirth, 269: imdb_keywords:children, 557: imdb_keywords:infidelity, 43: movielens_tags:adapted from:book, 46: movielens_tags:boring, 670: imdb_keywords:mother-daughter-relationship, 282: imdb_keywords:cocaine, 795: imdb_keywords:railway-station, 285: imdb_keywords:college, 798: imdb_keywords:rape, 287: imdb_keywords:colonel, 804: imdb_keywords:redhead, 806: imdb_keywords:reference-to-jesus-christ, 807: imdb_keywords:reference-to-william-shakespeare, 298: imdb_keywords:convertible, 814: imdb_keywords:revenge, 305: imdb_keywords:courage, 825: imdb_keywords:robbery, 832: imdb_keywords:rural-setting, 321: imdb_keywords:crying, 836: imdb_keywords:sadism, 837: imdb_keywords:sadist, 737: imdb_keywords:phone-booth, 328: imdb_keywords:dancing, 844: imdb_keywords:scene-during-end-credits, 738: imdb_keywords:photograph, 334: imdb_keywords:death, 335: imdb_keywords:death-of-brother, 851: imdb_keywords:search, 343: imdb_keywords:debt, 344: imdb_keywords:decapitation, 860: imdb_keywords:self-sacrifice, 97: imdb_keywords:1970s, 872: imdb_keywords:sexuality, 364: imdb_keywords:dog, 365: imdb_keywords:doll, 366: imdb_keywords:domestic-violence, 879: imdb_keywords:shot-in-the-back, 359: imdb_keywords:disarming-someone, 882: imdb_keywords:shot-in-the-head, 371: imdb_keywords:drink, 108: imdb_keywords:actress, 379: imdb_keywords:drunkenness, 894: imdb_keywords:single-parent, 384: imdb_keywords:eating, 389: imdb_keywords:elevator, 902: imdb_keywords:small-town, 904: imdb_keywords:sniper, 151: imdb_keywords:baby, 400: imdb_keywords:ex-boyfriend-ex-girlfriend-relationship, 914: imdb_keywords:split-screen, 916: imdb_keywords:spy, 405: imdb_keywords:exploding-building, 918: imdb_keywords:stabbed-in-the-chest, 956: imdb_keywords:sword-fight, 922: imdb_keywords:stalking, 855: imdb_keywords:secretary, 415: imdb_keywords:fainting, 411: imdb_keywords:f-rated, 420: imdb_keywords:false-accusation, 421: imdb_keywords:family-relationships, 934: imdb_keywords:subjective-camera, 424: imdb_keywords:farce, 938: imdb_keywords:suicide, 427: imdb_keywords:father-daughter-relationship, 242: imdb_keywords:car-accident, 432: imdb_keywords:female-frontal-nudity, 434: imdb_keywords:female-nudity, 755: imdb_keywords:police-officer, 436: imdb_keywords:female-pubic-hair, 437: imdb_keywords:female-rear-nudity, 951: imdb_keywords:swat-team, 441: imdb_keywords:fight, 159: imdb_keywords:bare-butt, 444: imdb_keywords:filmmaking, 959: imdb_keywords:tank, 960: imdb_keywords:tape-recorder, 962: imdb_keywords:tattoo, 963: imdb_keywords:taxi, 966: imdb_keywords:teacher, 339: imdb_keywords:death-of-husband, 461: imdb_keywords:following-someone, 465: imdb_keywords:forest, 472: imdb_keywords:friendship, 164: imdb_keywords:baseball-bat, 988: imdb_keywords:throat-slitting, 477: imdb_keywords:gang, 211: imdb_keywords:boyfriend-girlfriend-relationship, 480: imdb_keywords:garden, 996: imdb_keywords:torch, 997: imdb_keywords:torture, 1000: imdb_keywords:tragedy, 490: imdb_keywords:girl, 1004: imdb_keywords:training, 594: imdb_keywords:lawyer, 1006: imdb_keywords:transformation, 497: imdb_keywords:grave, 499: imdb_keywords:greed, 1020: imdb_keywords:umbrella, 1183: tvtropes:title drop, 511: imdb_keywords:hallucination
+Loading indicators
+Building indicator distributions
+Loading user profiles
+Processing user 873, movie 8729 (Swann in Love (Un amour de Swann) (1984))
+Original predicted rating: 3.6388713775
+User profile: {'neg_name': 'imdb_keywords:vampire', 'neg': 1036, 'profile_id': 4, 'pos_name': 'imdb_keywords:shot-in-the-arm', 'pos': 878}
+Non-zero qiis:
+imdb_keywords:19th-century (100): 0.214955375318
+imdb_keywords:party (732): 0.145112391244
+average_rating (1194): 0.0955320162695
+imdb_keywords:mistress (663): 0.0385676234749
+imdb_keywords:infidelity (557): 0.0170766870182
+imdb_keywords:brutality (225): 0.0165259478785
+imdb_keywords:reference-to-jesus-christ (806): 0.0116491919795
+imdb_keywords:umbrella (1020): 0.00843613730202
+imdb_keywords:witness (1070): 0.00718508788741
+imdb_keywords:sword-fight (956): -0.00717325093694
+imdb_keywords:tragedy (1000): 0.00508779231812
+imdb_keywords:female-frontal-nudity (432): -0.00495456331693
+imdb_keywords:elevator (389): 0.00190298572969
+imdb_keywords:courage (305): 0.000918012956719
+imdb_keywords:champagne (254): -0.000323090009013
+imdb_keywords:female-rear-nudity (437): -0.000234258061557
+Correctness score: 0.0
+Processing user 995, movie 6455 (North to Alaska (1960))
+Original predicted rating: 3.05507581036
+User profile: {'neg_name': 'imdb_keywords:lust', 'neg': 624, 'profile_id': 3, 'pos_name': 'imdb_keywords:debt', 'pos': 343}
+Non-zero qiis:
+average_rating (1194): 0.431709432119
+imdb_keywords:bathtub (174): 0.0729840130197
+tvtropes:ms fanservice (1158): -0.0683480057645
+imdb_keywords:fight (441): 0.0651116886977
+imdb_keywords:newspaper (688): -0.0408187902574
+imdb_keywords:character-says-i-love-you (258): -0.0135726218365
+tvtropes:catchphrase (1109): 0.00929425475794
+imdb_keywords:party (732): -0.00649873475262
+imdb_keywords:beer (182): -0.00445151392024
+imdb_keywords:pickup-truck (742): 0.00400032009624
+tvtropes:nice job breaking it hero (1161): -0.0038882563093
+imdb_keywords:monkey (666): 0.00388052646076
+imdb_keywords:band (153): 0.00296007777674
+imdb_keywords:beach (177): 0.00203495144012
+imdb_keywords:courage (305): -0.000931300039383
+imdb_keywords:female-rear-nudity (437): -9.72269799576e-05
+Correctness score: 0.0
+Processing user 163, movie 68554 (Angels & Demons (2009))
+Original predicted rating: 2.00261714912
+User profile: {'neg_name': 'imdb_keywords:evil', 'neg': 398, 'profile_id': 1, 'pos_name': 'imdb_keywords:husband-wife-relationship', 'pos': 549}
+Non-zero qiis:
+average_rating (1194): -0.289447592632
+imdb_keywords:stabbed-in-the-chest (918): 0.0314957652969
+imdb_keywords:domestic-violence (366): 0.0247814684922
+imdb_keywords:band (153): 0.0174645702117
+imdb_keywords:tank (959): 0.0147579315709
+imdb_keywords:mountain (673): -0.0135089152137
+imdb_keywords:infidelity (557): 0.0114122527643
+imdb_keywords:child-in-peril (266): 0.00927991053003
+imdb_keywords:party (732): -0.00484855613765
+imdb_keywords:scene-during-end-credits (844): -0.00292463767324
+imdb_keywords:female-rear-nudity (437): -0.000445379119197
+imdb_keywords:love-triangle (621): 0.000166352048775
+imdb_keywords:shot-in-the-head (882): 0.000141482451052
+Correctness score: 0.0
+Processing user 880, movie 4448 (Score, The (2001))
+Original predicted rating: 1.05364967063
+User profile: {'neg_name': 'imdb_keywords:long-take', 'neg': 613, 'profile_id': 2, 'pos_name': 'imdb_keywords:love', 'pos': 620}
+Non-zero qiis:
+average_rating (1194): -0.176475572861
+imdb_keywords:infidelity (557): 0.0216290524829
+imdb_keywords:champagne (254): -0.011207965932
+imdb_keywords:humiliation (547): 0.0103338532975
+imdb_keywords:fish-out-of-water (451): -0.00725739002925
+tvtropes:infant immortality (1145): 0.00618001568663
+imdb_keywords:child-in-peril (266): 0.00606142723507
+movielens_tags:true story (88): 0.00571961129135
+imdb_keywords:montage (668): -0.00430893409007
+imdb_keywords:convertible (298): 0.00272623584831
+Correctness score: 0.0
+Processing user 997, movie 4142 (Left Behind: The Movie (2000))
+Original predicted rating: 1.96142430115
+User profile: {'neg_name': 'imdb_keywords:singing', 'neg': 892, 'profile_id': 9, 'pos_name': 'imdb_keywords:uzi', 'pos': 1034}
+Non-zero qiis:
+average_rating (1194): 0.31234675833
+movielens_tags:CLV (26): -0.0807304733504
+imdb_keywords:blonde (200): 0.0325338106532
+imdb_keywords:sniper (904): -0.0237783355327
+imdb_keywords:infidelity (557): -0.0127189626241
+imdb_keywords:female-pubic-hair (436): 0.0118763758853
+imdb_keywords:elevator (389): 0.0107134360053
+imdb_keywords:female-frontal-nudity (432): -0.0104599569906
+imdb_keywords:stabbed-in-the-chest (918): -0.0104444801706
+imdb_keywords:dog (364): -0.0101033843298
+imdb_keywords:bathtub (174): -0.00844218147914
+tvtropes:nice job breaking it hero (1161): -0.00755318474063
+imdb_keywords:tragedy (1000): 0.00514827361752
+imdb_keywords:torch (996): -0.00465215268876
+imdb_keywords:reference-to-jesus-christ (806): -0.00435860073716
+imdb_keywords:party (732): -0.00375484792043
+imdb_keywords:secretary (855): 0.00253846695666
+imdb_keywords:doll (365): -0.000773147119501
+imdb_keywords:police-officer-killed (756): 0.000756052527875
+imdb_keywords:love-triangle (621): -0.000528705142872
+tvtropes:ms fanservice (1158): -0.000406782973449
+Correctness score: 0.0
+Processing user 832, movie 68444 (Great Buck Howard, The (2008))
+Original predicted rating: 2.48789182978
+User profile: {'neg_name': 'imdb_keywords:vampire', 'neg': 1036, 'profile_id': 4, 'pos_name': 'imdb_keywords:shot-in-the-arm', 'pos': 878}
+Non-zero qiis:
+average_rating (1194): -0.232648036506
+imdb_keywords:death (334): 0.161687431469
+imdb_keywords:convertible (298): -0.0581838437509
+imdb_keywords:champagne (254): -0.0303556643227
+imdb_keywords:fainting (415): -0.019832464397
+movielens_genre:Thriller (16): 0.0191940337575
+imdb_keywords:montage (668): 0.0148724619367
+movielens_tags:R (38): -0.0130279958938
+imdb_keywords:humiliation (547): -0.0118892388554
+imdb_keywords:stabbed-in-the-chest (918): 0.0111918366866
+imdb_keywords:secretary (855): 0.0106773331112
+imdb_keywords:police-brutality (751): 0.0104561102919
+imdb_keywords:love-triangle (621): 0.00935810812733
+movielens_tags:true story (88): -0.00658049063066
+imdb_keywords:party (732): -0.0063395297556
+tvtropes:creator cameo (1116): 0.00580188787791
+imdb_keywords:beer (182): 0.00561987404632
+imdb_keywords:zombie (1081): 0.00475536766738
+imdb_keywords:infidelity (557): 0.00273417502703
+imdb_keywords:filmmaking (444): 0.000617833375118
+imdb_keywords:wig (1067): 0.000609279218883
+Correctness score: 0.0
+Processing user 13, movie 93172 (Arena (2011))
+Original predicted rating: 1.67387196749
+User profile: {'neg_name': 'imdb_keywords:long-take', 'neg': 613, 'profile_id': 2, 'pos_name': 'imdb_keywords:love', 'pos': 620}
+Non-zero qiis:
+average_rating (1194): -0.11907441592
+imdb_keywords:scene-during-end-credits (844): -0.0546516410539
+imdb_keywords:convertible (298): 0.0279091735083
+imdb_keywords:sword-fight (956): 0.0232038295124
+imdb_keywords:female-pubic-hair (436): 0.0231647968953
+imdb_keywords:fish-out-of-water (451): 0.0185159601675
+imdb_keywords:fainting (415): 0.0172833225582
+imdb_keywords:shot-in-the-head (882): 0.0126571914781
+imdb_keywords:love-triangle (621): -0.0087757169205
+imdb_keywords:champagne (254): 0.00711662852697
+imdb_keywords:witness (1070): -0.00708305486004
+imdb_keywords:tragedy (1000): 0.00690156964729
+tvtropes:ms fanservice (1158): -0.00675199072903
+imdb_keywords:taxi (963): -0.00492279772972
+movielens_tags:R (38): -0.0044946778066
+imdb_keywords:stabbed-in-the-chest (918): -0.0027653523788
+imdb_keywords:tattoo (962): -0.000789723764815
+imdb_keywords:female-rear-nudity (437): 0.000585924546615
+Correctness score: 0.0
+Processing user 359, movie 6576 (Juggernaut (1974))
+Original predicted rating: 3.3138484684
+User profile: {'neg_name': 'imdb_keywords:policeman', 'neg': 759, 'profile_id': 8, 'pos_name': 'imdb_keywords:battle', 'pos': 175}
+Non-zero qiis:
+average_rating (1194): 0.370232700675
+imdb_keywords:child-in-peril (266): -0.0652038056044
+imdb_keywords:domestic-violence (366): 0.0307047136392
+imdb_keywords:shot-in-the-head (882): 0.0299551267075
+movielens_tags:R (38): -0.0165362542307
+imdb_keywords:secretary (855): 0.0149432737542
+imdb_keywords:village (1041): -0.0144543635274
+imdb_keywords:champagne (254): -0.0106209340207
+imdb_keywords:airplane (113): 0.00947206490529
+tvtropes:nice job breaking it hero (1161): -0.00741057505951
+imdb_keywords:love-triangle (621): 0.0065484878158
+imdb_keywords:mistress (663): 0.00621888336158
+imdb_keywords:house (546): 0.00585793904959
+imdb_keywords:murderer (676): 0.00578798099035
+imdb_keywords:band (153): 0.00396900508673
+imdb_keywords:tragedy (1000): 0.00252553521326
+imdb_keywords:library (601): 0.00145800488429
+imdb_keywords:greed (499): -0.000177196857483
+Correctness score: 0.0
+Processing user 717, movie 107426 (Demons 2 (Dèmoni 2... l'incubo ritorna) (1986))
+Original predicted rating: 2.64522519624
+User profile: {'neg_name': 'imdb_keywords:blockbuster', 'neg': 199, 'profile_id': 5, 'pos_name': 'imdb_keywords:betrayal', 'pos': 184}
+Non-zero qiis:
+average_rating (1194): 0.218991682167
+imdb_keywords:brutality (225): -0.123092696282
+imdb_keywords:childbirth (268): -0.0969754529639
+movielens_tags:CLV (26): -0.0893356077173
+imdb_keywords:elevator (389): 0.0542952211556
+imdb_keywords:stabbed-in-the-chest (918): -0.0447840952796
+imdb_keywords:pickup-truck (742): -0.0226712073275
+imdb_keywords:taxi (963): -0.0206901923526
+imdb_keywords:dog (364): -0.0202700333983
+imdb_keywords:courage (305): 0.00514987918537
+imdb_keywords:mistress (663): 0.00500151588195
+imdb_keywords:infidelity (557): 0.00414809896349
+imdb_keywords:secretary (855): 0.0034569809645
+imdb_keywords:female-rear-nudity (437): 0.00307825250985
+imdb_keywords:umbrella (1020): 0.00301485852829
+imdb_keywords:sword-fight (956): -0.00261368215725
+imdb_keywords:reference-to-jesus-christ (806): -0.00197900892559
+imdb_keywords:band (153): -0.00139073268273
+imdb_keywords:witness (1070): -0.000994686036857
+imdb_keywords:character-says-i-love-you (258): 0.000656329420265
+imdb_keywords:monkey (666): -0.000607728960994
+Correctness score: 0.0
+Processing user 136, movie 112 (Rumble in the Bronx (Hont faan kui) (1995))
+Original predicted rating: 0.916449886117
+User profile: {'neg_name': 'imdb_keywords:singing', 'neg': 892, 'profile_id': 9, 'pos_name': 'imdb_keywords:uzi', 'pos': 1034}
+Non-zero qiis:
+average_rating (1194): -0.30634994416
+tvtropes:nice job breaking it hero (1161): 0.0470388820989
+imdb_keywords:child-in-peril (266): -0.0377638060552
+imdb_keywords:love (620): -0.0342630935376
+imdb_keywords:shot-in-the-head (882): -0.0307007423782
+tvtropes:creator cameo (1116): 0.0272329464229
+imdb_keywords:stabbed-in-the-chest (918): -0.0176559400674
+imdb_keywords:party (732): -0.0126948146318
+imdb_keywords:jeep (573): 0.00980931614232
+imdb_keywords:female-pubic-hair (436): 0.00933556301515
+tvtropes:ms fanservice (1158): 0.00908902284922
+imdb_keywords:mountain (673): -0.00873879032718
+tvtropes:catchphrase (1109): -0.00456961712607
+imdb_keywords:humiliation (547): -0.00389308416929
+imdb_keywords:beer (182): 0.00184020549585
+imdb_keywords:sword-fight (956): -8.8789005286e-05
+imdb_keywords:infidelity (557): 3.52286122257e-05
+Correctness score: 0.0
+Processing user 679, movie 27803 (Sea Inside, The (Mar adentro) (2004))
+Original predicted rating: 1.91612828243
+User profile: {'neg_name': 'imdb_keywords:long-take', 'neg': 613, 'profile_id': 2, 'pos_name': 'imdb_keywords:love', 'pos': 620}
+Non-zero qiis:
+average_rating (1194): 0.30235201477
+imdb_keywords:childbirth (268): -0.117719076469
+imdb_keywords:stabbed-in-the-chest (918): 0.0286342612279
+imdb_keywords:beach (177): -0.0279624531469
+imdb_keywords:bathtub (174): 0.0205133819542
+imdb_keywords:fight (441): 0.0157948044151
+imdb_keywords:mistress (663): 0.0144539533857
+imdb_keywords:newspaper (688): -0.0127885182948
+imdb_keywords:car (241): 0.0123634658884
+imdb_keywords:love-triangle (621): 0.0123291490784
+imdb_keywords:elevator (389): -0.0107083727041
+imdb_keywords:female-frontal-nudity (432): 0.0104550134867
+imdb_keywords:children (269): 0.00994766866852
+tvtropes:ms fanservice (1158): 0.00948598285794
+imdb_keywords:party (732): -0.00810982844757
+imdb_keywords:homosexual (535): -0.00583975483258
+tvtropes:asshole victim (1091): 0.00278554013936
+imdb_keywords:umbrella (1020): -0.00205547903508
+imdb_keywords:murderer (676): 0.000890471679958
+imdb_keywords:tragedy (1000): 0.000777099160449
+imdb_keywords:female-rear-nudity (437): -6.08090435829e-05
+Correctness score: 0.0
+Processing user 661, movie 83158 (Malice in Wonderland (2009))
+Original predicted rating: 1.71767582887
+User profile: {'neg_name': 'imdb_keywords:rat', 'neg': 799, 'profile_id': 0, 'pos_name': 'imdb_keywords:pig', 'pos': 743}
+Non-zero qiis:
+average_rating (1194): -0.282301261435
+imdb_keywords:vengeance (1039): -0.0366213559604
+imdb_keywords:humiliation (547): -0.0364791284011
+imdb_keywords:beer (182): 0.0258647474527
+movielens_genre:Fantasy (9): 0.0175292319291
+imdb_keywords:looking-at-oneself-in-a-mirror (614): -0.0173628470212
+tvtropes:what the hell hero (1192): -0.0162005341168
+imdb_keywords:montage (668): 0.0152107984716
+imdb_keywords:child-in-peril (266): 0.0149077637799
+movielens_tags:true story (88): -0.0100952872416
+tvtropes:title drop (1183): -0.00986025546849
+imdb_keywords:child-abuse (265): 0.00873208874123
+imdb_keywords:sword-fight (956): -0.00674933120298
+imdb_keywords:infidelity (557): 0.00535583366356
+imdb_keywords:tragedy (1000): -0.00458927102729
+imdb_keywords:rural-setting (832): -0.00399856791718
+imdb_keywords:wig (1067): -0.000632233996768
+Correctness score: 0.0
+Processing user 897, movie 96079 (Skyfall (2012))
+Original predicted rating: 1.62920071713
+User profile: {'neg_name': 'imdb_keywords:evil', 'neg': 398, 'profile_id': 1, 'pos_name': 'imdb_keywords:husband-wife-relationship', 'pos': 549}
+Non-zero qiis:
+average_rating (1194): 0.241808576356
+imdb_keywords:sniper (904): -0.130459990149
+imdb_keywords:stabbed-in-the-chest (918): -0.0800550156078
+movielens_tags:CLV (26): -0.0777702109889
+imdb_keywords:infidelity (557): 0.0607975678702
+tvtropes:nice job breaking it hero (1161): 0.0563425502514
+imdb_keywords:police-officer-killed (756): -0.0519507274195
+imdb_keywords:secretary (855): 0.0390727491403
+imdb_keywords:brutality (225): 0.0182662603168
+imdb_keywords:dog (364): 0.0153950982856
+imdb_keywords:bathtub (174): -0.0137767476785
+imdb_keywords:lawyer (594): 0.0128617035579
+imdb_keywords:breaking-the-fourth-wall (216): 0.0102679642586
+imdb_keywords:telephone (973): 0.00867972598859
+imdb_keywords:sword-fight (956): 0.00625190829011
+imdb_keywords:monkey (666): -0.00379029705563
+imdb_keywords:mother-daughter-relationship (670): -0.00350455929335
+imdb_keywords:following-someone (461): -0.00306801793769
+imdb_keywords:band (153): -0.00289125050301
+imdb_keywords:female-rear-nudity (437): 0.000560879374325
+imdb_keywords:reference-to-jesus-christ (806): -0.000175347297108
+imdb_keywords:prejudice (767): 2.97822088573e-05
+Correctness score: 0.0
+Processing user 142, movie 3988 (How the Grinch Stole Christmas (a.k.a. The Grinch) (2000))
+Original predicted rating: 3.05356281916
+User profile: {'neg_name': 'imdb_keywords:evil', 'neg': 398, 'profile_id': 1, 'pos_name': 'imdb_keywords:husband-wife-relationship', 'pos': 549}
+Non-zero qiis:
+average_rating (1194): 0.257349723306
+imdb_keywords:village (1041): 0.156162386596
+imdb_keywords:shot-in-the-head (882): 0.0528078033147
+imdb_keywords:stabbed-in-the-chest (918): 0.0431184706785
+imdb_keywords:mountain (673): -0.0169385935121
+imdb_keywords:party (732): -0.0149350310522
+tvtropes:creator cameo (1116): 0.0143851978562
+imdb_keywords:love-triangle (621): 0.00834265647056
+imdb_keywords:female-pubic-hair (436): -0.00516510353512
+imdb_keywords:murderer (676): -0.00513133519765
+imdb_keywords:infidelity (557): 0.00454861347297
+tvtropes:ms fanservice (1158): 0.0042791975216
+imdb_keywords:torch (996): 0.00404649541757
+imdb_keywords:scene-during-end-credits (844): -0.00366715224232
+movielens_tags:R (38): 0.000965087629362
+tvtropes:bilingual bonus (1098): -0.000521097021475
+imdb_keywords:child-in-peril (266): -0.000469003757001
+Correctness score: 0.0
+Processing user 613, movie 3257 (Bodyguard, The (1992))
+Original predicted rating: 3.7279605268
+User profile: {'neg_name': 'imdb_keywords:zombie', 'neg': 1081, 'profile_id': 6, 'pos_name': 'imdb_keywords:magic', 'pos': 629}
+Non-zero qiis:
+imdb_keywords:hallucination (511): 0.368561544989
+imdb_keywords:domestic-violence (366): 0.271862656813
+imdb_keywords:dog (364): -0.270110994197
+average_rating (1194): 0.129816164148
+imdb_keywords:fight (441): -0.0906254678755
+imdb_keywords:love-triangle (621): 0.0588492578348
+imdb_keywords:female-rear-nudity (437): 0.0541251428274
+imdb_keywords:19th-century (100): -0.0451866996229
+imdb_keywords:witness (1070): 0.0420824128746
+imdb_keywords:maid (630): -0.0329628267665
+imdb_keywords:party (732): 0.0254451295139
+imdb_keywords:blonde (200): 0.0222998781865
+imdb_keywords:monkey (666): -0.0190263423021
+imdb_keywords:beach (177): -0.0155997646127
+imdb_keywords:secretary (855): 0.00959207278854
+imdb_keywords:bully (226): 0.0081222295744
+year (0): 0.00659497021882
+imdb_keywords:umbrella (1020): 0.00655218647878
+imdb_keywords:sadist (837): 0.00580534933791
+imdb_keywords:reference-to-jesus-christ (806): -0.00503811910989
+tvtropes:nice job breaking it hero (1161): 0.00207395529526
+imdb_keywords:female-frontal-nudity (432): -0.000847549844366
+imdb_keywords:elevator (389): 0.000651066564644
+Correctness score: 0.0
+Processing user 29, movie 6977 (New Jack City (1991))
+Original predicted rating: 2.06374155905
+User profile: {'neg_name': 'imdb_keywords:lust', 'neg': 624, 'profile_id': 3, 'pos_name': 'imdb_keywords:debt', 'pos': 343}
+Non-zero qiis:
+imdb_keywords:lawyer (594): -0.825353849333
+imdb_keywords:stabbed-in-the-chest (918): -0.678069451032
+imdb_keywords:disarming-someone (359): -0.499160902642
+imdb_keywords:police-officer-killed (756): -0.287532168274
+average_rating (1194): 0.239240527259
+imdb_keywords:telephone (973): -0.19509057424
+imdb_keywords:brutality (225): -0.149006479605
+imdb_keywords:female-rear-nudity (437): 0.146663457495
+imdb_keywords:gang (477): 0.145466060701
+imdb_keywords:umbrella (1020): -0.0656897626764
+movielens_tags:CLV (26): -0.040052875571
+imdb_keywords:warrior (1052): -0.0293942545764
+imdb_keywords:sniper (904): 0.0192328757991
+imdb_keywords:infidelity (557): 0.0155204666604
+imdb_keywords:character-says-i-love-you (258): 0.0123917911128
+imdb_keywords:answering-machine (128): -0.0115901907333
+movielens_genre:Thriller (16): -0.00528295582964
+imdb_keywords:sword-fight (956): -0.00501224093656
+imdb_keywords:tragedy (1000): 0.0036419500037
+imdb_keywords:dog (364): 0.00363184567405
+imdb_keywords:love-triangle (621): 0.00153230360342
+imdb_keywords:champagne (254): -0.000828409852236
+Correctness score: 0.0
+Processing user 504, movie 98124 (Batman: The Dark Knight Returns, Part 1 (2012))
+Original predicted rating: 2.04332999157
+User profile: {'neg_name': 'movielens_tags:based on a book', 'neg': 45, 'profile_id': 7, 'pos_name': 'imdb_keywords:gay-kiss', 'pos': 484}
+Non-zero qiis:
+average_rating (1194): 0.352801679565
+imdb_keywords:female-rear-nudity (437): 0.0615836155411
+movielens_tags:R (38): -0.0364502876095
+imdb_keywords:convertible (298): 0.0268328760434
+imdb_keywords:child-in-peril (266): 0.0177137508683
+imdb_keywords:love-triangle (621): 0.0164048810109
+imdb_keywords:mountain (673): -0.0141276040002
+tvtropes:asshole victim (1091): -0.0137851381479
+imdb_keywords:champagne (254): -0.0133034651461
+imdb_keywords:heroin (527): 0.0099962135062
+imdb_keywords:africa (111): -0.00817995963487
+imdb_keywords:sword-fight (956): -0.00708642830447
+imdb_keywords:jeep (573): -0.00658019323778
+imdb_keywords:death-of-brother (335): 0.00554367289881
+imdb_keywords:shot-in-the-head (882): -0.0028885126444
+imdb_keywords:fainting (415): -0.00210562387183
+imdb_keywords:stabbed-in-the-chest (918): 0.00175574439834
+tvtropes:nice job breaking it hero (1161): 0.00144117868694
+imdb_keywords:party (732): -0.000810854271848
+Correctness score: 0.0
+Processing user 683, movie 5526 (Isle, The (Seom) (2000))
+Original predicted rating: 2.31873042656
+User profile: {'neg_name': 'imdb_keywords:evil', 'neg': 398, 'profile_id': 1, 'pos_name': 'imdb_keywords:husband-wife-relationship', 'pos': 549}
+Non-zero qiis:
+average_rating (1194): 0.188610910397
+imdb_keywords:sniper (904): 0.0190042606135
+movielens_tags:CLV (26): -0.0175184372909
+imdb_keywords:dog (364): -0.0160384500115
+imdb_keywords:doll (365): 0.0128250689155
+movielens_genre:Drama (8): -0.0123688628558
+imdb_keywords:brutality (225): 0.0123439167194
+imdb_keywords:blonde (200): 0.00860754309007
+imdb_keywords:witness (1070): 0.0080882770213
+imdb_keywords:band (153): 0.00753915023345
+imdb_keywords:elevator (389): -0.00635557166035
+imdb_keywords:police-officer-killed (756): 0.00520946244157
+imdb_keywords:death-of-brother (335): -0.00516801817015
+imdb_keywords:champagne (254): -0.0036171914294
+imdb_keywords:childbirth (268): -0.00357220536354
+tvtropes:ms fanservice (1158): 0.00343185581542
+imdb_keywords:pickup-truck (742): 0.00310876025718
+imdb_keywords:party (732): 0.00302363410449
+imdb_keywords:killing-an-animal (584): -0.00294426365937
+imdb_keywords:prejudice (767): -0.00172322005601
+imdb_keywords:infidelity (557): 0.000219089387506
+Correctness score: 0.0
+Processing user 221, movie 479 (Judgment Night (1993))
+Original predicted rating: 2.57438298064
+User profile: {'neg_name': 'imdb_keywords:policeman', 'neg': 759, 'profile_id': 8, 'pos_name': 'imdb_keywords:battle', 'pos': 175}
+Non-zero qiis:
+average_rating (1194): -0.283890075342
+imdb_keywords:horse (539): 0.101956456768
+imdb_keywords:shot-in-the-head (882): -0.0744213973469
+imdb_keywords:character-says-i-love-you (258): -0.0620483630458
+imdb_keywords:tank (959): 0.0175503476683
+imdb_keywords:band (153): -0.0149700166884
+imdb_keywords:tragedy (1000): 0.0141030933939
+imdb_keywords:child-in-peril (266): 0.013655770899
+imdb_keywords:jeep (573): 0.0135878150127
+tvtropes:bilingual bonus (1098): 0.00758627349483
+movielens_tags:R (38): -0.00702500532636
+imdb_keywords:love-triangle (621): 0.00686402739191
+imdb_keywords:infidelity (557): 0.00527499481631
+imdb_keywords:party (732): -0.00280690420318
+Correctness score: 0.0
+Processing user 155, movie 27851 (Fond Kiss, A (Ae Fond Kiss...) (2004))
+Original predicted rating: 3.85690762921
+User profile: {'neg_name': 'imdb_keywords:zombie', 'neg': 1081, 'profile_id': 6, 'pos_name': 'imdb_keywords:magic', 'pos': 629}
+Non-zero qiis:
+average_rating (1194): 0.612924149226
+imdb_keywords:prejudice (767): -0.109352753946
+imdb_keywords:fight (441): 0.0455673249213
+imdb_keywords:apology (131): 0.0328852823749
+imdb_keywords:death-of-brother (335): 0.0226641306034
+imdb_keywords:children (269): 0.0191323947848
+imdb_keywords:dog (364): -0.0179826901039
+imdb_keywords:band (153): -0.0130333304256
+imdb_keywords:party (732): -0.00994501702367
+imdb_keywords:beach (177): -0.00957772516469
+imdb_keywords:monkey (666): -0.00854304977822
+imdb_keywords:murderer (676): 0.00745174349392
+imdb_keywords:tragedy (1000): 0.00650300705047
+imdb_keywords:elevator (389): -0.00643766335401
+imdb_keywords:torch (996): -0.00587633524992
+imdb_keywords:breaking-the-fourth-wall (216): 0.00516563045057
+imdb_keywords:character-says-i-love-you (258): 0.00461312136504
+imdb_keywords:car (241): 0.00376421840434
+imdb_keywords:bathtub (174): -0.00300519367342
+imdb_keywords:umbrella (1020): 0.00249879048156
+imdb_keywords:secretary (855): 0.00242878778567
+imdb_keywords:domestic-violence (366): -0.00131808675236
+imdb_keywords:police-officer-killed (756): -0.00090861823415
+tvtropes:asshole victim (1091): -0.000542572854312
+imdb_keywords:female-rear-nudity (437): 3.55335066387e-05
+Correctness score: 0.0
+Correctness scores: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+Average correctness: 0.0

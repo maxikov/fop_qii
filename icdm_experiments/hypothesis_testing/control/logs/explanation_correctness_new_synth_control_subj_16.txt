@@ -1,0 +1,226 @@
+Loading results dict
+Original recommender relative to ground truth on training set mean absolute error: 0.0233524038195, RMSE: 0.0295689207935
+Shadow model relative to the baseline recommender on test set MAE: 0.862165312232, RMSE: 1.00930659238
+Randomized model relative to the baseline recommender on test set MAE: 1.15861130142, RMSE: 1.41334460914
+Shadow model is 1.34383891927 times better than random on the test set
+Loading movies
+Loading ALS model
+Loading decision trees
+248 features are used: 0: year, 1025: imdb_keywords:underwear, 4: movielens_genre:Children, 5: movielens_genre:Comedy, 6: movielens_genre:Crime, 7: movielens_genre:Documentary, 8: movielens_genre:Drama, 1033: imdb_keywords:urination, 523: imdb_keywords:held-at-gunpoint, 12: movielens_genre:Musical, 13: movielens_genre:Mystery, 526: imdb_keywords:hero, 15: movielens_genre:Sci-Fi, 16: movielens_genre:Thriller, 1041: imdb_keywords:village, 23: movielens_tags:Betamax, 26: movielens_tags:CLV, 28: movielens_tags:ClearPlay, 1054: imdb_keywords:watching-a-movie, 1055: imdb_keywords:watching-tv, 33: movielens_tags:In Netflix queue, 1059: imdb_keywords:wedding, 1062: imdb_keywords:whipping, 1064: imdb_keywords:white-panties, 1065: imdb_keywords:widow, 42: movielens_tags:action, 44: movielens_tags:atmospheric, 45: movielens_tags:based on a book, 1071: imdb_keywords:woman, 1073: imdb_keywords:woods, 562: imdb_keywords:interrogation, 51: movielens_tags:disturbing, 52: movielens_tags:drama, 1082: imdb_director:, 60: movielens_tags:less than 300 ratings, 62: movielens_tags:memasa's movies, 576: imdb_keywords:journalist, 1035: imdb_keywords:vacation, 1093: tvtropes:badass, 72: movielens_tags:politics, 268: imdb_keywords:childbirth, 1105: tvtropes:butt monkey, 594: imdb_keywords:lawyer, 595: imdb_keywords:leg-spreading, 86: movielens_tags:tense, 87: movielens_tags:thriller, 89: movielens_tags:violence, 770: imdb_keywords:prison, 603: imdb_keywords:lifting-someone-into-the-air, 94: imdb_keywords:1940s, 607: imdb_keywords:listening-to-music, 608: imdb_keywords:little-boy, 97: imdb_keywords:1970s, 1122: tvtropes:does this remind you of anything, 99: imdb_keywords:1990s, 100: imdb_keywords:19th-century, 101: imdb_keywords:2000s, 1126: tvtropes:establishing character moment, 17: movielens_genre:War, 1129: tvtropes:eye scream, 106: imdb_keywords:actor, 1132: tvtropes:faux affably evil, 110: imdb_keywords:adultery, 115: imdb_keywords:ak-47, 630: imdb_keywords:maid, 121: imdb_keywords:ambush, 636: imdb_keywords:man-with-glasses, 125: imdb_keywords:anger, 128: imdb_keywords:answering-machine, 328: imdb_keywords:dancing, 130: imdb_keywords:apartment, 136: imdb_keywords:arrest, 137: imdb_keywords:arson, 138: imdb_keywords:art, 1164: tvtropes:not so different, 141: imdb_keywords:assassination, 655: imdb_keywords:mexico, 145: imdb_keywords:audition, 150: imdb_keywords:b-movie, 663: imdb_keywords:mistress, 152: imdb_keywords:backstage, 665: imdb_keywords:money, 154: imdb_keywords:bank, 667: imdb_keywords:monster, 538: imdb_keywords:hope, 159: imdb_keywords:bare-butt, 1184: tvtropes:too dumb to live, 162: imdb_keywords:bartender, 164: imdb_keywords:baseball-bat, 454: imdb_keywords:flash-forward, 678: imdb_keywords:musician, 1075: imdb_keywords:wound, 168: imdb_keywords:based-on-play, 1052: imdb_keywords:warrior, 1194: average_rating, 684: imdb_keywords:neo-noir, 177: imdb_keywords:beach, 694: imdb_keywords:nipples-visible-through-clothing, 696: imdb_keywords:nonlinear-timeline, 185: imdb_keywords:bible, 186: imdb_keywords:bicycle, 704: imdb_keywords:office, 705: imdb_keywords:old-man, 706: imdb_keywords:old-woman, 707: imdb_keywords:older-man-younger-woman-relationship, 198: imdb_keywords:blindness, 199: imdb_keywords:blockbuster, 202: imdb_keywords:blood-splatter, 160: imdb_keywords:bare-chested-male, 718: imdb_keywords:orgasm, 719: imdb_keywords:orphan, 208: imdb_keywords:bow-and-arrow, 211: imdb_keywords:boyfriend-girlfriend-relationship, 725: imdb_keywords:panties, 214: imdb_keywords:break-up, 633: imdb_keywords:male-nudity, 217: imdb_keywords:breasts, 219: imdb_keywords:british, 220: imdb_keywords:broken-leg, 222: imdb_keywords:brother-brother-relationship, 223: imdb_keywords:brother-sister-relationship, 737: imdb_keywords:phone-booth, 232: imdb_keywords:cafe, 238: imdb_keywords:candle, 240: imdb_keywords:captain, 754: imdb_keywords:police-detective, 755: imdb_keywords:police-officer, 244: imdb_keywords:car-crash, 759: imdb_keywords:policeman, 249: imdb_keywords:catholic, 762: imdb_keywords:pot-smoking, 251: imdb_keywords:cave, 764: imdb_keywords:prank, 554: imdb_keywords:impersonation, 767: imdb_keywords:prejudice, 258: imdb_keywords:character-says-i-love-you, 520: imdb_keywords:heart-attack, 776: imdb_keywords:prostitute, 779: imdb_keywords:psychiatrist, 780: imdb_keywords:psychopath, 269: imdb_keywords:children, 271: imdb_keywords:christian, 274: imdb_keywords:church, 789: imdb_keywords:race-against-time, 279: imdb_keywords:class-differences, 793: imdb_keywords:radio, 47: movielens_tags:cinematography, 799: imdb_keywords:rat, 288: imdb_keywords:color-in-title, 289: imdb_keywords:combat, 804: imdb_keywords:redhead, 511: imdb_keywords:hallucination, 732: imdb_keywords:party, 299: imdb_keywords:cook, 813: imdb_keywords:restaurant, 816: imdb_keywords:revolution, 305: imdb_keywords:courage, 1050: imdb_keywords:waitress, 819: imdb_keywords:ring, 823: imdb_keywords:river, 650: imdb_keywords:mayor, 831: imdb_keywords:running, 323: imdb_keywords:cult-film, 324: imdb_keywords:curse, 326: imdb_keywords:dance, 840: imdb_keywords:satire, 420: imdb_keywords:false-accusation, 482: imdb_keywords:gay, 846: imdb_keywords:school, 1165: tvtropes:oh crap, 850: imdb_keywords:sea, 676: imdb_keywords:murderer, 340: imdb_keywords:death-of-mother, 983: imdb_keywords:theft, 856: imdb_keywords:security-camera, 345: imdb_keywords:deception, 143: imdb_keywords:attempted-murder, 351: imdb_keywords:detective, 864: imdb_keywords:serial-killer, 657: imdb_keywords:military, 873: imdb_keywords:shaving, 362: imdb_keywords:divorce, 364: imdb_keywords:dog, 829: imdb_keywords:rope, 882: imdb_keywords:shot-in-the-head, 887: imdb_keywords:shotgun, 379: imdb_keywords:drunkenness, 381: imdb_keywords:dying, 1088: tvtropes:anti hero, 900: imdb_keywords:sleeping, 390: imdb_keywords:employer-employee-relationship, 907: imdb_keywords:soccer, 908: imdb_keywords:social-commentary, 920: imdb_keywords:stabbing, 1091: tvtropes:asshole victim, 408: imdb_keywords:explosion, 409: imdb_keywords:extramarital-affair, 410: imdb_keywords:eyeglasses, 184: imdb_keywords:betrayal, 412: imdb_keywords:f-word, 1178: tvtropes:smug snake, 414: imdb_keywords:factory, 416: imdb_keywords:faith, 417: imdb_keywords:falling-down-stairs, 932: imdb_keywords:student, 421: imdb_keywords:family-relationships, 423: imdb_keywords:fantasy-sequence, 424: imdb_keywords:farce, 426: imdb_keywords:farmer, 427: imdb_keywords:father-daughter-relationship, 428: imdb_keywords:father-son-relationship, 941: imdb_keywords:sunglasses, 430: imdb_keywords:fear, 413: imdb_keywords:face-slap, 432: imdb_keywords:female-frontal-nudity, 433: imdb_keywords:female-full-frontal-nudity, 441: imdb_keywords:fight, 443: imdb_keywords:film-within-a-film, 958: imdb_keywords:talking-to-the-camera, 959: imdb_keywords:tank, 672: imdb_keywords:motorcycle, 966: imdb_keywords:teacher, 455: imdb_keywords:flashback, 968: imdb_keywords:tears, 461: imdb_keywords:following-someone, 463: imdb_keywords:foot-chase, 466: imdb_keywords:forgiveness, 467: imdb_keywords:four-word-title, 468: imdb_keywords:france, 334: imdb_keywords:death, 761: imdb_keywords:politics, 1188: tvtropes:villain protagonist, 471: imdb_keywords:friend, 477: imdb_keywords:gang, 933: imdb_keywords:stylized-violence, 992: imdb_keywords:title-spoken-by-character, 1124: tvtropes:dragon, 994: imdb_keywords:told-in-flashback, 486: imdb_keywords:general, 488: imdb_keywords:ghost, 489: imdb_keywords:gift, 1106: tvtropes:california doubling, 1011: imdb_keywords:truck, 1015: imdb_keywords:twenty-something, 507: imdb_keywords:gunshot, 1020: imdb_keywords:umbrella, 559: imdb_keywords:injection, 1023: imdb_keywords:undercover
+Loading indicators
+Building indicator distributions
+Loading user profiles
+Processing user 355, movie 2138 (Watership Down (1978))
+Original predicted rating: 2.20003397117
+User profile: {'neg_name': 'imdb_keywords:train', 'neg': 1002, 'profile_id': 3, 'pos_name': 'imdb_keywords:girl', 'pos': 490}
+Non-zero qiis:
+average_rating (1194): -0.261487423167
+imdb_keywords:blockbuster (199): -0.143888410513
+imdb_keywords:flashback (455): 0.0285587266252
+imdb_keywords:ring (819): 0.0213726271706
+tvtropes:butt monkey (1105): 0.0177905213996
+imdb_keywords:mayor (650): 0.0175777234333
+imdb_keywords:gunshot (507): -0.014200539958
+tvtropes:california doubling (1106): -0.0140899407432
+tvtropes:oh crap (1165): -0.0127077497926
+imdb_keywords:sleeping (900): -0.0098832988706
+imdb_keywords:farce (424): 0.0093308877497
+imdb_keywords:panties (725): 0.00476630202783
+imdb_keywords:drunkenness (379): -0.00448956276257
+imdb_keywords:catholic (249): 0.00386132621905
+imdb_director: (1082): -0.00340739487541
+imdb_keywords:brother-brother-relationship (222): 0.00213919839243
+tvtropes:eye scream (1129): -0.00187650561181
+movielens_genre:Musical (12): 0.00165568519904
+imdb_keywords:race-against-time (789): -0.00159010364
+imdb_keywords:f-word (412): -0.00155328350366
+imdb_keywords:wound (1075): 0.00114437559605
+imdb_keywords:betrayal (184): -0.00110322799319
+movielens_tags:disturbing (51): 0.00104758244781
+imdb_keywords:france (468): 0.000708119803306
+movielens_tags:CLV (26): -0.000499955913486
+year (0): 0.000263348528468
+imdb_keywords:little-boy (608): -0.000150059733739
+Correctness score: 0.0
+Processing user 442, movie 45062 (Sentinel, The (2006))
+Original predicted rating: 1.58401268738
+User profile: {'neg_name': 'imdb_keywords:train', 'neg': 1002, 'profile_id': 3, 'pos_name': 'imdb_keywords:girl', 'pos': 490}
+Non-zero qiis:
+imdb_keywords:widow (1065): -0.257660126552
+imdb_keywords:sunglasses (941): -0.0961961991494
+average_rating (1194): 0.0647055246291
+imdb_keywords:dance (326): 0.0180739472101
+imdb_keywords:whipping (1062): 0.0114156881468
+imdb_keywords:underwear (1025): 0.0105780829296
+imdb_keywords:gay (482): -0.0104949441761
+imdb_keywords:fantasy-sequence (423): 0.00978121619733
+imdb_keywords:man-with-glasses (636): 0.00832039650038
+imdb_keywords:shaving (873): -0.00656262826594
+imdb_keywords:prejudice (767): 0.00520989169523
+imdb_keywords:redhead (804): -0.00321283310551
+movielens_tags:violence (89): 0.00320519565948
+tvtropes:anti hero (1088): 0.0031000863469
+year (0): -0.00287317695899
+imdb_keywords:flash-forward (454): -0.00259085898975
+imdb_keywords:student (932): -0.00232024365898
+imdb_keywords:bicycle (186): 0.0013935570308
+imdb_keywords:restaurant (813): 0.00116580857575
+imdb_keywords:brother-brother-relationship (222): -0.000984573598275
+imdb_keywords:little-boy (608): -0.000318244526534
+Correctness score: 0.0
+Processing user 67, movie 37058 (Edge of the World, The (1937))
+Original predicted rating: 2.22511621172
+User profile: {'neg_name': 'imdb_keywords:panic', 'neg': 724, 'profile_id': 9, 'pos_name': 'imdb_keywords:hero', 'pos': 526}
+Non-zero qiis:
+average_rating (1194): -0.369844046412
+imdb_keywords:sleeping (900): 0.0611002803594
+movielens_genre:Musical (12): 0.0520853609614
+imdb_keywords:running (831): 0.0381362972985
+imdb_keywords:flashback (455): -0.0346772114062
+year (0): 0.0281400122863
+imdb_keywords:gift (489): -0.0228871887043
+tvtropes:oh crap (1165): -0.019716142769
+imdb_keywords:mayor (650): 0.0169768837682
+imdb_keywords:forgiveness (466): 0.0153027295425
+imdb_keywords:family-relationships (421): 0.014466228997
+tvtropes:california doubling (1106): -0.0114939683193
+imdb_keywords:woods (1073): 0.00992343630177
+imdb_keywords:blindness (198): -0.00893593463171
+imdb_keywords:dance (326): 0.00856798169907
+imdb_keywords:impersonation (554): 0.00771228172632
+imdb_keywords:brother-brother-relationship (222): -0.00408049985218
+tvtropes:faux affably evil (1132): -0.00309294890015
+movielens_tags:tense (86): -0.00231302486959
+Correctness score: 0.0
+Processing user 321, movie 71518 (Whip It (2009))
+Original predicted rating: 4.33457828366
+User profile: {'neg_name': 'imdb_keywords:photograph', 'neg': 738, 'profile_id': 5, 'pos_name': 'imdb_keywords:airport', 'pos': 114}
+Non-zero qiis:
+average_rating (1194): 0.499934207803
+imdb_keywords:fantasy-sequence (423): 0.0460062732884
+imdb_keywords:employer-employee-relationship (390): -0.0378647180532
+imdb_keywords:shaving (873): -0.0282128529089
+imdb_keywords:gay (482): -0.0193501942509
+imdb_keywords:brother-brother-relationship (222): -0.0171093623188
+imdb_keywords:sunglasses (941): 0.0152500312994
+imdb_keywords:anger (125): -0.0106751594449
+imdb_keywords:injection (559): -0.00543394297811
+imdb_keywords:flash-forward (454): -0.00526390921452
+imdb_keywords:restaurant (813): -0.00342824573103
+year (0): 0.00281634476677
+imdb_keywords:following-someone (461): 0.00243739363382
+imdb_keywords:running (831): -0.00144755427588
+imdb_keywords:sleeping (900): 0.00103427191923
+imdb_keywords:ambush (121): 0.000872342683036
+imdb_keywords:prison (770): 0.000790396697993
+imdb_keywords:baseball-bat (164): 0.000676157017487
+Correctness score: 0.0
+Processing user 458, movie 426 (Body Snatchers (1993))
+Original predicted rating: 1.92778265506
+User profile: {'neg_name': 'imdb_keywords:surprise-ending', 'neg': 945, 'profile_id': 8, 'pos_name': 'imdb_keywords:pantyhose', 'pos': 726}
+Non-zero qiis:
+average_rating (1194): -0.537260271618
+imdb_keywords:female-frontal-nudity (432): -0.212938369871
+imdb_keywords:1990s (99): -0.187194650157
+imdb_keywords:little-boy (608): 0.0621503239907
+imdb_keywords:flashback (455): 0.0475571142449
+imdb_keywords:motorcycle (672): 0.0343146710569
+imdb_keywords:assassination (141): -0.0340028271572
+imdb_keywords:backstage (152): 0.027551354329
+imdb_keywords:family-relationships (421): -0.0270787995187
+imdb_keywords:running (831): 0.022693259086
+imdb_keywords:umbrella (1020): 0.0164777226911
+tvtropes:establishing character moment (1126): -0.0146969568481
+imdb_keywords:bible (185): 0.0145227323728
+imdb_keywords:ring (819): 0.0120964705299
+imdb_keywords:mayor (650): 0.0117665597729
+year (0): 0.0109379014902
+imdb_keywords:bicycle (186): -0.00795770139193
+imdb_keywords:sleeping (900): -0.00661589809147
+tvtropes:oh crap (1165): -0.00517263019564
+imdb_keywords:restaurant (813): -0.00332858875559
+imdb_keywords:dance (326): 0.00266145602822
+imdb_keywords:orphan (719): 0.0017001733437
+movielens_tags:tense (86): 0.000318077248696
+Correctness score: 0.0
+Processing user 471, movie 4364 (Trio, The (Trio, Das) (1998))
+Original predicted rating: 1.95891029232
+User profile: {'neg_name': 'imdb_keywords:first-part', 'neg': 449, 'profile_id': 2, 'pos_name': 'imdb_keywords:brothel', 'pos': 221}
+Non-zero qiis:
+average_rating (1194): -1.21693031989
+imdb_keywords:male-nudity (633): -0.0750766183206
+imdb_keywords:dancing (328): -0.0409447976399
+imdb_keywords:british (219): -0.0364693228039
+imdb_keywords:shot-in-the-head (882): -0.0363163997946
+imdb_keywords:assassination (141): -0.0305953659334
+imdb_keywords:widow (1065): -0.0295907473595
+imdb_keywords:bicycle (186): 0.023307461384
+imdb_keywords:prank (764): 0.0231838078812
+imdb_keywords:revolution (816): -0.022070028916
+imdb_keywords:old-man (705): -0.0190647010813
+imdb_keywords:police-detective (754): -0.0165204287643
+imdb_keywords:running (831): -0.0115706515855
+imdb_keywords:flashback (455): -0.0100792758975
+imdb_keywords:restaurant (813): 0.00649944417053
+imdb_keywords:phone-booth (737): 0.0060760096154
+imdb_keywords:musician (678): -0.00590602127923
+imdb_keywords:backstage (152): -0.00583924626296
+year (0): -0.00533937092401
+imdb_keywords:whipping (1062): 0.00522275529251
+movielens_tags:tense (86): 0.00496427031468
+imdb_keywords:gang (477): 0.00420842880563
+imdb_keywords:panties (725): -0.00420544600777
+imdb_keywords:betrayal (184): 0.0030614089241
+tvtropes:anti hero (1088): -0.00249706261153
+imdb_keywords:apartment (130): -0.00018999147648
+Correctness score: 0.0
+Processing user 499, movie 1919 (Madeline (1998))
+Original predicted rating: 1.54476483219
+User profile: {'neg_name': 'imdb_keywords:photograph', 'neg': 738, 'profile_id': 5, 'pos_name': 'imdb_keywords:airport', 'pos': 114}
+Non-zero qiis:
+tvtropes:oh crap (1165): 0.332118814089
+average_rating (1194): 0.152771384691
+imdb_keywords:france (468): 0.0596704208577
+imdb_keywords:undercover (1023): -0.0518086709175
+imdb_keywords:family-relationships (421): -0.0486254692836
+year (0): 0.0310352527474
+imdb_keywords:hope (538): -0.0215959809795
+imdb_keywords:bible (185): -0.0212476202275
+imdb_keywords:motorcycle (672): -0.019096694318
+imdb_keywords:factory (414): -0.0139517085989
+imdb_keywords:little-boy (608): -0.0102694837735
+imdb_keywords:umbrella (1020): 0.00982495965043
+imdb_keywords:female-frontal-nudity (432): 0.0089359435025
+imdb_keywords:panties (725): -0.00678472310386
+imdb_keywords:dance (326): 0.00657199435699
+imdb_keywords:interrogation (562): -0.00583775356541
+imdb_keywords:restaurant (813): 0.00579294582785
+imdb_keywords:blockbuster (199): 0.00321181685164
+imdb_keywords:maid (630): 0.00272474754297
+imdb_keywords:flashback (455): 0.000149535238209
+imdb_keywords:hallucination (511): 9.54679251779e-05
+Correctness score: 0.0
+Processing user 482, movie 48780 (Prestige, The (2006))
+Original predicted rating: 2.23910200965
+User profile: {'neg_name': 'movielens_tags:based on a book', 'neg': 45, 'profile_id': 7, 'pos_name': 'imdb_keywords:uzi', 'pos': 1034}
+Non-zero qiis:
+average_rating (1194): -0.256209859988
+tvtropes:california doubling (1106): 0.155356611192
+tvtropes:oh crap (1165): 0.0732112011549
+imdb_keywords:restaurant (813): -0.0468869997201
+imdb_keywords:f-word (412): -0.0283612221124
+imdb_keywords:motorcycle (672): -0.0235110322139
+tvtropes:smug snake (1178): -0.0233182079052
+year (0): 0.0184220704998
+movielens_tags:tense (86): -0.0180563087722
+imdb_keywords:little-boy (608): -0.0153068223641
+tvtropes:faux affably evil (1132): -0.0130726407305
+imdb_keywords:dance (326): -0.0121904935649
+imdb_keywords:family-relationships (421): 0.00989731214753
+imdb_keywords:blockbuster (199): 0.00821734986836
+imdb_keywords:hope (538): 0.00357505445421
+imdb_keywords:flashback (455): 0.00337542116614
+imdb_keywords:umbrella (1020): -0.000710719067719
+Correctness score: 0.0
+Processing user 184, movie 81257 (In a Better World (Hævnen) (2010))
+Original predicted rating: 2.35616065509

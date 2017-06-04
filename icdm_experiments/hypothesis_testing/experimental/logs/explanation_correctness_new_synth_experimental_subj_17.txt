@@ -1,0 +1,316 @@
+Loading results dict
+Original recommender relative to ground truth on training set mean absolute error: 0.0129269196128, RMSE: 0.0190646058831
+Shadow model relative to the baseline recommender on test set MAE: 0.295557498858, RMSE: 0.379991747019
+Randomized model relative to the baseline recommender on test set MAE: 1.09770801248, RMSE: 1.37244644958
+Shadow model is 3.71402524625 times better than random on the test set
+Loading movies
+Loading ALS model
+Loading decision trees
+107 features are used: 0: year, 1: movielens_genre:Action, 2: movielens_genre:Adventure, 3: movielens_genre:Animation, 260: imdb_keywords:cheating, 5: movielens_genre:Comedy, 6: movielens_genre:Crime, 775: imdb_keywords:promise, 8: movielens_genre:Drama, 9: movielens_genre:Fantasy, 10: movielens_genre:Film-Noir, 13: movielens_genre:Mystery, 759: imdb_keywords:policeman, 16: movielens_genre:Thriller, 530: imdb_keywords:high-school-student, 1043: imdb_keywords:violence, 1046: imdb_keywords:vomiting, 792: imdb_keywords:racism, 25: movielens_tags:Bob*ola, 28: movielens_tags:ClearPlay, 29: movielens_tags:Criterion, 768: imdb_keywords:premarital-sex, 34: movielens_tags:National Film Registry, 37: movielens_tags:Nudity (Topless), 297: imdb_keywords:controversy, 43: movielens_tags:adapted from:book, 44: movielens_tags:atmospheric, 302: imdb_keywords:corrupt-cop, 47: movielens_tags:cinematography, 49: movielens_tags:comedy, 562: imdb_keywords:interrogation, 565: imdb_keywords:island, 1079: imdb_keywords:written-and-directed-by-cast-member, 318: imdb_keywords:crucifix, 68: movielens_tags:nudity (full frontal), 69: movielens_tags:nudity (topless), 583: imdb_keywords:kidnapping, 584: imdb_keywords:killing-an-animal, 76: movielens_tags:revenge, 1101: tvtropes:blatant lies, 334: imdb_keywords:death, 1105: tvtropes:butt monkey, 84: movielens_tags:stylized, 87: movielens_tags:thriller, 89: movielens_tags:violence, 859: imdb_keywords:self-mutilation, 96: imdb_keywords:1960s, 99: imdb_keywords:1990s, 1171: tvtropes:reason you suck speech, 102: imdb_keywords:abortion, 620: imdb_keywords:love, 110: imdb_keywords:adultery, 114: imdb_keywords:airport, 115: imdb_keywords:ak-47, 372: imdb_keywords:drinking, 117: imdb_keywords:alcoholic, 630: imdb_keywords:maid, 489: imdb_keywords:gift, 888: imdb_keywords:showdown, 836: imdb_keywords:sadism, 1148: tvtropes:jerkass, 1150: tvtropes:kick the dog, 387: imdb_keywords:electrocution, 132: imdb_keywords:applause, 645: imdb_keywords:martial-arts, 1159: tvtropes:my god what have i done, 140: imdb_keywords:assassin, 141: imdb_keywords:assassination, 147: imdb_keywords:author, 665: imdb_keywords:money, 922: imdb_keywords:stalking, 413: imdb_keywords:face-slap, 4: movielens_genre:Children, 167: imdb_keywords:based-on-novel, 1194: average_rating, 683: imdb_keywords:neighbor, 626: imdb_keywords:machismo, 945: imdb_keywords:surprise-ending, 179: imdb_keywords:beating, 694: imdb_keywords:nipples-visible-through-clothing, 953: imdb_keywords:swimming-pool, 700: imdb_keywords:nurse, 190: imdb_keywords:birthday, 203: imdb_keywords:boat, 228: imdb_keywords:burned-alive, 454: imdb_keywords:flash-forward, 201: imdb_keywords:blood, 970: imdb_keywords:teenage-boy, 715: imdb_keywords:oral-sex, 333: imdb_keywords:dead-woman, 41: movielens_tags:acting, 471: imdb_keywords:friend, 478: imdb_keywords:gangster, 735: imdb_keywords:penis, 227: imdb_keywords:burial, 484: imdb_keywords:gay-kiss, 229: imdb_keywords:bus, 195: imdb_keywords:black-comedy, 233: imdb_keywords:california, 235: imdb_keywords:camera-shot-of-feet, 237: imdb_keywords:cancer, 240: imdb_keywords:captain, 1014: imdb_keywords:tv-news, 1067: imdb_keywords:wig, 170: imdb_keywords:basement, 510: imdb_keywords:hairy-chest, 511: imdb_keywords:hallucination
+Loading indicators
+Building indicator distributions
+Loading user profiles
+Processing user 218, movie 1939 (Best Years of Our Lives, The (1946))
+Original predicted rating: 1.85506082028
+User profile: {'neg_name': 'imdb_keywords:based-on-novel', 'neg': 167, 'profile_id': 5, 'pos_name': 'imdb_keywords:controversy', 'pos': 297}
+Non-zero qiis:
+average_rating (1194): -0.417188745965
+imdb_keywords:based-on-novel (167): 0.157253376705
+imdb_keywords:nurse (700): -0.0536303224708
+imdb_keywords:written-and-directed-by-cast-member (1079): -0.0431755457032
+imdb_keywords:birthday (190): -0.0191027534051
+imdb_keywords:showdown (888): -0.0117120118826
+tvtropes:blatant lies (1101): 0.0106745921888
+imdb_keywords:sadism (836): -0.00718430724477
+imdb_keywords:oral-sex (715): -0.0062990939473
+imdb_keywords:assassin (140): -0.00532433930096
+Correctness score: 0.27374973126
+Processing user 700, movie 4380 (Princess and the Warrior, The (Krieger und die Kaiserin, Der) (2000))
+Original predicted rating: 1.45093776724
+User profile: {'neg_name': 'imdb_keywords:oral-sex', 'neg': 715, 'profile_id': 9, 'pos_name': 'imdb_keywords:written-and-directed-by-cast-member', 'pos': 1079}
+Non-zero qiis:
+imdb_keywords:electrocution (387): 0.241117244816
+average_rating (1194): -0.221406756678
+imdb_keywords:birthday (190): -0.177865458519
+imdb_keywords:showdown (888): 0.0583112505088
+imdb_keywords:wig (1067): -0.0446099663367
+imdb_keywords:island (565): -0.0356985126345
+imdb_keywords:nurse (700): -0.0252874796824
+imdb_keywords:applause (132): 0.0168595192527
+imdb_keywords:assassin (140): -0.0146045952602
+imdb_keywords:oral-sex (715): -0.0136761849456
+imdb_keywords:based-on-novel (167): -0.000944873011695
+Correctness score: 0.0295685951463
+Processing user 7, movie 51103 (Be with Me (2005))
+Original predicted rating: 1.41235709361
+User profile: {'neg_name': 'imdb_keywords:applause', 'neg': 132, 'profile_id': 0, 'pos_name': 'imdb_keywords:showdown', 'pos': 888}
+Non-zero qiis:
+average_rating (1194): -0.603934379858
+imdb_keywords:stalking (922): 0.320955709812
+imdb_keywords:showdown (888): -0.0442598062317
+imdb_keywords:birthday (190): 0.0393680672423
+imdb_keywords:nurse (700): 0.0332656518827
+imdb_keywords:electrocution (387): -0.0169410013668
+imdb_keywords:applause (132): -0.0119316419797
+imdb_keywords:based-on-novel (167): 0.00872991549912
+Correctness score: 0.0607547305771
+Processing user 74, movie 87761 (Rita, Sue and Bob Too! (1987))
+Original predicted rating: 1.27680142995
+User profile: {'neg_name': 'imdb_keywords:nurse', 'neg': 700, 'profile_id': 3, 'pos_name': 'imdb_keywords:wig', 'pos': 1067}
+Non-zero qiis:
+average_rating (1194): -0.278264458823
+imdb_keywords:self-mutilation (859): 0.0720461048806
+imdb_keywords:birthday (190): 0.0628886126895
+imdb_keywords:showdown (888): -0.0610457119833
+imdb_keywords:nurse (700): -0.0577974215947
+imdb_keywords:based-on-novel (167): 0.0562032839172
+imdb_keywords:neighbor (683): -0.0457819342754
+imdb_keywords:island (565): 0.0386088668776
+imdb_keywords:sadism (836): -0.0363584737865
+imdb_keywords:applause (132): 0.0252229287428
+imdb_keywords:killing-an-animal (584): -0.0202591269871
+imdb_keywords:oral-sex (715): 0.0188830818633
+imdb_keywords:assassin (140): 0.00895223331344
+imdb_keywords:stalking (922): -0.00600008278449
+Correctness score: 0.164989091347
+Processing user 685, movie 5328 (Rain (2001))
+Original predicted rating: 1.50838663594
+User profile: {'neg_name': 'tvtropes:blatant lies', 'neg': 1101, 'profile_id': 4, 'pos_name': 'imdb_keywords:self-mutilation', 'pos': 859}
+Non-zero qiis:
+average_rating (1194): -0.740145565989
+imdb_keywords:based-on-novel (167): -0.124788501421
+imdb_keywords:written-and-directed-by-cast-member (1079): -0.0889560954189
+imdb_keywords:sadism (836): -0.074710527851
+imdb_keywords:birthday (190): 0.016570099611
+imdb_keywords:nurse (700): -0.0154572317824
+imdb_keywords:showdown (888): 0.0139075393293
+imdb_keywords:assassin (140): -0.0113276392831
+imdb_keywords:oral-sex (715): -0.00660013850094
+Correctness score: 0.0
+Processing user 258, movie 74370 (House of the Devil, The (2009))
+Original predicted rating: 2.99039568887
+User profile: {'neg_name': 'imdb_keywords:nurse', 'neg': 700, 'profile_id': 3, 'pos_name': 'imdb_keywords:wig', 'pos': 1067}
+Non-zero qiis:
+imdb_keywords:wig (1067): 0.833312283243
+imdb_keywords:nurse (700): -0.404964755097
+average_rating (1194): 0.207153106228
+imdb_keywords:showdown (888): -0.072511902637
+imdb_keywords:sadism (836): -0.0679153308549
+imdb_keywords:island (565): 0.0451286990312
+imdb_keywords:written-and-directed-by-cast-member (1079): -0.0417262846745
+imdb_keywords:face-slap (413): 0.0393685958588
+movielens_genre:Film-Noir (10): 0.0371350221096
+imdb_keywords:birthday (190): -0.0358909240269
+imdb_keywords:killing-an-animal (584): 0.011144911622
+Correctness score: 1.0
+Processing user 228, movie 32783 (Pretty Maids All in a Row (1971))
+Original predicted rating: 1.49031998005
+User profile: {'neg_name': 'tvtropes:reason you suck speech', 'neg': 1171, 'profile_id': 1, 'pos_name': 'imdb_keywords:killing-an-animal', 'pos': 584}
+Non-zero qiis:
+average_rating (1194): -0.481464507951
+imdb_keywords:killing-an-animal (584): -0.129931893686
+imdb_keywords:wig (1067): -0.0441570694891
+imdb_keywords:based-on-novel (167): -0.0428443467419
+imdb_keywords:oral-sex (715): -0.0217278665165
+imdb_keywords:electrocution (387): -0.0167850909927
+imdb_keywords:nurse (700): -0.0113921889894
+imdb_keywords:birthday (190): -0.00918924990066
+imdb_keywords:assassin (140): -0.00499029980251
+imdb_keywords:showdown (888): 0.00353071557589
+imdb_keywords:controversy (297): -0.000659084112392
+Correctness score: 0.212516614979
+Processing user 845, movie 103996 (Canyons, The (2013))
+Original predicted rating: 1.296207145
+User profile: {'neg_name': 'imdb_keywords:based-on-novel', 'neg': 167, 'profile_id': 5, 'pos_name': 'imdb_keywords:controversy', 'pos': 297}
+Non-zero qiis:
+average_rating (1194): -0.629119779353
+imdb_keywords:self-mutilation (859): -0.103680442481
+imdb_keywords:showdown (888): 0.091766096235
+imdb_keywords:oral-sex (715): 0.0628662513109
+imdb_keywords:based-on-novel (167): -0.0381258980076
+imdb_keywords:island (565): -0.0275227850527
+movielens_genre:Mystery (13): -0.0159070489868
+imdb_keywords:killing-an-animal (584): -0.012691118424
+imdb_keywords:sadism (836): -0.00874038646679
+imdb_keywords:applause (132): -0.00713652211992
+movielens_tags:adapted from:book (43): 0.00628248040517
+imdb_keywords:stalking (922): -0.00607787675434
+Correctness score: 0.0520276834964
+Processing user 507, movie 72591 (Patriot, The (1998))
+Original predicted rating: 2.00669675173
+User profile: {'neg_name': 'imdb_keywords:based-on-novel', 'neg': 167, 'profile_id': 5, 'pos_name': 'imdb_keywords:controversy', 'pos': 297}
+Non-zero qiis:
+average_rating (1194): -0.4613550993
+imdb_keywords:based-on-novel (167): 0.195830318498
+imdb_keywords:wig (1067): -0.192887780718
+imdb_keywords:controversy (297): -0.115117615892
+imdb_keywords:written-and-directed-by-cast-member (1079): -0.0934123477042
+movielens_tags:cinematography (47): -0.0799293519763
+imdb_keywords:island (565): -0.0373116748547
+imdb_keywords:oral-sex (715): -0.029588410385
+imdb_keywords:showdown (888): 0.0235967294673
+tvtropes:blatant lies (1101): 0.0160074573356
+imdb_keywords:nurse (700): -0.0109674304102
+imdb_keywords:electrocution (387): -0.0100722408785
+Correctness score: 0.473150995089
+Processing user 910, movie 4541 (Serpent and the Rainbow, The (1988))
+Original predicted rating: 1.95077813113
+User profile: {'neg_name': 'imdb_keywords:applause', 'neg': 132, 'profile_id': 0, 'pos_name': 'imdb_keywords:showdown', 'pos': 888}
+Non-zero qiis:
+average_rating (1194): -0.690965288711
+imdb_keywords:sadism (836): -0.187215755575
+imdb_keywords:showdown (888): -0.129996613723
+imdb_keywords:applause (132): 0.103858295815
+imdb_keywords:birthday (190): 0.0842388566338
+imdb_keywords:stalking (922): -0.0555322634726
+imdb_keywords:nurse (700): 0.0340712481391
+imdb_keywords:island (565): 0.0225364111615
+imdb_keywords:self-mutilation (859): -0.0190485614601
+imdb_keywords:based-on-novel (167): 0.0158513479004
+imdb_keywords:neighbor (683): 0.00715801906413
+imdb_keywords:controversy (297): -0.00664736021199
+Correctness score: 0.266294645118
+Processing user 413, movie 100498 (Good Day to Die Hard, A (2013))
+Original predicted rating: 1.35759533068
+User profile: {'neg_name': 'imdb_keywords:stalking', 'neg': 922, 'profile_id': 8, 'pos_name': 'imdb_keywords:island', 'pos': 565}
+Non-zero qiis:
+average_rating (1194): -0.857484684417
+imdb_keywords:wig (1067): -0.227307133835
+imdb_keywords:assassin (140): -0.131024536591
+imdb_keywords:based-on-novel (167): 0.0976961007095
+imdb_keywords:written-and-directed-by-cast-member (1079): -0.0671790547571
+imdb_keywords:showdown (888): -0.0448795116096
+imdb_keywords:sadism (836): 0.0401413398009
+imdb_keywords:controversy (297): -0.0308812444535
+imdb_keywords:birthday (190): -0.0125717537991
+imdb_keywords:oral-sex (715): -0.00835393861384
+imdb_keywords:self-mutilation (859): 0.00523842404597
+Correctness score: 0.0
+Processing user 671, movie 26334 (Thieves Like Us (1974))
+Original predicted rating: 1.07624908251
+User profile: {'neg_name': 'imdb_keywords:stalking', 'neg': 922, 'profile_id': 8, 'pos_name': 'imdb_keywords:island', 'pos': 565}
+Non-zero qiis:
+average_rating (1194): -0.722468031588
+imdb_keywords:based-on-novel (167): -0.280030816211
+imdb_keywords:birthday (190): -0.0789728193765
+imdb_keywords:written-and-directed-by-cast-member (1079): -0.0718125601368
+imdb_keywords:showdown (888): -0.0629440058432
+movielens_tags:cinematography (47): -0.0622214214797
+imdb_keywords:sadism (836): 0.0208538458958
+imdb_keywords:killing-an-animal (584): 0.0168770416026
+imdb_keywords:nurse (700): -0.0135372236765
+imdb_keywords:electrocution (387): -0.00984458221216
+imdb_keywords:assassin (140): -0.00174741032938
+imdb_keywords:self-mutilation (859): 0.00128309935775
+Correctness score: 0.0
+Processing user 297, movie 112623 (Dawn of the Planet of the Apes (2014))
+Original predicted rating: 2.47928272107
+User profile: {'neg_name': 'imdb_keywords:oral-sex', 'neg': 715, 'profile_id': 9, 'pos_name': 'imdb_keywords:written-and-directed-by-cast-member', 'pos': 1079}
+Non-zero qiis:
+imdb_keywords:showdown (888): -0.220886171623
+average_rating (1194): 0.208971506388
+movielens_tags:cinematography (47): -0.186827925445
+imdb_keywords:birthday (190): -0.107069853384
+imdb_keywords:controversy (297): -0.0636868265012
+imdb_keywords:wig (1067): -0.0511072875656
+imdb_keywords:assassin (140): 0.0346056840361
+imdb_keywords:island (565): -0.029662935984
+movielens_tags:Bob*ola (25): 0.0208283686759
+imdb_keywords:neighbor (683): -0.0171240199898
+imdb_keywords:sadism (836): 0.0133035801748
+Correctness score: 0.0
+Processing user 587, movie 6622 (Carnages (a.k.a. Carnage) (2002))
+Original predicted rating: 1.96543469716
+User profile: {'neg_name': 'imdb_keywords:based-on-novel', 'neg': 167, 'profile_id': 5, 'pos_name': 'imdb_keywords:controversy', 'pos': 297}
+Non-zero qiis:
+imdb_keywords:birthday (190): -0.0721296058069
+average_rating (1194): 0.0588493918277
+imdb_keywords:written-and-directed-by-cast-member (1079): -0.0580018391305
+imdb_keywords:killing-an-animal (584): -0.0262496738376
+imdb_keywords:island (565): -0.0178697855337
+imdb_keywords:showdown (888): -0.00986641317615
+Correctness score: 0.0
+Processing user 639, movie 56715 (Wristcutters: A Love Story (2006))
+Original predicted rating: 1.66126703626
+User profile: {'neg_name': 'imdb_keywords:oral-sex', 'neg': 715, 'profile_id': 9, 'pos_name': 'imdb_keywords:written-and-directed-by-cast-member', 'pos': 1079}
+Non-zero qiis:
+movielens_tags:cinematography (47): 0.254604360724
+imdb_keywords:showdown (888): 0.137455738922
+average_rating (1194): 0.0420954683631
+imdb_keywords:birthday (190): -0.00745106408971
+imdb_keywords:corrupt-cop (302): -0.0059429362412
+Correctness score: 0.0
+Processing user 77, movie 82635 (Glue (2006))
+Original predicted rating: 1.91795892829
+User profile: {'neg_name': 'imdb_keywords:nurse', 'neg': 700, 'profile_id': 3, 'pos_name': 'imdb_keywords:wig', 'pos': 1067}
+Non-zero qiis:
+average_rating (1194): 0.359886764953
+movielens_tags:cinematography (47): -0.0605976075373
+imdb_keywords:birthday (190): -0.0458179134455
+imdb_keywords:self-mutilation (859): 0.0235060209554
+imdb_keywords:killing-an-animal (584): 0.00543385798731
+Correctness score: 0.0
+Processing user 660, movie 4866 (Last Castle, The (2001))
+Original predicted rating: 2.01968071269
+User profile: {'neg_name': 'tvtropes:reason you suck speech', 'neg': 1171, 'profile_id': 1, 'pos_name': 'imdb_keywords:killing-an-animal', 'pos': 584}
+Non-zero qiis:
+average_rating (1194): 0.66376466873
+imdb_keywords:sadism (836): 0.150473533645
+imdb_keywords:island (565): -0.0247320262218
+tvtropes:blatant lies (1101): 0.0208342255765
+imdb_keywords:controversy (297): 0.0194626071841
+imdb_keywords:wig (1067): -0.0111753898038
+imdb_keywords:showdown (888): 0.00459507025899
+imdb_keywords:self-mutilation (859): -0.0033857010905
+movielens_tags:cinematography (47): -0.0031766947674
+Correctness score: 0.0
+Processing user 22, movie 94677 (Dictator, The (2012))
+Original predicted rating: 1.58808739198
+User profile: {'neg_name': 'imdb_keywords:applause', 'neg': 132, 'profile_id': 0, 'pos_name': 'imdb_keywords:showdown', 'pos': 888}
+Non-zero qiis:
+average_rating (1194): -0.8244306123
+imdb_keywords:written-and-directed-by-cast-member (1079): -0.192668789397
+imdb_keywords:sadism (836): -0.176788097935
+movielens_tags:cinematography (47): -0.112722508299
+imdb_keywords:island (565): -0.107598606451
+imdb_keywords:showdown (888): -0.0891651482474
+imdb_keywords:self-mutilation (859): -0.0375056421659
+imdb_keywords:based-on-novel (167): -0.0354201532297
+imdb_keywords:nurse (700): 0.0265140830005
+imdb_keywords:wig (1067): -0.0229231072275
+imdb_keywords:electrocution (387): -0.0173253656735
+imdb_keywords:birthday (190): 0.0154736733633
+imdb_keywords:killing-an-animal (584): -0.0105862879105
+imdb_keywords:assassin (140): -0.00579165439707
+Correctness score: 0.0876661102137
+Processing user 27, movie 4651 (Renegades (1989))
+Original predicted rating: 1.9434202382
+User profile: {'neg_name': 'imdb_keywords:nurse', 'neg': 700, 'profile_id': 3, 'pos_name': 'imdb_keywords:wig', 'pos': 1067}
+Non-zero qiis:
+average_rating (1194): 0.232930012831
+imdb_keywords:showdown (888): 0.0627996516578
+movielens_tags:cinematography (47): -0.0391482036862
+imdb_keywords:neighbor (683): -0.0175337218643
+imdb_keywords:sadism (836): -0.0144541031595
+imdb_keywords:birthday (190): 0.00484526511079
+Correctness score: 0.0
+Processing user 414, movie 2439 (Affliction (1997))
+Original predicted rating: 1.24369432302
+User profile: {'neg_name': 'imdb_keywords:nurse', 'neg': 700, 'profile_id': 3, 'pos_name': 'imdb_keywords:wig', 'pos': 1067}
+Non-zero qiis:
+average_rating (1194): -0.508770818504
+imdb_keywords:wig (1067): -0.16812268319
+imdb_keywords:based-on-novel (167): -0.157745932828
+imdb_keywords:written-and-directed-by-cast-member (1079): -0.0829482236655
+imdb_keywords:controversy (297): -0.0263458997815
+imdb_keywords:killing-an-animal (584): -0.0254310409841
+imdb_keywords:self-mutilation (859): 0.022929264226
+imdb_keywords:birthday (190): -0.0223460044609
+imdb_keywords:sadism (836): -0.0154271002754
+imdb_keywords:electrocution (387): -0.0104860319482
+imdb_keywords:assassin (140): -0.00917072362854
+imdb_keywords:stalking (922): -0.00861504988474
+imdb_keywords:oral-sex (715): -0.0067670934931
+Correctness score: 0.248373906337
+Correctness scores: [0.27374973125981056, 0.029568595146328012, 0.06075473057712976, 0.16498909134697964, 0.0, 1.0, 0.21251661497934193, 0.05202768349638437, 0.47315099508928593, 0.2662946451184243, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.08766611021366913, 0.0, 0.24837390633747403]
+Average correctness: 0.143454605178
