@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 #standard library
 import argparse
 import os.path

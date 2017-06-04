@@ -13,6 +13,42 @@ import common_utils
 #pyspark libraryb
 from pyspark import SparkConf, SparkContext
 
+class PrintLogger:
+    def debug(self, x):
+        print x
+
+def shadow_model_qii_all_movies(user, user_features, all_trees, indicators,
+                     indicator_distributions=None,
+                     used_features=None, debug=False):
+    if used_features is None:
+        used_features = get_all_used_features(all_trees)
+    if indicator_distributions is None:
+        indicator_distributions = get_all_feature_ditributions(idicators,
+                                                               used_features)
+    rank = len(all_trees)
+    qiis = {}
+    original_predictions = shadow_predict_all_movies(user, rank, user_features,
+                                                     all_trees, indicators)
+    for i_f, f in enumerate(used_features):
+        print "Replacing feature {} ({} out of {})".format(f, i_f,
+                len(used_features))
+        perturbed_indicators = common_utils.perturb_feature(indicators,
+                                                            f, None)
+        new_predictions = shadow_predict_all_movies(user, rank, user_features,
+                                                     all_trees, perturbed_indicators)
+        diffs = [original_predictions[m] - new_predictions[m] for m in
+                original_predictions.keys()]
+        abs_diffs = map(abs, diffs)
+        cur_qii = sum(abs_diffs)/float(len(abs_diffs))
+        cur_signed_qii = sum(diffs)/float(len(diffs))
+        if cur_signed_qii == 0:
+            sign = 1
+        else:
+            sign = cur_signed_qii / abs(cur_signed_qii)
+        cur_qii *= sign
+        qiis[f] = cur_qii
+    return qiis
+
 def shadow_model_qii(user, movie, user_features, all_trees, indicators,
                      iterations=10, indicator_distributions=None,
                      used_features=None, debug=False):
@@ -85,21 +121,36 @@ def shadow_predict(user, movie, rank, user_features, all_trees, indicators):
     this_user_features = user_features.lookup(user)[0]
     this_movie_indicators = indicators.lookup(movie)[0]
     for f in xrange(rank):
+        print "\tPredicting feature {}".format(f)
         uf = this_user_features[f]
         tree_model = all_trees[f]
         pf = tree_model.predict(this_movie_indicators)
         res += uf * pf
     return res
 
+def shadow_predict_all_movies(user, rank, user_features, all_trees, indicators):
+    all_movies = indicators.keys().collect()
+    res = {mid: 0.0 for mid in all_movies}
+    this_user_features = user_features.lookup(user)[0]
+    for f in xrange(rank):
+        uf = this_user_features[f]
+        tree_model = all_trees[f]
+        pfs = tree_model.predict(indicators.values()).collect()
+        for i, m in enumerate(indicators.keys().collect()):
+            res[m] += pfs[i]
+    return res
+
 
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--persist-dir", action="store", type=str, help=\
-                        "Path from which to loaad models and features to analyze")
+                        "Path from which to load models and features to analyze")
     parser.add_argument("--movie", action="store", type=int, help=\
                         "Movie for which to compute the QII")
+    parser.add_argument("--all-movies", action="store_true", help=\
+                        "Compute average QII for all movies for a given user")
     parser.add_argument("--user", action="store", type=int, help=\
-                        "User for who to compute QII")
+                        "User for whom to compute QII")
     parser.add_argument("--qii-iterations", action="store", type=int, default=10, help=\
                         "Iterations to use with QII. 10 by default.")
     args = parser.parse_args()
@@ -125,7 +176,8 @@ def main():
     user_features = model.userFeatures()
     print "Loaded rank {} model".format(rank)
     print "Cur user features:", user_features.lookup(args.user)
-    print "Cur product features:", model.productFeatures().lookup(args.movie)
+    if not args.all_movies:
+        print "Cur product features:", model.productFeatures().lookup(args.movie)
     print "Loading decision trees"
     all_trees = {}
     for i in xrange(rank):
@@ -134,8 +186,9 @@ def main():
     print "{} features are used: {}".format(len(all_used_features), ", "\
             .join("{}: {}".format(f, results["feature_names"][f])
                 for f in all_used_features))
-    original_predicted_rating = model.predict(args.user, args.movie)
-    print "Original predicted rating:", original_predicted_rating
+    if not args.all_movies:
+        original_predicted_rating = model.predict(args.user, args.movie)
+        print "Original predicted rating:", original_predicted_rating
     print "Loading indicators"
     (training_movies, test_movies, features_test, features_training,
              features_original_test, features_original_training,
@@ -149,18 +202,22 @@ def main():
     for f in sorted(list(all_used_features)):
         hist = exact_histogram(all_indicator_distributions[f])
         print "{} ({}): {}".format(results["feature_names"][f], f, hist)
-    shadow_predicted_rating = shadow_predict(args.user, args.movie, rank,
+    if not args.all_movies:
+        shadow_predicted_rating = shadow_predict(args.user, args.movie, rank,
                                               user_features, all_trees,
                                               indicators)
-    print "Shadow predicted rating: {} ({} away from original)"\
+        print "Shadow predicted rating: {} ({} away from original)"\
             .format(shadow_predicted_rating, abs(shadow_predicted_rating -\
                     original_predicted_rating))
 
-    qiis =  shadow_model_qii(args.user, args.movie, user_features, all_trees, indicators,
+        qiis =  shadow_model_qii(args.user, args.movie, user_features, all_trees, indicators,
                      iterations=args.qii_iterations,
                      indicator_distributions=all_indicator_distributions,
                      used_features=all_used_features, debug=True)
-
+    else:
+        qiis = shadow_model_qii_all_movies(args.user, user_features, all_trees, indicators,
+                     indicator_distributions=all_indicator_distributions,
+                     used_features=all_used_features, debug=True)
     print "Feature influences:"
     qiis_list = sorted(qiis.items(), key=lambda x: -abs(x[1]))
     for f, q in qiis_list:
