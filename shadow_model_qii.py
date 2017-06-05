@@ -145,14 +145,18 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--persist-dir", action="store", type=str, help=\
                         "Path from which to load models and features to analyze")
-    parser.add_argument("--movie", action="store", type=int, help=\
+    parser.add_argument("--movie", action="store", type=int, default=None, help=\
                         "Movie for which to compute the QII")
     parser.add_argument("--all-movies", action="store_true", help=\
                         "Compute average QII for all movies for a given user")
     parser.add_argument("--user", action="store", type=int, help=\
                         "User for whom to compute QII")
-    parser.add_argument("--qii-iterations", action="store", type=int, default=10, help=\
+    parser.add_argument("--qii-iterations", action="store",
+                        type=int, default=10, help=\
                         "Iterations to use with QII. 10 by default.")
+    parser.add_argument("--output", action="store",
+                        type=str, default=None, help=\
+                        "Output the QII measurement data to the given file as CSV.")
     args = parser.parse_args()
     conf = SparkConf().setMaster("local[*]")
     sc = SparkContext(conf=conf)
@@ -222,5 +226,20 @@ def main():
     qiis_list = sorted(qiis.items(), key=lambda x: -abs(x[1]))
     for f, q in qiis_list:
         print "{} ({}): {}".format(results["feature_names"][f], f, q)
+
+    # Write out the measurements to a CSV file if requested by the
+    # output command line argument.
+    if args.output is not None:
+        print "writing qii measurements to {}".format(args.output)
+
+        foutput = open(args.output, 'w')
+        f.write(",".join(['user','movie',
+                          'feature_index','feature_name', 'influence'] + "\n"))
+        for f, q in qiis_list:
+            f.write(",".join([args.user, args.movie,
+                              f, results["feature_names"][f], q]) + "\n")
+
+        f.close()
+
 if __name__ == "__main__":
     main()
