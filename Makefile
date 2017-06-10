@@ -51,7 +51,7 @@ PDIR := $(PROOT)/product_regression_all_regression_tree_rank_12_depth_5_level0.s
 USER := 0
 
 qii_test:
-	python shadow_model_qii.py --output qii.all.$(USER).csv --persist-dir $(PDIR) --user $(USER) --all-movies --qii-iterations 1 > qii.all.$(USER).txt
+	python shadow_model_qii.py --output qii.all.$(USER).tsv --persist-dir $(PDIR) --user $(USER) --all-movies --qii-iterations 1 > qii.all.$(USER).txt
 
 clean:
 	rm -Rf *.pyc

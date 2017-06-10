@@ -156,7 +156,7 @@ def main():
                         "Iterations to use with QII. 10 by default.")
     parser.add_argument("--output", action="store",
                         type=str, default=None, help=\
-                        "Output the QII measurement data to the given file as CSV.")
+                        "Output the QII measurement data to the given file as TSV.")
     args = parser.parse_args()
     conf = SparkConf().setMaster("local[*]")
     sc = SparkContext(conf=conf)
@@ -227,19 +227,22 @@ def main():
     for f, q in qiis_list:
         print "{} ({}): {}".format(results["feature_names"][f], f, q)
 
-    # Write out the measurements to a CSV file if requested by the
+    # Write out the measurements to a TSV file if requested by the
     # output command line argument.
     if args.output is not None:
         print "writing qii measurements to {}".format(args.output)
 
-        foutput = open(args.output, 'w')
-        f.write(",".join(['user','movie',
-                          'feature_index','feature_name', 'influence'] + "\n"))
+        fout = open(args.output, 'w')
+        fout.write("\t".join(['user','movie',
+                              'feature_index','feature_name',
+                              'influence']) + "\n")
         for f, q in qiis_list:
-            f.write(",".join([args.user, args.movie,
-                              f, results["feature_names"][f], q]) + "\n")
+            fout.write("\t".join(
+                map(lambda s: str(s),
+                    [args.user, args.movie, f, results["feature_names"][f], q]
+                    )) + "\n")
 
-        f.close()
+        fout.close()
 
 if __name__ == "__main__":
     main()
