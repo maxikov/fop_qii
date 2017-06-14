@@ -11,7 +11,7 @@ import numpy
 import common_utils
 import functools
 
-def load(fname, sc, num_partitions):
+def load(sc, fname, num_partitions=7):
     ifile = open(fname, "rb")
     res = pickle.load(ifile)
     ifile.close()

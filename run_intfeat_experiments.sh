@@ -104,3 +104,4 @@ RANK=12
 make_commands
 mkdir -p $PERSIST_DIR
 cp ${DATA_PATH}/upr_model.pkl $PERSIST_DIR
+run_until_succeeds
