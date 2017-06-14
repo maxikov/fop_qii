@@ -45,6 +45,14 @@ quick_test: $(SPARK_DIR) $(SPARK_DIR)/tmp $(SPARK_DIR)/checkpoint $(SPARK_DIR)/q
 	--filter-data-set 1 --features-trim-percentile 90 \
 	> logs/quick_test.txt
 
+PROOT := /Users/piotrm/Dropbox/icdm_experiments/piotrs_experiments/states
+PDIR := $(PROOT)/product_regression_all_regression_tree_rank_12_depth_5_level0.seed0.state
+
+USER := 0
+
+qii_test:
+	python shadow_model_qii.py --output qii.all.$(USER).tsv --persist-dir $(PDIR) --user $(USER) --all-movies --qii-iterations 1 > qii.all.$(USER).txt
+
 clean:
 	rm -Rf *.pyc
 	rm -Rf latents_users
