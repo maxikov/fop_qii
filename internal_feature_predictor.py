@@ -619,11 +619,12 @@ def load_or_train_ALS(training, rank, numIter, lmbda, args, sc, logger):
             if os.path.exists(fname2):
                 need_new_model = False
                 write_model = False
-                logger.debug("Loading %s", fname)
+                logger.debug("Loading %s", fname2)
                 model = CustomFeaturesRecommender.load(sc, fname2)
-            logger.debug("%s not found, bulding a new model", fname)
-            need_new_model = True
-            write_model = True
+            else:
+                logger.debug("%s not found, bulding a new model", fname)
+                need_new_model = True
+                write_model = True
         else:
             need_new_model = False
             write_model = False
