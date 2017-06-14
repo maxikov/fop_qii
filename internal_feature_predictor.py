@@ -1369,12 +1369,14 @@ def internal_feature_predictor(sc, training, rank, numIter, lmbda,
                 "%f", randomized_mean_error_baseline)
             results["features"][f]["randomized_mean_error_baseline"] =\
                 randomized_mean_error_baseline
-
-            logger.debug("Substitution is %f times better than "+\
+            if replaced_mean_error_baseline != 0:
+                logger.debug("Substitution is %f times better than "+\
                          "randomization on the training set",
                          randomized_mean_error_baseline/\
                          replaced_mean_error_baseline)
-
+            else:
+                logger.debug("Substitution is inf times better than "+\
+                        "randomization on the training set")
             logger.debug("Evaluating randomized model")
             results["features"][f]["randomized_rec_eval"] =\
                     common_utils.evaluate_recommender(baseline_predictions_training,\
@@ -1404,12 +1406,14 @@ def internal_feature_predictor(sc, training, rank, numIter, lmbda,
                     "%f", randomized_mean_error_baseline_test)
                 results["features"][f]["randomized_mean_error_baseline_test"] =\
                     randomized_mean_error_baseline_test
-
-                logger.debug("Substitution is %f times better than "+\
+                if replaced_mean_error_baseline_test != 0:
+                    logger.debug("Substitution is %f times better than "+\
                              "randomization on the test set",
-                             randomized_mean_error_baseline/\
-                             replaced_mean_error_baseline)
-
+                             randomized_mean_error_baseline_test/\
+                             replaced_mean_error_baseline_test)
+                else:
+                    logger.debug("Substitution is inf times better "+\
+                            "than randomization on the test set")
                 logger.debug("Evaluating randomized model test")
                 results["features"][f]["randomized_rec_eval_test"] =\
                     common_utils.evaluate_recommender(baseline_predictions_test,\
@@ -1537,13 +1541,19 @@ def display_internal_feature_predictor(results, logger, no_ht=False):
                      r["regression_evaluation_ht_test"]["mrae"]]
         row += [results["mean_feature_values"][f],
                 r["replaced_mean_error_baseline"],
-                r["randomized_mean_error_baseline"],
-                float(r["randomized_mean_error_baseline"])/\
+                r["randomized_mean_error_baseline"]]
+        if r["replaced_mean_error_baseline"] != 0:
+            row += [float(r["randomized_mean_error_baseline"])/\
                 r["replaced_mean_error_baseline"]]
+        else:
+            row += ["inf"]
         if results["train_ratio"] > 0:
             row += [r["replaced_mean_error_baseline_test"],
-                    r["randomized_mean_error_baseline_test"],
-                    float(r["randomized_mean_error_baseline_test"])/\
+                    r["randomized_mean_error_baseline_test"]]
+            if r["replaced_mean_error_baseline_test"] != 0:
+                row += [float(r["randomized_mean_error_baseline_test"])/\
                             r["replaced_mean_error_baseline_test"]]
+            else:
+                row += ["inf"]
         table.add_row(row)
     logger.info("\n" + str(table))
