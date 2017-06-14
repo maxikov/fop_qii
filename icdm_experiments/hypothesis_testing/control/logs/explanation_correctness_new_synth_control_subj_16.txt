@@ -224,3 +224,328 @@ imdb_keywords:umbrella (1020): -0.000710719067719
 Correctness score: 0.0
 Processing user 184, movie 81257 (In a Better World (Hævnen) (2010))
 Original predicted rating: 2.35616065509
+User profile: {'neg_name': 'tvtropes:precision f strike', 'neg': 1169, 'profile_id': 0, 'pos_name': 'imdb_keywords:older-man-younger-woman-relationship', 'pos': 707}
+Non-zero qiis:
+average_rating (1194): 0.463861520571
+imdb_keywords:forgiveness (466): 0.141207443981
+imdb_keywords:wound (1075): -0.0741615598055
+imdb_keywords:running (831): 0.0699623109032
+imdb_keywords:father-son-relationship (428): -0.0497042616506
+imdb_keywords:radio (793): -0.032175779648
+tvtropes:faux affably evil (1132): 0.0254963687206
+imdb_keywords:money (665): 0.0236745750084
+imdb_keywords:bicycle (186): 0.0236216839883
+imdb_keywords:catholic (249): 0.0202197783493
+imdb_keywords:drunkenness (379): -0.0190111282386
+tvtropes:california doubling (1106): -0.0187960954662
+imdb_keywords:betrayal (184): -0.0186865491935
+imdb_keywords:title-spoken-by-character (992): -0.0141468865305
+movielens_tags:tense (86): -0.00973156888347
+imdb_keywords:family-relationships (421): -0.00936806481686
+imdb_keywords:journalist (576): 0.00765499404934
+imdb_keywords:brother-brother-relationship (222): -0.00745664903122
+imdb_keywords:f-word (412): 0.00546958985725
+tvtropes:oh crap (1165): -0.00522293189563
+tvtropes:anti hero (1088): 0.0048950470603
+year (0): 0.00398557470532
+imdb_keywords:restaurant (813): 0.000772096428791
+Correctness score: 0.0
+Processing user 127, movie 71978 (Mother (Mat) (1926))
+Original predicted rating: 2.0327075131
+User profile: {'neg_name': 'movielens_tags:based on a book', 'neg': 45, 'profile_id': 7, 'pos_name': 'imdb_keywords:uzi', 'pos': 1034}
+Non-zero qiis:
+average_rating (1194): -0.249466317134
+imdb_keywords:factory (414): 0.135556322115
+year (0): 0.0428575887145
+imdb_keywords:blindness (198): -0.0377157555497
+imdb_keywords:running (831): 0.0332765385187
+tvtropes:butt monkey (1105): 0.0262566854592
+tvtropes:california doubling (1106): -0.0207950702468
+imdb_keywords:flashback (455): 0.0203940883284
+movielens_tags:disturbing (51): -0.0176429114313
+imdb_keywords:little-boy (608): 0.0156529296463
+imdb_keywords:umbrella (1020): 0.0134433326794
+imdb_keywords:panties (725): 0.0113455554037
+imdb_keywords:gay (482): 0.0113394981092
+imdb_keywords:family-relationships (421): -0.0107315884668
+imdb_keywords:brother-brother-relationship (222): 0.0100263376764
+imdb_keywords:tank (959): 0.00769988755684
+imdb_keywords:hallucination (511): 0.00639509831193
+imdb_keywords:gang (477): 0.00633884884782
+imdb_keywords:france (468): -0.00582660721899
+tvtropes:anti hero (1088): -0.00376114297974
+imdb_keywords:drunkenness (379): -0.00353027829686
+imdb_keywords:betrayal (184): -0.00347000547432
+imdb_keywords:blockbuster (199): 0.00177211126135
+imdb_keywords:sleeping (900): 0.000254069482766
+imdb_keywords:wound (1075): -2.94184077184e-05
+Correctness score: 0.0
+Processing user 253, movie 3213 (Batman: Mask of the Phantasm (1993))
+Original predicted rating: 1.33786218108
+User profile: {'neg_name': 'movielens_tags:based on a book', 'neg': 45, 'profile_id': 7, 'pos_name': 'imdb_keywords:uzi', 'pos': 1034}
+Non-zero qiis:
+average_rating (1194): -0.748119219261
+imdb_keywords:betrayal (184): -0.231885412111
+imdb_keywords:detective (351): -0.195361058506
+imdb_keywords:stylized-violence (933): -0.14351792323
+imdb_keywords:flashback (455): -0.0382014219447
+imdb_keywords:catholic (249): -0.0324554101935
+imdb_keywords:gunshot (507): -0.0264590656777
+imdb_keywords:sea (850): -0.0249005353115
+imdb_keywords:gay (482): -0.0174975383441
+imdb_keywords:restaurant (813): -0.014591084828
+imdb_keywords:money (665): -0.0122620541244
+imdb_keywords:little-boy (608): -0.0104397624773
+imdb_keywords:family-relationships (421): 0.0082077752815
+imdb_keywords:sleeping (900): -0.00776808149813
+year (0): -0.00759366716708
+tvtropes:oh crap (1165): -0.0069096936104
+imdb_keywords:france (468): 0.00678267884793
+imdb_keywords:running (831): 0.0049116426412
+imdb_keywords:blockbuster (199): 0.00340729685614
+movielens_tags:violence (89): 0.000890635735506
+imdb_keywords:wound (1075): 0.000449728527437
+Correctness score: 0.0
+Processing user 685, movie 5621 (Tuxedo, The (2002))
+Original predicted rating: 3.44555808829
+User profile: {'neg_name': 'tvtropes:precision f strike', 'neg': 1169, 'profile_id': 0, 'pos_name': 'imdb_keywords:older-man-younger-woman-relationship', 'pos': 707}
+Non-zero qiis:
+average_rating (1194): 0.353134955996
+imdb_keywords:employer-employee-relationship (390): -0.0284800352753
+imdb_keywords:office (704): 0.0207959256337
+imdb_keywords:flash-forward (454): -0.0200026932787
+imdb_keywords:character-says-i-love-you (258): 0.0190035767778
+imdb_keywords:following-someone (461): 0.0185240418365
+imdb_keywords:stabbing (920): 0.0109059106209
+imdb_keywords:drunkenness (379): -0.00931585560186
+imdb_keywords:catholic (249): 0.00819701054841
+imdb_keywords:little-boy (608): -0.00675141381746
+imdb_keywords:radio (793): -0.00652196084009
+imdb_keywords:gay (482): -0.00489094667564
+imdb_keywords:betrayal (184): -0.00457840249665
+imdb_keywords:brother-brother-relationship (222): -0.00432455497193
+imdb_keywords:france (468): 0.00372329043038
+imdb_keywords:psychiatrist (779): -0.00319808788492
+imdb_keywords:shaving (873): 0.0031377051667
+imdb_keywords:ambush (121): -0.0025493718828
+imdb_keywords:prison (770): -0.00147360443938
+imdb_keywords:prejudice (767): -0.0012454693019
+imdb_keywords:anger (125): 0.00118724267459
+imdb_keywords:film-within-a-film (443): -0.000147708326973
+imdb_keywords:revolution (816): -4.23025657598e-05
+imdb_keywords:restaurant (813): -2.63430570067e-05
+year (0): 2.16411356019e-05
+Correctness score: 0.0
+Processing user 323, movie 57538 (Over Her Dead Body (2008))
+Original predicted rating: 2.25192197232
+User profile: {'neg_name': 'imdb_keywords:train', 'neg': 1002, 'profile_id': 3, 'pos_name': 'imdb_keywords:girl', 'pos': 490}
+Non-zero qiis:
+average_rating (1194): 0.289111558442
+imdb_keywords:attempted-murder (143): 0.104691265158
+imdb_keywords:drunkenness (379): -0.0596223901036
+imdb_keywords:gay (482): -0.0414209743336
+imdb_keywords:betrayal (184): -0.0234417802399
+imdb_keywords:flash-forward (454): -0.0167574797126
+imdb_keywords:widow (1065): 0.013993618906
+imdb_keywords:dance (326): -0.0138252079969
+imdb_keywords:ambush (121): -0.0133099957219
+imdb_keywords:mayor (650): 0.0129405291428
+imdb_keywords:restaurant (813): 0.00920392891163
+imdb_keywords:sleeping (900): -0.00727597732139
+imdb_keywords:running (831): 0.00678891233332
+imdb_keywords:psychiatrist (779): -0.00439613875129
+year (0): 0.00419126657869
+imdb_keywords:farce (424): -0.00276289995343
+movielens_tags:politics (72): 0.00246589495428
+tvtropes:faux affably evil (1132): 0.00232222753984
+imdb_keywords:anger (125): -0.00197251597203
+imdb_keywords:radio (793): 0.00181941334854
+imdb_keywords:prejudice (767): -0.0017120404625
+imdb_keywords:little-boy (608): 0.00157561238837
+imdb_keywords:shaving (873): 0.00107828394417
+imdb_keywords:france (468): 0.000690683705899
+imdb_keywords:brother-brother-relationship (222): -0.000479671887219
+imdb_keywords:film-within-a-film (443): -0.000385584624463
+imdb_keywords:childbirth (268): 0.000164564723846
+Correctness score: 0.0
+Processing user 10, movie 8505 (Eel, The (Unagi) (1997))
+Original predicted rating: 3.80753176906
+User profile: {'neg_name': 'movielens_tags:based on a book', 'neg': 45, 'profile_id': 7, 'pos_name': 'imdb_keywords:uzi', 'pos': 1034}
+Non-zero qiis:
+average_rating (1194): 0.552885531939
+imdb_keywords:forgiveness (466): 0.172838466028
+imdb_keywords:bank (154): -0.0954349311797
+imdb_keywords:drunkenness (379): 0.0846390491789
+imdb_keywords:money (665): 0.0668422539883
+imdb_keywords:bicycle (186): 0.0458336610368
+imdb_keywords:flashback (455): 0.0345650559318
+year (0): 0.0331426981916
+tvtropes:butt monkey (1105): 0.0280932738428
+imdb_keywords:revolution (816): 0.0251477835502
+imdb_keywords:farce (424): 0.0237491558315
+imdb_keywords:journalist (576): 0.021218784926
+imdb_keywords:radio (793): -0.0156391949997
+imdb_keywords:gay (482): -0.0151559629326
+tvtropes:faux affably evil (1132): 0.0150113369011
+imdb_keywords:phone-booth (737): 0.00918592233565
+imdb_keywords:restaurant (813): 0.00428032940563
+imdb_keywords:dance (326): 0.00294791478068
+imdb_keywords:france (468): 0.00223235785974
+imdb_keywords:wound (1075): 0.000848498532426
+imdb_keywords:betrayal (184): 0.000481683875125
+imdb_keywords:running (831): 0.000426983679813
+imdb_keywords:f-word (412): -0.000385590942931
+Correctness score: 0.0
+Processing user 250, movie 47484 (G Men (1935))
+Original predicted rating: 2.69099884253
+User profile: {'neg_name': 'imdb_keywords:panic', 'neg': 724, 'profile_id': 9, 'pos_name': 'imdb_keywords:hero', 'pos': 526}
+Non-zero qiis:
+average_rating (1194): -0.236251498168
+imdb_keywords:running (831): 0.0698530900912
+imdb_keywords:hope (538): -0.0301759355111
+imdb_keywords:ring (819): 0.0248829315663
+imdb_keywords:flashback (455): 0.024549094816
+imdb_keywords:family-relationships (421): 0.0241172343978
+year (0): 0.0230733280635
+imdb_keywords:backstage (152): 0.0189627656618
+imdb_keywords:woods (1073): 0.016273390287
+imdb_keywords:umbrella (1020): 0.0145495801765
+imdb_keywords:female-frontal-nudity (432): 0.011657739429
+imdb_keywords:b-movie (150): 0.0102872468752
+tvtropes:oh crap (1165): -0.00836314354947
+imdb_keywords:brother-brother-relationship (222): -0.0066442130432
+imdb_keywords:orphan (719): 0.00549770356456
+imdb_keywords:little-boy (608): -0.00518641016673
+movielens_genre:Musical (12): -0.00157943142405
+Correctness score: 0.0
+Processing user 86, movie 1343 (Cape Fear (1991))
+Original predicted rating: 2.11112917267
+User profile: {'neg_name': 'tvtropes:precision f strike', 'neg': 1169, 'profile_id': 0, 'pos_name': 'imdb_keywords:older-man-younger-woman-relationship', 'pos': 707}
+Non-zero qiis:
+average_rating (1194): -0.282758987263
+tvtropes:faux affably evil (1132): -0.135507177246
+year (0): 0.0305316434718
+imdb_keywords:blockbuster (199): -0.0302008529017
+tvtropes:asshole victim (1091): 0.0200029579839
+tvtropes:smug snake (1178): 0.012174581592
+movielens_tags:violence (89): 0.00925073957909
+imdb_keywords:restaurant (813): 0.00810185090352
+imdb_keywords:f-word (412): 0.00735630071732
+imdb_keywords:mayor (650): -0.00730428835408
+imdb_keywords:running (831): -0.00677445014573
+imdb_keywords:brother-brother-relationship (222): -0.00568329357814
+tvtropes:oh crap (1165): -0.00506182583642
+imdb_keywords:orphan (719): 0.00332750690927
+imdb_keywords:blindness (198): 0.00258379249469
+tvtropes:butt monkey (1105): -0.00251782627111
+imdb_keywords:betrayal (184): -0.00204435732527
+movielens_tags:politics (72): -0.00178307366714
+imdb_keywords:dance (326): -0.00165214324722
+imdb_keywords:money (665): -0.00133598965367
+imdb_keywords:flashback (455): 0.000610743140448
+imdb_keywords:revolution (816): -0.000141799390845
+Correctness score: 0.0
+Processing user 676, movie 2227 (Lodger: A Story of the London Fog, The (1927))
+Original predicted rating: 2.74492982269
+User profile: {'neg_name': 'imdb_keywords:zombie', 'neg': 1081, 'profile_id': 4, 'pos_name': 'imdb_keywords:injection', 'pos': 559}
+Non-zero qiis:
+average_rating (1194): 0.137548304852
+imdb_keywords:anger (125): -0.0424538552659
+imdb_keywords:woods (1073): -0.0325526333986
+imdb_keywords:drunkenness (379): -0.0302222814366
+year (0): -0.0230774772955
+imdb_keywords:film-within-a-film (443): 0.022574827393
+imdb_keywords:betrayal (184): -0.0196340324396
+imdb_keywords:employer-employee-relationship (390): -0.0184902414535
+imdb_keywords:flash-forward (454): 0.0152310500965
+imdb_keywords:radio (793): -0.0106259544572
+imdb_keywords:catholic (249): 0.00667752098704
+imdb_keywords:widow (1065): -0.00528068635345
+imdb_keywords:childbirth (268): -0.00448061032593
+imdb_keywords:brother-brother-relationship (222): -0.00401562796279
+imdb_keywords:stabbing (920): 0.00385413278429
+imdb_keywords:little-boy (608): -0.00376147367159
+imdb_keywords:prison (770): -0.00312461785815
+movielens_tags:tense (86): -0.00230902924339
+imdb_keywords:france (468): 0.00179928244489
+imdb_keywords:running (831): 9.91916958481e-05
+Correctness score: 0.0
+Processing user 320, movie 4582 (Dead Bang (1989))
+Original predicted rating: 2.42273033438
+User profile: {'neg_name': 'imdb_keywords:photograph', 'neg': 738, 'profile_id': 5, 'pos_name': 'imdb_keywords:airport', 'pos': 114}
+Non-zero qiis:
+average_rating (1194): -0.20097859389
+imdb_keywords:ring (819): 0.0363284200432
+imdb_keywords:brother-brother-relationship (222): 0.0334459760156
+imdb_keywords:running (831): 0.0320390060005
+imdb_keywords:backstage (152): 0.0211881928885
+imdb_keywords:gunshot (507): -0.0195838220867
+imdb_keywords:flashback (455): 0.0182867473194
+imdb_keywords:family-relationships (421): 0.017605261244
+imdb_keywords:radio (793): -0.0174025440996
+imdb_keywords:money (665): -0.0121011018462
+imdb_keywords:race-against-time (789): -0.0110493243936
+tvtropes:oh crap (1165): 0.010748794944
+tvtropes:butt monkey (1105): -0.00900469159701
+imdb_keywords:panties (725): 0.00762990608568
+imdb_keywords:drunkenness (379): -0.00712108989588
+imdb_keywords:betrayal (184): -0.0046262460468
+imdb_keywords:gang (477): -0.00441205971102
+imdb_keywords:little-boy (608): -0.00208547246204
+imdb_keywords:wound (1075): 0.000467126100316
+imdb_keywords:restaurant (813): -0.000300021821491
+imdb_keywords:bicycle (186): -0.000179316539365
+year (0): 6.16178763984e-05
+Correctness score: 0.0
+Processing user 309, movie 61 (Eye for an Eye (1996))
+Original predicted rating: 3.02679287094
+User profile: {'neg_name': 'imdb_keywords:panic', 'neg': 724, 'profile_id': 9, 'pos_name': 'imdb_keywords:hero', 'pos': 526}
+Non-zero qiis:
+average_rating (1194): -0.288877672121
+imdb_keywords:panties (725): 0.135363479989
+imdb_keywords:maid (630): 0.0848227927994
+imdb_keywords:flashback (455): 0.0618608900146
+imdb_keywords:little-boy (608): 0.0595370225082
+imdb_keywords:family-relationships (421): 0.0455318988497
+imdb_keywords:interrogation (562): -0.0338077403038
+imdb_keywords:forgiveness (466): -0.0171757856063
+year (0): -0.0134950379095
+imdb_keywords:sleeping (900): -0.0129032690242
+imdb_keywords:blockbuster (199): 0.0126011162574
+imdb_keywords:restaurant (813): 0.0123203060885
+imdb_keywords:betrayal (184): -0.01109948251
+imdb_keywords:orphan (719): 0.0082285059266
+imdb_keywords:drunkenness (379): -0.00569507198365
+imdb_keywords:radio (793): -0.0027820285681
+imdb_keywords:france (468): -0.00238808689718
+tvtropes:anti hero (1088): -0.00154153797068
+Correctness score: 0.0
+Processing user 685, movie 60471 (Rogue (2007))
+Original predicted rating: 1.9526238713
+User profile: {'neg_name': 'tvtropes:precision f strike', 'neg': 1169, 'profile_id': 0, 'pos_name': 'imdb_keywords:older-man-younger-woman-relationship', 'pos': 707}
+Non-zero qiis:
+average_rating (1194): 0.273712950647
+tvtropes:oh crap (1165): 0.0868624287131
+imdb_keywords:family-relationships (421): 0.0457868241516
+imdb_keywords:ring (819): 0.0377924066487
+movielens_genre:Musical (12): 0.021579393742
+imdb_keywords:blockbuster (199): 0.0152060012984
+tvtropes:faux affably evil (1132): 0.012518505218
+imdb_keywords:little-boy (608): 0.010022858342
+imdb_keywords:gay (482): -0.00978189335127
+imdb_keywords:gift (489): -0.00948235065629
+imdb_keywords:woman (1071): 0.00729530460061
+imdb_keywords:umbrella (1020): -0.00472198858977
+imdb_keywords:hallucination (511): -0.00449257367642
+imdb_keywords:brother-brother-relationship (222): -0.00432455497193
+imdb_keywords:flashback (455): 0.00420861872519
+imdb_keywords:f-word (412): 0.00326160583055
+imdb_keywords:running (831): 0.0029327711297
+imdb_keywords:panties (725): 0.00175599110453
+imdb_keywords:dance (326): -0.000463453335215
+imdb_keywords:wound (1075): -0.000133395808235
+imdb_keywords:restaurant (813): 8.78101900224e-05
+year (0): 4.79841926087e-05
+Correctness score: 0.0
+Correctness scores: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+Average correctness: 0.0

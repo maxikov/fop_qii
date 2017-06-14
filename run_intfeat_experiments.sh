@@ -98,7 +98,9 @@ function run_and_save() {
 }
 DATA_PATH="new_experiments/synth_data_set"
 METADATA_SOURCES="${METADATA_SOURCES} imdb_year imdb_rating imdb_cast imdb_cinematographer imdb_composer imdb_languages imdb_production_companies imdb_writer"
-NAME_SUFFIX="larger_synth"
+NAME_SUFFIX="larger_synth_profile_recommender"
 
 RANK=12
-run_and_save
+make_commands
+mkdir -p $PERSIST_DIR
+cp ${DATA_PATH}/upr_model.pkl $PERSIST_DIR

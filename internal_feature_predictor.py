@@ -30,6 +30,7 @@ import parsers_and_loaders
 import common_utils
 import TrimmedFeatureRecommender
 import HashTableRegression
+import CustomFeaturesRecommender
 
 regression_models = ["regression_tree", "random_forest", "linear",
                      "naive_bayes", "logistic"]
@@ -613,10 +614,16 @@ def measure_associativity(input_features, target_features, f, logger):
 def load_or_train_ALS(training, rank, numIter, lmbda, args, sc, logger):
     if args.persist_dir is not None:
         fname = os.path.join(args.persist_dir, "als_model.pkl")
+        fname2 = os.path.join(args.persist_dir, "upr_model.pkl")
         if not os.path.exists(fname):
             logger.debug("%s not found, bulding a new model", fname)
             need_new_model = True
             write_model = True
+        elif os.path.exists(fname2):
+            need_new_model = False
+            write_model = False
+            logger.debug("Loading %s", fname)
+            model = CustomFeaturesRecommender.load(sc, fname2)
         else:
             need_new_model = False
             write_model = False

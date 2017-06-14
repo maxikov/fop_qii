@@ -1,16 +1,27 @@
 #standard library
 import random
 import argparse
+import os.path
 
 #project files
 import common_utils
+import CustomFeaturesRecommender
 
 #pyspark library
 from pyspark.mllib.recommendation import MatrixFactorizationModel
 from pyspark import SparkConf, SparkContext
 
 def load_als_model(sc, fname):
-    return MatrixFactorizationModel.load(sc, fname)
+    if "als" in fname:
+        if os.path.exists(fname):
+            res =  MatrixFactorizationModel.load(sc, fname)
+            return res
+        else:
+            old_suffix = "als_model.pkl"
+            new_suffix = "upr_model.pkl"
+            fname = fname[:len(old_suffix)] + new_suffix
+    res = CustomFeaturesRecommender.load(sc, fname)
+    return res
 
 def get_features_by_id(features, _id):
     res = features\

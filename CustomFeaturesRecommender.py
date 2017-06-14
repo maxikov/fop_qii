@@ -27,13 +27,10 @@ def save(self, fname):
     uf, pf = self.u_feats, self.p_feats
     self.u_feats = self.u_feats.collect()
     self.p_feats = self.p_feats.collect()
-    logger = self.logger
-    self.logger = None
     ofile = open(fname, "wb")
     pickle.dump(self, ofile)
     ofile.close()
     self.u_feats, self.p_feats = uf, pf
-    self.logger = logger
     return self
 
 class CustomFeaturesRecommender(object):
@@ -51,11 +48,9 @@ class CustomFeaturesRecommender(object):
         return self.p_feats
 
     def predictAll(self, user_movies):
-        self.logger.debug("Making trimmed features predictions")
         start = time.time()
         res = common_utils.manual_predict_all(user_movies, self.u_feats,
                 self.p_feats)
-        self.logger.debug("Done in %f seconds", time.time() - start)
         return res
 
     def predict(self, user, product):
