@@ -1,0 +1,368 @@
+Loading results dict
+Loading indicators
+Done
+Loading ratings
+Done, 12195247 ratings loaded
+Filtering known movies
+12195247 ratings left
+Building data set
+Example rating: [(1, (0, 4.0))]
+Example user: [0]
+20000 users found, making it a new feature 1224
+Data set created, training the tree
+('train_regression_model(data.count=12195247, regression_model="regression_tree", len(categorical_features)=1221, max_bins=10, max_depth=10, num_trees=128, is_classifier=False, num_classes=None)',)
+('num_classes is None, setting to max_bins=10',)
+('Training regression_tree',)
+('Done in 1372.75814199 seconds',)
+Done
+DecisionTreeModel regressor of depth 10 with 233 nodes
+  If (feature 1223 <= 3.199479900314227)
+   If (feature 1223 <= 2.0)
+    Predict: 2.0
+   Else (feature 1223 > 2.0)
+    If (feature 1224 in {0.0,5.0,1.0,6.0,2.0,3.0,8.0})
+     If (feature 1223 <= 2.991811668372569)
+      If (feature 412 in {0.0})
+       If (feature 65 in {0.0})
+        If (feature 815 in {0.0})
+         If (feature 348 in {0.0})
+          If (feature 538 in {0.0})
+           If (feature 324 in {0.0})
+            Predict: 2.015882917897118
+           Else (feature 324 not in {0.0})
+            Predict: 2.9148805878750768
+          Else (feature 538 not in {0.0})
+           If (feature 1224 in {0.0,5.0,1.0,2.0,3.0,8.0})
+            Predict: 2.0
+           Else (feature 1224 not in {0.0,5.0,1.0,2.0,3.0,8.0})
+            Predict: 3.750166979421774
+         Else (feature 348 not in {0.0})
+          If (feature 1224 in {0.0,5.0,6.0,2.0,8.0})
+           Predict: 2.0
+          Else (feature 1224 not in {0.0,5.0,6.0,2.0,8.0})
+           If (feature 365 in {1.0})
+            Predict: 3.0
+           Else (feature 365 not in {1.0})
+            Predict: 4.0
+        Else (feature 815 not in {0.0})
+         If (feature 1224 in {5.0,1.0,6.0,2.0,3.0})
+          If (feature 1224 in {2.0,3.0,5.0,6.0})
+           Predict: 2.0
+          Else (feature 1224 not in {2.0,3.0,5.0,6.0})
+           If (feature 175 in {0.0})
+            Predict: 2.0
+           Else (feature 175 not in {0.0})
+            Predict: 3.4997421351211964
+         Else (feature 1224 not in {5.0,1.0,6.0,2.0,3.0})
+          Predict: 4.0
+       Else (feature 65 not in {0.0})
+        If (feature 1224 in {0.0,1.0,6.0,2.0,3.0,8.0})
+         Predict: 2.0
+        Else (feature 1224 not in {0.0,1.0,6.0,2.0,3.0,8.0})
+         If (feature 868 in {1.0})
+          Predict: 3.0
+         Else (feature 868 not in {1.0})
+          Predict: 4.0
+      Else (feature 412 not in {0.0})
+       If (feature 1224 in {5.0,1.0,6.0,2.0,3.0,8.0})
+        If (feature 897 in {0.0})
+         If (feature 269 in {0.0})
+          Predict: 2.0
+         Else (feature 269 not in {0.0})
+          If (feature 1224 in {2.0,8.0})
+           Predict: 2.0
+          Else (feature 1224 not in {2.0,8.0})
+           Predict: 3.0
+        Else (feature 897 not in {0.0})
+         If (feature 1224 in {2.0,5.0,6.0,1.0})
+          If (feature 0 <= 2008.0)
+           Predict: 2.0
+          Else (feature 0 > 2008.0)
+           If (feature 1224 in {5.0,6.0})
+            Predict: 2.0
+           Else (feature 1224 not in {5.0,6.0})
+            Predict: 4.0
+         Else (feature 1224 not in {2.0,5.0,6.0,1.0})
+          Predict: 4.0
+       Else (feature 1224 not in {5.0,1.0,6.0,2.0,3.0,8.0})
+        If (feature 173 in {1.0})
+         Predict: 3.0
+        Else (feature 173 not in {1.0})
+         Predict: 4.0
+     Else (feature 1223 > 2.991811668372569)
+      If (feature 1224 in {5.0,0.0,2.0})
+       If (feature 587 in {0.0})
+        If (feature 103 in {0.0})
+         If (feature 412 in {0.0})
+          If (feature 65 in {0.0})
+           Predict: 2.0
+          Else (feature 65 not in {0.0})
+           If (feature 1224 in {0.0,2.0})
+            Predict: 2.0
+           Else (feature 1224 not in {0.0,2.0})
+            Predict: 3.421084874136779
+         Else (feature 412 not in {0.0})
+          If (feature 1224 in {2.0,5.0})
+           Predict: 2.0
+          Else (feature 1224 not in {2.0,5.0})
+           If (feature 173 in {1.0})
+            Predict: 3.0
+           Else (feature 173 not in {1.0})
+            Predict: 4.0
+        Else (feature 103 not in {0.0})
+         If (feature 1224 in {0.0,5.0})
+          Predict: 2.0
+         Else (feature 1224 not in {0.0,5.0})
+          If (feature 1011 in {1.0})
+           Predict: 3.0
+          Else (feature 1011 not in {1.0})
+           Predict: 4.0
+       Else (feature 587 not in {0.0})
+        If (feature 173 in {1.0})
+         Predict: 2.0
+        Else (feature 173 not in {1.0})
+         If (feature 186 in {1.0})
+          Predict: 3.0
+         Else (feature 186 not in {1.0})
+          Predict: 4.0
+      Else (feature 1224 not in {5.0,0.0,2.0})
+       If (feature 365 in {1.0})
+        If (feature 1224 in {3.0})
+         If (feature 348 in {0.0})
+          Predict: 2.0
+         Else (feature 348 not in {0.0})
+          Predict: 3.0
+        Else (feature 1224 not in {3.0})
+         If (feature 33 in {1.0})
+          If (feature 1224 in {8.0})
+           Predict: 2.0
+          Else (feature 1224 not in {8.0})
+           Predict: 4.0
+         Else (feature 33 not in {1.0})
+          Predict: 4.0
+       Else (feature 365 not in {1.0})
+        If (feature 1184 in {1.0})
+         If (feature 1224 in {1.0})
+          If (feature 163 in {0.0})
+           Predict: 2.0
+          Else (feature 163 not in {0.0})
+           Predict: 3.0
+         Else (feature 1224 not in {1.0})
+          If (feature 309 in {1.0})
+           If (feature 1224 in {6.0})
+            Predict: 2.499745417515275
+           Else (feature 1224 not in {6.0})
+            Predict: 4.0
+          Else (feature 309 not in {1.0})
+           Predict: 4.0
+        Else (feature 1184 not in {1.0})
+         If (feature 661 in {1.0})
+          If (feature 1224 in {6.0})
+           If (feature 0 <= 2011.0)
+            Predict: 2.0
+           Else (feature 0 > 2011.0)
+            Predict: 3.0
+          Else (feature 1224 not in {6.0})
+           Predict: 4.0
+         Else (feature 661 not in {1.0})
+          If (feature 270 in {1.0})
+           If (feature 1224 in {8.0})
+            Predict: 2.2223038246426756
+           Else (feature 1224 not in {8.0})
+            Predict: 4.0
+          Else (feature 270 not in {1.0})
+           Predict: 4.0
+    Else (feature 1224 not in {0.0,5.0,1.0,6.0,2.0,3.0,8.0})
+     If (feature 1018 in {1.0})
+      If (feature 1224 in {7.0})
+       If (feature 798 in {0.0})
+        Predict: 2.0
+       Else (feature 798 not in {0.0})
+        Predict: 3.0
+      Else (feature 1224 not in {7.0})
+       If (feature 587 in {1.0})
+        If (feature 14 in {0.0})
+         Predict: 2.0
+        Else (feature 14 not in {0.0})
+         Predict: 3.0
+       Else (feature 587 not in {1.0})
+        If (feature 903 in {1.0})
+         If (feature 1224 in {9.0})
+          Predict: 2.0
+         Else (feature 1224 not in {9.0})
+          Predict: 4.0
+        Else (feature 903 not in {1.0})
+         Predict: 4.0
+     Else (feature 1018 not in {1.0})
+      If (feature 903 in {1.0})
+       If (feature 1224 in {9.0})
+        If (feature 1165 in {0.0})
+         Predict: 2.0
+        Else (feature 1165 not in {0.0})
+         Predict: 3.0
+       Else (feature 1224 not in {9.0})
+        If (feature 587 in {1.0})
+         If (feature 19 in {1.0})
+          Predict: 2.0
+         Else (feature 19 not in {1.0})
+          Predict: 3.0
+        Else (feature 587 not in {1.0})
+         Predict: 4.0
+      Else (feature 903 not in {1.0})
+       If (feature 587 in {1.0})
+        If (feature 1224 in {4.0})
+         If (feature 259 in {0.0})
+          Predict: 2.0
+         Else (feature 259 not in {0.0})
+          Predict: 3.0
+        Else (feature 1224 not in {4.0})
+         Predict: 4.0
+       Else (feature 587 not in {1.0})
+        Predict: 4.0
+  Else (feature 1223 > 3.199479900314227)
+   If (feature 1223 <= 3.7911091451951786)
+    If (feature 1224 in {0.0,5.0,1.0,6.0,2.0})
+     If (feature 587 in {0.0})
+      If (feature 903 in {0.0})
+       If (feature 365 in {0.0})
+        If (feature 412 in {0.0})
+         If (feature 1224 in {0.0})
+          Predict: 2.0
+         Else (feature 1224 not in {0.0})
+          If (feature 173 in {0.0})
+           If (feature 65 in {0.0})
+            Predict: 2.620855738462046
+           Else (feature 65 not in {0.0})
+            Predict: 3.093980384054977
+          Else (feature 173 not in {0.0})
+           Predict: 4.0
+        Else (feature 412 not in {0.0})
+         If (feature 1224 in {1.0,5.0,2.0,6.0})
+          If (feature 103 in {0.0})
+           If (feature 65 in {0.0})
+            Predict: 2.1878533789761145
+           Else (feature 65 not in {0.0})
+            Predict: 2.9877913752913754
+          Else (feature 103 not in {0.0})
+           If (feature 1224 in {1.0,5.0})
+            Predict: 2.493598118630781
+           Else (feature 1224 not in {1.0,5.0})
+            Predict: 4.0
+         Else (feature 1224 not in {1.0,5.0,2.0,6.0})
+          If (feature 173 in {1.0})
+           Predict: 3.0
+          Else (feature 173 not in {1.0})
+           Predict: 4.0
+       Else (feature 365 not in {0.0})
+        If (feature 1072 in {1.0})
+         If (feature 1224 in {5.0,0.0})
+          If (feature 24 in {1.0})
+           Predict: 2.0
+          Else (feature 24 not in {1.0})
+           If (feature 1224 in {0.0})
+            Predict: 3.0023958717287136
+           Else (feature 1224 not in {0.0})
+            Predict: 4.0
+         Else (feature 1224 not in {5.0,0.0})
+          Predict: 4.0
+        Else (feature 1072 not in {1.0})
+         Predict: 4.0
+      Else (feature 903 not in {0.0})
+       If (feature 1090 in {1.0})
+        If (feature 0 <= 1990.0)
+         Predict: 2.0
+        Else (feature 0 > 1990.0)
+         Predict: 3.0
+       Else (feature 1090 not in {1.0})
+        If (feature 121 in {1.0})
+         If (feature 1224 in {5.0})
+          Predict: 2.0
+         Else (feature 1224 not in {5.0})
+          Predict: 4.0
+        Else (feature 121 not in {1.0})
+         Predict: 4.0
+     Else (feature 587 not in {0.0})
+      If (feature 1224 in {1.0,6.0})
+       If (feature 243 in {1.0})
+        Predict: 2.0
+       Else (feature 243 not in {1.0})
+        If (feature 2 in {1.0})
+         If (feature 1224 in {6.0})
+          Predict: 3.0
+         Else (feature 1224 not in {6.0})
+          Predict: 4.0
+        Else (feature 2 not in {1.0})
+         Predict: 4.0
+      Else (feature 1224 not in {1.0,6.0})
+       If (feature 405 in {1.0})
+        If (feature 0 <= 1995.0)
+         If (feature 1224 in {0.0})
+          Predict: 2.0
+         Else (feature 1224 not in {0.0})
+          Predict: 4.0
+        Else (feature 0 > 1995.0)
+         If (feature 1224 in {5.0})
+          Predict: 2.0
+         Else (feature 1224 not in {5.0})
+          Predict: 4.0
+       Else (feature 405 not in {1.0})
+        Predict: 4.0
+    Else (feature 1224 not in {0.0,5.0,1.0,6.0,2.0})
+     If (feature 903 in {1.0})
+      If (feature 1224 in {9.0})
+       If (feature 1165 in {0.0})
+        Predict: 2.0
+       Else (feature 1165 not in {0.0})
+        Predict: 3.0
+      Else (feature 1224 not in {9.0})
+       If (feature 53 in {1.0})
+        Predict: 3.0
+       Else (feature 53 not in {1.0})
+        Predict: 4.0
+     Else (feature 903 not in {1.0})
+      If (feature 365 in {1.0})
+       If (feature 1224 in {3.0})
+        If (feature 348 in {0.0})
+         Predict: 2.0
+        Else (feature 348 not in {0.0})
+         Predict: 3.0
+       Else (feature 1224 not in {3.0})
+        Predict: 4.0
+      Else (feature 365 not in {1.0})
+       If (feature 1018 in {1.0})
+        If (feature 1224 in {7.0})
+         If (feature 798 in {0.0})
+          Predict: 2.0
+         Else (feature 798 not in {0.0})
+          Predict: 3.0
+        Else (feature 1224 not in {7.0})
+         If (feature 37 in {1.0})
+          If (feature 1224 in {4.0})
+           Predict: 3.0
+          Else (feature 1224 not in {4.0})
+           Predict: 4.0
+         Else (feature 37 not in {1.0})
+          Predict: 4.0
+       Else (feature 1018 not in {1.0})
+        If (feature 587 in {1.0})
+         If (feature 1224 in {4.0})
+          If (feature 259 in {0.0})
+           Predict: 2.0
+          Else (feature 259 not in {0.0})
+           Predict: 3.0
+         Else (feature 1224 not in {4.0})
+          Predict: 4.0
+        Else (feature 587 not in {1.0})
+         If (feature 270 in {1.0})
+          If (feature 1224 in {8.0})
+           If (feature 815 in {0.0})
+            Predict: 2.0
+           Else (feature 815 not in {0.0})
+            Predict: 3.0
+          Else (feature 1224 not in {8.0})
+           Predict: 4.0
+         Else (feature 270 not in {1.0})
+          Predict: 4.0
+   Else (feature 1223 > 3.7911091451951786)
+    Predict: 4.0
+

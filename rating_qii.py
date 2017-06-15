@@ -19,7 +19,7 @@ def load_als_model(sc, fname):
         else:
             old_suffix = "als_model.pkl"
             new_suffix = "upr_model.pkl"
-            fname = fname[:len(old_suffix)] + new_suffix
+            fname = fname[:-len(old_suffix)] + new_suffix
     res = CustomFeaturesRecommender.load(sc, fname)
     return res
 

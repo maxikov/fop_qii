@@ -54,7 +54,7 @@ class CustomFeaturesRecommender(object):
         return res
 
     def predict(self, user, product):
-        _, uf = self.u_feats.lookup(user)[0]
-        _, pf = self.p_feats.lookup(product)[0]
+        uf = self.u_feats.lookup(user)[0]
+        pf = self.p_feats.lookup(product)[0]
         res = sum(x*y for (x, y) in zip(uf, pf))
         return res
