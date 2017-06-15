@@ -30,6 +30,7 @@ DROP_RARE_MOVIES=50
 NORMALIZE="" #Must be empty or --normalize
 FEATURE_TRIM_PERCENTILE=0
 NO_HT="--no-ht"
+OVERRIDE_ARGS=""
 
 NAME_SUFFIX=""
 
@@ -58,7 +59,7 @@ function make_commands() {
 	ARGS="${ARGS} --predict-product-features --metadata-sources $METADATA_SOURCES"
 	ARGS="${ARGS} --drop-rare-features $DROP_RARE_FEATURES --drop-rare-movies $DROP_RARE_MOVIES"
 	ARGS="${ARGS} --cross-validation $CROSS_VALIDATION --regression-model $REGRESSION_MODEL --nbins $NBINS --max-depth $MAX_DEPTH $NORMALIZE"
-	ARGS="${ARGS} --features-trim-percentile $FEATURE_TRIM_PERCENTILE ${NO_HT}"
+	ARGS="${ARGS} --features-trim-percentile $FEATURE_TRIM_PERCENTILE ${NO_HT} ${OVERRIDE_ARGS}"
 
 	WHOLE_COMMAND="$SPARK_SUBMIT MovieLensALS.py $ARGS"
 }
@@ -99,8 +100,9 @@ function run_and_save() {
 DATA_PATH="new_experiments/synth_data_set"
 METADATA_SOURCES="${METADATA_SOURCES} imdb_year imdb_rating imdb_cast imdb_cinematographer imdb_composer imdb_languages imdb_production_companies imdb_writer"
 NAME_SUFFIX="larger_synth_profile_recommender"
+OVERRIDE_ARGS="--override-args"
 
-RANK=12
+RANK=10
 make_commands
 mkdir -p $PERSIST_DIR
 cp ${DATA_PATH}/upr_model.pkl $PERSIST_DIR

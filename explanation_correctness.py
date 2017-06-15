@@ -98,7 +98,7 @@ def main():
     print "Randomized model relative to the baseline recommender on test set MAE: {}, RMSE: {}"\
             .format(results["all_random_rec_eval_test"]["mean_abs_err"],results["all_random_rec_eval_test"]["rmse"])
     if results["all_replaced_rec_eval_test"]["mean_abs_err"] != 0:
-    print "Shadow model is {} times better than random on the test set"\
+        print "Shadow model is {} times better than random on the test set"\
             .format(results["all_random_rec_eval_test"]["mean_abs_err"]/results["all_replaced_rec_eval_test"]["mean_abs_err"])
     else:
         print "Shadow model is inf times better than random on the test set"
