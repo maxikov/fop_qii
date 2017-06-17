@@ -13,9 +13,150 @@ Data set created, training the tree
 ('train_regression_model(data.count=12195247, regression_model="regression_tree", len(categorical_features)=1221, max_bins=10, max_depth=10, num_trees=128, is_classifier=False, num_classes=None)',)
 ('num_classes is None, setting to max_bins=10',)
 ('Training regression_tree',)
-('Done in 1372.75814199 seconds',)
+('Done in 1099.22221684 seconds',)
 Done
-DecisionTreeModel regressor of depth 10 with 233 nodes
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.codec.CodecConfig: Compression: SNAPPY
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.codec.CodecConfig: Compression: SNAPPY
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.codec.CodecConfig: Compression: SNAPPY
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.codec.CodecConfig: Compression: SNAPPY
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.codec.CodecConfig: Compression: SNAPPY
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.codec.CodecConfig: Compression: SNAPPY
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.codec.CodecConfig: Compression: SNAPPY
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.codec.CodecConfig: Compression: SNAPPY
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Parquet block size to 134217728
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Parquet block size to 134217728
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Parquet block size to 134217728
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Parquet page size to 1048576
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Parquet page size to 1048576
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Parquet dictionary page size to 1048576
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Parquet dictionary page size to 1048576
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Dictionary is on
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Dictionary is on
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Validation is off
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Validation is off
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Parquet block size to 134217728
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Parquet block size to 134217728
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Parquet page size to 1048576
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Writer version is: PARQUET_1_0
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Parquet dictionary page size to 1048576
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Dictionary is on
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Validation is off
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Writer version is: PARQUET_1_0
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Parquet page size to 1048576
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Parquet dictionary page size to 1048576
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Dictionary is on
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Validation is off
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Writer version is: PARQUET_1_0
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Parquet block size to 134217728
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Parquet block size to 134217728
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Parquet page size to 1048576
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Parquet page size to 1048576
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Parquet dictionary page size to 1048576
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Parquet dictionary page size to 1048576
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Dictionary is on
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Dictionary is on
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Validation is off
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Validation is off
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Writer version is: PARQUET_1_0
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Writer version is: PARQUET_1_0
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Parquet block size to 134217728
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Parquet page size to 1048576
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Parquet page size to 1048576
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Parquet dictionary page size to 1048576
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Parquet dictionary page size to 1048576
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Dictionary is on
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Writer version is: PARQUET_1_0
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Validation is off
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Writer version is: PARQUET_1_0
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Dictionary is on
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Validation is off
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Writer version is: PARQUET_1_0
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.InternalParquetRecordWriter: Flushing mem columnStore to file. allocated memory: 67,720
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.InternalParquetRecordWriter: Flushing mem columnStore to file. allocated memory: 67,736
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.InternalParquetRecordWriter: Flushing mem columnStore to file. allocated memory: 68,136
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.InternalParquetRecordWriter: Flushing mem columnStore to file. allocated memory: 67,812
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.InternalParquetRecordWriter: Flushing mem columnStore to file. allocated memory: 67,696
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.InternalParquetRecordWriter: Flushing mem columnStore to file. allocated memory: 67,780
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.InternalParquetRecordWriter: Flushing mem columnStore to file. allocated memory: 67,888
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.InternalParquetRecordWriter: Flushing mem columnStore to file. allocated memory: 67,912
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 37B for [treeId] INT32: 29 values, 2B raw, 4B comp, 1 pages, encodings: [PLAIN_DICTIONARY, BIT_PACKED], dic { 1 entries, 4B raw, 1B comp}
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 37B for [treeId] INT32: 29 values, 2B raw, 4B comp, 1 pages, encodings: [PLAIN_DICTIONARY, BIT_PACKED], dic { 1 entries, 4B raw, 1B comp}
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 37B for [treeId] INT32: 29 values, 2B raw, 4B comp, 1 pages, encodings: [PLAIN_DICTIONARY, BIT_PACKED], dic { 1 entries, 4B raw, 1B comp}
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 37B for [treeId] INT32: 29 values, 2B raw, 4B comp, 1 pages, encodings: [PLAIN_DICTIONARY, BIT_PACKED], dic { 1 entries, 4B raw, 1B comp}
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 37B for [treeId] INT32: 30 values, 2B raw, 4B comp, 1 pages, encodings: [PLAIN_DICTIONARY, BIT_PACKED], dic { 1 entries, 4B raw, 1B comp}
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 154B for [nodeId] INT32: 29 values, 116B raw, 119B comp, 1 pages, encodings: [BIT_PACKED, PLAIN]
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 67B for [predict, predict] DOUBLE: 29 values, 24B raw, 26B comp, 1 pages, encodings: [RLE, PLAIN_DICTIONARY, BIT_PACKED], dic { 16 entries, 128B raw, 16B comp}
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 51B for [predict, prob] DOUBLE: 29 values, 8B raw, 10B comp, 1 pages, encodings: [RLE, PLAIN_DICTIONARY, BIT_PACKED], dic { 1 entries, 8B raw, 1B comp}
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 61B for [impurity] DOUBLE: 29 values, 18B raw, 20B comp, 1 pages, encodings: [PLAIN_DICTIONARY, BIT_PACKED], dic { 14 entries, 112B raw, 14B comp}
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 33B for [isLeaf] BOOLEAN: 29 values, 4B raw, 6B comp, 1 pages, encodings: [BIT_PACKED, PLAIN]
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 52B for [split, feature] INT32: 29 values, 17B raw, 19B comp, 1 pages, encodings: [RLE, PLAIN_DICTIONARY, BIT_PACKED], dic { 8 entries, 32B raw, 8B comp}
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 56B for [split, threshold] DOUBLE: 29 values, 13B raw, 15B comp, 1 pages, encodings: [RLE, PLAIN_DICTIONARY, BIT_PACKED], dic { 2 entries, 16B raw, 2B comp}
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 48B for [split, featureType] INT32: 29 values, 13B raw, 15B comp, 1 pages, encodings: [RLE, PLAIN_DICTIONARY, BIT_PACKED], dic { 2 entries, 8B raw, 2B comp}
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 72B for [split, categories, list, element] DOUBLE: 30 values, 29B raw, 31B comp, 1 pages, encodings: [RLE, PLAIN_DICTIONARY], dic { 5 entries, 40B raw, 5B comp}
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 98B for [leftNodeId] INT32: 29 values, 61B raw, 64B comp, 1 pages, encodings: [RLE, BIT_PACKED, PLAIN]
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 98B for [rightNodeId] INT32: 29 values, 61B raw, 64B comp, 1 pages, encodings: [RLE, BIT_PACKED, PLAIN]
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 159B for [infoGain] DOUBLE: 29 values, 113B raw, 116B comp, 1 pages, encodings: [RLE, BIT_PACKED, PLAIN]
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 37B for [treeId] INT32: 29 values, 2B raw, 4B comp, 1 pages, encodings: [PLAIN_DICTIONARY, BIT_PACKED], dic { 1 entries, 4B raw, 1B comp}
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 37B for [treeId] INT32: 29 values, 2B raw, 4B comp, 1 pages, encodings: [PLAIN_DICTIONARY, BIT_PACKED], dic { 1 entries, 4B raw, 1B comp}
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 153B for [nodeId] INT32: 29 values, 116B raw, 118B comp, 1 pages, encodings: [BIT_PACKED, PLAIN]
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 37B for [treeId] INT32: 29 values, 2B raw, 4B comp, 1 pages, encodings: [PLAIN_DICTIONARY, BIT_PACKED], dic { 1 entries, 4B raw, 1B comp}
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 154B for [nodeId] INT32: 29 values, 116B raw, 119B comp, 1 pages, encodings: [BIT_PACKED, PLAIN]
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 71B for [predict, predict] DOUBLE: 29 values, 28B raw, 30B comp, 1 pages, encodings: [RLE, PLAIN_DICTIONARY, BIT_PACKED], dic { 24 entries, 192B raw, 24B comp}
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 154B for [nodeId] INT32: 29 values, 116B raw, 119B comp, 1 pages, encodings: [BIT_PACKED, PLAIN]
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 158B for [nodeId] INT32: 30 values, 120B raw, 123B comp, 1 pages, encodings: [BIT_PACKED, PLAIN]
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 51B for [predict, prob] DOUBLE: 29 values, 8B raw, 10B comp, 1 pages, encodings: [RLE, PLAIN_DICTIONARY, BIT_PACKED], dic { 1 entries, 8B raw, 1B comp}
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 71B for [predict, predict] DOUBLE: 29 values, 28B raw, 30B comp, 1 pages, encodings: [RLE, PLAIN_DICTIONARY, BIT_PACKED], dic { 19 entries, 152B raw, 19B comp}
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 153B for [nodeId] INT32: 29 values, 116B raw, 118B comp, 1 pages, encodings: [BIT_PACKED, PLAIN]
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 71B for [predict, predict] DOUBLE: 29 values, 28B raw, 30B comp, 1 pages, encodings: [RLE, PLAIN_DICTIONARY, BIT_PACKED], dic { 18 entries, 144B raw, 18B comp}
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 71B for [predict, predict] DOUBLE: 30 values, 28B raw, 30B comp, 1 pages, encodings: [RLE, PLAIN_DICTIONARY, BIT_PACKED], dic { 17 entries, 136B raw, 17B comp}
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 65B for [impurity] DOUBLE: 29 values, 22B raw, 24B comp, 1 pages, encodings: [PLAIN_DICTIONARY, BIT_PACKED], dic { 22 entries, 176B raw, 22B comp}
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 51B for [predict, prob] DOUBLE: 29 values, 8B raw, 10B comp, 1 pages, encodings: [RLE, PLAIN_DICTIONARY, BIT_PACKED], dic { 1 entries, 8B raw, 1B comp}
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 71B for [predict, predict] DOUBLE: 29 values, 28B raw, 30B comp, 1 pages, encodings: [RLE, PLAIN_DICTIONARY, BIT_PACKED], dic { 18 entries, 144B raw, 18B comp}
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 33B for [isLeaf] BOOLEAN: 29 values, 4B raw, 6B comp, 1 pages, encodings: [BIT_PACKED, PLAIN]
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 51B for [predict, prob] DOUBLE: 29 values, 8B raw, 10B comp, 1 pages, encodings: [RLE, PLAIN_DICTIONARY, BIT_PACKED], dic { 1 entries, 8B raw, 1B comp}
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 51B for [predict, prob] DOUBLE: 30 values, 8B raw, 10B comp, 1 pages, encodings: [RLE, PLAIN_DICTIONARY, BIT_PACKED], dic { 1 entries, 8B raw, 1B comp}
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 65B for [impurity] DOUBLE: 29 values, 22B raw, 24B comp, 1 pages, encodings: [PLAIN_DICTIONARY, BIT_PACKED], dic { 17 entries, 136B raw, 17B comp}
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 51B for [predict, prob] DOUBLE: 29 values, 8B raw, 10B comp, 1 pages, encodings: [RLE, PLAIN_DICTIONARY, BIT_PACKED], dic { 1 entries, 8B raw, 1B comp}
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 58B for [split, feature] INT32: 29 values, 23B raw, 25B comp, 1 pages, encodings: [RLE, PLAIN_DICTIONARY, BIT_PACKED], dic { 10 entries, 40B raw, 10B comp}
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 33B for [isLeaf] BOOLEAN: 29 values, 4B raw, 6B comp, 1 pages, encodings: [BIT_PACKED, PLAIN]
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 61B for [impurity] DOUBLE: 29 values, 18B raw, 20B comp, 1 pages, encodings: [PLAIN_DICTIONARY, BIT_PACKED], dic { 16 entries, 128B raw, 16B comp}
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 61B for [impurity] DOUBLE: 30 values, 18B raw, 20B comp, 1 pages, encodings: [PLAIN_DICTIONARY, BIT_PACKED], dic { 15 entries, 120B raw, 15B comp}
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 33B for [isLeaf] BOOLEAN: 30 values, 4B raw, 6B comp, 1 pages, encodings: [BIT_PACKED, PLAIN]
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 54B for [split, feature] INT32: 30 values, 19B raw, 21B comp, 1 pages, encodings: [RLE, PLAIN_DICTIONARY, BIT_PACKED], dic { 10 entries, 40B raw, 10B comp}
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 54B for [split, threshold] DOUBLE: 30 values, 11B raw, 13B comp, 1 pages, encodings: [RLE, PLAIN_DICTIONARY, BIT_PACKED], dic { 1 entries, 8B raw, 1B comp}
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 46B for [split, featureType] INT32: 30 values, 11B raw, 13B comp, 1 pages, encodings: [RLE, PLAIN_DICTIONARY, BIT_PACKED], dic { 1 entries, 4B raw, 1B comp}
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 70B for [split, categories, list, element] DOUBLE: 30 values, 27B raw, 29B comp, 1 pages, encodings: [RLE, PLAIN_DICTIONARY], dic { 6 entries, 48B raw, 6B comp}
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 103B for [leftNodeId] INT32: 30 values, 65B raw, 68B comp, 1 pages, encodings: [RLE, BIT_PACKED, PLAIN]
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 103B for [rightNodeId] INT32: 30 values, 65B raw, 68B comp, 1 pages, encodings: [RLE, BIT_PACKED, PLAIN]
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 167B for [infoGain] DOUBLE: 30 values, 121B raw, 124B comp, 1 pages, encodings: [RLE, BIT_PACKED, PLAIN]
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 153B for [nodeId] INT32: 29 values, 116B raw, 118B comp, 1 pages, encodings: [BIT_PACKED, PLAIN]
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 54B for [split, feature] INT32: 29 values, 19B raw, 21B comp, 1 pages, encodings: [RLE, PLAIN_DICTIONARY, BIT_PACKED], dic { 10 entries, 40B raw, 10B comp}
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 58B for [split, threshold] DOUBLE: 29 values, 15B raw, 17B comp, 1 pages, encodings: [RLE, PLAIN_DICTIONARY, BIT_PACKED], dic { 4 entries, 32B raw, 4B comp}
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 71B for [predict, predict] DOUBLE: 29 values, 28B raw, 30B comp, 1 pages, encodings: [RLE, PLAIN_DICTIONARY, BIT_PACKED], dic { 22 entries, 176B raw, 22B comp}
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 56B for [split, threshold] DOUBLE: 29 values, 13B raw, 15B comp, 1 pages, encodings: [RLE, PLAIN_DICTIONARY, BIT_PACKED], dic { 2 entries, 16B raw, 2B comp}
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 49B for [split, featureType] INT32: 29 values, 14B raw, 16B comp, 1 pages, encodings: [RLE, PLAIN_DICTIONARY, BIT_PACKED], dic { 2 entries, 8B raw, 2B comp}
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 93B for [split, categories, list, element] DOUBLE: 56 values, 51B raw, 52B comp, 1 pages, encodings: [RLE, PLAIN_DICTIONARY], dic { 7 entries, 56B raw, 7B comp}
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 48B for [split, featureType] INT32: 29 values, 13B raw, 15B comp, 1 pages, encodings: [RLE, PLAIN_DICTIONARY, BIT_PACKED], dic { 2 entries, 8B raw, 2B comp}
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 51B for [predict, prob] DOUBLE: 29 values, 8B raw, 10B comp, 1 pages, encodings: [RLE, PLAIN_DICTIONARY, BIT_PACKED], dic { 1 entries, 8B raw, 1B comp}
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 115B for [leftNodeId] INT32: 29 values, 77B raw, 80B comp, 1 pages, encodings: [RLE, BIT_PACKED, PLAIN]
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 113B for [rightNodeId] INT32: 29 values, 77B raw, 78B comp, 1 pages, encodings: [RLE, BIT_PACKED, PLAIN]
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 70B for [split, categories, list, element] DOUBLE: 29 values, 27B raw, 29B comp, 1 pages, encodings: [RLE, PLAIN_DICTIONARY], dic { 6 entries, 48B raw, 6B comp}
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 65B for [impurity] DOUBLE: 29 values, 22B raw, 24B comp, 1 pages, encodings: [PLAIN_DICTIONARY, BIT_PACKED], dic { 20 entries, 160B raw, 20B comp}
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 192B for [infoGain] DOUBLE: 29 values, 145B raw, 149B comp, 1 pages, encodings: [RLE, BIT_PACKED, PLAIN]
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 33B for [isLeaf] BOOLEAN: 29 values, 4B raw, 6B comp, 1 pages, encodings: [BIT_PACKED, PLAIN]
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 54B for [split, feature] INT32: 29 values, 19B raw, 21B comp, 1 pages, encodings: [RLE, PLAIN_DICTIONARY, BIT_PACKED], dic { 10 entries, 40B raw, 10B comp}
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 56B for [split, threshold] DOUBLE: 29 values, 13B raw, 15B comp, 1 pages, encodings: [RLE, PLAIN_DICTIONARY, BIT_PACKED], dic { 2 entries, 16B raw, 2B comp}
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 48B for [split, featureType] INT32: 29 values, 13B raw, 15B comp, 1 pages, encodings: [RLE, PLAIN_DICTIONARY, BIT_PACKED], dic { 2 entries, 8B raw, 2B comp}
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 84B for [split, categories, list, element] DOUBLE: 42 values, 42B raw, 43B comp, 1 pages, encodings: [RLE, PLAIN_DICTIONARY], dic { 7 entries, 56B raw, 7B comp}
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 107B for [leftNodeId] INT32: 29 values, 69B raw, 72B comp, 1 pages, encodings: [RLE, BIT_PACKED, PLAIN]
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 107B for [rightNodeId] INT32: 29 values, 69B raw, 72B comp, 1 pages, encodings: [RLE, BIT_PACKED, PLAIN]
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 176B for [infoGain] DOUBLE: 29 values, 129B raw, 133B comp, 1 pages, encodings: [RLE, BIT_PACKED, PLAIN]
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 61B for [impurity] DOUBLE: 29 values, 18B raw, 20B comp, 1 pages, encodings: [PLAIN_DICTIONARY, BIT_PACKED], dic { 16 entries, 128B raw, 16B comp}
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 154B for [nodeId] INT32: 29 values, 116B raw, 119B comp, 1 pages, encodings: [BIT_PACKED, PLAIN]
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 33B for [isLeaf] BOOLEAN: 29 values, 4B raw, 6B comp, 1 pages, encodings: [BIT_PACKED, PLAIN]
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 103B for [leftNodeId] INT32: 29 values, 65B raw, 68B comp, 1 pages, encodings: [RLE, BIT_PACKED, PLAIN]
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 33B for [isLeaf] BOOLEAN: 29 values, 4B raw, 6B comp, 1 pages, encodings: [BIT_PACKED, PLAIN]
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 71B for [predict, predict] DOUBLE: 29 values, 28B raw, 30B comp, 1 pages, encodings: [RLE, PLAIN_DICTIONARY, BIT_PACKED], dic { 19 DecisionTreeModel regressor of depth 10 with 233 nodes
   If (feature 1223 <= 3.199479900314227)
    If (feature 1223 <= 2.0)
     Predict: 2.0

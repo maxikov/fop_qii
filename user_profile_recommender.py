@@ -21,9 +21,11 @@ import CustomFeaturesRecommender
 #pyspark libraryb
 from pyspark import SparkConf, SparkContext
 
-def rate(user_profile, inds):
+def rate(user_profile, inds, noise=0.0):
     res = 3.0 + inds[user_profile["pos"]]\
             - inds[user_profile["neg"]]
+    if noise != 0:
+        res += random.uniform(-noise, noise)
     return res
 
 def main():
@@ -32,6 +34,8 @@ def main():
                         "Path to saved state (for indicators)")
     parser.add_argument("--data-path", action="store", type=str, help=\
                         "Path to data set (for ratings and profiles)")
+    parser.add_argument("--noise", action="store", type=float, default=0.0,
+                        help="Magnitude of noise to add to the features")
     args = parser.parse_args()
     conf = SparkConf().setMaster("local[*]")\
             .set("spark.driver.memory", "4g")\
@@ -91,7 +95,7 @@ def main():
     product_features = indicators.map(
             lambda (mid, inds):\
                     (mid,
-                        [rate(profiles[i], inds) for i in xrange(rank)]))
+                        [rate(profiles[i], inds, args.noise) for i in xrange(rank)]))
     print "product features sample:"
     for x in product_features.take(5):
         print x

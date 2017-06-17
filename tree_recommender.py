@@ -108,6 +108,7 @@ def main():
         categorical_features=results["categorical_features"],
         max_bins=args.nbins, max_depth=args.max_depth, logger=logger)
     print "Done"
+    tree_model.save(sc, "/home/maxikov/tree_recommender.pkl")
     print tree_model.toDebugString()
     preds = tree_model.predict(data_set.map(lambda x: x.features))
     original_ratings = common_utils.safe_zip(data_set, ids)\
