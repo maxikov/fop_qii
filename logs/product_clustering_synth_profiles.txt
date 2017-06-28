@@ -1,0 +1,475 @@
+Loading results dict
+Loading indicators
+Loading ALS model
+Training K-means
+Done
+Labeling clusters
+Training a latent tree
+DecisionTreeModel classifier of depth 8 with 153 nodes
+  If (feature 7 <= 0.13509425520896912)
+   If (feature 11 <= 0.8949294090270996)
+    If (feature 4 <= 0.4898626208305359)
+     If (feature 8 <= 0.8746705651283264)
+      If (feature 1 <= 0.38039135932922363)
+       If (feature 0 <= 0.1872040331363678)
+        If (feature 5 <= -1.1467746496200562)
+         Predict: 1.0
+        Else (feature 5 > -1.1467746496200562)
+         If (feature 6 <= -0.608093798160553)
+          Predict: 4.0
+         Else (feature 6 > -0.608093798160553)
+          Predict: 4.0
+       Else (feature 0 > 0.1872040331363678)
+        Predict: 2.0
+      Else (feature 1 > 0.38039135932922363)
+       Predict: 3.0
+     Else (feature 8 > 0.8746705651283264)
+      If (feature 7 <= -0.4271188974380493)
+       If (feature 3 <= 0.032718148082494736)
+        Predict: 7.0
+       Else (feature 3 > 0.032718148082494736)
+        If (feature 0 <= -0.16400858759880066)
+         If (feature 2 <= -0.23778846859931946)
+          Predict: 6.0
+         Else (feature 2 > -0.23778846859931946)
+          Predict: 8.0
+        Else (feature 0 > -0.16400858759880066)
+         Predict: 2.0
+      Else (feature 7 > -0.4271188974380493)
+       If (feature 2 <= -0.5778955817222595)
+        If (feature 1 <= 0.2701691687107086)
+         Predict: 2.0
+        Else (feature 1 > 0.2701691687107086)
+         Predict: 3.0
+       Else (feature 2 > -0.5778955817222595)
+        If (feature 2 <= -0.12999820709228516)
+         Predict: 1.0
+        Else (feature 2 > -0.12999820709228516)
+         Predict: 4.0
+    Else (feature 4 > 0.4898626208305359)
+     If (feature 6 <= -0.12025056034326553)
+      If (feature 1 <= 0.013995500281453133)
+       If (feature 3 <= -0.08992959558963776)
+        Predict: 7.0
+       Else (feature 3 > -0.08992959558963776)
+        If (feature 2 <= -0.2683626711368561)
+         Predict: 6.0
+        Else (feature 2 > -0.2683626711368561)
+         If (feature 0 <= -0.5131211876869202)
+          Predict: 8.0
+         Else (feature 0 > -0.5131211876869202)
+          Predict: 6.0
+      Else (feature 1 > 0.013995500281453133)
+       If (feature 1 <= 0.09990599006414413)
+        Predict: 4.0
+       Else (feature 1 > 0.09990599006414413)
+        Predict: 3.0
+     Else (feature 6 > -0.12025056034326553)
+      If (feature 2 <= -0.7471752762794495)
+       Predict: 5.0
+      Else (feature 2 > -0.7471752762794495)
+       If (feature 3 <= -0.18141885101795197)
+        Predict: 9.0
+       Else (feature 3 > -0.18141885101795197)
+        Predict: 4.0
+   Else (feature 11 > 0.8949294090270996)
+    If (feature 10 <= -0.15666377544403076)
+     If (feature 7 <= -0.6166050434112549)
+      If (feature 0 <= 0.3161312937736511)
+       Predict: 7.0
+      Else (feature 0 > 0.3161312937736511)
+       Predict: 2.0
+     Else (feature 7 > -0.6166050434112549)
+      If (feature 5 <= -1.1467746496200562)
+       Predict: 5.0
+      Else (feature 5 > -1.1467746496200562)
+       If (feature 4 <= 0.8211650848388672)
+        Predict: 2.0
+       Else (feature 4 > 0.8211650848388672)
+        If (feature 0 <= -0.40699562430381775)
+         Predict: 6.0
+        Else (feature 0 > -0.40699562430381775)
+         Predict: 0.0
+    Else (feature 10 > -0.15666377544403076)
+     If (feature 2 <= -0.37516412138938904)
+      If (feature 1 <= 0.2701691687107086)
+       If (feature 7 <= -0.04739120975136757)
+        If (feature 5 <= -0.33266475796699524)
+         If (feature 11 <= 0.9396129250526428)
+          Predict: 1.0
+         Else (feature 11 > 0.9396129250526428)
+          Predict: 8.0
+        Else (feature 5 > -0.33266475796699524)
+         If (feature 3 <= 0.18352457880973816)
+          Predict: 0.0
+         Else (feature 3 > 0.18352457880973816)
+          Predict: 6.0
+       Else (feature 7 > -0.04739120975136757)
+        If (feature 5 <= -0.9205377697944641)
+         If (feature 0 <= -0.21923287212848663)
+          Predict: 5.0
+         Else (feature 0 > -0.21923287212848663)
+          Predict: 1.0
+        Else (feature 5 > -0.9205377697944641)
+         If (feature 11 <= 1.0896718502044678)
+          Predict: 0.0
+         Else (feature 11 > 1.0896718502044678)
+          Predict: 0.0
+      Else (feature 1 > 0.2701691687107086)
+       If (feature 6 <= -0.5386266708374023)
+        If (feature 10 <= -0.027090197429060936)
+         If (feature 2 <= -0.5562300086021423)
+          Predict: 0.0
+         Else (feature 2 > -0.5562300086021423)
+          Predict: 4.0
+        Else (feature 10 > -0.027090197429060936)
+         Predict: 3.0
+       Else (feature 6 > -0.5386266708374023)
+        If (feature 3 <= -0.12415862083435059)
+         If (feature 2 <= -0.8403844237327576)
+          Predict: 3.0
+         Else (feature 2 > -0.8403844237327576)
+          Predict: 7.0
+        Else (feature 3 > -0.12415862083435059)
+         Predict: 5.0
+     Else (feature 2 > -0.37516412138938904)
+      If (feature 8 <= 0.9093350768089294)
+       If (feature 5 <= -0.33266475796699524)
+        If (feature 11 <= 0.9396129250526428)
+         Predict: 1.0
+        Else (feature 11 > 0.9396129250526428)
+         If (feature 0 <= -0.021083103492856026)
+          Predict: 8.0
+         Else (feature 0 > -0.021083103492856026)
+          Predict: 3.0
+       Else (feature 5 > -0.33266475796699524)
+        If (feature 8 <= 0.6986435055732727)
+         Predict: 0.0
+        Else (feature 8 > 0.6986435055732727)
+         If (feature 0 <= -0.5131211876869202)
+          Predict: 6.0
+         Else (feature 0 > -0.5131211876869202)
+          Predict: 4.0
+      Else (feature 8 > 0.9093350768089294)
+       If (feature 4 <= 0.6282581090927124)
+        Predict: 7.0
+       Else (feature 4 > 0.6282581090927124)
+        If (feature 0 <= -0.37747544050216675)
+         Predict: 9.0
+        Else (feature 0 > -0.37747544050216675)
+         Predict: 6.0
+  Else (feature 7 > 0.13509425520896912)
+   If (feature 0 <= -0.07949057966470718)
+    If (feature 5 <= -0.8197575211524963)
+     Predict: 5.0
+    Else (feature 5 > -0.8197575211524963)
+     If (feature 8 <= 0.32790353894233704)
+      If (feature 10 <= 0.4104706645011902)
+       If (feature 0 <= -0.2804836630821228)
+        Predict: 0.0
+       Else (feature 0 > -0.2804836630821228)
+        Predict: 4.0
+      Else (feature 10 > 0.4104706645011902)
+       Predict: 8.0
+     Else (feature 8 > 0.32790353894233704)
+      If (feature 1 <= 0.2701691687107086)
+       If (feature 11 <= 0.8188146352767944)
+        If (feature 1 <= -0.24915601313114166)
+         If (feature 0 <= -0.18153229355812073)
+          Predict: 5.0
+         Else (feature 0 > -0.18153229355812073)
+          Predict: 6.0
+        Else (feature 1 > -0.24915601313114166)
+         Predict: 4.0
+       Else (feature 11 > 0.8188146352767944)
+        If (feature 5 <= -0.690338671207428)
+         If (feature 0 <= -0.2804836630821228)
+          Predict: 1.0
+         Else (feature 0 > -0.2804836630821228)
+          Predict: 0.0
+        Else (feature 5 > -0.690338671207428)
+         If (feature 6 <= -0.8306854367256165)
+          Predict: 0.0
+         Else (feature 6 > -0.8306854367256165)
+          Predict: 0.0
+      Else (feature 1 > 0.2701691687107086)
+       Predict: 3.0
+   Else (feature 0 > -0.07949057966470718)
+    If (feature 10 <= 0.32318785786628723)
+     If (feature 10 <= -0.15666377544403076)
+      Predict: 2.0
+     Else (feature 10 > -0.15666377544403076)
+      If (feature 5 <= -0.17204776406288147)
+       Predict: 1.0
+      Else (feature 5 > -0.17204776406288147)
+       If (feature 0 <= 0.0745120719075203)
+        If (feature 0 <= 0.027416324242949486)
+         If (feature 2 <= -0.7471752762794495)
+          Predict: 0.0
+         Else (feature 2 > -0.7471752762794495)
+          Predict: 1.0
+        Else (feature 0 > 0.027416324242949486)
+         Predict: 4.0
+       Else (feature 0 > 0.0745120719075203)
+        Predict: 3.0
+    Else (feature 10 > 0.32318785786628723)
+     If (feature 1 <= 0.2701691687107086)
+      If (feature 11 <= 1.2550556659698486)
+       If (feature 0 <= 1.230418711202219E-4)
+        Predict: 3.0
+       Else (feature 0 > 1.230418711202219E-4)
+        If (feature 0 <= 0.0745120719075203)
+         Predict: 1.0
+        Else (feature 0 > 0.0745120719075203)
+         If (feature 0 <= 0.10020816326141357)
+          Predict: 4.0
+         Else (feature 0 > 0.10020816326141357)
+          Predict: 5.0
+      Else (feature 11 > 1.2550556659698486)
+       If (feature 2 <= -0.08069448918104172)
+        Predict: 0.0
+       Else (feature 2 > -0.08069448918104172)
+        Predict: 8.0
+     Else (feature 1 > 0.2701691687107086)
+      If (feature 4 <= 0.566811740398407)
+       Predict: 3.0
+      Else (feature 4 > 0.566811740398407)
+       Predict: 5.0
+
+Done, making predictions
+Accuracy: 0.987768347479
+/opt/spark-2.1.1-bin-hadoop2.7/python/lib/pyspark.zip/pyspark/mllib/evaluation.py:237: UserWarning: Deprecated in 2.0.0. Use accuracy.
+/opt/spark-2.1.1-bin-hadoop2.7/python/lib/pyspark.zip/pyspark/mllib/evaluation.py:249: UserWarning: Deprecated in 2.0.0. Use accuracy.
+/opt/spark-2.1.1-bin-hadoop2.7/python/lib/pyspark.zip/pyspark/mllib/evaluation.py:262: UserWarning: Deprecated in 2.0.0. Use accuracy.
+Summary Stats
+Precision = 0.987768347479
+Recall = 0.987768347479
+F1 Score = 0.987768347479
+Building meta training set
+Training a meta tree
+DecisionTreeModel classifier of depth 8 with 123 nodes
+  If (average_rating <= 2.0)
+   Predict: 4.0
+  Else (average_rating > 2.0)
+   If (Isn't imdb_keywords:male-nudity)
+    If (Isn't imdb_keywords:robbery)
+     If (Isn't imdb_keywords:actress)
+      If (Isn't imdb_keywords:disguise)
+       If (Isn't imdb_keywords:subtitled-scene)
+        If (Isn't imdb_keywords:class-differences)
+         If (Isn't imdb_keywords:unrequited-love)
+          Predict: 0.0
+         Else (Is imdb_keywords:unrequited-love)
+          Predict: 4.0
+        Else (Is imdb_keywords:class-differences)
+         If (Isn't imdb_keywords:gunfire)
+          Predict: 7.0
+         Else (Is imdb_keywords:gunfire)
+          Predict: 9.0
+       Else (Is imdb_keywords:subtitled-scene)
+        If (Isn't imdb_keywords:gunfire)
+         If (Isn't imdb_keywords:class-differences)
+          Predict: 3.0
+         Else (Is imdb_keywords:class-differences)
+          Predict: 7.0
+        Else (Is imdb_keywords:gunfire)
+         Predict: 5.0
+      Else (Is imdb_keywords:disguise)
+       If (Isn't imdb_keywords:subtitled-scene)
+        If (Isn't imdb_keywords:gunfire)
+         If (Isn't imdb_keywords:class-differences)
+          Predict: 8.0
+         Else (Is imdb_keywords:class-differences)
+          Predict: 7.0
+        Else (Is imdb_keywords:gunfire)
+         If (Isn't movielens_tags:Criterion)
+          Predict: 5.0
+         Else (Is movielens_tags:Criterion)
+          Predict: 9.0
+       Else (Is imdb_keywords:subtitled-scene)
+        If (Isn't tvtropes:too dumb to live)
+         If (Isn't imdb_keywords:cow)
+          Predict: 3.0
+         Else (Is imdb_keywords:cow)
+          Predict: 5.0
+        Else (Is tvtropes:too dumb to live)
+         Predict: 8.0
+     Else (Is imdb_keywords:actress)
+      If (Isn't imdb_keywords:class-differences)
+       If (Isn't imdb_keywords:duel)
+        Predict: 2.0
+       Else (Is imdb_keywords:duel)
+        If (year <= 1994.0)
+         If (year <= 1958.0)
+          Predict: 8.0
+         Else (year > 1958.0)
+          Predict: 2.0
+        Else (year > 1994.0)
+         Predict: 5.0
+      Else (Is imdb_keywords:class-differences)
+       Predict: 7.0
+    Else (Is imdb_keywords:robbery)
+     If (Isn't imdb_keywords:disguise)
+      If (Isn't imdb_keywords:gunfire)
+       If (Isn't imdb_keywords:actress)
+        If (Isn't imdb_keywords:subtitled-scene)
+         If (Isn't imdb_keywords:class-differences)
+          Predict: 6.0
+         Else (Is imdb_keywords:class-differences)
+          Predict: 7.0
+        Else (Is imdb_keywords:subtitled-scene)
+         If (Isn't tvtropes:too dumb to live)
+          Predict: 3.0
+         Else (Is tvtropes:too dumb to live)
+          Predict: 6.0
+       Else (Is imdb_keywords:actress)
+        Predict: 2.0
+      Else (Is imdb_keywords:gunfire)
+       Predict: 5.0
+     Else (Is imdb_keywords:disguise)
+      If (Isn't imdb_keywords:subtitled-scene)
+       If (Isn't imdb_keywords:poverty)
+        If (Isn't imdb_keywords:pipe-smoking)
+         If (Isn't imdb_keywords:jewish)
+          Predict: 8.0
+         Else (Is imdb_keywords:jewish)
+          Predict: 6.0
+        Else (Is imdb_keywords:pipe-smoking)
+         If (year <= 1947.0)
+          Predict: 5.0
+         Else (year > 1947.0)
+          Predict: 2.0
+       Else (Is imdb_keywords:poverty)
+        If (Isn't movielens_genre:Action)
+         Predict: 7.0
+        Else (Is movielens_genre:Action)
+         Predict: 6.0
+      Else (Is imdb_keywords:subtitled-scene)
+       If (Isn't imdb_keywords:19th-century)
+        Predict: 3.0
+       Else (Is imdb_keywords:19th-century)
+        If (year <= 2006.0)
+         Predict: 7.0
+        Else (year > 2006.0)
+         Predict: 8.0
+   Else (Is imdb_keywords:male-nudity)
+    If (Isn't imdb_keywords:robbery)
+     If (Isn't imdb_keywords:actress)
+      If (Isn't imdb_keywords:disguise)
+       If (Isn't imdb_keywords:gunfight)
+        If (Isn't imdb_keywords:subtitled-scene)
+         If (Isn't imdb_keywords:class-differences)
+          Predict: 1.0
+         Else (Is imdb_keywords:class-differences)
+          Predict: 7.0
+        Else (Is imdb_keywords:subtitled-scene)
+         If (Isn't movielens_genre:Adventure)
+          Predict: 3.0
+         Else (Is movielens_genre:Adventure)
+          Predict: 1.0
+       Else (Is imdb_keywords:gunfight)
+        If (Isn't imdb_keywords:subtitled-scene)
+         If (Isn't imdb_keywords:military)
+          Predict: 0.0
+         Else (Is imdb_keywords:military)
+          Predict: 1.0
+        Else (Is imdb_keywords:subtitled-scene)
+         If (Isn't movielens_tags:BD-Video)
+          Predict: 3.0
+         Else (Is movielens_tags:BD-Video)
+          Predict: 0.0
+      Else (Is imdb_keywords:disguise)
+       If (Isn't imdb_keywords:subtitled-scene)
+        If (Isn't imdb_keywords:class-differences)
+         Predict: 8.0
+        Else (Is imdb_keywords:class-differences)
+         Predict: 7.0
+       Else (Is imdb_keywords:subtitled-scene)
+        If (Isn't movielens_genre:Drama)
+         Predict: 3.0
+        Else (Is movielens_genre:Drama)
+         If (year <= 1995.0)
+          Predict: 8.0
+         Else (year > 1995.0)
+          Predict: 7.0
+     Else (Is imdb_keywords:actress)
+      If (Isn't imdb_keywords:honor)
+       If (Isn't imdb_keywords:class-differences)
+        Predict: 2.0
+       Else (Is imdb_keywords:class-differences)
+        Predict: 7.0
+      Else (Is imdb_keywords:honor)
+       If (Isn't movielens_genre:Comedy)
+        Predict: 1.0
+       Else (Is movielens_genre:Comedy)
+        Predict: 9.0
+    Else (Is imdb_keywords:robbery)
+     If (Isn't imdb_keywords:actress)
+      If (Isn't imdb_keywords:class-differences)
+       If (Isn't imdb_keywords:disguise)
+        If (Isn't imdb_keywords:subtitled-scene)
+         If (Isn't imdb_keywords:killing-an-animal)
+          Predict: 6.0
+         Else (Is imdb_keywords:killing-an-animal)
+          Predict: 1.0
+        Else (Is imdb_keywords:subtitled-scene)
+         If (year <= 2006.0)
+          Predict: 3.0
+         Else (year > 2006.0)
+          Predict: 6.0
+       Else (Is imdb_keywords:disguise)
+        If (Isn't imdb_keywords:bathtub)
+         If (Isn't imdb_keywords:actor-shares-first-name-with-character)
+          Predict: 8.0
+         Else (Is imdb_keywords:actor-shares-first-name-with-character)
+          Predict: 6.0
+        Else (Is imdb_keywords:bathtub)
+         If (year <= 1998.0)
+          Predict: 6.0
+         Else (year > 1998.0)
+          Predict: 5.0
+      Else (Is imdb_keywords:class-differences)
+       Predict: 7.0
+     Else (Is imdb_keywords:actress)
+      Predict: 2.0
+
+Done, making predictions
+Accuracy: 0.965801298053
+Summary Stats
+Precision = 0.965801298053
+Recall = 0.965801298053
+F1 Score = 0.965801298053
+29 features used
+10 clusters found
+Processing cluster 0.0
+QIIs: [('movielens_genre:Drama', 0.15789473684210525), ('imdb_keywords:gunfire', -0.1118421052631579), ('imdb_keywords:killing-an-animal', -0.08223684210526316), ('imdb_keywords:military', 0.07894736842105263), ('imdb_keywords:subtitled-scene', -0.046052631578947366), ('imdb_keywords:cow', 0.03618421052631579), ('imdb_keywords:actor-shares-first-name-with-character', 0.023026315789473683), ('movielens_tags:Criterion', 0.009868421052631578), ('imdb_keywords:19th-century', 0.004934210526315789), ('year', 0.0), ('movielens_genre:Action', 0.0), ('movielens_genre:Adventure', 0.0), ('movielens_genre:Comedy', 0.0), ('imdb_keywords:unrequited-love', 0.0), ('movielens_tags:BD-Video', 0.0), ('imdb_keywords:class-differences', 0.0), ('imdb_keywords:honor', 0.0), ('tvtropes:too dumb to live', 0.0), ('average_rating', 0.0), ('imdb_keywords:bathtub', 0.0), ('imdb_keywords:robbery', 0.0), ('imdb_keywords:jewish', 0.0), ('imdb_keywords:gunfight', 0.0), ('imdb_keywords:disguise', 0.0), ('imdb_keywords:pipe-smoking', 0.0), ('imdb_keywords:actress', 0.0), ('imdb_keywords:male-nudity', 0.0), ('imdb_keywords:poverty', 0.0), ('imdb_keywords:duel', 0.0)]
+Correctness scores: [(1, 0.4146341463414634), (5, 0.17073170731707316), (0, 0.0), (2, 0.0), (3, 0.0), (4, 0.0), (6, 0.0), (7, 0.0), (8, 0.0), (9, 0.0)]
+Processing cluster 1.0
+QIIs: [('imdb_keywords:gunfire', 0.055248618784530384), ('imdb_keywords:actor-shares-first-name-with-character', 0.016574585635359115), ('imdb_keywords:subtitled-scene', -0.013812154696132596), ('imdb_keywords:jewish', 0.013812154696132596), ('movielens_genre:Comedy', 0.011049723756906077), ('movielens_genre:Adventure', 0.0027624309392265192), ('movielens_tags:Criterion', -0.0027624309392265192), ('imdb_keywords:cow', 0.0027624309392265192), ('imdb_keywords:robbery', 0.0027624309392265192), ('imdb_keywords:actress', 0.0027624309392265192), ('year', 0.0), ('movielens_genre:Action', 0.0), ('imdb_keywords:unrequited-love', 0.0), ('movielens_genre:Drama', 0.0), ('imdb_keywords:military', 0.0), ('movielens_tags:BD-Video', 0.0), ('imdb_keywords:class-differences', 0.0), ('imdb_keywords:honor', 0.0), ('tvtropes:too dumb to live', 0.0), ('average_rating', 0.0), ('imdb_keywords:bathtub', 0.0), ('imdb_keywords:killing-an-animal', 0.0), ('imdb_keywords:gunfight', 0.0), ('imdb_keywords:19th-century', 0.0), ('imdb_keywords:disguise', 0.0), ('imdb_keywords:pipe-smoking', 0.0), ('imdb_keywords:male-nudity', 0.0), ('imdb_keywords:poverty', 0.0), ('imdb_keywords:duel', 0.0)]
+Correctness scores: [(1, 0.7692307692307693), (5, 0.19230769230769232), (2, 0.038461538461538464), (6, 0.038461538461538464), (0, 0.0), (3, 0.0), (4, 0.0), (7, 0.0), (8, 0.0), (9, 0.0)]
+Processing cluster 2.0
+QIIs: [('imdb_keywords:gunfire', 0.04054054054054054), ('year', 0.02027027027027027), ('imdb_keywords:pipe-smoking', 0.02027027027027027), ('imdb_keywords:military', 0.016891891891891893), ('imdb_keywords:killing-an-animal', -0.0033783783783783786), ('movielens_genre:Action', 0.0), ('movielens_genre:Adventure', 0.0), ('movielens_genre:Comedy', 0.0), ('imdb_keywords:unrequited-love', 0.0), ('movielens_genre:Drama', 0.0), ('movielens_tags:BD-Video', 0.0), ('imdb_keywords:class-differences', 0.0), ('imdb_keywords:honor', 0.0), ('movielens_tags:Criterion', 0.0), ('tvtropes:too dumb to live', 0.0), ('imdb_keywords:subtitled-scene', 0.0), ('average_rating', 0.0), ('imdb_keywords:bathtub', 0.0), ('imdb_keywords:cow', 0.0), ('imdb_keywords:robbery', 0.0), ('imdb_keywords:jewish', 0.0), ('imdb_keywords:gunfight', 0.0), ('imdb_keywords:19th-century', 0.0), ('imdb_keywords:disguise', 0.0), ('imdb_keywords:actor-shares-first-name-with-character', 0.0), ('imdb_keywords:actress', 0.0), ('imdb_keywords:male-nudity', 0.0), ('imdb_keywords:poverty', 0.0), ('imdb_keywords:duel', 0.0)]
+Correctness scores: [(1, 0.6666666666666666), (0, 0.0), (2, 0.0), (3, 0.0), (4, 0.0), (5, 0.0), (6, 0.0), (7, 0.0), (8, 0.0), (9, 0.0)]
+Processing cluster 3.0
+QIIs: [('imdb_keywords:military', 0.09608540925266904), ('imdb_keywords:killing-an-animal', 0.09252669039145907), ('movielens_genre:Adventure', -0.03558718861209965), ('imdb_keywords:gunfire', 0.03558718861209965), ('year', 0.021352313167259787), ('movielens_tags:BD-Video', 0.014234875444839857), ('imdb_keywords:class-differences', 0.010676156583629894), ('imdb_keywords:gunfight', 0.0071174377224199285), ('movielens_genre:Action', 0.0), ('movielens_genre:Comedy', 0.0), ('imdb_keywords:unrequited-love', 0.0), ('movielens_genre:Drama', 0.0), ('imdb_keywords:honor', 0.0), ('movielens_tags:Criterion', 0.0), ('tvtropes:too dumb to live', 0.0), ('imdb_keywords:subtitled-scene', 0.0), ('average_rating', 0.0), ('imdb_keywords:bathtub', 0.0), ('imdb_keywords:cow', 0.0), ('imdb_keywords:robbery', 0.0), ('imdb_keywords:jewish', 0.0), ('imdb_keywords:19th-century', 0.0), ('imdb_keywords:disguise', 0.0), ('imdb_keywords:pipe-smoking', 0.0), ('imdb_keywords:actor-shares-first-name-with-character', 0.0), ('imdb_keywords:actress', 0.0), ('imdb_keywords:male-nudity', 0.0), ('imdb_keywords:poverty', 0.0), ('imdb_keywords:duel', 0.0)]
+Correctness scores: [(1, 0.18867924528301888), (4, 0.05660377358490566), (3, 0.03773584905660377), (0, 0.0), (2, 0.0), (5, 0.0), (6, 0.0), (7, 0.0), (8, 0.0), (9, 0.0)]
+Processing cluster 4.0
+QIIs: [('imdb_keywords:disguise', -0.4027504911591356), ('movielens_genre:Drama', -0.3654223968565815), ('imdb_keywords:killing-an-animal', 0.008840864440078585), ('imdb_keywords:military', -0.003929273084479371), ('imdb_keywords:gunfire', 0.0019646365422396855), ('year', 0.0), ('movielens_genre:Action', 0.0), ('movielens_genre:Adventure', 0.0), ('movielens_genre:Comedy', 0.0), ('imdb_keywords:unrequited-love', 0.0), ('movielens_tags:BD-Video', 0.0), ('imdb_keywords:class-differences', 0.0), ('imdb_keywords:honor', 0.0), ('movielens_tags:Criterion', 0.0), ('tvtropes:too dumb to live', 0.0), ('imdb_keywords:subtitled-scene', 0.0), ('average_rating', 0.0), ('imdb_keywords:bathtub', 0.0), ('imdb_keywords:cow', 0.0), ('imdb_keywords:robbery', 0.0), ('imdb_keywords:jewish', 0.0), ('imdb_keywords:gunfight', 0.0), ('imdb_keywords:19th-century', 0.0), ('imdb_keywords:pipe-smoking', 0.0), ('imdb_keywords:actor-shares-first-name-with-character', 0.0), ('imdb_keywords:actress', 0.0), ('imdb_keywords:male-nudity', 0.0), ('imdb_keywords:poverty', 0.0), ('imdb_keywords:duel', 0.0)]
+Correctness scores: [(7, 0.5242966751918159), (1, 0.0025575447570332483), (0, 0.0), (2, 0.0), (3, 0.0), (4, 0.0), (5, 0.0), (6, 0.0), (8, 0.0), (9, 0.0)]
+Processing cluster 5.0
+QIIs: [('imdb_keywords:gunfire', -1.0775862068965518), ('imdb_keywords:military', 1.043103448275862), ('imdb_keywords:cow', -0.4482758620689655), ('imdb_keywords:killing-an-animal', 0.1810344827586207), ('imdb_keywords:robbery', -0.14655172413793102), ('movielens_genre:Drama', -0.10344827586206896), ('year', -0.08620689655172414), ('average_rating', -0.05172413793103448), ('imdb_keywords:bathtub', 0.034482758620689655), ('imdb_keywords:pipe-smoking', 0.02586206896551724), ('imdb_keywords:duel', 0.02586206896551724), ('movielens_genre:Adventure', 0.017241379310344827), ('imdb_keywords:gunfight', -0.017241379310344827), ('movielens_tags:Criterion', -0.008620689655172414), ('imdb_keywords:subtitled-scene', -0.008620689655172414), ('movielens_genre:Action', 0.0), ('movielens_genre:Comedy', 0.0), ('imdb_keywords:unrequited-love', 0.0), ('movielens_tags:BD-Video', 0.0), ('imdb_keywords:class-differences', 0.0), ('imdb_keywords:honor', 0.0), ('tvtropes:too dumb to live', 0.0), ('imdb_keywords:jewish', 0.0), ('imdb_keywords:19th-century', 0.0), ('imdb_keywords:disguise', 0.0), ('imdb_keywords:actor-shares-first-name-with-character', 0.0), ('imdb_keywords:actress', 0.0), ('imdb_keywords:male-nudity', 0.0), ('imdb_keywords:poverty', 0.0)]
+Correctness scores: [(1, 0.508130081300813), (2, 0.06910569105691057), (3, 0.008130081300813009), (5, 0.0040650406504065045), (0, 0.0), (4, 0.0), (6, 0.0), (7, 0.0), (8, 0.0), (9, 0.0)]
+Processing cluster 6.0
+QIIs: [('imdb_keywords:killing-an-animal', -0.03189066059225513), ('imdb_keywords:gunfire', 0.025056947608200455), ('imdb_keywords:military', 0.02050113895216401), ('imdb_keywords:class-differences', -0.02050113895216401), ('imdb_keywords:cow', -0.02050113895216401), ('imdb_keywords:jewish', -0.011389521640091117), ('year', -0.009111617312072893), ('imdb_keywords:duel', 0.009111617312072893), ('imdb_keywords:honor', 0.004555808656036446), ('tvtropes:too dumb to live', 0.004555808656036446), ('imdb_keywords:actor-shares-first-name-with-character', 0.004555808656036446), ('imdb_keywords:poverty', 0.004555808656036446), ('movielens_genre:Action', 0.002277904328018223), ('movielens_genre:Adventure', 0.0), ('movielens_genre:Comedy', 0.0), ('imdb_keywords:unrequited-love', 0.0), ('movielens_genre:Drama', 0.0), ('movielens_tags:BD-Video', 0.0), ('movielens_tags:Criterion', 0.0), ('imdb_keywords:subtitled-scene', 0.0), ('average_rating', 0.0), ('imdb_keywords:bathtub', 0.0), ('imdb_keywords:robbery', 0.0), ('imdb_keywords:gunfight', 0.0), ('imdb_keywords:19th-century', 0.0), ('imdb_keywords:disguise', 0.0), ('imdb_keywords:pipe-smoking', 0.0), ('imdb_keywords:actress', 0.0), ('imdb_keywords:male-nudity', 0.0)]
+Correctness scores: [(1, 0.44), (4, 0.36000000000000004), (5, 0.08), (6, 0.08), (0, 0.0), (2, 0.0), (3, 0.0), (7, 0.0), (8, 0.0), (9, 0.0)]
+Processing cluster 7.0
+QIIs: [('imdb_keywords:gunfire', -0.0989010989010989), ('imdb_keywords:military', -0.08241758241758242), ('imdb_keywords:subtitled-scene', -0.07692307692307693), ('imdb_keywords:cow', -0.07142857142857142), ('imdb_keywords:killing-an-animal', -0.06043956043956044), ('imdb_keywords:robbery', -0.027472527472527472), ('imdb_keywords:male-nudity', -0.02197802197802198), ('tvtropes:too dumb to live', 0.01098901098901099), ('year', 0.005494505494505495), ('movielens_genre:Action', 0.0), ('movielens_genre:Adventure', 0.0), ('movielens_genre:Comedy', 0.0), ('imdb_keywords:unrequited-love', 0.0), ('movielens_genre:Drama', 0.0), ('movielens_tags:BD-Video', 0.0), ('imdb_keywords:class-differences', 0.0), ('imdb_keywords:honor', 0.0), ('movielens_tags:Criterion', 0.0), ('average_rating', 0.0), ('imdb_keywords:bathtub', 0.0), ('imdb_keywords:jewish', 0.0), ('imdb_keywords:gunfight', 0.0), ('imdb_keywords:19th-century', 0.0), ('imdb_keywords:disguise', 0.0), ('imdb_keywords:pipe-smoking', 0.0), ('imdb_keywords:actor-shares-first-name-with-character', 0.0), ('imdb_keywords:actress', 0.0), ('imdb_keywords:poverty', 0.0), ('imdb_keywords:duel', 0.0)]
+Correctness scores: [(1, 0.5454545454545454), (5, 0.4848484848484849), (2, 0.15151515151515152), (0, 0.12121212121212123), (3, 0.0), (4, 0.0), (6, 0.0), (7, 0.0), (8, 0.0), (9, 0.0)]
+Processing cluster 8.0
+QIIs: [('imdb_keywords:cow', -0.09226190476190477), ('imdb_keywords:gunfire', -0.0744047619047619), ('imdb_keywords:class-differences', -0.044642857142857144), ('year', -0.020833333333333332), ('average_rating', -0.017857142857142856), ('imdb_keywords:robbery', -0.017857142857142856), ('imdb_keywords:pipe-smoking', -0.017857142857142856), ('imdb_keywords:male-nudity', -0.01488095238095238), ('imdb_keywords:unrequited-love', -0.008928571428571428), ('imdb_keywords:killing-an-animal', -0.008928571428571428), ('imdb_keywords:duel', -0.008928571428571428), ('imdb_keywords:honor', -0.005952380952380952), ('tvtropes:too dumb to live', -0.005952380952380952), ('movielens_genre:Action', 0.0), ('movielens_genre:Adventure', 0.0), ('movielens_genre:Comedy', 0.0), ('movielens_genre:Drama', 0.0), ('imdb_keywords:military', 0.0), ('movielens_tags:BD-Video', 0.0), ('movielens_tags:Criterion', 0.0), ('imdb_keywords:subtitled-scene', 0.0), ('imdb_keywords:bathtub', 0.0), ('imdb_keywords:jewish', 0.0), ('imdb_keywords:gunfight', 0.0), ('imdb_keywords:19th-century', 0.0), ('imdb_keywords:disguise', 0.0), ('imdb_keywords:actor-shares-first-name-with-character', 0.0), ('imdb_keywords:actress', 0.0), ('imdb_keywords:poverty', 0.0)]
+Correctness scores: [(1, 0.4464285714285714), (4, 0.26785714285714285), (2, 0.10714285714285712), (0, 0.08928571428571427), (8, 0.05357142857142856), (5, 0.035714285714285705), (6, 0.035714285714285705), (3, 0.0), (7, 0.0), (9, 0.0)]
+Processing cluster 9.0
+QIIs: [('movielens_genre:Comedy', -1.3333333333333333), ('imdb_keywords:military', -1.3333333333333333), ('imdb_keywords:bathtub', -0.6666666666666666), ('imdb_keywords:killing-an-animal', -0.6666666666666666), ('imdb_keywords:actress', -0.3333333333333333), ('year', 0.0), ('movielens_genre:Action', 0.0), ('movielens_genre:Adventure', 0.0), ('imdb_keywords:unrequited-love', 0.0), ('movielens_genre:Drama', 0.0), ('movielens_tags:BD-Video', 0.0), ('imdb_keywords:class-differences', 0.0), ('imdb_keywords:honor', 0.0), ('movielens_tags:Criterion', 0.0), ('tvtropes:too dumb to live', 0.0), ('imdb_keywords:subtitled-scene', 0.0), ('average_rating', 0.0), ('imdb_keywords:cow', 0.0), ('imdb_keywords:robbery', 0.0), ('imdb_keywords:jewish', 0.0), ('imdb_keywords:gunfight', 0.0), ('imdb_keywords:19th-century', 0.0), ('imdb_keywords:disguise', 0.0), ('imdb_keywords:pipe-smoking', 0.0), ('imdb_keywords:actor-shares-first-name-with-character', 0.0), ('imdb_keywords:male-nudity', 0.0), ('imdb_keywords:gunfire', 0.0), ('imdb_keywords:poverty', 0.0), ('imdb_keywords:duel', 0.0)]
+Correctness scores: [(6, 0.125), (0, 0.0), (1, 0.0), (2, 0.0), (3, 0.0), (4, 0.0), (5, 0.0), (7, 0.0), (8, 0.0), (9, 0.0)]
+All highers corrs: [0.4146341463414634, 0.7692307692307693, 0.6666666666666666, 0.18867924528301888, 0.5242966751918159, 0.508130081300813, 0.44, 0.5454545454545454, 0.4464285714285714, 0.125]
+Average: 0.46285207009
