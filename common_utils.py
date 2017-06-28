@@ -301,7 +301,8 @@ def make_bins(bin_range, nbins):
 
 def evaluate_binary_classifier(predictions, observations, logger,
                                no_threshold=True):
-    logger.debug("Evaluating the model, no_threshold: {}".\
+    if logger is not None:
+        logger.debug("Evaluating the model, no_threshold: {}".\
             format(no_threshold))
     predobs = predictions\
             .join(observations)\
@@ -325,6 +326,10 @@ def evaluate_binary_classifier(predictions, observations, logger,
         rcount = float(relevants.count())
         tpcount = float(true_positives.count())
         apcount = float(all_positives.count())
+        if logger is None:
+            print "Relevants:", rcount
+            print "True positives:", tpcount
+            print "All positives:", apcount
         if rcount != 0:
             recall = tpcount/rcount
         else:
@@ -334,7 +339,8 @@ def evaluate_binary_classifier(predictions, observations, logger,
         else:
             precision = 0
         res = {"recall": recall, "precision": precision}
-    logger.debug("{}".format(res))
+    if logger is not None:
+        logger.debug("{}".format(res))
     return res
 
 

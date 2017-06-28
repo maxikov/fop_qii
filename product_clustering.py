@@ -151,6 +151,7 @@ def main():
         all_clusters = sorted(list(set(clusters.collect())))
         print len(all_clusters), "clusters found"
         all_corrs = []
+        all_profiles = []
         for cluster in all_clusters:
             print "Processing cluster", cluster
             filter_f = functools.partial(lambda cluster, ((mid, inds), cls):
@@ -166,7 +167,72 @@ def main():
             corrs_list = sorted(corrs.items(), key=lambda x: -abs(x[1]))
             print "Correctness scores:", corrs_list
             all_corrs.append(corrs_list[0][1])
+            all_profiles.append(corrs_list[0][0])
         print "All highers corrs:", all_corrs
+        print "Their profiles:", all_profiles
+        print len(set(all_profiles)), "profiles represented"
         print "Average:", float(sum(all_corrs))/len(all_corrs)
+
+        print "Making per-cluster trees"
+        all_corrs = []
+        all_profiles = []
+        old_clusters = clusters
+        for cluster in all_clusters:
+            print "Processing cluster", cluster
+            clusters = old_clusters.map(functools.partial(lambda cluster, x:
+                    1.0 if x == float(cluster) else 0.0, cluster))
+            print "New clusters:", clusters.countByValue()
+            print "Building meta training set"
+            meta_data_set = common_utils.safe_zip(
+                indicators, clusters)
+            meta_training_data = meta_data_set.map(
+                    lambda ((mid, inds), cls):
+                    LabeledPoint(cls, inds))
+            print "Training a meta tree"
+            meta_tree = pyspark.\
+                    mllib.\
+                    tree.\
+                    DecisionTree.\
+                    trainClassifier(
+                        meta_training_data,
+                        numClasses=2,
+                        categoricalFeaturesInfo=results["categorical_features"],
+                        impurity=args.impurity,
+                        maxDepth=args.max_depth)
+            print common_utils.substitute_feature_names(
+                meta_tree.toDebugString(),
+                results["feature_names"])
+            print "Done, making predictions"
+            tree_predictions  = meta_tree.predict(indicators.values()).map(float)
+            print "Predictions:", tree_predictions.countByValue()
+            predobs = common_utils.safe_zip(tree_predictions, clusters)
+            acc = predobs.filter(lambda (x, y): x==y).count()\
+                /float(predobs.count())
+            print "Accuracy:", acc
+            evaluations = common_utils.evaluate_binary_classifier(
+                tree_predictions.zipWithIndex(),
+                clusters.zipWithIndex(), None, no_threshold=False)
+            print evaluations
+            used_features = tree_qii.get_used_features(meta_tree)
+            print len(used_features), "features used"
+            if len(used_features) > 0:
+                features = meta_data_set.keys()
+                qiis = tree_qii.get_tree_qii(meta_tree, features, used_features)
+                qiis_list = sorted(qiis.items(), key=lambda (f, q): -abs(q))
+                qiis_list_names = [(results["feature_names"][f], q) for (f, q) in
+                    qiis_list]
+                print "QIIs:", qiis_list_names
+                corrs = {pr: explanation_correctness.explanation_correctness(qiis,
+                        user_profile) for pr, user_profile in profiles.items()}
+                corrs_list = sorted(corrs.items(), key=lambda x: -abs(x[1]))
+                print "Correctness scores:", corrs_list
+                all_corrs.append(corrs_list[0][1])
+                all_profiles.append(corrs_list[0][0])
+        print "All highers corrs:", all_corrs
+        print "Their profiles:", all_profiles
+        print len(set(all_profiles)), "profiles represented"
+        print "Average:", float(sum(all_corrs))/len(all_corrs)
+
+
 if __name__ == "__main__":
     main()
