@@ -326,10 +326,13 @@ def evaluate_binary_classifier(predictions, observations, logger,
         rcount = float(relevants.count())
         tpcount = float(true_positives.count())
         apcount = float(all_positives.count())
-        if logger is None:
+        if logger is None and False:
             print "Relevants:", rcount
             print "True positives:", tpcount
             print "All positives:", apcount
+            print "Predictions sample:", predictions.take(4)
+            print "Observations sample:", observations.take(4)
+            print "Predobs sample:", predobs.take(4)
         if rcount != 0:
             recall = tpcount/rcount
         else:

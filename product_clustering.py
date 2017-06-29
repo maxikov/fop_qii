@@ -210,8 +210,9 @@ def main():
                 /float(predobs.count())
             print "Accuracy:", acc
             evaluations = common_utils.evaluate_binary_classifier(
-                tree_predictions.zipWithIndex(),
-                clusters.zipWithIndex(), None, no_threshold=False)
+                tree_predictions.zipWithIndex().map(lambda (x,y):(y,x)),
+                clusters.zipWithIndex().map(lambda (x,y):(y,x)),
+                None, no_threshold=False)
             print evaluations
             used_features = tree_qii.get_used_features(meta_tree)
             print len(used_features), "features used"
