@@ -152,6 +152,7 @@ def main():
         print len(all_clusters), "clusters found"
         all_corrs = []
         all_profiles = []
+        ress = {}
         for cluster in all_clusters:
             print "Processing cluster", cluster
             filter_f = functools.partial(lambda cluster, ((mid, inds), cls):
@@ -168,15 +169,25 @@ def main():
             print "Correctness scores:", corrs_list
             all_corrs.append(corrs_list[0][1])
             all_profiles.append(corrs_list[0][0])
+            top_profile, top_score = corrs_list[0]
+            if top_profile not in ress:
+                ress[top_profile] = {"cluster": cluster, "corr": top_score}
+            else:
+                if abs(ress[top_profile]["corr"]) < abs(top_score):
+                        ress[top_profile] = {"cluster": cluster, "corr": top_score}
         print "All highers corrs:", all_corrs
         print "Their profiles:", all_profiles
         print len(set(all_profiles)), "profiles represented"
         print "Average:", float(sum(all_corrs))/len(all_corrs)
+        print "Results:", ress
+        print "Average corr:", sum(abs(x["corr"]) for x in
+                ress.values())/float(len(ress))
 
         print "Making per-cluster trees"
         all_corrs = []
         all_profiles = []
         old_clusters = clusters
+        ress = {}
         for cluster in all_clusters:
             print "Processing cluster", cluster
             clusters = old_clusters.map(functools.partial(lambda cluster, x:
@@ -229,10 +240,19 @@ def main():
                 print "Correctness scores:", corrs_list
                 all_corrs.append(corrs_list[0][1])
                 all_profiles.append(corrs_list[0][0])
+                top_profile, top_score = corrs_list[0]
+                if top_profile not in ress:
+                        ress[top_profile] = {"cluster": cluster, "corr": top_score}
+                else:
+                        if abs(ress[top_profile]["corr"]) < abs(top_score):
+                                ress[top_profile] = {"cluster": cluster, "corr": top_score}
         print "All highers corrs:", all_corrs
         print "Their profiles:", all_profiles
         print len(set(all_profiles)), "profiles represented"
         print "Average:", float(sum(all_corrs))/len(all_corrs)
+        print "Results:", ress
+        print "Average corr:", sum(abs(x["corr"]) for x in
+                ress.values())/float(len(ress))
 
 
 if __name__ == "__main__":
