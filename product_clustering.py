@@ -226,10 +226,13 @@ def main():
         cls_var = falvar(cur_mvs, cls_mean)
         cluster_data.append((cluster, cls_var, text_sample))
     cluster_data.sort(key=lambda x: x[1])
-    for (cluster, cls_var, text_sample) in cluster_data:
-        print "Cluster {} (variance: {}):".format(cluster, cls_var)
-        for s in text_sample:
-            print s
+
+    if args.user_profile is not None:
+        for (cluster, cls_var, text_sample) in cluster_data:
+            print "Cluster {} (variance: {}):".format(cluster, cls_var)
+            for s in text_sample:
+                print s
+
 
     test_set, training_set = test_train_split(features_and_labels, args.test_ratio)
     test_features = test_set.map(lambda x: x[0][1])
@@ -304,7 +307,24 @@ def main():
             /float(predobs.count())
     print "Accuracy of meta tree on test set:", acc
 
-    if args.user_profiles is not None:
+    if args.user_profile is None:
+        used_features = tree_qii.get_used_features(meta_tree)
+        print len(used_features), "features used"
+        profiles, user_profiles = pickle.load(open(args.user_profiles,
+                                                   "rb"))
+        for (cluster, cls_var, text_sample) in cluster_data:
+            filter_f = functools.partial(lambda cluster, ((mid, inds), cls):
+                                cls == cluster, cluster)
+            features = meta_data_set.filter(filter_f).keys()
+            qiis = tree_qii.get_tree_qii(meta_tree, features, used_features)
+            qiis_list = sorted(qiis.items(), key=lambda (f, q): -abs(q))
+            qiis_list_names = [(results["feature_names"][f], q) for (f, q) in
+                    qiis_list]
+            print "Cluster {} (variance: {}):".format(cluster, cls_var)
+            print "QIIs:", qiis_list_names
+            for s in text_sample:
+                print s
+    else:
         used_features = tree_qii.get_used_features(meta_tree)
         print len(used_features), "features used"
         profiles, user_profiles = pickle.load(open(args.user_profiles,
