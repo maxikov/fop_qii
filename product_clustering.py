@@ -28,6 +28,37 @@ from pyspark.mllib.clustering import KMeans, GaussianMixture
 #numpy library
 import numpy as np
 
+#sklearn library
+import sklearn.cluster
+
+class FitPredictWrapper(object):
+    def __init__(self, sc, model, *args, **kwargs):
+        self.model = model(*args, **kwargs)
+        self.predictions = collections.defaultdict(lambda: 0.0)
+        self.centroids = []
+        self.res = None
+        self.sc = sc
+
+    def train(self, data, *args, **kwargs):
+        X = np.array(data.collect())
+        self.res = self.model.fit_predict(X, *args, **kwargs)
+        n = X.shape[0]
+        for i in xrange(n):
+            self.predictions[tuple(map(float, X[i]))] = float(self.res[i])
+        self.all_clusters = set(self.res.flatten())
+        self.n_clusters = len(self.all_clusters)
+        for i in xrange(self.n_clusters):
+            self.centroids.append(X[self.res==i].mean(axis=0))
+        return self
+
+    def predict(self, data):
+        X = data.collect()
+        res = []
+        for x in X:
+            res.append(self.predictions[tuple(map(float, x))])
+        res = self.sc.parallelize(res)
+        return res
+
 def dist(x, y):
     xa = np.array(x)
     ya = np.array(y)
@@ -104,7 +135,8 @@ def main():
                         help="Path to the file with user profiles of a "+\
                         "synthetic data set (if applicable).")
     parser.add_argument("--cluster-model", action="store", type=str,
-            default="kmeans", choices=["kmeans", "gmm"])
+            default="kmeans", choices=["kmeans", "gmm", "spectral",
+                "agglomerative", "birch"])
     parser.add_argument("--cluster-sample-size", action="store", type=int,
             default=10, help="Number of movies to display in each cluster")
     parser.add_argument("--test-ratio", action="store", type=float,
@@ -150,6 +182,21 @@ def main():
         kmeans_model = GaussianMixture.train(data_set, args.n_clusters)
         centroids = [np.array(g.mu) for g in
                 kmeans_model.gaussians]
+    elif args.cluster_model == "spectral":
+        kmeans_model = FitPredictWrapper(sc,
+                sklearn.cluster.SpectralClustering, n_clusters=args.n_clusters)
+        kmeans_model.train(data_set)
+        centroids = kmeans_model.centroids
+    elif args.cluster_model == "agglomerative":
+        kmeans_model = FitPredictWrapper(sc,
+                sklearn.cluster.AgglomerativeClustering, n_clusters=args.n_clusters)
+        kmeans_model.train(data_set)
+        centroids = kmeans_model.centroids
+    elif args.cluster_model == "birch":
+        kmeans_model = FitPredictWrapper(sc,
+                sklearn.cluster.Birch, n_clusters=args.n_clusters)
+        kmeans_model.train(data_set)
+        centroids = kmeans_model.centroids
 
     print "Done"
     print "Centroids:", centroids
@@ -159,6 +206,7 @@ def main():
     cent_mean = np.mean(centroids, axis=0)
     cent_dists = [dist(cent_mean, cent)**2 for cent in centroids]
     cent_var = np.mean(cent_dists)
+    print "Clusters:", clusters.countByValue()
     print "Centroid mean:", cent_mean
     print "Centroid variance:", cent_var
     cluster_data = []
