@@ -121,7 +121,7 @@ def compute_regression_qii(lr_model, input_features, target_variable,
                 abs_errs = errs.map(abs)
                 cur_qii = abs_errs.reduce(lambda a, b: a+b)\
                         /float(abs_errs.count())
-                signed_err = errs.reduce(lambda a, b: a+b)\
+                signed_error = errs.reduce(lambda a, b: a+b)\
                         /float(errs.count())
                 if signed_error == 0:
                     sign = 1
