@@ -227,7 +227,7 @@ def main():
         cluster_data.append((cluster, cls_var, text_sample))
     cluster_data.sort(key=lambda x: x[1])
 
-    if args.user_profile is not None:
+    if args.user_profiles is not None:
         for (cluster, cls_var, text_sample) in cluster_data:
             print "Cluster {} (variance: {}):".format(cluster, cls_var)
             for s in text_sample:
@@ -307,7 +307,7 @@ def main():
             /float(predobs.count())
     print "Accuracy of meta tree on test set:", acc
 
-    if args.user_profile is None:
+    if args.user_profiles is None:
         used_features = tree_qii.get_used_features(meta_tree)
         print len(used_features), "features used"
         profiles, user_profiles = pickle.load(open(args.user_profiles,
