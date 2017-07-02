@@ -315,10 +315,11 @@ def main():
             filter_f = functools.partial(lambda cluster, ((mid, inds), cls):
                                 cls == cluster, cluster)
             features = meta_data_set.filter(filter_f).keys()
-            qiis = tree_qii.get_tree_qii(meta_tree, features, used_features)
+            qiis = tree_qii.get_tree_qii(meta_tree, features, used_features,
+                    classifier=True)
             qiis_list = sorted(qiis.items(), key=lambda (f, q): -abs(q))
             qiis_list_names = [(results["feature_names"][f], q) for (f, q) in
-                    qiis_list]
+                    qiis_list if q != 0]
             print "QIIs:", qiis_list_names
             for s in text_sample:
                 print s
@@ -337,10 +338,11 @@ def main():
             filter_f = functools.partial(lambda cluster, ((mid, inds), cls):
                                 cls == cluster, cluster)
             features = meta_data_set.filter(filter_f).keys()
-            qiis = tree_qii.get_tree_qii(meta_tree, features, used_features)
+            qiis = tree_qii.get_tree_qii(meta_tree, features, used_features,
+                    classifier=True)
             qiis_list = sorted(qiis.items(), key=lambda (f, q): -abs(q))
             qiis_list_names = [(results["feature_names"][f], q) for (f, q) in
-                    qiis_list]
+                    qiis_list if q != 0]
             print "QIIs:", qiis_list_names
             corrs = {pr: explanation_correctness.explanation_correctness(qiis,
                 user_profile) for pr, user_profile in profiles.items()}
@@ -424,10 +426,11 @@ def main():
             print len(used_features), "features used"
             if len(used_features) > 0:
                 features = meta_data_set.keys()
-                qiis = tree_qii.get_tree_qii(meta_tree, features, used_features)
+                qiis = tree_qii.get_tree_qii(meta_tree, features,
+                        used_features, classifier=True)
                 qiis_list = sorted(qiis.items(), key=lambda (f, q): -abs(q))
                 qiis_list_names = [(results["feature_names"][f], q) for (f, q) in
-                    qiis_list]
+                    qiis_list if q!= 0]
                 print "QIIs:", qiis_list_names
                 corrs = {pr: explanation_correctness.explanation_correctness(qiis,
                         user_profile) for pr, user_profile in profiles.items()}

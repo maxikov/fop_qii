@@ -74,7 +74,8 @@ def save_if_needed(persist_dir, fname, objects, store, logger):
 
 def compute_regression_qii(lr_model, input_features, target_variable,
                            logger, original_predictions=None, rank=None,
-                           features_to_test=None):
+                           features_to_test=None,
+                           classifier=False):
     if logger is not None:
         logger.debug("Measuring model QII")
     if original_predictions is None:
@@ -99,13 +100,20 @@ def compute_regression_qii(lr_model, input_features, target_variable,
                                              None).values()
         new_predictions = lr_model.predict(perturbed_features)
         predobs = safe_zip(new_predictions, original_predictions)
-        cur_qii = mean_error(predobs, 1.0, abs)
-        signed_error = mean_error(predobs, 1.0, float)
-        if signed_error == 0:
-            sign = 1
+        if classifier:
+            cur_qii = predobs.map(lambda (pred, obs):
+                    0.0 if pred==obs else 1.0).\
+                            reduce(lambda a,b:a+b)\
+                            /float(predobs.count())
+            signed_cur_qii = cur_qii
         else:
-            sign = signed_error/abs(signed_error)
-        signed_cur_qii = cur_qii * sign
+            cur_qii = mean_error(predobs, 1.0, abs)
+            signed_error = mean_error(predobs, 1.0, float)
+            if signed_error == 0:
+                sign = 1
+            else:
+                sign = signed_error/abs(signed_error)
+            signed_cur_qii = cur_qii * sign
         if logger is not None:
             logger.debug("QII: {}, signed QII: {}".format(cur_qii, signed_cur_qii))
         res.append(signed_cur_qii)
