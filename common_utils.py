@@ -116,7 +116,7 @@ def compute_regression_qii(lr_model, input_features, target_variable,
                         else (-1.0 if (pred == class_of_interest and\
                                   obs != class_of_interest)\
                               else 0.0),\
-                        class_of_interest
+                        class_of_interest)
                 errs = predobs.map(map_f)
                 abs_errs = errs.map(abs)
                 cur_qii = abs_errs.reduce(lambda a, b: a+b)\
