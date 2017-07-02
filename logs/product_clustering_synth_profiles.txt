@@ -1,1869 +1,651 @@
 Loading results dict
 Loading indicators
 Loading ALS model
-Training K-means
+Loading movies
+Done, 27278 movies loaded
+Training kmeans
 Done
+Centroids: [(0, [0.085006066080990178, 0.61637967196027588, -0.7935598339644675, 0.09297467869159344, 0.12946563025209662, -0.26080105746095866, -0.78792479928908687, 0.040414658913449933, 0.82956720888614655, -0.70071611510936749, 0.63331598360728858, 1.0207574966969146]), (1, [0.27792273054512162, -0.48258277054351589, -0.66545552663531982, 0.30140037265091812, -0.066090811815596978, -0.32894629623324001, -0.59148457603334093, -0.29338456266341117, 0.89468176334773597, -0.56361281266267871, -0.73003376525446828, 1.187690293530695]), (2, [-0.42163657613155492, 0.04299264411728132, -0.0043961211171655249, 0.19550001880736978, 0.24982520173666359, -0.71922568851754864, -0.4311422885089885, -0.15148236716160807, 0.28069542185403407, -0.65512164079278479, 0.51672031309540944, 1.4326604927769144]), (3, [-0.22144106639640743, -0.046408681661753201, -1.0059735457428167, 0.0016614954928642323, 0.80945641315374217, -1.3086171477544504, 0.22692420167541208, 0.035013761149994174, 1.0166106553839855, -0.66749805334161538, 0.38453074056105535, 0.80647986883022749]), (4, [-0.35568129779061392, -0.30572253325538307, -0.55010249405833223, 0.59902698542213151, 0.79207786403241609, -0.27590756167808733, -0.62509124007608208, -0.54603742954454249, 0.98920641413756771, -0.44302916832800421, 0.030905790330247585, 0.62104743271179141]), (5, [-0.47368742519368728, -0.13826435946005708, -0.55875552427023645, 0.40105422573784988, 0.76835481673479078, -0.32579223488767939, -0.6204123258590698, -0.3239819238350416, 0.80785364434123041, -0.51388522364820044, 0.27678322731323229, 1.2351362019777299]), (6, [-0.067160846620001685, -0.034794572208431088, -0.27273383717866811, -0.0042288878167292638, 0.18477534480691657, -0.29723899669635162, -0.21727089529414806, -0.11733233914860676, 0.49508041096558358, -0.2723235138756393, 0.1053641896728853, 0.50563070500421825]), (7, [-0.31032098239908612, 0.18627694784663618, 0.29674578333894408, 0.33421687036752701, -0.055481685170282916, -1.1054032345612843, -0.546458400785923, -0.45226300383607543, 0.055135876871645451, -0.71689252307017637, 0.46670345341165859, 1.1644294261932373]), (8, [-0.42056236096714172, -0.2052545577900951, -0.39089288487386287, -0.036447939076264632, 0.5513251199674194, 0.024078946304390132, -0.051504567481231167, 0.2280072991008889, 0.61926770639694384, -0.63959353981856304, 0.46010347163728743, 1.2889352720821281]), (9, [-0.62272930145263672, -0.3328980172673861, -0.63541404803593948, 0.37860163201888403, 1.0419097205003103, 0.13459277227520944, -0.30947977453470232, -0.48494968762000401, 0.79126359621683751, -0.56322502195835111, 0.17869891175068914, 0.8627985695997874]), (10, [-0.15212346154128006, -0.52830192089307726, -0.52007281563249486, -0.63206146207406433, -0.080233075100512516, -0.88419670936873718, -1.0831779547149154, -0.17744494809622538, 0.69759582922921559, -0.56832365226473291, 0.040665547755549231, 0.8999683545325613]), (11, [-0.18199261082595006, -0.22608093995788495, -0.39341757927710808, 0.24319644300784501, 0.43516350831163836, -0.52479048657793703, -0.65221420965260923, 0.26363525500831503, 0.99268530226416052, -0.34070243412861601, 0.27352154589284006, 1.3379058399134212]), (12, [-0.0030169409736117815, -0.10883996620541439, -0.10564916323184864, -0.46974139166995887, 0.16770462029251373, -0.67057358688778346, -0.21874355861865399, -0.8347254095806016, 1.6655226760440403, -0.41856507865919007, 0.09812046825989254, 0.97126960224575465]), (13, [0.1481085361232736, -0.27457495451610731, -0.18597536004687609, 0.48325698454564775, 0.13090750487379685, -0.7959954756916614, -0.78309191785186349, 0.21974739663531642, 1.0821625009963387, -0.19819045832042978, 0.041083870813208329, 0.69952120000158835]), (14, [-0.30962648425962547, 0.071659917778540472, -0.46243528018684449, -0.10837503536875605, 0.4890823134712417, -0.1010807120052097, -0.45441837153937381, 0.12079740152016138, 0.3646650282503332, 0.12299647814810652, 0.1889116641640374, 1.2288919693057978])]
 Labeling clusters
+Cluster 0:
+	0: (dist: 0.129305618269) American Hustle (2013) (mid: 106916)
+	1: (dist: 0.161047513947) Finding Vivian Maier (2013) (mid: 112399)
+	2: (dist: 0.165436009422) Red Tails (2012) (mid: 92234)
+	3: (dist: 0.168057240158) Undocumented (2010) (mid: 105815)
+	4: (dist: 0.169673451959) Much Ado About Something (2001) (mid: 64427)
+	5: (dist: 0.171298152062) They Call Me Bruce? (a.k.a. A Fistful of Chopsticks) (1982) (mid: 6141)
+	6: (dist: 0.172155661153) Everly (2014) (mid: 126575)
+	7: (dist: 0.179526316889) Hardware (1990) (mid: 34292)
+	8: (dist: 0.179920087388) Strictly Ballroom (1992) (mid: 1188)
+	9: (dist: 0.180484805213) Goal! The Dream Begins (Goal!) (2005) (mid: 38388)
+Cluster 1:
+	0: (dist: 0.104934121379) Sisterhood of the Traveling Pants 2, The (2008) (mid: 61071)
+	1: (dist: 0.106994851031) Fame (1980) (mid: 4936)
+	2: (dist: 0.112846298018) Little Lili (La petite Lili) (2003) (mid: 78909)
+	3: (dist: 0.113057310659) My Brilliant Career (1979) (mid: 34051)
+	4: (dist: 0.114014057272) Inside Daisy Clover (1965) (mid: 43039)
+	5: (dist: 0.114934324125) Stage Fright (1950) (mid: 2187)
+	6: (dist: 0.115424094153) Nine (2009) (mid: 73000)
+	7: (dist: 0.115948005643) Audition (Ôdishon) (1999) (mid: 27317)
+	8: (dist: 0.116761152907) Head in the Clouds (2004) (mid: 8868)
+	9: (dist: 0.117077910701) London Boulevard (2010) (mid: 82093)
+Cluster 2:
+	0: (dist: 0.15670808415) North by Northwest (1959) (mid: 908)
+	1: (dist: 0.159725579471) Girl with the Dragon Tattoo, The (2011) (mid: 91658)
+	2: (dist: 0.162608774011) Sleuth (2007) (mid: 55278)
+	3: (dist: 0.163121781888) Witness (1985) (mid: 1674)
+	4: (dist: 0.16524544455) 10 to Midnight (1983) (mid: 6168)
+	5: (dist: 0.168215579217) Babar The Movie (1989) (mid: 126749)
+	6: (dist: 0.17371888011) Adventures of Ichabod and Mr. Toad, The (1949) (mid: 3964)
+	7: (dist: 0.176077053439) Body Double (1984) (mid: 7616)
+	8: (dist: 0.18018784149) Babes in Toyland (1961) (mid: 2017)
+	9: (dist: 0.180262140729) Play Dirty (1969) (mid: 79388)
+Cluster 3:
+	0: (dist: 0.131553590855) Port of Shadows (Quai des brumes) (1938) (mid: 8786)
+	1: (dist: 0.149001701908) O Brother, Where Art Thou? (2000) (mid: 4027)
+	2: (dist: 0.149598276595) Others, The (2001) (mid: 4720)
+	3: (dist: 0.152160518596) Harrison's Flowers (2000) (mid: 5221)
+	4: (dist: 0.152655591475) South Park: Bigger, Longer and Uncut (1999) (mid: 2700)
+	5: (dist: 0.152993914514) Sniper, The (1952) (mid: 78186)
+	6: (dist: 0.156371965037) Suspect Zero (2004) (mid: 8831)
+	7: (dist: 0.157527594577) Murder by Contract (1958) (mid: 72327)
+	8: (dist: 0.158463760407) Orlando (1992) (mid: 506)
+	9: (dist: 0.159372665486) Wake of the Red Witch (1948) (mid: 6276)
+Cluster 4:
+	0: (dist: 0.0892794915475) Glengarry Glen Ross (1992) (mid: 1095)
+	1: (dist: 0.0997708595942) Miami Blues (1990) (mid: 5968)
+	2: (dist: 0.114454149206) Money (L'argent) (1983) (mid: 44653)
+	3: (dist: 0.115295780765) Dream Catcher, The (1999) (mid: 90254)
+	4: (dist: 0.11674387274) George Washington (2000) (mid: 5258)
+	5: (dist: 0.118434866039) Read My Lips (Sur mes lèvres) (2001) (mid: 5516)
+	6: (dist: 0.119563716891) Lakeboat (2000) (mid: 4253)
+	7: (dist: 0.121092064784) Dead Bang (1989) (mid: 4582)
+	8: (dist: 0.122152823226) Ballad of Cable Hogue, The (1970) (mid: 7897)
+	9: (dist: 0.122847232828) Batman Beyond: Return of the Joker (2000) (mid: 27311)
+Cluster 5:
+	0: (dist: 0.347001274162) Kelly's Heroes (1970) (mid: 3836)
+	1: (dist: 0.353809552314) Takers (2010) (mid: 87785)
+	2: (dist: 0.363658686938) Taxi Driver (1976) (mid: 111)
+	3: (dist: 0.379785228407) Sweeney, The (2012) (mid: 99633)
+	4: (dist: 0.382474019745) Extreme Justice (1993) (mid: 74302)
+	5: (dist: 0.382627543612) Oxygen (1999) (mid: 3056)
+	6: (dist: 0.386421266071) St. Ives (1976) (mid: 59850)
+	7: (dist: 0.388836894483) Man Who Shot Liberty Valance, The (1962) (mid: 4406)
+	8: (dist: 0.392057628508) Hidden, The (1987) (mid: 3576)
+	9: (dist: 0.392586271505) Rolling Thunder (1977) (mid: 7923)
+Cluster 6:
+	0: (dist: 0.420459254866) Blood Simple (1984) (mid: 3683)
+	1: (dist: 0.433565020882) War of the Worlds, The (1953) (mid: 2662)
+	2: (dist: 0.435076790825) Beautiful Mind, A (2001) (mid: 4995)
+	3: (dist: 0.438893374602) Spontaneous Combustion (1990) (mid: 118344)
+	4: (dist: 0.440396193881) Epic (2013) (mid: 102720)
+	5: (dist: 0.44234620513) Left Behind: The Movie (2000) (mid: 4142)
+	6: (dist: 0.446390225884) Batman (1989) (mid: 592)
+	7: (dist: 0.446737905078) Notorious (1946) (mid: 930)
+	8: (dist: 0.44842356123) Congo (1995) (mid: 160)
+	9: (dist: 0.449868918523) 2001: A Space Odyssey (1968) (mid: 924)
+Cluster 7:
+	0: (dist: 0.249940657368) Absolute Power (1997) (mid: 1459)
+	1: (dist: 0.291979943436) Solomon Kane (2009) (mid: 77540)
+	2: (dist: 0.306719541095) I Was a Male War Bride (1949) (mid: 7212)
+	3: (dist: 0.334019083976) Shanghai Knights (2003) (mid: 6156)
+	4: (dist: 0.344277722599) I, the Worst of All (Yo, la peor de todas) (1990) (mid: 789)
+	5: (dist: 0.374212372116) Ran (1985) (mid: 1217)
+	6: (dist: 0.388649224428) Osama (2003) (mid: 7177)
+	7: (dist: 0.401497375531) Catch Me If You Can (2002) (mid: 5989)
+	8: (dist: 0.405097061229) Army of Shadows (L'armée des ombres) (1969) (mid: 46855)
+	9: (dist: 0.428354414712) Dangerous Moves (La diagonale du fou) (1984) (mid: 26507)
+Cluster 8:
+	0: (dist: 0.0452113191308) Negotiator, The (1998) (mid: 2058)
+	1: (dist: 0.0509644990757) Battle for the Planet of the Apes (1973) (mid: 2531)
+	2: (dist: 0.0526795273627) Brick Mansions (2014) (mid: 110826)
+	3: (dist: 0.054004764571) D.O.A. (1950) (mid: 7223)
+	4: (dist: 0.054004764571) Substitute, The (1996) (mid: 694)
+	5: (dist: 0.054004764571) Assault on Precinct 13 (2005) (mid: 31420)
+	6: (dist: 0.054004764571) Hoodlum (1997) (mid: 1601)
+	7: (dist: 0.0549846763638) End of Days (1999) (mid: 3113)
+	8: (dist: 0.0552264579654) Octagon, The (1980) (mid: 5212)
+	9: (dist: 0.055960028798) Matrix, The (1999) (mid: 2571)
+Cluster 9:
+	0: (dist: 0.355189141795) Wild Bunch, The (1969) (mid: 599)
+	1: (dist: 0.388120613103) Cowboys & Aliens (2011) (mid: 83613)
+	2: (dist: 0.394280079562) Hannie Caulder (1971) (mid: 82676)
+	3: (dist: 0.405556617229) Love Me Tender (1956) (mid: 5550)
+	4: (dist: 0.409075137649) Good, the Bad and the Ugly, The (Buono, il brutto, il cattivo, Il) (1966) (mid: 1201)
+	5: (dist: 0.415939207114) Getaway, The (1972) (mid: 8016)
+	6: (dist: 0.417076673419) Flame of Barbary Coast (1945) (mid: 81643)
+	7: (dist: 0.443143549218) Winchester '73 (1950) (mid: 6429)
+	8: (dist: 0.454577630699) Coogan's Bluff (1968) (mid: 3427)
+	9: (dist: 0.459866327854) Exterminator, The (1980) (mid: 4934)
+Cluster 10:
+	0: (dist: 0.126796994945) Turn Me On, Dammit! (Få meg på, for faen) (2011) (mid: 92152)
+	1: (dist: 0.160423919142) Ghajini (2008) (mid: 83424)
+	2: (dist: 0.170995207196) Story of Three Loves, The (1953) (mid: 82235)
+	3: (dist: 0.172061412003) Tea and Sympathy (1956) (mid: 53916)
+	4: (dist: 0.174806996441) Spider-Man (2002) (mid: 5349)
+	5: (dist: 0.175685525726) Another Year (2010) (mid: 82463)
+	6: (dist: 0.176332951614) Footlight Parade (1933) (mid: 45335)
+	7: (dist: 0.176348577264) Edward Scissorhands (1990) (mid: 2291)
+	8: (dist: 0.176601865076) Holiday, The (2006) (mid: 49286)
+	9: (dist: 0.17680343489) Beauty and the Beast (1991) (mid: 595)
+Cluster 11:
+	0: (dist: 0.228822699034) Lethal Weapon 2 (1989) (mid: 2001)
+	1: (dist: 0.23715833617) Corruptor, The (1999) (mid: 2540)
+	2: (dist: 0.244137224178) Beyond the Law (1993) (mid: 56294)
+	3: (dist: 0.25485789036) Bird on a Wire (1990) (mid: 3705)
+	4: (dist: 0.272989822439) For Your Eyes Only (1981) (mid: 2989)
+	5: (dist: 0.27602949593) American Psycho (2000) (mid: 3535)
+	6: (dist: 0.280195321702) Men of War (1994) (mid: 69821)
+	7: (dist: 0.280756253514) Logan's Run (1976) (mid: 2528)
+	8: (dist: 0.281425037627) Murder at 1600 (1997) (mid: 1422)
+	9: (dist: 0.283730417044) Zero Dark Thirty (2012) (mid: 98961)
+Cluster 12:
+	0: (dist: 0.109338247802) Days of Heaven (1978) (mid: 2932)
+	1: (dist: 0.119895296923) Blue Steel (1990) (mid: 5961)
+	2: (dist: 0.120171133157) Philadelphia Story, The (1940) (mid: 898)
+	3: (dist: 0.12092082869) Karate Kid, The (1984) (mid: 2420)
+	4: (dist: 0.121130236706) Two-Lane Blacktop (1971) (mid: 6229)
+	5: (dist: 0.122079856811) My Man Godfrey (1936) (mid: 947)
+	6: (dist: 0.123124258885) Fear (1996) (mid: 662)
+	7: (dist: 0.123407124469) Skulls, The (2000) (mid: 3484)
+	8: (dist: 0.123526384149) Pygmalion (1938) (mid: 7086)
+	9: (dist: 0.124113514043) Scandal (1989) (mid: 4659)
+Cluster 13:
+	0: (dist: 0.0345303230194) Where the Truth Lies (2005) (mid: 39419)
+	1: (dist: 0.0350420585856) Dog Days (Hundstage) (2001) (mid: 27513)
+	2: (dist: 0.0352763482595) Wake in Fright (1971) (mid: 97984)
+	3: (dist: 0.0353221737972) Human Traffic (1999) (mid: 3581)
+	4: (dist: 0.0367947382288) Rat (2000) (mid: 4269)
+	5: (dist: 0.0368249014614) Glory Daze (1995) (mid: 1121)
+	6: (dist: 0.0371526610949) Man Who Would Be King, The (1975) (mid: 1303)
+	7: (dist: 0.0374137197764) Role Models (2008) (mid: 63131)
+	8: (dist: 0.0385211216052) Suicide Room (2011) (mid: 127084)
+	9: (dist: 0.0391132313844) Ten, The (2007) (mid: 55020)
+Cluster 14:
+	0: (dist: 0.164136879578) Same Old Song (On connaît la chanson) (1997) (mid: 7758)
+	1: (dist: 0.178413944095) As it is in Heaven (Så som i himmelen) (2004) (mid: 27857)
+	2: (dist: 0.186329522845) Day the Sun Turned Cold, The (Tianguo niezi) (1994) (mid: 845)
+	3: (dist: 0.208855611957) Two Hands (1999) (mid: 27073)
+	4: (dist: 0.310237289899) Judge, The (2014) (mid: 115170)
+	5: (dist: 0.379853145945) Walking Tall (1973) (mid: 26309)
+	6: (dist: 0.379890086833) Frankenweenie (2012) (mid: 97172)
+	7: (dist: 0.382468361911) In the Cut (2003) (mid: 6885)
+	8: (dist: 0.383601956186) Big Nothing (2006) (mid: 52606)
+	9: (dist: 0.385040641866) Death Race 2 (2010) (mid: 88699)
 Training a latent tree
-DecisionTreeModel classifier of depth 8 with 189 nodes
-  If (feature 0 <= 0.10020816326141357)
-   If (feature 4 <= 0.6933677792549133)
-    If (feature 10 <= 0.36151206493377686)
-     If (feature 5 <= -0.4961807429790497)
-      If (feature 3 <= -0.18141885101795197)
-       If (feature 11 <= 1.3736698627471924)
-        If (feature 4 <= 0.4898626208305359)
-         If (feature 8 <= 0.32790353894233704)
-          Predict: 0.0
-         Else (feature 8 > 0.32790353894233704)
-          Predict: 2.0
-        Else (feature 4 > 0.4898626208305359)
-         Predict: 6.0
-       Else (feature 11 > 1.3736698627471924)
-        If (feature 1 <= -0.24915601313114166)
-         If (feature 3 <= -0.7239523530006409)
-          Predict: 5.0
-         Else (feature 3 > -0.7239523530006409)
-          Predict: 14.0
-        Else (feature 1 > -0.24915601313114166)
-         If (feature 1 <= 0.04378046467900276)
-          Predict: 2.0
-         Else (feature 1 > 0.04378046467900276)
-          Predict: 3.0
-      Else (feature 3 > -0.18141885101795197)
-       If (feature 6 <= -0.17329102754592896)
-        If (feature 11 <= 1.1602838039398193)
-         If (feature 0 <= -0.021083103492856026)
-          Predict: 7.0
-         Else (feature 0 > -0.021083103492856026)
-          Predict: 4.0
-        Else (feature 11 > 1.1602838039398193)
-         If (feature 2 <= -0.23778846859931946)
-          Predict: 14.0
-         Else (feature 2 > -0.23778846859931946)
-          Predict: 3.0
-       Else (feature 6 > -0.17329102754592896)
-        If (feature 1 <= -0.2277180403470993)
-         If (feature 0 <= -0.5131211876869202)
-          Predict: 2.0
-         Else (feature 0 > -0.5131211876869202)
-          Predict: 6.0
-        Else (feature 1 > -0.2277180403470993)
-         Predict: 8.0
-     Else (feature 5 > -0.4961807429790497)
-      If (feature 7 <= -0.15743747353553772)
-       If (feature 8 <= 0.9093350768089294)
-        If (feature 2 <= -0.34359073638916016)
-         If (feature 3 <= 0.2507137060165405)
-          Predict: 0.0
-         Else (feature 3 > 0.2507137060165405)
-          Predict: 9.0
-        Else (feature 2 > -0.34359073638916016)
-         If (feature 0 <= -0.3961179554462433)
-          Predict: 3.0
-         Else (feature 0 > -0.3961179554462433)
-          Predict: 13.0
-       Else (feature 8 > 0.9093350768089294)
-        If (feature 3 <= -0.12415862083435059)
-         If (feature 7 <= -0.492097407579422)
-          Predict: 2.0
-         Else (feature 7 > -0.492097407579422)
-          Predict: 14.0
-        Else (feature 3 > -0.12415862083435059)
-         If (feature 0 <= -0.21923287212848663)
-          Predict: 9.0
-         Else (feature 0 > -0.21923287212848663)
-          Predict: 7.0
-      Else (feature 7 > -0.15743747353553772)
-       If (feature 4 <= 0.179728165268898)
-        If (feature 9 <= -0.2660880982875824)
-         If (feature 10 <= -0.027090197429060936)
-          Predict: 13.0
-         Else (feature 10 > -0.027090197429060936)
-          Predict: 0.0
-        Else (feature 9 > -0.2660880982875824)
-         If (feature 0 <= -0.10156813263893127)
-          Predict: 0.0
-         Else (feature 0 > -0.10156813263893127)
-          Predict: 13.0
-       Else (feature 4 > 0.179728165268898)
-        If (feature 11 <= 0.8949294090270996)
-         If (feature 2 <= -0.4016360342502594)
-          Predict: 0.0
-         Else (feature 2 > -0.4016360342502594)
-          Predict: 1.0
-        Else (feature 11 > 0.8949294090270996)
-         If (feature 9 <= -0.23477725684642792)
-          Predict: 14.0
-         Else (feature 9 > -0.23477725684642792)
-          Predict: 5.0
-    Else (feature 10 > 0.36151206493377686)
-     If (feature 5 <= -0.11979594826698303)
-      If (feature 2 <= -0.37516412138938904)
-       If (feature 6 <= -0.5386266708374023)
-        If (feature 0 <= 0.027416324242949486)
-         If (feature 0 <= -0.48111629486083984)
-          Predict: 14.0
-         Else (feature 0 > -0.48111629486083984)
-          Predict: 10.0
-        Else (feature 0 > 0.027416324242949486)
-         Predict: 11.0
-       Else (feature 6 > -0.5386266708374023)
-        If (feature 2 <= -0.5947743058204651)
-         Predict: 6.0
-        Else (feature 2 > -0.5947743058204651)
-         If (feature 1 <= -0.1518182009458542)
-          Predict: 12.0
-         Else (feature 1 > -0.1518182009458542)
-          Predict: 5.0
-      Else (feature 2 > -0.37516412138938904)
-       If (feature 8 <= 0.7511497735977173)
-        If (feature 4 <= 0.5423442721366882)
-         If (feature 0 <= -0.021083103492856026)
-          Predict: 3.0
-         Else (feature 0 > -0.021083103492856026)
-          Predict: 10.0
-        Else (feature 4 > 0.5423442721366882)
-         If (feature 1 <= -0.2277180403470993)
-          Predict: 9.0
-         Else (feature 1 > -0.2277180403470993)
-          Predict: 14.0
-       Else (feature 8 > 0.7511497735977173)
-        If (feature 3 <= 0.18352457880973816)
-         If (feature 1 <= -0.24915601313114166)
-          Predict: 12.0
-         Else (feature 1 > -0.24915601313114166)
-          Predict: 2.0
-        Else (feature 3 > 0.18352457880973816)
-         If (feature 0 <= -0.48111629486083984)
-          Predict: 7.0
-         Else (feature 0 > -0.48111629486083984)
-          Predict: 14.0
-     Else (feature 5 > -0.11979594826698303)
-      If (feature 6 <= -0.2545810341835022)
-       If (feature 9 <= -0.2660880982875824)
-        If (feature 6 <= -0.5866469144821167)
-         If (feature 3 <= -0.18141885101795197)
-          Predict: 11.0
-         Else (feature 3 > -0.18141885101795197)
-          Predict: 10.0
-        Else (feature 6 > -0.5866469144821167)
-         If (feature 0 <= -0.2804836630821228)
-          Predict: 12.0
-         Else (feature 0 > -0.2804836630821228)
-          Predict: 11.0
-       Else (feature 9 > -0.2660880982875824)
-        Predict: 5.0
-      Else (feature 6 > -0.2545810341835022)
-       If (feature 9 <= -0.2660880982875824)
-        Predict: 12.0
-       Else (feature 9 > -0.2660880982875824)
-        Predict: 5.0
-   Else (feature 4 > 0.6933677792549133)
-    If (feature 5 <= -0.748224675655365)
-     If (feature 2 <= -0.3159923851490021)
-      Predict: 6.0
-     Else (feature 2 > -0.3159923851490021)
-      Predict: 2.0
-    Else (feature 5 > -0.748224675655365)
-     If (feature 11 <= 1.1602838039398193)
-      If (feature 5 <= -0.4459073841571808)
-       If (feature 11 <= 0.7468631267547607)
-        Predict: 7.0
-       Else (feature 11 > 0.7468631267547607)
-        If (feature 0 <= -0.5131211876869202)
-         Predict: 3.0
-        Else (feature 0 > -0.5131211876869202)
-         Predict: 14.0
-      Else (feature 5 > -0.4459073841571808)
-       If (feature 7 <= 0.028421146795153618)
-        If (feature 0 <= -0.21923287212848663)
-         Predict: 9.0
-        Else (feature 0 > -0.21923287212848663)
-         Predict: 7.0
-       Else (feature 7 > 0.028421146795153618)
-        If (feature 0 <= -0.3961179554462433)
-         Predict: 12.0
-        Else (feature 0 > -0.3961179554462433)
-         If (feature 0 <= -0.10156813263893127)
-          Predict: 7.0
-         Else (feature 0 > -0.10156813263893127)
-          Predict: 10.0
-     Else (feature 11 > 1.1602838039398193)
-      If (feature 3 <= 0.18352457880973816)
-       If (feature 9 <= -0.28993743658065796)
-        Predict: 12.0
-       Else (feature 9 > -0.28993743658065796)
-        Predict: 5.0
-      Else (feature 3 > 0.18352457880973816)
-       If (feature 6 <= -0.6557168960571289)
-        If (feature 1 <= -0.037597764283418655)
-         Predict: 14.0
-        Else (feature 1 > -0.037597764283418655)
-         Predict: 10.0
-       Else (feature 6 > -0.6557168960571289)
-        If (feature 0 <= -0.48111629486083984)
-         If (feature 8 <= 0.5946992039680481)
-          Predict: 14.0
-         Else (feature 8 > 0.5946992039680481)
-          Predict: 9.0
-        Else (feature 0 > -0.48111629486083984)
-         If (feature 0 <= -0.10156813263893127)
-          Predict: 14.0
-         Else (feature 0 > -0.10156813263893127)
-          Predict: 7.0
-  Else (feature 0 > 0.10020816326141357)
-   If (feature 3 <= 0.22021420300006866)
-    If (feature 10 <= 0.32318785786628723)
-     If (feature 3 <= -0.12415862083435059)
-      If (feature 7 <= -0.24569159746170044)
-       Predict: 2.0
-      Else (feature 7 > -0.24569159746170044)
-       If (feature 0 <= 0.1263042688369751)
-        Predict: 11.0
-       Else (feature 0 > 0.1263042688369751)
-        Predict: 12.0
-     Else (feature 3 > -0.12415862083435059)
-      If (feature 6 <= -0.409036248922348)
-       If (feature 8 <= 0.5946992039680481)
-        Predict: 0.0
-       Else (feature 8 > 0.5946992039680481)
-        If (feature 1 <= -0.3339545428752899)
-         If (feature 2 <= -0.5778955817222595)
-          Predict: 4.0
-         Else (feature 2 > -0.5778955817222595)
-          Predict: 13.0
-        Else (feature 1 > -0.3339545428752899)
-         If (feature 3 <= 0.18352457880973816)
-          Predict: 11.0
-         Else (feature 3 > 0.18352457880973816)
-          Predict: 10.0
-      Else (feature 6 > -0.409036248922348)
-       If (feature 2 <= -0.9446700215339661)
-        Predict: 4.0
-       Else (feature 2 > -0.9446700215339661)
-        Predict: 13.0
-    Else (feature 10 > 0.32318785786628723)
-     If (feature 5 <= -0.5313830375671387)
-      If (feature 2 <= -0.9446700215339661)
-       Predict: 6.0
-      Else (feature 2 > -0.9446700215339661)
-       If (feature 0 <= 0.1263042688369751)
-        Predict: 2.0
-       Else (feature 0 > 0.1263042688369751)
-        Predict: 10.0
-     Else (feature 5 > -0.5313830375671387)
-      Predict: 11.0
-   Else (feature 3 > 0.22021420300006866)
-    If (feature 1 <= 0.013995500281453133)
-     If (feature 4 <= 0.28817018866539)
-      If (feature 9 <= -0.7362546920776367)
-       If (feature 1 <= -0.5582146644592285)
-        Predict: 7.0
-       Else (feature 1 > -0.5582146644592285)
-        If (feature 0 <= 0.1263042688369751)
-         Predict: 3.0
-        Else (feature 0 > 0.1263042688369751)
-         Predict: 4.0
-      Else (feature 9 > -0.7362546920776367)
-       If (feature 4 <= 0.19984003901481628)
-        Predict: 4.0
-       Else (feature 4 > 0.19984003901481628)
-        If (feature 1 <= -0.38912373781204224)
-         Predict: 7.0
-        Else (feature 1 > -0.38912373781204224)
-         Predict: 4.0
-     Else (feature 4 > 0.28817018866539)
-      If (feature 0 <= 0.15060016512870789)
-       Predict: 7.0
-      Else (feature 0 > 0.15060016512870789)
-       Predict: 14.0
-    Else (feature 1 > 0.013995500281453133)
-     If (feature 0 <= 0.3161312937736511)
-      If (feature 9 <= -0.5787243247032166)
+DecisionTreeModel classifier of depth 8 with 161 nodes
+  If (feature 3 <= 0.38292989134788513)
+   If (feature 11 <= 0.7075700163841248)
+    If (feature 9 <= -0.4166977107524872)
+     If (feature 3 <= -0.32372191548347473)
+      If (feature 4 <= 0.022883769124746323)
        Predict: 10.0
-      Else (feature 9 > -0.5787243247032166)
-       If (feature 0 <= 0.2912105619907379)
-        Predict: 11.0
-       Else (feature 0 > 0.2912105619907379)
-        Predict: 4.0
-     Else (feature 0 > 0.3161312937736511)
-      Predict: 11.0
+      Else (feature 4 > 0.022883769124746323)
+       Predict: 12.0
+     Else (feature 3 > -0.32372191548347473)
+      If (feature 6 <= -0.49401795864105225)
+       Predict: 0.0
+      Else (feature 6 > -0.49401795864105225)
+       If (feature 6 <= -0.17329102754592896)
+        If (feature 2 <= -0.3159923851490021)
+         If (feature 0 <= -0.48111629486083984)
+          Predict: 9.0
+         Else (feature 0 > -0.48111629486083984)
+          Predict: 4.0
+        Else (feature 2 > -0.3159923851490021)
+         Predict: 12.0
+       Else (feature 6 > -0.17329102754592896)
+        Predict: 3.0
+    Else (feature 9 > -0.4166977107524872)
+     If (feature 8 <= 0.9093350768089294)
+      If (feature 7 <= 0.13509425520896912)
+       If (feature 2 <= -0.9446700215339661)
+        Predict: 3.0
+       Else (feature 2 > -0.9446700215339661)
+        If (feature 7 <= -0.492097407579422)
+         Predict: 4.0
+        Else (feature 7 > -0.492097407579422)
+         If (feature 6 <= -0.608093798160553)
+          Predict: 13.0
+         Else (feature 6 > -0.608093798160553)
+          Predict: 6.0
+      Else (feature 7 > 0.13509425520896912)
+       If (feature 0 <= -0.12731283903121948)
+        Predict: 6.0
+       Else (feature 0 > -0.12731283903121948)
+        Predict: 13.0
+     Else (feature 8 > 0.9093350768089294)
+      If (feature 3 <= -0.08992959558963776)
+       Predict: 12.0
+      Else (feature 3 > -0.08992959558963776)
+       If (feature 2 <= -0.5947743058204651)
+        If (feature 0 <= -0.5131211876869202)
+         Predict: 4.0
+        Else (feature 0 > -0.5131211876869202)
+         Predict: 0.0
+       Else (feature 2 > -0.5947743058204651)
+        Predict: 13.0
+   Else (feature 11 > 0.7075700163841248)
+    If (feature 9 <= -0.22071051597595215)
+     If (feature 5 <= -0.10658510774374008)
+      If (feature 10 <= -0.525442361831665)
+       If (feature 3 <= -0.32372191548347473)
+        If (feature 0 <= 0.0745120719075203)
+         Predict: 12.0
+        Else (feature 0 > 0.0745120719075203)
+         Predict: 10.0
+       Else (feature 3 > -0.32372191548347473)
+        Predict: 1.0
+      Else (feature 10 > -0.525442361831665)
+       If (feature 1 <= 0.2701691687107086)
+        If (feature 8 <= 0.5162776112556458)
+         If (feature 11 <= 1.2550556659698486)
+          Predict: 6.0
+         Else (feature 11 > 1.2550556659698486)
+          Predict: 2.0
+        Else (feature 8 > 0.5162776112556458)
+         If (feature 7 <= -0.5939164757728577)
+          Predict: 12.0
+         Else (feature 7 > -0.5939164757728577)
+          Predict: 10.0
+       Else (feature 1 > 0.2701691687107086)
+        If (feature 5 <= -0.8743463754653931)
+         If (feature 2 <= -0.9446700215339661)
+          Predict: 3.0
+         Else (feature 2 > -0.9446700215339661)
+          Predict: 7.0
+        Else (feature 5 > -0.8743463754653931)
+         If (feature 7 <= -0.3315422832965851)
+          Predict: 12.0
+         Else (feature 7 > -0.3315422832965851)
+          Predict: 0.0
+     Else (feature 5 > -0.10658510774374008)
+      If (feature 2 <= -0.5562300086021423)
+       If (feature 1 <= 0.2701691687107086)
+        If (feature 4 <= 0.8763741850852966)
+         If (feature 10 <= -0.15666377544403076)
+          Predict: 1.0
+         Else (feature 10 > -0.15666377544403076)
+          Predict: 8.0
+        Else (feature 4 > 0.8763741850852966)
+         Predict: 9.0
+       Else (feature 1 > 0.2701691687107086)
+        If (feature 0 <= -0.48111629486083984)
+         Predict: 5.0
+        Else (feature 0 > -0.48111629486083984)
+         Predict: 0.0
+      Else (feature 2 > -0.5562300086021423)
+       If (feature 0 <= 1.230418711202219E-4)
+        Predict: 8.0
+       Else (feature 0 > 1.230418711202219E-4)
+        Predict: 6.0
+    Else (feature 9 > -0.22071051597595215)
+     If (feature 3 <= 0.011873051524162292)
+      If (feature 4 <= 0.24517299234867096)
+       If (feature 5 <= -0.3934270143508911)
+        If (feature 0 <= -0.021083103492856026)
+         If (feature 0 <= -0.40699562430381775)
+          Predict: 2.0
+         Else (feature 0 > -0.40699562430381775)
+          Predict: 10.0
+        Else (feature 0 > -0.021083103492856026)
+         If (feature 2 <= -0.23778846859931946)
+          Predict: 0.0
+         Else (feature 2 > -0.23778846859931946)
+          Predict: 12.0
+       Else (feature 5 > -0.3934270143508911)
+        If (feature 8 <= 0.21342459321022034)
+         If (feature 0 <= -0.21923287212848663)
+          Predict: 6.0
+         Else (feature 0 > -0.21923287212848663)
+          Predict: 14.0
+        Else (feature 8 > 0.21342459321022034)
+         If (feature 0 <= -0.021083103492856026)
+          Predict: 6.0
+         Else (feature 0 > -0.021083103492856026)
+          Predict: 0.0
+      Else (feature 4 > 0.24517299234867096)
+       If (feature 8 <= 0.8746705651283264)
+        If (feature 5 <= -0.5936658978462219)
+         Predict: 10.0
+        Else (feature 5 > -0.5936658978462219)
+         If (feature 6 <= -0.2870076298713684)
+          Predict: 14.0
+         Else (feature 6 > -0.2870076298713684)
+          Predict: 14.0
+       Else (feature 8 > 0.8746705651283264)
+        If (feature 3 <= -0.4605565071105957)
+         Predict: 12.0
+        Else (feature 3 > -0.4605565071105957)
+         If (feature 0 <= -0.21923287212848663)
+          Predict: 11.0
+         Else (feature 0 > -0.21923287212848663)
+          Predict: 0.0
+     Else (feature 3 > 0.011873051524162292)
+      If (feature 6 <= -0.45200297236442566)
+       If (feature 7 <= 0.07359249889850616)
+        If (feature 4 <= 0.6933677792549133)
+         If (feature 0 <= -0.42935845255851746)
+          Predict: 14.0
+         Else (feature 0 > -0.42935845255851746)
+          Predict: 1.0
+        Else (feature 4 > 0.6933677792549133)
+         If (feature 5 <= -0.08319604396820068)
+          Predict: 5.0
+         Else (feature 5 > -0.08319604396820068)
+          Predict: 4.0
+       Else (feature 7 > 0.07359249889850616)
+        If (feature 0 <= 1.230418711202219E-4)
+         Predict: 11.0
+        Else (feature 0 > 1.230418711202219E-4)
+         Predict: 13.0
+      Else (feature 6 > -0.45200297236442566)
+       Predict: 6.0
+  Else (feature 3 > 0.38292989134788513)
+   If (feature 7 <= 0.07359249889850616)
+    If (feature 11 <= 0.8949294090270996)
+     If (feature 5 <= -0.004100847523659468)
+      If (feature 4 <= 0.321188360452652)
+       If (feature 5 <= -0.5313830375671387)
+        If (feature 0 <= 0.1872040331363678)
+         Predict: 13.0
+        Else (feature 0 > 0.1872040331363678)
+         Predict: 0.0
+       Else (feature 5 > -0.5313830375671387)
+        Predict: 1.0
+      Else (feature 4 > 0.321188360452652)
+       If (feature 1 <= 0.013995500281453133)
+        If (feature 10 <= 0.4104706645011902)
+         Predict: 4.0
+        Else (feature 10 > 0.4104706645011902)
+         If (feature 0 <= -0.5131211876869202)
+          Predict: 9.0
+         Else (feature 0 > -0.5131211876869202)
+          Predict: 4.0
+       Else (feature 1 > 0.013995500281453133)
+        Predict: 0.0
+     Else (feature 5 > -0.004100847523659468)
+      Predict: 9.0
+    Else (feature 11 > 0.8949294090270996)
+     If (feature 10 <= -0.15666377544403076)
+      Predict: 1.0
+     Else (feature 10 > -0.15666377544403076)
+      If (feature 4 <= 0.4898626208305359)
+       If (feature 1 <= 0.07009115815162659)
+        Predict: 2.0
+       Else (feature 1 > 0.07009115815162659)
+        If (feature 2 <= -0.34359073638916016)
+         Predict: 0.0
+        Else (feature 2 > -0.34359073638916016)
+         If (feature 4 <= -0.0791676938533783)
+          Predict: 7.0
+         Else (feature 4 > -0.0791676938533783)
+          Predict: 12.0
+      Else (feature 4 > 0.4898626208305359)
+       If (feature 11 <= 1.1602838039398193)
+        If (feature 9 <= -0.6135897636413574)
+         If (feature 1 <= 0.013995500281453133)
+          Predict: 5.0
+         Else (feature 1 > 0.013995500281453133)
+          Predict: 0.0
+        Else (feature 9 > -0.6135897636413574)
+         If (feature 0 <= -0.5131211876869202)
+          Predict: 9.0
+         Else (feature 0 > -0.5131211876869202)
+          Predict: 5.0
+       Else (feature 11 > 1.1602838039398193)
+        Predict: 5.0
+   Else (feature 7 > 0.07359249889850616)
+    If (feature 0 <= -0.10156813263893127)
+     If (feature 7 <= 0.11509036272764206)
+      Predict: 2.0
+     Else (feature 7 > 0.11509036272764206)
+      If (feature 1 <= -0.3339545428752899)
+       Predict: 11.0
+      Else (feature 1 > -0.3339545428752899)
+       If (feature 0 <= -0.21923287212848663)
+        Predict: 3.0
+       Else (feature 0 > -0.21923287212848663)
+        If (feature 0 <= -0.12731283903121948)
+         Predict: 0.0
+        Else (feature 0 > -0.12731283903121948)
+         Predict: 4.0
+    Else (feature 0 > -0.10156813263893127)
+     If (feature 2 <= -0.4707416296005249)
+      Predict: 6.0
+     Else (feature 2 > -0.4707416296005249)
+      Predict: 13.0
 
 Done, making predictions
-Accuracy: 0.979530703944
+Accuracy: 0.926360459311
 /opt/spark-2.1.1-bin-hadoop2.7/python/lib/pyspark.zip/pyspark/mllib/evaluation.py:237: UserWarning: Deprecated in 2.0.0. Use accuracy.
 /opt/spark-2.1.1-bin-hadoop2.7/python/lib/pyspark.zip/pyspark/mllib/evaluation.py:249: UserWarning: Deprecated in 2.0.0. Use accuracy.
 /opt/spark-2.1.1-bin-hadoop2.7/python/lib/pyspark.zip/pyspark/mllib/evaluation.py:262: UserWarning: Deprecated in 2.0.0. Use accuracy.
 Summary Stats
-Precision = 0.979530703944
-Recall = 0.979530703944
-F1 Score = 0.979530703944
+Precision = 0.926360459311
+Recall = 0.926360459311
+F1 Score = 0.926360459311
 Building meta training set
 Training a meta tree
-DecisionTreeModel classifier of depth 8 with 203 nodes
-  If (Isn't imdb_keywords:male-nudity)
-   If (average_rating <= 2.0)
-    If (Isn't imdb_keywords:topless-female-nudity)
-     If (Isn't imdb_keywords:illness)
-      If (Isn't tvtropes:too dumb to live)
-       If (Isn't imdb_keywords:rainstorm)
-        If (Isn't tvtropes:black comedy)
-         If (Isn't imdb_keywords:long-take)
-          Predict: 13.0
-         Else (Is imdb_keywords:long-take)
-          Predict: 0.0
-        Else (Is tvtropes:black comedy)
-         If (Isn't imdb_keywords:hallucination)
-          Predict: 0.0
-         Else (Is imdb_keywords:hallucination)
-          Predict: 13.0
-       Else (Is imdb_keywords:rainstorm)
-        If (Isn't imdb_keywords:child-in-peril)
-         If (Isn't imdb_keywords:honor)
-          Predict: 1.0
-         Else (Is imdb_keywords:honor)
-          Predict: 13.0
-        Else (Is imdb_keywords:child-in-peril)
-         Predict: 13.0
-      Else (Is tvtropes:too dumb to live)
-       If (Isn't imdb_keywords:child-in-peril)
-        If (Isn't imdb_keywords:fish-out-of-water)
-         Predict: 0.0
-        Else (Is imdb_keywords:fish-out-of-water)
-         Predict: 13.0
-       Else (Is imdb_keywords:child-in-peril)
-        Predict: 13.0
-     Else (Is imdb_keywords:illness)
-      If (Isn't imdb_keywords:honor)
-       If (Isn't tvtropes:black comedy)
-        If (year <= 2014.0)
-         If (Isn't tvtropes:too dumb to live)
-          Predict: 1.0
-         Else (Is tvtropes:too dumb to live)
-          Predict: 0.0
-        Else (year > 2014.0)
-         Predict: 0.0
-       Else (Is tvtropes:black comedy)
-        Predict: 0.0
-      Else (Is imdb_keywords:honor)
-       Predict: 13.0
-    Else (Is imdb_keywords:topless-female-nudity)
-     Predict: 8.0
-   Else (average_rating > 2.0)
-    If (Isn't imdb_keywords:robbery)
-     If (Isn't imdb_keywords:disguise)
-      If (Isn't imdb_keywords:gunfight)
-       If (Isn't imdb_keywords:actress)
-        If (Isn't imdb_keywords:hit-by-a-car)
-         If (Isn't imdb_keywords:subtitled-scene)
-          Predict: 2.0
-         Else (Is imdb_keywords:subtitled-scene)
-          Predict: 11.0
-        Else (Is imdb_keywords:hit-by-a-car)
-         If (Isn't imdb_keywords:subtitled-scene)
-          Predict: 5.0
-         Else (Is imdb_keywords:subtitled-scene)
-          Predict: 10.0
-       Else (Is imdb_keywords:actress)
-        If (Isn't imdb_keywords:class-differences)
-         If (Isn't imdb_keywords:unrequited-love)
-          Predict: 4.0
-         Else (Is imdb_keywords:unrequited-love)
-          Predict: 2.0
-        Else (Is imdb_keywords:class-differences)
-         Predict: 2.0
-      Else (Is imdb_keywords:gunfight)
-       If (Isn't imdb_keywords:hit-by-a-car)
-        If (Isn't imdb_keywords:subtitled-scene)
-         If (Isn't imdb_keywords:gunfire)
-          Predict: 12.0
-         Else (Is imdb_keywords:gunfire)
-          Predict: 6.0
-        Else (Is imdb_keywords:subtitled-scene)
-         If (average_rating <= 3.7419354838709675)
-          Predict: 11.0
-         Else (average_rating > 3.7419354838709675)
-          Predict: 10.0
-       Else (Is imdb_keywords:hit-by-a-car)
-        If (Isn't imdb_keywords:subtitled-scene)
-         If (Isn't movielens_tags:Tumey's DVDs)
-          Predict: 5.0
-         Else (Is movielens_tags:Tumey's DVDs)
-          Predict: 12.0
-        Else (Is imdb_keywords:subtitled-scene)
-         If (Isn't movielens_genre:Sci-Fi)
-          Predict: 10.0
-         Else (Is movielens_genre:Sci-Fi)
-          Predict: 11.0
-     Else (Is imdb_keywords:disguise)
-      If (Isn't imdb_keywords:subtitled-scene)
-       If (Isn't imdb_keywords:gunfire)
-        If (Isn't imdb_keywords:actress)
-         If (Isn't imdb_keywords:class-differences)
-          Predict: 3.0
-         Else (Is imdb_keywords:class-differences)
-          Predict: 2.0
-        Else (Is imdb_keywords:actress)
-         If (Isn't imdb_keywords:arrest)
-          Predict: 14.0
-         Else (Is imdb_keywords:arrest)
-          Predict: 3.0
-       Else (Is imdb_keywords:gunfire)
-        Predict: 6.0
-      Else (Is imdb_keywords:subtitled-scene)
-       If (Isn't tvtropes:too dumb to live)
-        If (Isn't movielens_tags:BD-Video)
-         If (Isn't imdb_keywords:cow)
-          Predict: 10.0
-         Else (Is imdb_keywords:cow)
-          Predict: 6.0
-        Else (Is movielens_tags:BD-Video)
-         If (year <= 1972.0)
-          Predict: 10.0
-         Else (year > 1972.0)
-          Predict: 11.0
-       Else (Is tvtropes:too dumb to live)
-        Predict: 3.0
-    Else (Is imdb_keywords:robbery)
-     If (Isn't imdb_keywords:disguise)
-      If (Isn't imdb_keywords:gunfire)
-       If (Isn't imdb_keywords:hit-by-a-car)
-        If (Isn't imdb_keywords:actress)
-         If (Isn't imdb_keywords:class-differences)
-          Predict: 9.0
-         Else (Is imdb_keywords:class-differences)
-          Predict: 2.0
-        Else (Is imdb_keywords:actress)
-         If (Isn't imdb_keywords:shootout)
-          Predict: 7.0
-         Else (Is imdb_keywords:shootout)
-          Predict: 2.0
-       Else (Is imdb_keywords:hit-by-a-car)
-        If (Isn't imdb_keywords:subtitled-scene)
-         If (average_rating <= 2.9473684210526314)
-          Predict: 9.0
-         Else (average_rating > 2.9473684210526314)
-          Predict: 14.0
-        Else (Is imdb_keywords:subtitled-scene)
-         If (year <= 1990.0)
-          Predict: 2.0
-         Else (year > 1990.0)
-          Predict: 10.0
-      Else (Is imdb_keywords:gunfire)
-       Predict: 6.0
-     Else (Is imdb_keywords:disguise)
-      If (Isn't imdb_keywords:subtitled-scene)
-       If (average_rating <= 3.7419354838709675)
-        If (Isn't imdb_keywords:death-of-father)
-         If (Isn't imdb_keywords:explosion)
-          Predict: 14.0
-         Else (Is imdb_keywords:explosion)
-          Predict: 3.0
-        Else (Is imdb_keywords:death-of-father)
-         If (year <= 2010.0)
-          Predict: 9.0
-         Else (year > 2010.0)
-          Predict: 2.0
-       Else (average_rating > 3.7419354838709675)
-        If (Isn't imdb_keywords:butler)
-         Predict: 14.0
-        Else (Is imdb_keywords:butler)
-         If (Isn't movielens_genre:Adventure)
-          Predict: 6.0
-         Else (Is movielens_genre:Adventure)
-          Predict: 2.0
-      Else (Is imdb_keywords:subtitled-scene)
-       If (Isn't movielens_genre:Mystery)
-        Predict: 10.0
-       Else (Is movielens_genre:Mystery)
-        Predict: 14.0
-  Else (Is imdb_keywords:male-nudity)
-   If (Isn't imdb_keywords:robbery)
-    If (Isn't imdb_keywords:gunfight)
-     If (Isn't imdb_keywords:unrequited-love)
-      If (Isn't imdb_keywords:disguise)
-       If (Isn't imdb_keywords:class-differences)
-        If (Isn't imdb_keywords:subtitled-scene)
-         If (Isn't imdb_keywords:hit-by-a-car)
-          Predict: 4.0
-         Else (Is imdb_keywords:hit-by-a-car)
-          Predict: 14.0
-        Else (Is imdb_keywords:subtitled-scene)
-         If (average_rating <= 3.7419354838709675)
-          Predict: 11.0
-         Else (average_rating > 3.7419354838709675)
-          Predict: 10.0
-       Else (Is imdb_keywords:class-differences)
-        If (Isn't imdb_keywords:champagne)
-         Predict: 2.0
-        Else (Is imdb_keywords:champagne)
-         If (year <= 1972.0)
-          Predict: 4.0
-         Else (year > 1972.0)
-          Predict: 6.0
-      Else (Is imdb_keywords:disguise)
-       If (Isn't imdb_keywords:hit-by-a-car)
-        If (Isn't imdb_keywords:class-differences)
-         If (Isn't imdb_keywords:coffin)
-          Predict: 3.0
-         Else (Is imdb_keywords:coffin)
-          Predict: 4.0
-        Else (Is imdb_keywords:class-differences)
-         If (Isn't movielens_genre:Fantasy)
-          Predict: 2.0
-         Else (Is movielens_genre:Fantasy)
-          Predict: 14.0
-       Else (Is imdb_keywords:hit-by-a-car)
-        If (Isn't movielens_genre:Adventure)
-         Predict: 14.0
-        Else (Is movielens_genre:Adventure)
-         Predict: 10.0
-     Else (Is imdb_keywords:unrequited-love)
-      If (Isn't imdb_keywords:surprise-ending)
-       If (Isn't movielens_tags:In Netflix queue)
-        If (Isn't imdb_keywords:crucifix)
-         Predict: 2.0
-        Else (Is imdb_keywords:crucifix)
-         Predict: 4.0
-       Else (Is movielens_tags:In Netflix queue)
-        Predict: 10.0
-      Else (Is imdb_keywords:surprise-ending)
-       If (Isn't movielens_tags:nudity (full frontal))
-        If (Isn't movielens_genre:Animation)
-         Predict: 3.0
-        Else (Is movielens_genre:Animation)
-         Predict: 2.0
-       Else (Is movielens_tags:nudity (full frontal))
-        Predict: 14.0
-    Else (Is imdb_keywords:gunfight)
-     If (Isn't imdb_keywords:cowboy-hat)
-      If (Isn't imdb_keywords:subtitled-scene)
-       If (Isn't imdb_keywords:reference-to-god)
-        If (Isn't imdb_keywords:u.s.-army)
-         If (Isn't imdb_keywords:dream)
-          Predict: 14.0
-         Else (Is imdb_keywords:dream)
-          Predict: 5.0
-        Else (Is imdb_keywords:u.s.-army)
-         If (year <= 1988.0)
-          Predict: 4.0
-         Else (year > 1988.0)
-          Predict: 12.0
-       Else (Is imdb_keywords:reference-to-god)
-        If (year <= 2002.0)
-         Predict: 3.0
-        Else (year > 2002.0)
-         Predict: 6.0
-      Else (Is imdb_keywords:subtitled-scene)
-       If (Isn't imdb_keywords:binoculars)
-        If (year <= 2011.0)
-         Predict: 10.0
-        Else (year > 2011.0)
-         Predict: 14.0
-       Else (Is imdb_keywords:binoculars)
-        Predict: 11.0
-     Else (Is imdb_keywords:cowboy-hat)
-      If (Isn't imdb_keywords:three-word-title)
-       Predict: 12.0
-      Else (Is imdb_keywords:three-word-title)
-       If (year <= 1990.0)
-        Predict: 14.0
-       Else (year > 1990.0)
-        If (year <= 1994.0)
-         Predict: 4.0
-        Else (year > 1994.0)
-         Predict: 3.0
-   Else (Is imdb_keywords:robbery)
-    If (Isn't imdb_keywords:class-differences)
-     If (Isn't imdb_keywords:gunfight)
-      If (Isn't imdb_keywords:subtitled-scene)
-       If (Isn't imdb_keywords:gunfire)
-        If (Isn't imdb_keywords:unrequited-love)
-         If (Isn't imdb_keywords:cowboy-hat)
-          Predict: 7.0
-         Else (Is imdb_keywords:cowboy-hat)
-          Predict: 9.0
-        Else (Is imdb_keywords:unrequited-love)
-         Predict: 2.0
-       Else (Is imdb_keywords:gunfire)
-        If (year <= 1972.0)
-         Predict: 4.0
-        Else (year > 1972.0)
-         Predict: 6.0
-      Else (Is imdb_keywords:subtitled-scene)
-       Predict: 10.0
-     Else (Is imdb_keywords:gunfight)
-      If (Isn't imdb_keywords:shot-in-the-stomach)
-       Predict: 14.0
-      Else (Is imdb_keywords:shot-in-the-stomach)
-       If (year <= 2008.0)
-        Predict: 9.0
-       Else (year > 2008.0)
-        Predict: 7.0
-    Else (Is imdb_keywords:class-differences)
-     If (year <= 1998.0)
-      Predict: 2.0
-     Else (year > 1998.0)
-      Predict: 7.0
-
-Done, making predictions
-Accuracy: 0.936595107339
-Summary Stats
-Precision = 0.936595107339
-Recall = 0.936595107339
-F1 Score = 0.936595107339
-48 features used
-15 clusters found
-Processing cluster 0.0
-QIIs: [('imdb_keywords:class-differences', 3.213953488372093), ('imdb_keywords:honor', 2.186046511627907), ('imdb_keywords:robbery', 1.9953488372093022), ('average_rating', 0.5441860465116279), ('imdb_keywords:child-in-peril', -0.06976744186046512), ('imdb_keywords:cowboy-hat', 0.06976744186046512), ('imdb_keywords:hallucination', 0.06046511627906977), ('year', 0.004651162790697674), ('movielens_genre:Adventure', 0.0), ('movielens_genre:Animation', 0.0), ('imdb_keywords:unrequited-love', 0.0), ('imdb_keywords:arrest', 0.0), ('movielens_genre:Fantasy', 0.0), ('movielens_genre:Mystery', 0.0), ('movielens_genre:Sci-Fi', 0.0), ('imdb_keywords:hit-by-a-car', 0.0), ('movielens_tags:BD-Video', 0.0), ('imdb_keywords:explosion', 0.0), ('imdb_keywords:coffin', 0.0), ('imdb_keywords:rainstorm', 0.0), ('tvtropes:too dumb to live', 0.0), ('movielens_tags:In Netflix queue', 0.0), ('imdb_keywords:reference-to-god', 0.0), ('imdb_keywords:illness', 0.0), ("movielens_tags:Tumey's DVDs", 0.0), ('imdb_keywords:surprise-ending', 0.0), ('imdb_keywords:cow', 0.0), ('imdb_keywords:binoculars', 0.0), ('imdb_keywords:crucifix', 0.0), ('imdb_keywords:fish-out-of-water', 0.0), ('movielens_tags:nudity (full frontal)', 0.0), ('tvtropes:black comedy', 0.0), ('imdb_keywords:death-of-father', 0.0), ('imdb_keywords:male-nudity', 0.0), ('imdb_keywords:three-word-title', 0.0), ('imdb_keywords:u.s.-army', 0.0), ('imdb_keywords:topless-female-nudity', 0.0), ('imdb_keywords:long-take', 0.0), ('imdb_keywords:butler', 0.0), ('imdb_keywords:disguise', 0.0), ('imdb_keywords:subtitled-scene', 0.0), ('imdb_keywords:actress', 0.0), ('imdb_keywords:shootout', 0.0), ('imdb_keywords:dream', 0.0), ('imdb_keywords:shot-in-the-stomach', 0.0), ('imdb_keywords:gunfight', 0.0), ('imdb_keywords:gunfire', 0.0), ('imdb_keywords:champagne', 0.0)]
-Correctness scores: [(4, 0.6080964685615848), (6, 0.404823428079242), (2, 0.36950904392764855), (0, 0.012919896640826873), (1, 0.0), (3, 0.0), (5, 0.0), (7, 0.0), (8, 0.0), (9, 0.0)]
-Processing cluster 1.0
-QIIs: [('imdb_keywords:child-in-peril', 2.2110091743119265), ('imdb_keywords:cowboy-hat', 2.1055045871559632), ('imdb_keywords:robbery', 0.17889908256880735), ('imdb_keywords:long-take', 0.14220183486238533), ('imdb_keywords:death-of-father', 0.04128440366972477), ('movielens_tags:nudity (full frontal)', -0.013761467889908258), ('imdb_keywords:class-differences', -0.0045871559633027525), ('year', 0.0), ('movielens_genre:Adventure', 0.0), ('movielens_genre:Animation', 0.0), ('imdb_keywords:unrequited-love', 0.0), ('imdb_keywords:arrest', 0.0), ('movielens_genre:Fantasy', 0.0), ('movielens_genre:Mystery', 0.0), ('movielens_genre:Sci-Fi', 0.0), ('imdb_keywords:hit-by-a-car', 0.0), ('movielens_tags:BD-Video', 0.0), ('imdb_keywords:explosion', 0.0), ('imdb_keywords:honor', 0.0), ('imdb_keywords:coffin', 0.0), ('imdb_keywords:rainstorm', 0.0), ('tvtropes:too dumb to live', 0.0), ('movielens_tags:In Netflix queue', 0.0), ('imdb_keywords:reference-to-god', 0.0), ('imdb_keywords:illness', 0.0), ("movielens_tags:Tumey's DVDs", 0.0), ('average_rating', 0.0), ('imdb_keywords:surprise-ending', 0.0), ('imdb_keywords:cow', 0.0), ('imdb_keywords:binoculars', 0.0), ('imdb_keywords:crucifix', 0.0), ('imdb_keywords:fish-out-of-water', 0.0), ('tvtropes:black comedy', 0.0), ('imdb_keywords:male-nudity', 0.0), ('imdb_keywords:three-word-title', 0.0), ('imdb_keywords:u.s.-army', 0.0), ('imdb_keywords:topless-female-nudity', 0.0), ('imdb_keywords:butler', 0.0), ('imdb_keywords:disguise', 0.0), ('imdb_keywords:subtitled-scene', 0.0), ('imdb_keywords:actress', 0.0), ('imdb_keywords:shootout', 0.0), ('imdb_keywords:dream', 0.0), ('imdb_keywords:shot-in-the-stomach', 0.0), ('imdb_keywords:gunfight', 0.0), ('imdb_keywords:gunfire', 0.0), ('imdb_keywords:champagne', 0.0), ('imdb_keywords:hallucination', 0.0)]
-Correctness scores: [(4, 0.5132837407013814), (0, 0.48777895855472897), (2, 0.04144527098831031), (7, 0.03294367693942614), (1, 0.0), (3, 0.0), (5, 0.0), (6, 0.0), (8, 0.0), (9, 0.0)]
-Processing cluster 2.0
-QIIs: [('imdb_keywords:unrequited-love', 0.4619883040935672), ('imdb_keywords:arrest', 0.39766081871345027), ('imdb_keywords:fish-out-of-water', 0.3538011695906433), ('imdb_keywords:subtitled-scene', 0.25146198830409355), ('imdb_keywords:long-take', 0.19883040935672514), ('movielens_genre:Fantasy', 0.18128654970760233), ('imdb_keywords:surprise-ending', 0.09649122807017543), ('imdb_keywords:shot-in-the-stomach', 0.09064327485380116), ('year', 0.07309941520467836), ('movielens_tags:nudity (full frontal)', 0.06140350877192982), ('imdb_keywords:illness', 0.03508771929824561), ('imdb_keywords:death-of-father', 0.03508771929824561), ('imdb_keywords:shootout', 0.03508771929824561), ('imdb_keywords:coffin', 0.023391812865497075), ('tvtropes:too dumb to live', 0.023391812865497075), ('imdb_keywords:disguise', 0.017543859649122806), ('imdb_keywords:three-word-title', 0.014619883040935672), ('movielens_genre:Adventure', 0.011695906432748537), ('movielens_genre:Animation', 0.0029239766081871343), ('imdb_keywords:child-in-peril', 0.0), ('movielens_genre:Mystery', 0.0), ('movielens_genre:Sci-Fi', 0.0), ('imdb_keywords:hit-by-a-car', 0.0), ('movielens_tags:BD-Video', 0.0), ('imdb_keywords:class-differences', 0.0), ('imdb_keywords:explosion', 0.0), ('imdb_keywords:honor', 0.0), ('imdb_keywords:rainstorm', 0.0), ('movielens_tags:In Netflix queue', 0.0), ('imdb_keywords:reference-to-god', 0.0), ("movielens_tags:Tumey's DVDs", 0.0), ('average_rating', 0.0), ('imdb_keywords:cow', 0.0), ('imdb_keywords:cowboy-hat', 0.0), ('imdb_keywords:robbery', 0.0), ('imdb_keywords:binoculars', 0.0), ('imdb_keywords:crucifix', 0.0), ('tvtropes:black comedy', 0.0), ('imdb_keywords:male-nudity', 0.0), ('imdb_keywords:u.s.-army', 0.0), ('imdb_keywords:topless-female-nudity', 0.0), ('imdb_keywords:butler', 0.0), ('imdb_keywords:actress', 0.0), ('imdb_keywords:dream', 0.0), ('imdb_keywords:gunfight', 0.0), ('imdb_keywords:gunfire', 0.0), ('imdb_keywords:champagne', 0.0), ('imdb_keywords:hallucination', 0.0)]
-Correctness scores: [(8, 0.5374149659863945), (5, 0.31972789115646255), (7, 0.25170068027210885), (9, 0.04081632653061224), (0, 0.0), (1, 0.0), (2, 0.0), (3, 0.0), (4, 0.0), (6, 0.0)]
-Processing cluster 3.0
-QIIs: [('imdb_keywords:long-take', 0.37857142857142856), ('imdb_keywords:unrequited-love', 0.2357142857142857), ('imdb_keywords:fish-out-of-water', 0.15714285714285714), ('imdb_keywords:subtitled-scene', 0.08928571428571429), ('movielens_genre:Mystery', 0.07857142857142857), ('imdb_keywords:surprise-ending', 0.07857142857142857), ('imdb_keywords:binoculars', 0.07857142857142857), ('movielens_tags:nudity (full frontal)', 0.07857142857142857), ('imdb_keywords:class-differences', 0.075), ('imdb_keywords:hit-by-a-car', 0.039285714285714285), ('imdb_keywords:explosion', 0.03214285714285714), ('imdb_keywords:male-nudity', 0.03214285714285714), ('imdb_keywords:disguise', -0.007142857142857143), ('imdb_keywords:champagne', 0.007142857142857143), ('year', 0.0), ('movielens_genre:Adventure', 0.0), ('movielens_genre:Animation', 0.0), ('imdb_keywords:arrest', 0.0), ('movielens_genre:Fantasy', 0.0), ('imdb_keywords:child-in-peril', 0.0), ('movielens_genre:Sci-Fi', 0.0), ('movielens_tags:BD-Video', 0.0), ('imdb_keywords:honor', 0.0), ('imdb_keywords:coffin', 0.0), ('imdb_keywords:rainstorm', 0.0), ('tvtropes:too dumb to live', 0.0), ('movielens_tags:In Netflix queue', 0.0), ('imdb_keywords:reference-to-god', 0.0), ('imdb_keywords:illness', 0.0), ("movielens_tags:Tumey's DVDs", 0.0), ('average_rating', 0.0), ('imdb_keywords:cow', 0.0), ('imdb_keywords:cowboy-hat', 0.0), ('imdb_keywords:robbery', 0.0), ('imdb_keywords:crucifix', 0.0), ('tvtropes:black comedy', 0.0), ('imdb_keywords:death-of-father', 0.0), ('imdb_keywords:three-word-title', 0.0), ('imdb_keywords:u.s.-army', 0.0), ('imdb_keywords:topless-female-nudity', 0.0), ('imdb_keywords:butler', 0.0), ('imdb_keywords:actress', 0.0), ('imdb_keywords:shootout', 0.0), ('imdb_keywords:dream', 0.0), ('imdb_keywords:shot-in-the-stomach', 0.0), ('imdb_keywords:gunfight', 0.0), ('imdb_keywords:gunfire', 0.0), ('imdb_keywords:hallucination', 0.0)]
-Correctness scores: [(7, 0.6279069767441859), (8, 0.3837209302325581), (5, 0.1453488372093023), (4, 0.12209302325581395), (9, 0.06395348837209301), (0, 0.052325581395348826), (1, 0.0), (2, 0.0), (3, 0.0), (6, 0.0)]
-Processing cluster 4.0
-QIIs: [('imdb_keywords:long-take', -0.3116022099447514), ('imdb_keywords:surprise-ending', -0.281767955801105), ('movielens_tags:nudity (full frontal)', -0.20994475138121546), ('imdb_keywords:unrequited-love', 0.06519337016574586), ('imdb_keywords:fish-out-of-water', 0.039779005524861875), ('imdb_keywords:subtitled-scene', -0.014364640883977901), ('imdb_keywords:explosion', 0.013259668508287293), ('imdb_keywords:rainstorm', 0.011049723756906077), ('imdb_keywords:male-nudity', 0.008839779005524863), ('year', 0.0055248618784530384), ('imdb_keywords:three-word-title', 0.0055248618784530384), ('tvtropes:black comedy', 0.0033149171270718232), ('imdb_keywords:arrest', -0.0022099447513812156), ('tvtropes:too dumb to live', -0.0022099447513812156), ('imdb_keywords:gunfire', -0.0022099447513812156), ('movielens_genre:Fantasy', -0.0011049723756906078), ('imdb_keywords:shot-in-the-stomach', -0.0011049723756906078), ('imdb_keywords:champagne', -0.0011049723756906078), ('movielens_genre:Adventure', 0.0), ('movielens_genre:Animation', 0.0), ('imdb_keywords:child-in-peril', 0.0), ('movielens_genre:Mystery', 0.0), ('movielens_genre:Sci-Fi', 0.0), ('imdb_keywords:hit-by-a-car', 0.0), ('movielens_tags:BD-Video', 0.0), ('imdb_keywords:class-differences', 0.0), ('imdb_keywords:honor', 0.0), ('imdb_keywords:coffin', 0.0), ('movielens_tags:In Netflix queue', 0.0), ('imdb_keywords:reference-to-god', 0.0), ('imdb_keywords:illness', 0.0), ("movielens_tags:Tumey's DVDs", 0.0), ('average_rating', 0.0), ('imdb_keywords:cow', 0.0), ('imdb_keywords:cowboy-hat', 0.0), ('imdb_keywords:robbery', 0.0), ('imdb_keywords:binoculars', 0.0), ('imdb_keywords:crucifix', 0.0), ('imdb_keywords:death-of-father', 0.0), ('imdb_keywords:u.s.-army', 0.0), ('imdb_keywords:topless-female-nudity', 0.0), ('imdb_keywords:butler', 0.0), ('imdb_keywords:disguise', 0.0), ('imdb_keywords:actress', 0.0), ('imdb_keywords:shootout', 0.0), ('imdb_keywords:dream', 0.0), ('imdb_keywords:gunfight', 0.0), ('imdb_keywords:hallucination', 0.0)]
-Correctness scores: [(7, 0.5251396648044694), (8, 0.11545623836126631), (5, 0.02793296089385475), (3, 0.0186219739292365), (0, 0.014897579143389201), (1, 0.0037243947858473002), (2, 0.0), (4, 0.0), (6, 0.0), (9, 0.0)]
-Processing cluster 5.0
-QIIs: [('imdb_keywords:long-take', 0.582089552238806), ('imdb_keywords:crucifix', 0.1044776119402985), ('imdb_keywords:unrequited-love', 0.07462686567164178), ('imdb_keywords:topless-female-nudity', 0.04477611940298507), ('imdb_keywords:fish-out-of-water', 0.03980099502487562), ('imdb_keywords:death-of-father', 0.024875621890547265), ('imdb_keywords:surprise-ending', 0.004975124378109453), ('year', 0.0), ('movielens_genre:Adventure', 0.0), ('movielens_genre:Animation', 0.0), ('imdb_keywords:arrest', 0.0), ('movielens_genre:Fantasy', 0.0), ('imdb_keywords:child-in-peril', 0.0), ('movielens_genre:Mystery', 0.0), ('movielens_genre:Sci-Fi', 0.0), ('imdb_keywords:hit-by-a-car', 0.0), ('movielens_tags:BD-Video', 0.0), ('imdb_keywords:class-differences', 0.0), ('imdb_keywords:explosion', 0.0), ('imdb_keywords:honor', 0.0), ('imdb_keywords:coffin', 0.0), ('imdb_keywords:rainstorm', 0.0), ('tvtropes:too dumb to live', 0.0), ('movielens_tags:In Netflix queue', 0.0), ('imdb_keywords:reference-to-god', 0.0), ('imdb_keywords:illness', 0.0), ("movielens_tags:Tumey's DVDs", 0.0), ('average_rating', 0.0), ('imdb_keywords:cow', 0.0), ('imdb_keywords:cowboy-hat', 0.0), ('imdb_keywords:robbery', 0.0), ('imdb_keywords:binoculars', 0.0), ('movielens_tags:nudity (full frontal)', 0.0), ('tvtropes:black comedy', 0.0), ('imdb_keywords:male-nudity', 0.0), ('imdb_keywords:three-word-title', 0.0), ('imdb_keywords:u.s.-army', 0.0), ('imdb_keywords:butler', 0.0), ('imdb_keywords:disguise', 0.0), ('imdb_keywords:subtitled-scene', 0.0), ('imdb_keywords:actress', 0.0), ('imdb_keywords:shootout', 0.0), ('imdb_keywords:dream', 0.0), ('imdb_keywords:shot-in-the-stomach', 0.0), ('imdb_keywords:gunfight', 0.0), ('imdb_keywords:gunfire', 0.0), ('imdb_keywords:champagne', 0.0), ('imdb_keywords:hallucination', 0.0)]
-Correctness scores: [(7, 0.8478260869565217), (8, 0.10869565217391304), (1, 0.06521739130434782), (0, 0.0), (2, 0.0), (3, 0.0), (4, 0.0), (5, 0.0), (6, 0.0), (9, 0.0)]
-Processing cluster 6.0
-QIIs: [('imdb_keywords:fish-out-of-water', 1.0916666666666666), ('imdb_keywords:unrequited-love', 0.9916666666666667), ('imdb_keywords:subtitled-scene', -0.9083333333333333), ('imdb_keywords:shot-in-the-stomach', 0.6833333333333333), ('imdb_keywords:long-take', -0.39166666666666666), ('movielens_tags:nudity (full frontal)', -0.175), ('imdb_keywords:surprise-ending', -0.10833333333333334), ('imdb_keywords:cow', 0.06666666666666667), ('imdb_keywords:shootout', 0.06666666666666667), ('tvtropes:too dumb to live', -0.03333333333333333), ('imdb_keywords:dream', 0.03333333333333333), ('year', -0.025), ('imdb_keywords:arrest', -0.016666666666666666), ('imdb_keywords:death-of-father', -0.016666666666666666), ("movielens_tags:Tumey's DVDs", -0.008333333333333333), ('movielens_genre:Adventure', 0.0), ('movielens_genre:Animation', 0.0), ('movielens_genre:Fantasy', 0.0), ('imdb_keywords:child-in-peril', 0.0), ('movielens_genre:Mystery', 0.0), ('movielens_genre:Sci-Fi', 0.0), ('imdb_keywords:hit-by-a-car', 0.0), ('movielens_tags:BD-Video', 0.0), ('imdb_keywords:class-differences', 0.0), ('imdb_keywords:explosion', 0.0), ('imdb_keywords:honor', 0.0), ('imdb_keywords:coffin', 0.0), ('imdb_keywords:rainstorm', 0.0), ('movielens_tags:In Netflix queue', 0.0), ('imdb_keywords:reference-to-god', 0.0), ('imdb_keywords:illness', 0.0), ('average_rating', 0.0), ('imdb_keywords:cowboy-hat', 0.0), ('imdb_keywords:robbery', 0.0), ('imdb_keywords:binoculars', 0.0), ('imdb_keywords:crucifix', 0.0), ('tvtropes:black comedy', 0.0), ('imdb_keywords:male-nudity', 0.0), ('imdb_keywords:three-word-title', 0.0), ('imdb_keywords:u.s.-army', 0.0), ('imdb_keywords:topless-female-nudity', 0.0), ('imdb_keywords:butler', 0.0), ('imdb_keywords:disguise', 0.0), ('imdb_keywords:actress', 0.0), ('imdb_keywords:gunfight', 0.0), ('imdb_keywords:gunfire', 0.0), ('imdb_keywords:champagne', 0.0), ('imdb_keywords:hallucination', 0.0)]
-Correctness scores: [(8, 0.4760000000000001), (5, 0.45200000000000007), (7, 0.18800000000000003), (0, 0.0), (1, 0.0), (2, 0.0), (3, 0.0), (4, 0.0), (6, 0.0), (9, 0.0)]
-Processing cluster 7.0
-QIIs: [('imdb_keywords:long-take', 0.3763440860215054), ('imdb_keywords:surprise-ending', 0.2903225806451613), ('imdb_keywords:unrequited-love', 0.10752688172043011), ('imdb_keywords:three-word-title', 0.10752688172043011), ('year', -0.07526881720430108), ('imdb_keywords:u.s.-army', 0.07526881720430108), ('imdb_keywords:arrest', -0.053763440860215055), ('imdb_keywords:explosion', 0.043010752688172046), ('imdb_keywords:subtitled-scene', 0.03225806451612903), ('movielens_genre:Adventure', 0.0), ('movielens_genre:Animation', 0.0), ('movielens_genre:Fantasy', 0.0), ('imdb_keywords:child-in-peril', 0.0), ('movielens_genre:Mystery', 0.0), ('movielens_genre:Sci-Fi', 0.0), ('imdb_keywords:hit-by-a-car', 0.0), ('movielens_tags:BD-Video', 0.0), ('imdb_keywords:class-differences', 0.0), ('imdb_keywords:honor', 0.0), ('imdb_keywords:coffin', 0.0), ('imdb_keywords:rainstorm', 0.0), ('tvtropes:too dumb to live', 0.0), ('movielens_tags:In Netflix queue', 0.0), ('imdb_keywords:reference-to-god', 0.0), ('imdb_keywords:illness', 0.0), ("movielens_tags:Tumey's DVDs", 0.0), ('average_rating', 0.0), ('imdb_keywords:cow', 0.0), ('imdb_keywords:cowboy-hat', 0.0), ('imdb_keywords:robbery', 0.0), ('imdb_keywords:binoculars', 0.0), ('imdb_keywords:crucifix', 0.0), ('imdb_keywords:fish-out-of-water', 0.0), ('movielens_tags:nudity (full frontal)', 0.0), ('tvtropes:black comedy', 0.0), ('imdb_keywords:death-of-father', 0.0), ('imdb_keywords:male-nudity', 0.0), ('imdb_keywords:topless-female-nudity', 0.0), ('imdb_keywords:butler', 0.0), ('imdb_keywords:disguise', 0.0), ('imdb_keywords:actress', 0.0), ('imdb_keywords:shootout', 0.0), ('imdb_keywords:dream', 0.0), ('imdb_keywords:shot-in-the-stomach', 0.0), ('imdb_keywords:gunfight', 0.0), ('imdb_keywords:gunfire', 0.0), ('imdb_keywords:champagne', 0.0), ('imdb_keywords:hallucination', 0.0)]
-Correctness scores: [(7, 0.564516129032258), (8, 0.16129032258064516), (5, 0.04838709677419354), (0, 0.0), (1, 0.0), (2, 0.0), (3, 0.0), (4, 0.0), (6, 0.0), (9, 0.0)]
-Processing cluster 8.0
-QIIs: [('imdb_keywords:death-of-father', 0.19047619047619047), ('imdb_keywords:long-take', 0.06349206349206349), ('year', 0.0), ('movielens_genre:Adventure', 0.0), ('movielens_genre:Animation', 0.0), ('imdb_keywords:unrequited-love', 0.0), ('imdb_keywords:arrest', 0.0), ('movielens_genre:Fantasy', 0.0), ('imdb_keywords:child-in-peril', 0.0), ('movielens_genre:Mystery', 0.0), ('movielens_genre:Sci-Fi', 0.0), ('imdb_keywords:hit-by-a-car', 0.0), ('movielens_tags:BD-Video', 0.0), ('imdb_keywords:class-differences', 0.0), ('imdb_keywords:explosion', 0.0), ('imdb_keywords:honor', 0.0), ('imdb_keywords:coffin', 0.0), ('imdb_keywords:rainstorm', 0.0), ('tvtropes:too dumb to live', 0.0), ('movielens_tags:In Netflix queue', 0.0), ('imdb_keywords:reference-to-god', 0.0), ('imdb_keywords:illness', 0.0), ("movielens_tags:Tumey's DVDs", 0.0), ('average_rating', 0.0), ('imdb_keywords:surprise-ending', 0.0), ('imdb_keywords:cow', 0.0), ('imdb_keywords:cowboy-hat', 0.0), ('imdb_keywords:robbery', 0.0), ('imdb_keywords:binoculars', 0.0), ('imdb_keywords:crucifix', 0.0), ('imdb_keywords:fish-out-of-water', 0.0), ('movielens_tags:nudity (full frontal)', 0.0), ('tvtropes:black comedy', 0.0), ('imdb_keywords:male-nudity', 0.0), ('imdb_keywords:three-word-title', 0.0), ('imdb_keywords:u.s.-army', 0.0), ('imdb_keywords:topless-female-nudity', 0.0), ('imdb_keywords:butler', 0.0), ('imdb_keywords:disguise', 0.0), ('imdb_keywords:subtitled-scene', 0.0), ('imdb_keywords:actress', 0.0), ('imdb_keywords:shootout', 0.0), ('imdb_keywords:dream', 0.0), ('imdb_keywords:shot-in-the-stomach', 0.0), ('imdb_keywords:gunfight', 0.0), ('imdb_keywords:gunfire', 0.0), ('imdb_keywords:champagne', 0.0), ('imdb_keywords:hallucination', 0.0)]
-Correctness scores: [(7, 0.25), (0, 0.0), (1, 0.0), (2, 0.0), (3, 0.0), (4, 0.0), (5, 0.0), (6, 0.0), (8, 0.0), (9, 0.0)]
-Processing cluster 9.0
-QIIs: [('imdb_keywords:death-of-father', 0.13690476190476192), ('movielens_tags:nudity (full frontal)', 0.10416666666666667), ('imdb_keywords:long-take', 0.08928571428571429), ('imdb_keywords:shot-in-the-stomach', 0.047619047619047616), ('imdb_keywords:arrest', 0.041666666666666664), ('imdb_keywords:unrequited-love', -0.03571428571428571), ('imdb_keywords:illness', -0.03273809523809524), ('imdb_keywords:binoculars', 0.03273809523809524), ('imdb_keywords:fish-out-of-water', -0.02976190476190476), ('imdb_keywords:u.s.-army', 0.02976190476190476), ('year', -0.020833333333333332), ('imdb_keywords:explosion', -0.011904761904761904), ('movielens_genre:Adventure', 0.0), ('movielens_genre:Animation', 0.0), ('movielens_genre:Fantasy', 0.0), ('imdb_keywords:child-in-peril', 0.0), ('movielens_genre:Mystery', 0.0), ('movielens_genre:Sci-Fi', 0.0), ('imdb_keywords:hit-by-a-car', 0.0), ('movielens_tags:BD-Video', 0.0), ('imdb_keywords:class-differences', 0.0), ('imdb_keywords:honor', 0.0), ('imdb_keywords:coffin', 0.0), ('imdb_keywords:rainstorm', 0.0), ('tvtropes:too dumb to live', 0.0), ('movielens_tags:In Netflix queue', 0.0), ('imdb_keywords:reference-to-god', 0.0), ("movielens_tags:Tumey's DVDs", 0.0), ('average_rating', 0.0), ('imdb_keywords:surprise-ending', 0.0), ('imdb_keywords:cow', 0.0), ('imdb_keywords:cowboy-hat', 0.0), ('imdb_keywords:robbery', 0.0), ('imdb_keywords:crucifix', 0.0), ('tvtropes:black comedy', 0.0), ('imdb_keywords:male-nudity', 0.0), ('imdb_keywords:three-word-title', 0.0), ('imdb_keywords:topless-female-nudity', 0.0), ('imdb_keywords:butler', 0.0), ('imdb_keywords:disguise', 0.0), ('imdb_keywords:subtitled-scene', 0.0), ('imdb_keywords:actress', 0.0), ('imdb_keywords:shootout', 0.0), ('imdb_keywords:dream', 0.0), ('imdb_keywords:gunfight', 0.0), ('imdb_keywords:gunfire', 0.0), ('imdb_keywords:champagne', 0.0), ('imdb_keywords:hallucination', 0.0)]
-Correctness scores: [(7, 0.37037037037037035), (8, 0.1481481481481481), (9, 0.13580246913580246), (0, 0.0), (1, 0.0), (2, 0.0), (3, 0.0), (4, 0.0), (5, 0.0), (6, 0.0)]
-Processing cluster 10.0
-QIIs: [('imdb_keywords:shot-in-the-stomach', 0.5789473684210527), ('imdb_keywords:fish-out-of-water', 0.2932330827067669), ('imdb_keywords:long-take', 0.2932330827067669), ('imdb_keywords:surprise-ending', 0.20300751879699247), ('imdb_keywords:unrequited-love', 0.13533834586466165), ('movielens_tags:nudity (full frontal)', 0.13533834586466165), ('imdb_keywords:death-of-father', 0.10526315789473684), ('imdb_keywords:coffin', -0.06015037593984962), ('movielens_genre:Adventure', 0.03007518796992481), ('imdb_keywords:dream', -0.03007518796992481), ('year', 0.007518796992481203), ('imdb_keywords:actress', 0.007518796992481203), ('imdb_keywords:champagne', -0.007518796992481203), ('movielens_genre:Animation', 0.0), ('imdb_keywords:arrest', 0.0), ('movielens_genre:Fantasy', 0.0), ('imdb_keywords:child-in-peril', 0.0), ('movielens_genre:Mystery', 0.0), ('movielens_genre:Sci-Fi', 0.0), ('imdb_keywords:hit-by-a-car', 0.0), ('movielens_tags:BD-Video', 0.0), ('imdb_keywords:class-differences', 0.0), ('imdb_keywords:explosion', 0.0), ('imdb_keywords:honor', 0.0), ('imdb_keywords:rainstorm', 0.0), ('tvtropes:too dumb to live', 0.0), ('movielens_tags:In Netflix queue', 0.0), ('imdb_keywords:reference-to-god', 0.0), ('imdb_keywords:illness', 0.0), ("movielens_tags:Tumey's DVDs", 0.0), ('average_rating', 0.0), ('imdb_keywords:cow', 0.0), ('imdb_keywords:cowboy-hat', 0.0), ('imdb_keywords:robbery', 0.0), ('imdb_keywords:binoculars', 0.0), ('imdb_keywords:crucifix', 0.0), ('tvtropes:black comedy', 0.0), ('imdb_keywords:male-nudity', 0.0), ('imdb_keywords:three-word-title', 0.0), ('imdb_keywords:u.s.-army', 0.0), ('imdb_keywords:topless-female-nudity', 0.0), ('imdb_keywords:butler', 0.0), ('imdb_keywords:disguise', 0.0), ('imdb_keywords:subtitled-scene', 0.0), ('imdb_keywords:shootout', 0.0), ('imdb_keywords:gunfight', 0.0), ('imdb_keywords:gunfire', 0.0), ('imdb_keywords:hallucination', 0.0)]
-Correctness scores: [(7, 0.33620689655172414), (8, 0.15517241379310345), (6, 0.008620689655172414), (0, 0.0), (1, 0.0), (2, 0.0), (3, 0.0), (4, 0.0), (5, 0.0), (9, 0.0)]
-Processing cluster 11.0
-QIIs: [('imdb_keywords:surprise-ending', -0.1794871794871795), ('imdb_keywords:long-take', -0.1794871794871795), ('imdb_keywords:unrequited-love', -0.08333333333333333), ('movielens_tags:nudity (full frontal)', -0.07692307692307693), ('imdb_keywords:death-of-father', -0.057692307692307696), ('imdb_keywords:shot-in-the-stomach', -0.057692307692307696), ('imdb_keywords:fish-out-of-water', 0.02564102564102564), ('imdb_keywords:gunfight', 0.02564102564102564), ("movielens_tags:Tumey's DVDs", -0.01282051282051282), ('imdb_keywords:actress', -0.01282051282051282), ('year', 0.0), ('movielens_genre:Adventure', 0.0), ('movielens_genre:Animation', 0.0), ('imdb_keywords:arrest', 0.0), ('movielens_genre:Fantasy', 0.0), ('imdb_keywords:child-in-peril', 0.0), ('movielens_genre:Mystery', 0.0), ('movielens_genre:Sci-Fi', 0.0), ('imdb_keywords:hit-by-a-car', 0.0), ('movielens_tags:BD-Video', 0.0), ('imdb_keywords:class-differences', 0.0), ('imdb_keywords:explosion', 0.0), ('imdb_keywords:honor', 0.0), ('imdb_keywords:coffin', 0.0), ('imdb_keywords:rainstorm', 0.0), ('tvtropes:too dumb to live', 0.0), ('movielens_tags:In Netflix queue', 0.0), ('imdb_keywords:reference-to-god', 0.0), ('imdb_keywords:illness', 0.0), ('average_rating', 0.0), ('imdb_keywords:cow', 0.0), ('imdb_keywords:cowboy-hat', 0.0), ('imdb_keywords:robbery', 0.0), ('imdb_keywords:binoculars', 0.0), ('imdb_keywords:crucifix', 0.0), ('tvtropes:black comedy', 0.0), ('imdb_keywords:male-nudity', 0.0), ('imdb_keywords:three-word-title', 0.0), ('imdb_keywords:u.s.-army', 0.0), ('imdb_keywords:topless-female-nudity', 0.0), ('imdb_keywords:butler', 0.0), ('imdb_keywords:disguise', 0.0), ('imdb_keywords:subtitled-scene', 0.0), ('imdb_keywords:shootout', 0.0), ('imdb_keywords:dream', 0.0), ('imdb_keywords:gunfire', 0.0), ('imdb_keywords:champagne', 0.0), ('imdb_keywords:hallucination', 0.0)]
-Correctness scores: [(7, 0.5), (8, 0.23214285714285712), (3, 0.07142857142857142), (6, 0.03571428571428571), (0, 0.0), (1, 0.0), (2, 0.0), (4, 0.0), (5, 0.0), (9, 0.0)]
-Processing cluster 12.0
-QIIs: [('movielens_tags:nudity (full frontal)', -0.1737891737891738), ('imdb_keywords:shot-in-the-stomach', 0.15384615384615385), ('imdb_keywords:fish-out-of-water', -0.06552706552706553), ('imdb_keywords:explosion', 0.04843304843304843), ('imdb_keywords:long-take', 0.04843304843304843), ('imdb_keywords:crucifix', 0.039886039886039885), ('imdb_keywords:subtitled-scene', -0.019943019943019943), ('imdb_keywords:death-of-father', -0.008547008547008548), ('imdb_keywords:rainstorm', 0.005698005698005698), ('year', 0.0), ('movielens_genre:Adventure', 0.0), ('movielens_genre:Animation', 0.0), ('imdb_keywords:unrequited-love', 0.0), ('imdb_keywords:arrest', 0.0), ('movielens_genre:Fantasy', 0.0), ('imdb_keywords:child-in-peril', 0.0), ('movielens_genre:Mystery', 0.0), ('movielens_genre:Sci-Fi', 0.0), ('imdb_keywords:hit-by-a-car', 0.0), ('movielens_tags:BD-Video', 0.0), ('imdb_keywords:class-differences', 0.0), ('imdb_keywords:honor', 0.0), ('imdb_keywords:coffin', 0.0), ('tvtropes:too dumb to live', 0.0), ('movielens_tags:In Netflix queue', 0.0), ('imdb_keywords:reference-to-god', 0.0), ('imdb_keywords:illness', 0.0), ("movielens_tags:Tumey's DVDs", 0.0), ('average_rating', 0.0), ('imdb_keywords:surprise-ending', 0.0), ('imdb_keywords:cow', 0.0), ('imdb_keywords:cowboy-hat', 0.0), ('imdb_keywords:robbery', 0.0), ('imdb_keywords:binoculars', 0.0), ('tvtropes:black comedy', 0.0), ('imdb_keywords:male-nudity', 0.0), ('imdb_keywords:three-word-title', 0.0), ('imdb_keywords:u.s.-army', 0.0), ('imdb_keywords:topless-female-nudity', 0.0), ('imdb_keywords:butler', 0.0), ('imdb_keywords:disguise', 0.0), ('imdb_keywords:actress', 0.0), ('imdb_keywords:shootout', 0.0), ('imdb_keywords:dream', 0.0), ('imdb_keywords:gunfight', 0.0), ('imdb_keywords:gunfire', 0.0), ('imdb_keywords:champagne', 0.0), ('imdb_keywords:hallucination', 0.0)]
-Correctness scores: [(7, 0.14782608695652172), (5, 0.0608695652173913), (3, 0.017391304347826087), (0, 0.0), (1, 0.0), (2, 0.0), (4, 0.0), (6, 0.0), (8, 0.0), (9, 0.0)]
-Processing cluster 13.0
-QIIs: [('imdb_keywords:robbery', 0.7988826815642458), ('movielens_tags:BD-Video', -0.6396648044692738), ('imdb_keywords:cowboy-hat', -0.5726256983240223), ('imdb_keywords:butler', -0.4692737430167598), ('imdb_keywords:class-differences', -0.43854748603351956), ('imdb_keywords:death-of-father', -0.34916201117318435), ('imdb_keywords:honor', -0.2905027932960894), ('imdb_keywords:child-in-peril', -0.23743016759776536), ('average_rating', -0.1452513966480447), ('imdb_keywords:long-take', -0.13687150837988826), ('imdb_keywords:hallucination', -0.036312849162011177), ('imdb_keywords:surprise-ending', -0.0335195530726257), ('year', 0.0), ('movielens_genre:Adventure', 0.0), ('movielens_genre:Animation', 0.0), ('imdb_keywords:unrequited-love', 0.0), ('imdb_keywords:arrest', 0.0), ('movielens_genre:Fantasy', 0.0), ('movielens_genre:Mystery', 0.0), ('movielens_genre:Sci-Fi', 0.0), ('imdb_keywords:hit-by-a-car', 0.0), ('imdb_keywords:explosion', 0.0), ('imdb_keywords:coffin', 0.0), ('imdb_keywords:rainstorm', 0.0), ('tvtropes:too dumb to live', 0.0), ('movielens_tags:In Netflix queue', 0.0), ('imdb_keywords:reference-to-god', 0.0), ('imdb_keywords:illness', 0.0), ("movielens_tags:Tumey's DVDs", 0.0), ('imdb_keywords:cow', 0.0), ('imdb_keywords:binoculars', 0.0), ('imdb_keywords:crucifix', 0.0), ('imdb_keywords:fish-out-of-water', 0.0), ('movielens_tags:nudity (full frontal)', 0.0), ('tvtropes:black comedy', 0.0), ('imdb_keywords:male-nudity', 0.0), ('imdb_keywords:three-word-title', 0.0), ('imdb_keywords:u.s.-army', 0.0), ('imdb_keywords:topless-female-nudity', 0.0), ('imdb_keywords:disguise', 0.0), ('imdb_keywords:subtitled-scene', 0.0), ('imdb_keywords:actress', 0.0), ('imdb_keywords:shootout', 0.0), ('imdb_keywords:dream', 0.0), ('imdb_keywords:shot-in-the-stomach', 0.0), ('imdb_keywords:gunfight', 0.0), ('imdb_keywords:gunfire', 0.0), ('imdb_keywords:champagne', 0.0)]
-Correctness scores: [(2, 0.5553398058252428), (4, 0.46990291262135925), (0, 0.39805825242718446), (6, 0.20194174757281558), (7, 0.09514563106796117), (1, 0.0), (3, 0.0), (5, 0.0), (8, 0.0), (9, 0.0)]
-Processing cluster 14.0
-QIIs: [('imdb_keywords:long-take', -3.133720930232558), ('imdb_keywords:fish-out-of-water', -2.7325581395348837), ('imdb_keywords:unrequited-love', -1.7093023255813953), ('imdb_keywords:shot-in-the-stomach', -1.3488372093023255), ('movielens_tags:nudity (full frontal)', -1.052325581395349), ('imdb_keywords:surprise-ending', -0.5348837209302325), ('imdb_keywords:death-of-father', -0.27325581395348836), ('imdb_keywords:topless-female-nudity', -0.2616279069767442), ('imdb_keywords:cow', -0.19186046511627908), ('imdb_keywords:disguise', -0.13953488372093023), ('imdb_keywords:arrest', -0.13372093023255813), ('movielens_genre:Mystery', -0.12790697674418605), ('imdb_keywords:hit-by-a-car', -0.12790697674418605), ('year', -0.0872093023255814), ('imdb_keywords:subtitled-scene', -0.0755813953488372), ('movielens_genre:Sci-Fi', -0.06976744186046512), ('movielens_genre:Fantasy', -0.06395348837209303), ('imdb_keywords:binoculars', -0.06395348837209303), ('imdb_keywords:illness', -0.05813953488372093), ('imdb_keywords:shootout', -0.046511627906976744), ('imdb_keywords:crucifix', -0.040697674418604654), ('movielens_tags:In Netflix queue', -0.023255813953488372), ('imdb_keywords:explosion', -0.011627906976744186), ('imdb_keywords:male-nudity', -0.011627906976744186), ('movielens_genre:Adventure', 0.0), ('movielens_genre:Animation', 0.0), ('imdb_keywords:child-in-peril', 0.0), ('movielens_tags:BD-Video', 0.0), ('imdb_keywords:class-differences', 0.0), ('imdb_keywords:honor', 0.0), ('imdb_keywords:coffin', 0.0), ('imdb_keywords:rainstorm', 0.0), ('tvtropes:too dumb to live', 0.0), ('imdb_keywords:reference-to-god', 0.0), ("movielens_tags:Tumey's DVDs", 0.0), ('average_rating', 0.0), ('imdb_keywords:cowboy-hat', 0.0), ('imdb_keywords:robbery', 0.0), ('tvtropes:black comedy', 0.0), ('imdb_keywords:three-word-title', 0.0), ('imdb_keywords:u.s.-army', 0.0), ('imdb_keywords:butler', 0.0), ('imdb_keywords:actress', 0.0), ('imdb_keywords:dream', 0.0), ('imdb_keywords:gunfight', 0.0), ('imdb_keywords:gunfire', 0.0), ('imdb_keywords:champagne', 0.0), ('imdb_keywords:hallucination', 0.0)]
-Correctness scores: [(7, 0.5579781962338949), (8, 0.2913776015857284), (1, 0.044598612487611496), (9, 0.031714568880079286), (5, 0.012884043607532208), (0, 0.0019821605550049554), (2, 0.0), (3, 0.0), (4, 0.0), (6, 0.0)]
-All highers corrs: [0.6080964685615848, 0.5132837407013814, 0.5374149659863945, 0.6279069767441859, 0.5251396648044694, 0.8478260869565217, 0.4760000000000001, 0.564516129032258, 0.25, 0.37037037037037035, 0.33620689655172414, 0.5, 0.14782608695652172, 0.5553398058252428, 0.5579781962338949]
-Their profiles: [4, 4, 8, 7, 7, 7, 8, 7, 7, 7, 7, 7, 7, 2, 7]
-4 profiles represented
-Average: 0.494527025915
-Results: {8: {'cluster': 2.0, 'corr': 0.5374149659863945}, 2: {'cluster': 13.0, 'corr': 0.5553398058252428}, 4: {'cluster': 0.0, 'corr': 0.6080964685615848}, 7: {'cluster': 5.0, 'corr': 0.8478260869565217}}
-Average corr: 0.637169331832
-Making per-cluster trees
-Processing cluster 0.0
-New clusters: defaultdict(<type 'int'>, {0.0: 3791, 1.0: 215})
-Building meta training set
-Training a meta tree
-DecisionTreeModel classifier of depth 8 with 39 nodes
+DecisionTreeModel classifier of depth 8 with 127 nodes
   If (average_rating <= 2.0)
-   If (Isn't tvtropes:too dumb to live)
-    If (Isn't tvtropes:black comedy)
-     If (Isn't imdb_keywords:long-take)
-      If (year <= 2014.0)
-       Predict: 0.0
-      Else (year > 2014.0)
-       If (Isn't imdb_keywords:african-american)
-        Predict: 0.0
-       Else (Is imdb_keywords:african-american)
-        Predict: 1.0
-     Else (Is imdb_keywords:long-take)
-      If (Is imdb_keywords:child-in-peril)
-       Predict: 0.0
-      Else (Isn't imdb_keywords:child-in-peril)
-       If (Is imdb_keywords:party)
-        If (Isn't movielens_tags:Betamax)
-         Predict: 0.0
-        Else (Is movielens_tags:Betamax)
-         Predict: 1.0
-       Else (Isn't imdb_keywords:party)
-        If (Is imdb_keywords:alien)
-         Predict: 0.0
-        Else (Isn't imdb_keywords:alien)
-         If (Is imdb_keywords:whipping)
-          Predict: 0.0
-         Else (Isn't imdb_keywords:whipping)
-          Predict: 1.0
-    Else (Is tvtropes:black comedy)
-     If (Is imdb_keywords:slow-motion-scene)
-      If (Isn't movielens_genre:Romance)
-       If (Isn't movielens_tags:cinematography)
-        Predict: 0.0
-       Else (Is movielens_tags:cinematography)
-        Predict: 1.0
-      Else (Is movielens_genre:Romance)
-       Predict: 1.0
-     Else (Isn't imdb_keywords:slow-motion-scene)
-      If (Is imdb_keywords:child-in-peril)
-       Predict: 0.0
-      Else (Isn't imdb_keywords:child-in-peril)
-       If (Is imdb_keywords:electrocution)
-        Predict: 0.0
-       Else (Isn't imdb_keywords:electrocution)
-        Predict: 1.0
-   Else (Is tvtropes:too dumb to live)
-    If (Is imdb_keywords:child-in-peril)
-     Predict: 0.0
-    Else (Isn't imdb_keywords:child-in-peril)
-     If (Is imdb_keywords:topless-female-nudity)
-      Predict: 0.0
-     Else (Isn't imdb_keywords:topless-female-nudity)
-      If (Is imdb_keywords:fish-out-of-water)
-       Predict: 0.0
-      Else (Isn't imdb_keywords:fish-out-of-water)
-       Predict: 1.0
+   If (Isn't imdb_keywords:illness)
+    Predict: 6.0
+   Else (Is imdb_keywords:illness)
+    If (Isn't imdb_keywords:topless-female-nudity)
+     If (Isn't imdb_keywords:honor)
+      If (Isn't imdb_keywords:scientist)
+       If (Isn't imdb_keywords:rainstorm)
+        If (Isn't imdb_keywords:race-against-time)
+         If (Isn't imdb_keywords:prayer)
+          Predict: 14.0
+         Else (Is imdb_keywords:prayer)
+          Predict: 14.0
+        Else (Is imdb_keywords:race-against-time)
+         Predict: 6.0
+       Else (Is imdb_keywords:rainstorm)
+        Predict: 6.0
+      Else (Is imdb_keywords:scientist)
+       Predict: 6.0
+     Else (Is imdb_keywords:honor)
+      Predict: 6.0
+    Else (Is imdb_keywords:topless-female-nudity)
+     Predict: 6.0
   Else (average_rating > 2.0)
-   Predict: 0.0
-
-Done, making predictions
-Predictions: defaultdict(<type 'int'>, {0.0: 3787, 1.0: 219})
-Accuracy: 0.999001497753
-{'recall': 1.0, 'precision': 0.9817351598173516}
-17 features used
-QIIs: [('imdb_keywords:child-in-peril', -0.056415376934598103), ('year', -0.03020469296055916), ('imdb_keywords:fish-out-of-water', -0.017224163754368447), ('movielens_tags:cinematography', -0.013979031452820768), ('tvtropes:too dumb to live', 0.008736894658012981), ('tvtropes:black comedy', -0.003494757863205192), ('imdb_keywords:topless-female-nudity', -0.0027458811782326512), ('average_rating', 0.0024962556165751375), ('imdb_keywords:alien', -0.0022466300549176237), ('movielens_tags:Betamax', -0.0012481278082875687), ('imdb_keywords:african-american', 0.0012481278082875687), ('imdb_keywords:electrocution', 0.000998502246630055), ('imdb_keywords:long-take', -0.0007488766849725411), ('imdb_keywords:whipping', -0.00024962556165751375), ('movielens_genre:Romance', -0.00024962556165751375), ('imdb_keywords:party', -0.00024962556165751375), ('imdb_keywords:slow-motion-scene', -0.00024962556165751375)]
-Correctness scores: [(4, 0.6512968299711815), (5, 0.10086455331412104), (8, 0.040345821325648415), (1, 0.03170028818443804), (7, 0.008645533141210374), (0, 0.0), (2, 0.0), (3, 0.0), (6, 0.0), (9, 0.0)]
-Processing cluster 1.0
-New clusters: defaultdict(<type 'int'>, {0.0: 3788, 1.0: 218})
-Building meta training set
-Training a meta tree
-DecisionTreeModel classifier of depth 8 with 49 nodes
-  If (Isn't imdb_keywords:illness)
-   If (Isn't imdb_keywords:rainstorm)
-    If (Isn't imdb_keywords:long-take)
-     If (Isn't imdb_keywords:travel)
-      Predict: 0.0
-     Else (Is imdb_keywords:travel)
-      If (Isn't movielens_tags:To See)
-       Predict: 0.0
-      Else (Is movielens_tags:To See)
-       Predict: 1.0
-    Else (Is imdb_keywords:long-take)
-     If (Isn't imdb_keywords:bisexual)
-      If (Isn't imdb_keywords:inheritance)
-       If (Isn't imdb_keywords:vampire)
-        Predict: 0.0
-       Else (Is imdb_keywords:vampire)
-        If (year <= 2006.0)
-         Predict: 0.0
-        Else (year > 2006.0)
-         Predict: 1.0
-      Else (Is imdb_keywords:inheritance)
-       Predict: 1.0
-     Else (Is imdb_keywords:bisexual)
-      If (Is movielens_genre:Crime)
-       Predict: 0.0
-      Else (Isn't movielens_genre:Crime)
-       Predict: 1.0
-   Else (Is imdb_keywords:rainstorm)
-    If (average_rating <= 2.0)
-     If (Is imdb_keywords:child-in-peril)
-      Predict: 0.0
-     Else (Isn't imdb_keywords:child-in-peril)
-      If (Is tvtropes:too dumb to live)
-       Predict: 0.0
-      Else (Isn't tvtropes:too dumb to live)
-       If (Is imdb_keywords:honor)
-        Predict: 0.0
-       Else (Isn't imdb_keywords:honor)
-        If (Is movielens_genre:Sci-Fi)
-         If (Isn't imdb_keywords:beating)
-          Predict: 0.0
-         Else (Is imdb_keywords:beating)
-          Predict: 1.0
-        Else (Isn't movielens_genre:Sci-Fi)
-         If (year <= 2012.0)
-          Predict: 1.0
-         Else (year > 2012.0)
-          Predict: 0.0
-    Else (average_rating > 2.0)
-     Predict: 0.0
-  Else (Is imdb_keywords:illness)
-   If (average_rating <= 2.0)
-    If (Is imdb_keywords:topless-female-nudity)
-     Predict: 0.0
-    Else (Isn't imdb_keywords:topless-female-nudity)
-     If (Is imdb_keywords:honor)
-      Predict: 0.0
-     Else (Isn't imdb_keywords:honor)
-      If (Is tvtropes:black comedy)
-       Predict: 0.0
-      Else (Isn't tvtropes:black comedy)
-       If (year <= 2014.0)
-        If (Is movielens_tags:BD-Video)
-         Predict: 0.0
-        Else (Isn't movielens_tags:BD-Video)
-         If (Is imdb_keywords:animal-attack)
-          Predict: 0.0
-         Else (Isn't imdb_keywords:animal-attack)
-          Predict: 1.0
-       Else (year > 2014.0)
-        Predict: 0.0
-   Else (average_rating > 2.0)
-    Predict: 0.0
-
-Done, making predictions
-Predictions: defaultdict(<type 'int'>, {0.0: 3785, 1.0: 221})
-Accuracy: 0.999251123315
-{'recall': 1.0, 'precision': 0.9864253393665159}
-20 features used
-QIIs: [('imdb_keywords:bisexual', -0.06040938592111832), ('imdb_keywords:child-in-peril', -0.041687468796804794), ('tvtropes:too dumb to live', -0.02071892161757364), ('imdb_keywords:travel', 0.0054917623564653024), ('movielens_genre:Sci-Fi', 0.005242136794807789), ('imdb_keywords:inheritance', -0.003494757863205192), ('movielens_tags:BD-Video', 0.003494757863205192), ('tvtropes:black comedy', -0.0032451323015476783), ('imdb_keywords:topless-female-nudity', -0.0027458811782326512), ('imdb_keywords:beating', -0.0024962556165751375), ('year', -0.00199700449326011), ('imdb_keywords:vampire', 0.00199700449326011), ('average_rating', -0.001747378931602596), ('movielens_genre:Crime', 0.0012481278082875687), ('movielens_tags:To See', 0.000998502246630055), ('imdb_keywords:illness', 0.000998502246630055), ('imdb_keywords:rainstorm', 0.0007488766849725411), ('imdb_keywords:long-take', 0.0004992511233150275), ('imdb_keywords:animal-attack', -0.00024962556165751375), ('imdb_keywords:honor', 0.0)]
-Correctness scores: [(4, 0.4083129584352078), (5, 0.20293398533007334), (8, 0.031784841075794615), (1, 0.02689486552567237), (9, 0.009779951100244499), (3, 0.007334963325183373), (7, 0.004889975550122249), (0, 0.0), (2, 0.0), (6, 0.0)]
-Processing cluster 2.0
-New clusters: defaultdict(<type 'int'>, {0.0: 3664, 1.0: 342})
-Building meta training set
-Training a meta tree
-DecisionTreeModel classifier of depth 8 with 41 nodes
-  If (Isn't imdb_keywords:class-differences)
-   If (Isn't imdb_keywords:unrequited-love)
-    Predict: 0.0
-   Else (Is imdb_keywords:unrequited-love)
-    If (Is imdb_keywords:hit-by-a-car)
-     Predict: 0.0
-    Else (Isn't imdb_keywords:hit-by-a-car)
-     If (Is imdb_keywords:subtitled-scene)
-      If (Isn't movielens_tags:Nudity (Topless))
-       Predict: 0.0
-      Else (Is movielens_tags:Nudity (Topless))
-       Predict: 1.0
-     Else (Isn't imdb_keywords:subtitled-scene)
-      If (Is imdb_keywords:gunfight)
-       If (Isn't movielens_genre:Mystery)
-        Predict: 0.0
-       Else (Is movielens_genre:Mystery)
-        Predict: 1.0
-      Else (Isn't imdb_keywords:gunfight)
-       If (Is imdb_keywords:disguise)
-        If (Isn't imdb_keywords:good-versus-evil)
-         If (Isn't movielens_genre:Romance)
-          Predict: 0.0
-         Else (Is movielens_genre:Romance)
-          Predict: 1.0
-        Else (Is imdb_keywords:good-versus-evil)
-         Predict: 1.0
-       Else (Isn't imdb_keywords:disguise)
-        If (Is imdb_keywords:switchblade)
-         Predict: 0.0
-        Else (Isn't imdb_keywords:switchblade)
-         If (Is tvtropes:black comedy)
-          Predict: 1.0
-         Else (Isn't tvtropes:black comedy)
-          Predict: 1.0
-  Else (Is imdb_keywords:class-differences)
-   If (Is imdb_keywords:gunfire)
-    Predict: 0.0
-   Else (Isn't imdb_keywords:gunfire)
-    If (Is movielens_tags:Nudity (Topless - Brief))
-     Predict: 0.0
-    Else (Isn't movielens_tags:Nudity (Topless - Brief))
-     If (Is movielens_tags:revenge)
-      If (Isn't imdb_keywords:bare-chested-male)
-       Predict: 0.0
-      Else (Is imdb_keywords:bare-chested-male)
-       Predict: 1.0
-     Else (Isn't movielens_tags:revenge)
-      If (Is imdb_keywords:supernatural-power)
-       If (Isn't movielens_tags:To See)
-        Predict: 0.0
-       Else (Is movielens_tags:To See)
-        Predict: 1.0
-      Else (Isn't imdb_keywords:supernatural-power)
-       If (year <= 2013.0)
-        Predict: 1.0
-       Else (year > 2013.0)
-        If (Is movielens_genre:Drama)
-         Predict: 0.0
-        Else (Isn't movielens_genre:Drama)
-         Predict: 1.0
-
-Done, making predictions
-Predictions: defaultdict(<type 'int'>, {0.0: 3663, 1.0: 343})
-Accuracy: 0.999750374438
-{'recall': 1.0, 'precision': 0.9970845481049563}
-20 features used
-QIIs: [('movielens_tags:Nudity (Topless - Brief)', -0.07239141288067898), ('imdb_keywords:subtitled-scene', -0.07214178731902146), ('imdb_keywords:supernatural-power', -0.008237643534697954), ('imdb_keywords:hit-by-a-car', -0.005991013479780329), ('movielens_tags:Nudity (Topless)', -0.004742885671492761), ('imdb_keywords:unrequited-love', -0.0032451323015476783), ('tvtropes:black comedy', 0.0024962556165751375), ('movielens_tags:To See', 0.0022466300549176237), ('imdb_keywords:switchblade', -0.0022466300549176237), ('movielens_tags:revenge', -0.0012481278082875687), ('movielens_genre:Mystery', -0.0012481278082875687), ('movielens_genre:Drama', -0.000998502246630055), ('imdb_keywords:gunfight', -0.0007488766849725411), ('imdb_keywords:bare-chested-male', -0.0004992511233150275), ('imdb_keywords:gunfire', -0.0004992511233150275), ('year', -0.00024962556165751375), ('movielens_genre:Romance', -0.00024962556165751375), ('imdb_keywords:good-versus-evil', -0.00024962556165751375), ('imdb_keywords:disguise', -0.00024962556165751375), ('imdb_keywords:class-differences', 0.0)]
-Correctness scores: [(5, 0.49913644214162345), (9, 0.04145077720207253), (8, 0.03972366148531952), (3, 0.005181347150259067), (1, 0.003454231433506045), (7, 0.0017271157167530226), (0, 0.0), (2, 0.0), (4, 0.0), (6, 0.0)]
-Processing cluster 3.0
-New clusters: defaultdict(<type 'int'>, {0.0: 3726, 1.0: 280})
-Building meta training set
-Training a meta tree
-DecisionTreeModel classifier of depth 8 with 31 nodes
-  If (Isn't imdb_keywords:disguise)
-   Predict: 0.0
-  Else (Is imdb_keywords:disguise)
-   If (Is imdb_keywords:robbery)
-    If (Is movielens_genre:Animation)
-     Predict: 1.0
-    Else (Isn't movielens_genre:Animation)
-     If (Isn't movielens_tags:In Netflix queue)
-      If (Isn't tvtropes:ms fanservice)
-       Predict: 0.0
-      Else (Is tvtropes:ms fanservice)
-       If (year <= 1995.0)
-        Predict: 0.0
-       Else (year > 1995.0)
-        Predict: 1.0
-     Else (Is movielens_tags:In Netflix queue)
-      Predict: 1.0
-   Else (Isn't imdb_keywords:robbery)
-    If (Is imdb_keywords:subtitled-scene)
-     If (Isn't tvtropes:too dumb to live)
-      Predict: 0.0
-     Else (Is tvtropes:too dumb to live)
-      Predict: 1.0
-    Else (Isn't imdb_keywords:subtitled-scene)
-     If (Is imdb_keywords:gunfire)
-      Predict: 0.0
-     Else (Isn't imdb_keywords:gunfire)
-      If (Is imdb_keywords:actress)
-       If (Isn't imdb_keywords:arrest)
-        Predict: 0.0
-       Else (Is imdb_keywords:arrest)
-        Predict: 1.0
-      Else (Isn't imdb_keywords:actress)
-       If (Is imdb_keywords:class-differences)
-        Predict: 0.0
-       Else (Isn't imdb_keywords:class-differences)
-        If (Is imdb_keywords:unrequited-love)
-         If (year <= 1994.0)
-          Predict: 0.0
-         Else (year > 1994.0)
-          Predict: 1.0
-        Else (Isn't imdb_keywords:unrequited-love)
-         If (Is imdb_keywords:male-nudity)
-          Predict: 1.0
-         Else (Isn't imdb_keywords:male-nudity)
-          Predict: 1.0
-
-Done, making predictions
-Predictions: defaultdict(<type 'int'>, {0.0: 3712, 1.0: 294})
-Accuracy: 0.996505242137
-{'recall': 1.0, 'precision': 0.9523809523809523}
-14 features used
-QIIs: [('imdb_keywords:gunfire', -0.12331502745881179), ('tvtropes:ms fanservice', 0.019720419370943584), ('imdb_keywords:disguise', 0.016225661507738392), ('tvtropes:too dumb to live', -0.005741387918122816), ('imdb_keywords:robbery', -0.005242136794807789), ('imdb_keywords:unrequited-love', -0.004742885671492761), ('imdb_keywords:arrest', -0.0029955067398901645), ('imdb_keywords:male-nudity', -0.001747378931602596), ('year', 0.0012481278082875687), ('movielens_genre:Animation', 0.000998502246630055), ('imdb_keywords:class-differences', 0.0007488766849725411), ('imdb_keywords:subtitled-scene', -0.0004992511233150275), ('movielens_tags:In Netflix queue', -0.00024962556165751375), ('imdb_keywords:actress', 0.0)]
-Correctness scores: [(1, 0.8621291448516578), (7, 0.11343804537521814), (5, 0.04363001745200698), (2, 0.03664921465968586), (8, 0.0331588132635253), (0, 0.012216404886561952), (4, 0.005235602094240836), (3, 0.0), (6, 0.0), (9, 0.0)]
-Processing cluster 4.0
-New clusters: defaultdict(<type 'int'>, {0.0: 3101, 1.0: 905})
-Building meta training set
-Training a meta tree
-DecisionTreeModel classifier of depth 8 with 59 nodes
-  If (Isn't imdb_keywords:male-nudity)
-   If (Isn't imdb_keywords:actress)
-    Predict: 0.0
-   Else (Is imdb_keywords:actress)
-    If (Is imdb_keywords:robbery)
-     If (Isn't imdb_keywords:england)
-      Predict: 0.0
-     Else (Is imdb_keywords:england)
-      Predict: 1.0
-    Else (Isn't imdb_keywords:robbery)
-     If (Is imdb_keywords:unrequited-love)
-      Predict: 0.0
-     Else (Isn't imdb_keywords:unrequited-love)
-      If (Is imdb_keywords:class-differences)
-       Predict: 0.0
-      Else (Isn't imdb_keywords:class-differences)
-       If (Is imdb_keywords:disguise)
-        Predict: 0.0
-       Else (Isn't imdb_keywords:disguise)
-        If (Is imdb_keywords:cowboy-hat)
-         Predict: 0.0
-        Else (Isn't imdb_keywords:cowboy-hat)
-         If (Is imdb_keywords:gunfight)
-          Predict: 0.0
-         Else (Isn't imdb_keywords:gunfight)
-          Predict: 1.0
-  Else (Is imdb_keywords:male-nudity)
-   If (Is imdb_keywords:robbery)
-    If (Is imdb_keywords:scientist)
-     Predict: 1.0
-    Else (Isn't imdb_keywords:scientist)
-     If (Is imdb_keywords:mayor)
-      Predict: 1.0
-     Else (Isn't imdb_keywords:mayor)
-      If (average_rating <= 2.3076923076923075)
-       Predict: 1.0
-      Else (average_rating > 2.3076923076923075)
-       If (Isn't imdb_keywords:garden)
-        Predict: 0.0
-       Else (Is imdb_keywords:garden)
-        If (year <= 1972.0)
-         Predict: 0.0
-        Else (year > 1972.0)
-         Predict: 1.0
-   Else (Isn't imdb_keywords:robbery)
-    If (Is imdb_keywords:gunfight)
-     If (Is imdb_keywords:birthday-party)
-      Predict: 1.0
-     Else (Isn't imdb_keywords:birthday-party)
-      If (Is imdb_keywords:dance)
-       Predict: 1.0
-      Else (Isn't imdb_keywords:dance)
-       If (Isn't imdb_keywords:japan)
-        If (Isn't imdb_keywords:marijuana)
-         Predict: 0.0
-        Else (Is imdb_keywords:marijuana)
-         Predict: 1.0
-       Else (Is imdb_keywords:japan)
-        Predict: 1.0
-    Else (Isn't imdb_keywords:gunfight)
-     If (Is imdb_keywords:unrequited-love)
-      If (Isn't imdb_keywords:crucifix)
-       Predict: 0.0
-      Else (Is imdb_keywords:crucifix)
-       Predict: 1.0
-     Else (Isn't imdb_keywords:unrequited-love)
-      If (Is imdb_keywords:disguise)
-       If (Isn't imdb_keywords:actress)
-        Predict: 0.0
-       Else (Is imdb_keywords:actress)
-        Predict: 1.0
-      Else (Isn't imdb_keywords:disguise)
-       If (Is imdb_keywords:subtitled-scene)
-        If (Isn't movielens_tags:Netflix Finland)
-         Predict: 0.0
-        Else (Is movielens_tags:Netflix Finland)
-         Predict: 1.0
-       Else (Isn't imdb_keywords:subtitled-scene)
-        If (Is imdb_keywords:class-differences)
-         If (Isn't movielens_genre:Horror)
-          Predict: 0.0
-         Else (Is movielens_genre:Horror)
-          Predict: 1.0
-        Else (Isn't imdb_keywords:class-differences)
-         If (Is imdb_keywords:hit-by-a-car)
-          Predict: 0.0
-         Else (Isn't imdb_keywords:hit-by-a-car)
-          Predict: 1.0
-
-Done, making predictions
-Predictions: defaultdict(<type 'int'>, {0.0: 3085, 1.0: 921})
-Accuracy: 0.990514228657
-{'recall': 0.9878453038674033, 'precision': 0.9706840390879479}
-23 features used
-QIIs: [('imdb_keywords:robbery', -0.1999500748876685), ('imdb_keywords:unrequited-love', -0.063654518222666), ('average_rating', -0.046430354468297554), ('imdb_keywords:gunfight', -0.04593110334498253), ('imdb_keywords:subtitled-scene', -0.034448327508736894), ('movielens_tags:Netflix Finland', -0.022965551672491265), ('imdb_keywords:cowboy-hat', -0.019470793809286072), ('imdb_keywords:disguise', -0.019470793809286072), ('imdb_keywords:crucifix', 0.014478282576135796), ('imdb_keywords:england', 0.0074887668497254116), ('imdb_keywords:garden', -0.0037443834248627058), ('imdb_keywords:mayor', 0.003494757863205192), ('movielens_genre:Horror', 0.0014977533699450823), ('imdb_keywords:japan', 0.0012481278082875687), ('imdb_keywords:birthday-party', 0.0012481278082875687), ('imdb_keywords:scientist', 0.0012481278082875687), ('imdb_keywords:class-differences', 0.000998502246630055), ('imdb_keywords:male-nudity', 0.000998502246630055), ('imdb_keywords:marijuana', 0.0007488766849725411), ('imdb_keywords:hit-by-a-car', 0.0004992511233150275), ('year', 0.00024962556165751375), ('imdb_keywords:dance', -0.00024962556165751375), ('imdb_keywords:actress', -0.00024962556165751375)]
-Correctness scores: [(2, 0.7632575757575757), (8, 0.2414772727272727), (3, 0.17424242424242425), (5, 0.13068181818181818), (0, 0.07765151515151515), (7, 0.07386363636363637), (4, 0.003787878787878788), (9, 0.001893939393939394), (6, 0.000946969696969697), (1, 0.0)]
-Processing cluster 5.0
-New clusters: defaultdict(<type 'int'>, {0.0: 3805, 1.0: 201})
-Building meta training set
-Training a meta tree
-DecisionTreeModel classifier of depth 8 with 31 nodes
-  If (Isn't imdb_keywords:hit-by-a-car)
-   Predict: 0.0
-  Else (Is imdb_keywords:hit-by-a-car)
-   If (Is imdb_keywords:disguise)
-    Predict: 0.0
-   Else (Isn't imdb_keywords:disguise)
-    If (Is imdb_keywords:robbery)
-     If (year <= 1967.0)
-      Predict: 1.0
-     Else (year > 1967.0)
-      Predict: 0.0
-    Else (Isn't imdb_keywords:robbery)
-     If (Is imdb_keywords:male-nudity)
-      If (Is imdb_keywords:combat)
-       Predict: 1.0
-      Else (Isn't imdb_keywords:combat)
-       If (Is imdb_keywords:cruelty)
-        Predict: 1.0
-       Else (Isn't imdb_keywords:cruelty)
-        If (Isn't imdb_keywords:inheritance)
-         If (Isn't imdb_keywords:guitar)
-          Predict: 0.0
-         Else (Is imdb_keywords:guitar)
-          Predict: 1.0
-        Else (Is imdb_keywords:inheritance)
-         Predict: 1.0
-     Else (Isn't imdb_keywords:male-nudity)
-      If (Is imdb_keywords:subtitled-scene)
-       Predict: 0.0
-      Else (Isn't imdb_keywords:subtitled-scene)
-       If (Is imdb_keywords:actress)
-        If (Isn't movielens_genre:Fantasy)
-         Predict: 0.0
-        Else (Is movielens_genre:Fantasy)
-         Predict: 1.0
-       Else (Isn't imdb_keywords:actress)
-        If (Is imdb_keywords:unrequited-love)
-         If (Isn't imdb_keywords:car-crash)
-          Predict: 0.0
-         Else (Is imdb_keywords:car-crash)
-          Predict: 1.0
-        Else (Isn't imdb_keywords:unrequited-love)
-         If (Is imdb_keywords:class-differences)
-          Predict: 0.0
-         Else (Isn't imdb_keywords:class-differences)
-          Predict: 1.0
-
-Done, making predictions
-Predictions: defaultdict(<type 'int'>, {0.0: 3796, 1.0: 210})
-Accuracy: 0.997753369945
-{'recall': 1.0, 'precision': 0.9571428571428572}
-15 features used
-QIIs: [('imdb_keywords:hit-by-a-car', -0.08437343984023964), ('imdb_keywords:robbery', -0.01597603594608088), ('imdb_keywords:subtitled-scene', 0.011982026959560658), ('imdb_keywords:class-differences', 0.010983524712930605), ('imdb_keywords:car-crash', 0.008736894658012981), ('imdb_keywords:disguise', -0.005991013479780329), ('imdb_keywords:actress', -0.0037443834248627058), ('imdb_keywords:cruelty', -0.0037443834248627058), ('year', 0.00199700449326011), ('movielens_genre:Fantasy', 0.0012481278082875687), ('imdb_keywords:unrequited-love', 0.000998502246630055), ('imdb_keywords:inheritance', -0.0007488766849725411), ('imdb_keywords:guitar', -0.0004992511233150275), ('imdb_keywords:male-nudity', 0.0004992511233150275), ('imdb_keywords:combat', -0.00024962556165751375)]
-Correctness scores: [(9, 0.8407960199004975), (2, 0.1592039800995025), (5, 0.11940298507462686), (4, 0.10945273631840798), (7, 0.05970149253731343), (6, 0.03731343283582089), (8, 0.009950248756218907), (0, 0.0049751243781094535), (1, 0.0), (3, 0.0)]
-Processing cluster 6.0
-New clusters: defaultdict(<type 'int'>, {0.0: 3886, 1.0: 120})
-Building meta training set
-Training a meta tree
-DecisionTreeModel classifier of depth 2 with 5 nodes
-  If (Isn't imdb_keywords:gunfire)
-   Predict: 0.0
-  Else (Is imdb_keywords:gunfire)
-   If (Is imdb_keywords:topless-female-nudity)
-    Predict: 0.0
-   Else (Isn't imdb_keywords:topless-female-nudity)
-    Predict: 1.0
-
-Done, making predictions
-Predictions: defaultdict(<type 'int'>, {0.0: 3886, 1.0: 120})
-Accuracy: 1.0
-{'recall': 1.0, 'precision': 1.0}
-2 features used
-QIIs: [('imdb_keywords:gunfire', -0.05666500249625562), ('imdb_keywords:topless-female-nudity', -0.005242136794807789)]
-Correctness scores: [(1, 1.0), (0, 0.0), (2, 0.0), (3, 0.0), (4, 0.0), (5, 0.0), (6, 0.0), (7, 0.0), (8, 0.0), (9, 0.0)]
-Processing cluster 7.0
-New clusters: defaultdict(<type 'int'>, {0.0: 3913, 1.0: 93})
-Building meta training set
-Training a meta tree
-DecisionTreeModel classifier of depth 8 with 41 nodes
-  If (Isn't imdb_keywords:robbery)
-   Predict: 0.0
-  Else (Is imdb_keywords:robbery)
    If (Isn't imdb_keywords:male-nudity)
-    If (Isn't imdb_keywords:actress)
-     If (Isn't imdb_keywords:prejudice)
-      Predict: 0.0
-     Else (Is imdb_keywords:prejudice)
-      If (Isn't imdb_keywords:airplane)
-       Predict: 0.0
-      Else (Is imdb_keywords:airplane)
-       Predict: 1.0
-    Else (Is imdb_keywords:actress)
-     If (Is imdb_keywords:chase)
-      If (Isn't movielens_tags:DVD-Video)
-       Predict: 0.0
-      Else (Is movielens_tags:DVD-Video)
-       Predict: 1.0
-     Else (Isn't imdb_keywords:chase)
-      If (Is movielens_genre:Western)
-       Predict: 0.0
-      Else (Isn't movielens_genre:Western)
-       Predict: 1.0
-   Else (Is imdb_keywords:male-nudity)
-    If (Is imdb_keywords:car-chase)
-     If (Isn't imdb_keywords:face-slap)
-      Predict: 0.0
-     Else (Is imdb_keywords:face-slap)
-      If (year <= 1994.0)
-       Predict: 0.0
-      Else (year > 1994.0)
-       Predict: 1.0
-    Else (Isn't imdb_keywords:car-chase)
-     If (Is imdb_keywords:man-with-glasses)
-      If (Isn't movielens_tags:reviewed)
-       Predict: 0.0
-      Else (Is movielens_tags:reviewed)
-       Predict: 1.0
-     Else (Isn't imdb_keywords:man-with-glasses)
-      If (Is imdb_keywords:fired-from-the-job)
-       If (Isn't imdb_keywords:crying)
-        Predict: 0.0
-       Else (Is imdb_keywords:crying)
-        Predict: 1.0
-      Else (Isn't imdb_keywords:fired-from-the-job)
-       If (Is imdb_keywords:decapitation)
-        If (Isn't movielens_tags:Nudity (Topless))
-         Predict: 0.0
-        Else (Is movielens_tags:Nudity (Topless))
-         Predict: 1.0
-       Else (Isn't imdb_keywords:decapitation)
-        If (Is imdb_keywords:marriage-proposal)
-         If (Isn't imdb_keywords:cafe)
-          Predict: 0.0
-         Else (Is imdb_keywords:cafe)
-          Predict: 1.0
-        Else (Isn't imdb_keywords:marriage-proposal)
-         If (Is imdb_keywords:2000s)
-          Predict: 0.0
-         Else (Isn't imdb_keywords:2000s)
-          Predict: 1.0
-
-Done, making predictions
-Predictions: defaultdict(<type 'int'>, {0.0: 3910, 1.0: 96})
-Accuracy: 0.999251123315
-{'recall': 1.0, 'precision': 0.96875}
-20 features used
-QIIs: [('imdb_keywords:male-nudity', 0.05791313030454318), ('imdb_keywords:face-slap', 0.03469795307039441), ('imdb_keywords:cafe', 0.00673989016475287), ('imdb_keywords:decapitation', -0.004742885671492761), ('imdb_keywords:man-with-glasses', -0.0032451323015476783), ('imdb_keywords:prejudice', 0.00199700449326011), ('movielens_tags:Nudity (Topless)', 0.00199700449326011), ('imdb_keywords:fired-from-the-job', -0.001747378931602596), ('imdb_keywords:chase', 0.000998502246630055), ('imdb_keywords:marriage-proposal', 0.000998502246630055), ('imdb_keywords:actress', -0.000998502246630055), ('movielens_tags:reviewed', 0.0007488766849725411), ('imdb_keywords:car-chase', -0.0007488766849725411), ('imdb_keywords:robbery', 0.0007488766849725411), ('movielens_tags:DVD-Video', 0.0004992511233150275), ('imdb_keywords:airplane', 0.0004992511233150275), ('year', 0.00024962556165751375), ('imdb_keywords:2000s', -0.00024962556165751375), ('imdb_keywords:crying', 0.00024962556165751375), ('movielens_genre:Western', 0.0)]
-Correctness scores: [(0, 0.6253369272237197), (6, 0.01078167115902965), (2, 0.008086253369272238), (1, 0.0), (3, 0.0), (4, 0.0), (5, 0.0), (7, 0.0), (8, 0.0), (9, 0.0)]
-Processing cluster 8.0
-New clusters: defaultdict(<type 'int'>, {0.0: 3880, 1.0: 126})
-Building meta training set
-Training a meta tree
-DecisionTreeModel classifier of depth 5 with 11 nodes
-  If (Isn't imdb_keywords:topless-female-nudity)
-   Predict: 0.0
-  Else (Is imdb_keywords:topless-female-nudity)
-   If (average_rating <= 2.0)
-    Predict: 1.0
-   Else (average_rating > 2.0)
-    If (Isn't imdb_keywords:russia)
-     If (Isn't movielens_tags:DVD-RAM)
-      Predict: 0.0
-     Else (Is movielens_tags:DVD-RAM)
-      If (year <= 2006.0)
-       Predict: 0.0
-      Else (year > 2006.0)
-       Predict: 1.0
-    Else (Is imdb_keywords:russia)
-     Predict: 1.0
-
-Done, making predictions
-Predictions: defaultdict(<type 'int'>, {0.0: 3880, 1.0: 126})
-Accuracy: 1.0
-{'recall': 1.0, 'precision': 1.0}
-5 features used
-QIIs: [('imdb_keywords:topless-female-nudity', -0.04742885671492761), ('imdb_keywords:russia', -0.03869196205691463), ('movielens_tags:DVD-RAM', 0.000998502246630055), ('year', 0.0004992511233150275), ('average_rating', 0.0004992511233150275)]
-Correctness scores: [(1, 0.5507246376811594), (0, 0.0), (2, 0.0), (3, 0.0), (4, 0.0), (5, 0.0), (6, 0.0), (7, 0.0), (8, 0.0), (9, 0.0)]
-Processing cluster 9.0
-New clusters: defaultdict(<type 'int'>, {0.0: 3670, 1.0: 336})
-Building meta training set
-Training a meta tree
-DecisionTreeModel classifier of depth 8 with 55 nodes
-  If (Isn't imdb_keywords:robbery)
-   If (Isn't imdb_keywords:spoof)
-    Predict: 0.0
-   Else (Is imdb_keywords:spoof)
-    If (Isn't imdb_keywords:pay-phone)
-     Predict: 0.0
-    Else (Is imdb_keywords:pay-phone)
-     If (year <= 1985.0)
-      Predict: 1.0
-     Else (year > 1985.0)
-      Predict: 0.0
-  Else (Is imdb_keywords:robbery)
-   If (Is imdb_keywords:male-nudity)
-    If (Is tvtropes:blatant lies)
-     Predict: 1.0
-    Else (Isn't tvtropes:blatant lies)
-     If (Isn't imdb_keywords:cowboy-hat)
-      If (Is imdb_keywords:actor-shares-first-name-with-character)
-       If (year <= 2007.0)
-        Predict: 0.0
-       Else (year > 2007.0)
-        Predict: 1.0
-      Else (Isn't imdb_keywords:actor-shares-first-name-with-character)
-       If (Isn't imdb_keywords:homosexuality)
-        If (Isn't imdb_keywords:gay-interest)
-         Predict: 0.0
-        Else (Is imdb_keywords:gay-interest)
-         If (Isn't imdb_keywords:1930s)
-          Predict: 0.0
-         Else (Is imdb_keywords:1930s)
-          Predict: 1.0
-       Else (Is imdb_keywords:homosexuality)
-        If (year <= 1994.0)
-         Predict: 0.0
-        Else (year > 1994.0)
-         Predict: 1.0
-     Else (Is imdb_keywords:cowboy-hat)
-      If (Is imdb_keywords:beach)
-       Predict: 0.0
-      Else (Isn't imdb_keywords:beach)
-       Predict: 1.0
-   Else (Isn't imdb_keywords:male-nudity)
-    If (Is imdb_keywords:disguise)
-     If (Isn't imdb_keywords:cancer)
-      If (Isn't movielens_tags:Netflix Finland)
-       If (Isn't imdb_keywords:mission)
-        Predict: 0.0
-       Else (Is imdb_keywords:mission)
-        Predict: 1.0
-      Else (Is movielens_tags:Netflix Finland)
-       Predict: 1.0
-     Else (Is imdb_keywords:cancer)
-      Predict: 1.0
-    Else (Isn't imdb_keywords:disguise)
-     If (Is imdb_keywords:hit-by-a-car)
-      If (average_rating <= 2.9473684210526314)
-       If (Is imdb_keywords:blackmail)
-        Predict: 0.0
-       Else (Isn't imdb_keywords:blackmail)
-        Predict: 1.0
-      Else (average_rating > 2.9473684210526314)
-       If (Isn't imdb_keywords:1960s)
-        Predict: 0.0
-       Else (Is imdb_keywords:1960s)
-        Predict: 1.0
-     Else (Isn't imdb_keywords:hit-by-a-car)
-      If (Is imdb_keywords:gunfire)
-       Predict: 0.0
-      Else (Isn't imdb_keywords:gunfire)
-       If (Is imdb_keywords:actress)
-        Predict: 0.0
-       Else (Isn't imdb_keywords:actress)
-        If (Is imdb_keywords:class-differences)
-         If (year <= 2008.0)
-          Predict: 0.0
-         Else (year > 2008.0)
-          Predict: 1.0
-        Else (Isn't imdb_keywords:class-differences)
-         If (Is imdb_keywords:subtitled-scene)
-          Predict: 0.0
-         Else (Isn't imdb_keywords:subtitled-scene)
-          Predict: 1.0
-
-Done, making predictions
-Predictions: defaultdict(<type 'int'>, {0.0: 3662, 1.0: 344})
-Accuracy: 0.996505242137
-{'recall': 0.9910714285714286, 'precision': 0.9680232558139535}
-24 features used
-QIIs: [('imdb_keywords:cowboy-hat', -0.12656015976035945), ('tvtropes:blatant lies', -0.036944583125312035), ('imdb_keywords:mission', -0.01547678482276585), ('movielens_tags:Netflix Finland', 0.011482775836245632), ('imdb_keywords:robbery', -0.010733899151273091), ('imdb_keywords:beach', -0.00998502246630055), ('imdb_keywords:1960s', -0.005991013479780329), ('average_rating', 0.0054917623564653024), ('imdb_keywords:blackmail', 0.004742885671492761), ('imdb_keywords:class-differences', 0.0014977533699450823), ('imdb_keywords:spoof', 0.0012481278082875687), ('year', 0.000998502246630055), ('imdb_keywords:1930s', 0.0007488766849725411), ('imdb_keywords:gay-interest', -0.0007488766849725411), ('imdb_keywords:actress', 0.0007488766849725411), ('imdb_keywords:homosexuality', 0.0004992511233150275), ('imdb_keywords:subtitled-scene', 0.0004992511233150275), ('imdb_keywords:disguise', 0.0004992511233150275), ('imdb_keywords:actor-shares-first-name-with-character', 0.0004992511233150275), ('imdb_keywords:hit-by-a-car', -0.00024962556165751375), ('imdb_keywords:pay-phone', -0.00024962556165751375), ('imdb_keywords:cancer', 0.00024962556165751375), ('imdb_keywords:male-nudity', -0.00024962556165751375), ('imdb_keywords:gunfire', -0.00024962556165751375)]
-Correctness scores: [(0, 0.7755725190839693), (2, 0.06564885496183206), (4, 0.00916030534351145), (6, 0.004580152671755725), (5, 0.003053435114503817), (7, 0.003053435114503817), (1, 0.0015267175572519086), (9, 0.0015267175572519086), (3, 0.0), (8, 0.0)]
-Processing cluster 10.0
-New clusters: defaultdict(<type 'int'>, {0.0: 3873, 1.0: 133})
-Building meta training set
-Training a meta tree
-DecisionTreeModel classifier of depth 8 with 51 nodes
-  If (Isn't imdb_keywords:subtitled-scene)
-   Predict: 0.0
-  Else (Is imdb_keywords:subtitled-scene)
-   If (Is imdb_keywords:disguise)
-    If (Is tvtropes:too dumb to live)
-     Predict: 0.0
-    Else (Isn't tvtropes:too dumb to live)
-     If (Is imdb_keywords:employer-employee-relationship)
-      Predict: 0.0
-     Else (Isn't imdb_keywords:employer-employee-relationship)
-      If (Is imdb_keywords:cow)
-       Predict: 0.0
-      Else (Isn't imdb_keywords:cow)
-       If (Is imdb_keywords:reference-to-god)
-        Predict: 0.0
-       Else (Isn't imdb_keywords:reference-to-god)
-        Predict: 1.0
-   Else (Isn't imdb_keywords:disguise)
-    If (average_rating <= 3.9130434782608696)
-     If (Isn't imdb_keywords:hit-by-a-car)
+    If (Isn't imdb_keywords:subtitled-scene)
+     If (Isn't imdb_keywords:actress)
       If (Isn't imdb_keywords:robbery)
-       If (Is imdb_keywords:police-chase)
-        Predict: 1.0
-       Else (Isn't imdb_keywords:police-chase)
-        If (Isn't imdb_keywords:sequel)
-         Predict: 0.0
-        Else (Is imdb_keywords:sequel)
-         If (Isn't imdb_keywords:waterfall)
-          Predict: 0.0
-         Else (Is imdb_keywords:waterfall)
-          Predict: 1.0
-      Else (Is imdb_keywords:robbery)
-       If (Isn't imdb_keywords:arrest)
-        If (Isn't imdb_keywords:ambulance)
-         Predict: 0.0
-        Else (Is imdb_keywords:ambulance)
-         Predict: 1.0
-       Else (Is imdb_keywords:arrest)
-        Predict: 1.0
-     Else (Is imdb_keywords:hit-by-a-car)
-      If (Is imdb_keywords:military)
-       Predict: 0.0
-      Else (Isn't imdb_keywords:military)
-       If (Is imdb_keywords:broken-leg)
-        Predict: 0.0
-       Else (Isn't imdb_keywords:broken-leg)
-        If (Is movielens_tags:religion)
-         Predict: 0.0
-        Else (Isn't movielens_tags:religion)
-         If (Is imdb_keywords:brutality)
-          Predict: 0.0
-         Else (Isn't imdb_keywords:brutality)
-          Predict: 1.0
-    Else (average_rating > 3.9130434782608696)
-     If (Is imdb_keywords:gunfight)
-      If (Is imdb_keywords:bathtub)
-       Predict: 0.0
-      Else (Isn't imdb_keywords:bathtub)
-       Predict: 1.0
-     Else (Isn't imdb_keywords:gunfight)
-      If (Is imdb_keywords:male-nudity)
-       If (Is imdb_keywords:action-hero)
-        Predict: 0.0
-       Else (Isn't imdb_keywords:action-hero)
-        Predict: 1.0
-      Else (Isn't imdb_keywords:male-nudity)
-       If (Is imdb_keywords:hit-by-a-car)
-        Predict: 1.0
-       Else (Isn't imdb_keywords:hit-by-a-car)
-        If (Isn't imdb_keywords:robbery)
+       If (Isn't imdb_keywords:disguise)
+        If (Isn't imdb_keywords:hit-by-a-car)
+         If (Isn't imdb_keywords:gunfight)
+          Predict: 12.0
+         Else (Is imdb_keywords:gunfight)
+          Predict: 8.0
+        Else (Is imdb_keywords:hit-by-a-car)
          If (Isn't imdb_keywords:unrequited-love)
-          Predict: 0.0
+          Predict: 14.0
          Else (Is imdb_keywords:unrequited-love)
+          Predict: 10.0
+       Else (Is imdb_keywords:disguise)
+        If (Isn't imdb_keywords:gunfire)
+         If (Isn't imdb_keywords:unrequited-love)
+          Predict: 2.0
+         Else (Is imdb_keywords:unrequited-love)
+          Predict: 10.0
+        Else (Is imdb_keywords:gunfire)
+         Predict: 3.0
+      Else (Is imdb_keywords:robbery)
+       If (Isn't imdb_keywords:gunfight)
+        If (Isn't imdb_keywords:hit-by-a-car)
+         If (Isn't imdb_keywords:disguise)
+          Predict: 4.0
+         Else (Is imdb_keywords:disguise)
+          Predict: 5.0
+        Else (Is imdb_keywords:hit-by-a-car)
+         If (Isn't imdb_keywords:cowboy-hat)
+          Predict: 5.0
+         Else (Is imdb_keywords:cowboy-hat)
+          Predict: 2.0
+       Else (Is imdb_keywords:gunfight)
+        If (average_rating <= 3.7419354838709675)
+         If (Isn't imdb_keywords:scientist)
+          Predict: 9.0
+         Else (Is imdb_keywords:scientist)
+          Predict: 8.0
+        Else (average_rating > 3.7419354838709675)
+         If (Isn't imdb_keywords:gunfire)
+          Predict: 5.0
+         Else (Is imdb_keywords:gunfire)
+          Predict: 3.0
+     Else (Is imdb_keywords:actress)
+      If (Isn't imdb_keywords:class-differences)
+       If (Isn't imdb_keywords:unrequited-love)
+        If (Isn't imdb_keywords:gunfire)
+         If (Isn't imdb_keywords:duel)
+          Predict: 1.0
+         Else (Is imdb_keywords:duel)
+          Predict: 1.0
+        Else (Is imdb_keywords:gunfire)
+         If (year <= 2000.0)
+          Predict: 3.0
+         Else (year > 2000.0)
+          Predict: 1.0
+       Else (Is imdb_keywords:unrequited-love)
+        Predict: 10.0
+      Else (Is imdb_keywords:class-differences)
+       Predict: 12.0
+    Else (Is imdb_keywords:subtitled-scene)
+     If (Isn't imdb_keywords:gunfire)
+      If (Isn't imdb_keywords:unrequited-love)
+       If (Isn't imdb_keywords:class-differences)
+        If (Isn't imdb_keywords:robbery)
+         If (Isn't imdb_keywords:actress)
+          Predict: 0.0
+         Else (Is imdb_keywords:actress)
           Predict: 1.0
         Else (Is imdb_keywords:robbery)
-         Predict: 1.0
-
-Done, making predictions
-Predictions: defaultdict(<type 'int'>, {0.0: 3875, 1.0: 131})
-Accuracy: 0.999500748877
-{'recall': 0.9849624060150376, 'precision': 1.0}
-23 features used
-QIIs: [('imdb_keywords:cow', 0.06764852720918622), ('imdb_keywords:subtitled-scene', -0.0127309036445332), ('imdb_keywords:disguise', 0.011982026959560658), ('imdb_keywords:military', 0.006989515726410384), ('average_rating', -0.00673989016475287), ('imdb_keywords:arrest', 0.005991013479780329), ('imdb_keywords:hit-by-a-car', 0.0054917623564653024), ('imdb_keywords:police-chase', 0.0024962556165751375), ('imdb_keywords:bathtub', 0.00199700449326011), ('imdb_keywords:waterfall', 0.001747378931602596), ('imdb_keywords:employer-employee-relationship', 0.000998502246630055), ('imdb_keywords:brutality', -0.000998502246630055), ('movielens_tags:religion', 0.0007488766849725411), ('imdb_keywords:gunfight', -0.0007488766849725411), ('imdb_keywords:sequel', -0.0007488766849725411), ('imdb_keywords:action-hero', -0.0007488766849725411), ('imdb_keywords:ambulance', 0.0007488766849725411), ('tvtropes:too dumb to live', 0.0004992511233150275), ('imdb_keywords:robbery', -0.0004992511233150275), ('imdb_keywords:broken-leg', -0.0004992511233150275), ('imdb_keywords:male-nudity', 0.0004992511233150275), ('imdb_keywords:reference-to-god', 0.00024962556165751375), ('imdb_keywords:unrequited-love', -0.00024962556165751375)]
-Correctness scores: [(5, 0.16459627329192544), (7, 0.14906832298136644), (9, 0.06832298136645962), (3, 0.009316770186335402), (0, 0.006211180124223602), (2, 0.006211180124223602), (8, 0.003105590062111801), (1, 0.0), (4, 0.0), (6, 0.0)]
-Processing cluster 11.0
-New clusters: defaultdict(<type 'int'>, {0.0: 3850, 1.0: 156})
-Building meta training set
-Training a meta tree
-DecisionTreeModel classifier of depth 8 with 39 nodes
-  If (Isn't imdb_keywords:subtitled-scene)
-   Predict: 0.0
-  Else (Is imdb_keywords:subtitled-scene)
-   If (Is imdb_keywords:disguise)
-    If (Isn't movielens_tags:R)
-     If (Isn't imdb_keywords:reference-to-god)
-      Predict: 0.0
-     Else (Is imdb_keywords:reference-to-god)
-      Predict: 1.0
-    Else (Is movielens_tags:R)
-     Predict: 1.0
-   Else (Isn't imdb_keywords:disguise)
-    If (Is imdb_keywords:robbery)
-     If (Isn't movielens_tags:netflix)
-      Predict: 0.0
-     Else (Is movielens_tags:netflix)
-      Predict: 1.0
-    Else (Isn't imdb_keywords:robbery)
-     If (Is imdb_keywords:gunfight)
-      If (average_rating <= 3.185185185185185)
-       If (Is movielens_tags:DVD-Video)
-        Predict: 0.0
-       Else (Isn't movielens_tags:DVD-Video)
-        If (Is movielens_tags:franchise)
-         Predict: 0.0
-        Else (Isn't movielens_tags:franchise)
-         Predict: 1.0
-      Else (average_rating > 3.185185185185185)
-       If (Isn't imdb_keywords:prologue)
-        If (Isn't imdb_keywords:scientist)
-         Predict: 0.0
-        Else (Is imdb_keywords:scientist)
-         Predict: 1.0
-       Else (Is imdb_keywords:prologue)
-        Predict: 1.0
-     Else (Isn't imdb_keywords:gunfight)
-      If (Is imdb_keywords:unrequited-love)
-       Predict: 0.0
-      Else (Isn't imdb_keywords:unrequited-love)
-       If (Is imdb_keywords:hit-by-a-car)
-        If (Is movielens_genre:Crime)
-         Predict: 1.0
-        Else (Isn't movielens_genre:Crime)
-         If (Isn't imdb_keywords:electrocution)
+         If (Isn't imdb_keywords:disguise)
           Predict: 0.0
-         Else (Is imdb_keywords:electrocution)
-          Predict: 1.0
-       Else (Isn't imdb_keywords:hit-by-a-car)
-        If (Is imdb_keywords:male-nudity)
-         If (average_rating <= 3.7419354838709675)
-          Predict: 1.0
-         Else (average_rating > 3.7419354838709675)
-          Predict: 0.0
-        Else (Isn't imdb_keywords:male-nudity)
-         If (Is imdb_keywords:gunfire)
-          Predict: 0.0
-         Else (Isn't imdb_keywords:gunfire)
-          Predict: 1.0
-
-Done, making predictions
-Predictions: defaultdict(<type 'int'>, {0.0: 3845, 1.0: 161})
-Accuracy: 0.997753369945
-{'recall': 0.9871794871794872, 'precision': 0.9565217391304348}
-18 features used
-QIIs: [('imdb_keywords:disguise', -0.06964553170244633), ('imdb_keywords:electrocution', 0.011233150274588119), ('imdb_keywords:subtitled-scene', -0.010484273589615577), ('imdb_keywords:robbery', 0.010484273589615577), ('imdb_keywords:gunfight', 0.008237643534697954), ('movielens_tags:R', -0.00673989016475287), ('imdb_keywords:reference-to-god', 0.0044932601098352475), ('imdb_keywords:unrequited-love', -0.0032451323015476783), ('movielens_tags:netflix', 0.0024962556165751375), ('movielens_tags:franchise', 0.0022466300549176237), ('average_rating', 0.00199700449326011), ('movielens_genre:Crime', -0.0012481278082875687), ('imdb_keywords:prologue', 0.0007488766849725411), ('movielens_tags:DVD-Video', 0.0004992511233150275), ('imdb_keywords:hit-by-a-car', 0.0004992511233150275), ('imdb_keywords:gunfire', -0.0004992511233150275), ('imdb_keywords:scientist', 0.00024962556165751375), ('imdb_keywords:male-nudity', 0.00024962556165751375)]
-Correctness scores: [(7, 0.8611111111111112), (2, 0.13271604938271606), (5, 0.12962962962962965), (3, 0.10185185185185186), (8, 0.040123456790123455), (1, 0.00617283950617284), (9, 0.00617283950617284), (0, 0.00308641975308642), (4, 0.0), (6, 0.0)]
-Processing cluster 12.0
-New clusters: defaultdict(<type 'int'>, {0.0: 3655, 1.0: 351})
-Building meta training set
-Training a meta tree
-DecisionTreeModel classifier of depth 8 with 45 nodes
-  If (Isn't imdb_keywords:gunfight)
-   Predict: 0.0
-  Else (Is imdb_keywords:gunfight)
-   If (Is imdb_keywords:disguise)
-    If (Isn't tvtropes:creator cameo)
-     If (Isn't imdb_keywords:based-on-book)
-      Predict: 0.0
-     Else (Is imdb_keywords:based-on-book)
-      If (Is movielens_genre:Thriller)
-       Predict: 0.0
-      Else (Isn't movielens_genre:Thriller)
-       Predict: 1.0
-    Else (Is tvtropes:creator cameo)
-     If (year <= 1975.0)
-      Predict: 0.0
-     Else (year > 1975.0)
-      Predict: 1.0
-   Else (Isn't imdb_keywords:disguise)
-    If (Is imdb_keywords:robbery)
-     If (Isn't imdb_keywords:scientist)
-      Predict: 0.0
-     Else (Is imdb_keywords:scientist)
-      Predict: 1.0
-    Else (Isn't imdb_keywords:robbery)
-     If (Is imdb_keywords:hit-by-a-car)
-      If (Isn't imdb_keywords:van)
-       If (Isn't movielens_tags:romance)
-        Predict: 0.0
-       Else (Is movielens_tags:romance)
-        Predict: 1.0
-      Else (Is imdb_keywords:van)
-       If (Is imdb_keywords:anti-hero)
-        Predict: 0.0
-       Else (Isn't imdb_keywords:anti-hero)
-        If (Is movielens_genre:Crime)
-         If (Isn't movielens_genre:Action)
-          Predict: 0.0
-         Else (Is movielens_genre:Action)
-          Predict: 1.0
-        Else (Isn't movielens_genre:Crime)
-         Predict: 1.0
-     Else (Isn't imdb_keywords:hit-by-a-car)
-      If (Is imdb_keywords:male-nudity)
-       If (Isn't imdb_keywords:cowboy-hat)
-        If (Isn't imdb_keywords:alien)
-         Predict: 0.0
-        Else (Is imdb_keywords:alien)
-         Predict: 1.0
-       Else (Is imdb_keywords:cowboy-hat)
-        If (Is imdb_keywords:three-word-title)
-         Predict: 0.0
-        Else (Isn't imdb_keywords:three-word-title)
-         Predict: 1.0
-      Else (Isn't imdb_keywords:male-nudity)
-       If (Is imdb_keywords:subtitled-scene)
-        If (Isn't tvtropes:too dumb to live)
-         Predict: 0.0
-        Else (Is tvtropes:too dumb to live)
-         Predict: 1.0
-       Else (Isn't imdb_keywords:subtitled-scene)
-        If (Is imdb_keywords:gunfire)
-         Predict: 0.0
-        Else (Isn't imdb_keywords:gunfire)
-         If (Is imdb_keywords:class-differences)
-          Predict: 0.0
-         Else (Isn't imdb_keywords:class-differences)
-          Predict: 1.0
-
-Done, making predictions
-Predictions: defaultdict(<type 'int'>, {0.0: 3643, 1.0: 363})
-Accuracy: 0.99700449326
-{'recall': 1.0, 'precision': 0.9669421487603306}
-22 features used
-QIIs: [('imdb_keywords:robbery', -0.12656015976035945), ('tvtropes:creator cameo', -0.02745881178232651), ('imdb_keywords:three-word-title', 0.02695956065901148), ('imdb_keywords:gunfire', 0.0254618072890664), ('imdb_keywords:anti-hero', 0.021218172740888667), ('imdb_keywords:disguise', 0.011482775836245632), ('imdb_keywords:based-on-book', -0.005741387918122816), ('tvtropes:too dumb to live', 0.005242136794807789), ('imdb_keywords:male-nudity', 0.00399400898652022), ('imdb_keywords:subtitled-scene', 0.00199700449326011), ('imdb_keywords:gunfight', -0.001747378931602596), ('imdb_keywords:class-differences', -0.0012481278082875687), ('imdb_keywords:van', 0.0007488766849725411), ('imdb_keywords:hit-by-a-car', 0.0007488766849725411), ('imdb_keywords:scientist', 0.0007488766849725411), ('imdb_keywords:alien', 0.0007488766849725411), ('movielens_tags:romance', -0.0004992511233150275), ('year', 0.00024962556165751375), ('movielens_genre:Action', 0.00024962556165751375), ('movielens_genre:Crime', 0.00024962556165751375), ('movielens_genre:Thriller', -0.00024962556165751375), ('imdb_keywords:cowboy-hat', -0.00024962556165751375)]
-Correctness scores: [(2, 0.8265802269043759), (1, 0.16531604538087522), (7, 0.07455429497568883), (5, 0.047001620745542955), (0, 0.02755267423014587), (3, 0.011345218800648298), (4, 0.008103727714748786), (9, 0.004862236628849271), (6, 0.0), (8, 0.0)]
-Processing cluster 13.0
-New clusters: defaultdict(<type 'int'>, {0.0: 3648, 1.0: 358})
-Building meta training set
-Training a meta tree
-DecisionTreeModel classifier of depth 8 with 57 nodes
-  If (average_rating <= 2.0)
-   If (Is imdb_keywords:child-in-peril)
-    If (Is imdb_keywords:topless-female-nudity)
-     Predict: 0.0
-    Else (Isn't imdb_keywords:topless-female-nudity)
-     Predict: 1.0
-   Else (Isn't imdb_keywords:child-in-peril)
-    If (Is imdb_keywords:scientist)
-     If (Is tvtropes:too dumb to live)
-      If (Isn't movielens_tags:Bechdel Test:Fail)
-       Predict: 0.0
-      Else (Is movielens_tags:Bechdel Test:Fail)
-       Predict: 1.0
-     Else (Isn't tvtropes:too dumb to live)
-      If (Is imdb_keywords:illness)
-       If (Isn't movielens_genre:Children)
-        Predict: 0.0
-       Else (Is movielens_genre:Children)
-        Predict: 1.0
-      Else (Isn't imdb_keywords:illness)
-       If (Is imdb_keywords:topless-female-nudity)
-        Predict: 0.0
-       Else (Isn't imdb_keywords:topless-female-nudity)
-        If (Is imdb_keywords:based-on-true-story)
-         Predict: 0.0
-        Else (Isn't imdb_keywords:based-on-true-story)
-         Predict: 1.0
-    Else (Isn't imdb_keywords:scientist)
-     If (Isn't imdb_keywords:honor)
-      If (Isn't imdb_keywords:cowboy-hat)
-       If (Isn't imdb_keywords:cow)
-        Predict: 0.0
-       Else (Is imdb_keywords:cow)
-        If (Isn't imdb_keywords:bed)
-         If (year <= 2011.0)
-          Predict: 0.0
-         Else (year > 2011.0)
-          Predict: 1.0
-        Else (Is imdb_keywords:bed)
-         Predict: 1.0
-      Else (Is imdb_keywords:cowboy-hat)
-       If (Is tvtropes:too dumb to live)
-        Predict: 0.0
-       Else (Isn't tvtropes:too dumb to live)
-        If (Is imdb_keywords:topless-female-nudity)
-         Predict: 0.0
-        Else (Isn't imdb_keywords:topless-female-nudity)
-         If (Is imdb_keywords:long-take)
-          Predict: 0.0
-         Else (Isn't imdb_keywords:long-take)
-          Predict: 1.0
-     Else (Is imdb_keywords:honor)
-      If (Is imdb_keywords:sex-scene)
-       Predict: 0.0
-      Else (Isn't imdb_keywords:sex-scene)
-       If (Is imdb_keywords:pianist)
-        Predict: 0.0
-       Else (Isn't imdb_keywords:pianist)
-        Predict: 1.0
-  Else (average_rating > 2.0)
-   If (Isn't imdb_keywords:cowboy-hat)
-    If (Isn't imdb_keywords:castle)
-     Predict: 0.0
-    Else (Is imdb_keywords:castle)
-     If (Isn't imdb_keywords:tv-news)
-      If (Isn't imdb_keywords:chicken)
-       Predict: 0.0
-      Else (Is imdb_keywords:chicken)
-       If (year <= 1975.0)
-        Predict: 0.0
-       Else (year > 1975.0)
-        Predict: 1.0
-     Else (Is imdb_keywords:tv-news)
-      Predict: 1.0
-   Else (Is imdb_keywords:cowboy-hat)
-    If (Isn't imdb_keywords:actress)
-     Predict: 0.0
-    Else (Is imdb_keywords:actress)
-     If (Is imdb_keywords:swimming-pool)
-      Predict: 0.0
-     Else (Isn't imdb_keywords:swimming-pool)
-      If (Is movielens_genre:Action)
-       Predict: 0.0
-      Else (Isn't movielens_genre:Action)
-       Predict: 1.0
-
-Done, making predictions
-Predictions: defaultdict(<type 'int'>, {0.0: 3647, 1.0: 359})
-Accuracy: 0.999750374438
-{'recall': 1.0, 'precision': 0.9972144846796658}
-23 features used
-QIIs: [('imdb_keywords:cow', -0.09860209685471792), ('imdb_keywords:actress', -0.03794308537194209), ('imdb_keywords:pianist', -0.0254618072890664), ('imdb_keywords:bed', -0.017224163754368447), ('imdb_keywords:illness', -0.01597603594608088), ('imdb_keywords:scientist', -0.008986520219670495), ('imdb_keywords:castle', 0.00673989016475287), ('imdb_keywords:chicken', 0.0029955067398901645), ('tvtropes:too dumb to live', 0.0022466300549176237), ('imdb_keywords:tv-news', 0.00199700449326011), ('imdb_keywords:topless-female-nudity', -0.001747378931602596), ('imdb_keywords:sex-scene', -0.001747378931602596), ('average_rating', 0.0014977533699450823), ('movielens_tags:Bechdel Test:Fail', 0.0012481278082875687), ('imdb_keywords:long-take', 0.0012481278082875687), ('movielens_genre:Action', -0.000998502246630055), ('imdb_keywords:child-in-peril', -0.000998502246630055), ('imdb_keywords:swimming-pool', 0.000998502246630055), ('imdb_keywords:honor', -0.0007488766849725411), ('imdb_keywords:cowboy-hat', 0.0007488766849725411), ('year', 0.00024962556165751375), ('movielens_genre:Children', -0.00024962556165751375), ('imdb_keywords:based-on-true-story', -0.00024962556165751375)]
-Correctness scores: [(6, 0.283363802559415), (9, 0.11700182815356491), (2, 0.06581352833638027), (5, 0.016453382084095067), (1, 0.01279707495429616), (7, 0.009140767824497258), (4, 0.007312614259597807), (0, 0.005484460694698354), (3, 0.0), (8, 0.0)]
-Processing cluster 14.0
-New clusters: defaultdict(<type 'int'>, {0.0: 3834, 1.0: 172})
-Building meta training set
-Training a meta tree
-DecisionTreeModel classifier of depth 8 with 117 nodes
-  If (Is imdb_keywords:hit-by-a-car)
-   If (Is imdb_keywords:robbery)
-    If (Is imdb_keywords:subtitled-scene)
-     Predict: 0.0
-    Else (Isn't imdb_keywords:subtitled-scene)
-     If (average_rating <= 2.9473684210526314)
-      If (Isn't movielens_tags:Betamax)
-       Predict: 0.0
-      Else (Is movielens_tags:Betamax)
-       Predict: 1.0
-     Else (average_rating > 2.9473684210526314)
-      If (Is imdb_keywords:cowboy-hat)
-       Predict: 0.0
-      Else (Isn't imdb_keywords:cowboy-hat)
-       If (Is imdb_keywords:1960s)
-        Predict: 0.0
-       Else (Isn't imdb_keywords:1960s)
-        Predict: 1.0
-   Else (Isn't imdb_keywords:robbery)
-    If (Isn't imdb_keywords:male-nudity)
-     If (Is imdb_keywords:unrequited-love)
-      If (Is imdb_keywords:betrayal)
-       Predict: 0.0
-      Else (Isn't imdb_keywords:betrayal)
-       If (Is movielens_tags:cinematography)
-        Predict: 0.0
-       Else (Isn't movielens_tags:cinematography)
-        Predict: 1.0
-     Else (Isn't imdb_keywords:unrequited-love)
-      If (Isn't imdb_keywords:actress)
-       If (Isn't imdb_keywords:race-relations)
-        If (Isn't imdb_keywords:class-differences)
-         Predict: 0.0
-        Else (Is imdb_keywords:class-differences)
-         If (Isn't movielens_genre:Crime)
-          Predict: 0.0
-         Else (Is movielens_genre:Crime)
-          Predict: 1.0
-       Else (Is imdb_keywords:race-relations)
-        If (Isn't movielens_genre:Musical)
-         Predict: 0.0
-        Else (Is movielens_genre:Musical)
-         Predict: 1.0
-      Else (Is imdb_keywords:actress)
-       If (Is imdb_keywords:drinking)
-        If (Isn't movielens_tags:netflix)
-         Predict: 0.0
-        Else (Is movielens_tags:netflix)
-         Predict: 1.0
-       Else (Isn't imdb_keywords:drinking)
-        Predict: 1.0
-    Else (Is imdb_keywords:male-nudity)
-     If (average_rating <= 3.9130434782608696)
-      If (Isn't movielens_tags:crime)
-       If (Isn't imdb_keywords:bikini)
-        Predict: 0.0
-       Else (Is imdb_keywords:bikini)
-        Predict: 1.0
-      Else (Is movielens_tags:crime)
-       Predict: 1.0
-     Else (average_rating > 3.9130434782608696)
-      If (Is movielens_tags:based on a book)
-       Predict: 0.0
-      Else (Isn't movielens_tags:based on a book)
-       If (Is imdb_keywords:cemetery)
-        If (year <= 1990.0)
-         Predict: 1.0
-        Else (year > 1990.0)
-         Predict: 0.0
-       Else (Isn't imdb_keywords:cemetery)
-        If (Is imdb_keywords:fantasy-sequence)
-         Predict: 0.0
-        Else (Isn't imdb_keywords:fantasy-sequence)
-         Predict: 1.0
-  Else (Isn't imdb_keywords:hit-by-a-car)
-   If (Isn't imdb_keywords:gunfight)
-    If (Isn't imdb_keywords:disguise)
-     Predict: 0.0
-    Else (Is imdb_keywords:disguise)
-     If (Isn't imdb_keywords:robbery)
-      If (Isn't imdb_keywords:actress)
-       If (Isn't tvtropes:alcoholic)
-        Predict: 0.0
-       Else (Is tvtropes:alcoholic)
-        If (Isn't movielens_genre:Fantasy)
-         Predict: 0.0
-        Else (Is movielens_genre:Fantasy)
-         Predict: 1.0
-      Else (Is imdb_keywords:actress)
-       If (average_rating <= 3.5)
-        Predict: 0.0
-       Else (average_rating > 3.5)
-        If (Is movielens_tags:nudity (full frontal))
-         Predict: 0.0
-        Else (Isn't movielens_tags:nudity (full frontal))
-         Predict: 1.0
-     Else (Is imdb_keywords:robbery)
-      If (average_rating <= 3.7419354838709675)
-       If (year <= 1992.0)
-        If (year <= 1972.0)
-         Predict: 0.0
-        Else (year > 1972.0)
-         Predict: 1.0
-       Else (year > 1992.0)
-        Predict: 0.0
-      Else (average_rating > 3.7419354838709675)
-       If (Is imdb_keywords:police-chase)
-        If (Is imdb_keywords:arrest)
-         Predict: 0.0
-        Else (Isn't imdb_keywords:arrest)
-         Predict: 1.0
-       Else (Isn't imdb_keywords:police-chase)
-        If (Is imdb_keywords:anger)
-         Predict: 0.0
-        Else (Isn't imdb_keywords:anger)
-         Predict: 1.0
-   Else (Is imdb_keywords:gunfight)
-    If (Isn't imdb_keywords:male-nudity)
-     If (Is imdb_keywords:actress)
-      If (Is imdb_keywords:chase)
-       If (year <= 1958.0)
-        Predict: 1.0
-       Else (year > 1958.0)
-        Predict: 0.0
-      Else (Isn't imdb_keywords:chase)
-       Predict: 1.0
-     Else (Isn't imdb_keywords:actress)
-      If (Is imdb_keywords:unrequited-love)
-       If (Isn't imdb_keywords:chase)
-        Predict: 0.0
-       Else (Is imdb_keywords:chase)
-        If (year <= 1947.0)
-         Predict: 0.0
-        Else (year > 1947.0)
-         Predict: 1.0
-      Else (Isn't imdb_keywords:unrequited-love)
-       If (Isn't imdb_keywords:robbery)
-        Predict: 0.0
-       Else (Is imdb_keywords:robbery)
+         Else (Is imdb_keywords:disguise)
+          Predict: 5.0
+       Else (Is imdb_keywords:class-differences)
+        Predict: 12.0
+      Else (Is imdb_keywords:unrequited-love)
+       Predict: 10.0
+     Else (Is imdb_keywords:gunfire)
+      Predict: 3.0
+   Else (Is imdb_keywords:male-nudity)
+    If (Isn't imdb_keywords:robbery)
+     If (Isn't imdb_keywords:actress)
+      If (Isn't imdb_keywords:gunfight)
+       If (Isn't imdb_keywords:unrequited-love)
         If (Isn't imdb_keywords:disguise)
-         Predict: 0.0
+         If (Isn't imdb_keywords:subtitled-scene)
+          Predict: 13.0
+         Else (Is imdb_keywords:subtitled-scene)
+          Predict: 0.0
         Else (Is imdb_keywords:disguise)
-         If (average_rating <= 3.9130434782608696)
+         If (Isn't imdb_keywords:hit-by-a-car)
+          Predict: 2.0
+         Else (Is imdb_keywords:hit-by-a-car)
+          Predict: 11.0
+       Else (Is imdb_keywords:unrequited-love)
+        If (Isn't imdb_keywords:forest)
+         If (Isn't imdb_keywords:break-up)
+          Predict: 10.0
+         Else (Is imdb_keywords:break-up)
+          Predict: 2.0
+        Else (Is imdb_keywords:forest)
+         If (year <= 2007.0)
+          Predict: 12.0
+         Else (year > 2007.0)
+          Predict: 13.0
+      Else (Is imdb_keywords:gunfight)
+       If (Isn't imdb_keywords:cowboy-hat)
+        If (Isn't imdb_keywords:subtitled-scene)
+         If (Isn't imdb_keywords:reference-to-god)
+          Predict: 11.0
+         Else (Is imdb_keywords:reference-to-god)
+          Predict: 2.0
+        Else (Is imdb_keywords:subtitled-scene)
+         If (Isn't movielens_tags:slow)
           Predict: 0.0
-         Else (average_rating > 3.9130434782608696)
-          Predict: 1.0
-    Else (Is imdb_keywords:male-nudity)
-     If (average_rating <= 3.9130434782608696)
-      If (Isn't imdb_keywords:brutality)
-       If (Is imdb_keywords:baseball-bat)
-        Predict: 1.0
-       Else (Isn't imdb_keywords:baseball-bat)
-        If (Isn't imdb_keywords:gift)
-         If (Isn't movielens_tags:cinematography)
-          Predict: 0.0
-         Else (Is movielens_tags:cinematography)
-          Predict: 1.0
-        Else (Is imdb_keywords:gift)
+         Else (Is movielens_tags:slow)
+          Predict: 10.0
+       Else (Is imdb_keywords:cowboy-hat)
+        If (Isn't imdb_keywords:three-word-title)
+         Predict: 8.0
+        Else (Is imdb_keywords:three-word-title)
+         If (year <= 1990.0)
+          Predict: 11.0
+         Else (year > 1990.0)
+          Predict: 2.0
+     Else (Is imdb_keywords:actress)
+      If (Isn't imdb_keywords:unrequited-love)
+       If (Isn't imdb_keywords:honor)
+        If (Isn't imdb_keywords:class-differences)
          Predict: 1.0
-      Else (Is imdb_keywords:brutality)
-       If (Is movielens_genre:War)
-        Predict: 0.0
-       Else (Isn't movielens_genre:War)
-        Predict: 1.0
-     Else (average_rating > 3.9130434782608696)
-      If (Is imdb_keywords:haircut)
-       Predict: 0.0
-      Else (Isn't imdb_keywords:haircut)
-       If (Is imdb_keywords:attempted-rape)
-        Predict: 0.0
-       Else (Isn't imdb_keywords:attempted-rape)
-        If (Is imdb_keywords:birthday-party)
+        Else (Is imdb_keywords:class-differences)
+         Predict: 12.0
+       Else (Is imdb_keywords:honor)
+        If (Isn't movielens_genre:Comedy)
+         Predict: 13.0
+        Else (Is movielens_genre:Comedy)
+         Predict: 3.0
+      Else (Is imdb_keywords:unrequited-love)
+       Predict: 10.0
+    Else (Is imdb_keywords:robbery)
+     If (Isn't imdb_keywords:actress)
+      If (Isn't imdb_keywords:class-differences)
+       If (Isn't imdb_keywords:gunfight)
+        If (Isn't imdb_keywords:subtitled-scene)
+         If (Isn't imdb_keywords:gunfire)
+          Predict: 4.0
+         Else (Is imdb_keywords:gunfire)
+          Predict: 3.0
+        Else (Is imdb_keywords:subtitled-scene)
          Predict: 0.0
-        Else (Isn't imdb_keywords:birthday-party)
-         Predict: 1.0
+       Else (Is imdb_keywords:gunfight)
+        If (Isn't imdb_keywords:shot-in-the-stomach)
+         Predict: 5.0
+        Else (Is imdb_keywords:shot-in-the-stomach)
+         If (year <= 2008.0)
+          Predict: 9.0
+         Else (year > 2008.0)
+          Predict: 4.0
+      Else (Is imdb_keywords:class-differences)
+       Predict: 12.0
+     Else (Is imdb_keywords:actress)
+      Predict: 1.0
 
 Done, making predictions
-Predictions: defaultdict(<type 'int'>, {0.0: 3835, 1.0: 171})
-Accuracy: 0.999251123315
-{'recall': 0.9883720930232558, 'precision': 0.9941520467836257}
-40 features used
-QIIs: [('imdb_keywords:gift', 0.0491762356465302), ('movielens_tags:netflix', 0.04418372441337993), ('tvtropes:alcoholic', 0.04068896655017474), ('imdb_keywords:cemetery', 0.027209186220668997), ('imdb_keywords:race-relations', 0.019720419370943584), ('imdb_keywords:baseball-bat', -0.019720419370943584), ('imdb_keywords:hit-by-a-car', 0.01872191712431353), ('imdb_keywords:anger', 0.00998502246630055), ('imdb_keywords:arrest', 0.004243634548177734), ('movielens_genre:Crime', 0.00199700449326011), ('imdb_keywords:haircut', 0.001747378931602596), ('imdb_keywords:betrayal', -0.001747378931602596), ('imdb_keywords:1960s', 0.001747378931602596), ('imdb_keywords:brutality', 0.001747378931602596), ('year', 0.0012481278082875687), ('imdb_keywords:birthday-party', -0.0012481278082875687), ('average_rating', 0.000998502246630055), ('imdb_keywords:robbery', -0.000998502246630055), ('imdb_keywords:bikini', 0.000998502246630055), ('movielens_genre:Musical', 0.0007488766849725411), ('imdb_keywords:unrequited-love', 0.0007488766849725411), ('imdb_keywords:fantasy-sequence', 0.0007488766849725411), ('movielens_tags:cinematography', -0.0007488766849725411), ('imdb_keywords:subtitled-scene', 0.0007488766849725411), ('imdb_keywords:police-chase', 0.0007488766849725411), ('imdb_keywords:attempted-rape', 0.0004992511233150275), ('movielens_tags:Betamax', 0.0004992511233150275), ('imdb_keywords:cowboy-hat', 0.0004992511233150275), ('imdb_keywords:male-nudity', 0.0004992511233150275), ('imdb_keywords:actress', -0.0004992511233150275), ('imdb_keywords:chase', -0.00024962556165751375), ('movielens_genre:Fantasy', -0.00024962556165751375), ('imdb_keywords:class-differences', -0.00024962556165751375), ('movielens_genre:War', -0.00024962556165751375), ('movielens_tags:based on a book', -0.00024962556165751375), ('movielens_tags:crime', 0.00024962556165751375), ('movielens_tags:nudity (full frontal)', -0.00024962556165751375), ('imdb_keywords:disguise', -0.00024962556165751375), ('imdb_keywords:drinking', -0.00024962556165751375), ('imdb_keywords:gunfight', 0.00024962556165751375)]
-Correctness scores: [(9, 0.2005347593582888), (0, 0.010695187165775404), (2, 0.010695187165775404), (5, 0.008021390374331552), (8, 0.008021390374331552), (6, 0.005347593582887702), (3, 0.002673796791443851), (4, 0.002673796791443851), (7, 0.002673796791443851), (1, 0.0)]
-All highers corrs: [0.6512968299711815, 0.4083129584352078, 0.49913644214162345, 0.8621291448516578, 0.7632575757575757, 0.8407960199004975, 1.0, 0.6253369272237197, 0.5507246376811594, 0.7755725190839693, 0.16459627329192544, 0.8611111111111112, 0.8265802269043759, 0.283363802559415, 0.2005347593582888]
-Their profiles: [4, 4, 5, 1, 2, 9, 1, 0, 1, 0, 5, 7, 2, 6, 9]
-8 profiles represented
-Average: 0.620849948551
-Results: {0: {'cluster': 9.0, 'corr': 0.7755725190839693}, 1: {'cluster': 6.0, 'corr': 1.0}, 2: {'cluster': 12.0, 'corr': 0.8265802269043759}, 4: {'cluster': 0.0, 'corr': 0.6512968299711815}, 5: {'cluster': 2.0, 'corr': 0.49913644214162345}, 6: {'cluster': 13.0, 'corr': 0.283363802559415}, 7: {'cluster': 11.0, 'corr': 0.8611111111111112}, 9: {'cluster': 5.0, 'corr': 0.8407960199004975}}
-Average corr: 0.717232118959
+Accuracy: 0.903145282077
+Summary Stats
+Precision = 0.903145282077
+Recall = 0.903145282077
+F1 Score = 0.903145282077
+28 features used
+15 clusters found
+Processing cluster 0.0
+QIIs: [('imdb_keywords:robbery', -0.12927756653992395), ('imdb_keywords:hit-by-a-car', 0.07604562737642585), ('imdb_keywords:prayer', -0.049429657794676805), ('imdb_keywords:actress', -0.034220532319391636), ('imdb_keywords:three-word-title', 0.015209125475285171), ('year', 0.0), ('movielens_genre:Comedy', 0.0), ('imdb_keywords:unrequited-love', 0.0), ('imdb_keywords:race-against-time', 0.0), ('imdb_keywords:class-differences', 0.0), ('imdb_keywords:honor', 0.0), ('imdb_keywords:rainstorm', 0.0), ('imdb_keywords:reference-to-god', 0.0), ('imdb_keywords:illness', 0.0), ('average_rating', 0.0), ('imdb_keywords:cowboy-hat', 0.0), ('imdb_keywords:scientist', 0.0), ('imdb_keywords:forest', 0.0), ('imdb_keywords:break-up', 0.0), ('imdb_keywords:gunfight', 0.0), ('imdb_keywords:topless-female-nudity', 0.0), ('movielens_tags:slow', 0.0), ('imdb_keywords:disguise', 0.0), ('imdb_keywords:subtitled-scene', 0.0), ('imdb_keywords:shot-in-the-stomach', 0.0), ('imdb_keywords:male-nudity', 0.0), ('imdb_keywords:gunfire', 0.0), ('imdb_keywords:duel', 0.0)]
+Correctness scores: [(2, 0.6296296296296297), (9, 0.3703703703703704), (6, 0.16666666666666669), (0, 0.0), (1, 0.0), (3, 0.0), (4, 0.0), (5, 0.0), (7, 0.0), (8, 0.0)]
+Processing cluster 1.0
+QIIs: [('imdb_keywords:scientist', 0.010830324909747292), ('imdb_keywords:hit-by-a-car', 0.0036101083032490976), ('year', 0.0), ('movielens_genre:Comedy', 0.0), ('imdb_keywords:unrequited-love', 0.0), ('imdb_keywords:race-against-time', 0.0), ('imdb_keywords:class-differences', 0.0), ('imdb_keywords:honor', 0.0), ('imdb_keywords:rainstorm', 0.0), ('imdb_keywords:reference-to-god', 0.0), ('imdb_keywords:illness', 0.0), ('average_rating', 0.0), ('imdb_keywords:cowboy-hat', 0.0), ('imdb_keywords:robbery', 0.0), ('imdb_keywords:forest', 0.0), ('imdb_keywords:break-up', 0.0), ('imdb_keywords:gunfight', 0.0), ('imdb_keywords:three-word-title', 0.0), ('imdb_keywords:topless-female-nudity', 0.0), ('movielens_tags:slow', 0.0), ('imdb_keywords:disguise', 0.0), ('imdb_keywords:subtitled-scene', 0.0), ('imdb_keywords:actress', 0.0), ('imdb_keywords:shot-in-the-stomach', 0.0), ('imdb_keywords:male-nudity', 0.0), ('imdb_keywords:gunfire', 0.0), ('imdb_keywords:duel', 0.0), ('imdb_keywords:prayer', 0.0)]
+Correctness scores: [(2, 0.7499999999999999), (9, 0.25), (0, 0.0), (1, 0.0), (3, 0.0), (4, 0.0), (5, 0.0), (6, 0.0), (7, 0.0), (8, 0.0)]
+Processing cluster 2.0
+QIIs: [('imdb_keywords:prayer', 0.33969465648854963), ('imdb_keywords:three-word-title', 0.2900763358778626), ('imdb_keywords:actress', 0.11450381679389313), ('imdb_keywords:hit-by-a-car', -0.04580152671755725), ('imdb_keywords:gunfire', 0.04580152671755725), ('imdb_keywords:scientist', 0.03816793893129771), ('imdb_keywords:duel', 0.03435114503816794), ('movielens_tags:slow', 0.030534351145038167), ('imdb_keywords:male-nudity', 0.030534351145038167), ('imdb_keywords:race-against-time', 0.022900763358778626), ('imdb_keywords:gunfight', -0.015267175572519083), ('imdb_keywords:shot-in-the-stomach', 0.007633587786259542), ('imdb_keywords:honor', -0.003816793893129771), ('year', 0.0), ('movielens_genre:Comedy', 0.0), ('imdb_keywords:unrequited-love', 0.0), ('imdb_keywords:class-differences', 0.0), ('imdb_keywords:rainstorm', 0.0), ('imdb_keywords:reference-to-god', 0.0), ('imdb_keywords:illness', 0.0), ('average_rating', 0.0), ('imdb_keywords:cowboy-hat', 0.0), ('imdb_keywords:robbery', 0.0), ('imdb_keywords:forest', 0.0), ('imdb_keywords:break-up', 0.0), ('imdb_keywords:topless-female-nudity', 0.0), ('imdb_keywords:disguise', 0.0), ('imdb_keywords:subtitled-scene', 0.0)]
+Correctness scores: [(6, 0.1878787878787879), (1, 0.07272727272727272), (9, 0.07272727272727272), (2, 0.06060606060606061), (0, 0.048484848484848485), (3, 0.024242424242424242), (4, 0.0), (5, 0.0), (7, 0.0), (8, 0.0)]
+Processing cluster 3.0
+QIIs: [('imdb_keywords:hit-by-a-car', 1.6065573770491803), ('imdb_keywords:three-word-title', -1.2459016393442623), ('imdb_keywords:robbery', 1.1721311475409837), ('imdb_keywords:scientist', 1.0491803278688525), ('imdb_keywords:shot-in-the-stomach', 0.45081967213114754), ('imdb_keywords:prayer', 0.3442622950819672), ('imdb_keywords:actress', 0.18032786885245902), ('imdb_keywords:gunfight', -0.14754098360655737), ('movielens_tags:slow', 0.14754098360655737), ('movielens_genre:Comedy', 0.08196721311475409), ('imdb_keywords:cowboy-hat', 0.07377049180327869), ('imdb_keywords:duel', 0.07377049180327869), ('year', -0.01639344262295082), ('imdb_keywords:unrequited-love', 0.0), ('imdb_keywords:race-against-time', 0.0), ('imdb_keywords:class-differences', 0.0), ('imdb_keywords:honor', 0.0), ('imdb_keywords:rainstorm', 0.0), ('imdb_keywords:reference-to-god', 0.0), ('imdb_keywords:illness', 0.0), ('average_rating', 0.0), ('imdb_keywords:forest', 0.0), ('imdb_keywords:break-up', 0.0), ('imdb_keywords:topless-female-nudity', 0.0), ('imdb_keywords:disguise', 0.0), ('imdb_keywords:subtitled-scene', 0.0), ('imdb_keywords:male-nudity', 0.0), ('imdb_keywords:gunfire', 0.0)]
+Correctness scores: [(2, 0.778735632183908), (9, 0.5632183908045977), (6, 0.06321839080459771), (3, 0.05172413793103448), (0, 0.02586206896551724), (1, 0.0), (4, 0.0), (5, 0.0), (7, 0.0), (8, 0.0)]
+Processing cluster 4.0
+QIIs: [('imdb_keywords:three-word-title', -0.11904761904761904), ('imdb_keywords:scientist', -0.08333333333333333), ('imdb_keywords:gunfight', -0.05952380952380952), ('imdb_keywords:prayer', 0.05952380952380952), ('imdb_keywords:robbery', 0.017857142857142856), ('year', 0.01488095238095238), ('imdb_keywords:subtitled-scene', 0.002976190476190476), ('imdb_keywords:actress', 0.002976190476190476), ('movielens_genre:Comedy', 0.0), ('imdb_keywords:unrequited-love', 0.0), ('imdb_keywords:hit-by-a-car', 0.0), ('imdb_keywords:race-against-time', 0.0), ('imdb_keywords:class-differences', 0.0), ('imdb_keywords:honor', 0.0), ('imdb_keywords:rainstorm', 0.0), ('imdb_keywords:reference-to-god', 0.0), ('imdb_keywords:illness', 0.0), ('average_rating', 0.0), ('imdb_keywords:cowboy-hat', 0.0), ('imdb_keywords:forest', 0.0), ('imdb_keywords:break-up', 0.0), ('imdb_keywords:topless-female-nudity', 0.0), ('movielens_tags:slow', 0.0), ('imdb_keywords:disguise', 0.0), ('imdb_keywords:shot-in-the-stomach', 0.0), ('imdb_keywords:male-nudity', 0.0), ('imdb_keywords:gunfire', 0.0), ('imdb_keywords:duel', 0.0)]
+Correctness scores: [(2, 0.5), (3, 0.2941176470588235), (5, 0.014705882352941176), (6, 0.014705882352941176), (0, 0.0), (1, 0.0), (4, 0.0), (7, 0.0), (8, 0.0), (9, 0.0)]
+Processing cluster 5.0
+QIIs: [('imdb_keywords:three-word-title', -0.5916666666666667), ('imdb_keywords:scientist', -0.49166666666666664), ('imdb_keywords:gunfight', 0.3), ('imdb_keywords:robbery', -0.2916666666666667), ('imdb_keywords:prayer', 0.2), ('imdb_keywords:hit-by-a-car', -0.15833333333333333), ('imdb_keywords:actress', -0.15), ('year', 0.0), ('movielens_genre:Comedy', 0.0), ('imdb_keywords:unrequited-love', 0.0), ('imdb_keywords:race-against-time', 0.0), ('imdb_keywords:class-differences', 0.0), ('imdb_keywords:honor', 0.0), ('imdb_keywords:rainstorm', 0.0), ('imdb_keywords:reference-to-god', 0.0), ('imdb_keywords:illness', 0.0), ('average_rating', 0.0), ('imdb_keywords:cowboy-hat', 0.0), ('imdb_keywords:forest', 0.0), ('imdb_keywords:break-up', 0.0), ('imdb_keywords:topless-female-nudity', 0.0), ('movielens_tags:slow', 0.0), ('imdb_keywords:disguise', 0.0), ('imdb_keywords:subtitled-scene', 0.0), ('imdb_keywords:shot-in-the-stomach', 0.0), ('imdb_keywords:male-nudity', 0.0), ('imdb_keywords:gunfire', 0.0), ('imdb_keywords:duel', 0.0)]
+Correctness scores: [(2, 0.7230769230769232), (3, 0.27692307692307694), (9, 0.14615384615384616), (6, 0.13846153846153847), (0, 0.0), (1, 0.0), (4, 0.0), (5, 0.0), (7, 0.0), (8, 0.0)]
+Processing cluster 6.0
+QIIs: [('imdb_keywords:forest', 0.5433962264150943), ('imdb_keywords:rainstorm', 0.1610062893081761), ('imdb_keywords:honor', 0.11069182389937107), ('imdb_keywords:cowboy-hat', 0.11069182389937107), ('imdb_keywords:disguise', 0.10062893081761007), ('imdb_keywords:break-up', -0.050314465408805034), ('year', 0.0), ('movielens_genre:Comedy', 0.0), ('imdb_keywords:unrequited-love', 0.0), ('imdb_keywords:hit-by-a-car', 0.0), ('imdb_keywords:race-against-time', 0.0), ('imdb_keywords:class-differences', 0.0), ('imdb_keywords:reference-to-god', 0.0), ('imdb_keywords:illness', 0.0), ('average_rating', 0.0), ('imdb_keywords:robbery', 0.0), ('imdb_keywords:scientist', 0.0), ('imdb_keywords:gunfight', 0.0), ('imdb_keywords:three-word-title', 0.0), ('imdb_keywords:topless-female-nudity', 0.0), ('movielens_tags:slow', 0.0), ('imdb_keywords:subtitled-scene', 0.0), ('imdb_keywords:actress', 0.0), ('imdb_keywords:shot-in-the-stomach', 0.0), ('imdb_keywords:male-nudity', 0.0), ('imdb_keywords:gunfire', 0.0), ('imdb_keywords:duel', 0.0), ('imdb_keywords:prayer', 0.0)]
+Correctness scores: [(3, 0.22857142857142856), (0, 0.15714285714285717), (6, 0.15714285714285717), (7, 0.14285714285714288), (1, 0.0), (2, 0.0), (4, 0.0), (5, 0.0), (8, 0.0), (9, 0.0)]
+Processing cluster 7.0

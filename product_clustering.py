@@ -15,6 +15,7 @@ import shadow_model_qii
 import parsers_and_loaders
 import common_utils
 import explanation_correctness
+import parsers_and_loaders
 
 #pyspark libraryb
 from pyspark import SparkConf, SparkContext
@@ -22,12 +23,39 @@ import pyspark
 import pyspark.mllib.tree
 from pyspark.mllib.classification import LabeledPoint
 from pyspark.mllib.evaluation import MulticlassMetrics
-from pyspark.mllib.clustering import KMeans
+from pyspark.mllib.clustering import KMeans, GaussianMixture
+
+def dist(x, y):
+    return sum(map(lambda (x,y): (x-y)**2, zip(x, y)))**0.5
+
+def load_movies(sc, args, product_features=None):
+    if args.movies_file is not None:
+        if ".csv" in args.movies_file:
+            msep = "," 
+            movies_remove_first_line = True
+        else:
+            msep = "::"
+            movies_remove_first_line = False
+        movies_rdd = sc.parallelize(
+            parsers_and_loaders.loadCSV(
+                args.movies_file,
+                remove_first_line=movies_remove_first_line
+            )
+            ).cache()
+        movies_dict = dict(movies_rdd.map(lambda x: parsers_and_loaders.parseMovie(x,\
+            sep=msep)).collect())
+    else:
+        movies = product_features.keys().collect()
+        movies_dict = {x: str(x) for x in movies}
+    return movies_dict
+
 
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--persist-dir", action="store", type=str, help=\
                         "Path from which to loaad models and features to analyze")
+    parser.add_argument("--movies-file", action="store", type=str, help=\
+                        "CSV file with movie names")
     parser.add_argument("--n-clusters", action="store", type=int, default=10,
             help="Number of clusters to create")
     parser.add_argument("--max-depth", action="store", type=int, default=8,
@@ -37,6 +65,10 @@ def main():
     parser.add_argument("--user-profiles", action="store", type=str,
                         help="Path to the file with user profiles of a "+\
                         "synthetic data set (if applicable).")
+    parser.add_argument("--cluster-model", action="store", type=str,
+            default="kmeans", choices=["kmeans", "gmm"])
+    parser.add_argument("--cluster-sample-size", action="store", type=int,
+            default=10, help="Number of movies to display in each cluster")
     args = parser.parse_args()
     conf = SparkConf().setMaster("local[*]")
     sc = SparkContext(conf=conf)
@@ -63,16 +95,40 @@ def main():
     product_features = model.productFeatures().filter(lambda (mid, _): mid in
             products_set).sortByKey().cache()
 
+    print "Loading movies"
+    movies_dict = load_movies(sc, args, product_features)
+    print "Done,", len(movies_dict), "movies loaded"
+
     data_set = product_features.values()
 
-    print "Training K-means"
-    kmeans_model = KMeans.train(data_set, args.n_clusters, maxIterations=100,
+    print "Training", args.cluster_model
+    if args.cluster_model == "kmeans":
+        kmeans_model = KMeans.train(data_set, args.n_clusters, maxIterations=100,
             initializationMode="random")
+        centroids = list(enumerate(map(list, kmeans_model.clusterCenters)))
+    elif args.cluster_model == "gmm":
+        kmeans_model = GaussianMixture.train(data_set, args.n_clusters)
+        centroids = [(i, list(g.mu)) for (i, g) in
+                enumerate(kmeans_model.gaussians)]
 
     print "Done"
+    print "Centroids:", centroids
     print "Labeling clusters"
     clusters = kmeans_model.predict(data_set).map(float)
     features_and_labels = common_utils.safe_zip(product_features, clusters)
+    for cluster in xrange(args.n_clusters):
+        print "Cluster {}:".format(cluster)
+        filter_f = functools.partial(lambda cluster, ((mid, ftrs), cls): cls == cluster,
+                cluster)
+        cur_mvs = features_and_labels.filter(filter_f)
+        centroid = centroids[cluster][1]
+        key_f = functools.partial(lambda centroid, ((mid, ftrs), cls):
+            dist(ftrs, centroid), centroid)
+        sample = cur_mvs.takeOrdered(args.cluster_sample_size, key=key_f)
+        for (i, ((mid, ftrs), cls)) in enumerate(sample):
+            print "\t{}: (dist: {}) {} (mid: {})".format(i, dist(ftrs, centroid),
+                        movies_dict[mid], mid)
+
 
     latent_training_data = features_and_labels.map(\
             lambda ((mid, ftrs), cls):\
