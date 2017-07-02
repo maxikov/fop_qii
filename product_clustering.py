@@ -312,11 +312,9 @@ def main():
         print len(used_features), "features used"
         for (cluster, cls_var, text_sample) in cluster_data:
             print "Cluster {} (variance: {}):".format(cluster, cls_var)
-            filter_f = functools.partial(lambda cluster, ((mid, inds), cls):
-                                cls == cluster, cluster)
-            features = meta_data_set.filter(filter_f).keys()
+            features = meta_data_set.keys()
             qiis = tree_qii.get_tree_qii(meta_tree, features, used_features,
-                    classifier=True)
+                    classifier=True, class_of_interest=cluster)
             qiis_list = sorted(qiis.items(), key=lambda (f, q): -abs(q))
             qiis_list_names = [(results["feature_names"][f], q) for (f, q) in
                     qiis_list if q != 0]
@@ -335,11 +333,9 @@ def main():
         ress = {}
         for cluster in all_clusters:
             print "Processing cluster", cluster
-            filter_f = functools.partial(lambda cluster, ((mid, inds), cls):
-                                cls == cluster, cluster)
-            features = meta_data_set.filter(filter_f).keys()
+            features = meta_data_set.keys()
             qiis = tree_qii.get_tree_qii(meta_tree, features, used_features,
-                    classifier=True)
+                    classifier=True, class_of_interest=cluster)
             qiis_list = sorted(qiis.items(), key=lambda (f, q): -abs(q))
             qiis_list_names = [(results["feature_names"][f], q) for (f, q) in
                     qiis_list if q != 0]

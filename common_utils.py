@@ -75,7 +75,8 @@ def save_if_needed(persist_dir, fname, objects, store, logger):
 def compute_regression_qii(lr_model, input_features, target_variable,
                            logger, original_predictions=None, rank=None,
                            features_to_test=None,
-                           classifier=False):
+                           classifier=False,
+                           class_of_interest=None):
     if logger is not None:
         logger.debug("Measuring model QII")
     if original_predictions is None:
@@ -101,11 +102,32 @@ def compute_regression_qii(lr_model, input_features, target_variable,
         new_predictions = lr_model.predict(perturbed_features)
         predobs = safe_zip(new_predictions, original_predictions)
         if classifier:
-            cur_qii = predobs.map(lambda (pred, obs):
+            if class_of_interest is None:
+                cur_qii = predobs.map(lambda (pred, obs):
                     0.0 if pred==obs else 1.0).\
                             reduce(lambda a,b:a+b)\
                             /float(predobs.count())
-            signed_cur_qii = cur_qii
+                signed_cur_qii = cur_qii
+            else:
+                map_f = functools.partial(lambda class_of_interest,\
+                        (pred, obs):\
+                        1.0 if (pred != class_of_interest and\
+                                obs == class_of_interest)\
+                        else (-1.0 if (pred == class_of_interest and\
+                                  obs != class_of_interest)\
+                              else 0.0),\
+                        class_of_interest
+                errs = predobs.map(map_f)
+                abs_errs = errs.map(abs)
+                cur_qii = abs_errs.reduce(lambda a, b: a+b)\
+                        /float(abs_errs.count())
+                signed_err = errs.reudct(lambda a, b: a+b)\
+                        /float(errs.count())
+                if signed_error == 0:
+                    sign = 1
+                else:
+                    sign = signed_error/abs(signed_error)
+                signed_cur_qii = cur_qii * sign
         else:
             cur_qii = mean_error(predobs, 1.0, abs)
             signed_error = mean_error(predobs, 1.0, float)
