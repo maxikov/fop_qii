@@ -5,97 +5,64 @@ Loading movies
 Done, 27278 movies loaded
 Training kmeans
 Done
-Centroids: [(0, [0.085006066080990178, 0.61637967196027588, -0.7935598339644675, 0.09297467869159344, 0.12946563025209662, -0.26080105746095866, -0.78792479928908687, 0.040414658913449933, 0.82956720888614655, -0.70071611510936749, 0.63331598360728858, 1.0207574966969146]), (1, [0.27792273054512162, -0.48258277054351589, -0.66545552663531982, 0.30140037265091812, -0.066090811815596978, -0.32894629623324001, -0.59148457603334093, -0.29338456266341117, 0.89468176334773597, -0.56361281266267871, -0.73003376525446828, 1.187690293530695]), (2, [-0.42163657613155492, 0.04299264411728132, -0.0043961211171655249, 0.19550001880736978, 0.24982520173666359, -0.71922568851754864, -0.4311422885089885, -0.15148236716160807, 0.28069542185403407, -0.65512164079278479, 0.51672031309540944, 1.4326604927769144]), (3, [-0.22144106639640743, -0.046408681661753201, -1.0059735457428167, 0.0016614954928642323, 0.80945641315374217, -1.3086171477544504, 0.22692420167541208, 0.035013761149994174, 1.0166106553839855, -0.66749805334161538, 0.38453074056105535, 0.80647986883022749]), (4, [-0.35568129779061392, -0.30572253325538307, -0.55010249405833223, 0.59902698542213151, 0.79207786403241609, -0.27590756167808733, -0.62509124007608208, -0.54603742954454249, 0.98920641413756771, -0.44302916832800421, 0.030905790330247585, 0.62104743271179141]), (5, [-0.47368742519368728, -0.13826435946005708, -0.55875552427023645, 0.40105422573784988, 0.76835481673479078, -0.32579223488767939, -0.6204123258590698, -0.3239819238350416, 0.80785364434123041, -0.51388522364820044, 0.27678322731323229, 1.2351362019777299]), (6, [-0.067160846620001685, -0.034794572208431088, -0.27273383717866811, -0.0042288878167292638, 0.18477534480691657, -0.29723899669635162, -0.21727089529414806, -0.11733233914860676, 0.49508041096558358, -0.2723235138756393, 0.1053641896728853, 0.50563070500421825]), (7, [-0.31032098239908612, 0.18627694784663618, 0.29674578333894408, 0.33421687036752701, -0.055481685170282916, -1.1054032345612843, -0.546458400785923, -0.45226300383607543, 0.055135876871645451, -0.71689252307017637, 0.46670345341165859, 1.1644294261932373]), (8, [-0.42056236096714172, -0.2052545577900951, -0.39089288487386287, -0.036447939076264632, 0.5513251199674194, 0.024078946304390132, -0.051504567481231167, 0.2280072991008889, 0.61926770639694384, -0.63959353981856304, 0.46010347163728743, 1.2889352720821281]), (9, [-0.62272930145263672, -0.3328980172673861, -0.63541404803593948, 0.37860163201888403, 1.0419097205003103, 0.13459277227520944, -0.30947977453470232, -0.48494968762000401, 0.79126359621683751, -0.56322502195835111, 0.17869891175068914, 0.8627985695997874]), (10, [-0.15212346154128006, -0.52830192089307726, -0.52007281563249486, -0.63206146207406433, -0.080233075100512516, -0.88419670936873718, -1.0831779547149154, -0.17744494809622538, 0.69759582922921559, -0.56832365226473291, 0.040665547755549231, 0.8999683545325613]), (11, [-0.18199261082595006, -0.22608093995788495, -0.39341757927710808, 0.24319644300784501, 0.43516350831163836, -0.52479048657793703, -0.65221420965260923, 0.26363525500831503, 0.99268530226416052, -0.34070243412861601, 0.27352154589284006, 1.3379058399134212]), (12, [-0.0030169409736117815, -0.10883996620541439, -0.10564916323184864, -0.46974139166995887, 0.16770462029251373, -0.67057358688778346, -0.21874355861865399, -0.8347254095806016, 1.6655226760440403, -0.41856507865919007, 0.09812046825989254, 0.97126960224575465]), (13, [0.1481085361232736, -0.27457495451610731, -0.18597536004687609, 0.48325698454564775, 0.13090750487379685, -0.7959954756916614, -0.78309191785186349, 0.21974739663531642, 1.0821625009963387, -0.19819045832042978, 0.041083870813208329, 0.69952120000158835]), (14, [-0.30962648425962547, 0.071659917778540472, -0.46243528018684449, -0.10837503536875605, 0.4890823134712417, -0.1010807120052097, -0.45441837153937381, 0.12079740152016138, 0.3646650282503332, 0.12299647814810652, 0.1889116641640374, 1.2288919693057978])]
+Centroids: [array([-0.36139909,  0.06625926, -0.55550655, -0.10448825,  0.58637465,
+       -0.16191049, -0.57481061,  0.15506568,  0.49511679,  0.13280655,
+        0.22786175,  1.49151507]), array([-0.39418402, -0.29691561, -0.57439298,  0.54492337,  0.82295083,
+       -0.22440649, -0.59247407, -0.5005708 ,  0.95943208, -0.44237367,
+        0.06431223,  0.71851755]), array([-0.31969924, -0.1634654 , -0.2928501 ,  0.397291  ,  0.47590439,
+       -0.63621889, -0.64499017, -0.08575314,  0.83169554, -0.58155077,
+        0.34800232,  1.2980087 ]), array([-0.22144107, -0.04640868, -1.00597355,  0.0016615 ,  0.80945641,
+       -1.30861715,  0.2269242 ,  0.03501376,  1.01661066, -0.66749805,
+        0.38453074,  0.80647987]), array([ 0.19288976, -0.29214763, -0.13348078,  0.51873634,  0.09397842,
+       -0.82439199, -0.7781879 ,  0.26951319,  1.1068002 , -0.16405218,
+        0.0272013 ,  0.62377725]), array([ 0.07576142,  0.61635059, -0.80127173,  0.10241596,  0.14206927,
+       -0.26406668, -0.79708385,  0.03581438,  0.83368235, -0.70638042,
+        0.63798405,  1.03932652]), array([-0.10520302, -0.07303479, -0.25197659, -0.0133001 ,  0.22468217,
+       -0.2845844 , -0.19491836, -0.10124465,  0.45368326, -0.202581  ,
+        0.07634379,  0.54378324]), array([-0.42056236, -0.20525456, -0.39089288, -0.03644794,  0.55132512,
+        0.02407895, -0.05150457,  0.2280073 ,  0.61926771, -0.63959354,
+        0.46010347,  1.28893527]), array([ 0.05293534,  0.26711107, -0.41992842, -0.00172703,  0.05818782,
+       -0.1768784 , -0.42253184, -0.04325047,  0.50918392, -0.37673709,
+        0.2863966 ,  0.51114872]), array([ 0.13381522, -0.27026536, -0.20411388,  0.47140585,  0.14404162,
+       -0.78417435, -0.7832634 ,  0.20656469,  1.07632527, -0.20888848,
+        0.04557972,  0.723995  ]), array([-0.00301694, -0.10883997, -0.10564916, -0.46974139,  0.16770462,
+       -0.67057359, -0.21874356, -0.83472541,  1.66552268, -0.41856508,
+        0.09812047,  0.9712696 ]), array([-0.43546631,  0.06381532,  0.01015998,  0.18019683,  0.24056515,
+       -0.71314922, -0.40610434, -0.1776759 ,  0.23101353, -0.66835306,
+        0.52682477,  1.43210494]), array([ 0.3228364 , -0.51339676, -0.66204788,  0.27707491, -0.12810598,
+       -0.29066238, -0.54698378, -0.31280274,  0.85834039, -0.56801576,
+       -0.81998797,  1.15030791]), array([-0.17167962, -0.52469277, -0.50746568, -0.66681331, -0.0752192 ,
+       -0.89606081, -1.09185656, -0.16462817,  0.67917667, -0.55265056,
+        0.07508227,  0.87435806]), array([ 0.15395039, -0.43041256, -0.67247922,  0.26169221,  0.04555531,
+       -0.47485298, -0.74513043, -0.25957202,  0.96855849, -0.5876366 ,
+       -0.48388386,  1.26572892])]
 Labeling clusters
-Cluster 0:
-	0: (dist: 0.129305618269) American Hustle (2013) (mid: 106916)
-	1: (dist: 0.161047513947) Finding Vivian Maier (2013) (mid: 112399)
-	2: (dist: 0.165436009422) Red Tails (2012) (mid: 92234)
-	3: (dist: 0.168057240158) Undocumented (2010) (mid: 105815)
-	4: (dist: 0.169673451959) Much Ado About Something (2001) (mid: 64427)
-	5: (dist: 0.171298152062) They Call Me Bruce? (a.k.a. A Fistful of Chopsticks) (1982) (mid: 6141)
-	6: (dist: 0.172155661153) Everly (2014) (mid: 126575)
-	7: (dist: 0.179526316889) Hardware (1990) (mid: 34292)
-	8: (dist: 0.179920087388) Strictly Ballroom (1992) (mid: 1188)
-	9: (dist: 0.180484805213) Goal! The Dream Begins (Goal!) (2005) (mid: 38388)
-Cluster 1:
-	0: (dist: 0.104934121379) Sisterhood of the Traveling Pants 2, The (2008) (mid: 61071)
-	1: (dist: 0.106994851031) Fame (1980) (mid: 4936)
-	2: (dist: 0.112846298018) Little Lili (La petite Lili) (2003) (mid: 78909)
-	3: (dist: 0.113057310659) My Brilliant Career (1979) (mid: 34051)
-	4: (dist: 0.114014057272) Inside Daisy Clover (1965) (mid: 43039)
-	5: (dist: 0.114934324125) Stage Fright (1950) (mid: 2187)
-	6: (dist: 0.115424094153) Nine (2009) (mid: 73000)
-	7: (dist: 0.115948005643) Audition (Ôdishon) (1999) (mid: 27317)
-	8: (dist: 0.116761152907) Head in the Clouds (2004) (mid: 8868)
-	9: (dist: 0.117077910701) London Boulevard (2010) (mid: 82093)
-Cluster 2:
-	0: (dist: 0.15670808415) North by Northwest (1959) (mid: 908)
-	1: (dist: 0.159725579471) Girl with the Dragon Tattoo, The (2011) (mid: 91658)
-	2: (dist: 0.162608774011) Sleuth (2007) (mid: 55278)
-	3: (dist: 0.163121781888) Witness (1985) (mid: 1674)
-	4: (dist: 0.16524544455) 10 to Midnight (1983) (mid: 6168)
-	5: (dist: 0.168215579217) Babar The Movie (1989) (mid: 126749)
-	6: (dist: 0.17371888011) Adventures of Ichabod and Mr. Toad, The (1949) (mid: 3964)
-	7: (dist: 0.176077053439) Body Double (1984) (mid: 7616)
-	8: (dist: 0.18018784149) Babes in Toyland (1961) (mid: 2017)
-	9: (dist: 0.180262140729) Play Dirty (1969) (mid: 79388)
-Cluster 3:
-	0: (dist: 0.131553590855) Port of Shadows (Quai des brumes) (1938) (mid: 8786)
-	1: (dist: 0.149001701908) O Brother, Where Art Thou? (2000) (mid: 4027)
-	2: (dist: 0.149598276595) Others, The (2001) (mid: 4720)
-	3: (dist: 0.152160518596) Harrison's Flowers (2000) (mid: 5221)
-	4: (dist: 0.152655591475) South Park: Bigger, Longer and Uncut (1999) (mid: 2700)
-	5: (dist: 0.152993914514) Sniper, The (1952) (mid: 78186)
-	6: (dist: 0.156371965037) Suspect Zero (2004) (mid: 8831)
-	7: (dist: 0.157527594577) Murder by Contract (1958) (mid: 72327)
-	8: (dist: 0.158463760407) Orlando (1992) (mid: 506)
-	9: (dist: 0.159372665486) Wake of the Red Witch (1948) (mid: 6276)
-Cluster 4:
-	0: (dist: 0.0892794915475) Glengarry Glen Ross (1992) (mid: 1095)
-	1: (dist: 0.0997708595942) Miami Blues (1990) (mid: 5968)
-	2: (dist: 0.114454149206) Money (L'argent) (1983) (mid: 44653)
-	3: (dist: 0.115295780765) Dream Catcher, The (1999) (mid: 90254)
-	4: (dist: 0.11674387274) George Washington (2000) (mid: 5258)
-	5: (dist: 0.118434866039) Read My Lips (Sur mes lèvres) (2001) (mid: 5516)
-	6: (dist: 0.119563716891) Lakeboat (2000) (mid: 4253)
-	7: (dist: 0.121092064784) Dead Bang (1989) (mid: 4582)
-	8: (dist: 0.122152823226) Ballad of Cable Hogue, The (1970) (mid: 7897)
-	9: (dist: 0.122847232828) Batman Beyond: Return of the Joker (2000) (mid: 27311)
-Cluster 5:
-	0: (dist: 0.347001274162) Kelly's Heroes (1970) (mid: 3836)
-	1: (dist: 0.353809552314) Takers (2010) (mid: 87785)
-	2: (dist: 0.363658686938) Taxi Driver (1976) (mid: 111)
-	3: (dist: 0.379785228407) Sweeney, The (2012) (mid: 99633)
-	4: (dist: 0.382474019745) Extreme Justice (1993) (mid: 74302)
-	5: (dist: 0.382627543612) Oxygen (1999) (mid: 3056)
-	6: (dist: 0.386421266071) St. Ives (1976) (mid: 59850)
-	7: (dist: 0.388836894483) Man Who Shot Liberty Valance, The (1962) (mid: 4406)
-	8: (dist: 0.392057628508) Hidden, The (1987) (mid: 3576)
-	9: (dist: 0.392586271505) Rolling Thunder (1977) (mid: 7923)
-Cluster 6:
-	0: (dist: 0.420459254866) Blood Simple (1984) (mid: 3683)
-	1: (dist: 0.433565020882) War of the Worlds, The (1953) (mid: 2662)
-	2: (dist: 0.435076790825) Beautiful Mind, A (2001) (mid: 4995)
-	3: (dist: 0.438893374602) Spontaneous Combustion (1990) (mid: 118344)
-	4: (dist: 0.440396193881) Epic (2013) (mid: 102720)
-	5: (dist: 0.44234620513) Left Behind: The Movie (2000) (mid: 4142)
-	6: (dist: 0.446390225884) Batman (1989) (mid: 592)
-	7: (dist: 0.446737905078) Notorious (1946) (mid: 930)
-	8: (dist: 0.44842356123) Congo (1995) (mid: 160)
-	9: (dist: 0.449868918523) 2001: A Space Odyssey (1968) (mid: 924)
-Cluster 7:
-	0: (dist: 0.249940657368) Absolute Power (1997) (mid: 1459)
-	1: (dist: 0.291979943436) Solomon Kane (2009) (mid: 77540)
-	2: (dist: 0.306719541095) I Was a Male War Bride (1949) (mid: 7212)
-	3: (dist: 0.334019083976) Shanghai Knights (2003) (mid: 6156)
-	4: (dist: 0.344277722599) I, the Worst of All (Yo, la peor de todas) (1990) (mid: 789)
-	5: (dist: 0.374212372116) Ran (1985) (mid: 1217)
-	6: (dist: 0.388649224428) Osama (2003) (mid: 7177)
-	7: (dist: 0.401497375531) Catch Me If You Can (2002) (mid: 5989)
-	8: (dist: 0.405097061229) Army of Shadows (L'armée des ombres) (1969) (mid: 46855)
-	9: (dist: 0.428354414712) Dangerous Moves (La diagonale du fou) (1984) (mid: 26507)
-Cluster 8:
+Centroid mean: [-0.10003087 -0.12741986 -0.43785796  0.09752533  0.27729804 -0.51243126
+ -0.50811062 -0.10334962  0.82029397 -0.44347131  0.13029811  0.98261711]
+Centroid variance: 1.12054950958
+Cluster 9 (variance: 0.0348484508835):
+	0: (dist: 0.0297678116274) Some Girls (1988) (mid: 4668)
+	1: (dist: 0.0299656422792) Fright Night (1985) (mid: 2867)
+	2: (dist: 0.0310134965525) Man Who Would Be King, The (1975) (mid: 1303)
+	3: (dist: 0.0316527013226) House with Laughing Windows, The (Casa dalle finestre che ridono, La) (1976) (mid: 6256)
+	4: (dist: 0.0316527013226) Diary of a Nymphomaniac (Diario de una Ninfómana) (2008) (mid: 77810)
+	5: (dist: 0.0316527013226) House of Sand and Fog (2003) (mid: 7158)
+	6: (dist: 0.0316527013226) Birth (2004) (mid: 8959)
+	7: (dist: 0.0316527013226) Naked Lunch (1991) (mid: 7123)
+	8: (dist: 0.0316527013226) Sex and Lucia (Lucía y el sexo) (2001) (mid: 5477)
+	9: (dist: 0.0316527013226) About Schmidt (2002) (mid: 5945)
+Cluster 4 (variance: 0.0574316328454):
+	0: (dist: 0.0939825597818) Only Lovers Left Alive (2013) (mid: 107771)
+	1: (dist: 0.0941437790767) Cronos (1993) (mid: 565)
+	2: (dist: 0.0998845070198) Reader, The (2008) (mid: 64622)
+	3: (dist: 0.100450192714) Stonewall (1995) (mid: 831)
+	4: (dist: 0.10123825244) Keep the River on Your Right: A Modern Cannibal Tale (2000) (mid: 4236)
+	5: (dist: 0.101316532575) Come Undone (Presque Rien) (2000) (mid: 5024)
+	6: (dist: 0.102718936725) Wedding Crashers (2005) (mid: 34162)
+	7: (dist: 0.104181617291) Like Water for Chocolate (Como agua para chocolate) (1992) (mid: 265)
+	8: (dist: 0.104849816857) Trouble Every Day (2001) (mid: 5153)
+	9: (dist: 0.104899133234) Counterfeiters, The (Die Fälscher) (2007) (mid: 58303)
+Cluster 7 (variance: 0.0720416128082):
 	0: (dist: 0.0452113191308) Negotiator, The (1998) (mid: 2058)
 	1: (dist: 0.0509644990757) Battle for the Planet of the Apes (1973) (mid: 2531)
 	2: (dist: 0.0526795273627) Brick Mansions (2014) (mid: 110826)
@@ -106,40 +73,84 @@ Cluster 8:
 	7: (dist: 0.0549846763638) End of Days (1999) (mid: 3113)
 	8: (dist: 0.0552264579654) Octagon, The (1980) (mid: 5212)
 	9: (dist: 0.055960028798) Matrix, The (1999) (mid: 2571)
-Cluster 9:
-	0: (dist: 0.355189141795) Wild Bunch, The (1969) (mid: 599)
-	1: (dist: 0.388120613103) Cowboys & Aliens (2011) (mid: 83613)
-	2: (dist: 0.394280079562) Hannie Caulder (1971) (mid: 82676)
-	3: (dist: 0.405556617229) Love Me Tender (1956) (mid: 5550)
-	4: (dist: 0.409075137649) Good, the Bad and the Ugly, The (Buono, il brutto, il cattivo, Il) (1966) (mid: 1201)
-	5: (dist: 0.415939207114) Getaway, The (1972) (mid: 8016)
-	6: (dist: 0.417076673419) Flame of Barbary Coast (1945) (mid: 81643)
-	7: (dist: 0.443143549218) Winchester '73 (1950) (mid: 6429)
-	8: (dist: 0.454577630699) Coogan's Bluff (1968) (mid: 3427)
-	9: (dist: 0.459866327854) Exterminator, The (1980) (mid: 4934)
-Cluster 10:
-	0: (dist: 0.126796994945) Turn Me On, Dammit! (Få meg på, for faen) (2011) (mid: 92152)
-	1: (dist: 0.160423919142) Ghajini (2008) (mid: 83424)
-	2: (dist: 0.170995207196) Story of Three Loves, The (1953) (mid: 82235)
-	3: (dist: 0.172061412003) Tea and Sympathy (1956) (mid: 53916)
-	4: (dist: 0.174806996441) Spider-Man (2002) (mid: 5349)
-	5: (dist: 0.175685525726) Another Year (2010) (mid: 82463)
-	6: (dist: 0.176332951614) Footlight Parade (1933) (mid: 45335)
-	7: (dist: 0.176348577264) Edward Scissorhands (1990) (mid: 2291)
-	8: (dist: 0.176601865076) Holiday, The (2006) (mid: 49286)
-	9: (dist: 0.17680343489) Beauty and the Beast (1991) (mid: 595)
-Cluster 11:
-	0: (dist: 0.228822699034) Lethal Weapon 2 (1989) (mid: 2001)
-	1: (dist: 0.23715833617) Corruptor, The (1999) (mid: 2540)
-	2: (dist: 0.244137224178) Beyond the Law (1993) (mid: 56294)
-	3: (dist: 0.25485789036) Bird on a Wire (1990) (mid: 3705)
-	4: (dist: 0.272989822439) For Your Eyes Only (1981) (mid: 2989)
-	5: (dist: 0.27602949593) American Psycho (2000) (mid: 3535)
-	6: (dist: 0.280195321702) Men of War (1994) (mid: 69821)
-	7: (dist: 0.280756253514) Logan's Run (1976) (mid: 2528)
-	8: (dist: 0.281425037627) Murder at 1600 (1997) (mid: 1422)
-	9: (dist: 0.283730417044) Zero Dark Thirty (2012) (mid: 98961)
-Cluster 12:
+Cluster 8 (variance: 0.109098717634):
+	0: (dist: 0.124622515488) Cloverfield (2008) (mid: 57368)
+	1: (dist: 0.127914760595) Raiders of the Lost Ark (Indiana Jones and the Raiders of the Lost Ark) (1981) (mid: 1198)
+	2: (dist: 0.148933412523) Megan Is Missing (2011) (mid: 87909)
+	3: (dist: 0.152067212215) Poseidon Adventure, The (1972) (mid: 2013)
+	4: (dist: 0.155063679414) Mean Streets (1973) (mid: 8042)
+	5: (dist: 0.156004341297) Married to the Mob (1988) (mid: 2247)
+	6: (dist: 0.156613783103) Dead Snow (Død snø) (2009) (mid: 69275)
+	7: (dist: 0.159215001948) Jurassic Park (1993) (mid: 480)
+	8: (dist: 0.159432598248) Queen of the Damned (2002) (mid: 5128)
+	9: (dist: 0.160066234184) Pacific Rim (2013) (mid: 103228)
+Cluster 12 (variance: 0.114236294588):
+	0: (dist: 0.0310023563114) My Girl 2 (1994) (mid: 5969)
+	1: (dist: 0.0311033409743) How to Kill Your Neighbor's Dog (2000) (mid: 5131)
+	2: (dist: 0.0315292176997) Dream for an Insomniac (1996) (mid: 1902)
+	3: (dist: 0.0320608792332) Mumford (1999) (mid: 2883)
+	4: (dist: 0.0320880762634) Call Me Madam (1953) (mid: 79667)
+	5: (dist: 0.0331848548645) It's Always Fair Weather (1955) (mid: 26001)
+	6: (dist: 0.0336423622231) Apartment, The (Appartement, L') (1996) (mid: 6789)
+	7: (dist: 0.033822532483) Looking for Palladin (2008) (mid: 103135)
+	8: (dist: 0.0340284167456) Producers, The (2005) (mid: 42002)
+	9: (dist: 0.0340477183955) Star Is Born, A (1954) (mid: 25996)
+Cluster 11 (variance: 0.207331294095):
+	0: (dist: 0.12724770353) Witness (1985) (mid: 1674)
+	1: (dist: 0.129009765817) Girl with the Dragon Tattoo, The (2011) (mid: 91658)
+	2: (dist: 0.130134475152) Sleuth (2007) (mid: 55278)
+	3: (dist: 0.13397114472) North by Northwest (1959) (mid: 908)
+	4: (dist: 0.13623952674) Babar The Movie (1989) (mid: 126749)
+	5: (dist: 0.14115962867) Adventures of Ichabod and Mr. Toad, The (1949) (mid: 3964)
+	6: (dist: 0.147469003837) Body Double (1984) (mid: 7616)
+	7: (dist: 0.151184720935) Firefox (1982) (mid: 6078)
+	8: (dist: 0.153334340661) Ewoks: The Battle for Endor (1985) (mid: 26542)
+	9: (dist: 0.153684076054) Play Dirty (1969) (mid: 79388)
+Cluster 0 (variance: 0.232290469997):
+	0: (dist: 0.125731518153) Walking Tall (1973) (mid: 26309)
+	1: (dist: 0.134677346585) In the Cut (2003) (mid: 6885)
+	2: (dist: 0.13602890643) Resurrection, A (2013) (mid: 111142)
+	3: (dist: 0.13602890643) Mechanic, The (2011) (mid: 85020)
+	4: (dist: 0.13602890643) Texas Chainsaw 3D (2013) (mid: 99721)
+	5: (dist: 0.136670121294) Big Nothing (2006) (mid: 52606)
+	6: (dist: 0.140377944912) Death Race 2 (2010) (mid: 88699)
+	7: (dist: 0.143332049379) Curious Case of Benjamin Button, The (2008) (mid: 64957)
+	8: (dist: 0.154853535805) Hot Rod (2007) (mid: 54256)
+	9: (dist: 0.159374040113) Coffy (1973) (mid: 4064)
+Cluster 1 (variance: 0.252934592152):
+	0: (dist: 0.122488420247) Felicia's Journey (1999) (mid: 3055)
+	1: (dist: 0.125055376996) Better Luck Tomorrow (2002) (mid: 6288)
+	2: (dist: 0.127361284928) Pierrot le fou (1965) (mid: 7748)
+	3: (dist: 0.128708399762) Safety Not Guaranteed (2012) (mid: 95088)
+	4: (dist: 0.128957165366) City Island (2009) (mid: 71466)
+	5: (dist: 0.13015482534) Odd Man Out (1947) (mid: 25930)
+	6: (dist: 0.130774808392) Captain Conan (Capitaine Conan) (1996) (mid: 79830)
+	7: (dist: 0.131140313854) Chronicle (2012) (mid: 92420)
+	8: (dist: 0.131269129165) Company You Keep, The (2012) (mid: 99741)
+	9: (dist: 0.132658749525) Savannah Smiles (1982) (mid: 6124)
+Cluster 13 (variance: 0.328920619453):
+	0: (dist: 0.126350524332) Turn Me On, Dammit! (Få meg på, for faen) (2011) (mid: 92152)
+	1: (dist: 0.127999870913) Ghajini (2008) (mid: 83424)
+	2: (dist: 0.139139073649) Story of Three Loves, The (1953) (mid: 82235)
+	3: (dist: 0.139263065371) Thousand Clouds of Peace, A (Mil nubes de paz cercan el cielo, amor, jamás acabarás de ser amor) (2003) (mid: 7441)
+	4: (dist: 0.139746246346) Beguiled, The (1971) (mid: 26240)
+	5: (dist: 0.139923999206) Tea and Sympathy (1956) (mid: 53916)
+	6: (dist: 0.140174073494) Holiday, The (2006) (mid: 49286)
+	7: (dist: 0.141127222141) Bitter Tears of Petra von Kant, The (bitteren Tränen der Petra von Kant, Die) (1972) (mid: 31524)
+	8: (dist: 0.141212255149) Another Year (2010) (mid: 82463)
+	9: (dist: 0.141268060953) Be with Me (2005) (mid: 51103)
+Cluster 6 (variance: 0.353061078418):
+	0: (dist: 0.40061437216) Beautiful Mind, A (2001) (mid: 4995)
+	1: (dist: 0.405792791877) Spontaneous Combustion (1990) (mid: 118344)
+	2: (dist: 0.419117416744) Congo (1995) (mid: 160)
+	3: (dist: 0.423911004757) Man from Earth, The (2007) (mid: 55908)
+	4: (dist: 0.426936978835) Left Behind: The Movie (2000) (mid: 4142)
+	5: (dist: 0.429552631031) Mogambo (1953) (mid: 7822)
+	6: (dist: 0.434541072368) Kitchen Stories (Salmer fra kjøkkenet) (2003) (mid: 7297)
+	7: (dist: 0.439508123824) Alice, Sweet Alice (a.k.a. Communion) (a.k.a. Holy Terror) (1976) (mid: 2853)
+	8: (dist: 0.439627605389) Notorious (1946) (mid: 930)
+	9: (dist: 0.440531864008) 2001: A Space Odyssey (1968) (mid: 924)
+Cluster 10 (variance: 0.371075397627):
 	0: (dist: 0.109338247802) Days of Heaven (1978) (mid: 2932)
 	1: (dist: 0.119895296923) Blue Steel (1990) (mid: 5961)
 	2: (dist: 0.120171133157) Philadelphia Story, The (1940) (mid: 898)
@@ -150,502 +161,634 @@ Cluster 12:
 	7: (dist: 0.123407124469) Skulls, The (2000) (mid: 3484)
 	8: (dist: 0.123526384149) Pygmalion (1938) (mid: 7086)
 	9: (dist: 0.124113514043) Scandal (1989) (mid: 4659)
-Cluster 13:
-	0: (dist: 0.0345303230194) Where the Truth Lies (2005) (mid: 39419)
-	1: (dist: 0.0350420585856) Dog Days (Hundstage) (2001) (mid: 27513)
-	2: (dist: 0.0352763482595) Wake in Fright (1971) (mid: 97984)
-	3: (dist: 0.0353221737972) Human Traffic (1999) (mid: 3581)
-	4: (dist: 0.0367947382288) Rat (2000) (mid: 4269)
-	5: (dist: 0.0368249014614) Glory Daze (1995) (mid: 1121)
-	6: (dist: 0.0371526610949) Man Who Would Be King, The (1975) (mid: 1303)
-	7: (dist: 0.0374137197764) Role Models (2008) (mid: 63131)
-	8: (dist: 0.0385211216052) Suicide Room (2011) (mid: 127084)
-	9: (dist: 0.0391132313844) Ten, The (2007) (mid: 55020)
-Cluster 14:
-	0: (dist: 0.164136879578) Same Old Song (On connaît la chanson) (1997) (mid: 7758)
-	1: (dist: 0.178413944095) As it is in Heaven (Så som i himmelen) (2004) (mid: 27857)
-	2: (dist: 0.186329522845) Day the Sun Turned Cold, The (Tianguo niezi) (1994) (mid: 845)
-	3: (dist: 0.208855611957) Two Hands (1999) (mid: 27073)
-	4: (dist: 0.310237289899) Judge, The (2014) (mid: 115170)
-	5: (dist: 0.379853145945) Walking Tall (1973) (mid: 26309)
-	6: (dist: 0.379890086833) Frankenweenie (2012) (mid: 97172)
-	7: (dist: 0.382468361911) In the Cut (2003) (mid: 6885)
-	8: (dist: 0.383601956186) Big Nothing (2006) (mid: 52606)
-	9: (dist: 0.385040641866) Death Race 2 (2010) (mid: 88699)
+Cluster 5 (variance: 0.383857394):
+	0: (dist: 0.14548738643) American Hustle (2013) (mid: 106916)
+	1: (dist: 0.176237007642) Everly (2014) (mid: 126575)
+	2: (dist: 0.179234152671) Finding Vivian Maier (2013) (mid: 112399)
+	3: (dist: 0.181572978863) Red Tails (2012) (mid: 92234)
+	4: (dist: 0.185117142704) Undocumented (2010) (mid: 105815)
+	5: (dist: 0.187177642782) Much Ado About Something (2001) (mid: 64427)
+	6: (dist: 0.188722529365) They Call Me Bruce? (a.k.a. A Fistful of Chopsticks) (1982) (mid: 6141)
+	7: (dist: 0.196957613925) Strictly Ballroom (1992) (mid: 1188)
+	8: (dist: 0.19713523723) Hardware (1990) (mid: 34292)
+	9: (dist: 0.197597422154) Stigmata (1999) (mid: 2840)
+Cluster 3 (variance: 0.40026473536):
+	0: (dist: 0.131553590855) Port of Shadows (Quai des brumes) (1938) (mid: 8786)
+	1: (dist: 0.149001701908) O Brother, Where Art Thou? (2000) (mid: 4027)
+	2: (dist: 0.149598276595) Others, The (2001) (mid: 4720)
+	3: (dist: 0.152160518596) Harrison's Flowers (2000) (mid: 5221)
+	4: (dist: 0.152655591475) South Park: Bigger, Longer and Uncut (1999) (mid: 2700)
+	5: (dist: 0.152993914514) Sniper, The (1952) (mid: 78186)
+	6: (dist: 0.156371965037) Suspect Zero (2004) (mid: 8831)
+	7: (dist: 0.157527594577) Murder by Contract (1958) (mid: 72327)
+	8: (dist: 0.158463760407) Orlando (1992) (mid: 506)
+	9: (dist: 0.159372665486) Wake of the Red Witch (1948) (mid: 6276)
+Cluster 2 (variance: 0.410913213183):
+	0: (dist: 0.28083878231) King of New York (1990) (mid: 1785)
+	1: (dist: 0.292271481042) Brannigan (1975) (mid: 4853)
+	2: (dist: 0.29347342143) September Dawn (2007) (mid: 54783)
+	3: (dist: 0.306286364136) Shaft (1971) (mid: 3729)
+	4: (dist: 0.306897723714) Black Book (Zwartboek) (2006) (mid: 52042)
+	5: (dist: 0.30847674562) First Blood (Rambo: First Blood) (1982) (mid: 2403)
+	6: (dist: 0.320055135721) Day of the Jackal, The (1973) (mid: 8207)
+	7: (dist: 0.366346145499) Danger: Diabolik (Diabolik) (1968) (mid: 33861)
+	8: (dist: 0.389203589864) Bright Young Things (2003) (mid: 27648)
+	9: (dist: 0.394080647306) Before the Devil Knows You're Dead (2007) (mid: 55805)
+Cluster 14 (variance: 0.474421921276):
+	0: (dist: 0.286491105635) Forgetting Sarah Marshall (2008) (mid: 58998)
+	1: (dist: 0.300263745066) All Over the Guy (2001) (mid: 4722)
+	2: (dist: 0.301147427619) Something's Gotta Give (2003) (mid: 7149)
+	3: (dist: 0.302399027645) Star Maker, The (Uomo delle stelle, L') (1995) (mid: 124)
+	4: (dist: 0.30643196348) Governess, The (1998) (mid: 2062)
+	5: (dist: 0.308065675693) Synecdoche, New York (2008) (mid: 62511)
+	6: (dist: 0.308392291539) For Ever Mozart (1996) (mid: 1579)
+	7: (dist: 0.308453523534) My Wife is an Actress (Ma Femme est une Actrice) (2001) (mid: 5466)
+	8: (dist: 0.308752773999) Sex Is Comedy (2002) (mid: 27564)
+	9: (dist: 0.308846939423) Hamlet 2 (2008) (mid: 61246)
 Training a latent tree
-DecisionTreeModel classifier of depth 8 with 161 nodes
-  If (feature 3 <= 0.38292989134788513)
-   If (feature 11 <= 0.7075700163841248)
-    If (feature 9 <= -0.4166977107524872)
+DecisionTreeModel classifier of depth 8 with 209 nodes
+  If (feature 3 <= 0.3375222980976105)
+   If (feature 11 <= 0.8188146352767944)
+    If (feature 9 <= -0.3356432318687439)
      If (feature 3 <= -0.32372191548347473)
-      If (feature 4 <= 0.022883769124746323)
+      If (feature 6 <= -0.795111894607544)
+       Predict: 13.0
+      Else (feature 6 > -0.795111894607544)
        Predict: 10.0
-      Else (feature 4 > 0.022883769124746323)
-       Predict: 12.0
      Else (feature 3 > -0.32372191548347473)
-      If (feature 6 <= -0.49401795864105225)
-       Predict: 0.0
-      Else (feature 6 > -0.49401795864105225)
-       If (feature 6 <= -0.17329102754592896)
-        If (feature 2 <= -0.3159923851490021)
-         If (feature 0 <= -0.48111629486083984)
-          Predict: 9.0
-         Else (feature 0 > -0.48111629486083984)
-          Predict: 4.0
-        Else (feature 2 > -0.3159923851490021)
-         Predict: 12.0
-       Else (feature 6 > -0.17329102754592896)
-        Predict: 3.0
-    Else (feature 9 > -0.4166977107524872)
-     If (feature 8 <= 0.9093350768089294)
-      If (feature 7 <= 0.13509425520896912)
-       If (feature 2 <= -0.9446700215339661)
-        Predict: 3.0
-       Else (feature 2 > -0.9446700215339661)
-        If (feature 7 <= -0.492097407579422)
-         Predict: 4.0
-        Else (feature 7 > -0.492097407579422)
-         If (feature 6 <= -0.608093798160553)
-          Predict: 13.0
-         Else (feature 6 > -0.608093798160553)
+      If (feature 6 <= -0.34838151931762695)
+       If (feature 0 <= 0.1872040331363678)
+        If (feature 1 <= -0.1518182009458542)
+         If (feature 3 <= -0.12415862083435059)
           Predict: 6.0
-      Else (feature 7 > 0.13509425520896912)
-       If (feature 0 <= -0.12731283903121948)
+         Else (feature 3 > -0.12415862083435059)
+          Predict: 1.0
+        Else (feature 1 > -0.1518182009458542)
+         If (feature 3 <= 0.22021420300006866)
+          Predict: 8.0
+         Else (feature 3 > 0.22021420300006866)
+          Predict: 5.0
+       Else (feature 0 > 0.1872040331363678)
+        If (feature 1 <= -0.08141183108091354)
+         Predict: 14.0
+        Else (feature 1 > -0.08141183108091354)
+         Predict: 5.0
+      Else (feature 6 > -0.34838151931762695)
+       If (feature 4 <= 0.4898626208305359)
+        If (feature 8 <= 0.8230462670326233)
+         If (feature 1 <= 0.14954878389835358)
+          Predict: 6.0
+         Else (feature 1 > 0.14954878389835358)
+          Predict: 8.0
+        Else (feature 8 > 0.8230462670326233)
+         If (feature 1 <= -0.2277180403470993)
+          Predict: 10.0
+         Else (feature 1 > -0.2277180403470993)
+          Predict: 9.0
+       Else (feature 4 > 0.4898626208305359)
+        If (feature 5 <= -0.5313830375671387)
+         Predict: 3.0
+        Else (feature 5 > -0.5313830375671387)
+         Predict: 1.0
+    Else (feature 9 > -0.3356432318687439)
+     If (feature 8 <= 0.9093350768089294)
+      If (feature 1 <= 0.14954878389835358)
+       If (feature 6 <= -0.608093798160553)
+        If (feature 0 <= 0.027416324242949486)
+         Predict: 13.0
+        Else (feature 0 > 0.027416324242949486)
+         Predict: 9.0
+       Else (feature 6 > -0.608093798160553)
+        If (feature 7 <= -0.492097407579422)
+         Predict: 1.0
+        Else (feature 7 > -0.492097407579422)
+         If (feature 7 <= 0.13509425520896912)
+          Predict: 6.0
+         Else (feature 7 > 0.13509425520896912)
+          Predict: 6.0
+      Else (feature 1 > 0.14954878389835358)
+       If (feature 10 <= 0.13258890807628632)
         Predict: 6.0
-       Else (feature 0 > -0.12731283903121948)
-        Predict: 13.0
+       Else (feature 10 > 0.13258890807628632)
+        Predict: 8.0
      Else (feature 8 > 0.9093350768089294)
       If (feature 3 <= -0.08992959558963776)
-       Predict: 12.0
+       Predict: 10.0
       Else (feature 3 > -0.08992959558963776)
-       If (feature 2 <= -0.5947743058204651)
-        If (feature 0 <= -0.5131211876869202)
-         Predict: 4.0
-        Else (feature 0 > -0.5131211876869202)
-         Predict: 0.0
-       Else (feature 2 > -0.5947743058204651)
-        Predict: 13.0
-   Else (feature 11 > 0.7075700163841248)
-    If (feature 9 <= -0.22071051597595215)
-     If (feature 5 <= -0.10658510774374008)
-      If (feature 10 <= -0.525442361831665)
-       If (feature 3 <= -0.32372191548347473)
+       If (feature 2 <= -0.2934306859970093)
         If (feature 0 <= 0.0745120719075203)
-         Predict: 12.0
-        Else (feature 0 > 0.0745120719075203)
-         Predict: 10.0
-       Else (feature 3 > -0.32372191548347473)
-        Predict: 1.0
-      Else (feature 10 > -0.525442361831665)
-       If (feature 1 <= 0.2701691687107086)
-        If (feature 8 <= 0.5162776112556458)
-         If (feature 11 <= 1.2550556659698486)
-          Predict: 6.0
-         Else (feature 11 > 1.2550556659698486)
-          Predict: 2.0
-        Else (feature 8 > 0.5162776112556458)
-         If (feature 7 <= -0.5939164757728577)
-          Predict: 12.0
-         Else (feature 7 > -0.5939164757728577)
-          Predict: 10.0
-       Else (feature 1 > 0.2701691687107086)
-        If (feature 5 <= -0.8743463754653931)
-         If (feature 2 <= -0.9446700215339661)
-          Predict: 3.0
-         Else (feature 2 > -0.9446700215339661)
-          Predict: 7.0
-        Else (feature 5 > -0.8743463754653931)
-         If (feature 7 <= -0.3315422832965851)
-          Predict: 12.0
-         Else (feature 7 > -0.3315422832965851)
-          Predict: 0.0
-     Else (feature 5 > -0.10658510774374008)
-      If (feature 2 <= -0.5562300086021423)
-       If (feature 1 <= 0.2701691687107086)
-        If (feature 4 <= 0.8763741850852966)
-         If (feature 10 <= -0.15666377544403076)
-          Predict: 1.0
-         Else (feature 10 > -0.15666377544403076)
-          Predict: 8.0
-        Else (feature 4 > 0.8763741850852966)
          Predict: 9.0
-       Else (feature 1 > 0.2701691687107086)
-        If (feature 0 <= -0.48111629486083984)
+        Else (feature 0 > 0.0745120719075203)
          Predict: 5.0
-        Else (feature 0 > -0.48111629486083984)
-         Predict: 0.0
-      Else (feature 2 > -0.5562300086021423)
-       If (feature 0 <= 1.230418711202219E-4)
-        Predict: 8.0
-       Else (feature 0 > 1.230418711202219E-4)
-        Predict: 6.0
-    Else (feature 9 > -0.22071051597595215)
-     If (feature 3 <= 0.011873051524162292)
-      If (feature 4 <= 0.24517299234867096)
-       If (feature 5 <= -0.3934270143508911)
-        If (feature 0 <= -0.021083103492856026)
-         If (feature 0 <= -0.40699562430381775)
-          Predict: 2.0
-         Else (feature 0 > -0.40699562430381775)
-          Predict: 10.0
-        Else (feature 0 > -0.021083103492856026)
-         If (feature 2 <= -0.23778846859931946)
-          Predict: 0.0
-         Else (feature 2 > -0.23778846859931946)
-          Predict: 12.0
-       Else (feature 5 > -0.3934270143508911)
-        If (feature 8 <= 0.21342459321022034)
-         If (feature 0 <= -0.21923287212848663)
+       Else (feature 2 > -0.2934306859970093)
+        Predict: 4.0
+   Else (feature 11 > 0.8188146352767944)
+    If (feature 6 <= -0.2545810341835022)
+     If (feature 1 <= 0.38039135932922363)
+      If (feature 9 <= -0.23477725684642792)
+       If (feature 8 <= 0.5162776112556458)
+        If (feature 1 <= -0.13502968847751617)
+         If (feature 6 <= -0.786186158657074)
+          Predict: 13.0
+         Else (feature 6 > -0.786186158657074)
           Predict: 6.0
-         Else (feature 0 > -0.21923287212848663)
-          Predict: 14.0
-        Else (feature 8 > 0.21342459321022034)
-         If (feature 0 <= -0.021083103492856026)
-          Predict: 6.0
-         Else (feature 0 > -0.021083103492856026)
-          Predict: 0.0
-      Else (feature 4 > 0.24517299234867096)
-       If (feature 8 <= 0.8746705651283264)
-        If (feature 5 <= -0.5936658978462219)
-         Predict: 10.0
-        Else (feature 5 > -0.5936658978462219)
-         If (feature 6 <= -0.2870076298713684)
-          Predict: 14.0
-         Else (feature 6 > -0.2870076298713684)
-          Predict: 14.0
-       Else (feature 8 > 0.8746705651283264)
-        If (feature 3 <= -0.4605565071105957)
-         Predict: 12.0
-        Else (feature 3 > -0.4605565071105957)
-         If (feature 0 <= -0.21923287212848663)
+        Else (feature 1 > -0.13502968847751617)
+         If (feature 0 <= -0.18153229355812073)
           Predict: 11.0
-         Else (feature 0 > -0.21923287212848663)
-          Predict: 0.0
-     Else (feature 3 > 0.011873051524162292)
-      If (feature 6 <= -0.45200297236442566)
-       If (feature 7 <= 0.07359249889850616)
-        If (feature 4 <= 0.6933677792549133)
-         If (feature 0 <= -0.42935845255851746)
-          Predict: 14.0
-         Else (feature 0 > -0.42935845255851746)
-          Predict: 1.0
-        Else (feature 4 > 0.6933677792549133)
-         If (feature 5 <= -0.08319604396820068)
-          Predict: 5.0
-         Else (feature 5 > -0.08319604396820068)
-          Predict: 4.0
-       Else (feature 7 > 0.07359249889850616)
-        If (feature 0 <= 1.230418711202219E-4)
-         Predict: 11.0
-        Else (feature 0 > 1.230418711202219E-4)
-         Predict: 13.0
-      Else (feature 6 > -0.45200297236442566)
-       Predict: 6.0
-  Else (feature 3 > 0.38292989134788513)
-   If (feature 7 <= 0.07359249889850616)
-    If (feature 11 <= 0.8949294090270996)
-     If (feature 5 <= -0.004100847523659468)
-      If (feature 4 <= 0.321188360452652)
-       If (feature 5 <= -0.5313830375671387)
-        If (feature 0 <= 0.1872040331363678)
-         Predict: 13.0
-        Else (feature 0 > 0.1872040331363678)
-         Predict: 0.0
-       Else (feature 5 > -0.5313830375671387)
-        Predict: 1.0
-      Else (feature 4 > 0.321188360452652)
-       If (feature 1 <= 0.013995500281453133)
-        If (feature 10 <= 0.4104706645011902)
-         Predict: 4.0
-        Else (feature 10 > 0.4104706645011902)
-         If (feature 0 <= -0.5131211876869202)
-          Predict: 9.0
-         Else (feature 0 > -0.5131211876869202)
-          Predict: 4.0
-       Else (feature 1 > 0.013995500281453133)
-        Predict: 0.0
-     Else (feature 5 > -0.004100847523659468)
-      Predict: 9.0
-    Else (feature 11 > 0.8949294090270996)
-     If (feature 10 <= -0.15666377544403076)
-      Predict: 1.0
-     Else (feature 10 > -0.15666377544403076)
-      If (feature 4 <= 0.4898626208305359)
-       If (feature 1 <= 0.07009115815162659)
-        Predict: 2.0
-       Else (feature 1 > 0.07009115815162659)
-        If (feature 2 <= -0.34359073638916016)
-         Predict: 0.0
-        Else (feature 2 > -0.34359073638916016)
-         If (feature 4 <= -0.0791676938533783)
-          Predict: 7.0
-         Else (feature 4 > -0.0791676938533783)
+         Else (feature 0 > -0.18153229355812073)
+          Predict: 6.0
+       Else (feature 8 > 0.5162776112556458)
+        If (feature 10 <= -0.525442361831665)
+         If (feature 5 <= -0.4459073841571808)
+          Predict: 13.0
+         Else (feature 5 > -0.4459073841571808)
           Predict: 12.0
-      Else (feature 4 > 0.4898626208305359)
-       If (feature 11 <= 1.1602838039398193)
-        If (feature 9 <= -0.6135897636413574)
-         If (feature 1 <= 0.013995500281453133)
-          Predict: 5.0
-         Else (feature 1 > 0.013995500281453133)
+        Else (feature 10 > -0.525442361831665)
+         If (feature 6 <= -0.9203681945800781)
+          Predict: 13.0
+         Else (feature 6 > -0.9203681945800781)
+          Predict: 10.0
+      Else (feature 9 > -0.23477725684642792)
+       If (feature 7 <= -0.11928808689117432)
+        If (feature 4 <= 0.5976402163505554)
+         If (feature 8 <= 1.0553674697875977)
           Predict: 0.0
-        Else (feature 9 > -0.6135897636413574)
-         If (feature 0 <= -0.5131211876869202)
-          Predict: 9.0
-         Else (feature 0 > -0.5131211876869202)
+         Else (feature 8 > 1.0553674697875977)
+          Predict: 10.0
+        Else (feature 4 > 0.5976402163505554)
+         Predict: 1.0
+       Else (feature 7 > -0.11928808689117432)
+        If (feature 11 <= 0.9396129250526428)
+         If (feature 1 <= 0.14954878389835358)
+          Predict: 6.0
+         Else (feature 1 > 0.14954878389835358)
           Predict: 5.0
-       Else (feature 11 > 1.1602838039398193)
+        Else (feature 11 > 0.9396129250526428)
+         If (feature 1 <= -0.31239601969718933)
+          Predict: 13.0
+         Else (feature 1 > -0.31239601969718933)
+          Predict: 0.0
+     Else (feature 1 > 0.38039135932922363)
+      If (feature 10 <= -0.027090197429060936)
+       Predict: 0.0
+      Else (feature 10 > -0.027090197429060936)
+       If (feature 2 <= -0.34359073638916016)
         Predict: 5.0
-   Else (feature 7 > 0.07359249889850616)
-    If (feature 0 <= -0.10156813263893127)
-     If (feature 7 <= 0.11509036272764206)
-      Predict: 2.0
-     Else (feature 7 > 0.11509036272764206)
-      If (feature 1 <= -0.3339545428752899)
-       Predict: 11.0
-      Else (feature 1 > -0.3339545428752899)
-       If (feature 0 <= -0.21923287212848663)
+       Else (feature 2 > -0.34359073638916016)
+        Predict: 10.0
+    Else (feature 6 > -0.2545810341835022)
+     If (feature 5 <= -0.28441616892814636)
+      If (feature 7 <= -0.5939164757728577)
+       Predict: 10.0
+      Else (feature 7 > -0.5939164757728577)
+       If (feature 5 <= -0.9205377697944641)
         Predict: 3.0
-       Else (feature 0 > -0.21923287212848663)
-        If (feature 0 <= -0.12731283903121948)
+       Else (feature 5 > -0.9205377697944641)
+        If (feature 0 <= -0.40699562430381775)
+         Predict: 11.0
+        Else (feature 0 > -0.40699562430381775)
          Predict: 0.0
-        Else (feature 0 > -0.12731283903121948)
+     Else (feature 5 > -0.28441616892814636)
+      If (feature 10 <= 0.25378933548927307)
+       If (feature 1 <= -0.0532095767557621)
+        If (feature 4 <= -0.0791676938533783)
+         Predict: 12.0
+        Else (feature 4 > -0.0791676938533783)
+         If (feature 7 <= 0.09804827719926834)
+          Predict: 1.0
+         Else (feature 7 > 0.09804827719926834)
+          Predict: 0.0
+       Else (feature 1 > -0.0532095767557621)
+        Predict: 6.0
+      Else (feature 10 > 0.25378933548927307)
+       If (feature 7 <= -0.20018945634365082)
+        If (feature 0 <= -0.5131211876869202)
+         Predict: 1.0
+        Else (feature 0 > -0.5131211876869202)
+         If (feature 0 <= -0.21923287212848663)
+          Predict: 6.0
+         Else (feature 0 > -0.21923287212848663)
+          Predict: 10.0
+       Else (feature 7 > -0.20018945634365082)
+        If (feature 9 <= -0.2660880982875824)
+         Predict: 7.0
+        Else (feature 9 > -0.2660880982875824)
+         Predict: 0.0
+  Else (feature 3 > 0.3375222980976105)
+   If (feature 4 <= 0.4141198694705963)
+    If (feature 11 <= 0.6838681697845459)
+     If (feature 5 <= -0.690338671207428)
+      If (feature 2 <= -0.18296314775943756)
+       If (feature 11 <= 0.6379770636558533)
+        If (feature 9 <= -0.3356432318687439)
+         If (feature 0 <= 0.3161312937736511)
+          Predict: 9.0
+         Else (feature 0 > 0.3161312937736511)
+          Predict: 5.0
+        Else (feature 9 > -0.3356432318687439)
+         If (feature 0 <= 0.1263042688369751)
+          Predict: 9.0
+         Else (feature 0 > 0.1263042688369751)
+          Predict: 4.0
+       Else (feature 11 > 0.6379770636558533)
+        Predict: 9.0
+      Else (feature 2 > -0.18296314775943756)
+       If (feature 7 <= 0.13509425520896912)
+        If (feature 0 <= 0.1355176866054535)
+         Predict: 9.0
+        Else (feature 0 > 0.1355176866054535)
          Predict: 4.0
-    Else (feature 0 > -0.10156813263893127)
-     If (feature 2 <= -0.4707416296005249)
-      Predict: 6.0
-     Else (feature 2 > -0.4707416296005249)
-      Predict: 13.0
+       Else (feature 7 > 0.13509425520896912)
+        If (feature 0 <= 0.10020816326141357)
+         If (feature 5 <= -0.8197575211524963)
+          Predict: 4.0
+         Else (feature 5 > -0.8197575211524963)
+          Predict: 9.0
+        Else (feature 0 > 0.10020816326141357)
+         Predict: 4.0
+     Else (feature 5 > -0.690338671207428)
+      If (feature 1 <= -0.1518182009458542)
+       Predict: 9.0
+      Else (feature 1 > -0.1518182009458542)
+       If (feature 0 <= 0.10020816326141357)
+        Predict: 8.0
+       Else (feature 0 > 0.10020816326141357)
+        Predict: 5.0
+    Else (feature 11 > 0.6838681697845459)
+     If (feature 9 <= -0.36306941509246826)
+      If (feature 10 <= -0.15666377544403076)
+       If (feature 0 <= 0.3161312937736511)
+        If (feature 5 <= -0.17204776406288147)
+         If (feature 7 <= -0.6166050434112549)
+          Predict: 12.0
+         Else (feature 7 > -0.6166050434112549)
+          Predict: 14.0
+        Else (feature 5 > -0.17204776406288147)
+         Predict: 12.0
+       Else (feature 0 > 0.3161312937736511)
+        If (feature 6 <= -0.8041403889656067)
+         If (feature 2 <= -0.6588954925537109)
+          Predict: 14.0
+         Else (feature 2 > -0.6588954925537109)
+          Predict: 12.0
+        Else (feature 6 > -0.8041403889656067)
+         Predict: 12.0
+      Else (feature 10 > -0.15666377544403076)
+       If (feature 1 <= 0.013995500281453133)
+        If (feature 0 <= -0.021083103492856026)
+         Predict: 2.0
+        Else (feature 0 > -0.021083103492856026)
+         Predict: 9.0
+       Else (feature 1 > 0.013995500281453133)
+        If (feature 8 <= 0.5162776112556458)
+         Predict: 11.0
+        Else (feature 8 > 0.5162776112556458)
+         If (feature 0 <= -0.2804836630821228)
+          Predict: 2.0
+         Else (feature 0 > -0.2804836630821228)
+          Predict: 5.0
+     Else (feature 9 > -0.36306941509246826)
+      If (feature 0 <= 0.1872040331363678)
+       If (feature 6 <= -0.6557168960571289)
+        Predict: 9.0
+       Else (feature 6 > -0.6557168960571289)
+        If (feature 0 <= 0.10020816326141357)
+         Predict: 4.0
+        Else (feature 0 > 0.10020816326141357)
+         Predict: 14.0
+      Else (feature 0 > 0.1872040331363678)
+       If (feature 7 <= 0.19794197380542755)
+        If (feature 2 <= -0.5041176676750183)
+         If (feature 1 <= -0.38912373781204224)
+          Predict: 12.0
+         Else (feature 1 > -0.38912373781204224)
+          Predict: 14.0
+        Else (feature 2 > -0.5041176676750183)
+         Predict: 9.0
+       Else (feature 7 > 0.19794197380542755)
+        Predict: 4.0
+   Else (feature 4 > 0.4141198694705963)
+    If (feature 10 <= 0.29384130239486694)
+     If (feature 7 <= -0.11928808689117432)
+      If (feature 5 <= -0.748224675655365)
+       If (feature 0 <= -0.33492395281791687)
+        Predict: 2.0
+       Else (feature 0 > -0.33492395281791687)
+        If (feature 0 <= -0.21923287212848663)
+         Predict: 3.0
+        Else (feature 0 > -0.21923287212848663)
+         Predict: 1.0
+      Else (feature 5 > -0.748224675655365)
+       If (feature 11 <= 1.303977608680725)
+        Predict: 1.0
+       Else (feature 11 > 1.303977608680725)
+        If (feature 0 <= -0.5131211876869202)
+         Predict: 1.0
+        Else (feature 0 > -0.5131211876869202)
+         Predict: 2.0
+     Else (feature 7 > -0.11928808689117432)
+      If (feature 11 <= 1.0896718502044678)
+       If (feature 1 <= -0.30042243003845215)
+        Predict: 1.0
+       Else (feature 1 > -0.30042243003845215)
+        Predict: 3.0
+      Else (feature 11 > 1.0896718502044678)
+       If (feature 2 <= -0.7471752762794495)
+        If (feature 0 <= -0.5131211876869202)
+         Predict: 0.0
+        Else (feature 0 > -0.5131211876869202)
+         Predict: 14.0
+       Else (feature 2 > -0.7471752762794495)
+        Predict: 2.0
+    Else (feature 10 > 0.29384130239486694)
+     If (feature 2 <= -0.7471752762794495)
+      Predict: 5.0
+     Else (feature 2 > -0.7471752762794495)
+      If (feature 5 <= -0.33266475796699524)
+       If (feature 6 <= -0.409036248922348)
+        If (feature 7 <= -0.24569159746170044)
+         If (feature 8 <= 0.32790353894233704)
+          Predict: 11.0
+         Else (feature 8 > 0.32790353894233704)
+          Predict: 2.0
+        Else (feature 7 > -0.24569159746170044)
+         Predict: 1.0
+       Else (feature 6 > -0.409036248922348)
+        If (feature 0 <= -0.33492395281791687)
+         Predict: 3.0
+        Else (feature 0 > -0.33492395281791687)
+         Predict: 10.0
+      Else (feature 5 > -0.33266475796699524)
+       Predict: 1.0
 
 Done, making predictions
-Accuracy: 0.926360459311
+Accuracy: 0.961807289066
 /opt/spark-2.1.1-bin-hadoop2.7/python/lib/pyspark.zip/pyspark/mllib/evaluation.py:237: UserWarning: Deprecated in 2.0.0. Use accuracy.
 /opt/spark-2.1.1-bin-hadoop2.7/python/lib/pyspark.zip/pyspark/mllib/evaluation.py:249: UserWarning: Deprecated in 2.0.0. Use accuracy.
 /opt/spark-2.1.1-bin-hadoop2.7/python/lib/pyspark.zip/pyspark/mllib/evaluation.py:262: UserWarning: Deprecated in 2.0.0. Use accuracy.
 Summary Stats
-Precision = 0.926360459311
-Recall = 0.926360459311
-F1 Score = 0.926360459311
+Precision = 0.961807289066
+Recall = 0.961807289066
+F1 Score = 0.961807289066
 Building meta training set
 Training a meta tree
-DecisionTreeModel classifier of depth 8 with 127 nodes
+DecisionTreeModel classifier of depth 8 with 153 nodes
   If (average_rating <= 2.0)
-   If (Isn't imdb_keywords:illness)
-    Predict: 6.0
-   Else (Is imdb_keywords:illness)
+   If (Isn't tvtropes:too dumb to live)
+    If (year <= 2014.0)
+     Predict: 6.0
+    Else (year > 2014.0)
+     If (Isn't imdb_keywords:african-american)
+      Predict: 6.0
+     Else (Is imdb_keywords:african-american)
+      Predict: 8.0
+   Else (Is tvtropes:too dumb to live)
     If (Isn't imdb_keywords:topless-female-nudity)
-     If (Isn't imdb_keywords:honor)
-      If (Isn't imdb_keywords:scientist)
-       If (Isn't imdb_keywords:rainstorm)
-        If (Isn't imdb_keywords:race-against-time)
-         If (Isn't imdb_keywords:prayer)
-          Predict: 14.0
-         Else (Is imdb_keywords:prayer)
-          Predict: 14.0
-        Else (Is imdb_keywords:race-against-time)
-         Predict: 6.0
-       Else (Is imdb_keywords:rainstorm)
-        Predict: 6.0
-      Else (Is imdb_keywords:scientist)
-       Predict: 6.0
-     Else (Is imdb_keywords:honor)
+     If (Isn't imdb_keywords:long-take)
+      Predict: 8.0
+     Else (Is imdb_keywords:long-take)
       Predict: 6.0
     Else (Is imdb_keywords:topless-female-nudity)
      Predict: 6.0
   Else (average_rating > 2.0)
-   If (Isn't imdb_keywords:male-nudity)
-    If (Isn't imdb_keywords:subtitled-scene)
-     If (Isn't imdb_keywords:actress)
-      If (Isn't imdb_keywords:robbery)
-       If (Isn't imdb_keywords:disguise)
-        If (Isn't imdb_keywords:hit-by-a-car)
-         If (Isn't imdb_keywords:gunfight)
-          Predict: 12.0
-         Else (Is imdb_keywords:gunfight)
-          Predict: 8.0
-        Else (Is imdb_keywords:hit-by-a-car)
-         If (Isn't imdb_keywords:unrequited-love)
-          Predict: 14.0
-         Else (Is imdb_keywords:unrequited-love)
-          Predict: 10.0
-       Else (Is imdb_keywords:disguise)
-        If (Isn't imdb_keywords:gunfire)
-         If (Isn't imdb_keywords:unrequited-love)
-          Predict: 2.0
-         Else (Is imdb_keywords:unrequited-love)
-          Predict: 10.0
-        Else (Is imdb_keywords:gunfire)
-         Predict: 3.0
-      Else (Is imdb_keywords:robbery)
-       If (Isn't imdb_keywords:gunfight)
-        If (Isn't imdb_keywords:hit-by-a-car)
-         If (Isn't imdb_keywords:disguise)
-          Predict: 4.0
-         Else (Is imdb_keywords:disguise)
-          Predict: 5.0
-        Else (Is imdb_keywords:hit-by-a-car)
-         If (Isn't imdb_keywords:cowboy-hat)
-          Predict: 5.0
-         Else (Is imdb_keywords:cowboy-hat)
-          Predict: 2.0
-       Else (Is imdb_keywords:gunfight)
-        If (average_rating <= 3.7419354838709675)
-         If (Isn't imdb_keywords:scientist)
-          Predict: 9.0
-         Else (Is imdb_keywords:scientist)
-          Predict: 8.0
-        Else (average_rating > 3.7419354838709675)
-         If (Isn't imdb_keywords:gunfire)
-          Predict: 5.0
-         Else (Is imdb_keywords:gunfire)
-          Predict: 3.0
-     Else (Is imdb_keywords:actress)
-      If (Isn't imdb_keywords:class-differences)
-       If (Isn't imdb_keywords:unrequited-love)
-        If (Isn't imdb_keywords:gunfire)
-         If (Isn't imdb_keywords:duel)
-          Predict: 1.0
-         Else (Is imdb_keywords:duel)
-          Predict: 1.0
-        Else (Is imdb_keywords:gunfire)
-         If (year <= 2000.0)
-          Predict: 3.0
-         Else (year > 2000.0)
-          Predict: 1.0
-       Else (Is imdb_keywords:unrequited-love)
-        Predict: 10.0
-      Else (Is imdb_keywords:class-differences)
-       Predict: 12.0
-    Else (Is imdb_keywords:subtitled-scene)
-     If (Isn't imdb_keywords:gunfire)
-      If (Isn't imdb_keywords:unrequited-love)
-       If (Isn't imdb_keywords:class-differences)
-        If (Isn't imdb_keywords:robbery)
-         If (Isn't imdb_keywords:actress)
-          Predict: 0.0
-         Else (Is imdb_keywords:actress)
-          Predict: 1.0
-        Else (Is imdb_keywords:robbery)
-         If (Isn't imdb_keywords:disguise)
-          Predict: 0.0
-         Else (Is imdb_keywords:disguise)
-          Predict: 5.0
-       Else (Is imdb_keywords:class-differences)
-        Predict: 12.0
-      Else (Is imdb_keywords:unrequited-love)
-       Predict: 10.0
-     Else (Is imdb_keywords:gunfire)
-      Predict: 3.0
-   Else (Is imdb_keywords:male-nudity)
-    If (Isn't imdb_keywords:robbery)
-     If (Isn't imdb_keywords:actress)
+   If (Isn't imdb_keywords:robbery)
+    If (Isn't imdb_keywords:male-nudity)
+     If (Isn't imdb_keywords:disguise)
       If (Isn't imdb_keywords:gunfight)
-       If (Isn't imdb_keywords:unrequited-love)
-        If (Isn't imdb_keywords:disguise)
-         If (Isn't imdb_keywords:subtitled-scene)
-          Predict: 13.0
-         Else (Is imdb_keywords:subtitled-scene)
-          Predict: 0.0
-        Else (Is imdb_keywords:disguise)
-         If (Isn't imdb_keywords:hit-by-a-car)
-          Predict: 2.0
-         Else (Is imdb_keywords:hit-by-a-car)
-          Predict: 11.0
-       Else (Is imdb_keywords:unrequited-love)
-        If (Isn't imdb_keywords:forest)
-         If (Isn't imdb_keywords:break-up)
-          Predict: 10.0
-         Else (Is imdb_keywords:break-up)
-          Predict: 2.0
-        Else (Is imdb_keywords:forest)
-         If (year <= 2007.0)
-          Predict: 12.0
-         Else (year > 2007.0)
-          Predict: 13.0
-      Else (Is imdb_keywords:gunfight)
-       If (Isn't imdb_keywords:cowboy-hat)
-        If (Isn't imdb_keywords:subtitled-scene)
-         If (Isn't imdb_keywords:reference-to-god)
-          Predict: 11.0
-         Else (Is imdb_keywords:reference-to-god)
-          Predict: 2.0
-        Else (Is imdb_keywords:subtitled-scene)
-         If (Isn't movielens_tags:slow)
-          Predict: 0.0
-         Else (Is movielens_tags:slow)
-          Predict: 10.0
-       Else (Is imdb_keywords:cowboy-hat)
-        If (Isn't imdb_keywords:three-word-title)
-         Predict: 8.0
-        Else (Is imdb_keywords:three-word-title)
-         If (year <= 1990.0)
-          Predict: 11.0
-         Else (year > 1990.0)
-          Predict: 2.0
-     Else (Is imdb_keywords:actress)
-      If (Isn't imdb_keywords:unrequited-love)
-       If (Isn't imdb_keywords:honor)
+       If (Isn't imdb_keywords:actress)
         If (Isn't imdb_keywords:class-differences)
-         Predict: 1.0
+         If (Isn't imdb_keywords:unrequited-love)
+          Predict: 0.0
+         Else (Is imdb_keywords:unrequited-love)
+          Predict: 13.0
         Else (Is imdb_keywords:class-differences)
-         Predict: 12.0
-       Else (Is imdb_keywords:honor)
-        If (Isn't movielens_genre:Comedy)
-         Predict: 13.0
-        Else (Is movielens_genre:Comedy)
-         Predict: 3.0
-      Else (Is imdb_keywords:unrequited-love)
-       Predict: 10.0
-    Else (Is imdb_keywords:robbery)
-     If (Isn't imdb_keywords:actress)
-      If (Isn't imdb_keywords:class-differences)
-       If (Isn't imdb_keywords:gunfight)
+         If (Isn't imdb_keywords:gunfire)
+          Predict: 10.0
+         Else (Is imdb_keywords:gunfire)
+          Predict: 3.0
+       Else (Is imdb_keywords:actress)
+        If (Isn't imdb_keywords:class-differences)
+         If (Isn't imdb_keywords:unrequited-love)
+          Predict: 12.0
+         Else (Is imdb_keywords:unrequited-love)
+          Predict: 14.0
+        Else (Is imdb_keywords:class-differences)
+         Predict: 10.0
+      Else (Is imdb_keywords:gunfight)
+       If (Isn't imdb_keywords:hit-by-a-car)
         If (Isn't imdb_keywords:subtitled-scene)
          If (Isn't imdb_keywords:gunfire)
-          Predict: 4.0
+          Predict: 7.0
          Else (Is imdb_keywords:gunfire)
           Predict: 3.0
         Else (Is imdb_keywords:subtitled-scene)
-         Predict: 0.0
-       Else (Is imdb_keywords:gunfight)
-        If (Isn't imdb_keywords:shot-in-the-stomach)
-         Predict: 5.0
-        Else (Is imdb_keywords:shot-in-the-stomach)
-         If (year <= 2008.0)
-          Predict: 9.0
-         Else (year > 2008.0)
+         If (Isn't tvtropes:heroic sacrifice)
+          Predict: 5.0
+         Else (Is tvtropes:heroic sacrifice)
+          Predict: 7.0
+       Else (Is imdb_keywords:hit-by-a-car)
+        If (Isn't imdb_keywords:subtitled-scene)
+         If (Isn't imdb_keywords:unrequited-love)
+          Predict: 0.0
+         Else (Is imdb_keywords:unrequited-love)
+          Predict: 13.0
+        Else (Is imdb_keywords:subtitled-scene)
+         If (Isn't movielens_tags:BD-Video)
+          Predict: 5.0
+         Else (Is movielens_tags:BD-Video)
+          Predict: 3.0
+     Else (Is imdb_keywords:disguise)
+      If (Isn't imdb_keywords:subtitled-scene)
+       If (Isn't imdb_keywords:gunfire)
+        If (Isn't imdb_keywords:unrequited-love)
+         If (Isn't imdb_keywords:actress)
+          Predict: 11.0
+         Else (Is imdb_keywords:actress)
+          Predict: 14.0
+        Else (Is imdb_keywords:unrequited-love)
+         If (Isn't imdb_keywords:actress)
+          Predict: 13.0
+         Else (Is imdb_keywords:actress)
+          Predict: 14.0
+       Else (Is imdb_keywords:gunfire)
+        Predict: 3.0
+      Else (Is imdb_keywords:subtitled-scene)
+       If (Isn't tvtropes:too dumb to live)
+        If (Isn't imdb_keywords:cow)
+         If (Isn't movielens_tags:nudity (full frontal))
+          Predict: 5.0
+         Else (Is movielens_tags:nudity (full frontal))
+          Predict: 14.0
+        Else (Is imdb_keywords:cow)
+         Predict: 3.0
+       Else (Is tvtropes:too dumb to live)
+        Predict: 11.0
+    Else (Is imdb_keywords:male-nudity)
+     If (average_rating <= 3.9130434782608696)
+      If (Isn't imdb_keywords:topless-female-nudity)
+       If (average_rating <= 2.9473684210526314)
+        If (Isn't imdb_keywords:child-in-peril)
+         If (Isn't imdb_keywords:gunfight)
           Predict: 4.0
-      Else (Is imdb_keywords:class-differences)
-       Predict: 12.0
+         Else (Is imdb_keywords:gunfight)
+          Predict: 2.0
+        Else (Is imdb_keywords:child-in-peril)
+         If (Isn't imdb_keywords:cruelty)
+          Predict: 9.0
+         Else (Is imdb_keywords:cruelty)
+          Predict: 2.0
+       Else (average_rating > 2.9473684210526314)
+        If (Isn't imdb_keywords:actress)
+         If (Isn't imdb_keywords:subtitled-scene)
+          Predict: 4.0
+         Else (Is imdb_keywords:subtitled-scene)
+          Predict: 5.0
+        Else (Is imdb_keywords:actress)
+         If (Isn't imdb_keywords:pubic-hair)
+          Predict: 12.0
+         Else (Is imdb_keywords:pubic-hair)
+          Predict: 14.0
+      Else (Is imdb_keywords:topless-female-nudity)
+       If (Isn't imdb_keywords:actress)
+        If (Isn't imdb_keywords:unrequited-love)
+         If (Isn't imdb_keywords:gunfight)
+          Predict: 9.0
+         Else (Is imdb_keywords:gunfight)
+          Predict: 2.0
+        Else (Is imdb_keywords:unrequited-love)
+         Predict: 13.0
+       Else (Is imdb_keywords:actress)
+        If (Isn't imdb_keywords:nurse)
+         If (year <= 1979.0)
+          Predict: 9.0
+         Else (year > 1979.0)
+          Predict: 14.0
+        Else (Is imdb_keywords:nurse)
+         Predict: 12.0
+     Else (average_rating > 3.9130434782608696)
+      If (Isn't imdb_keywords:actress)
+       If (Isn't imdb_keywords:gunfight)
+        If (Isn't imdb_keywords:unrequited-love)
+         If (Isn't imdb_keywords:disguise)
+          Predict: 9.0
+         Else (Is imdb_keywords:disguise)
+          Predict: 2.0
+        Else (Is imdb_keywords:unrequited-love)
+         If (Isn't movielens_tags:BD-Video)
+          Predict: 13.0
+         Else (Is movielens_tags:BD-Video)
+          Predict: 10.0
+       Else (Is imdb_keywords:gunfight)
+        If (Isn't imdb_keywords:subtitled-scene)
+         If (Isn't imdb_keywords:1910s)
+          Predict: 2.0
+         Else (Is imdb_keywords:1910s)
+          Predict: 3.0
+        Else (Is imdb_keywords:subtitled-scene)
+         Predict: 5.0
+      Else (Is imdb_keywords:actress)
+       If (Isn't imdb_keywords:storytelling)
+        Predict: 14.0
+       Else (Is imdb_keywords:storytelling)
+        If (year <= 2005.0)
+         Predict: 10.0
+        Else (year > 2005.0)
+         Predict: 12.0
+   Else (Is imdb_keywords:robbery)
+    If (Isn't imdb_keywords:disguise)
+     If (Isn't imdb_keywords:actress)
+      If (Isn't imdb_keywords:gunfire)
+       If (Isn't imdb_keywords:class-differences)
+        If (Isn't imdb_keywords:subtitled-scene)
+         If (Isn't imdb_keywords:unrequited-love)
+          Predict: 1.0
+         Else (Is imdb_keywords:unrequited-love)
+          Predict: 13.0
+        Else (Is imdb_keywords:subtitled-scene)
+         If (Isn't tvtropes:too dumb to live)
+          Predict: 5.0
+         Else (Is tvtropes:too dumb to live)
+          Predict: 1.0
+       Else (Is imdb_keywords:class-differences)
+        If (year <= 2008.0)
+         Predict: 10.0
+        Else (year > 2008.0)
+         Predict: 1.0
+      Else (Is imdb_keywords:gunfire)
+       If (Isn't imdb_keywords:1970s)
+        Predict: 3.0
+       Else (Is imdb_keywords:1970s)
+        Predict: 9.0
      Else (Is imdb_keywords:actress)
-      Predict: 1.0
+      If (Isn't imdb_keywords:cook)
+       If (Isn't imdb_keywords:writing)
+        Predict: 14.0
+       Else (Is imdb_keywords:writing)
+        Predict: 12.0
+      Else (Is imdb_keywords:cook)
+       If (Isn't movielens_tags:Tumey's DVDs)
+        Predict: 12.0
+       Else (Is movielens_tags:Tumey's DVDs)
+        Predict: 3.0
+    Else (Is imdb_keywords:disguise)
+     If (Isn't imdb_keywords:mansion)
+      If (Isn't imdb_keywords:long-take)
+       If (Isn't imdb_keywords:gunfire)
+        If (Isn't imdb_keywords:hand-grenade)
+         If (Isn't movielens_tags:In Netflix queue)
+          Predict: 2.0
+         Else (Is movielens_tags:In Netflix queue)
+          Predict: 11.0
+        Else (Is imdb_keywords:hand-grenade)
+         If (Isn't movielens_genre:Drama)
+          Predict: 5.0
+         Else (Is movielens_genre:Drama)
+          Predict: 2.0
+       Else (Is imdb_keywords:gunfire)
+        Predict: 3.0
+      Else (Is imdb_keywords:long-take)
+       Predict: 1.0
+     Else (Is imdb_keywords:mansion)
+      If (Isn't imdb_keywords:class-differences)
+       If (Isn't imdb_keywords:subtitled-scene)
+        If (Isn't imdb_keywords:1990s)
+         If (Isn't movielens_tags:crime)
+          Predict: 2.0
+         Else (Is movielens_tags:crime)
+          Predict: 11.0
+        Else (Is imdb_keywords:1990s)
+         Predict: 1.0
+       Else (Is imdb_keywords:subtitled-scene)
+        Predict: 5.0
+      Else (Is imdb_keywords:class-differences)
+       Predict: 10.0
 
 Done, making predictions
-Accuracy: 0.903145282077
+Accuracy: 0.897403894159
 Summary Stats
-Precision = 0.903145282077
-Recall = 0.903145282077
-F1 Score = 0.903145282077
-28 features used
+Precision = 0.897403894159
+Recall = 0.897403894159
+F1 Score = 0.897403894159
+36 features used
 15 clusters found
 Processing cluster 0.0
-QIIs: [('imdb_keywords:robbery', -0.12927756653992395), ('imdb_keywords:hit-by-a-car', 0.07604562737642585), ('imdb_keywords:prayer', -0.049429657794676805), ('imdb_keywords:actress', -0.034220532319391636), ('imdb_keywords:three-word-title', 0.015209125475285171), ('year', 0.0), ('movielens_genre:Comedy', 0.0), ('imdb_keywords:unrequited-love', 0.0), ('imdb_keywords:race-against-time', 0.0), ('imdb_keywords:class-differences', 0.0), ('imdb_keywords:honor', 0.0), ('imdb_keywords:rainstorm', 0.0), ('imdb_keywords:reference-to-god', 0.0), ('imdb_keywords:illness', 0.0), ('average_rating', 0.0), ('imdb_keywords:cowboy-hat', 0.0), ('imdb_keywords:scientist', 0.0), ('imdb_keywords:forest', 0.0), ('imdb_keywords:break-up', 0.0), ('imdb_keywords:gunfight', 0.0), ('imdb_keywords:topless-female-nudity', 0.0), ('movielens_tags:slow', 0.0), ('imdb_keywords:disguise', 0.0), ('imdb_keywords:subtitled-scene', 0.0), ('imdb_keywords:shot-in-the-stomach', 0.0), ('imdb_keywords:male-nudity', 0.0), ('imdb_keywords:gunfire', 0.0), ('imdb_keywords:duel', 0.0)]
-Correctness scores: [(2, 0.6296296296296297), (9, 0.3703703703703704), (6, 0.16666666666666669), (0, 0.0), (1, 0.0), (3, 0.0), (4, 0.0), (5, 0.0), (7, 0.0), (8, 0.0)]
-Processing cluster 1.0
-QIIs: [('imdb_keywords:scientist', 0.010830324909747292), ('imdb_keywords:hit-by-a-car', 0.0036101083032490976), ('year', 0.0), ('movielens_genre:Comedy', 0.0), ('imdb_keywords:unrequited-love', 0.0), ('imdb_keywords:race-against-time', 0.0), ('imdb_keywords:class-differences', 0.0), ('imdb_keywords:honor', 0.0), ('imdb_keywords:rainstorm', 0.0), ('imdb_keywords:reference-to-god', 0.0), ('imdb_keywords:illness', 0.0), ('average_rating', 0.0), ('imdb_keywords:cowboy-hat', 0.0), ('imdb_keywords:robbery', 0.0), ('imdb_keywords:forest', 0.0), ('imdb_keywords:break-up', 0.0), ('imdb_keywords:gunfight', 0.0), ('imdb_keywords:three-word-title', 0.0), ('imdb_keywords:topless-female-nudity', 0.0), ('movielens_tags:slow', 0.0), ('imdb_keywords:disguise', 0.0), ('imdb_keywords:subtitled-scene', 0.0), ('imdb_keywords:actress', 0.0), ('imdb_keywords:shot-in-the-stomach', 0.0), ('imdb_keywords:male-nudity', 0.0), ('imdb_keywords:gunfire', 0.0), ('imdb_keywords:duel', 0.0), ('imdb_keywords:prayer', 0.0)]
-Correctness scores: [(2, 0.7499999999999999), (9, 0.25), (0, 0.0), (1, 0.0), (3, 0.0), (4, 0.0), (5, 0.0), (6, 0.0), (7, 0.0), (8, 0.0)]
-Processing cluster 2.0
-QIIs: [('imdb_keywords:prayer', 0.33969465648854963), ('imdb_keywords:three-word-title', 0.2900763358778626), ('imdb_keywords:actress', 0.11450381679389313), ('imdb_keywords:hit-by-a-car', -0.04580152671755725), ('imdb_keywords:gunfire', 0.04580152671755725), ('imdb_keywords:scientist', 0.03816793893129771), ('imdb_keywords:duel', 0.03435114503816794), ('movielens_tags:slow', 0.030534351145038167), ('imdb_keywords:male-nudity', 0.030534351145038167), ('imdb_keywords:race-against-time', 0.022900763358778626), ('imdb_keywords:gunfight', -0.015267175572519083), ('imdb_keywords:shot-in-the-stomach', 0.007633587786259542), ('imdb_keywords:honor', -0.003816793893129771), ('year', 0.0), ('movielens_genre:Comedy', 0.0), ('imdb_keywords:unrequited-love', 0.0), ('imdb_keywords:class-differences', 0.0), ('imdb_keywords:rainstorm', 0.0), ('imdb_keywords:reference-to-god', 0.0), ('imdb_keywords:illness', 0.0), ('average_rating', 0.0), ('imdb_keywords:cowboy-hat', 0.0), ('imdb_keywords:robbery', 0.0), ('imdb_keywords:forest', 0.0), ('imdb_keywords:break-up', 0.0), ('imdb_keywords:topless-female-nudity', 0.0), ('imdb_keywords:disguise', 0.0), ('imdb_keywords:subtitled-scene', 0.0)]
-Correctness scores: [(6, 0.1878787878787879), (1, 0.07272727272727272), (9, 0.07272727272727272), (2, 0.06060606060606061), (0, 0.048484848484848485), (3, 0.024242424242424242), (4, 0.0), (5, 0.0), (7, 0.0), (8, 0.0)]
-Processing cluster 3.0
-QIIs: [('imdb_keywords:hit-by-a-car', 1.6065573770491803), ('imdb_keywords:three-word-title', -1.2459016393442623), ('imdb_keywords:robbery', 1.1721311475409837), ('imdb_keywords:scientist', 1.0491803278688525), ('imdb_keywords:shot-in-the-stomach', 0.45081967213114754), ('imdb_keywords:prayer', 0.3442622950819672), ('imdb_keywords:actress', 0.18032786885245902), ('imdb_keywords:gunfight', -0.14754098360655737), ('movielens_tags:slow', 0.14754098360655737), ('movielens_genre:Comedy', 0.08196721311475409), ('imdb_keywords:cowboy-hat', 0.07377049180327869), ('imdb_keywords:duel', 0.07377049180327869), ('year', -0.01639344262295082), ('imdb_keywords:unrequited-love', 0.0), ('imdb_keywords:race-against-time', 0.0), ('imdb_keywords:class-differences', 0.0), ('imdb_keywords:honor', 0.0), ('imdb_keywords:rainstorm', 0.0), ('imdb_keywords:reference-to-god', 0.0), ('imdb_keywords:illness', 0.0), ('average_rating', 0.0), ('imdb_keywords:forest', 0.0), ('imdb_keywords:break-up', 0.0), ('imdb_keywords:topless-female-nudity', 0.0), ('imdb_keywords:disguise', 0.0), ('imdb_keywords:subtitled-scene', 0.0), ('imdb_keywords:male-nudity', 0.0), ('imdb_keywords:gunfire', 0.0)]
-Correctness scores: [(2, 0.778735632183908), (9, 0.5632183908045977), (6, 0.06321839080459771), (3, 0.05172413793103448), (0, 0.02586206896551724), (1, 0.0), (4, 0.0), (5, 0.0), (7, 0.0), (8, 0.0)]
-Processing cluster 4.0
-QIIs: [('imdb_keywords:three-word-title', -0.11904761904761904), ('imdb_keywords:scientist', -0.08333333333333333), ('imdb_keywords:gunfight', -0.05952380952380952), ('imdb_keywords:prayer', 0.05952380952380952), ('imdb_keywords:robbery', 0.017857142857142856), ('year', 0.01488095238095238), ('imdb_keywords:subtitled-scene', 0.002976190476190476), ('imdb_keywords:actress', 0.002976190476190476), ('movielens_genre:Comedy', 0.0), ('imdb_keywords:unrequited-love', 0.0), ('imdb_keywords:hit-by-a-car', 0.0), ('imdb_keywords:race-against-time', 0.0), ('imdb_keywords:class-differences', 0.0), ('imdb_keywords:honor', 0.0), ('imdb_keywords:rainstorm', 0.0), ('imdb_keywords:reference-to-god', 0.0), ('imdb_keywords:illness', 0.0), ('average_rating', 0.0), ('imdb_keywords:cowboy-hat', 0.0), ('imdb_keywords:forest', 0.0), ('imdb_keywords:break-up', 0.0), ('imdb_keywords:topless-female-nudity', 0.0), ('movielens_tags:slow', 0.0), ('imdb_keywords:disguise', 0.0), ('imdb_keywords:shot-in-the-stomach', 0.0), ('imdb_keywords:male-nudity', 0.0), ('imdb_keywords:gunfire', 0.0), ('imdb_keywords:duel', 0.0)]
-Correctness scores: [(2, 0.5), (3, 0.2941176470588235), (5, 0.014705882352941176), (6, 0.014705882352941176), (0, 0.0), (1, 0.0), (4, 0.0), (7, 0.0), (8, 0.0), (9, 0.0)]
-Processing cluster 5.0
-QIIs: [('imdb_keywords:three-word-title', -0.5916666666666667), ('imdb_keywords:scientist', -0.49166666666666664), ('imdb_keywords:gunfight', 0.3), ('imdb_keywords:robbery', -0.2916666666666667), ('imdb_keywords:prayer', 0.2), ('imdb_keywords:hit-by-a-car', -0.15833333333333333), ('imdb_keywords:actress', -0.15), ('year', 0.0), ('movielens_genre:Comedy', 0.0), ('imdb_keywords:unrequited-love', 0.0), ('imdb_keywords:race-against-time', 0.0), ('imdb_keywords:class-differences', 0.0), ('imdb_keywords:honor', 0.0), ('imdb_keywords:rainstorm', 0.0), ('imdb_keywords:reference-to-god', 0.0), ('imdb_keywords:illness', 0.0), ('average_rating', 0.0), ('imdb_keywords:cowboy-hat', 0.0), ('imdb_keywords:forest', 0.0), ('imdb_keywords:break-up', 0.0), ('imdb_keywords:topless-female-nudity', 0.0), ('movielens_tags:slow', 0.0), ('imdb_keywords:disguise', 0.0), ('imdb_keywords:subtitled-scene', 0.0), ('imdb_keywords:shot-in-the-stomach', 0.0), ('imdb_keywords:male-nudity', 0.0), ('imdb_keywords:gunfire', 0.0), ('imdb_keywords:duel', 0.0)]
-Correctness scores: [(2, 0.7230769230769232), (3, 0.27692307692307694), (9, 0.14615384615384616), (6, 0.13846153846153847), (0, 0.0), (1, 0.0), (4, 0.0), (5, 0.0), (7, 0.0), (8, 0.0)]
-Processing cluster 6.0
-QIIs: [('imdb_keywords:forest', 0.5433962264150943), ('imdb_keywords:rainstorm', 0.1610062893081761), ('imdb_keywords:honor', 0.11069182389937107), ('imdb_keywords:cowboy-hat', 0.11069182389937107), ('imdb_keywords:disguise', 0.10062893081761007), ('imdb_keywords:break-up', -0.050314465408805034), ('year', 0.0), ('movielens_genre:Comedy', 0.0), ('imdb_keywords:unrequited-love', 0.0), ('imdb_keywords:hit-by-a-car', 0.0), ('imdb_keywords:race-against-time', 0.0), ('imdb_keywords:class-differences', 0.0), ('imdb_keywords:reference-to-god', 0.0), ('imdb_keywords:illness', 0.0), ('average_rating', 0.0), ('imdb_keywords:robbery', 0.0), ('imdb_keywords:scientist', 0.0), ('imdb_keywords:gunfight', 0.0), ('imdb_keywords:three-word-title', 0.0), ('imdb_keywords:topless-female-nudity', 0.0), ('movielens_tags:slow', 0.0), ('imdb_keywords:subtitled-scene', 0.0), ('imdb_keywords:actress', 0.0), ('imdb_keywords:shot-in-the-stomach', 0.0), ('imdb_keywords:male-nudity', 0.0), ('imdb_keywords:gunfire', 0.0), ('imdb_keywords:duel', 0.0), ('imdb_keywords:prayer', 0.0)]
-Correctness scores: [(3, 0.22857142857142856), (0, 0.15714285714285717), (6, 0.15714285714285717), (7, 0.14285714285714288), (1, 0.0), (2, 0.0), (4, 0.0), (5, 0.0), (8, 0.0), (9, 0.0)]
-Processing cluster 7.0
+Traceback (most recent call last):
+  File "/longterm/sophiak/fop_qii/product_clustering.py", line 355, in <module>
+    main()
+  File "/longterm/sophiak/fop_qii/product_clustering.py", line 257, in main
+    qiis = tree_qii.get_tree_qii(meta_tree, features, used_features)
+  File "/longterm/sophiak/fop_qii/tree_qii.py", line 98, in get_tree_qii
+    features_to_test=used_features)
+  File "/longterm/sophiak/fop_qii/common_utils.py", line 103, in compute_regression_qii
+    signed_error = mean_error(predobs, 1.0, float)
+  File "/longterm/sophiak/fop_qii/common_utils.py", line 195, in mean_error
+    return (predictionsAndRatings.map(map_f).reduce(add) / float(predictionsAndRatings.count())) ** (1.0/power)
+  File "/opt/spark-2.1.1-bin-hadoop2.7/python/lib/pyspark.zip/pyspark/rdd.py", line 834, in reduce
+  File "/opt/spark-2.1.1-bin-hadoop2.7/python/lib/pyspark.zip/pyspark/rdd.py", line 808, in collect
+  File "/opt/spark-2.1.1-bin-hadoop2.7/python/lib/py4j-0.10.4-src.zip/py4j/java_gateway.py", line 1131, in __call__
+  File "/opt/spark-2.1.1-bin-hadoop2.7/python/lib/py4j-0.10.4-src.zip/py4j/java_gateway.py", line 883, in send_command
+  File "/opt/spark-2.1.1-bin-hadoop2.7/python/lib/py4j-0.10.4-src.zip/py4j/java_gateway.py", line 1028, in send_command
+  File "/usr/lib/python2.7/socket.py", line 451, in readline
+    data = self._sock.recv(self._rbufsize)
+  File "/opt/spark-2.1.1-bin-hadoop2.7/python/lib/pyspark.zip/pyspark/context.py", line 239, in signal_handler
+KeyboardInterrupt

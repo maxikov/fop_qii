@@ -25,8 +25,34 @@ from pyspark.mllib.classification import LabeledPoint
 from pyspark.mllib.evaluation import MulticlassMetrics
 from pyspark.mllib.clustering import KMeans, GaussianMixture
 
+#numpy library
+import numpy as np
+
 def dist(x, y):
-    return sum(map(lambda (x,y): (x-y)**2, zip(x, y)))**0.5
+    xa = np.array(x)
+    ya = np.array(y)
+    return np.linalg.norm(xa - ya)
+
+def vsum(x, y):
+    xa = np.array(x)
+    ya = np.array(y)
+    return xa + ya
+
+def falmean(fal):
+    rfun = lambda ((mid1, ftrs1), cls1), ((mid2, ftrs2), cls2):\
+            vsum(ftrs1, ftrs2)
+    res = fal.reduce(rfun)/float(fal.count())
+    return res
+
+def falvar(fal, mean=None):
+    if mean is None:
+        mean = falmean(fal)
+    map_f = functools.partial(lambda mean, ((mid,ftrs),cls):
+            dist(mean, ftrs)**2, mean)
+    dists = fal.map(map_f)
+    res = dists.reduce(lambda a, b: a+b)/float(dists.count())
+    return res
+
 
 def load_movies(sc, args, product_features=None):
     if args.movies_file is not None:
@@ -105,29 +131,43 @@ def main():
     if args.cluster_model == "kmeans":
         kmeans_model = KMeans.train(data_set, args.n_clusters, maxIterations=100,
             initializationMode="random")
-        centroids = list(enumerate(map(list, kmeans_model.clusterCenters)))
+        centroids = list(map(np.array, kmeans_model.clusterCenters))
     elif args.cluster_model == "gmm":
         kmeans_model = GaussianMixture.train(data_set, args.n_clusters)
-        centroids = [(i, list(g.mu)) for (i, g) in
-                enumerate(kmeans_model.gaussians)]
+        centroids = [np.array(g.mu) for g in
+                kmeans_model.gaussians]
 
     print "Done"
     print "Centroids:", centroids
     print "Labeling clusters"
     clusters = kmeans_model.predict(data_set).map(float)
     features_and_labels = common_utils.safe_zip(product_features, clusters)
+    cent_mean = np.mean(centroids, axis=0)
+    cent_dists = [dist(cent_mean, cent)**2 for cent in centroids]
+    cent_var = np.mean(cent_dists)
+    print "Centroid mean:", cent_mean
+    print "Centroid variance:", cent_var
+    cluster_data = []
     for cluster in xrange(args.n_clusters):
-        print "Cluster {}:".format(cluster)
         filter_f = functools.partial(lambda cluster, ((mid, ftrs), cls): cls == cluster,
                 cluster)
         cur_mvs = features_and_labels.filter(filter_f)
-        centroid = centroids[cluster][1]
+        centroid = centroids[cluster]
         key_f = functools.partial(lambda centroid, ((mid, ftrs), cls):
             dist(ftrs, centroid), centroid)
         sample = cur_mvs.takeOrdered(args.cluster_sample_size, key=key_f)
+        text_sample = []
         for (i, ((mid, ftrs), cls)) in enumerate(sample):
-            print "\t{}: (dist: {}) {} (mid: {})".format(i, dist(ftrs, centroid),
-                        movies_dict[mid], mid)
+            text_sample.append("\t{}: (dist: {}) {} (mid: {})".format(i, dist(ftrs, centroid),
+                        movies_dict[mid], mid))
+        cls_mean = centroid
+        cls_var = falvar(cur_mvs, cls_mean)
+        cluster_data.append((cluster, cls_var, text_sample))
+    cluster_data.sort(key=lambda x: x[1])
+    for (cluster, cls_var, text_sample) in cluster_data:
+        print "Cluster {} (variance: {}):".format(cluster, cls_var)
+        for s in text_sample:
+            print s
 
 
     latent_training_data = features_and_labels.map(\
