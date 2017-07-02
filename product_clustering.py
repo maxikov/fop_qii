@@ -311,6 +311,7 @@ def main():
         used_features = tree_qii.get_used_features(meta_tree)
         print len(used_features), "features used"
         for (cluster, cls_var, text_sample) in cluster_data:
+            print "Cluster {} (variance: {}):".format(cluster, cls_var)
             filter_f = functools.partial(lambda cluster, ((mid, inds), cls):
                                 cls == cluster, cluster)
             features = meta_data_set.filter(filter_f).keys()
@@ -318,7 +319,6 @@ def main():
             qiis_list = sorted(qiis.items(), key=lambda (f, q): -abs(q))
             qiis_list_names = [(results["feature_names"][f], q) for (f, q) in
                     qiis_list]
-            print "Cluster {} (variance: {}):".format(cluster, cls_var)
             print "QIIs:", qiis_list_names
             for s in text_sample:
                 print s
