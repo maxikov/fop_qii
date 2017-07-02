@@ -1,10 +1,1304 @@
-Sun Jul 2 12:08:36 PDT 2017 spark-submit --driver-memory 10g product_clustering.py --persist-dir archived_states/product_regression_all_regression_tree_rank_12_depth_5.state --n-clusters 15 --cluster-model kmeans --movies-file datasets/ml-20m/movies.csv >> new_experiments/logs/product_clustering_real_data_kmeans.txt
+Sun Jul 2 12:09:50 PDT 2017 spark-submit --driver-memory 10g product_clustering.py --persist-dir archived_states/product_regression_all_regression_tree_rank_12_depth_5.state --n-clusters 15 --cluster-model kmeans --movies-file datasets/ml-20m/movies.csv >> new_experiments/logs/product_clustering_real_data_kmeans.txt
+Loading results dict
+Loading indicators
+Loading ALS model
+Loading movies
+Done, 27278 movies loaded
+Training kmeans
+Done
+Centroids: [array([-0.49012694,  0.06251222, -0.11620696, -0.06210465,  0.10267836,
+       -0.58946634, -0.68220407,  0.71583994,  0.57944952,  0.46884947,
+       -1.16584958, -0.71333656]), array([-0.21137098,  0.07126137, -0.13998683, -0.17518888,  0.48332619,
+        0.26479588, -0.0752762 ,  0.33221766,  0.5616457 ,  0.76400039,
+       -1.27034722, -0.58564733]), array([ 0.24040664,  0.69126894,  0.35297794,  0.11510676,  0.28865418,
+       -0.36069136,  0.57769655,  0.80584862,  0.57266543,  0.16081885,
+       -0.75810686, -1.00663788]), array([ 0.36900708,  0.56195468,  0.24143805, -0.54398145, -0.47084988,
+       -0.79153572, -0.05009697,  0.83160683,  0.98419389,  0.53507726,
+       -1.06491785, -0.32978091]), array([-0.04276278,  0.18151384,  0.79803178, -0.2652183 ,  0.11278904,
+       -0.3874555 ,  0.15402559,  0.75262952,  0.52657012,  0.65581935,
+       -0.36060847, -1.14234211]), array([-0.18484803,  0.29636791, -0.15212539, -0.44109789,  0.64897639,
+       -0.85389601,  0.05285615,  1.10508005,  0.84691926,  0.15487453,
+       -0.67709083, -0.4876556 ]), array([ 0.22425451,  0.26991892,  0.23325198,  0.03573313,  0.66981496,
+        0.11222283,  0.37218882,  0.43272519,  0.43492742,  0.38463144,
+       -1.05443135, -0.85480695]), array([ 0.75530831,  0.49181182, -0.12469739, -0.64865057,  0.15086452,
+        0.10014336,  0.32490191,  1.10079233,  0.86949395,  0.10016183,
+       -0.87109313, -0.48099128]), array([ 0.02294148, -0.28242997,  0.18541923,  0.37484723,  0.48613507,
+       -0.08428819,  0.066585  ,  0.83006161,  0.84521117,  0.20918635,
+       -0.70211155, -0.81116045]), array([-0.1420262 ,  0.60466714,  0.29025908,  0.04345541,  0.21084901,
+       -0.04069873,  0.05564282,  0.75600436,  0.98539981,  0.17914108,
+       -0.46046866, -0.80106241]), array([ 0.28144104,  0.80646379,  0.19950876, -0.15892772, -0.32748042,
+       -0.47893945,  0.1738753 ,  1.09398006,  0.58644821,  0.11767358,
+       -0.77363696, -0.90388335]), array([ 0.20892638,  0.48632063, -0.0512441 , -0.19965784,  0.15151123,
+       -0.1667647 , -0.11839692,  0.4429231 ,  0.47291226,  0.02488073,
+       -0.98780971, -1.47647295]), array([-0.21622687,  0.33035913,  0.5992387 , -0.11826587,  0.26511087,
+        0.12302445,  0.02674826,  0.94691595,  0.27207511, -0.37881354,
+       -1.31466178, -0.58360651]), array([-0.01688638,  0.52789847,  0.35891753, -0.40990607, -0.14894588,
+       -0.44104759,  0.5028428 ,  0.55526141,  1.29667739,  0.15476272,
+       -0.69152025, -0.9511865 ]), array([-0.22212348,  0.71198297,  0.0826884 , -0.48455715,  0.1153334 ,
+       -0.18236975,  0.55684064,  1.17363147,  0.4385926 ,  0.65519112,
+       -0.55163217, -0.70532696])]
+Labeling clusters
+Clusters: defaultdict(<type 'int'>, {0.0: 268, 1.0: 264, 2.0: 647, 3.0: 255, 4.0: 250, 5.0: 217, 6.0: 542, 7.0: 185, 8.0: 346, 9.0: 554, 10.0: 526, 11.0: 320, 12.0: 203, 13.0: 500, 14.0: 362})
+Centroid mean: [ 0.03839425  0.38745812  0.18383138 -0.19589426  0.18258447 -0.25179779
+  0.12921531  0.79170121  0.68487879  0.27908368 -0.84695242 -0.78892652]
+Centroid variance: 0.995027664158
+Training a latent tree
+DecisionTreeModel classifier of depth 8 with 453 nodes
+  If (feature 8 <= 1.0401818752288818)
+   If (feature 4 <= 0.008254813961684704)
+    If (feature 7 <= 0.8009839653968811)
+     If (feature 6 <= -0.34878748655319214)
+      If (feature 0 <= 0.18855853378772736)
+       If (feature 2 <= 0.7513552904129028)
+        If (feature 5 <= -0.13105353713035583)
+         If (feature 11 <= -0.17410904169082642)
+          Predict: 0.0
+         Else (feature 11 > -0.17410904169082642)
+          Predict: 3.0
+        Else (feature 5 > -0.13105353713035583)
+         If (feature 9 <= 0.6271668672561646)
+          Predict: 11.0
+         Else (feature 9 > 0.6271668672561646)
+          Predict: 0.0
+       Else (feature 2 > 0.7513552904129028)
+        If (feature 10 <= -0.8089140057563782)
+         If (feature 0 <= -0.26296287775039673)
+          Predict: 0.0
+         Else (feature 0 > -0.26296287775039673)
+          Predict: 3.0
+        Else (feature 10 > -0.8089140057563782)
+         Predict: 4.0
+      Else (feature 0 > 0.18855853378772736)
+       If (feature 11 <= -0.4764508008956909)
+        If (feature 1 <= -0.510155200958252)
+         If (feature 0 <= 0.21982333064079285)
+          Predict: 1.0
+         Else (feature 0 > 0.21982333064079285)
+          Predict: 4.0
+        Else (feature 1 > -0.510155200958252)
+         If (feature 3 <= -1.053962230682373)
+          Predict: 3.0
+         Else (feature 3 > -1.053962230682373)
+          Predict: 11.0
+       Else (feature 11 > -0.4764508008956909)
+        Predict: 3.0
+     Else (feature 6 > -0.34878748655319214)
+      If (feature 3 <= -0.37694793939590454)
+       If (feature 11 <= -0.6572849750518799)
+        If (feature 8 <= 0.7050836682319641)
+         If (feature 2 <= 0.20103126764297485)
+          Predict: 11.0
+         Else (feature 2 > 0.20103126764297485)
+          Predict: 4.0
+        Else (feature 8 > 0.7050836682319641)
+         If (feature 6 <= 0.19638586044311523)
+          Predict: 3.0
+         Else (feature 6 > 0.19638586044311523)
+          Predict: 13.0
+       Else (feature 11 > -0.6572849750518799)
+        If (feature 4 <= -0.03543436527252197)
+         If (feature 9 <= -0.17578525841236115)
+          Predict: 12.0
+         Else (feature 9 > -0.17578525841236115)
+          Predict: 3.0
+        Else (feature 4 > -0.03543436527252197)
+         If (feature 1 <= 0.3699023425579071)
+          Predict: 1.0
+         Else (feature 1 > 0.3699023425579071)
+          Predict: 14.0
+      Else (feature 3 > -0.37694793939590454)
+       If (feature 10 <= -0.5442102551460266)
+        If (feature 4 <= -0.1785978227853775)
+         If (feature 7 <= 0.6265971064567566)
+          Predict: 11.0
+         Else (feature 7 > 0.6265971064567566)
+          Predict: 10.0
+        Else (feature 4 > -0.1785978227853775)
+         If (feature 6 <= 0.15864887833595276)
+          Predict: 12.0
+         Else (feature 6 > 0.15864887833595276)
+          Predict: 2.0
+       Else (feature 10 > -0.5442102551460266)
+        If (feature 9 <= 0.4929756820201874)
+         If (feature 11 <= -1.2310614585876465)
+          Predict: 10.0
+         Else (feature 11 > -1.2310614585876465)
+          Predict: 9.0
+        Else (feature 9 > 0.4929756820201874)
+         If (feature 2 <= -0.05721450597047806)
+          Predict: 9.0
+         Else (feature 2 > -0.05721450597047806)
+          Predict: 4.0
+    Else (feature 7 > 0.8009839653968811)
+     If (feature 9 <= 0.5790448784828186)
+      If (feature 0 <= -0.12528197467327118)
+       If (feature 6 <= -0.009427855722606182)
+        If (feature 2 <= 0.23168118298053741)
+         If (feature 5 <= 0.020613467320799828)
+          Predict: 0.0
+         Else (feature 5 > 0.020613467320799828)
+          Predict: 11.0
+        Else (feature 2 > 0.23168118298053741)
+         If (feature 5 <= -0.40791386365890503)
+          Predict: 10.0
+         Else (feature 5 > -0.40791386365890503)
+          Predict: 12.0
+       Else (feature 6 > -0.009427855722606182)
+        If (feature 1 <= 0.7645848989486694)
+         If (feature 5 <= -0.5339308977127075)
+          Predict: 13.0
+         Else (feature 5 > -0.5339308977127075)
+          Predict: 14.0
+        Else (feature 1 > 0.7645848989486694)
+         If (feature 9 <= 0.19790294766426086)
+          Predict: 10.0
+         Else (feature 9 > 0.19790294766426086)
+          Predict: 14.0
+      Else (feature 0 > -0.12528197467327118)
+       If (feature 5 <= 0.14315296709537506)
+        If (feature 6 <= 0.6333726644515991)
+         If (feature 1 <= 0.3699023425579071)
+          Predict: 10.0
+         Else (feature 1 > 0.3699023425579071)
+          Predict: 10.0
+        Else (feature 6 > 0.6333726644515991)
+         If (feature 10 <= -0.4675043821334839)
+          Predict: 10.0
+         Else (feature 10 > -0.4675043821334839)
+          Predict: 14.0
+       Else (feature 5 > 0.14315296709537506)
+        If (feature 2 <= 0.7513552904129028)
+         If (feature 11 <= -0.7344107627868652)
+          Predict: 7.0
+         Else (feature 11 > -0.7344107627868652)
+          Predict: 7.0
+        Else (feature 2 > 0.7513552904129028)
+         Predict: 12.0
+     Else (feature 9 > 0.5790448784828186)
+      If (feature 11 <= -0.2834922969341278)
+       If (feature 4 <= -0.2853643596172333)
+        If (feature 1 <= 0.3343576490879059)
+         If (feature 6 <= -0.053257718682289124)
+          Predict: 0.0
+         Else (feature 6 > -0.053257718682289124)
+          Predict: 4.0
+        Else (feature 1 > 0.3343576490879059)
+         If (feature 0 <= 0.5986625552177429)
+          Predict: 10.0
+         Else (feature 0 > 0.5986625552177429)
+          Predict: 3.0
+       Else (feature 4 > -0.2853643596172333)
+        If (feature 1 <= 0.6907272934913635)
+         If (feature 3 <= -0.33700376749038696)
+          Predict: 14.0
+         Else (feature 3 > -0.33700376749038696)
+          Predict: 4.0
+        Else (feature 1 > 0.6907272934913635)
+         If (feature 2 <= 0.7513552904129028)
+          Predict: 14.0
+         Else (feature 2 > 0.7513552904129028)
+          Predict: 4.0
+      Else (feature 11 > -0.2834922969341278)
+       If (feature 5 <= 0.09555308520793915)
+        If (feature 3 <= -0.0864739939570427)
+         Predict: 3.0
+        Else (feature 3 > -0.0864739939570427)
+         If (feature 0 <= 0.1178220584988594)
+          Predict: 3.0
+         Else (feature 0 > 0.1178220584988594)
+          Predict: 10.0
+       Else (feature 5 > 0.09555308520793915)
+        Predict: 7.0
+   Else (feature 4 > 0.008254813961684704)
+    If (feature 6 <= 0.23014381527900696)
+     If (feature 10 <= -0.7762337923049927)
+      If (feature 11 <= -1.2310614585876465)
+       If (feature 9 <= 0.2855285108089447)
+        If (feature 3 <= 0.33455750346183777)
+         If (feature 5 <= 0.14315296709537506)
+          Predict: 11.0
+         Else (feature 5 > 0.14315296709537506)
+          Predict: 11.0
+        Else (feature 3 > 0.33455750346183777)
+         If (feature 11 <= -1.4228765964508057)
+          Predict: 11.0
+         Else (feature 11 > -1.4228765964508057)
+          Predict: 2.0
+       Else (feature 9 > 0.2855285108089447)
+        If (feature 2 <= 0.09568505734205246)
+         If (feature 0 <= 0.00650008674710989)
+          Predict: 1.0
+         Else (feature 0 > 0.00650008674710989)
+          Predict: 11.0
+        Else (feature 2 > 0.09568505734205246)
+         If (feature 0 <= 0.33172890543937683)
+          Predict: 6.0
+         Else (feature 0 > 0.33172890543937683)
+          Predict: 11.0
+      Else (feature 11 > -1.2310614585876465)
+       If (feature 6 <= -0.5768040418624878)
+        If (feature 5 <= 0.020613467320799828)
+         If (feature 0 <= 0.3656141757965088)
+          Predict: 0.0
+         Else (feature 0 > 0.3656141757965088)
+          Predict: 5.0
+        Else (feature 5 > 0.020613467320799828)
+         If (feature 9 <= -0.5483548045158386)
+          Predict: 7.0
+         Else (feature 9 > -0.5483548045158386)
+          Predict: 1.0
+       Else (feature 6 > -0.5768040418624878)
+        If (feature 9 <= 0.4552953541278839)
+         If (feature 9 <= 0.01200971007347107)
+          Predict: 12.0
+         Else (feature 9 > 0.01200971007347107)
+          Predict: 6.0
+        Else (feature 9 > 0.4552953541278839)
+         If (feature 5 <= -0.27053558826446533)
+          Predict: 0.0
+         Else (feature 5 > -0.27053558826446533)
+          Predict: 1.0
+     Else (feature 10 > -0.7762337923049927)
+      If (feature 1 <= 0.09261088818311691)
+       If (feature 3 <= -0.05428718775510788)
+        If (feature 2 <= 0.2566658854484558)
+         If (feature 5 <= 0.020613467320799828)
+          Predict: 5.0
+         Else (feature 5 > 0.020613467320799828)
+          Predict: 1.0
+        Else (feature 2 > 0.2566658854484558)
+         If (feature 11 <= -0.6572849750518799)
+          Predict: 4.0
+         Else (feature 11 > -0.6572849750518799)
+          Predict: 6.0
+       Else (feature 3 > -0.05428718775510788)
+        If (feature 8 <= 0.43440383672714233)
+         If (feature 1 <= -0.3187350034713745)
+          Predict: 8.0
+         Else (feature 1 > -0.3187350034713745)
+          Predict: 4.0
+        Else (feature 8 > 0.43440383672714233)
+         If (feature 10 <= -0.20922017097473145)
+          Predict: 8.0
+         Else (feature 10 > -0.20922017097473145)
+          Predict: 4.0
+      Else (feature 1 > 0.09261088818311691)
+       If (feature 3 <= -0.12095177173614502)
+        If (feature 11 <= -1.1855857372283936)
+         If (feature 10 <= -0.4675043821334839)
+          Predict: 11.0
+         Else (feature 10 > -0.4675043821334839)
+          Predict: 4.0
+        Else (feature 11 > -1.1855857372283936)
+         If (feature 5 <= -0.19941963255405426)
+          Predict: 5.0
+         Else (feature 5 > -0.19941963255405426)
+          Predict: 9.0
+       Else (feature 3 > -0.12095177173614502)
+        If (feature 9 <= 0.3856632709503174)
+         If (feature 1 <= 0.8034905195236206)
+          Predict: 9.0
+         Else (feature 1 > 0.8034905195236206)
+          Predict: 2.0
+        Else (feature 9 > 0.3856632709503174)
+         If (feature 2 <= 0.44634324312210083)
+          Predict: 9.0
+         Else (feature 2 > 0.44634324312210083)
+          Predict: 4.0
+    Else (feature 6 > 0.23014381527900696)
+     If (feature 7 <= 0.5215756893157959)
+      If (feature 1 <= 0.6165885329246521)
+       If (feature 4 <= 0.3048439919948578)
+        If (feature 5 <= -0.40791386365890503)
+         If (feature 1 <= 0.29510530829429626)
+          Predict: 4.0
+         Else (feature 1 > 0.29510530829429626)
+          Predict: 2.0
+        Else (feature 5 > -0.40791386365890503)
+         If (feature 9 <= 0.9075519442558289)
+          Predict: 6.0
+         Else (feature 9 > 0.9075519442558289)
+          Predict: 1.0
+       Else (feature 4 > 0.3048439919948578)
+        If (feature 0 <= -0.0911230742931366)
+         If (feature 3 <= -0.4245469570159912)
+          Predict: 1.0
+         Else (feature 3 > -0.4245469570159912)
+          Predict: 6.0
+        Else (feature 0 > -0.0911230742931366)
+         If (feature 8 <= 0.8905346393585205)
+          Predict: 6.0
+         Else (feature 8 > 0.8905346393585205)
+          Predict: 2.0
+      Else (feature 1 > 0.6165885329246521)
+       If (feature 10 <= -1.1546263694763184)
+        If (feature 5 <= -0.5339308977127075)
+         If (feature 1 <= 0.6533275842666626)
+          Predict: 2.0
+         Else (feature 1 > 0.6533275842666626)
+          Predict: 3.0
+        Else (feature 5 > -0.5339308977127075)
+         If (feature 5 <= 0.4341764748096466)
+          Predict: 6.0
+         Else (feature 5 > 0.4341764748096466)
+          Predict: 1.0
+       Else (feature 10 > -1.1546263694763184)
+        If (feature 3 <= -0.37694793939590454)
+         If (feature 0 <= -0.12528197467327118)
+          Predict: 14.0
+         Else (feature 0 > -0.12528197467327118)
+          Predict: 3.0
+        Else (feature 3 > -0.37694793939590454)
+         If (feature 6 <= 0.3311419188976288)
+          Predict: 11.0
+         Else (feature 6 > 0.3311419188976288)
+          Predict: 2.0
+     Else (feature 7 > 0.5215756893157959)
+      If (feature 3 <= -0.3025575578212738)
+       If (feature 0 <= 0.21982333064079285)
+        If (feature 7 <= 0.8621998429298401)
+         If (feature 10 <= -0.42993658781051636)
+          Predict: 14.0
+         Else (feature 10 > -0.42993658781051636)
+          Predict: 4.0
+        Else (feature 7 > 0.8621998429298401)
+         If (feature 5 <= -0.49832674860954285)
+          Predict: 5.0
+         Else (feature 5 > -0.49832674860954285)
+          Predict: 14.0
+       Else (feature 0 > 0.21982333064079285)
+        If (feature 9 <= 0.7314900755882263)
+         If (feature 2 <= 0.16762948036193848)
+          Predict: 7.0
+         Else (feature 2 > 0.16762948036193848)
+          Predict: 2.0
+        Else (feature 9 > 0.7314900755882263)
+         Predict: 14.0
+      Else (feature 3 > -0.3025575578212738)
+       If (feature 1 <= 0.202825665473938)
+        If (feature 8 <= 0.538586437702179)
+         If (feature 7 <= 1.0628660917282104)
+          Predict: 6.0
+         Else (feature 7 > 1.0628660917282104)
+          Predict: 2.0
+        Else (feature 8 > 0.538586437702179)
+         If (feature 1 <= -0.02752366103231907)
+          Predict: 8.0
+         Else (feature 1 > -0.02752366103231907)
+          Predict: 6.0
+       Else (feature 1 > 0.202825665473938)
+        If (feature 0 <= -0.16946250200271606)
+         If (feature 10 <= -0.899394690990448)
+          Predict: 6.0
+         Else (feature 10 > -0.899394690990448)
+          Predict: 14.0
+        Else (feature 0 > -0.16946250200271606)
+         If (feature 5 <= -0.019679004326462746)
+          Predict: 2.0
+         Else (feature 5 > -0.019679004326462746)
+          Predict: 2.0
+  Else (feature 8 > 1.0401818752288818)
+   If (feature 6 <= 0.23014381527900696)
+    If (feature 1 <= 0.14965729415416718)
+     If (feature 3 <= 0.07539837062358856)
+      If (feature 5 <= -0.3685190677642822)
+       If (feature 4 <= 0.3417579233646393)
+        If (feature 4 <= -0.43610718846321106)
+         If (feature 1 <= -0.510155200958252)
+          Predict: 0.0
+         Else (feature 1 > -0.510155200958252)
+          Predict: 3.0
+        Else (feature 4 > -0.43610718846321106)
+         If (feature 6 <= -0.1513606160879135)
+          Predict: 0.0
+         Else (feature 6 > -0.1513606160879135)
+          Predict: 13.0
+       Else (feature 4 > 0.3417579233646393)
+        If (feature 8 <= 1.1090761423110962)
+         If (feature 0 <= -0.21784904599189758)
+          Predict: 0.0
+         Else (feature 0 > -0.21784904599189758)
+          Predict: 3.0
+        Else (feature 8 > 1.1090761423110962)
+         If (feature 8 <= 1.519116997718811)
+          Predict: 5.0
+         Else (feature 8 > 1.519116997718811)
+          Predict: 1.0
+      Else (feature 5 > -0.3685190677642822)
+       If (feature 10 <= -0.8394788503646851)
+        If (feature 9 <= 0.19790294766426086)
+         If (feature 0 <= -0.85939621925354)
+          Predict: 11.0
+         Else (feature 0 > -0.85939621925354)
+          Predict: 5.0
+        Else (feature 9 > 0.19790294766426086)
+         If (feature 4 <= 0.008254813961684704)
+          Predict: 0.0
+         Else (feature 4 > 0.008254813961684704)
+          Predict: 1.0
+       Else (feature 10 > -0.8394788503646851)
+        If (feature 5 <= -0.019679004326462746)
+         If (feature 1 <= -0.3187350034713745)
+          Predict: 8.0
+         Else (feature 1 > -0.3187350034713745)
+          Predict: 4.0
+        Else (feature 5 > -0.019679004326462746)
+         If (feature 4 <= 0.3048439919948578)
+          Predict: 9.0
+         Else (feature 4 > 0.3048439919948578)
+          Predict: 4.0
+     Else (feature 3 > 0.07539837062358856)
+      If (feature 2 <= 0.015515774488449097)
+       If (feature 0 <= -0.26296287775039673)
+        If (feature 5 <= -0.27053558826446533)
+         Predict: 0.0
+        Else (feature 5 > -0.27053558826446533)
+         If (feature 4 <= 0.5453874468803406)
+          Predict: 1.0
+         Else (feature 4 > 0.5453874468803406)
+          Predict: 8.0
+       Else (feature 0 > -0.26296287775039673)
+        If (feature 4 <= -0.2853643596172333)
+         If (feature 5 <= -0.636789083480835)
+          Predict: 3.0
+         Else (feature 5 > -0.636789083480835)
+          Predict: 1.0
+        Else (feature 4 > -0.2853643596172333)
+         Predict: 8.0
+      Else (feature 2 > 0.015515774488449097)
+       If (feature 2 <= 1.027142882347107)
+        If (feature 11 <= -1.3411533832550049)
+         Predict: 11.0
+        Else (feature 11 > -1.3411533832550049)
+         Predict: 8.0
+       Else (feature 2 > 1.027142882347107)
+        Predict: 3.0
+    Else (feature 1 > 0.14965729415416718)
+     If (feature 4 <= -0.07887117564678192)
+      If (feature 0 <= 0.2538893520832062)
+       If (feature 7 <= 0.6561862230300903)
+        If (feature 6 <= -0.4262235760688782)
+         If (feature 3 <= -0.05428718775510788)
+          Predict: 9.0
+         Else (feature 3 > -0.05428718775510788)
+          Predict: 0.0
+        Else (feature 6 > -0.4262235760688782)
+         If (feature 5 <= -0.9681892991065979)
+          Predict: 3.0
+         Else (feature 5 > -0.9681892991065979)
+          Predict: 13.0
+       Else (feature 7 > 0.6561862230300903)
+        If (feature 3 <= -0.5259765386581421)
+         If (feature 11 <= -0.7918609380722046)
+          Predict: 13.0
+         Else (feature 11 > -0.7918609380722046)
+          Predict: 3.0
+        Else (feature 3 > -0.5259765386581421)
+         If (feature 5 <= -0.40791386365890503)
+          Predict: 10.0
+         Else (feature 5 > -0.40791386365890503)
+          Predict: 9.0
+      Else (feature 0 > 0.2538893520832062)
+       If (feature 8 <= 1.1090761423110962)
+        If (feature 0 <= 0.5986625552177429)
+         Predict: 10.0
+        Else (feature 0 > 0.5986625552177429)
+         Predict: 7.0
+       Else (feature 8 > 1.1090761423110962)
+        If (feature 5 <= -0.13105353713035583)
+         If (feature 2 <= -0.695468008518219)
+          Predict: 11.0
+         Else (feature 2 > -0.695468008518219)
+          Predict: 3.0
+        Else (feature 5 > -0.13105353713035583)
+         If (feature 2 <= -0.1367621272802353)
+          Predict: 1.0
+         Else (feature 2 > -0.1367621272802353)
+          Predict: 7.0
+     Else (feature 4 > -0.07887117564678192)
+      If (feature 5 <= -0.4495939016342163)
+       If (feature 2 <= 0.09568505734205246)
+        If (feature 4 <= 0.008254813961684704)
+         If (feature 0 <= -0.446138858795166)
+          Predict: 0.0
+         Else (feature 0 > -0.446138858795166)
+          Predict: 3.0
+        Else (feature 4 > 0.008254813961684704)
+         If (feature 10 <= -0.9307041764259338)
+          Predict: 5.0
+         Else (feature 10 > -0.9307041764259338)
+          Predict: 5.0
+       Else (feature 2 > 0.09568505734205246)
+        If (feature 11 <= -0.8540939092636108)
+         If (feature 8 <= 1.2348048686981201)
+          Predict: 4.0
+         Else (feature 8 > 1.2348048686981201)
+          Predict: 13.0
+        Else (feature 11 > -0.8540939092636108)
+         If (feature 3 <= -0.3025575578212738)
+          Predict: 5.0
+         Else (feature 3 > -0.3025575578212738)
+          Predict: 9.0
+      Else (feature 5 > -0.4495939016342163)
+       If (feature 0 <= 0.4069029986858368)
+        If (feature 2 <= -0.3375769257545471)
+         If (feature 7 <= 1.0628660917282104)
+          Predict: 1.0
+         Else (feature 7 > 1.0628660917282104)
+          Predict: 5.0
+        Else (feature 2 > -0.3375769257545471)
+         If (feature 3 <= -0.8521629571914673)
+          Predict: 7.0
+         Else (feature 3 > -0.8521629571914673)
+          Predict: 9.0
+       Else (feature 0 > 0.4069029986858368)
+        If (feature 11 <= -0.42375648021698)
+         If (feature 4 <= 0.3417579233646393)
+          Predict: 1.0
+         Else (feature 4 > 0.3417579233646393)
+          Predict: 9.0
+        Else (feature 11 > -0.42375648021698)
+         Predict: 7.0
+   Else (feature 6 > 0.23014381527900696)
+    If (feature 3 <= -0.12095177173614502)
+     If (feature 11 <= -0.579840898513794)
+      If (feature 5 <= -0.13105353713035583)
+       If (feature 0 <= 0.9051477313041687)
+        If (feature 7 <= 1.105539321899414)
+         If (feature 10 <= -1.4788713455200195)
+          Predict: 1.0
+         Else (feature 10 > -1.4788713455200195)
+          Predict: 13.0
+        Else (feature 7 > 1.105539321899414)
+         If (feature 4 <= -0.1785978227853775)
+          Predict: 3.0
+         Else (feature 4 > -0.1785978227853775)
+          Predict: 5.0
+       Else (feature 0 > 0.9051477313041687)
+        Predict: 7.0
+      Else (feature 5 > -0.13105353713035583)
+       If (feature 3 <= -0.2578439712524414)
+        If (feature 2 <= -0.25785255432128906)
+         If (feature 3 <= -0.6556524634361267)
+          Predict: 1.0
+         Else (feature 3 > -0.6556524634361267)
+          Predict: 11.0
+        Else (feature 2 > -0.25785255432128906)
+         If (feature 7 <= 0.8009839653968811)
+          Predict: 13.0
+         Else (feature 7 > 0.8009839653968811)
+          Predict: 9.0
+       Else (feature 3 > -0.2578439712524414)
+        If (feature 0 <= 0.05979446321725845)
+         If (feature 1 <= 0.6165885329246521)
+          Predict: 9.0
+         Else (feature 1 > 0.6165885329246521)
+          Predict: 13.0
+        Else (feature 0 > 0.05979446321725845)
+         Predict: 6.0
+     Else (feature 11 > -0.579840898513794)
+      If (feature 5 <= -0.27053558826446533)
+       If (feature 4 <= -0.2853643596172333)
+        If (feature 1 <= 0.7645848989486694)
+         If (feature 2 <= -0.695468008518219)
+          Predict: 7.0
+         Else (feature 2 > -0.695468008518219)
+          Predict: 3.0
+        Else (feature 1 > 0.7645848989486694)
+         If (feature 0 <= -0.12528197467327118)
+          Predict: 13.0
+         Else (feature 0 > -0.12528197467327118)
+          Predict: 3.0
+       Else (feature 4 > -0.2853643596172333)
+        If (feature 5 <= -0.6949540972709656)
+         If (feature 4 <= -0.03543436527252197)
+          Predict: 3.0
+         Else (feature 4 > -0.03543436527252197)
+          Predict: 5.0
+        Else (feature 5 > -0.6949540972709656)
+         If (feature 9 <= 0.6716810464859009)
+          Predict: 13.0
+         Else (feature 9 > 0.6716810464859009)
+          Predict: 3.0
+      Else (feature 5 > -0.27053558826446533)
+       If (feature 0 <= 0.21982333064079285)
+        If (feature 4 <= -0.5445927977561951)
+         Predict: 10.0
+        Else (feature 4 > -0.5445927977561951)
+         If (feature 9 <= 0.3492521047592163)
+          Predict: 5.0
+         Else (feature 9 > 0.3492521047592163)
+          Predict: 14.0
+       Else (feature 0 > 0.21982333064079285)
+        If (feature 7 <= 0.1640385240316391)
+         If (feature 0 <= 0.5168828964233398)
+          Predict: 13.0
+         Else (feature 0 > 0.5168828964233398)
+          Predict: 1.0
+        Else (feature 7 > 0.1640385240316391)
+         If (feature 3 <= -0.33700376749038696)
+          Predict: 7.0
+         Else (feature 3 > -0.33700376749038696)
+          Predict: 14.0
+    Else (feature 3 > -0.12095177173614502)
+     If (feature 1 <= 0.14965729415416718)
+      If (feature 11 <= -1.1855857372283936)
+       If (feature 8 <= 1.1734391450881958)
+        If (feature 0 <= -0.6644867658615112)
+         Predict: 11.0
+        Else (feature 0 > -0.6644867658615112)
+         If (feature 0 <= 0.3656141757965088)
+          Predict: 10.0
+         Else (feature 0 > 0.3656141757965088)
+          Predict: 4.0
+       Else (feature 8 > 1.1734391450881958)
+        If (feature 4 <= 0.376380980014801)
+         Predict: 13.0
+        Else (feature 4 > 0.376380980014801)
+         If (feature 0 <= -0.6644867658615112)
+          Predict: 9.0
+         Else (feature 0 > -0.6644867658615112)
+          Predict: 5.0
+      Else (feature 11 > -1.1855857372283936)
+       If (feature 10 <= -1.0281620025634766)
+        If (feature 3 <= 0.23595812916755676)
+         If (feature 1 <= -0.3187350034713745)
+          Predict: 13.0
+         Else (feature 1 > -0.3187350034713745)
+          Predict: 6.0
+        Else (feature 3 > 0.23595812916755676)
+         If (feature 4 <= -0.23012539744377136)
+          Predict: 3.0
+         Else (feature 4 > -0.23012539744377136)
+          Predict: 8.0
+       Else (feature 10 > -1.0281620025634766)
+        If (feature 3 <= 0.007476200815290213)
+         If (feature 1 <= -0.09923280775547028)
+          Predict: 8.0
+         Else (feature 1 > -0.09923280775547028)
+          Predict: 13.0
+        Else (feature 3 > 0.007476200815290213)
+         If (feature 7 <= 0.33135131001472473)
+          Predict: 13.0
+         Else (feature 7 > 0.33135131001472473)
+          Predict: 8.0
+     Else (feature 1 > 0.14965729415416718)
+      If (feature 5 <= -0.3685190677642822)
+       If (feature 11 <= -0.7918609380722046)
+        If (feature 0 <= 0.05979446321725845)
+         Predict: 13.0
+        Else (feature 0 > 0.05979446321725845)
+         If (feature 4 <= 0.008254813961684704)
+          Predict: 13.0
+         Else (feature 4 > 0.008254813961684704)
+          Predict: 2.0
+       Else (feature 11 > -0.7918609380722046)
+        If (feature 6 <= 0.6333726644515991)
+         If (feature 0 <= -0.026990382000803947)
+          Predict: 9.0
+         Else (feature 0 > -0.026990382000803947)
+          Predict: 3.0
+        Else (feature 6 > 0.6333726644515991)
+         If (feature 2 <= -0.4522547721862793)
+          Predict: 0.0
+         Else (feature 2 > -0.4522547721862793)
+          Predict: 2.0
+      Else (feature 5 > -0.3685190677642822)
+       If (feature 0 <= 0.21982333064079285)
+        If (feature 7 <= 0.5215756893157959)
+         If (feature 3 <= 0.191893070936203)
+          Predict: 13.0
+         Else (feature 3 > 0.191893070936203)
+          Predict: 9.0
+        Else (feature 7 > 0.5215756893157959)
+         If (feature 4 <= -0.12585477530956268)
+          Predict: 13.0
+         Else (feature 4 > -0.12585477530956268)
+          Predict: 9.0
+       Else (feature 0 > 0.21982333064079285)
+        If (feature 2 <= -0.1367621272802353)
+         Predict: 7.0
+        Else (feature 2 > -0.1367621272802353)
+         If (feature 4 <= 0.19729989767074585)
+          Predict: 9.0
+         Else (feature 4 > 0.19729989767074585)
+          Predict: 2.0
+
+Done, making predictions
+Accuracy of latent tree on training set: 0.682282125098
+Accuracy of latent tree on test set: 0.548207663782
+Building meta training set
+Training a meta tree
+DecisionTreeModel classifier of depth 8 with 371 nodes
+  If (year <= 1994.0)
+   If (year <= 1964.0)
+    If (average_rating <= 3.4552845528455283)
+     If (average_rating <= 3.0)
+      If (Isn't imdb_keywords:action-hero)
+       If (Isn't imdb_keywords:cemetery)
+        If (Isn't imdb_keywords:farm)
+         If (Isn't imdb_keywords:battle)
+          Predict: 9.0
+         Else (Is imdb_keywords:battle)
+          Predict: 1.0
+        Else (Is imdb_keywords:farm)
+         If (year <= 1955.0)
+          Predict: 11.0
+         Else (year > 1955.0)
+          Predict: 5.0
+       Else (Is imdb_keywords:cemetery)
+        If (Isn't imdb_keywords:drunkenness)
+         Predict: 4.0
+        Else (Is imdb_keywords:drunkenness)
+         If (year <= 1945.0)
+          Predict: 13.0
+         Else (year > 1945.0)
+          Predict: 0.0
+      Else (Is imdb_keywords:action-hero)
+       Predict: 8.0
+     Else (average_rating > 3.0)
+      If (Isn't imdb_keywords:american)
+       If (year <= 1945.0)
+        If (Isn't imdb_keywords:casino)
+         If (Isn't imdb_keywords:family-relationships)
+          Predict: 13.0
+         Else (Is imdb_keywords:family-relationships)
+          Predict: 0.0
+        Else (Is imdb_keywords:casino)
+         Predict: 9.0
+       Else (year > 1945.0)
+        If (Isn't imdb_keywords:fistfight)
+         If (Isn't imdb_keywords:camera)
+          Predict: 4.0
+         Else (Is imdb_keywords:camera)
+          Predict: 13.0
+        Else (Is imdb_keywords:fistfight)
+         If (Isn't tvtropes:hey its that guy)
+          Predict: 13.0
+         Else (Is tvtropes:hey its that guy)
+          Predict: 5.0
+      Else (Is imdb_keywords:american)
+       Predict: 4.0
+    Else (average_rating > 3.4552845528455283)
+     If (Isn't movielens_genre:Musical)
+      If (Isn't imdb_keywords:nudity)
+       If (Isn't imdb_keywords:illness)
+        If (average_rating <= 3.526595744680851)
+         If (Isn't imdb_keywords:brother-brother-relationship)
+          Predict: 13.0
+         Else (Is imdb_keywords:brother-brother-relationship)
+          Predict: 3.0
+        Else (average_rating > 3.526595744680851)
+         If (Isn't imdb_keywords:outer-space)
+          Predict: 13.0
+         Else (Is imdb_keywords:outer-space)
+          Predict: 9.0
+       Else (Is imdb_keywords:illness)
+        If (Isn't imdb_keywords:apology)
+         If (Isn't imdb_keywords:witness)
+          Predict: 13.0
+         Else (Is imdb_keywords:witness)
+          Predict: 3.0
+        Else (Is imdb_keywords:apology)
+         Predict: 3.0
+      Else (Is imdb_keywords:nudity)
+       If (Isn't imdb_keywords:soldier)
+        Predict: 3.0
+       Else (Is imdb_keywords:soldier)
+        If (year <= 1945.0)
+         Predict: 9.0
+        Else (year > 1945.0)
+         Predict: 13.0
+     Else (Is movielens_genre:Musical)
+      If (Isn't imdb_keywords:blockbuster)
+       If (Isn't imdb_keywords:husband-wife-relationship)
+        If (Isn't movielens_tags:boring)
+         If (Isn't movielens_tags:less than 300 ratings)
+          Predict: 13.0
+         Else (Is movielens_tags:less than 300 ratings)
+          Predict: 11.0
+        Else (Is movielens_tags:boring)
+         Predict: 4.0
+       Else (Is imdb_keywords:husband-wife-relationship)
+        If (Isn't movielens_tags:might like)
+         Predict: 4.0
+        Else (Is movielens_tags:might like)
+         Predict: 14.0
+      Else (Is imdb_keywords:blockbuster)
+       Predict: 4.0
+   Else (year > 1964.0)
+    If (average_rating <= 3.2032967032967035)
+     If (Isn't movielens_genre:Horror)
+      If (Isn't movielens_genre:Action)
+       If (Isn't imdb_keywords:drink)
+        If (year <= 1982.0)
+         If (Isn't imdb_keywords:husband-wife-relationship)
+          Predict: 5.0
+         Else (Is imdb_keywords:husband-wife-relationship)
+          Predict: 8.0
+        Else (year > 1982.0)
+         If (Isn't imdb_keywords:girl)
+          Predict: 8.0
+         Else (Is imdb_keywords:girl)
+          Predict: 4.0
+       Else (Is imdb_keywords:drink)
+        If (Isn't movielens_tags:BD-R)
+         If (Isn't imdb_keywords:fear)
+          Predict: 7.0
+         Else (Is imdb_keywords:fear)
+          Predict: 9.0
+        Else (Is movielens_tags:BD-R)
+         Predict: 5.0
+      Else (Is movielens_genre:Action)
+       If (year <= 1978.0)
+        If (average_rating <= 3.1611570247933884)
+         If (Isn't imdb_keywords:battle)
+          Predict: 0.0
+         Else (Is imdb_keywords:battle)
+          Predict: 5.0
+        Else (average_rating > 3.1611570247933884)
+         Predict: 8.0
+       Else (year > 1978.0)
+        If (Isn't imdb_keywords:transformation)
+         If (Isn't tvtropes:reason you suck speech)
+          Predict: 8.0
+         Else (Is tvtropes:reason you suck speech)
+          Predict: 6.0
+        Else (Is imdb_keywords:transformation)
+         If (Isn't imdb_keywords:blonde)
+          Predict: 1.0
+         Else (Is imdb_keywords:blonde)
+          Predict: 5.0
+     Else (Is movielens_genre:Horror)
+      If (Isn't imdb_keywords:slasher)
+       If (Isn't imdb_keywords:shotgun)
+        If (Isn't imdb_keywords:water)
+         If (Isn't imdb_keywords:father-son-relationship)
+          Predict: 9.0
+         Else (Is imdb_keywords:father-son-relationship)
+          Predict: 0.0
+        Else (Is imdb_keywords:water)
+         Predict: 0.0
+       Else (Is imdb_keywords:shotgun)
+        If (Isn't imdb_keywords:demon)
+         If (Isn't imdb_keywords:female-full-frontal-nudity)
+          Predict: 8.0
+         Else (Is imdb_keywords:female-full-frontal-nudity)
+          Predict: 9.0
+        Else (Is imdb_keywords:demon)
+         If (year <= 1990.0)
+          Predict: 5.0
+         Else (year > 1990.0)
+          Predict: 0.0
+      Else (Is imdb_keywords:slasher)
+       If (Isn't imdb_keywords:doctor)
+        If (Isn't movielens_tags:BD-R)
+         If (Isn't imdb_keywords:best-friend)
+          Predict: 0.0
+         Else (Is imdb_keywords:best-friend)
+          Predict: 14.0
+        Else (Is movielens_tags:BD-R)
+         If (year <= 1974.0)
+          Predict: 11.0
+         Else (year > 1974.0)
+          Predict: 5.0
+       Else (Is imdb_keywords:doctor)
+        If (Isn't imdb_keywords:jealousy)
+         If (Isn't imdb_keywords:sheriff)
+          Predict: 1.0
+         Else (Is imdb_keywords:sheriff)
+          Predict: 9.0
+        Else (Is imdb_keywords:jealousy)
+         Predict: 0.0
+    Else (average_rating > 3.2032967032967035)
+     If (Isn't movielens_genre:Thriller)
+      If (Isn't imdb_keywords:blockbuster)
+       If (year <= 1987.0)
+        If (Isn't movielens_genre:Horror)
+         If (year <= 1974.0)
+          Predict: 13.0
+         Else (year > 1974.0)
+          Predict: 9.0
+        Else (Is movielens_genre:Horror)
+         If (Isn't movielens_genre:Drama)
+          Predict: 0.0
+         Else (Is movielens_genre:Drama)
+          Predict: 3.0
+       Else (year > 1987.0)
+        If (Isn't movielens_tags:DVD-Video)
+         If (Isn't imdb_keywords:racial-slur)
+          Predict: 10.0
+         Else (Is imdb_keywords:racial-slur)
+          Predict: 9.0
+        Else (Is movielens_tags:DVD-Video)
+         If (Isn't tvtropes:creator cameo)
+          Predict: 10.0
+         Else (Is tvtropes:creator cameo)
+          Predict: 9.0
+      Else (Is imdb_keywords:blockbuster)
+       If (Isn't movielens_genre:Musical)
+        If (Isn't imdb_keywords:piano)
+         If (Isn't imdb_keywords:stabbing)
+          Predict: 9.0
+         Else (Is imdb_keywords:stabbing)
+          Predict: 13.0
+        Else (Is imdb_keywords:piano)
+         If (year <= 1990.0)
+          Predict: 4.0
+         Else (year > 1990.0)
+          Predict: 2.0
+       Else (Is movielens_genre:Musical)
+        If (Isn't movielens_tags:Tumey's DVDs)
+         Predict: 4.0
+        Else (Is movielens_tags:Tumey's DVDs)
+         Predict: 14.0
+     Else (Is movielens_genre:Thriller)
+      If (Isn't imdb_keywords:hallucination)
+       If (year <= 1971.0)
+        If (Isn't movielens_tags:CLV)
+         If (Isn't movielens_tags:seen more than once)
+          Predict: 13.0
+         Else (Is movielens_tags:seen more than once)
+          Predict: 9.0
+        Else (Is movielens_tags:CLV)
+         Predict: 9.0
+       Else (year > 1971.0)
+        If (Isn't imdb_keywords:toilet)
+         If (Isn't imdb_keywords:based-on-true-story)
+          Predict: 9.0
+         Else (Is imdb_keywords:based-on-true-story)
+          Predict: 2.0
+        Else (Is imdb_keywords:toilet)
+         If (Isn't movielens_genre:Mystery)
+          Predict: 10.0
+         Else (Is movielens_genre:Mystery)
+          Predict: 2.0
+      Else (Is imdb_keywords:hallucination)
+       If (Isn't imdb_keywords:nipples)
+        If (Isn't imdb_keywords:singer)
+         If (Isn't imdb_keywords:library)
+          Predict: 9.0
+         Else (Is imdb_keywords:library)
+          Predict: 13.0
+        Else (Is imdb_keywords:singer)
+         Predict: 3.0
+       Else (Is imdb_keywords:nipples)
+        Predict: 5.0
+  Else (year > 1994.0)
+   If (average_rating <= 3.4162162162162164)
+    If (Isn't movielens_genre:Action)
+     If (Isn't movielens_genre:Horror)
+      If (Isn't movielens_tags:comedy)
+       If (average_rating <= 3.2032967032967035)
+        If (Isn't imdb_keywords:product-placement)
+         If (Isn't imdb_keywords:hit-in-the-crotch)
+          Predict: 6.0
+         Else (Is imdb_keywords:hit-in-the-crotch)
+          Predict: 12.0
+        Else (Is imdb_keywords:product-placement)
+         If (average_rating <= 2.0969827586206895)
+          Predict: 1.0
+         Else (average_rating > 2.0969827586206895)
+          Predict: 6.0
+       Else (average_rating > 3.2032967032967035)
+        If (Isn't imdb_keywords:shot-in-the-back)
+         If (Isn't imdb_keywords:jew)
+          Predict: 2.0
+         Else (Is imdb_keywords:jew)
+          Predict: 2.0
+        Else (Is imdb_keywords:shot-in-the-back)
+         If (Isn't imdb_keywords:flashback)
+          Predict: 2.0
+         Else (Is imdb_keywords:flashback)
+          Predict: 6.0
+      Else (Is movielens_tags:comedy)
+       If (Isn't imdb_keywords:beating)
+        If (Isn't movielens_genre:Children)
+         If (Isn't movielens_genre:Romance)
+          Predict: 12.0
+         Else (Is movielens_genre:Romance)
+          Predict: 6.0
+        Else (Is movielens_genre:Children)
+         If (Isn't movielens_tags:BD-Video)
+          Predict: 4.0
+         Else (Is movielens_tags:BD-Video)
+          Predict: 12.0
+       Else (Is imdb_keywords:beating)
+        Predict: 12.0
+     Else (Is movielens_genre:Horror)
+      If (average_rating <= 2.819992947813822)
+       If (year <= 2010.0)
+        If (Isn't imdb_keywords:serial-killer)
+         If (Isn't imdb_keywords:independent-film)
+          Predict: 1.0
+         Else (Is imdb_keywords:independent-film)
+          Predict: 0.0
+        Else (Is imdb_keywords:serial-killer)
+         If (average_rating <= 2.5109659356042933)
+          Predict: 1.0
+         Else (average_rating > 2.5109659356042933)
+          Predict: 0.0
+       Else (year > 2010.0)
+        If (Isn't imdb_keywords:self-sacrifice)
+         If (Isn't imdb_keywords:police-officer)
+          Predict: 12.0
+         Else (Is imdb_keywords:police-officer)
+          Predict: 0.0
+        Else (Is imdb_keywords:self-sacrifice)
+         Predict: 11.0
+      Else (average_rating > 2.819992947813822)
+       If (Isn't imdb_keywords:gore)
+        If (year <= 2007.0)
+         If (Isn't imdb_keywords:female-frontal-nudity)
+          Predict: 6.0
+         Else (Is imdb_keywords:female-frontal-nudity)
+          Predict: 12.0
+        Else (year > 2007.0)
+         If (Isn't imdb_keywords:written-by-director)
+          Predict: 11.0
+         Else (Is imdb_keywords:written-by-director)
+          Predict: 9.0
+       Else (Is imdb_keywords:gore)
+        If (Isn't imdb_keywords:transformation)
+         If (Isn't imdb_keywords:talking-to-the-camera)
+          Predict: 0.0
+         Else (Is imdb_keywords:talking-to-the-camera)
+          Predict: 1.0
+        Else (Is imdb_keywords:transformation)
+         If (Isn't imdb_keywords:gay-kiss)
+          Predict: 11.0
+         Else (Is imdb_keywords:gay-kiss)
+          Predict: 12.0
+    Else (Is movielens_genre:Action)
+     If (average_rating <= 2.819992947813822)
+      If (average_rating <= 2.0969827586206895)
+       If (Isn't tvtropes:box office bomb)
+        If (Isn't imdb_keywords:security-guard)
+         If (Isn't imdb_keywords:f-word)
+          Predict: 9.0
+         Else (Is imdb_keywords:f-word)
+          Predict: 3.0
+        Else (Is imdb_keywords:security-guard)
+         If (year <= 2006.0)
+          Predict: 1.0
+         Else (year > 2006.0)
+          Predict: 6.0
+       Else (Is tvtropes:box office bomb)
+        Predict: 1.0
+      Else (average_rating > 2.0969827586206895)
+       If (Isn't imdb_keywords:car-crash)
+        If (Isn't imdb_keywords:face-slap)
+         If (Isn't imdb_keywords:male-nudity)
+          Predict: 6.0
+         Else (Is imdb_keywords:male-nudity)
+          Predict: 12.0
+        Else (Is imdb_keywords:face-slap)
+         If (year <= 1998.0)
+          Predict: 1.0
+         Else (year > 1998.0)
+          Predict: 6.0
+       Else (Is imdb_keywords:car-crash)
+        If (Isn't imdb_keywords:shootout)
+         If (Isn't imdb_keywords:father-son-relationship)
+          Predict: 6.0
+         Else (Is imdb_keywords:father-son-relationship)
+          Predict: 11.0
+        Else (Is imdb_keywords:shootout)
+         If (Isn't imdb_keywords:fbi)
+          Predict: 1.0
+         Else (Is imdb_keywords:fbi)
+          Predict: 9.0
+     Else (average_rating > 2.819992947813822)
+      If (Isn't imdb_keywords:severed-head)
+       If (Isn't imdb_keywords:independent-film)
+        If (Isn't imdb_keywords:airport)
+         If (Isn't imdb_keywords:psychopath)
+          Predict: 6.0
+         Else (Is imdb_keywords:psychopath)
+          Predict: 8.0
+        Else (Is imdb_keywords:airport)
+         If (Isn't imdb_keywords:crying)
+          Predict: 6.0
+         Else (Is imdb_keywords:crying)
+          Predict: 5.0
+       Else (Is imdb_keywords:independent-film)
+        If (Isn't imdb_keywords:bare-chested-male)
+         If (Isn't imdb_keywords:cover-up)
+          Predict: 6.0
+         Else (Is imdb_keywords:cover-up)
+          Predict: 9.0
+        Else (Is imdb_keywords:bare-chested-male)
+         If (Isn't imdb_keywords:manipulation)
+          Predict: 11.0
+         Else (Is imdb_keywords:manipulation)
+          Predict: 6.0
+      Else (Is imdb_keywords:severed-head)
+       If (Isn't imdb_keywords:arrest)
+        If (Isn't imdb_keywords:death-of-mother)
+         If (Isn't imdb_keywords:scientist)
+          Predict: 6.0
+         Else (Is imdb_keywords:scientist)
+          Predict: 1.0
+        Else (Is imdb_keywords:death-of-mother)
+         Predict: 1.0
+       Else (Is imdb_keywords:arrest)
+        If (Isn't imdb_keywords:creature)
+         Predict: 11.0
+        Else (Is imdb_keywords:creature)
+         If (year <= 2009.0)
+          Predict: 2.0
+         Else (year > 2009.0)
+          Predict: 1.0
+   Else (average_rating > 3.4162162162162164)
+    If (Isn't movielens_genre:Action)
+     If (Isn't movielens_genre:Drama)
+      If (average_rating <= 3.728865194211729)
+       If (Isn't movielens_tags:comedy)
+        If (Isn't tvtropes:chekhovs gunman)
+         If (Isn't imdb_keywords:phone-booth)
+          Predict: 10.0
+         Else (Is imdb_keywords:phone-booth)
+          Predict: 10.0
+        Else (Is tvtropes:chekhovs gunman)
+         Predict: 11.0
+       Else (Is movielens_tags:comedy)
+        If (Isn't tvtropes:brick joke)
+         If (Isn't imdb_keywords:f-rated)
+          Predict: 12.0
+         Else (Is imdb_keywords:f-rated)
+          Predict: 4.0
+        Else (Is tvtropes:brick joke)
+         If (year <= 1999.0)
+          Predict: 9.0
+         Else (year > 1999.0)
+          Predict: 11.0
+      Else (average_rating > 3.728865194211729)
+       If (Isn't tvtropes:chekhovs gun)
+        If (Isn't imdb_keywords:explosion)
+         If (Isn't imdb_keywords:fishing)
+          Predict: 10.0
+         Else (Is imdb_keywords:fishing)
+          Predict: 2.0
+        Else (Is imdb_keywords:explosion)
+         If (Isn't movielens_tags:action)
+          Predict: 5.0
+         Else (Is movielens_tags:action)
+          Predict: 2.0
+       Else (Is tvtropes:chekhovs gun)
+        If (Isn't tvtropes:shout out)
+         If (year <= 1995.0)
+          Predict: 4.0
+         Else (year > 1995.0)
+          Predict: 2.0
+        Else (Is tvtropes:shout out)
+         If (Isn't imdb_keywords:face-slap)
+          Predict: 11.0
+         Else (Is imdb_keywords:face-slap)
+          Predict: 10.0
+     Else (Is movielens_genre:Drama)
+      If (Isn't movielens_tags:true story)
+       If (Isn't tvtropes:chekhovs gunman)
+        If (Isn't movielens_tags:surreal)
+         If (year <= 1999.0)
+          Predict: 14.0
+         Else (year > 1999.0)
+          Predict: 2.0
+        Else (Is movielens_tags:surreal)
+         If (Isn't imdb_keywords:single-mother)
+          Predict: 10.0
+         Else (Is imdb_keywords:single-mother)
+          Predict: 2.0
+       Else (Is tvtropes:chekhovs gunman)
+        If (Isn't movielens_genre:Musical)
+         If (Isn't tvtropes:lampshade hanging)
+          Predict: 2.0
+         Else (Is tvtropes:lampshade hanging)
+          Predict: 3.0
+        Else (Is movielens_genre:Musical)
+         Predict: 4.0
+      Else (Is movielens_tags:true story)
+       If (Isn't imdb_keywords:marriage)
+        If (Isn't imdb_keywords:lesbian)
+         If (Isn't imdb_keywords:crucifix)
+          Predict: 2.0
+         Else (Is imdb_keywords:crucifix)
+          Predict: 2.0
+        Else (Is imdb_keywords:lesbian)
+         If (year <= 2001.0)
+          Predict: 10.0
+         Else (year > 2001.0)
+          Predict: 14.0
+       Else (Is imdb_keywords:marriage)
+        If (Isn't imdb_keywords:airplane)
+         If (Isn't imdb_keywords:black-american)
+          Predict: 2.0
+         Else (Is imdb_keywords:black-american)
+          Predict: 10.0
+        Else (Is imdb_keywords:airplane)
+         Predict: 10.0
+    Else (Is movielens_genre:Action)
+     If (Isn't imdb_keywords:mixed-martial-arts)
+      If (Isn't tvtropes:large ham)
+       If (Isn't movielens_genre:Sci-Fi)
+        If (Isn't imdb_keywords:showdown)
+         If (Isn't imdb_keywords:sadist)
+          Predict: 2.0
+         Else (Is imdb_keywords:sadist)
+          Predict: 0.0
+        Else (Is imdb_keywords:showdown)
+         If (Isn't imdb_keywords:flashlight)
+          Predict: 6.0
+         Else (Is imdb_keywords:flashlight)
+          Predict: 11.0
+       Else (Is movielens_genre:Sci-Fi)
+        If (Isn't imdb_keywords:tank)
+         If (Isn't imdb_keywords:hunting)
+          Predict: 11.0
+         Else (Is imdb_keywords:hunting)
+          Predict: 6.0
+        Else (Is imdb_keywords:tank)
+         If (year <= 1999.0)
+          Predict: 9.0
+         Else (year > 1999.0)
+          Predict: 10.0
+      Else (Is tvtropes:large ham)
+       If (Isn't movielens_genre:War)
+        If (Isn't movielens_tags:crime)
+         Predict: 11.0
+        Else (Is movielens_tags:crime)
+         Predict: 6.0
+       Else (Is movielens_genre:War)
+        If (year <= 2005.0)
+         Predict: 6.0
+        Else (year > 2005.0)
+         Predict: 2.0
+     Else (Is imdb_keywords:mixed-martial-arts)
+      If (Isn't imdb_keywords:trap)
+       If (Isn't movielens_tags:adapted from:book)
+        If (Isn't movielens_tags:drama)
+         Predict: 11.0
+        Else (Is movielens_tags:drama)
+         Predict: 9.0
+       Else (Is movielens_tags:adapted from:book)
+        Predict: 2.0
+      Else (Is imdb_keywords:trap)
+       If (Isn't movielens_tags:cinematography)
+        Predict: 6.0
+       Else (Is movielens_tags:cinematography)
+        Predict: 11.0
+
+Done, making predictions
+Accuracy of meta tree on training set: 0.487980769231
+Accuracy of meta tree on test set: 0.333333333333
+132 features used
+Cluster 2 (variance: 1.07637610718):
 Traceback (most recent call last):
-  File "/longterm/sophiak/fop_qii/product_clustering.py", line 11, in <module>
-    import rating_explanation
-  File "/longterm/sophiak/fop_qii/rating_explanation.py", line 8, in <module>
-    import common_utils
-  File "/longterm/sophiak/fop_qii/common_utils.py", line 120
-    errs = predobs.map(map_f)
-       ^
-SyntaxError: invalid syntax
+  File "/longterm/sophiak/fop_qii/product_clustering.py", line 453, in <module>
+    main()
+  File "/longterm/sophiak/fop_qii/product_clustering.py", line 317, in main
+    classifier=True, class_of_interest=cluster)
+  File "/longterm/sophiak/fop_qii/tree_qii.py", line 101, in get_tree_qii
+    class_of_interest=class_of_interest)
+  File "/longterm/sophiak/fop_qii/common_utils.py", line 124, in compute_regression_qii
+    signed_err = errs.reudct(lambda a, b: a+b)\
+AttributeError: 'PipelinedRDD' object has no attribute 'reudct'
