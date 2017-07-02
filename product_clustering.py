@@ -310,8 +310,6 @@ def main():
     if args.user_profiles is None:
         used_features = tree_qii.get_used_features(meta_tree)
         print len(used_features), "features used"
-        profiles, user_profiles = pickle.load(open(args.user_profiles,
-                                                   "rb"))
         for (cluster, cls_var, text_sample) in cluster_data:
             filter_f = functools.partial(lambda cluster, ((mid, inds), cls):
                                 cls == cluster, cluster)
