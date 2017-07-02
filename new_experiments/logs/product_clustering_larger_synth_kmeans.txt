@@ -1,0 +1,619 @@
+Sun Jul 2 09:39:32 PDT 2017 spark-submit --driver-memory 10g product_clustering.py --persist-dir new_experiments/product_regression_all_regression_tree_rank_12_depth_5_larger_synth.state/ --user-profiles new_experiments/synth_data_set/profiles.pkl --n-clusters 15 --cluster-model kmeans --movies-file datasets/ml-20m/movies.csv >> new_experiments/logs/product_clustering_larger_synth_kmeans.txt
+Loading results dict
+Loading indicators
+Loading ALS model
+Loading movies
+Done, 27278 movies loaded
+Training kmeans
+Done
+Centroids: [array([-0.15731841,  0.28582329,  0.58182594,  1.30152005, -0.24717289,
+       -1.12127826, -0.25002129,  0.33822606,  1.04229   ,  0.47039839,
+        0.31197867, -0.07141714]), array([-0.44141059,  0.39728306,  1.02150338,  0.72946092, -0.317957  ,
+       -0.24430472, -0.75794272,  0.1798306 ,  0.81239591,  0.39005988,
+       -0.50999992, -0.13003703]), array([ 0.07235896,  0.2123532 ,  0.29424125,  0.18088196, -0.37002151,
+       -0.21658985, -0.32019305, -0.01852481,  0.45224321,  0.20058408,
+       -0.03896405, -0.21068705]), array([ 0.23816686,  0.95461788,  0.35021606,  0.16389572, -1.23575409,
+       -0.67272151, -0.54363591,  0.10330252,  0.90081685,  0.0582395 ,
+       -0.13286468, -0.49640351]), array([-0.10880684,  0.22366844,  0.05536696,  0.31259914, -0.32536195,
+        0.05510201, -0.25865924,  0.00422662,  0.64565004,  0.60424454,
+       -0.20984053,  0.04921482]), array([ 0.56818069,  0.69231892,  0.67080647,  0.21585734, -0.11968908,
+       -0.20606846, -0.70754286, -0.29190979,  1.23686018,  0.26372543,
+        0.03459989, -0.03132693]), array([ 0.48832775, -0.04974957,  0.71780315,  0.27530811, -0.74499419,
+       -0.62730755, -0.02971184,  0.42770199,  0.70857558,  0.54942824,
+       -0.31946659,  0.03786827]), array([-0.06709564,  0.1869767 ,  0.28518438,  0.63669472, -0.15855418,
+       -0.58419866, -0.12813616,  0.17610151,  0.51300764,  0.22200811,
+        0.18559088, -0.04260464]), array([ 0.31621461,  0.4660821 ,  0.74109055,  0.38339397, -0.3271549 ,
+       -0.25438641, -0.6950175 , -0.13868718,  1.43796092,  0.24330917,
+       -0.13663555, -0.32892866]), array([ 0.08710075, -0.10709434,  0.36405653,  0.84636412, -0.67577106,
+       -0.83971556, -0.61569667, -0.48823723,  0.6895569 ,  0.19158792,
+       -0.5586548 , -0.18858631]), array([-0.03375159, -0.13063272,  0.51855394,  0.78579673, -0.68597082,
+       -0.64444643, -0.56647479, -0.20059561,  1.15465466,  0.1555942 ,
+       -0.43451165, -0.51973319]), array([-0.2299572 , -0.17496086,  0.87601246,  0.3764257 , -1.04181513,
+       -0.14849149, -0.68132244, -0.10873104,  0.97057659,  0.53251229,
+        0.6831851 , -0.12256893]), array([ -1.86534269e-01,   3.90505195e-01,   1.93778474e-01,
+         6.11447923e-01,  -6.00215081e-01,   5.17459048e-02,
+        -5.32240907e-01,  -9.68192639e-04,   1.26955082e+00,
+         1.06482357e+00,  -4.02143695e-01,  -1.01990634e-02]), array([ -1.15938586e-01,   1.03200143e-03,   5.46824053e-01,
+         4.31062771e-01,  -4.87775534e-01,  -1.93246392e-01,
+        -3.26004605e-01,   2.49664832e-01,   1.31264357e+00,
+         1.80257216e-01,  -1.33170726e-01,  -6.51089837e-01]), array([ 0.28990836,  0.04711412,  0.58011857,  0.30185057, -0.6456799 ,
+       -0.41483264, -0.79964102, -0.13870943,  0.51449212,  1.02468379,
+        0.09846684, -1.00895201])]
+Labeling clusters
+Clusters: defaultdict(<type 'int'>, {0.0: 124, 1.0: 112, 2.0: 434, 3.0: 237, 4.0: 209, 5.0: 268, 6.0: 283, 7.0: 74, 8.0: 110, 9.0: 295, 10.0: 74, 11.0: 161, 12.0: 402, 13.0: 807, 14.0: 221})
+Centroid mean: [ 0.04796299  0.22635583  0.51982548  0.50350398 -0.53225915 -0.40404933
+ -0.48081607  0.00617939  0.91075167  0.41009709 -0.10416205 -0.24836341]
+Centroid variance: 1.00970676832
+Cluster 4 (variance: 0.0454289276387):
+	0: (dist: 0.0712709167959) Supervixens (1975) (mid: 26356)
+	1: (dist: 0.0712709710879) Extra Man, The (2010) (mid: 82005)
+	2: (dist: 0.0712712896941) Buying the Cow (2002) (mid: 33296)
+	3: (dist: 0.0712713651096) Risky Business (1983) (mid: 2915)
+	4: (dist: 0.0712723530111) House of D (2004) (mid: 33136)
+	5: (dist: 0.0712724133394) Starter for 10 (2006) (mid: 51694)
+	6: (dist: 0.071272575817) King, The (2005) (mid: 45664)
+	7: (dist: 0.0712727253222) Tito and Me (Tito i ja) (1992) (mid: 26793)
+	8: (dist: 0.071272804383) Nest, The (Nid de Guêpes) (2002) (mid: 8733)
+	9: (dist: 0.0712730455112) Another Day in Paradise (1998) (mid: 2440)
+Cluster 9 (variance: 0.06230074375):
+	0: (dist: 0.0624821794549) New Barbarians, The (I nuovi barbari) (1983) (mid: 99380)
+	1: (dist: 0.0625660850264) Seeking Justice (2011) (mid: 92198)
+	2: (dist: 0.0682487270681) Undefeatable (1993) (mid: 101924)
+	3: (dist: 0.0682495267635) Damned, The (La Caduta degli dei) (1969) (mid: 7336)
+	4: (dist: 0.0682513361492) I Spit on Your Grave (2010) (mid: 84189)
+	5: (dist: 0.0682516423097) Straw Dogs (2011) (mid: 89490)
+	6: (dist: 0.0682517177424) Red Road (2006) (mid: 52929)
+	7: (dist: 0.0682518682594) Temptress Moon (Feng Yue) (1996) (mid: 1514)
+	8: (dist: 0.0682522854363) North Country (2005) (mid: 39234)
+	9: (dist: 0.0682524518106) Zandalee (1991) (mid: 8658)
+Cluster 13 (variance: 0.0699414777265):
+	0: (dist: 0.0740325384874) Kid for Two Farthings, A (1955) (mid: 112355)
+	1: (dist: 0.0740350224244) Arabian Nights (1942) (mid: 64921)
+	2: (dist: 0.0740354805078) Bucket Of Blood, A (1959) (mid: 7993)
+	3: (dist: 0.074036690227) Return of the Magnificent Seven, The (a.k.a. Return of the Seven) (1966) (mid: 4328)
+	4: (dist: 0.0740369968759) Strangeland (1998) (mid: 2298)
+	5: (dist: 0.074037717653) President's Man: A Line in the Sand, The (2002) (mid: 96148)
+	6: (dist: 0.0740379396458) Day of the Jackal, The (1973) (mid: 8207)
+	7: (dist: 0.0740423135371) Naked City, The (1948) (mid: 25943)
+	8: (dist: 0.0740425476917) Forgotten, The (2004) (mid: 8870)
+	9: (dist: 0.0740425517922) This Means War (2012) (mid: 93326)
+Cluster 7 (variance: 0.0717325073936):
+	0: (dist: 0.120177436239) Zoolander (2001) (mid: 4816)
+	1: (dist: 0.12017855721) Fresh (1994) (mid: 456)
+	2: (dist: 0.120179213293) Hellfighters (1968) (mid: 55926)
+	3: (dist: 0.120181275025) Frantic (1988) (mid: 4506)
+	4: (dist: 0.120181492439) Flash Gordon (1980) (mid: 4941)
+	5: (dist: 0.120182188393) Animatrix, The (2003) (mid: 27660)
+	6: (dist: 0.120182259721) Toolbox Murders (2004) (mid: 35906)
+	7: (dist: 0.120183287006) Van Helsing (2004) (mid: 7454)
+	8: (dist: 0.12018383247) Dead Ringers (1988) (mid: 2551)
+	9: (dist: 0.12018386682) Dillinger (1945) (mid: 48567)
+Cluster 5 (variance: 0.0797784645023):
+	0: (dist: 0.0445629152002) Romancing the Stone (1984) (mid: 2406)
+	1: (dist: 0.0445882397856) Unforgiven, The (1960) (mid: 6461)
+	2: (dist: 0.0445961108987) Island, The (2005) (mid: 34319)
+	3: (dist: 0.0446120705511) Shakespeare in Love (1998) (mid: 2396)
+	4: (dist: 0.0446328407488) Police Academy (1984) (mid: 2378)
+	5: (dist: 0.0535889089122) Top Gun (1986) (mid: 1101)
+	6: (dist: 0.0535902892472) Shocker (1989) (mid: 4665)
+	7: (dist: 0.0535907980247) Unbreakable (2000) (mid: 3994)
+	8: (dist: 0.053594404568) Kick-Ass (2010) (mid: 76251)
+	9: (dist: 0.0535968489716) Innerspace (1987) (mid: 4121)
+Cluster 10 (variance: 0.141887598844):
+	0: (dist: 0.14460505595) Foxy Brown (1974) (mid: 4065)
+	1: (dist: 0.144605998147) Sea, The (Hafið) (2002) (mid: 35629)
+	2: (dist: 0.14460904687) Violent Cop (Sono otoko, kyôbô ni tsuki) (1989) (mid: 32196)
+	3: (dist: 0.144610575519) Slumdog Millionaire (2008) (mid: 63082)
+	4: (dist: 0.144611959976) Gothika (2003) (mid: 6952)
+	5: (dist: 0.144613102176) Pixote (1981) (mid: 4179)
+	6: (dist: 0.144613845613) House of Flying Daggers (Shi mian mai fu) (2004) (mid: 8983)
+	7: (dist: 0.144614043735) Criminal Lovers (1999) (mid: 3800)
+	8: (dist: 0.144614673274) Blue Steel (1990) (mid: 5961)
+	9: (dist: 0.144615038198) Oxygen (1999) (mid: 3056)
+Cluster 14 (variance: 0.19314455263):
+	0: (dist: 0.122017396981) Royal Affair, A (Kongelig affære, En) (2012) (mid: 96911)
+	1: (dist: 0.122017926766) Dandelion (2004) (mid: 39394)
+	2: (dist: 0.122018103098) Unmade Beds (1997) (mid: 4208)
+	3: (dist: 0.122018238892) Boy Meets Girl (1984) (mid: 26498)
+	4: (dist: 0.122019347385) Wilby Wonderful (2004) (mid: 43528)
+	5: (dist: 0.12201990346) Unbelievable Truth, The (1989) (mid: 4183)
+	6: (dist: 0.122020538301) Role Models (2008) (mid: 63131)
+	7: (dist: 0.122020689087) Sliding Doors (1998) (mid: 1680)
+	8: (dist: 0.122021194796) Autism: The Musical (2007) (mid: 62390)
+	9: (dist: 0.122021260116) Song for Martin, A (Sång för Martin, En) (2001) (mid: 6726)
+Cluster 8 (variance: 0.276422471043):
+	0: (dist: 0.135623461262) Nancy Drew (2007) (mid: 53466)
+	1: (dist: 0.135625015959) Westworld (1973) (mid: 2527)
+	2: (dist: 0.135637588648) Rumble in the Bronx (Hont faan kui) (1995) (mid: 112)
+	3: (dist: 0.135640777034) Galaxy Quest (1999) (mid: 3175)
+	4: (dist: 0.135642731889) Imaginarium of Doctor Parnassus, The (2009) (mid: 69951)
+	5: (dist: 0.135643378808) Back to the Future (1985) (mid: 1270)
+	6: (dist: 0.13564954261) Croods, The (2013) (mid: 101142)
+	7: (dist: 0.135650302316) Go (1999) (mid: 2580)
+	8: (dist: 0.135650825445) Nine (2009) (mid: 73000)
+	9: (dist: 0.13565225879) Mask, The (1994) (mid: 367)
+Cluster 1 (variance: 0.281923235693):
+	0: (dist: 0.207860104983) Abandoned, The (2006) (mid: 51666)
+	1: (dist: 0.213836366763) Austin Powers: International Man of Mystery (1997) (mid: 1517)
+	2: (dist: 0.213839288549) Rocky III (1982) (mid: 2410)
+	3: (dist: 0.213843558884) Diving Bell and the Butterfly, The (Scaphandre et le papillon, Le) (2007) (mid: 55814)
+	4: (dist: 0.213844586355) Rocky IV (1985) (mid: 2411)
+	5: (dist: 0.213845399969) Monkeybone (2001) (mid: 4158)
+	6: (dist: 0.213845868736) Sentinel, The (1977) (mid: 8885)
+	7: (dist: 0.213846852953) Science of Sleep, The (La science des rêves) (2006) (mid: 48082)
+	8: (dist: 0.213849339246) Holcroft Covenant, The (1985) (mid: 4983)
+	9: (dist: 0.213850462137) Shallow Hal (2001) (mid: 4890)
+Cluster 2 (variance: 0.290004173206):
+	0: (dist: 0.386770960699) There Was a Crooked Man... (1970) (mid: 73111)
+	1: (dist: 0.386780915316) Bad Lieutenant: Port of Call New Orleans (2009) (mid: 72405)
+	2: (dist: 0.403195928889) Company of Wolves, The (1984) (mid: 5797)
+	3: (dist: 0.418493465558) Baarìa (2009) (mid: 78142)
+	4: (dist: 0.422253978202) Sleeping Dictionary, The (2003) (mid: 27340)
+	5: (dist: 0.431250996829) Immortals (2011) (mid: 90888)
+	6: (dist: 0.431264960181) Tales from the Crypt Presents: Bordello of Blood (1996) (mid: 842)
+	7: (dist: 0.431296283939) Bring Me the Head of Alfredo Garcia (1974) (mid: 7895)
+	8: (dist: 0.43130982643) In the Cut (2003) (mid: 6885)
+	9: (dist: 0.432974763005) Spy Hard (1996) (mid: 743)
+Cluster 12 (variance: 0.32729039048):
+	0: (dist: 0.222496472996) Casino (1995) (mid: 16)
+	1: (dist: 0.222503838557) Get Shorty (1995) (mid: 21)
+	2: (dist: 0.22251470092) This Is Spinal Tap (1984) (mid: 1288)
+	3: (dist: 0.222515395507) Night of the Creeps (1986) (mid: 3696)
+	4: (dist: 0.222535606439) Machine Gun Preacher (2011) (mid: 90624)
+	5: (dist: 0.222535938737) Deception (2013) (mid: 124857)
+	6: (dist: 0.226629334468) Kick-Ass 2 (2013) (mid: 104241)
+	7: (dist: 0.226635556936) Hangover Part III, The (2013) (mid: 102686)
+	8: (dist: 0.22664177156) Paranormal Activity: The Marked Ones (2014) (mid: 107769)
+	9: (dist: 0.226646256436) Hardware (1990) (mid: 34292)
+Cluster 3 (variance: 0.355094111178):
+	0: (dist: 0.188158711763) Rocky Horror Picture Show, The (1975) (mid: 2657)
+	1: (dist: 0.188167932208) Secret Window (2004) (mid: 7347)
+	2: (dist: 0.209337031238) Snow White and the Huntsman (2012) (mid: 94780)
+	3: (dist: 0.210112971608) Manchurian Candidate, The (1962) (mid: 1267)
+	4: (dist: 0.210117017424) Sherlock Holmes: A Game of Shadows (2011) (mid: 91542)
+	5: (dist: 0.210118366173) Big Sleep, The (1946) (mid: 1284)
+	6: (dist: 0.210118447958) Tingler, The (1959) (mid: 2781)
+	7: (dist: 0.210118774993) Hamlet (2000) (mid: 3598)
+	8: (dist: 0.210119511936) Sling Blade (1996) (mid: 1358)
+	9: (dist: 0.210120264114) Dead Man's Shoes (2004) (mid: 40412)
+Cluster 11 (variance: 0.369858325993):
+	0: (dist: 0.206257061134) Nativity Story, The (2006) (mid: 49524)
+	1: (dist: 0.212528361969) America, America (1963) (mid: 51773)
+	2: (dist: 0.21252904) Lorenzo's Oil (1992) (mid: 7009)
+	3: (dist: 0.212530689188) Mighty Heart, A (2007) (mid: 53921)
+	4: (dist: 0.212530759329) Mondays in the Sun (Lunes al sol, Los) (2002) (mid: 6571)
+	5: (dist: 0.212531366784) Hero (Ying xiong) (2002) (mid: 7090)
+	6: (dist: 0.212531404433) Farewell, The (Abschied - Brechts letzter Sommer) (2000) (mid: 5050)
+	7: (dist: 0.212531778452) Earth Trembles, The (Terra trema: Episodio del mare, La) (1948) (mid: 5494)
+	8: (dist: 0.212532257706) Brassed Off (1996) (mid: 1542)
+	9: (dist: 0.212533415656) Evangelion: 1.0 You Are (Not) Alone (Evangerion shin gekijôban: Jo) (2007) (mid: 70533)
+Cluster 0 (variance: 0.487810375517):
+	0: (dist: 0.206441784716) Beauty and the Beast (1991) (mid: 595)
+	1: (dist: 0.206442402801) Arabian Nights (Il fiore delle mille e una notte) (1974) (mid: 32735)
+	2: (dist: 0.206444319926) Cat People (1942) (mid: 7713)
+	3: (dist: 0.206444502027) Mexican, The (2001) (mid: 4161)
+	4: (dist: 0.206447694859) Galapagos Affair: Satan Came to Eden, The (2013) (mid: 114248)
+	5: (dist: 0.206449040552) Deluge, The (Potop) (1974) (mid: 8660)
+	6: (dist: 0.206449156063) Amityville Horror, The (1979) (mid: 1327)
+	7: (dist: 0.206449655556) Milarepa (2006) (mid: 99895)
+	8: (dist: 0.206449663161) Day of Wrath (Vredens dag) (1943) (mid: 25898)
+	9: (dist: 0.206450654496) Hedd Wyn (1992) (mid: 822)
+Cluster 6 (variance: 0.498871869195):
+	0: (dist: 0.0987685922874) Twister (1996) (mid: 736)
+	1: (dist: 0.106748203412) Aaltra (2004) (mid: 48167)
+	2: (dist: 0.106749510009) Young Adam (2003) (mid: 7442)
+	3: (dist: 0.106749525727) Dirty Shame, A (2004) (mid: 8872)
+	4: (dist: 0.106753207765) Rabid (1977) (mid: 7029)
+	5: (dist: 0.106753211799) Ossessione (1943) (mid: 5496)
+	6: (dist: 0.106759768151) Sorcerer (1977) (mid: 26393)
+	7: (dist: 0.546453695104) Close My Eyes (1991) (mid: 56693)
+	8: (dist: 0.546454259305) Aberdeen (2000) (mid: 4729)
+	9: (dist: 0.546454379445) Manny & Lo (1996) (mid: 862)
+Training a latent tree
+DecisionTreeModel classifier of depth 8 with 95 nodes
+  If (feature 11 <= -0.5657230019569397)
+   If (feature 8 <= 1.1997454166412354)
+    If (feature 4 <= -0.9399511814117432)
+     If (feature 1 <= -0.08203209936618805)
+      If (feature 0 <= 0.05725127086043358)
+       Predict: 11.0
+      Else (feature 0 > 0.05725127086043358)
+       If (feature 0 <= 0.5660367608070374)
+        Predict: 14.0
+       Else (feature 0 > 0.5660367608070374)
+        Predict: 6.0
+     Else (feature 1 > -0.08203209936618805)
+      Predict: 3.0
+    Else (feature 4 > -0.9399511814117432)
+     If (feature 0 <= 0.07952802628278732)
+      If (feature 1 <= 0.013206489384174347)
+       Predict: 10.0
+      Else (feature 1 > 0.013206489384174347)
+       If (feature 2 <= 0.3915828764438629)
+        Predict: 12.0
+       Else (feature 2 > 0.3915828764438629)
+        If (feature 3 <= 0.6162686347961426)
+         If (feature 0 <= -0.028146853670477867)
+          Predict: 14.0
+         Else (feature 0 > -0.028146853670477867)
+          Predict: 13.0
+        Else (feature 3 > 0.6162686347961426)
+         Predict: 0.0
+     Else (feature 0 > 0.07952802628278732)
+      Predict: 14.0
+   Else (feature 8 > 1.1997454166412354)
+    If (feature 7 <= -0.029158134013414383)
+     If (feature 0 <= 0.30410751700401306)
+      If (feature 2 <= 0.3865879774093628)
+       Predict: 10.0
+      Else (feature 2 > 0.3865879774093628)
+       Predict: 11.0
+     Else (feature 0 > 0.30410751700401306)
+      Predict: 8.0
+    Else (feature 7 > -0.029158134013414383)
+     If (feature 1 <= 0.46406692266464233)
+      Predict: 13.0
+     Else (feature 1 > 0.46406692266464233)
+      Predict: 3.0
+  Else (feature 11 > -0.5657230019569397)
+   If (feature 9 <= 0.7429152131080627)
+    If (feature 7 <= -0.26144975423812866)
+     If (feature 4 <= -0.3672226071357727)
+      If (feature 2 <= 0.4226483404636383)
+       If (feature 5 <= -0.5838764309883118)
+        If (feature 0 <= 0.2626814544200897)
+         Predict: 9.0
+        Else (feature 0 > 0.2626814544200897)
+         Predict: 3.0
+       Else (feature 5 > -0.5838764309883118)
+        Predict: 12.0
+      Else (feature 2 > 0.4226483404636383)
+       If (feature 0 <= 0.2626814544200897)
+        If (feature 4 <= -0.7780066132545471)
+         Predict: 11.0
+        Else (feature 4 > -0.7780066132545471)
+         If (feature 1 <= -0.22802436351776123)
+          Predict: 10.0
+         Else (feature 1 > -0.22802436351776123)
+          Predict: 1.0
+       Else (feature 0 > 0.2626814544200897)
+        Predict: 8.0
+     Else (feature 4 > -0.3672226071357727)
+      If (feature 9 <= -0.05336238816380501)
+       Predict: 1.0
+      Else (feature 9 > -0.05336238816380501)
+       Predict: 5.0
+    Else (feature 7 > -0.26144975423812866)
+     If (feature 8 <= 0.4448029398918152)
+      If (feature 5 <= -0.48544806241989136)
+       If (feature 0 <= -0.38195207715034485)
+        Predict: 1.0
+       Else (feature 0 > -0.38195207715034485)
+        Predict: 3.0
+      Else (feature 5 > -0.48544806241989136)
+       Predict: 2.0
+     Else (feature 8 > 0.4448029398918152)
+      If (feature 2 <= 0.05608416348695755)
+       If (feature 0 <= -0.22384709119796753)
+        Predict: 3.0
+       Else (feature 0 > -0.22384709119796753)
+        Predict: 4.0
+      Else (feature 2 > 0.05608416348695755)
+       If (feature 6 <= -0.1762319952249527)
+        If (feature 1 <= 0.6633493304252625)
+         If (feature 8 <= 0.7135974168777466)
+          Predict: 2.0
+         Else (feature 8 > 0.7135974168777466)
+          Predict: 11.0
+        Else (feature 1 > 0.6633493304252625)
+         If (feature 4 <= -0.7780066132545471)
+          Predict: 3.0
+         Else (feature 4 > -0.7780066132545471)
+          Predict: 5.0
+       Else (feature 6 > -0.1762319952249527)
+        If (feature 10 <= -0.14172226190567017)
+         If (feature 9 <= 0.26286080479621887)
+          Predict: 2.0
+         Else (feature 9 > 0.26286080479621887)
+          Predict: 6.0
+        Else (feature 10 > -0.14172226190567017)
+         If (feature 3 <= 0.6989686489105225)
+          Predict: 7.0
+         Else (feature 3 > 0.6989686489105225)
+          Predict: 0.0
+   Else (feature 9 > 0.7429152131080627)
+    If (feature 0 <= 0.2626814544200897)
+     If (feature 10 <= -0.03543519601225853)
+      If (feature 6 <= -0.3612634539604187)
+       Predict: 12.0
+      Else (feature 6 > -0.3612634539604187)
+       If (feature 9 <= 0.9359321594238281)
+        If (feature 0 <= -0.38195207715034485)
+         Predict: 3.0
+        Else (feature 0 > -0.38195207715034485)
+         Predict: 4.0
+       Else (feature 9 > 0.9359321594238281)
+        If (feature 1 <= 0.5164920091629028)
+         If (feature 8 <= 0.8132351040840149)
+          Predict: 4.0
+         Else (feature 8 > 0.8132351040840149)
+          Predict: 12.0
+        Else (feature 1 > 0.5164920091629028)
+         Predict: 0.0
+     Else (feature 10 > -0.03543519601225853)
+      If (feature 4 <= -0.6997014284133911)
+       If (feature 2 <= 0.03737897053360939)
+        Predict: 12.0
+       Else (feature 2 > 0.03737897053360939)
+        Predict: 11.0
+      Else (feature 4 > -0.6997014284133911)
+       If (feature 0 <= 0.031208762899041176)
+        Predict: 0.0
+       Else (feature 0 > 0.031208762899041176)
+        Predict: 12.0
+    Else (feature 0 > 0.2626814544200897)
+     Predict: 6.0
+
+Done, making predictions
+Accuracy of latent tree on training set: 0.865298507463
+Accuracy of latent tree on test set: 0.854111405836
+Building meta training set
+Training a meta tree
+DecisionTreeModel classifier of depth 8 with 163 nodes
+  If (Isn't imdb_keywords:chase)
+   If (average_rating <= 2.3236298292902067)
+    If (Isn't imdb_keywords:bathroom)
+     If (Isn't imdb_keywords:truck)
+      If (Isn't tvtropes:too dumb to live)
+       Predict: 2.0
+      Else (Is tvtropes:too dumb to live)
+       Predict: 7.0
+     Else (Is imdb_keywords:truck)
+      If (Isn't imdb_keywords:severed-head)
+       If (Isn't tvtropes:too dumb to live)
+        If (Isn't imdb_keywords:baseball)
+         Predict: 6.0
+        Else (Is imdb_keywords:baseball)
+         If (Isn't imdb_keywords:1930s)
+          Predict: 6.0
+         Else (Is imdb_keywords:1930s)
+          Predict: 2.0
+       Else (Is tvtropes:too dumb to live)
+        Predict: 7.0
+      Else (Is imdb_keywords:severed-head)
+       If (Isn't movielens_genre:Thriller)
+        Predict: 2.0
+       Else (Is movielens_genre:Thriller)
+        Predict: 7.0
+    Else (Is imdb_keywords:bathroom)
+     If (Isn't imdb_keywords:truck)
+      If (Isn't imdb_keywords:severed-head)
+       If (Isn't movielens_genre:Film-Noir)
+        Predict: 4.0
+       Else (Is movielens_genre:Film-Noir)
+        Predict: 7.0
+      Else (Is imdb_keywords:severed-head)
+       Predict: 2.0
+     Else (Is imdb_keywords:truck)
+      If (year <= 1980.0)
+       Predict: 2.0
+      Else (year > 1980.0)
+       If (year <= 2009.0)
+        Predict: 6.0
+       Else (year > 2009.0)
+        Predict: 4.0
+   Else (average_rating > 2.3236298292902067)
+    If (Isn't tvtropes:oh crap)
+     If (Isn't imdb_keywords:rape)
+      If (Isn't imdb_keywords:f-word)
+       If (Isn't imdb_keywords:depression)
+        If (Isn't movielens_tags:murder)
+         If (Isn't imdb_keywords:hope)
+          Predict: 6.0
+         Else (Is imdb_keywords:hope)
+          Predict: 11.0
+        Else (Is movielens_tags:murder)
+         If (Isn't imdb_keywords:accident)
+          Predict: 3.0
+         Else (Is imdb_keywords:accident)
+          Predict: 6.0
+       Else (Is imdb_keywords:depression)
+        If (Isn't imdb_keywords:hope)
+         If (Isn't imdb_keywords:accident)
+          Predict: 14.0
+         Else (Is imdb_keywords:accident)
+          Predict: 6.0
+        Else (Is imdb_keywords:hope)
+         If (Isn't imdb_keywords:ambulance)
+          Predict: 11.0
+         Else (Is imdb_keywords:ambulance)
+          Predict: 3.0
+      Else (Is imdb_keywords:f-word)
+       If (Isn't imdb_keywords:bathroom)
+        If (Isn't movielens_tags:murder)
+         If (Isn't imdb_keywords:curse)
+          Predict: 12.0
+         Else (Is imdb_keywords:curse)
+          Predict: 0.0
+        Else (Is movielens_tags:murder)
+         Predict: 3.0
+       Else (Is imdb_keywords:bathroom)
+        If (average_rating <= 3.0035677879714577)
+         Predict: 4.0
+        Else (average_rating > 3.0035677879714577)
+         If (Isn't imdb_keywords:bicycle)
+          Predict: 14.0
+         Else (Is imdb_keywords:bicycle)
+          Predict: 0.0
+     Else (Is imdb_keywords:rape)
+      If (Isn't imdb_keywords:f-word)
+       If (Isn't imdb_keywords:depression)
+        If (Isn't imdb_keywords:curse)
+         If (Isn't imdb_keywords:reverse-footage)
+          Predict: 9.0
+         Else (Is imdb_keywords:reverse-footage)
+          Predict: 1.0
+        Else (Is imdb_keywords:curse)
+         Predict: 0.0
+       Else (Is imdb_keywords:depression)
+        If (year <= 2005.0)
+         Predict: 14.0
+        Else (year > 2005.0)
+         Predict: 3.0
+      Else (Is imdb_keywords:f-word)
+       If (Isn't imdb_keywords:bathroom)
+        Predict: 12.0
+       Else (Is imdb_keywords:bathroom)
+        If (Isn't movielens_genre:Crime)
+         Predict: 9.0
+        Else (Is movielens_genre:Crime)
+         Predict: 3.0
+    Else (Is tvtropes:oh crap)
+     If (Isn't movielens_tags:murder)
+      If (Isn't imdb_keywords:f-word)
+       If (Isn't imdb_keywords:rape)
+        If (Isn't imdb_keywords:reverse-footage)
+         If (Isn't imdb_keywords:depression)
+          Predict: 5.0
+         Else (Is imdb_keywords:depression)
+          Predict: 14.0
+        Else (Is imdb_keywords:reverse-footage)
+         If (Isn't movielens_genre:Western)
+          Predict: 8.0
+         Else (Is movielens_genre:Western)
+          Predict: 5.0
+       Else (Is imdb_keywords:rape)
+        If (Isn't imdb_keywords:funeral)
+         Predict: 8.0
+        Else (Is imdb_keywords:funeral)
+         If (Isn't movielens_tags:CLV)
+          Predict: 5.0
+         Else (Is movielens_tags:CLV)
+          Predict: 0.0
+      Else (Is imdb_keywords:f-word)
+       If (Isn't imdb_keywords:bathroom)
+        Predict: 12.0
+       Else (Is imdb_keywords:bathroom)
+        Predict: 5.0
+     Else (Is movielens_tags:murder)
+      Predict: 3.0
+  Else (Is imdb_keywords:chase)
+   If (Isn't imdb_keywords:f-word)
+    If (Isn't tvtropes:oh crap)
+     If (Isn't movielens_tags:murder)
+      If (Isn't imdb_keywords:rape)
+       If (Isn't imdb_keywords:reverse-footage)
+        If (Isn't imdb_keywords:depression)
+         If (Isn't imdb_keywords:hope)
+          Predict: 13.0
+         Else (Is imdb_keywords:hope)
+          Predict: 11.0
+        Else (Is imdb_keywords:depression)
+         If (Isn't imdb_keywords:accident)
+          Predict: 14.0
+         Else (Is imdb_keywords:accident)
+          Predict: 6.0
+       Else (Is imdb_keywords:reverse-footage)
+        If (Isn't imdb_keywords:curse)
+         If (Isn't imdb_keywords:sociopath)
+          Predict: 1.0
+         Else (Is imdb_keywords:sociopath)
+          Predict: 1.0
+        Else (Is imdb_keywords:curse)
+         Predict: 0.0
+      Else (Is imdb_keywords:rape)
+       If (Isn't imdb_keywords:reverse-footage)
+        If (Isn't imdb_keywords:u.s.-army)
+         If (Isn't imdb_keywords:kissing-while-having-sex)
+          Predict: 10.0
+         Else (Is imdb_keywords:kissing-while-having-sex)
+          Predict: 9.0
+        Else (Is imdb_keywords:u.s.-army)
+         Predict: 13.0
+       Else (Is imdb_keywords:reverse-footage)
+        If (Isn't movielens_genre:Romance)
+         Predict: 1.0
+        Else (Is movielens_genre:Romance)
+         Predict: 6.0
+     Else (Is movielens_tags:murder)
+      If (Isn't imdb_keywords:accident)
+       If (Isn't imdb_keywords:severed-head)
+        Predict: 3.0
+       Else (Is imdb_keywords:severed-head)
+        If (Isn't imdb_keywords:masturbation)
+         Predict: 13.0
+        Else (Is imdb_keywords:masturbation)
+         If (year <= 1986.0)
+          Predict: 10.0
+         Else (year > 1986.0)
+          Predict: 3.0
+      Else (Is imdb_keywords:accident)
+       Predict: 6.0
+    Else (Is tvtropes:oh crap)
+     If (Isn't movielens_tags:murder)
+      If (Isn't imdb_keywords:kissing-while-having-sex)
+       If (Isn't imdb_keywords:snake)
+        If (Isn't imdb_keywords:curse)
+         If (Isn't imdb_keywords:bed)
+          Predict: 8.0
+         Else (Is imdb_keywords:bed)
+          Predict: 11.0
+        Else (Is imdb_keywords:curse)
+         Predict: 0.0
+       Else (Is imdb_keywords:snake)
+        If (Isn't movielens_genre:Comedy)
+         If (year <= 1983.0)
+          Predict: 10.0
+         Else (year > 1983.0)
+          Predict: 0.0
+        Else (Is movielens_genre:Comedy)
+         Predict: 13.0
+      Else (Is imdb_keywords:kissing-while-having-sex)
+       If (Isn't movielens_tags:CLV)
+        Predict: 5.0
+       Else (Is movielens_tags:CLV)
+        Predict: 1.0
+     Else (Is movielens_tags:murder)
+      If (Isn't movielens_tags:ClearPlay)
+       Predict: 3.0
+      Else (Is movielens_tags:ClearPlay)
+       Predict: 10.0
+   Else (Is imdb_keywords:f-word)
+    If (Isn't imdb_keywords:bathroom)
+     If (Isn't imdb_keywords:curse)
+      If (Isn't movielens_tags:murder)
+       If (Isn't imdb_keywords:hope)
+        If (Isn't imdb_keywords:accident)
+         Predict: 12.0
+        Else (Is imdb_keywords:accident)
+         Predict: 6.0
+       Else (Is imdb_keywords:hope)
+        If (Isn't movielens_genre:Comedy)
+         Predict: 11.0
+        Else (Is movielens_genre:Comedy)
+         Predict: 6.0
+      Else (Is movielens_tags:murder)
+       If (Isn't imdb_keywords:beating)
+        Predict: 12.0
+       Else (Is imdb_keywords:beating)
+        Predict: 3.0
+     Else (Is imdb_keywords:curse)
+      Predict: 0.0
+    Else (Is imdb_keywords:bathroom)
+     If (Isn't imdb_keywords:2000s)
+      Predict: 13.0
+     Else (Is imdb_keywords:2000s)
+      Predict: 6.0
+
+Done, making predictions
+Accuracy of meta tree on training set: 0.938167938931
+Accuracy of meta tree on test set: 0.912678421495
+37 features used
+15 clusters found
+Processing cluster 0.0
+QIIs: [('movielens_genre:Comedy', 2.1451612903225805), ('imdb_keywords:baseball', 1.3387096774193548), ('imdb_keywords:accident', 0.8225806451612904), ('imdb_keywords:chase', -0.7016129032258065), ('imdb_keywords:severed-head', -0.5080645161290323), ('imdb_keywords:2000s', 0.4596774193548387), ('movielens_tags:CLV', 0.3548387096774194), ('imdb_keywords:funeral', -0.12096774193548387), ('imdb_keywords:f-word', 0.11290322580645161), ('imdb_keywords:reverse-footage', 0.06451612903225806), ('imdb_keywords:kissing-while-having-sex', 0.03225806451612903), ('year', 0.0), ('movielens_genre:Crime', 0.0), ('imdb_keywords:snake', 0.0), ('imdb_keywords:masturbation', 0.0), ('movielens_genre:Film-Noir', 0.0), ('imdb_keywords:sociopath', 0.0), ('movielens_genre:Romance', 0.0), ('movielens_genre:Thriller', 0.0), ('movielens_genre:Western', 0.0), ('movielens_tags:ClearPlay', 0.0), ('imdb_keywords:hope', 0.0), ('imdb_keywords:rape', 0.0), ('tvtropes:too dumb to live', 0.0), ('imdb_keywords:bathroom', 0.0), ('imdb_keywords:beating', 0.0), ('imdb_keywords:bed', 0.0), ('imdb_keywords:bicycle', 0.0), ('movielens_tags:murder', 0.0), ('imdb_keywords:curse', 0.0), ('average_rating', 0.0), ('tvtropes:oh crap', 0.0), ('imdb_keywords:depression', 0.0), ('imdb_keywords:1930s', 0.0), ('imdb_keywords:truck', 0.0), ('imdb_keywords:ambulance', 0.0), ('imdb_keywords:u.s.-army', 0.0)]
+Correctness scores: [(2, 0.23611111111111116), (4, 0.21064814814814817), (5, 0.14583333333333334), (0, 0.03240740740740741), (8, 0.01851851851851852), (1, 0.0), (3, 0.0), (6, 0.0), (7, 0.0), (9, 0.0)]
+Processing cluster 1.0
+QIIs: [('movielens_genre:Comedy', 2.2767857142857144), ('imdb_keywords:baseball', -0.5982142857142857), ('movielens_tags:CLV', 0.25), ('imdb_keywords:f-word', 0.125), ('imdb_keywords:bicycle', 0.10714285714285714), ('imdb_keywords:accident', 0.10714285714285714), ('imdb_keywords:masturbation', 0.08928571428571429), ('movielens_genre:Romance', 0.07142857142857142), ('movielens_tags:ClearPlay', 0.044642857142857144), ('imdb_keywords:kissing-while-having-sex', 0.03571428571428571), ('imdb_keywords:ambulance', 0.03571428571428571), ('imdb_keywords:funeral', -0.026785714285714284), ('imdb_keywords:hope', -0.008928571428571428), ('year', 0.0), ('imdb_keywords:chase', 0.0), ('movielens_genre:Crime', 0.0), ('imdb_keywords:snake', 0.0), ('movielens_genre:Film-Noir', 0.0), ('imdb_keywords:sociopath', 0.0), ('movielens_genre:Thriller', 0.0), ('movielens_genre:Western', 0.0), ('imdb_keywords:rape', 0.0), ('tvtropes:too dumb to live', 0.0), ('imdb_keywords:bathroom', 0.0), ('imdb_keywords:reverse-footage', 0.0), ('imdb_keywords:beating', 0.0), ('imdb_keywords:bed', 0.0), ('movielens_tags:murder', 0.0), ('imdb_keywords:curse', 0.0), ('average_rating', 0.0), ('tvtropes:oh crap', 0.0), ('imdb_keywords:depression', 0.0), ('imdb_keywords:1930s', 0.0), ('imdb_keywords:severed-head', 0.0), ('imdb_keywords:2000s', 0.0), ('imdb_keywords:truck', 0.0), ('imdb_keywords:u.s.-army', 0.0)]
+Correctness scores: [(0, 0.043478260869565216), (2, 0.037267080745341616), (4, 0.012422360248447204), (6, 0.003105590062111801), (1, 0.0), (3, 0.0), (5, 0.0), (7, 0.0), (8, 0.0), (9, 0.0)]
+Processing cluster 2.0
