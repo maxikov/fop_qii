@@ -75,6 +75,18 @@ def load_movies(sc, args, product_features=None):
         movies_dict = {x: str(x) for x in movies}
     return movies_dict
 
+def test_train_split(data, test_ratio):
+    n = data.count()
+    randvec = [random.random() < test_ratio for _ in xrange(n)]
+    data_ind = data.zipWithIndex()
+    test_filter_f = functools.partial(lambda randvec, (_,\
+        ind): randvec[ind], randvec)
+    train_filter_f = functools.partial(lambda randvec, (_,\
+        ind): not randvec[ind], randvec)
+    training = data_ind.filter(train_filter_f).keys()
+    test = data_ind.filter(test_filter_f).keys()
+    return test, training
+
 
 def main():
     parser = argparse.ArgumentParser()
@@ -95,6 +107,8 @@ def main():
             default="kmeans", choices=["kmeans", "gmm"])
     parser.add_argument("--cluster-sample-size", action="store", type=int,
             default=10, help="Number of movies to display in each cluster")
+    parser.add_argument("--test-ratio", action="store", type=float,
+            default=0.3, help="Percent of the data set to use as a test set")
     args = parser.parse_args()
     conf = SparkConf().setMaster("local[*]")
     sc = SparkContext(conf=conf)
@@ -169,8 +183,14 @@ def main():
         for s in text_sample:
             print s
 
+    test_set, training_set = test_train_split(features_and_labels, args.test_ratio)
+    test_features = test_set.map(lambda x: x[0][1])
+    test_observations = test_set.map(lambda x: x[1])
+    training_features = training_set.map(lambda x: x[0][1])
+    training_observations = training_set.map(lambda x: x[1])
+    all_features = features_and_labels.map(lambda x: x[0][1])
 
-    latent_training_data = features_and_labels.map(\
+    latent_training_data = training_set.map(\
             lambda ((mid, ftrs), cls):\
                 LabeledPoint(cls, ftrs))
     print "Training a latent tree"
@@ -186,26 +206,28 @@ def main():
                         maxDepth=args.max_depth)
     print latent_tree.toDebugString()
     print "Done, making predictions"
-    tree_predictions  = latent_tree.predict(data_set).map(float)
-    predobs = common_utils.safe_zip(tree_predictions, clusters)
+    tree_predictions  = latent_tree.predict(training_features).map(float)
+    predobs = common_utils.safe_zip(tree_predictions, training_observations)
     acc = predobs.filter(lambda (x, y): x==y).count()\
             /float(predobs.count())
-    print "Accuracy:", acc
-    metrics = MulticlassMetrics(predobs)
-
-    # Overall statistics
-    precision = metrics.precision()
-    recall = metrics.recall()
-    f1Score = metrics.fMeasure()
-    print("Summary Stats")
-    print("Precision = %s" % precision)
-    print("Recall = %s" % recall)
-    print("F1 Score = %s" % f1Score)
+    print "Accuracy of latent tree on training set:", acc
+    tree_predictions  = latent_tree.predict(test_features).map(float)
+    predobs = common_utils.safe_zip(tree_predictions, test_observations)
+    acc = predobs.filter(lambda (x, y): x==y).count()\
+            /float(predobs.count())
+    print "Accuracy of latent tree on test set:", acc
 
     print "Building meta training set"
     meta_data_set = common_utils.safe_zip(
             indicators, clusters)
-    meta_training_data = meta_data_set.map(
+    test_set, training_set = test_train_split(meta_data_set, args.test_ratio)
+    test_features = test_set.map(lambda x: x[0][1])
+    test_observations = test_set.map(lambda x: x[1])
+    training_features = training_set.map(lambda x: x[0][1])
+    training_observations = training_set.map(lambda x: x[1])
+    all_features = features_and_labels.map(lambda x: x[0][1])
+
+    meta_training_data = training_set.map(
                     lambda ((mid, inds), cls):
                     LabeledPoint(cls, inds))
     print "Training a meta tree"
@@ -223,21 +245,16 @@ def main():
             meta_tree.toDebugString(),
             results["feature_names"])
     print "Done, making predictions"
-    tree_predictions  = meta_tree.predict(indicators.values()).map(float)
-    predobs = common_utils.safe_zip(tree_predictions, clusters)
+    tree_predictions  = meta_tree.predict(training_features).map(float)
+    predobs = common_utils.safe_zip(tree_predictions, training_observations)
     acc = predobs.filter(lambda (x, y): x==y).count()\
             /float(predobs.count())
-    print "Accuracy:", acc
-    metrics = MulticlassMetrics(predobs)
-
-    # Overall statistics
-    precision = metrics.precision()
-    recall = metrics.recall()
-    f1Score = metrics.fMeasure()
-    print("Summary Stats")
-    print("Precision = %s" % precision)
-    print("Recall = %s" % recall)
-    print("F1 Score = %s" % f1Score)
+    print "Accuracy of meta tree on training set:", acc
+    tree_predictions  = meta_tree.predict(test_features).map(float)
+    predobs = common_utils.safe_zip(tree_predictions, test_observations)
+    acc = predobs.filter(lambda (x, y): x==y).count()\
+            /float(predobs.count())
+    print "Accuracy of meta tree on test set:", acc
 
     if args.user_profiles is not None:
         used_features = tree_qii.get_used_features(meta_tree)
@@ -292,7 +309,14 @@ def main():
             print "Building meta training set"
             meta_data_set = common_utils.safe_zip(
                 indicators, clusters)
-            meta_training_data = meta_data_set.map(
+            test_set, training_set = test_train_split(meta_data_set, args.test_ratio)
+            test_features = test_set.map(lambda x: x[0][1])
+            test_observations = test_set.map(lambda x: x[1])
+            training_features = training_set.map(lambda x: x[0][1])
+            training_observations = training_set.map(lambda x: x[1])
+            all_features = features_and_labels.map(lambda x: x[0][1])
+
+            meta_training_data = training_set.map(
                     lambda ((mid, inds), cls):
                     LabeledPoint(cls, inds))
             print "Training a meta tree"
@@ -310,15 +334,24 @@ def main():
                 meta_tree.toDebugString(),
                 results["feature_names"])
             print "Done, making predictions"
-            tree_predictions  = meta_tree.predict(indicators.values()).map(float)
-            print "Predictions:", tree_predictions.countByValue()
-            predobs = common_utils.safe_zip(tree_predictions, clusters)
+            tree_predictions  = meta_tree.predict(training_features).map(float)
+            predobs = common_utils.safe_zip(tree_predictions, training_observations)
             acc = predobs.filter(lambda (x, y): x==y).count()\
-                /float(predobs.count())
-            print "Accuracy:", acc
+                    /float(predobs.count())
+            print "Accuracy of cluster", cluster, "meta tree on training set:", acc
             evaluations = common_utils.evaluate_binary_classifier(
                 tree_predictions.zipWithIndex().map(lambda (x,y):(y,x)),
-                clusters.zipWithIndex().map(lambda (x,y):(y,x)),
+                training_observations.zipWithIndex().map(lambda (x,y):(y,x)),
+                None, no_threshold=False)
+            print evaluations
+            tree_predictions  = meta_tree.predict(test_features).map(float)
+            predobs = common_utils.safe_zip(tree_predictions, test_observations)
+            acc = predobs.filter(lambda (x, y): x==y).count()\
+                    /float(predobs.count())
+            print "Accuracy of cluster", cluster, "meta tree on test set:", acc
+            evaluations = common_utils.evaluate_binary_classifier(
+                tree_predictions.zipWithIndex().map(lambda (x,y):(y,x)),
+                test_observations.zipWithIndex().map(lambda (x,y):(y,x)),
                 None, no_threshold=False)
             print evaluations
             used_features = tree_qii.get_used_features(meta_tree)
