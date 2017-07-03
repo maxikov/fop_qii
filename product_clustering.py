@@ -66,6 +66,7 @@ class ClassifierWrapper(object):
         self.args = args
         self.sc = sc
         self.n_classes = n_classes
+        self.categorical_features = categorical_features
 
     def train(self, data):
         if self.model == "decision_tree":
@@ -84,7 +85,7 @@ class ClassifierWrapper(object):
             Y = np.array(data.map(lambda x: x.label).collect())
             self.rank = X.shape[1]
             layers = (self.n_classes, self.n_classes)
-            self._model = MLPClassifier(hidden_layer_sized=layers)
+            self._model = MLPClassifier(hidden_layer_sizes=layers)
             self._model.fit(X, Y)
         return self
 
@@ -110,7 +111,7 @@ class ClassifierWrapper(object):
                         self._model.toDebugString(),
                         feature_names)
             else:
-                return self._model.toGebugString()
+                return self._model.toDebugString()
         elif self.model == "mlpc":
             return str(self._model)
 
@@ -427,7 +428,7 @@ def main():
             print "Training a meta tree"
             meta_tree = ClassifierWrapper(sc, args.model, args, 2,
                  categorical_features=results["categorical_features"]).train(meta_training_data)
-            meta_tree.toDebugString(results["feature_names"])
+            print meta_tree.toDebugString(results["feature_names"])
             print "Done, making predictions"
             tree_predictions  = meta_tree.predict(training_features).map(float)
             predobs = common_utils.safe_zip(tree_predictions, training_observations)
