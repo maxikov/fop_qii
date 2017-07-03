@@ -1,0 +1,1371 @@
+Sun Jul 2 21:08:24 PDT 2017 spark-submit --driver-memory 10g product_clustering.py --persist-dir archived_states/product_regression_all_regression_tree_rank_12_depth_5.state --n-clusters 15 --cluster-model birch --movies-file datasets/ml-20m/movies.csv >> new_experiments/logs/product_clustering_real_data_birch.txt
+Loading results dict
+Loading indicators
+Loading ALS model
+Loading movies
+Done, 27278 movies loaded
+Training birch
+Done
+Centroids: [array([ 0.08448435,  0.46128697,  0.31037454, -0.43857063, -0.11126504,
+       -0.59412588,  0.42242827,  0.63551005,  1.09907723,  0.21054586,
+       -0.7271302 , -0.944119  ]), array([ 0.0491221 ,  0.524167  ,  0.37618694,  0.0530487 ,  0.29831823,
+       -0.18846364,  0.32583831,  0.70315676,  0.80492942,  0.23434468,
+       -0.59898948, -0.89519569]), array([ 0.31023795,  0.39125678, -0.11986404, -0.45367027, -0.46971449,
+       -0.4855341 , -0.38567368,  0.78911001,  0.8105568 ,  0.3582567 ,
+       -1.38346322, -0.43992646]), array([ 0.20843687,  0.30120384,  0.1151217 ,  0.05172151,  0.53172396,
+       -0.03708803,  0.13239664,  0.660909  ,  0.50188119,  0.21250481,
+       -0.87355978, -1.00345432]), array([ 0.68175837,  0.68715305, -0.18063586, -1.01343588,  0.27001304,
+        0.24741384,  0.24008521,  1.22124375,  0.45720155,  0.43980009,
+       -1.00973782, -0.22862421]), array([ 0.06178733,  0.27167479,  0.6725967 , -0.02424493,  0.26245818,
+        0.04229447,  0.18941385,  0.89834142,  0.34075196, -0.15104941,
+       -1.21113427, -0.57495262]), array([-0.04278515,  0.50151863, -0.18525661, -0.05964043, -0.39641868,
+       -0.20776231,  0.5671371 ,  0.81351541,  0.35080896,  0.62364673,
+       -1.07999929, -1.14233727]), array([-0.50879047,  0.49689673, -0.02936617, -0.324617  ,  0.6726137 ,
+       -0.3911583 ,  0.65318861,  1.00994289,  0.42445802,  0.35952524,
+       -0.83950894, -0.54061944]), array([-0.04131406, -0.08797359,  0.02592462, -0.01433221,  0.53319717,
+        0.15122867, -0.1126623 ,  0.28946453,  0.67259311,  0.53227063,
+       -1.2068293 , -0.66954901]), array([-0.3878642 ,  0.25334363, -0.22288312, -0.02543782,  0.15452888,
+       -0.43015707, -0.46931113,  0.495376  ,  0.40113283,  0.34633384,
+       -1.29794151, -0.98053181]), array([ 0.00143168,  0.15688627,  0.79082968, -0.49296775,  0.0090144 ,
+       -0.3074088 ,  0.06978574,  0.7160718 ,  0.4383688 ,  0.60092064,
+       -0.57199207, -1.03759388]), array([-0.57566602, -0.02626605, -0.25843267, -0.21291876,  0.1460207 ,
+        0.60058558,  0.46543778,  1.07023464,  0.97605409,  0.51983641,
+       -0.51774677, -0.89466126]), array([ 0.05079388,  0.83238478,  0.18183261, -0.28686191, -0.08201664,
+       -0.34095261,  0.29731028,  1.03458236,  0.83356385,  0.32122686,
+       -0.66044356, -0.64651714]), array([-0.45238049, -0.14062739,  0.03441938, -0.08742489,  0.35603402,
+       -0.45536736, -0.50970731,  0.92541015,  0.81814649,  0.41070432,
+       -0.78267293, -0.59427414]), array([ 0.38346544,  0.71844818,  0.19786126, -0.17018213, -0.18753915,
+       -0.45973442,  0.16322327,  0.97385448,  0.55977136,  0.07918369,
+       -0.8538943 , -0.95980938])]
+Labeling clusters
+Clusters: defaultdict(<type 'int'>, {0.0: 625, 1.0: 1109, 2.0: 140, 3.0: 941, 4.0: 70, 5.0: 221, 6.0: 105, 7.0: 179, 8.0: 241, 9.0: 175, 10.0: 192, 11.0: 72, 12.0: 730, 13.0: 229, 14.0: 410})
+Centroid mean: [-0.01181883  0.35609024  0.11391393 -0.23330229  0.13246455 -0.19041533
+  0.13659271  0.81578155  0.63261971  0.33987007 -0.90766956 -0.77014438]
+Centroid variance: 0.97934017068
+Training a latent tree
+DecisionTreeModel classifier of depth 8 with 483 nodes
+  If (feature 4 <= 0.19388143718242645)
+   If (feature 7 <= 0.8524145483970642)
+    If (feature 5 <= -0.30596795678138733)
+     If (feature 6 <= 0.07213142514228821)
+      If (feature 0 <= -0.1649988740682602)
+       If (feature 8 <= 0.6303989291191101)
+        If (feature 7 <= 0.6511810421943665)
+         If (feature 1 <= 0.8523609638214111)
+          Predict: 9.0
+         Else (feature 1 > 0.8523609638214111)
+          Predict: 12.0
+        Else (feature 7 > 0.6511810421943665)
+         If (feature 0 <= -0.6609826683998108)
+          Predict: 10.0
+         Else (feature 0 > -0.6609826683998108)
+          Predict: 3.0
+       Else (feature 8 > 0.6303989291191101)
+        If (feature 11 <= -1.0130722522735596)
+         If (feature 1 <= -0.09905041009187698)
+          Predict: 9.0
+         Else (feature 1 > -0.09905041009187698)
+          Predict: 1.0
+        Else (feature 11 > -1.0130722522735596)
+         If (feature 9 <= 0.10741502046585083)
+          Predict: 1.0
+         Else (feature 9 > 0.10741502046585083)
+          Predict: 13.0
+      Else (feature 0 > -0.1649988740682602)
+       If (feature 8 <= 0.9859753251075745)
+        If (feature 3 <= -0.04812254384160042)
+         If (feature 5 <= -1.2125422954559326)
+          Predict: 0.0
+         Else (feature 5 > -1.2125422954559326)
+          Predict: 14.0
+        Else (feature 3 > -0.04812254384160042)
+         If (feature 7 <= 0.24380230903625488)
+          Predict: 2.0
+         Else (feature 7 > 0.24380230903625488)
+          Predict: 14.0
+       Else (feature 8 > 0.9859753251075745)
+        If (feature 1 <= 0.7733001112937927)
+         If (feature 10 <= -1.218724250793457)
+          Predict: 2.0
+         Else (feature 10 > -1.218724250793457)
+          Predict: 0.0
+        Else (feature 1 > 0.7733001112937927)
+         If (feature 0 <= 0.032653357833623886)
+          Predict: 1.0
+         Else (feature 0 > 0.032653357833623886)
+          Predict: 12.0
+     Else (feature 6 > 0.07213142514228821)
+      If (feature 3 <= -0.04812254384160042)
+       If (feature 8 <= 0.6303989291191101)
+        If (feature 2 <= 0.09905622154474258)
+         If (feature 7 <= 0.6776678562164307)
+          Predict: 6.0
+         Else (feature 7 > 0.6776678562164307)
+          Predict: 7.0
+        Else (feature 2 > 0.09905622154474258)
+         If (feature 0 <= 0.4558575749397278)
+          Predict: 0.0
+         Else (feature 0 > 0.4558575749397278)
+          Predict: 14.0
+       Else (feature 8 > 0.6303989291191101)
+        If (feature 1 <= 0.8092066049575806)
+         If (feature 2 <= 0.828614354133606)
+          Predict: 0.0
+         Else (feature 2 > 0.828614354133606)
+          Predict: 0.0
+        Else (feature 1 > 0.8092066049575806)
+         If (feature 8 <= 1.1674286127090454)
+          Predict: 12.0
+         Else (feature 8 > 1.1674286127090454)
+          Predict: 0.0
+      Else (feature 3 > -0.04812254384160042)
+       If (feature 4 <= -0.29063692688941956)
+        If (feature 10 <= -0.8666446208953857)
+         If (feature 0 <= -0.535117506980896)
+          Predict: 9.0
+         Else (feature 0 > -0.535117506980896)
+          Predict: 12.0
+        Else (feature 10 > -0.8666446208953857)
+         If (feature 1 <= 0.7733001112937927)
+          Predict: 0.0
+         Else (feature 1 > 0.7733001112937927)
+          Predict: 12.0
+       Else (feature 4 > -0.29063692688941956)
+        If (feature 10 <= -0.46359434723854065)
+         If (feature 5 <= -0.8575880527496338)
+          Predict: 5.0
+         Else (feature 5 > -0.8575880527496338)
+          Predict: 1.0
+        Else (feature 10 > -0.46359434723854065)
+         If (feature 0 <= 0.11954835057258606)
+          Predict: 0.0
+         Else (feature 0 > 0.11954835057258606)
+          Predict: 10.0
+    Else (feature 5 > -0.30596795678138733)
+     If (feature 10 <= -0.6475991606712341)
+      If (feature 10 <= -1.1624784469604492)
+       If (feature 4 <= -0.4458296597003937)
+        If (feature 8 <= 0.6014512777328491)
+         If (feature 9 <= -0.12237068265676498)
+          Predict: 2.0
+         Else (feature 9 > -0.12237068265676498)
+          Predict: 6.0
+        Else (feature 8 > 0.6014512777328491)
+         If (feature 11 <= -0.3629067540168762)
+          Predict: 2.0
+         Else (feature 11 > -0.3629067540168762)
+          Predict: 2.0
+       Else (feature 4 > -0.4458296597003937)
+        If (feature 6 <= -0.2661076784133911)
+         If (feature 1 <= 0.03334115818142891)
+          Predict: 8.0
+         Else (feature 1 > 0.03334115818142891)
+          Predict: 9.0
+        Else (feature 6 > -0.2661076784133911)
+         If (feature 9 <= 0.23303204774856567)
+          Predict: 5.0
+         Else (feature 9 > 0.23303204774856567)
+          Predict: 8.0
+      Else (feature 10 > -1.1624784469604492)
+       If (feature 1 <= 0.6971979141235352)
+        If (feature 4 <= -0.12942205369472504)
+         If (feature 8 <= 0.7591667175292969)
+          Predict: 10.0
+         Else (feature 8 > 0.7591667175292969)
+          Predict: 0.0
+        Else (feature 4 > -0.12942205369472504)
+         If (feature 6 <= -0.34778353571891785)
+          Predict: 13.0
+         Else (feature 6 > -0.34778353571891785)
+          Predict: 1.0
+       Else (feature 1 > 0.6971979141235352)
+        If (feature 3 <= 0.14936773478984833)
+         If (feature 11 <= -1.14035964012146)
+          Predict: 3.0
+         Else (feature 11 > -1.14035964012146)
+          Predict: 12.0
+        Else (feature 3 > 0.14936773478984833)
+         If (feature 8 <= 0.6955571174621582)
+          Predict: 14.0
+         Else (feature 8 > 0.6955571174621582)
+          Predict: 1.0
+     Else (feature 10 > -0.6475991606712341)
+      If (feature 11 <= -1.1804076433181763)
+       If (feature 3 <= -0.7214135527610779)
+        If (feature 2 <= -0.695468008518219)
+         Predict: 11.0
+        Else (feature 2 > -0.695468008518219)
+         Predict: 10.0
+       Else (feature 3 > -0.7214135527610779)
+        If (feature 0 <= 0.09256371855735779)
+         If (feature 3 <= -0.333114892244339)
+          Predict: 0.0
+         Else (feature 3 > -0.333114892244339)
+          Predict: 1.0
+        Else (feature 0 > 0.09256371855735779)
+         If (feature 4 <= -0.4458296597003937)
+          Predict: 0.0
+         Else (feature 4 > -0.4458296597003937)
+          Predict: 3.0
+      Else (feature 11 > -1.1804076433181763)
+       If (feature 6 <= 0.5102961659431458)
+        If (feature 3 <= -0.25879526138305664)
+         If (feature 7 <= 0.614539384841919)
+          Predict: 1.0
+         Else (feature 7 > 0.614539384841919)
+          Predict: 12.0
+        Else (feature 3 > -0.25879526138305664)
+         If (feature 1 <= -0.02603118307888508)
+          Predict: 3.0
+         Else (feature 1 > -0.02603118307888508)
+          Predict: 1.0
+       Else (feature 6 > 0.5102961659431458)
+        If (feature 7 <= 0.7350398898124695)
+         If (feature 11 <= -1.0429447889328003)
+          Predict: 1.0
+         Else (feature 11 > -1.0429447889328003)
+          Predict: 0.0
+        Else (feature 7 > 0.7350398898124695)
+         If (feature 8 <= 1.3959746360778809)
+          Predict: 12.0
+         Else (feature 8 > 1.3959746360778809)
+          Predict: 0.0
+   Else (feature 7 > 0.8524145483970642)
+    If (feature 1 <= 0.5135737061500549)
+     If (feature 5 <= -0.6440771818161011)
+      If (feature 11 <= -0.9851908683776855)
+       If (feature 8 <= 0.21741589903831482)
+        If (feature 2 <= -0.3488622009754181)
+         Predict: 0.0
+        Else (feature 2 > -0.3488622009754181)
+         If (feature 3 <= 0.11017250269651413)
+          Predict: 10.0
+         Else (feature 3 > 0.11017250269651413)
+          Predict: 5.0
+       Else (feature 8 > 0.21741589903831482)
+        If (feature 0 <= 0.6970927119255066)
+         If (feature 2 <= 0.557744562625885)
+          Predict: 0.0
+         Else (feature 2 > 0.557744562625885)
+          Predict: 1.0
+        Else (feature 0 > 0.6970927119255066)
+         If (feature 0 <= 0.9085515737533569)
+          Predict: 5.0
+         Else (feature 0 > 0.9085515737533569)
+          Predict: 6.0
+      Else (feature 11 > -0.9851908683776855)
+       If (feature 6 <= -0.2661076784133911)
+        If (feature 1 <= 0.09861033409833908)
+         Predict: 13.0
+        Else (feature 1 > 0.09861033409833908)
+         If (feature 2 <= 0.44634324312210083)
+          Predict: 2.0
+         Else (feature 2 > 0.44634324312210083)
+          Predict: 0.0
+       Else (feature 6 > -0.2661076784133911)
+        If (feature 3 <= 0.14936773478984833)
+         If (feature 0 <= 0.4047206938266754)
+          Predict: 0.0
+         Else (feature 0 > 0.4047206938266754)
+          Predict: 14.0
+        Else (feature 3 > 0.14936773478984833)
+         If (feature 1 <= 0.09861033409833908)
+          Predict: 5.0
+         Else (feature 1 > 0.09861033409833908)
+          Predict: 12.0
+     Else (feature 5 > -0.6440771818161011)
+      If (feature 9 <= 0.004279672633856535)
+       If (feature 6 <= 0.028698613867163658)
+        If (feature 2 <= 0.3158229887485504)
+         If (feature 1 <= -0.5462081432342529)
+          Predict: 9.0
+         Else (feature 1 > -0.5462081432342529)
+          Predict: 3.0
+        Else (feature 2 > 0.3158229887485504)
+         If (feature 5 <= -0.340699702501297)
+          Predict: 10.0
+         Else (feature 5 > -0.340699702501297)
+          Predict: 5.0
+       Else (feature 6 > 0.028698613867163658)
+        If (feature 3 <= -0.020045818760991096)
+         If (feature 1 <= 0.4842751622200012)
+          Predict: 14.0
+         Else (feature 1 > 0.4842751622200012)
+          Predict: 0.0
+        Else (feature 3 > -0.020045818760991096)
+         If (feature 6 <= 0.3310283124446869)
+          Predict: 5.0
+         Else (feature 6 > 0.3310283124446869)
+          Predict: 1.0
+      Else (feature 9 > 0.004279672633856535)
+       If (feature 8 <= 0.21741589903831482)
+        If (feature 2 <= 0.2323055863380432)
+         If (feature 3 <= -0.6456636190414429)
+          Predict: 4.0
+         Else (feature 3 > -0.6456636190414429)
+          Predict: 6.0
+        Else (feature 2 > 0.2323055863380432)
+         If (feature 11 <= -1.06936514377594)
+          Predict: 10.0
+         Else (feature 11 > -1.06936514377594)
+          Predict: 1.0
+       Else (feature 8 > 0.21741589903831482)
+        If (feature 1 <= 0.20866136252880096)
+         If (feature 6 <= 0.07213142514228821)
+          Predict: 13.0
+         Else (feature 6 > 0.07213142514228821)
+          Predict: 11.0
+        Else (feature 1 > 0.20866136252880096)
+         If (feature 8 <= 0.9859753251075745)
+          Predict: 1.0
+         Else (feature 8 > 0.9859753251075745)
+          Predict: 12.0
+    Else (feature 1 > 0.5135737061500549)
+     If (feature 11 <= -1.0130722522735596)
+      If (feature 10 <= -0.6170662045478821)
+       If (feature 8 <= 0.0560603104531765)
+        If (feature 3 <= -0.22549556195735931)
+         If (feature 0 <= 0.09256371855735779)
+          Predict: 2.0
+         Else (feature 0 > 0.09256371855735779)
+          Predict: 3.0
+        Else (feature 3 > -0.22549556195735931)
+         Predict: 6.0
+       Else (feature 8 > 0.0560603104531765)
+        If (feature 9 <= 0.41776177287101746)
+         If (feature 8 <= 0.7938987016677856)
+          Predict: 14.0
+         Else (feature 8 > 0.7938987016677856)
+          Predict: 12.0
+        Else (feature 9 > 0.41776177287101746)
+         If (feature 9 <= 0.48363351821899414)
+          Predict: 12.0
+         Else (feature 9 > 0.48363351821899414)
+          Predict: 6.0
+      Else (feature 10 > -0.6170662045478821)
+       If (feature 5 <= -0.49573177099227905)
+        If (feature 6 <= 0.47604668140411377)
+         If (feature 4 <= -0.3632971942424774)
+          Predict: 0.0
+         Else (feature 4 > -0.3632971942424774)
+          Predict: 14.0
+        Else (feature 6 > 0.47604668140411377)
+         If (feature 1 <= 0.6971979141235352)
+          Predict: 0.0
+         Else (feature 1 > 0.6971979141235352)
+          Predict: 12.0
+       Else (feature 5 > -0.49573177099227905)
+        If (feature 3 <= -0.18778468668460846)
+         If (feature 8 <= 0.27857717871665955)
+          Predict: 3.0
+         Else (feature 8 > 0.27857717871665955)
+          Predict: 12.0
+        Else (feature 3 > -0.18778468668460846)
+         If (feature 1 <= 1.0791019201278687)
+          Predict: 1.0
+         Else (feature 1 > 1.0791019201278687)
+          Predict: 14.0
+     Else (feature 11 > -1.0130722522735596)
+      If (feature 0 <= 0.3244525194168091)
+       If (feature 9 <= -0.12237068265676498)
+        If (feature 8 <= 0.6613075733184814)
+         If (feature 6 <= 0.5939850211143494)
+          Predict: 5.0
+         Else (feature 6 > 0.5939850211143494)
+          Predict: 7.0
+        Else (feature 8 > 0.6613075733184814)
+         If (feature 10 <= -0.8069897294044495)
+          Predict: 14.0
+         Else (feature 10 > -0.8069897294044495)
+          Predict: 12.0
+       Else (feature 9 > -0.12237068265676498)
+        If (feature 10 <= -0.04048264026641846)
+         If (feature 10 <= -0.8666446208953857)
+          Predict: 12.0
+         Else (feature 10 > -0.8666446208953857)
+          Predict: 12.0
+        Else (feature 10 > -0.04048264026641846)
+         If (feature 2 <= 0.09905622154474258)
+          Predict: 12.0
+         Else (feature 2 > 0.09905622154474258)
+          Predict: 1.0
+      Else (feature 0 > 0.3244525194168091)
+       If (feature 8 <= 0.7938987016677856)
+        If (feature 6 <= -0.2661076784133911)
+         If (feature 2 <= 0.09905622154474258)
+          Predict: 2.0
+         Else (feature 2 > 0.09905622154474258)
+          Predict: 14.0
+        Else (feature 6 > -0.2661076784133911)
+         If (feature 5 <= 0.4264877140522003)
+          Predict: 14.0
+         Else (feature 5 > 0.4264877140522003)
+          Predict: 4.0
+       Else (feature 8 > 0.7938987016677856)
+        If (feature 5 <= 0.1027446910738945)
+         If (feature 5 <= -0.5375463962554932)
+          Predict: 0.0
+         Else (feature 5 > -0.5375463962554932)
+          Predict: 12.0
+        Else (feature 5 > 0.1027446910738945)
+         If (feature 7 <= 1.103017807006836)
+          Predict: 2.0
+         Else (feature 7 > 1.103017807006836)
+          Predict: 4.0
+  Else (feature 4 > 0.19388143718242645)
+   If (feature 10 <= -0.7455264925956726)
+    If (feature 0 <= -0.12708164751529694)
+     If (feature 6 <= -0.14490900933742523)
+      If (feature 7 <= 0.6511810421943665)
+       If (feature 1 <= 0.30433282256126404)
+        If (feature 7 <= 0.3729633688926697)
+         If (feature 9 <= 0.9104351997375488)
+          Predict: 8.0
+         Else (feature 9 > 0.9104351997375488)
+          Predict: 1.0
+        Else (feature 7 > 0.3729633688926697)
+         If (feature 5 <= 0.14631174504756927)
+          Predict: 9.0
+         Else (feature 5 > 0.14631174504756927)
+          Predict: 8.0
+       Else (feature 1 > 0.30433282256126404)
+        If (feature 10 <= -1.0291998386383057)
+         Predict: 9.0
+        Else (feature 10 > -1.0291998386383057)
+         If (feature 0 <= -0.3096090853214264)
+          Predict: 13.0
+         Else (feature 0 > -0.3096090853214264)
+          Predict: 3.0
+      Else (feature 7 > 0.6511810421943665)
+       If (feature 9 <= 0.10741502046585083)
+        If (feature 2 <= -0.19507639110088348)
+         If (feature 0 <= -0.21181142330169678)
+          Predict: 9.0
+         Else (feature 0 > -0.21181142330169678)
+          Predict: 2.0
+        Else (feature 2 > -0.19507639110088348)
+         If (feature 11 <= -0.5472952127456665)
+          Predict: 3.0
+         Else (feature 11 > -0.5472952127456665)
+          Predict: 5.0
+       Else (feature 9 > 0.10741502046585083)
+        If (feature 5 <= 0.031424038112163544)
+         If (feature 2 <= -0.457093209028244)
+          Predict: 9.0
+         Else (feature 2 > -0.457093209028244)
+          Predict: 13.0
+        Else (feature 5 > 0.031424038112163544)
+         If (feature 2 <= -0.13438400626182556)
+          Predict: 9.0
+         Else (feature 2 > -0.13438400626182556)
+          Predict: 8.0
+     Else (feature 6 > -0.14490900933742523)
+      If (feature 6 <= 0.5502128601074219)
+       If (feature 2 <= 0.41826266050338745)
+        If (feature 11 <= -0.6349785923957825)
+         If (feature 3 <= -0.22549556195735931)
+          Predict: 8.0
+         Else (feature 3 > -0.22549556195735931)
+          Predict: 3.0
+        Else (feature 11 > -0.6349785923957825)
+         If (feature 3 <= -0.6456636190414429)
+          Predict: 7.0
+         Else (feature 3 > -0.6456636190414429)
+          Predict: 8.0
+       Else (feature 2 > 0.41826266050338745)
+        If (feature 5 <= -0.30596795678138733)
+         If (feature 5 <= -0.8575880527496338)
+          Predict: 12.0
+         Else (feature 5 > -0.8575880527496338)
+          Predict: 1.0
+        Else (feature 5 > -0.30596795678138733)
+         If (feature 7 <= 0.47456273436546326)
+          Predict: 3.0
+         Else (feature 7 > 0.47456273436546326)
+          Predict: 5.0
+      Else (feature 6 > 0.5502128601074219)
+       If (feature 0 <= -0.3096090853214264)
+        If (feature 8 <= 1.0338236093521118)
+         If (feature 5 <= 0.4264877140522003)
+          Predict: 7.0
+         Else (feature 5 > 0.4264877140522003)
+          Predict: 11.0
+        Else (feature 8 > 1.0338236093521118)
+         If (feature 3 <= -0.04812254384160042)
+          Predict: 0.0
+         Else (feature 3 > -0.04812254384160042)
+          Predict: 1.0
+       Else (feature 0 > -0.3096090853214264)
+        If (feature 7 <= 0.7635051012039185)
+         If (feature 6 <= 0.7525829672813416)
+          Predict: 1.0
+         Else (feature 6 > 0.7525829672813416)
+          Predict: 3.0
+        Else (feature 7 > 0.7635051012039185)
+         If (feature 9 <= 0.07812842726707458)
+          Predict: 12.0
+         Else (feature 9 > 0.07812842726707458)
+          Predict: 7.0
+    Else (feature 0 > -0.12708164751529694)
+     If (feature 2 <= 0.47791188955307007)
+      If (feature 1 <= 0.6971979141235352)
+       If (feature 5 <= -0.27559930086135864)
+        If (feature 9 <= 0.6748915314674377)
+         If (feature 2 <= 0.06104055419564247)
+          Predict: 3.0
+         Else (feature 2 > 0.06104055419564247)
+          Predict: 1.0
+        Else (feature 9 > 0.6748915314674377)
+         If (feature 6 <= -0.010972399264574051)
+          Predict: 9.0
+         Else (feature 6 > -0.010972399264574051)
+          Predict: 1.0
+       Else (feature 5 > -0.27559930086135864)
+        If (feature 8 <= 1.0995056629180908)
+         If (feature 11 <= -0.1707005500793457)
+          Predict: 3.0
+         Else (feature 11 > -0.1707005500793457)
+          Predict: 8.0
+        Else (feature 8 > 1.0995056629180908)
+         If (feature 3 <= -0.378102570772171)
+          Predict: 0.0
+         Else (feature 3 > -0.378102570772171)
+          Predict: 8.0
+      Else (feature 1 > 0.6971979141235352)
+       If (feature 6 <= 0.15386617183685303)
+        If (feature 5 <= -0.5375463962554932)
+         If (feature 5 <= -0.7786637544631958)
+          Predict: 2.0
+         Else (feature 5 > -0.7786637544631958)
+          Predict: 14.0
+        Else (feature 5 > -0.5375463962554932)
+         If (feature 3 <= -1.0396294593811035)
+          Predict: 4.0
+         Else (feature 3 > -1.0396294593811035)
+          Predict: 3.0
+       Else (feature 6 > 0.15386617183685303)
+        If (feature 3 <= 0.008252697996795177)
+         If (feature 4 <= 0.4128398001194)
+          Predict: 12.0
+         Else (feature 4 > 0.4128398001194)
+          Predict: 7.0
+        Else (feature 3 > 0.008252697996795177)
+         If (feature 9 <= 0.45254987478256226)
+          Predict: 1.0
+         Else (feature 9 > 0.45254987478256226)
+          Predict: 3.0
+     Else (feature 2 > 0.47791188955307007)
+      If (feature 11 <= -0.7414695024490356)
+       If (feature 6 <= 0.3310283124446869)
+        If (feature 11 <= -1.101014494895935)
+         If (feature 5 <= -0.5375463962554932)
+          Predict: 9.0
+         Else (feature 5 > -0.5375463962554932)
+          Predict: 3.0
+        Else (feature 11 > -1.101014494895935)
+         If (feature 1 <= 0.37624257802963257)
+          Predict: 3.0
+         Else (feature 1 > 0.37624257802963257)
+          Predict: 1.0
+       Else (feature 6 > 0.3310283124446869)
+        If (feature 5 <= 0.4264877140522003)
+         If (feature 1 <= 0.9958531856536865)
+          Predict: 1.0
+         Else (feature 1 > 0.9958531856536865)
+          Predict: 14.0
+        Else (feature 5 > 0.4264877140522003)
+         If (feature 0 <= 0.11954835057258606)
+          Predict: 5.0
+         Else (feature 0 > 0.11954835057258606)
+          Predict: 10.0
+      Else (feature 11 > -0.7414695024490356)
+       If (feature 9 <= 0.1701795607805252)
+        If (feature 3 <= -0.7214135527610779)
+         If (feature 0 <= 0.1515243947505951)
+          Predict: 4.0
+         Else (feature 0 > 0.1515243947505951)
+          Predict: 0.0
+        Else (feature 3 > -0.7214135527610779)
+         If (feature 5 <= -0.08697769790887833)
+          Predict: 5.0
+         Else (feature 5 > -0.08697769790887833)
+          Predict: 5.0
+       Else (feature 9 > 0.1701795607805252)
+        If (feature 10 <= -1.2809314727783203)
+         If (feature 1 <= 0.1566038429737091)
+          Predict: 8.0
+         Else (feature 1 > 0.1566038429737091)
+          Predict: 0.0
+        Else (feature 10 > -1.2809314727783203)
+         If (feature 0 <= -0.058212872594594955)
+          Predict: 5.0
+         Else (feature 0 > -0.058212872594594955)
+          Predict: 10.0
+   Else (feature 10 > -0.7455264925956726)
+    If (feature 2 <= 0.13807784020900726)
+     If (feature 0 <= -0.21181142330169678)
+      If (feature 6 <= -0.09507445991039276)
+       If (feature 1 <= 0.5135737061500549)
+        If (feature 8 <= 0.725238561630249)
+         If (feature 4 <= 0.8984876275062561)
+          Predict: 3.0
+         Else (feature 4 > 0.8984876275062561)
+          Predict: 13.0
+        Else (feature 8 > 0.725238561630249)
+         If (feature 2 <= -0.695468008518219)
+          Predict: 9.0
+         Else (feature 2 > -0.695468008518219)
+          Predict: 13.0
+       Else (feature 1 > 0.5135737061500549)
+        If (feature 8 <= 0.837673008441925)
+         If (feature 1 <= 0.9359413385391235)
+          Predict: 3.0
+         Else (feature 1 > 0.9359413385391235)
+          Predict: 0.0
+        Else (feature 8 > 0.837673008441925)
+         Predict: 1.0
+      Else (feature 6 > -0.09507445991039276)
+       If (feature 8 <= 0.88458651304245)
+        If (feature 6 <= 0.4013431668281555)
+         If (feature 8 <= 0.16063348948955536)
+          Predict: 7.0
+         Else (feature 8 > 0.16063348948955536)
+          Predict: 13.0
+        Else (feature 6 > 0.4013431668281555)
+         If (feature 5 <= -1.2125422954559326)
+          Predict: 0.0
+         Else (feature 5 > -1.2125422954559326)
+          Predict: 7.0
+       Else (feature 8 > 0.88458651304245)
+        If (feature 3 <= -0.378102570772171)
+         If (feature 11 <= -0.49041450023651123)
+          Predict: 0.0
+         Else (feature 11 > -0.49041450023651123)
+          Predict: 7.0
+        Else (feature 3 > -0.378102570772171)
+         If (feature 1 <= 0.1566038429737091)
+          Predict: 11.0
+         Else (feature 1 > 0.1566038429737091)
+          Predict: 1.0
+     Else (feature 0 > -0.21181142330169678)
+      If (feature 11 <= -0.5472952127456665)
+       If (feature 6 <= 0.6928173303604126)
+        If (feature 1 <= 0.5135737061500549)
+         If (feature 8 <= 1.0338236093521118)
+          Predict: 3.0
+         Else (feature 8 > 1.0338236093521118)
+          Predict: 3.0
+        Else (feature 1 > 0.5135737061500549)
+         If (feature 5 <= -0.5375463962554932)
+          Predict: 0.0
+         Else (feature 5 > -0.5375463962554932)
+          Predict: 1.0
+       Else (feature 6 > 0.6928173303604126)
+        If (feature 3 <= -0.5820102095603943)
+         If (feature 2 <= -0.3488622009754181)
+          Predict: 0.0
+         Else (feature 2 > -0.3488622009754181)
+          Predict: 12.0
+        Else (feature 3 > -0.5820102095603943)
+         If (feature 9 <= -0.24658213555812836)
+          Predict: 11.0
+         Else (feature 9 > -0.24658213555812836)
+          Predict: 1.0
+      Else (feature 11 > -0.5472952127456665)
+       If (feature 4 <= 0.4526311159133911)
+        If (feature 8 <= 0.4331897497177124)
+         If (feature 0 <= 0.18707028031349182)
+          Predict: 1.0
+         Else (feature 0 > 0.18707028031349182)
+          Predict: 3.0
+        Else (feature 8 > 0.4331897497177124)
+         If (feature 1 <= -0.19315800070762634)
+          Predict: 13.0
+         Else (feature 1 > -0.19315800070762634)
+          Predict: 12.0
+       Else (feature 4 > 0.4526311159133911)
+        If (feature 6 <= -0.1931602954864502)
+         If (feature 0 <= 0.6970927119255066)
+          Predict: 8.0
+         Else (feature 0 > 0.6970927119255066)
+          Predict: 4.0
+        Else (feature 6 > -0.1931602954864502)
+         If (feature 5 <= -0.5375463962554932)
+          Predict: 12.0
+         Else (feature 5 > -0.5375463962554932)
+          Predict: 7.0
+    Else (feature 2 > 0.13807784020900726)
+     If (feature 3 <= -0.378102570772171)
+      If (feature 6 <= -0.5817918181419373)
+       If (feature 5 <= 0.4264877140522003)
+        Predict: 13.0
+       Else (feature 5 > 0.4264877140522003)
+        Predict: 3.0
+      Else (feature 6 > -0.5817918181419373)
+       If (feature 2 <= 0.7399524450302124)
+        If (feature 7 <= 0.9856771230697632)
+         If (feature 11 <= -1.4190714359283447)
+          Predict: 3.0
+         Else (feature 11 > -1.4190714359283447)
+          Predict: 0.0
+        Else (feature 7 > 0.9856771230697632)
+         If (feature 0 <= 0.1515243947505951)
+          Predict: 1.0
+         Else (feature 0 > 0.1515243947505951)
+          Predict: 12.0
+       Else (feature 2 > 0.7399524450302124)
+        If (feature 6 <= 0.5102961659431458)
+         If (feature 11 <= -1.3429102897644043)
+          Predict: 3.0
+         Else (feature 11 > -1.3429102897644043)
+          Predict: 10.0
+        Else (feature 6 > 0.5102961659431458)
+         If (feature 0 <= -0.1649988740682602)
+          Predict: 0.0
+         Else (feature 0 > -0.1649988740682602)
+          Predict: 13.0
+     Else (feature 3 > -0.378102570772171)
+      If (feature 1 <= 0.30433282256126404)
+       If (feature 8 <= 1.0338236093521118)
+        If (feature 6 <= -0.053257718682289124)
+         If (feature 11 <= -0.5899635553359985)
+          Predict: 3.0
+         Else (feature 11 > -0.5899635553359985)
+          Predict: 13.0
+        Else (feature 6 > -0.053257718682289124)
+         If (feature 5 <= 0.06572376191616058)
+          Predict: 1.0
+         Else (feature 5 > 0.06572376191616058)
+          Predict: 3.0
+       Else (feature 8 > 1.0338236093521118)
+        If (feature 7 <= -0.0024497888516634703)
+         If (feature 0 <= -0.21181142330169678)
+          Predict: 0.0
+         Else (feature 0 > -0.21181142330169678)
+          Predict: 8.0
+        Else (feature 7 > -0.0024497888516634703)
+         If (feature 10 <= -0.04048264026641846)
+          Predict: 1.0
+         Else (feature 10 > -0.04048264026641846)
+          Predict: 11.0
+      Else (feature 1 > 0.30433282256126404)
+       If (feature 11 <= -0.4293343126773834)
+        If (feature 5 <= 0.3309209644794464)
+         If (feature 7 <= 1.103017807006836)
+          Predict: 1.0
+         Else (feature 7 > 1.103017807006836)
+          Predict: 1.0
+        Else (feature 5 > 0.3309209644794464)
+         If (feature 0 <= -0.12708164751529694)
+          Predict: 1.0
+         Else (feature 0 > -0.12708164751529694)
+          Predict: 3.0
+       Else (feature 11 > -0.4293343126773834)
+        If (feature 8 <= 0.5669103264808655)
+         If (feature 0 <= -0.8796123266220093)
+          Predict: 13.0
+         Else (feature 0 > -0.8796123266220093)
+          Predict: 7.0
+        Else (feature 8 > 0.5669103264808655)
+         Predict: 12.0
+
+Done, making predictions
+Accuracy of latent tree on training set: 0.674601098614
+Accuracy of latent tree on test set: 0.487004950495
+Building meta training set
+Training a meta tree
+DecisionTreeModel classifier of depth 8 with 273 nodes
+  If (year <= 1964.0)
+   If (average_rating <= 3.6363636363636362)
+    If (Isn't movielens_genre:Children)
+     If (average_rating <= 2.9523026315789473)
+      If (Isn't imdb_keywords:tent)
+       If (Isn't imdb_keywords:cult-film)
+        If (Isn't imdb_keywords:color-in-title)
+         If (Isn't imdb_keywords:little-boy)
+          Predict: 1.0
+         Else (Is imdb_keywords:little-boy)
+          Predict: 3.0
+        Else (Is imdb_keywords:color-in-title)
+         Predict: 3.0
+       Else (Is imdb_keywords:cult-film)
+        If (Isn't imdb_keywords:mother-daughter-relationship)
+         If (Isn't movielens_genre:Horror)
+          Predict: 10.0
+         Else (Is movielens_genre:Horror)
+          Predict: 1.0
+        Else (Is imdb_keywords:mother-daughter-relationship)
+         Predict: 13.0
+      Else (Is imdb_keywords:tent)
+       Predict: 11.0
+     Else (average_rating > 2.9523026315789473)
+      If (Isn't imdb_keywords:eavesdropping)
+       If (Isn't imdb_keywords:fight)
+        If (average_rating <= 3.3334277085692716)
+         If (Isn't imdb_keywords:reporter)
+          Predict: 1.0
+         Else (Is imdb_keywords:reporter)
+          Predict: 0.0
+        Else (average_rating > 3.3334277085692716)
+         If (Isn't imdb_keywords:rope)
+          Predict: 0.0
+         Else (Is imdb_keywords:rope)
+          Predict: 1.0
+       Else (Is imdb_keywords:fight)
+        If (Isn't imdb_keywords:secret)
+         If (Isn't imdb_keywords:gun)
+          Predict: 0.0
+         Else (Is imdb_keywords:gun)
+          Predict: 1.0
+        Else (Is imdb_keywords:secret)
+         Predict: 10.0
+      Else (Is imdb_keywords:eavesdropping)
+       If (Isn't imdb_keywords:dance)
+        Predict: 1.0
+       Else (Is imdb_keywords:dance)
+        Predict: 10.0
+    Else (Is movielens_genre:Children)
+     If (Isn't movielens_tags:BD-R)
+      Predict: 10.0
+     Else (Is movielens_tags:BD-R)
+      Predict: 1.0
+   Else (average_rating > 3.6363636363636362)
+    If (Isn't imdb_keywords:army)
+     If (Isn't imdb_keywords:murder-of-a-police-officer)
+      If (Isn't imdb_keywords:winter)
+       If (Isn't imdb_keywords:1960s)
+        If (Isn't imdb_keywords:soldier)
+         If (Isn't movielens_genre:Fantasy)
+          Predict: 0.0
+         Else (Is movielens_genre:Fantasy)
+          Predict: 0.0
+        Else (Is imdb_keywords:soldier)
+         If (Isn't imdb_keywords:drink)
+          Predict: 1.0
+         Else (Is imdb_keywords:drink)
+          Predict: 0.0
+       Else (Is imdb_keywords:1960s)
+        If (Isn't movielens_genre:Drama)
+         Predict: 1.0
+        Else (Is movielens_genre:Drama)
+         If (Isn't movielens_genre:Romance)
+          Predict: 12.0
+         Else (Is movielens_genre:Romance)
+          Predict: 0.0
+      Else (Is imdb_keywords:winter)
+       Predict: 10.0
+     Else (Is imdb_keywords:murder-of-a-police-officer)
+      If (Isn't movielens_tags:BD-R)
+       Predict: 2.0
+      Else (Is movielens_tags:BD-R)
+       Predict: 1.0
+    Else (Is imdb_keywords:army)
+     If (year <= 1945.0)
+      Predict: 12.0
+     Else (year > 1945.0)
+      Predict: 1.0
+  Else (year > 1964.0)
+   If (average_rating <= 3.375)
+    If (Isn't movielens_genre:Action)
+     If (Isn't movielens_genre:Horror)
+      If (Isn't movielens_genre:Drama)
+       If (year <= 1999.0)
+        If (average_rating <= 3.2498035363457762)
+         If (Isn't imdb_keywords:unfaithfulness)
+          Predict: 3.0
+         Else (Is imdb_keywords:unfaithfulness)
+          Predict: 1.0
+        Else (average_rating > 3.2498035363457762)
+         If (Isn't imdb_keywords:bar)
+          Predict: 1.0
+         Else (Is imdb_keywords:bar)
+          Predict: 1.0
+       Else (year > 1999.0)
+        If (Isn't movielens_genre:Comedy)
+         If (Isn't imdb_keywords:chase)
+          Predict: 3.0
+         Else (Is imdb_keywords:chase)
+          Predict: 3.0
+        Else (Is movielens_genre:Comedy)
+         If (Isn't imdb_keywords:sex)
+          Predict: 5.0
+         Else (Is imdb_keywords:sex)
+          Predict: 5.0
+      Else (Is movielens_genre:Drama)
+       If (Isn't movielens_genre:Thriller)
+        If (Isn't tvtropes:your cheating heart)
+         If (Isn't imdb_keywords:combat)
+          Predict: 1.0
+         Else (Is imdb_keywords:combat)
+          Predict: 3.0
+        Else (Is tvtropes:your cheating heart)
+         If (year <= 2004.0)
+          Predict: 1.0
+         Else (year > 2004.0)
+          Predict: 4.0
+       Else (Is movielens_genre:Thriller)
+        If (average_rating <= 2.6375838926174495)
+         If (Isn't imdb_keywords:male-rear-nudity)
+          Predict: 1.0
+         Else (Is imdb_keywords:male-rear-nudity)
+          Predict: 7.0
+        Else (average_rating > 2.6375838926174495)
+         If (Isn't imdb_keywords:terrorism)
+          Predict: 3.0
+         Else (Is imdb_keywords:terrorism)
+          Predict: 1.0
+     Else (Is movielens_genre:Horror)
+      If (year <= 1995.0)
+       If (Isn't imdb_keywords:sequel)
+        If (Isn't imdb_keywords:first-part)
+         If (Isn't imdb_keywords:divorce)
+          Predict: 13.0
+         Else (Is imdb_keywords:divorce)
+          Predict: 2.0
+        Else (Is imdb_keywords:first-part)
+         If (Isn't imdb_keywords:dying)
+          Predict: 13.0
+         Else (Is imdb_keywords:dying)
+          Predict: 3.0
+       Else (Is imdb_keywords:sequel)
+        If (Isn't imdb_keywords:jungle)
+         Predict: 13.0
+        Else (Is imdb_keywords:jungle)
+         If (Isn't movielens_genre:Comedy)
+          Predict: 1.0
+         Else (Is movielens_genre:Comedy)
+          Predict: 3.0
+      Else (year > 1995.0)
+       If (average_rating <= 2.8169642857142856)
+        If (Isn't imdb_keywords:shot-in-the-forehead)
+         If (Isn't imdb_keywords:machine-gun)
+          Predict: 8.0
+         Else (Is imdb_keywords:machine-gun)
+          Predict: 3.0
+        Else (Is imdb_keywords:shot-in-the-forehead)
+         If (Isn't imdb_keywords:church)
+          Predict: 9.0
+         Else (Is imdb_keywords:church)
+          Predict: 4.0
+       Else (average_rating > 2.8169642857142856)
+        If (Isn't imdb_keywords:violence)
+         If (Isn't imdb_keywords:sister-sister-relationship)
+          Predict: 3.0
+         Else (Is imdb_keywords:sister-sister-relationship)
+          Predict: 9.0
+        Else (Is imdb_keywords:violence)
+         If (Isn't imdb_keywords:character-name-in-title)
+          Predict: 9.0
+         Else (Is imdb_keywords:character-name-in-title)
+          Predict: 3.0
+    Else (Is movielens_genre:Action)
+     If (average_rating <= 2.9991482112436114)
+      If (year <= 1987.0)
+       If (Isn't imdb_keywords:based-on-comic-book)
+        If (Isn't movielens_tags:70mm)
+         If (Isn't imdb_keywords:kicked-in-the-face)
+          Predict: 13.0
+         Else (Is imdb_keywords:kicked-in-the-face)
+          Predict: 8.0
+        Else (Is movielens_tags:70mm)
+         If (Isn't imdb_keywords:action-hero)
+          Predict: 1.0
+         Else (Is imdb_keywords:action-hero)
+          Predict: 8.0
+       Else (Is imdb_keywords:based-on-comic-book)
+        Predict: 3.0
+      Else (year > 1987.0)
+       If (Isn't movielens_genre:Comedy)
+        If (Isn't imdb_keywords:monster)
+         If (Isn't tvtropes:shout out)
+          Predict: 3.0
+         Else (Is tvtropes:shout out)
+          Predict: 8.0
+        Else (Is imdb_keywords:monster)
+         If (Isn't imdb_keywords:castle)
+          Predict: 8.0
+         Else (Is imdb_keywords:castle)
+          Predict: 3.0
+       Else (Is movielens_genre:Comedy)
+        If (year <= 1999.0)
+         If (Isn't movielens_genre:Fantasy)
+          Predict: 3.0
+         Else (Is movielens_genre:Fantasy)
+          Predict: 8.0
+        Else (year > 1999.0)
+         If (Isn't imdb_keywords:hitman)
+          Predict: 5.0
+         Else (Is imdb_keywords:hitman)
+          Predict: 1.0
+     Else (average_rating > 2.9991482112436114)
+      If (year <= 1992.0)
+       If (Isn't imdb_keywords:assassination-attempt)
+        If (Isn't movielens_genre:Comedy)
+         If (Isn't imdb_keywords:blockbuster)
+          Predict: 1.0
+         Else (Is imdb_keywords:blockbuster)
+          Predict: 1.0
+        Else (Is movielens_genre:Comedy)
+         If (Isn't tvtropes:affably evil)
+          Predict: 3.0
+         Else (Is tvtropes:affably evil)
+          Predict: 1.0
+       Else (Is imdb_keywords:assassination-attempt)
+        If (Isn't movielens_tags:DVD-Video)
+         Predict: 1.0
+        Else (Is movielens_tags:DVD-Video)
+         Predict: 7.0
+      Else (year > 1992.0)
+       If (Isn't imdb_keywords:independent-film)
+        If (Isn't movielens_genre:Adventure)
+         If (Isn't imdb_keywords:mini-skirt)
+          Predict: 3.0
+         Else (Is imdb_keywords:mini-skirt)
+          Predict: 9.0
+        Else (Is movielens_genre:Adventure)
+         If (Isn't imdb_keywords:birthday-party)
+          Predict: 3.0
+         Else (Is imdb_keywords:birthday-party)
+          Predict: 8.0
+       Else (Is imdb_keywords:independent-film)
+        If (Isn't imdb_keywords:throat-slitting)
+         If (Isn't imdb_keywords:gore)
+          Predict: 1.0
+         Else (Is imdb_keywords:gore)
+          Predict: 9.0
+        Else (Is imdb_keywords:throat-slitting)
+         If (year <= 2010.0)
+          Predict: 3.0
+         Else (year > 2010.0)
+          Predict: 0.0
+   Else (average_rating > 3.375)
+    If (Isn't movielens_genre:Action)
+     If (year <= 1999.0)
+      If (Isn't imdb_keywords:blockbuster)
+       If (Isn't movielens_genre:Drama)
+        If (Isn't imdb_keywords:dream)
+         If (year <= 1990.0)
+          Predict: 1.0
+         Else (year > 1990.0)
+          Predict: 12.0
+        Else (Is imdb_keywords:dream)
+         If (Isn't imdb_keywords:rescue)
+          Predict: 12.0
+         Else (Is imdb_keywords:rescue)
+          Predict: 3.0
+       Else (Is movielens_genre:Drama)
+        If (Isn't imdb_keywords:independent-film)
+         If (Isn't movielens_tags:based on a book)
+          Predict: 12.0
+         Else (Is movielens_tags:based on a book)
+          Predict: 1.0
+        Else (Is imdb_keywords:independent-film)
+         If (Isn't imdb_keywords:college)
+          Predict: 12.0
+         Else (Is imdb_keywords:college)
+          Predict: 14.0
+      Else (Is imdb_keywords:blockbuster)
+       If (Isn't movielens_genre:Children)
+        If (Isn't imdb_keywords:husband-wife-relationship)
+         If (Isn't imdb_keywords:paris-france)
+          Predict: 1.0
+         Else (Is imdb_keywords:paris-france)
+          Predict: 0.0
+        Else (Is imdb_keywords:husband-wife-relationship)
+         If (Isn't imdb_keywords:bathtub)
+          Predict: 1.0
+         Else (Is imdb_keywords:bathtub)
+          Predict: 12.0
+       Else (Is movielens_genre:Children)
+        If (Isn't imdb_keywords:cult-film)
+         Predict: 10.0
+        Else (Is imdb_keywords:cult-film)
+         If (Isn't movielens_genre:Adventure)
+          Predict: 1.0
+         Else (Is movielens_genre:Adventure)
+          Predict: 3.0
+     Else (year > 1999.0)
+      If (Isn't movielens_genre:Sci-Fi)
+       If (Isn't movielens_genre:Drama)
+        If (Isn't movielens_tags:comedy)
+         If (Isn't imdb_keywords:creature)
+          Predict: 12.0
+         Else (Is imdb_keywords:creature)
+          Predict: 3.0
+        Else (Is movielens_tags:comedy)
+         If (Isn't imdb_keywords:masturbation)
+          Predict: 3.0
+         Else (Is imdb_keywords:masturbation)
+          Predict: 5.0
+       Else (Is movielens_genre:Drama)
+        If (Isn't movielens_tags:predictable)
+         If (year <= 2006.0)
+          Predict: 12.0
+         Else (year > 2006.0)
+          Predict: 14.0
+        Else (Is movielens_tags:predictable)
+         If (Isn't movielens_tags:In Netflix queue)
+          Predict: 1.0
+         Else (Is movielens_tags:In Netflix queue)
+          Predict: 3.0
+      Else (Is movielens_genre:Sci-Fi)
+       If (Isn't movielens_tags:music)
+        If (Isn't imdb_keywords:children)
+         If (Isn't imdb_keywords:house)
+          Predict: 3.0
+         Else (Is imdb_keywords:house)
+          Predict: 2.0
+        Else (Is imdb_keywords:children)
+         If (Isn't movielens_genre:Adventure)
+          Predict: 14.0
+         Else (Is movielens_genre:Adventure)
+          Predict: 10.0
+       Else (Is movielens_tags:music)
+        If (Isn't movielens_tags:BD-R)
+         Predict: 14.0
+        Else (Is movielens_tags:BD-R)
+         Predict: 2.0
+    Else (Is movielens_genre:Action)
+     If (year <= 2001.0)
+      If (Isn't imdb_keywords:stylized-violence)
+       If (Isn't imdb_keywords:sex)
+        If (Isn't imdb_keywords:pig)
+         If (Isn't tvtropes:box office bomb)
+          Predict: 1.0
+         Else (Is tvtropes:box office bomb)
+          Predict: 0.0
+        Else (Is imdb_keywords:pig)
+         Predict: 3.0
+       Else (Is imdb_keywords:sex)
+        If (Isn't imdb_keywords:bar)
+         If (Isn't imdb_keywords:anti-hero)
+          Predict: 1.0
+         Else (Is imdb_keywords:anti-hero)
+          Predict: 3.0
+        Else (Is imdb_keywords:bar)
+         Predict: 0.0
+      Else (Is imdb_keywords:stylized-violence)
+       If (Isn't movielens_genre:Drama)
+        If (Isn't imdb_keywords:betrayal)
+         If (year <= 1979.0)
+          Predict: 0.0
+         Else (year > 1979.0)
+          Predict: 3.0
+        Else (Is imdb_keywords:betrayal)
+         If (Isn't movielens_tags:BD-R)
+          Predict: 1.0
+         Else (Is movielens_tags:BD-R)
+          Predict: 14.0
+       Else (Is movielens_genre:Drama)
+        Predict: 9.0
+     Else (year > 2001.0)
+      If (Isn't movielens_genre:Sci-Fi)
+       If (Isn't movielens_tags:funny)
+        If (Isn't imdb_keywords:mixed-martial-arts)
+         If (Isn't tvtropes:precision f strike)
+          Predict: 1.0
+         Else (Is tvtropes:precision f strike)
+          Predict: 3.0
+        Else (Is imdb_keywords:mixed-martial-arts)
+         If (Isn't imdb_keywords:gun)
+          Predict: 3.0
+         Else (Is imdb_keywords:gun)
+          Predict: 1.0
+       Else (Is movielens_tags:funny)
+        If (Isn't imdb_keywords:character-says-i-love-you)
+         Predict: 3.0
+        Else (Is imdb_keywords:character-says-i-love-you)
+         Predict: 5.0
+      Else (Is movielens_genre:Sci-Fi)
+       If (Isn't imdb_keywords:courage)
+        Predict: 3.0
+       Else (Is imdb_keywords:courage)
+        If (year <= 2007.0)
+         Predict: 14.0
+        Else (year > 2007.0)
+         Predict: 3.0
+
+Done, making predictions
+Accuracy of meta tree on training set: 0.470880125359
+Accuracy of meta tree on test set: 0.354658385093
+92 features used
+Cluster 14 (variance: 1.31982673418):
+QIIs: [('year', -0.09229637801066372), ('imdb_keywords:eavesdropping', 0.049089906232763374), ('movielens_genre:Drama', 0.028130170987313845), ('movielens_genre:Action', 0.01820187534473249), ('movielens_genre:Sci-Fi', 0.007905865048722191), ('imdb_keywords:bathtub', -0.005699577128148557), ('imdb_keywords:masturbation', 0.0034932892075749218), ('movielens_tags:predictable', 0.0018385732671446957), ('imdb_keywords:little-boy', 0.0018385732671446957), ('imdb_keywords:bar', 0.0014708586137157566), ('movielens_tags:BD-R', 0.0005515719801434088), ('imdb_keywords:violence', 0.0005515719801434088), ('imdb_keywords:gun', -0.0005515719801434088), ('imdb_keywords:murder-of-a-police-officer', 0.00036771465342893915), ('imdb_keywords:first-part', 0.00036771465342893915)]
+	0: (dist: 0.490687979349) Thumbsucker (2005) (mid: 36537)
+	1: (dist: 0.512044109857) Open Your Eyes (Abre los ojos) (1997) (mid: 2594)
+	2: (dist: 0.519531613574) Following (1998) (mid: 2579)
+	3: (dist: 0.52244698704) This Is England (2006) (mid: 52952)
+	4: (dist: 0.548586301614) Girl on the Bridge, The (Fille sur le pont, La) (1999) (mid: 3822)
+	5: (dist: 0.556139824783) Broken Embraces (Los abrazos rotos) (2009) (mid: 72386)
+	6: (dist: 0.579665382435) Wackness, The (2008) (mid: 60293)
+	7: (dist: 0.597095567567) With a Friend Like Harry... (Harry, un ami qui vous veut du bien) (2000) (mid: 4077)
+	8: (dist: 0.59746845644) I Love You Phillip Morris (2009) (mid: 74275)
+	9: (dist: 0.604339523775) Confessions of a Dangerous Mind (2002) (mid: 6003)
+Cluster 12 (variance: 1.40969642617):
+QIIs: [('imdb_keywords:eavesdropping', 0.22927008641294355), ('year', -0.16933259790402647), ('movielens_genre:Action', 0.0658209229637801), ('movielens_genre:Drama', -0.06453392167677882), ('imdb_keywords:gun', -0.018018018018018018), ('imdb_keywords:1960s', -0.014340871483728626), ('movielens_genre:Sci-Fi', 0.01305387019672734), ('imdb_keywords:action-hero', -0.007170435741864313), ('movielens_tags:predictable', 0.006802721088435374), ('imdb_keywords:shot-in-the-forehead', -0.0058834344548630265), ('imdb_keywords:bathtub', 0.00441257584114727), ('imdb_keywords:masturbation', 0.003861003861003861), ('imdb_keywords:children', -0.0023901452472881043), ('imdb_keywords:assassination-attempt', -0.0014708586137157566), ('imdb_keywords:paris-france', -0.0014708586137157566), ('imdb_keywords:fight', 0.001287001287001287), ('movielens_tags:music', -0.0011031439602868175), ('imdb_keywords:mother-daughter-relationship', -0.0011031439602868175), ('movielens_genre:Romance', 0.00018385732671446958)]
+	0: (dist: 0.444035902631) Pollock (2000) (mid: 4017)
+	1: (dist: 0.456960791609) Slaughterhouse-Five (1972) (mid: 8690)
+	2: (dist: 0.493450853323) Joe Gould's Secret (2000) (mid: 3514)
+	3: (dist: 0.509436268544) Claim, The (2000) (mid: 4035)
+	4: (dist: 0.521408192064) Croupier (1998) (mid: 3783)
+	5: (dist: 0.52307264493) After Hours (1985) (mid: 7419)
+	6: (dist: 0.554666579988) Smoke (1995) (mid: 194)
+	7: (dist: 0.560543460624) Vera Drake (2004) (mid: 8951)
+	8: (dist: 0.568611167452) Poor Boy's Game (2007) (mid: 57805)
+	9: (dist: 0.573479346429) Young Adam (2003) (mid: 7442)
+Cluster 1 (variance: 1.43130533356):
+QIIs: [('imdb_keywords:eavesdropping', -0.3239566096708954), ('year', -0.15388858246001103), ('movielens_genre:Action', -0.14175399889685603), ('movielens_genre:Drama', 0.12557455414598273), ('movielens_genre:Thriller', 0.05203162346019489), ('movielens_genre:Horror', 0.029601029601029602), ('imdb_keywords:gun', 0.018018018018018018), ('movielens_tags:predictable', -0.01673101673101673), ('imdb_keywords:1960s', 0.014708586137157566), ('imdb_keywords:mixed-martial-arts', 0.013789299503585218), ('imdb_keywords:bathtub', 0.010112152969295827), ('movielens_genre:Sci-Fi', -0.007170435741864313), ('movielens_tags:In Netflix queue', -0.007170435741864313), ('imdb_keywords:winter', 0.005515719801434087), ('movielens_genre:Comedy', 0.005148005148005148), ('imdb_keywords:shot-in-the-forehead', -0.00441257584114727), ('imdb_keywords:throat-slitting', 0.0042287185144328), ('imdb_keywords:violence', -0.004044861187718331), ('imdb_keywords:sequel', 0.004044861187718331), ('average_rating', 0.003861003861003861), ('imdb_keywords:unfaithfulness', -0.0034932892075749218), ('imdb_keywords:anti-hero', -0.003309431880860452), ('imdb_keywords:monster', -0.003125574554145983), ('movielens_genre:Children', -0.0027578599007170436), ('imdb_keywords:children', -0.0027578599007170436), ('tvtropes:precision f strike', 0.0023901452472881043), ('imdb_keywords:tent', 0.0023901452472881043), ('imdb_keywords:character-says-i-love-you', -0.002206287920573635), ('imdb_keywords:reporter', 0.002206287920573635), ('imdb_keywords:sister-sister-relationship', -0.002206287920573635), ('movielens_tags:music', -0.0020224305938591654), ('imdb_keywords:dying', 0.0020224305938591654), ('movielens_tags:BD-R', 0.0018385732671446957), ('imdb_keywords:pig', 0.0018385732671446957), ('imdb_keywords:cult-film', -0.0018385732671446957), ('imdb_keywords:divorce', -0.0018385732671446957), ('tvtropes:your cheating heart', 0.001654715940430226), ('imdb_keywords:betrayal', 0.001654715940430226), ('imdb_keywords:color-in-title', -0.001654715940430226), ('imdb_keywords:fight', -0.001654715940430226), ('movielens_tags:DVD-Video', 0.0014708586137157566), ('imdb_keywords:assassination-attempt', 0.0014708586137157566), ('imdb_keywords:hitman', -0.001287001287001287), ('imdb_keywords:blockbuster', -0.001287001287001287), ('imdb_keywords:house', -0.0011031439602868175), ('imdb_keywords:first-part', 0.0011031439602868175), ('movielens_tags:comedy', -0.0009192866335723479), ('tvtropes:box office bomb', -0.0007354293068578783), ('imdb_keywords:birthday-party', -0.0007354293068578783), ('imdb_keywords:chase', -0.0007354293068578783), ('imdb_keywords:college', 0.0007354293068578783), ('imdb_keywords:rescue', -0.0005515719801434088), ('tvtropes:shout out', -0.0005515719801434088), ('movielens_genre:Adventure', -0.00036771465342893915), ('imdb_keywords:army', 0.00036771465342893915), ('imdb_keywords:mini-skirt', 0.00036771465342893915), ('imdb_keywords:character-name-in-title', 0.00036771465342893915), ('movielens_tags:based on a book', -0.00018385732671446958), ('imdb_keywords:machine-gun', 0.00018385732671446958), ('imdb_keywords:dream', -0.00018385732671446958), ('imdb_keywords:dance', -0.00018385732671446958), ('imdb_keywords:secret', 0.00018385732671446958), ('imdb_keywords:terrorism', 0.00018385732671446958)]
+	0: (dist: 0.345833396192) Escobar: Paradise Lost (2014) (mid: 130588)
+	1: (dist: 0.390583948581) Dream Boy (2008) (mid: 117322)
+	2: (dist: 0.40236971866) Young Bess (1953) (mid: 79083)
+	3: (dist: 0.404388587214) Armored Car Robbery (1950) (mid: 104028)
+	4: (dist: 0.413308981346) Dallas (1950) (mid: 65468)
+	5: (dist: 0.413639852531) Second Woman, The (1950) (mid: 110613)
+	6: (dist: 0.448216683754) Reincarnation (2005) (mid: 54349)
+	7: (dist: 0.467989825486) Orfeu (1999) (mid: 43727)
+	8: (dist: 0.485036263275) Dirty Pictures (2000) (mid: 108313)
+	9: (dist: 0.487813448453) Good-bye, My Lady (1956) (mid: 94339)
+Cluster 3 (variance: 1.73175837663):
+QIIs: [('imdb_keywords:eavesdropping', 0.18165103879389594), ('year', 0.13127413127413126), ('movielens_genre:Action', -0.10296010296010295), ('movielens_genre:Horror', -0.07501378929950359), ('movielens_genre:Drama', -0.07004964147821291), ('movielens_genre:Thriller', -0.052950910093767234), ('movielens_genre:Comedy', -0.049457620886192315), ('movielens_genre:Sci-Fi', -0.020224305938591654), ('imdb_keywords:courage', 0.012134583563154992), ('imdb_keywords:mixed-martial-arts', -0.011950726236440522), ('movielens_tags:predictable', 0.010663724949439235), ('movielens_tags:70mm', -0.009192866335723478), ('movielens_tags:In Netflix queue', -0.006435006435006435), ('imdb_keywords:action-hero', 0.006067291781577496), ('imdb_keywords:creature', -0.005699577128148557), ('imdb_keywords:castle', -0.00441257584114727), ('imdb_keywords:unfaithfulness', 0.003861003861003861), ('tvtropes:precision f strike', 0.0029417172274315132), ('imdb_keywords:anti-hero', 0.0027578599007170436), ('imdb_keywords:independent-film', -0.0023901452472881043), ('imdb_keywords:church', -0.0023901452472881043), ('imdb_keywords:violence', 0.002206287920573635), ('imdb_keywords:stylized-violence', 0.002206287920573635), ('imdb_keywords:color-in-title', 0.0020224305938591654), ('imdb_keywords:little-boy', -0.001654715940430226), ('imdb_keywords:sequel', -0.001654715940430226), ('imdb_keywords:paris-france', 0.0014708586137157566), ('imdb_keywords:shot-in-the-forehead', 0.0014708586137157566), ('imdb_keywords:house', 0.001287001287001287), ('average_rating', -0.001287001287001287), ('imdb_keywords:reporter', 0.001287001287001287), ('imdb_keywords:gore', 0.001287001287001287), ('imdb_keywords:mother-daughter-relationship', 0.0011031439602868175), ('imdb_keywords:dream', 0.0011031439602868175), ('imdb_keywords:bathtub', 0.0011031439602868175), ('imdb_keywords:chase', 0.0011031439602868175), ('tvtropes:shout out', 0.0011031439602868175), ('imdb_keywords:first-part', 0.0011031439602868175), ('movielens_genre:Adventure', 0.0009192866335723479), ('imdb_keywords:bar', -0.0009192866335723479), ('imdb_keywords:birthday-party', 0.0009192866335723479), ('imdb_keywords:combat', -0.0009192866335723479), ('movielens_genre:Fantasy', -0.0007354293068578783), ('imdb_keywords:husband-wife-relationship', 0.0007354293068578783), ('movielens_tags:comedy', 0.0007354293068578783), ('movielens_tags:funny', -0.0007354293068578783), ('imdb_keywords:gun', 0.0007354293068578783), ('imdb_keywords:murder-of-a-police-officer', -0.0005515719801434088), ('imdb_keywords:college', -0.0005515719801434088), ('imdb_keywords:drink', -0.0005515719801434088), ('imdb_keywords:jungle', 0.0005515719801434088), ('movielens_genre:Children', 0.00036771465342893915), ('tvtropes:affably evil', 0.00036771465342893915), ('imdb_keywords:army', -0.00036771465342893915), ('imdb_keywords:mini-skirt', 0.00036771465342893915), ('imdb_keywords:cult-film', 0.00036771465342893915), ('imdb_keywords:soldier', 0.00036771465342893915), ('imdb_keywords:terrorism', 0.00036771465342893915), ('imdb_keywords:secret', 0.00018385732671446958)]
+	0: (dist: 0.496516620187) Duel at Silver Creek, The (1952) (mid: 65556)
+	1: (dist: 0.528049943794) Virtuosity (1995) (mid: 338)
+	2: (dist: 0.531198713589) The Dark Knight (2011) (mid: 130219)
+	3: (dist: 0.534086389882) Seal Team Eight: Behind Enemy Lines (2014) (mid: 115923)
+	4: (dist: 0.566239188016) Kawa (2010) (mid: 127877)
+	5: (dist: 0.578908590485) Born to Fight (Kerd ma lui) (2004) (mid: 37824)
+	6: (dist: 0.630426646347) Taking of Pelham 1 2 3, The (2009) (mid: 69306)
+	7: (dist: 0.643798981973) Quick and the Dead, The (1995) (mid: 303)
+	8: (dist: 0.647560298335) Master, The (Huang Fei Hong jiu er zhi long xing tian xia) (1992) (mid: 98825)
+	9: (dist: 0.652019423844) Dog Tags (2008) (mid: 92325)
+Cluster 0 (variance: 1.83985913399):
+QIIs: [('year', 0.09192866335723479), ('imdb_keywords:eavesdropping', 0.04780290494576209), ('movielens_genre:Action', -0.007170435741864313), ('imdb_keywords:winter', -0.005699577128148557), ('imdb_keywords:throat-slitting', -0.004044861187718331), ('imdb_keywords:assassination-attempt', 0.0027578599007170436), ('imdb_keywords:monster', 0.0027578599007170436), ('imdb_keywords:children', 0.0027578599007170436), ('imdb_keywords:sister-sister-relationship', 0.0027578599007170436), ('movielens_genre:Children', -0.002574002574002574), ('imdb_keywords:machine-gun', 0.002206287920573635), ('imdb_keywords:sequel', -0.002206287920573635), ('imdb_keywords:divorce', 0.002206287920573635), ('imdb_keywords:cult-film', -0.0020224305938591654), ('imdb_keywords:pig', -0.0018385732671446957), ('imdb_keywords:tent', -0.0018385732671446957), ('average_rating', 0.001287001287001287), ('movielens_tags:predictable', -0.0011031439602868175), ('imdb_keywords:gun', 0.0011031439602868175), ('imdb_keywords:hitman', 0.0009192866335723479), ('imdb_keywords:betrayal', 0.0009192866335723479), ('imdb_keywords:rope', -0.0007354293068578783), ('movielens_tags:music', 0.0005515719801434088), ('imdb_keywords:violence', 0.00036771465342893915), ('tvtropes:shout out', 0.00036771465342893915), ('movielens_genre:Drama', 0.00018385732671446958), ('movielens_genre:Romance', 0.00018385732671446958), ('imdb_keywords:first-part', -0.00018385732671446958)]
+	0: (dist: 0.457291865296) Man Who Knew Too Much, The (1956) (mid: 2183)
+	1: (dist: 0.495487576813) Lodger: A Story of the London Fog, The (1927) (mid: 2227)
+	2: (dist: 0.511744147825) Picture of Dorian Gray, The (1945) (mid: 8482)
+	3: (dist: 0.516419459108) Misfits, The (1961) (mid: 4428)
+	4: (dist: 0.535027214712) Suspicion (1941) (mid: 2206)
+	5: (dist: 0.543119102836) Lady from Shanghai, The (1947) (mid: 25940)
+	6: (dist: 0.548297075091) Beat That My Heart Skipped, The (battre mon coeur s'est arrêté, De) (2005) (mid: 34148)
+	7: (dist: 0.548721805273) High Sierra (1941) (mid: 7216)
+	8: (dist: 0.564591168667) In a Lonely Place (1950) (mid: 6273)
+	9: (dist: 0.564730509935) Kind Hearts and Coronets (1949) (mid: 6650)
+Cluster 8 (variance: 2.07818250125):
+QIIs: [('imdb_keywords:eavesdropping', 0.04339032910461482), ('year', 0.02610774039345468), ('movielens_genre:Horror', 0.022798308512594227), ('movielens_genre:Action', 0.02224673653245082), ('imdb_keywords:courage', -0.011950726236440522), ('movielens_genre:Comedy', -0.007170435741864313), ('imdb_keywords:castle', 0.004964147821290678), ('imdb_keywords:creature', 0.004964147821290678), ('imdb_keywords:drink', -0.00441257584114727), ('imdb_keywords:based-on-comic-book', 0.0029417172274315132), ('imdb_keywords:character-name-in-title', 0.0014708586137157566), ('movielens_genre:Fantasy', 0.0009192866335723479), ('imdb_keywords:blockbuster', 0.0009192866335723479), ('imdb_keywords:gore', -0.0009192866335723479), ('imdb_keywords:husband-wife-relationship', -0.0007354293068578783), ('imdb_keywords:dream', 0.0005515719801434088), ('movielens_genre:Adventure', 0.00036771465342893915), ('movielens_tags:predictable', 0.00018385732671446958)]
+	0: (dist: 0.56462433104) Street Fighter (1994) (mid: 393)
+	1: (dist: 0.597632438011) Hard Target (1993) (mid: 464)
+	2: (dist: 0.631743722429) Season of the Witch (2011) (mid: 83480)
+	3: (dist: 0.632935480515) Relic, The (1997) (mid: 879)
+	4: (dist: 0.641033137758) Maximum Risk (1996) (mid: 990)
+	5: (dist: 0.655791241293) Universal Soldier: The Return (1999) (mid: 2807)
+	6: (dist: 0.683595257578) Double Impact (1991) (mid: 4200)
+	7: (dist: 0.687674590388) Ghosts of Mars (2001) (mid: 4735)
+	8: (dist: 0.707915870743) Cradle 2 the Grave (2003) (mid: 6196)
+	9: (dist: 0.708315067398) Deep Rising (1998) (mid: 1762)
+Cluster 13 (variance: 2.17596027893):
+QIIs: [('year', 0.06269534840963413), ('movielens_genre:Horror', 0.04063246920389778), ('imdb_keywords:eavesdropping', 0.03861003861003861), ('movielens_genre:Action', 0.01654715940430226), ('imdb_keywords:based-on-comic-book', -0.003125574554145983), ('imdb_keywords:sex', 0.002206287920573635), ('imdb_keywords:character-name-in-title', -0.001654715940430226), ('imdb_keywords:terrorism', 0.001287001287001287), ('imdb_keywords:secret', -0.0005515719801434088), ('tvtropes:affably evil', -0.00036771465342893915), ('imdb_keywords:dream', 0.00036771465342893915), ('imdb_keywords:reporter', 0.00036771465342893915), ('imdb_keywords:soldier', -0.00036771465342893915), ('imdb_keywords:dance', 0.00018385732671446958)]
+	0: (dist: 0.591968922926) Killer Klowns from Outer Space (1988) (mid: 26629)
+	1: (dist: 0.627342383722) Exorcist III, The (1990) (mid: 1999)
+	2: (dist: 0.632772830282) Prom Night (1980) (mid: 1987)
+	3: (dist: 0.660253622309) Phantasm (1979) (mid: 2901)
+	4: (dist: 0.669723585164) Christine (1983) (mid: 2517)
+	5: (dist: 0.691949236769) Waxwork (1988) (mid: 4561)
+	6: (dist: 0.718221314468) Leatherface: Texas Chainsaw Massacre III (1990) (mid: 2461)
+	7: (dist: 0.719838912838) Cyborg (1989) (mid: 4580)
+	8: (dist: 0.720553805327) Leviathan (1989) (mid: 4618)
+	9: (dist: 0.723707473266) Blob, The (1988) (mid: 4480)
+Cluster 5 (variance: 2.43177782877):
+QIIs: [('movielens_genre:Comedy', 0.04817061959919103), ('year', 0.04320647177790035), ('imdb_keywords:eavesdropping', 0.03530060672917816), ('movielens_genre:Drama', 0.02996874425445854), ('movielens_genre:Action', -0.013973156830299687), ('movielens_genre:Horror', 0.00827357970215113), ('imdb_keywords:action-hero', 0.0020224305938591654), ('imdb_keywords:church', 0.0020224305938591654), ('movielens_tags:DVD-Video', -0.001287001287001287), ('imdb_keywords:anti-hero', 0.00018385732671446958), ('imdb_keywords:jungle', 0.00018385732671446958)]
+	0: (dist: 0.513386332071) Starsky & Hutch (2004) (mid: 7325)
+	1: (dist: 0.563863929256) Orange County (2002) (mid: 5025)
+	2: (dist: 0.666341835175) Anger Management (2003) (mid: 6287)
+	3: (dist: 0.742323172141) Girl Next Door, The (2004) (mid: 7346)
+	4: (dist: 0.744877463425) Bad Teacher (2011) (mid: 87485)
+	5: (dist: 0.745041362092) Hangover Part II, The (2011) (mid: 86911)
+	6: (dist: 0.763466581349) Playing It Cool (2014) (mid: 118814)
+	7: (dist: 0.767413222324) Zack and Miri Make a Porno (2008) (mid: 62434)
+	8: (dist: 0.770452289781) EuroTrip (2004) (mid: 7317)
+	9: (dist: 0.789305884703) Other Guys, The (2010) (mid: 79592)
+Cluster 10 (variance: 2.4868012998):
+QIIs: [('year', -0.011031439602868174), ('imdb_keywords:eavesdropping', -0.007722007722007722), ('movielens_genre:Children', 0.004044861187718331), ('imdb_keywords:machine-gun', -0.002206287920573635), ('imdb_keywords:reporter', 0.002206287920573635), ('imdb_keywords:rope', -0.001287001287001287), ('imdb_keywords:gun', 0.001287001287001287), ('movielens_tags:BD-R', -0.0007354293068578783), ('imdb_keywords:winter', 0.0007354293068578783), ('imdb_keywords:tent', 0.0007354293068578783), ('imdb_keywords:rescue', 0.0005515719801434088), ('movielens_genre:Action', 0.00036771465342893915), ('movielens_genre:Horror', -0.00036771465342893915), ('movielens_genre:Adventure', 0.00018385732671446958), ('movielens_genre:Sci-Fi', 0.00018385732671446958), ('imdb_keywords:little-boy', 0.00018385732671446958), ('imdb_keywords:dance', 0.00018385732671446958)]
+	0: (dist: 0.566275133401) Madeline (1998) (mid: 1919)
+	1: (dist: 0.617717299762) Little Princess, A (1995) (mid: 262)
+	2: (dist: 0.643044780761) Peter Pan (2003) (mid: 7164)
+	3: (dist: 0.64955452716) Matilda (1996) (mid: 837)
+	4: (dist: 0.663816619534) Jungle Book, The (1994) (mid: 362)
+	5: (dist: 0.720702362386) Balto (1995) (mid: 13)
+	6: (dist: 0.726643967105) Witches, The (1990) (mid: 7045)
+	7: (dist: 0.769073375966) Hairspray (2007) (mid: 52975)
+	8: (dist: 0.815738296359) Rescuers, The (1977) (mid: 2090)
+	9: (dist: 0.837550370672) Adventures of Huck Finn, The (1993) (mid: 5076)
+Cluster 9 (variance: 2.52904757091):
+QIIs: [('imdb_keywords:eavesdropping', 0.019305019305019305), ('movielens_genre:Horror', 0.018385732671446955), ('year', -0.01728258871116014), ('movielens_tags:70mm', 0.010847582276153706), ('movielens_genre:Action', 0.010112152969295827), ('imdb_keywords:drink', 0.0047802904945762085), ('movielens_tags:predictable', -0.0023901452472881043), ('imdb_keywords:stylized-violence', -0.0023901452472881043), ('movielens_genre:Drama', -0.0020224305938591654), ('imdb_keywords:violence', 0.0020224305938591654), ('tvtropes:your cheating heart', 0.0014708586137157566), ('imdb_keywords:independent-film', 0.001287001287001287), ('imdb_keywords:combat', -0.001287001287001287), ('tvtropes:shout out', -0.0011031439602868175), ('imdb_keywords:male-rear-nudity', -0.00036771465342893915), ('movielens_genre:Adventure', -0.00018385732671446958)]
+	0: (dist: 0.516579574459) Midnight Meat Train, The (2008) (mid: 60941)
+	1: (dist: 0.696643839899) Strangers, The (2008) (mid: 59727)
+	2: (dist: 0.72356205973) Cabin Fever (2002) (mid: 6707)
+	3: (dist: 0.743365316113) Dog Soldiers (2002) (mid: 5833)
+	4: (dist: 0.747911542364) 30 Days of Night (2007) (mid: 55282)
+	5: (dist: 0.766571759556) Lord of Illusions (1995) (mid: 177)
+	6: (dist: 0.786882113322) Tales from the Crypt Presents: Demon Knight (1995) (mid: 328)
+	7: (dist: 0.786908879624) Wolfman, The (2010) (mid: 74452)
+	8: (dist: 0.794109581132) 28 Weeks Later (2007) (mid: 53000)
+	9: (dist: 0.802996791739) From Dusk Till Dawn (1996) (mid: 70)
+Cluster 7 (variance: 2.65154110781):
+QIIs: [('imdb_keywords:eavesdropping', -0.0027578599007170436), ('movielens_genre:Thriller', -0.001654715940430226), ('imdb_keywords:character-says-i-love-you', 0.001654715940430226), ('movielens_genre:Drama', -0.0011031439602868175), ('year', 0.0007354293068578783), ('movielens_genre:Action', 0.0005515719801434088), ('movielens_genre:Horror', -0.0005515719801434088), ('movielens_tags:based on a book', -0.0005515719801434088), ('imdb_keywords:college', 0.00018385732671446958)]
+	0: (dist: 0.743206429955) Ghost Story (1981) (mid: 5749)
+	1: (dist: 0.829818700528) My Wife is an Actress (Ma Femme est une Actrice) (2001) (mid: 5466)
+	2: (dist: 0.834640116783) Kama Sutra: A Tale of Love (1996) (mid: 1475)
+	3: (dist: 0.840720567425) Romeo Is Bleeding (1993) (mid: 521)
+	4: (dist: 0.878178531263) Spread (2009) (mid: 71902)
+	5: (dist: 0.895679941022) Body Shots (1999) (mid: 2979)
+	6: (dist: 0.927212078522) Less Than Zero (1987) (mid: 4126)
+	7: (dist: 0.928357963794) S.F.W. (1994) (mid: 386)
+	8: (dist: 0.931986392924) Don't Tempt Me (Sin noticias de Dios) (2001) (mid: 6690)
+	9: (dist: 0.95355022578) Meet Bill (2007) (mid: 59404)
+Cluster 6 (variance: 3.35948830244):
+QIIs: []
+	0: (dist: 0.81106026557) Stop-Loss (2008) (mid: 58876)
+	1: (dist: 0.900253110482) Young & Beautiful (2013) (mid: 106983)
+	2: (dist: 0.90060191848) Set It Off (1996) (mid: 998)
+	3: (dist: 0.978828635264) Lilya 4-Ever (Lilja 4-ever) (2002) (mid: 6291)
+	4: (dist: 0.990686202594) Happy-Go-Lucky (2008) (mid: 59118)
+	5: (dist: 1.02001245771) Somersault (2004) (mid: 33621)
+	6: (dist: 1.02115709488) Bee Season (2005) (mid: 40952)
+	7: (dist: 1.06080073257) Starting Out in the Evening (2007) (mid: 56508)
+	8: (dist: 1.08047047009) Broken English (2007) (mid: 54193)
+	9: (dist: 1.09478361164) Revolutionary Road (2008) (mid: 65130)
+Cluster 11 (variance: 3.67493939476):
+QIIs: [('year', -0.0020224305938591654), ('tvtropes:box office bomb', 0.001287001287001287), ('imdb_keywords:eavesdropping', 0.001287001287001287)]
+	0: (dist: 0.859372523234) Married to the Mob (1988) (mid: 2247)
+	1: (dist: 0.866469979502) Desperately Seeking Susan (1985) (mid: 2369)
+	2: (dist: 0.873967181808) Killer Elite, The (1975) (mid: 59173)
+	3: (dist: 0.951341512306) Soldier, The (1982) (mid: 6130)
+	4: (dist: 0.972986310422) Body Double (1984) (mid: 7616)
+	5: (dist: 1.00133432058) Valley Girl (1983) (mid: 6638)
+	6: (dist: 1.02724227536) Extreme Prejudice (1987) (mid: 4106)
+	7: (dist: 1.04054061129) Love Serenade (1996) (mid: 1585)
+	8: (dist: 1.05596422133) Play Dirty (1969) (mid: 79388)
+	9: (dist: 1.06933806013) Outrageous Fortune (1987) (mid: 2752)
+Cluster 2 (variance: 3.6940806984):
+QIIs: [('imdb_keywords:sex', -0.0027578599007170436), ('year', 0.002206287920573635), ('imdb_keywords:divorce', -0.0014708586137157566), ('movielens_genre:Sci-Fi', 0.0011031439602868175), ('movielens_tags:funny', 0.0011031439602868175), ('imdb_keywords:eavesdropping', 0.0011031439602868175), ('movielens_genre:Horror', 0.0007354293068578783), ('movielens_tags:BD-R', -0.0005515719801434088), ('movielens_genre:Action', 0.00036771465342893915), ('imdb_keywords:little-boy', 0.00036771465342893915), ('imdb_keywords:bar', 0.00018385732671446958)]
+	0: (dist: 0.915809531974) Tombs of the Blind Dead (La noche del terror ciego) (1972) (mid: 31975)
+	1: (dist: 0.932754028619) Benny's Video (1992) (mid: 52666)
+	2: (dist: 0.976396060889) Fox and His Friends (Faustrecht der Freiheit) (1975) (mid: 5473)
+	3: (dist: 1.01704448434) Possession (1981) (mid: 3621)
+	4: (dist: 1.03219123575) Nymphomaniac: Volume I (2013) (mid: 108727)
+	5: (dist: 1.0554358404) Antichrist (2009) (mid: 69134)
+	6: (dist: 1.07262833428) Scanner Darkly, A (2006) (mid: 27904)
+	7: (dist: 1.09806654623) Inland Empire (2006) (mid: 49932)
+	8: (dist: 1.09981918159) What Time Is It There? (Ni neibian jidian) (2001) (mid: 5028)
+	9: (dist: 1.1023006925) Ichi the Killer (Koroshiya 1) (2001) (mid: 7235)
+Cluster 4 (variance: 4.48922807816):
+QIIs: [('imdb_keywords:eavesdropping', -0.002206287920573635), ('imdb_keywords:dying', -0.0018385732671446957), ('imdb_keywords:male-rear-nudity', -0.0014708586137157566), ('movielens_genre:Drama', -0.0011031439602868175), ('year', 0.0009192866335723479), ('movielens_genre:Action', -0.0009192866335723479), ('imdb_keywords:drink', 0.0009192866335723479), ('movielens_genre:Thriller', -0.0005515719801434088), ('movielens_genre:Horror', 0.00036771465342893915)]
+	0: (dist: 1.14709534784) Deep Blue Sea, The (2011) (mid: 90933)
+	1: (dist: 1.17225700137) Signal, The (2007) (mid: 57637)
+	2: (dist: 1.23720579064) Monkeybone (2001) (mid: 4158)
+	3: (dist: 1.29834210073) Mars Attacks! (1996) (mid: 1391)
+	4: (dist: 1.30038433144) Fay Grim (2006) (mid: 53143)
+	5: (dist: 1.3080178489) Singing Detective, The (2003) (mid: 6892)
+	6: (dist: 1.3268432748) Boiling Point (3-4 x jûgatsu) (1990) (mid: 26675)
+	7: (dist: 1.35125722873) Lakeboat (2000) (mid: 4253)
+	8: (dist: 1.35460770728) Vampires Suck (2010) (mid: 80350)
+	9: (dist: 1.39598955213) Savage Grace (2007) (mid: 59729)

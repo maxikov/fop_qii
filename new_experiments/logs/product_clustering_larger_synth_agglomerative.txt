@@ -1,0 +1,1478 @@
+Sun Jul 2 20:29:02 PDT 2017 spark-submit --driver-memory 10g product_clustering.py --persist-dir new_experiments/product_regression_all_regression_tree_rank_12_depth_5_larger_synth.state/ --user-profiles new_experiments/synth_data_set/profiles.pkl --n-clusters 15 --cluster-model agglomerative --movies-file datasets/ml-20m/movies.csv >> new_experiments/logs/product_clustering_larger_synth_agglomerative.txt
+Loading results dict
+Loading indicators
+Loading ALS model
+Loading movies
+Done, 27278 movies loaded
+Training agglomerative
+Done
+Centroids: [array([  2.33731768e-02,   1.03513158e-01,   3.44836746e-01,
+         3.01766296e-01,  -2.64442470e-01,  -2.31497716e-01,
+        -3.08994519e-01,  -4.95245498e-04,   5.34688161e-01,
+         2.47813394e-01,  -6.00836328e-03,  -2.11656013e-01]), array([ 0.06423067, -0.11355713,  0.39855494,  0.83695663, -0.68071085,
+       -0.80440577, -0.60924702, -0.43259943,  0.7870914 ,  0.18378878,
+       -0.53523151, -0.25933297]), array([ 0.49726688,  0.6294188 ,  0.69681151,  0.26647174, -0.17988026,
+       -0.22113473, -0.71018808, -0.25091783,  1.30208744,  0.25681927,
+       -0.02024065, -0.11967067]), array([-0.15173648,  0.35048257,  0.3344548 ,  0.64588816, -0.60170059,
+       -0.04069372, -0.5965757 , -0.00658465,  1.34685708,  0.96343582,
+       -0.40126158, -0.15243884]), array([ 0.24158947,  0.9675681 ,  0.35850648,  0.16803304, -1.25399154,
+       -0.6805323 , -0.55534357,  0.10277025,  0.92035972,  0.06195572,
+       -0.13706136, -0.50470692]), array([ -1.21162099e-01,   5.17188810e-05,   5.54124149e-01,
+         4.37071018e-01,  -4.93084079e-01,  -1.92290792e-01,
+        -3.31763135e-01,   2.53263113e-01,   1.33699413e+00,
+         1.79332046e-01,  -1.34429172e-01,  -6.66969336e-01]), array([ 0.29309196,  0.04815372,  0.58285379,  0.30209484, -0.6512524 ,
+       -0.41796539, -0.80588637, -0.140478  ,  0.51838704,  1.03050918,
+        0.10178854, -1.02053379]), array([ 0.63036443, -0.07008897,  0.95634605,  0.39713036, -0.98416495,
+       -0.86038704, -0.03201316,  0.58058847,  0.96320208,  0.70697845,
+       -0.4059069 ,  0.03510504]), array([-0.44834769,  0.39582528,  1.01857263,  0.73139294, -0.31835282,
+       -0.2408528 , -0.75327818,  0.18721292,  0.8140829 ,  0.39488708,
+       -0.50857082, -0.13096781]), array([-0.226798  , -0.17005821,  0.87865403,  0.37625378, -1.04013448,
+       -0.14802784, -0.6838208 , -0.10889038,  0.9767662 ,  0.53365682,
+        0.68371648, -0.12290869]), array([-0.18561471,  0.30446582,  0.56374148,  1.30902345, -0.22083557,
+       -1.10357601, -0.27174994,  0.31484737,  1.03530953,  0.45836844,
+        0.33231752, -0.08713305]), array([-0.10845705,  0.2252876 ,  0.05291049,  0.31283792, -0.32329797,
+        0.0557322 , -0.25770266,  0.00463648,  0.64561102,  0.6051103 ,
+       -0.21318911,  0.04946457]), array([ 0.32434227, -0.0173288 ,  0.48482307,  0.20003254, -0.50365165,
+       -0.42190233, -0.03449277,  0.28277819,  0.49765921,  0.39000265,
+       -0.21449612,  0.02874034]), array([ 0.12150189,  0.5107983 ,  0.19245969,  0.11216174, -0.65379869,
+       -0.37803514, -0.2877517 ,  0.06481251,  0.47295577,  0.05973287,
+       -0.04464532, -0.25024852]), array([ -2.29966085e-01,   4.33242124e-01,   2.02909522e-02,
+         5.73604633e-01,  -5.98547200e-01,   1.58189945e-01,
+        -4.53511661e-01,   6.35444899e-04,   1.16474184e+00,
+         1.18550810e+00,  -4.06897328e-01,   1.67305873e-01])]
+Labeling clusters
+Clusters: defaultdict(<type 'int'>, {0.0: 447, 1.0: 360, 2.0: 368, 3.0: 226, 4.0: 222, 5.0: 747, 6.0: 213, 7.0: 148, 8.0: 111, 9.0: 160, 10.0: 119, 11.0: 207, 12.0: 157, 13.0: 147, 14.0: 179})
+Centroid mean: [ 0.04824524  0.23985161  0.49586272  0.46471461 -0.58452303 -0.36849196
+ -0.44615462  0.05677195  0.88778623  0.48385993 -0.12734105 -0.21639672]
+Centroid variance: 1.0782799167
+Cluster 11 (variance: 0.0430879505274):
+	0: (dist: 0.0706909983031) Buying the Cow (2002) (mid: 33296)
+	1: (dist: 0.0706916003903) Risky Business (1983) (mid: 2915)
+	2: (dist: 0.0706917900887) Supervixens (1975) (mid: 26356)
+	3: (dist: 0.0706924462152) Extra Man, The (2010) (mid: 82005)
+	4: (dist: 0.0706925838473) Nest, The (Nid de Guêpes) (2002) (mid: 8733)
+	5: (dist: 0.0706930955262) Tito and Me (Tito i ja) (1992) (mid: 26793)
+	6: (dist: 0.0706932709327) V/H/S/2 (2013) (mid: 103483)
+	7: (dist: 0.0706933182251) Pumpkin (2002) (mid: 5451)
+	8: (dist: 0.0706933687111) Starter for 10 (2006) (mid: 51694)
+	9: (dist: 0.0706933699584) Ethan Mao (2004) (mid: 74159)
+Cluster 12 (variance: 0.0431648125202):
+	0: (dist: 0.096559589557) Need for Speed (2014) (mid: 109850)
+	1: (dist: 0.0965610154994) Heavy (1995) (mid: 764)
+	2: (dist: 0.0965611388793) Used Cars (1980) (mid: 5125)
+	3: (dist: 0.0965616554116) Aberdeen (2000) (mid: 4729)
+	4: (dist: 0.0965618462033) Manny & Lo (1996) (mid: 862)
+	5: (dist: 0.0965619481283) All Quiet on the Western Front (1930) (mid: 1927)
+	6: (dist: 0.0965622290973) Close My Eyes (1991) (mid: 56693)
+	7: (dist: 0.0965627243336) Joe and Max (2002) (mid: 56724)
+	8: (dist: 0.0965628337781) Polish Wedding (1998) (mid: 2007)
+	9: (dist: 0.0965633667214) Made in Dagenham (2010) (mid: 83270)
+Cluster 5 (variance: 0.0555977410543):
+	0: (dist: 0.0736874533532) Arabian Nights (1942) (mid: 64921)
+	1: (dist: 0.0736886197364) Kid for Two Farthings, A (1955) (mid: 112355)
+	2: (dist: 0.0736910676251) Return of the Magnificent Seven, The (a.k.a. Return of the Seven) (1966) (mid: 4328)
+	3: (dist: 0.0736919765664) Strangeland (1998) (mid: 2298)
+	4: (dist: 0.0736921335067) President's Man: A Line in the Sand, The (2002) (mid: 96148)
+	5: (dist: 0.0736926322844) Bucket Of Blood, A (1959) (mid: 7993)
+	6: (dist: 0.0736949269332) Day of the Jackal, The (1973) (mid: 8207)
+	7: (dist: 0.0736968793615) Forgotten, The (2004) (mid: 8870)
+	8: (dist: 0.073697015682) Night and the City (1950) (mid: 31770)
+	9: (dist: 0.0736975193429) This Means War (2012) (mid: 93326)
+Cluster 14 (variance: 0.0799129049025):
+	0: (dist: 0.0475600261785) Death Warrant (1990) (mid: 4199)
+	1: (dist: 0.0475705205169) Adventureland (2009) (mid: 67734)
+	2: (dist: 0.0475718884692) Pistol Whipped (2008) (mid: 66584)
+	3: (dist: 0.047573708331) Men of War (1994) (mid: 69821)
+	4: (dist: 0.0475743080883) 7 Seconds (2005) (mid: 41736)
+	5: (dist: 0.0475791305817) Money Train (1995) (mid: 20)
+	6: (dist: 0.0475793743136) Urban Justice (2007) (mid: 66652)
+	7: (dist: 0.047584744215) Lethal Weapon 2 (1989) (mid: 2001)
+	8: (dist: 0.047592640296) Chase, The (1994) (mid: 31367)
+	9: (dist: 0.0475958451689) Fortress 2 (2000) (mid: 102390)
+Cluster 13 (variance: 0.106652778925):
+	0: (dist: 0.13893694054) Hannibal Rising (2007) (mid: 50804)
+	1: (dist: 0.138938284166) Man Who Would Be King, The (1975) (mid: 1303)
+	2: (dist: 0.138938924488) Relic, The (1997) (mid: 879)
+	3: (dist: 0.138939072723) Windtalkers (2002) (mid: 5420)
+	4: (dist: 0.138939164463) Eagle, The (2011) (mid: 85025)
+	5: (dist: 0.138939424046) Psycho Beach Party (2000) (mid: 3830)
+	6: (dist: 0.138939852951) Vampire Lovers, The (1970) (mid: 7885)
+	7: (dist: 0.138939915759) Feast (2005) (mid: 48678)
+	8: (dist: 0.138940026509) Wrong Turn 2: Dead End (2007) (mid: 56336)
+	9: (dist: 0.1389405723) Northwest Passage (1940) (mid: 8481)
+Cluster 1 (variance: 0.156063462748):
+	0: (dist: 0.0918184840265) Cape Fear (1991) (mid: 1343)
+	1: (dist: 0.0918186478474) Big Bird Cage, The (1972) (mid: 5155)
+	2: (dist: 0.0918189600526) Disgrace (2008) (mid: 77266)
+	3: (dist: 0.0918205140951) Pat Garrett and Billy the Kid (1973) (mid: 7889)
+	4: (dist: 0.0918213177694) Hamlet 2 (2008) (mid: 61246)
+	5: (dist: 0.0918221537195) Enfer, L' (1994) (mid: 264)
+	6: (dist: 0.0918223077693) Circle of Deceit (Die Fälschung) (1981) (mid: 91106)
+	7: (dist: 0.0918231121257) Cape Fear (1962) (mid: 1344)
+	8: (dist: 0.0918231213224) Skin I Live In, The (La piel que habito) (2011) (mid: 89118)
+	9: (dist: 0.0918232223538) Spirits of the Dead (1968) (mid: 775)
+Cluster 6 (variance: 0.185204165853):
+	0: (dist: 0.121136416674) Royal Affair, A (Kongelig affære, En) (2012) (mid: 96911)
+	1: (dist: 0.121137430104) Dandelion (2004) (mid: 39394)
+	2: (dist: 0.121137916307) Unmade Beds (1997) (mid: 4208)
+	3: (dist: 0.121138031822) Boy Meets Girl (1984) (mid: 26498)
+	4: (dist: 0.121138507711) Wilby Wonderful (2004) (mid: 43528)
+	5: (dist: 0.121138851477) Unbelievable Truth, The (1989) (mid: 4183)
+	6: (dist: 0.121139776751) Role Models (2008) (mid: 63131)
+	7: (dist: 0.121139890588) Sliding Doors (1998) (mid: 1680)
+	8: (dist: 0.12114029488) Autism: The Musical (2007) (mid: 62390)
+	9: (dist: 0.121140648104) Song for Martin, A (Sång för Martin, En) (2001) (mid: 6726)
+Cluster 2 (variance: 0.216752041878):
+	0: (dist: 0.125605610048) Home Alone (1990) (mid: 586)
+	1: (dist: 0.125609317562) Misfits, The (1961) (mid: 4428)
+	2: (dist: 0.12839459755) Chitty Chitty Bang Bang (1968) (mid: 7247)
+	3: (dist: 0.128399825439) Nashville (1975) (mid: 2303)
+	4: (dist: 0.128401545391) Mummy Returns, The (2001) (mid: 4270)
+	5: (dist: 0.12840200209) Batman (1989) (mid: 592)
+	6: (dist: 0.128403988314) Taken (2008) (mid: 59369)
+	7: (dist: 0.128404749731) Stand by Me (1986) (mid: 1259)
+	8: (dist: 0.128405281236) Clash of the Titans (2010) (mid: 76175)
+	9: (dist: 0.128405847733) Jurassic Park (1993) (mid: 480)
+Cluster 8 (variance: 0.264308013975):
+	0: (dist: 0.210755274502) Abandoned, The (2006) (mid: 51666)
+	1: (dist: 0.216628856508) Austin Powers: International Man of Mystery (1997) (mid: 1517)
+	2: (dist: 0.216631754605) Rocky III (1982) (mid: 2410)
+	3: (dist: 0.21663552944) Diving Bell and the Butterfly, The (Scaphandre et le papillon, Le) (2007) (mid: 55814)
+	4: (dist: 0.216637181048) Rocky IV (1985) (mid: 2411)
+	5: (dist: 0.216637226818) Sentinel, The (1977) (mid: 8885)
+	6: (dist: 0.216638141399) Monkeybone (2001) (mid: 4158)
+	7: (dist: 0.216639374072) Science of Sleep, The (La science des rêves) (2006) (mid: 48082)
+	8: (dist: 0.216642647756) Holcroft Covenant, The (1985) (mid: 4983)
+	9: (dist: 0.216642975704) Shallow Hal (2001) (mid: 4890)
+Cluster 0 (variance: 0.346194115197):
+	0: (dist: 0.349610981908) Spy Hard (1996) (mid: 743)
+	1: (dist: 0.349616071196) Highlander III: The Sorcerer (a.k.a. Highlander: The Final Dimension) (1994) (mid: 405)
+	2: (dist: 0.349617705059) Informers, The (2008) (mid: 68288)
+	3: (dist: 0.349618056116) Splendor in the Grass (1961) (mid: 3330)
+	4: (dist: 0.34961846374) Country Strong (2010) (mid: 84570)
+	5: (dist: 0.349618516507) Desert Heat (Inferno) (1999) (mid: 49979)
+	6: (dist: 0.349619145173) Road House (1989) (mid: 4654)
+	7: (dist: 0.349621338642) Piano, The (1993) (mid: 509)
+	8: (dist: 0.349621386488) Sea of Love (1989) (mid: 4661)
+	9: (dist: 0.349622538453) Election (1999) (mid: 2599)
+Cluster 4 (variance: 0.357056183053):
+	0: (dist: 0.197264500488) Rocky Horror Picture Show, The (1975) (mid: 2657)
+	1: (dist: 0.197276789382) Secret Window (2004) (mid: 7347)
+	2: (dist: 0.21822034654) Manchurian Candidate, The (1962) (mid: 1267)
+	3: (dist: 0.218224696734) Sherlock Holmes: A Game of Shadows (2011) (mid: 91542)
+	4: (dist: 0.218225600708) Tingler, The (1959) (mid: 2781)
+	5: (dist: 0.21822641017) Big Sleep, The (1946) (mid: 1284)
+	6: (dist: 0.218227020195) Hamlet (2000) (mid: 3598)
+	7: (dist: 0.218227320139) Sling Blade (1996) (mid: 1358)
+	8: (dist: 0.218227795794) Dead Man's Shoes (2004) (mid: 40412)
+	9: (dist: 0.218228248577) Dead Again (1991) (mid: 3044)
+Cluster 9 (variance: 0.379436648144):
+	0: (dist: 0.200595361874) Nativity Story, The (2006) (mid: 49524)
+	1: (dist: 0.217825106119) America, America (1963) (mid: 51773)
+	2: (dist: 0.217825784394) Lorenzo's Oil (1992) (mid: 7009)
+	3: (dist: 0.217827379852) Mighty Heart, A (2007) (mid: 53921)
+	4: (dist: 0.217828037041) Mondays in the Sun (Lunes al sol, Los) (2002) (mid: 6571)
+	5: (dist: 0.217828252714) Hero (Ying xiong) (2002) (mid: 7090)
+	6: (dist: 0.217828404521) Farewell, The (Abschied - Brechts letzter Sommer) (2000) (mid: 5050)
+	7: (dist: 0.217828573325) Earth Trembles, The (Terra trema: Episodio del mare, La) (1948) (mid: 5494)
+	8: (dist: 0.217829112032) Brassed Off (1996) (mid: 1542)
+	9: (dist: 0.217830134278) Evangelion: 1.0 You Are (Not) Alone (Evangerion shin gekijôban: Jo) (2007) (mid: 70533)
+Cluster 3 (variance: 0.384502287374):
+	0: (dist: 0.207860305399) Scream 3 (2000) (mid: 3273)
+	1: (dist: 0.207863063136) Stigmata (1999) (mid: 2840)
+	2: (dist: 0.207864418059) Stolen (2012) (mid: 98054)
+	3: (dist: 0.207866313254) Repo Men (2010) (mid: 75985)
+	4: (dist: 0.207871698204) We Own the Night (2007) (mid: 55272)
+	5: (dist: 0.207872193864) Bent (1997) (mid: 1696)
+	6: (dist: 0.207872898709) Nothing to Lose (1997) (mid: 7048)
+	7: (dist: 0.20787403463) One in the Chamber (2012) (mid: 96026)
+	8: (dist: 0.207875174544) Code of Silence (1985) (mid: 4001)
+	9: (dist: 0.207876259708) See No Evil, Hear No Evil (1989) (mid: 4662)
+Cluster 7 (variance: 0.415369165001):
+	0: (dist: 0.166353818077) Picture of Dorian Gray, The (1945) (mid: 8482)
+	1: (dist: 0.166354938235) Bitter Moon (1992) (mid: 347)
+	2: (dist: 0.166358242019) Lookout, The (2007) (mid: 52241)
+	3: (dist: 0.166358876487) Judgement in Stone, A (Cérémonie, La) (1995) (mid: 1406)
+	4: (dist: 0.166359223735) The Chumscrubber (2005) (mid: 34523)
+	5: (dist: 0.16635988389) Color of Paradise, The (Rang-e khoda) (1999) (mid: 3456)
+	6: (dist: 0.166360474241) Jane Austen Book Club, The (2007) (mid: 55451)
+	7: (dist: 0.166360582972) Man of Marble (Czlowiek z Marmuru) (1977) (mid: 6921)
+	8: (dist: 0.166361170584) Stranger than Fiction (2006) (mid: 46976)
+	9: (dist: 0.166361277319) Youngblood (1986) (mid: 4355)
+Cluster 10 (variance: 0.432629125077):
+	0: (dist: 0.19614605747) Tree of Wooden Clogs, The (L'albero degli zoccoli) (1978) (mid: 34548)
+	1: (dist: 0.19614938248) Beauty and the Beast (1991) (mid: 595)
+	2: (dist: 0.196149386222) Day of Wrath (Vredens dag) (1943) (mid: 25898)
+	3: (dist: 0.196150531352) Witch Who Came from the Sea, The (1976) (mid: 81574)
+	4: (dist: 0.196151496831) Amityville Horror, The (1979) (mid: 1327)
+	5: (dist: 0.196152797707) Mexican, The (2001) (mid: 4161)
+	6: (dist: 0.196152929406) Maurice (1987) (mid: 3094)
+	7: (dist: 0.196153064888) Milarepa (2006) (mid: 99895)
+	8: (dist: 0.1961541718) Deluge, The (Potop) (1974) (mid: 8660)
+	9: (dist: 0.196154564398) Adam & Steve (2005) (mid: 46194)
+Training a latent tree
+DecisionTreeModel classifier of depth 8 with 123 nodes
+  If (feature 11 <= -0.6350420713424683)
+   If (feature 8 <= 1.111220121383667)
+    If (feature 6 <= -0.7145675420761108)
+     If (feature 4 <= -0.9647303223609924)
+      If (feature 1 <= -0.0817420557141304)
+       Predict: 9.0
+      Else (feature 1 > -0.0817420557141304)
+       Predict: 4.0
+     Else (feature 4 > -0.9647303223609924)
+      Predict: 6.0
+    Else (feature 6 > -0.7145675420761108)
+     If (feature 4 <= -1.0947386026382446)
+      Predict: 4.0
+     Else (feature 4 > -1.0947386026382446)
+      If (feature 9 <= 0.21022281050682068)
+       Predict: 1.0
+      Else (feature 9 > 0.21022281050682068)
+       If (feature 7 <= -0.08197206258773804)
+        Predict: 0.0
+       Else (feature 7 > -0.08197206258773804)
+        If (feature 0 <= 0.03813018277287483)
+         Predict: 3.0
+        Else (feature 0 > 0.03813018277287483)
+         If (feature 0 <= 0.05997171625494957)
+          Predict: 10.0
+         Else (feature 0 > 0.05997171625494957)
+          Predict: 6.0
+   Else (feature 8 > 1.111220121383667)
+    If (feature 0 <= 0.10926878452301025)
+     Predict: 5.0
+    Else (feature 0 > 0.10926878452301025)
+     If (feature 1 <= -0.228103905916214)
+      Predict: 1.0
+     Else (feature 1 > -0.228103905916214)
+      Predict: 4.0
+  Else (feature 11 > -0.6350420713424683)
+   If (feature 6 <= -0.4960738718509674)
+    If (feature 0 <= 0.2830214202404022)
+     If (feature 7 <= -0.2957386076450348)
+      If (feature 9 <= 0.24530544877052307)
+       If (feature 2 <= 0.5272958874702454)
+        Predict: 1.0
+       Else (feature 2 > 0.5272958874702454)
+        Predict: 9.0
+      Else (feature 9 > 0.24530544877052307)
+       If (feature 8 <= 1.111220121383667)
+        If (feature 0 <= -0.027741508558392525)
+         Predict: 9.0
+        Else (feature 0 > -0.027741508558392525)
+         If (feature 0 <= 0.15821614861488342)
+          Predict: 1.0
+         Else (feature 0 > 0.15821614861488342)
+          Predict: 2.0
+       Else (feature 8 > 1.111220121383667)
+        Predict: 3.0
+     Else (feature 7 > -0.2957386076450348)
+      If (feature 9 <= 0.7429161071777344)
+       If (feature 2 <= 0.44502905011177063)
+        Predict: 4.0
+       Else (feature 2 > 0.44502905011177063)
+        If (feature 10 <= 0.20181353390216827)
+         If (feature 0 <= -0.15091697871685028)
+          Predict: 8.0
+         Else (feature 0 > -0.15091697871685028)
+          Predict: 1.0
+        Else (feature 10 > 0.20181353390216827)
+         If (feature 5 <= -0.5377904176712036)
+          Predict: 10.0
+         Else (feature 5 > -0.5377904176712036)
+          Predict: 9.0
+      Else (feature 9 > 0.7429161071777344)
+       If (feature 10 <= 0.021148277446627617)
+        If (feature 1 <= -0.228103905916214)
+         Predict: 9.0
+        Else (feature 1 > -0.228103905916214)
+         If (feature 10 <= -0.14172545075416565)
+          Predict: 3.0
+         Else (feature 10 > -0.14172545075416565)
+          Predict: 3.0
+       Else (feature 10 > 0.021148277446627617)
+        If (feature 3 <= 0.778052031993866)
+         Predict: 9.0
+        Else (feature 3 > 0.778052031993866)
+         Predict: 10.0
+    Else (feature 0 > 0.2830214202404022)
+     If (feature 4 <= -0.7780173420906067)
+      If (feature 1 <= -0.11400263756513596)
+       Predict: 7.0
+      Else (feature 1 > -0.11400263756513596)
+       Predict: 4.0
+     Else (feature 4 > -0.7780173420906067)
+      If (feature 2 <= 0.5045760869979858)
+       If (feature 1 <= 0.6642517447471619)
+        Predict: 0.0
+       Else (feature 1 > 0.6642517447471619)
+        If (feature 0 <= 0.30410411953926086)
+         Predict: 3.0
+        Else (feature 0 > 0.30410411953926086)
+         Predict: 2.0
+      Else (feature 2 > 0.5045760869979858)
+       If (feature 10 <= 0.3704705238342285)
+        If (feature 3 <= 0.6689353585243225)
+         If (feature 2 <= 0.5765809416770935)
+          Predict: 2.0
+         Else (feature 2 > 0.5765809416770935)
+          Predict: 2.0
+        Else (feature 3 > 0.6689353585243225)
+         If (feature 0 <= 0.3452855944633484)
+          Predict: 10.0
+         Else (feature 0 > 0.3452855944633484)
+          Predict: 2.0
+       Else (feature 10 > 0.3704705238342285)
+        Predict: 9.0
+   Else (feature 6 > -0.4960738718509674)
+    If (feature 5 <= -0.04380708932876587)
+     If (feature 4 <= -0.39389705657958984)
+      If (feature 2 <= 0.6873147487640381)
+       If (feature 6 <= -0.18820340931415558)
+        If (feature 1 <= 0.2538765072822571)
+         If (feature 8 <= 1.2605775594711304)
+          Predict: 0.0
+         Else (feature 8 > 1.2605775594711304)
+          Predict: 5.0
+        Else (feature 1 > 0.2538765072822571)
+         If (feature 4 <= -1.0947386026382446)
+          Predict: 4.0
+         Else (feature 4 > -1.0947386026382446)
+          Predict: 13.0
+       Else (feature 6 > -0.18820340931415558)
+        If (feature 7 <= 0.39025962352752686)
+         If (feature 0 <= 0.10926878452301025)
+          Predict: 0.0
+         Else (feature 0 > 0.10926878452301025)
+          Predict: 12.0
+        Else (feature 7 > 0.39025962352752686)
+         If (feature 0 <= -0.31137266755104065)
+          Predict: 10.0
+         Else (feature 0 > -0.31137266755104065)
+          Predict: 7.0
+      Else (feature 2 > 0.6873147487640381)
+       If (feature 0 <= -0.11701327562332153)
+        If (feature 4 <= -1.0304287672042847)
+         Predict: 9.0
+        Else (feature 4 > -1.0304287672042847)
+         If (feature 0 <= -0.21090562641620636)
+          Predict: 10.0
+         Else (feature 0 > -0.21090562641620636)
+          Predict: 5.0
+       Else (feature 0 > -0.11701327562332153)
+        Predict: 7.0
+     Else (feature 4 > -0.39389705657958984)
+      If (feature 3 <= 0.6989719271659851)
+       If (feature 9 <= 0.571853518486023)
+        If (feature 6 <= -0.47266843914985657)
+         Predict: 13.0
+        Else (feature 6 > -0.47266843914985657)
+         If (feature 0 <= 0.5344740748405457)
+          Predict: 0.0
+         Else (feature 0 > 0.5344740748405457)
+          Predict: 2.0
+       Else (feature 9 > 0.571853518486023)
+        Predict: 11.0
+      Else (feature 3 > 0.6989719271659851)
+       Predict: 10.0
+    Else (feature 5 > -0.04380708932876587)
+     If (feature 9 <= 1.0574419498443604)
+      If (feature 7 <= 0.05436315760016441)
+       If (feature 1 <= 0.060407768934965134)
+        Predict: 0.0
+       Else (feature 1 > 0.060407768934965134)
+        Predict: 11.0
+      Else (feature 7 > 0.05436315760016441)
+       If (feature 2 <= 0.3244982659816742)
+        Predict: 3.0
+       Else (feature 2 > 0.3244982659816742)
+        If (feature 0 <= -0.40215444564819336)
+         Predict: 9.0
+        Else (feature 0 > -0.40215444564819336)
+         If (feature 0 <= -0.23402361571788788)
+          Predict: 5.0
+         Else (feature 0 > -0.23402361571788788)
+          Predict: 2.0
+     Else (feature 9 > 1.0574419498443604)
+      Predict: 14.0
+
+Done, making predictions
+Accuracy of latent tree on training set: 0.979895755771
+Accuracy of latent tree on test set: 0.966222222222
+Building meta training set
+Training a meta tree
+DecisionTreeModel classifier of depth 8 with 189 nodes
+  If (Isn't imdb_keywords:chase)
+   If (average_rating <= 2.6068455134135062)
+    If (Isn't imdb_keywords:truck)
+     If (Isn't imdb_keywords:bathroom)
+      If (Isn't imdb_keywords:severed-head)
+       If (Isn't imdb_keywords:court)
+        Predict: 0.0
+       Else (Is imdb_keywords:court)
+        If (Isn't movielens_genre:Crime)
+         Predict: 0.0
+        Else (Is movielens_genre:Crime)
+         Predict: 13.0
+      Else (Is imdb_keywords:severed-head)
+       If (average_rating <= 2.0)
+        Predict: 13.0
+       Else (average_rating > 2.0)
+        If (Isn't movielens_genre:Thriller)
+         If (year <= 2007.0)
+          Predict: 0.0
+         Else (year > 2007.0)
+          Predict: 14.0
+        Else (Is movielens_genre:Thriller)
+         Predict: 13.0
+     Else (Is imdb_keywords:bathroom)
+      If (Isn't imdb_keywords:severed-head)
+       If (Isn't tvtropes:too dumb to live)
+        If (Isn't imdb_keywords:epic)
+         Predict: 11.0
+        Else (Is imdb_keywords:epic)
+         Predict: 0.0
+       Else (Is tvtropes:too dumb to live)
+        If (year <= 1985.0)
+         Predict: 0.0
+        Else (year > 1985.0)
+         Predict: 2.0
+      Else (Is imdb_keywords:severed-head)
+       If (Isn't movielens_genre:Action)
+        Predict: 13.0
+       Else (Is movielens_genre:Action)
+        Predict: 11.0
+    Else (Is imdb_keywords:truck)
+     If (average_rating <= 2.0)
+      Predict: 12.0
+     Else (average_rating > 2.0)
+      If (imdb_rating <= 6.8)
+       If (year <= 1990.0)
+        Predict: 11.0
+       Else (year > 1990.0)
+        Predict: 0.0
+      Else (imdb_rating > 6.8)
+       If (Isn't movielens_tags:CLV)
+        Predict: 2.0
+       Else (Is movielens_tags:CLV)
+        Predict: 4.0
+   Else (average_rating > 2.6068455134135062)
+    If (Isn't tvtropes:oh crap)
+     If (Isn't imdb_keywords:rape)
+      If (Isn't imdb_keywords:depression)
+       If (Isn't imdb_keywords:f-word)
+        If (Isn't imdb_keywords:accident)
+         If (Isn't movielens_tags:murder)
+          Predict: 9.0
+         Else (Is movielens_tags:murder)
+          Predict: 4.0
+        Else (Is imdb_keywords:accident)
+         Predict: 7.0
+       Else (Is imdb_keywords:f-word)
+        If (Isn't imdb_keywords:bathroom)
+         If (Isn't imdb_keywords:reverse-footage)
+          Predict: 14.0
+         Else (Is imdb_keywords:reverse-footage)
+          Predict: 3.0
+        Else (Is imdb_keywords:bathroom)
+         If (average_rating <= 3.0)
+          Predict: 11.0
+         Else (average_rating > 3.0)
+          Predict: 7.0
+      Else (Is imdb_keywords:depression)
+       If (Isn't imdb_keywords:hope)
+        If (Isn't imdb_keywords:f-word)
+         If (Isn't imdb_keywords:accident)
+          Predict: 6.0
+         Else (Is imdb_keywords:accident)
+          Predict: 7.0
+        Else (Is imdb_keywords:f-word)
+         If (Isn't imdb_keywords:bathroom)
+          Predict: 3.0
+         Else (Is imdb_keywords:bathroom)
+          Predict: 6.0
+       Else (Is imdb_keywords:hope)
+        If (Isn't imdb_keywords:ambulance)
+         If (year <= 2009.0)
+          Predict: 9.0
+         Else (year > 2009.0)
+          Predict: 7.0
+        Else (Is imdb_keywords:ambulance)
+         If (year <= 1987.0)
+          Predict: 4.0
+         Else (year > 1987.0)
+          Predict: 6.0
+     Else (Is imdb_keywords:rape)
+      If (Isn't imdb_keywords:f-word)
+       If (Isn't imdb_keywords:depression)
+        If (Isn't imdb_keywords:curse)
+         If (Isn't imdb_keywords:reverse-footage)
+          Predict: 1.0
+         Else (Is imdb_keywords:reverse-footage)
+          Predict: 8.0
+        Else (Is imdb_keywords:curse)
+         If (Isn't movielens_tags:Bibliothek)
+          Predict: 10.0
+         Else (Is movielens_tags:Bibliothek)
+          Predict: 7.0
+       Else (Is imdb_keywords:depression)
+        If (Isn't imdb_keywords:newspaper)
+         Predict: 6.0
+        Else (Is imdb_keywords:newspaper)
+         If (year <= 1999.0)
+          Predict: 1.0
+         Else (year > 1999.0)
+          Predict: 4.0
+      Else (Is imdb_keywords:f-word)
+       If (Isn't imdb_keywords:bathroom)
+        If (Isn't movielens_genre:War)
+         Predict: 3.0
+        Else (Is movielens_genre:War)
+         Predict: 14.0
+       Else (Is imdb_keywords:bathroom)
+        If (Isn't movielens_genre:Crime)
+         Predict: 1.0
+        Else (Is movielens_genre:Crime)
+         Predict: 4.0
+    Else (Is tvtropes:oh crap)
+     If (Isn't movielens_tags:murder)
+      If (Isn't imdb_keywords:f-word)
+       If (Isn't imdb_keywords:hope)
+        If (Isn't imdb_keywords:depression)
+         If (Isn't imdb_keywords:curse)
+          Predict: 2.0
+         Else (Is imdb_keywords:curse)
+          Predict: 10.0
+        Else (Is imdb_keywords:depression)
+         Predict: 6.0
+       Else (Is imdb_keywords:hope)
+        Predict: 9.0
+      Else (Is imdb_keywords:f-word)
+       If (Isn't imdb_keywords:basketball)
+        Predict: 3.0
+       Else (Is imdb_keywords:basketball)
+        Predict: 2.0
+     Else (Is movielens_tags:murder)
+      Predict: 4.0
+  Else (Is imdb_keywords:chase)
+   If (Isn't imdb_keywords:f-word)
+    If (Isn't tvtropes:oh crap)
+     If (Isn't imdb_keywords:rape)
+      If (Isn't imdb_keywords:kissing-while-having-sex)
+       If (Isn't movielens_tags:murder)
+        If (Isn't imdb_keywords:reverse-footage)
+         If (Isn't imdb_keywords:accident)
+          Predict: 5.0
+         Else (Is imdb_keywords:accident)
+          Predict: 7.0
+        Else (Is imdb_keywords:reverse-footage)
+         If (Isn't imdb_keywords:curse)
+          Predict: 8.0
+         Else (Is imdb_keywords:curse)
+          Predict: 10.0
+       Else (Is movielens_tags:murder)
+        If (Isn't imdb_keywords:severed-head)
+         If (Isn't imdb_keywords:accident)
+          Predict: 4.0
+         Else (Is imdb_keywords:accident)
+          Predict: 7.0
+        Else (Is imdb_keywords:severed-head)
+         Predict: 5.0
+      Else (Is imdb_keywords:kissing-while-having-sex)
+       If (Isn't movielens_tags:murder)
+        If (average_rating <= 3.0)
+         Predict: 0.0
+        Else (average_rating > 3.0)
+         If (year <= 1973.0)
+          Predict: 9.0
+         Else (year > 1973.0)
+          Predict: 6.0
+       Else (Is movielens_tags:murder)
+        Predict: 4.0
+     Else (Is imdb_keywords:rape)
+      If (Isn't movielens_tags:murder)
+       If (Isn't imdb_keywords:curse)
+        If (Isn't imdb_keywords:reverse-footage)
+         If (Isn't imdb_keywords:accident)
+          Predict: 1.0
+         Else (Is imdb_keywords:accident)
+          Predict: 7.0
+        Else (Is imdb_keywords:reverse-footage)
+         If (year <= 1997.0)
+          Predict: 8.0
+         Else (year > 1997.0)
+          Predict: 7.0
+       Else (Is imdb_keywords:curse)
+        If (year <= 1985.0)
+         Predict: 9.0
+        Else (year > 1985.0)
+         Predict: 10.0
+      Else (Is movielens_tags:murder)
+       If (Isn't movielens_tags:religion)
+        If (Isn't movielens_genre:Comedy)
+         Predict: 4.0
+        Else (Is movielens_genre:Comedy)
+         Predict: 7.0
+       Else (Is movielens_tags:religion)
+        Predict: 1.0
+    Else (Is tvtropes:oh crap)
+     If (Isn't movielens_tags:murder)
+      If (Isn't imdb_keywords:hope)
+       If (Isn't imdb_keywords:snake)
+        If (Isn't movielens_tags:Netflix Finland)
+         If (Isn't imdb_keywords:accident)
+          Predict: 2.0
+         Else (Is imdb_keywords:accident)
+          Predict: 7.0
+        Else (Is movielens_tags:Netflix Finland)
+         Predict: 6.0
+       Else (Is imdb_keywords:snake)
+        If (year <= 1987.0)
+         If (year <= 1983.0)
+          Predict: 1.0
+         Else (year > 1983.0)
+          Predict: 8.0
+        Else (year > 1987.0)
+         Predict: 5.0
+      Else (Is imdb_keywords:hope)
+       If (year <= 2013.0)
+        Predict: 9.0
+       Else (year > 2013.0)
+        Predict: 2.0
+     Else (Is movielens_tags:murder)
+      Predict: 4.0
+   Else (Is imdb_keywords:f-word)
+    If (Isn't imdb_keywords:bathroom)
+     If (Isn't movielens_tags:murder)
+      If (Isn't imdb_keywords:kissing-while-having-sex)
+       If (Isn't imdb_keywords:hope)
+        If (Isn't imdb_keywords:curse)
+         Predict: 3.0
+        Else (Is imdb_keywords:curse)
+         Predict: 10.0
+       Else (Is imdb_keywords:hope)
+        If (Isn't movielens_genre:Comedy)
+         Predict: 9.0
+        Else (Is movielens_genre:Comedy)
+         Predict: 7.0
+      Else (Is imdb_keywords:kissing-while-having-sex)
+       If (average_rating <= 3.6598212587944476)
+        If (Isn't movielens_genre:Fantasy)
+         If (Isn't movielens_genre:Mystery)
+          Predict: 14.0
+         Else (Is movielens_genre:Mystery)
+          Predict: 7.0
+        Else (Is movielens_genre:Fantasy)
+         Predict: 10.0
+       Else (average_rating > 3.6598212587944476)
+        Predict: 3.0
+     Else (Is movielens_tags:murder)
+      If (Isn't imdb_keywords:bicycle)
+       Predict: 4.0
+      Else (Is imdb_keywords:bicycle)
+       If (year <= 2007.0)
+        Predict: 7.0
+       Else (year > 2007.0)
+        Predict: 3.0
+    Else (Is imdb_keywords:bathroom)
+     If (Isn't movielens_tags:based on a book)
+      If (Isn't movielens_tags:funny)
+       Predict: 5.0
+      Else (Is movielens_tags:funny)
+       Predict: 2.0
+     Else (Is movielens_tags:based on a book)
+      If (year <= 1996.0)
+       Predict: 6.0
+      Else (year > 1996.0)
+       Predict: 7.0
+
+Done, making predictions
+Accuracy of meta tree on training set: 0.927870090634
+Accuracy of meta tree on test set: 0.892519346518
+38 features used
+15 clusters found
+Processing cluster 0.0
+QIIs: [('imdb_keywords:reverse-footage', 0.15927578063500394), ('imdb_keywords:chase', -0.05247966413014957), ('movielens_genre:Comedy', 0.04644450275518237), ('imdb_rating', -0.04513251115192863), ('tvtropes:oh crap', -0.0422461296247704), ('imdb_keywords:severed-head', 0.019942272369456837), ('movielens_tags:religion', 0.003935974809761217), ('imdb_keywords:ambulance', 0.0026239832065074785), ('movielens_genre:War', 0.0023615848858567303), ('movielens_genre:Thriller', -0.001574389923904487), ('year', -0.0013119916032537393), ('imdb_keywords:bicycle', 0.0010495932826029913), ('imdb_keywords:kissing-while-having-sex', -0.0010495932826029913), ('imdb_keywords:basketball', -0.0007871949619522435), ('imdb_keywords:depression', -0.0007871949619522435), ('movielens_genre:Fantasy', -0.0005247966413014956), ('movielens_tags:CLV', 0.0005247966413014956)]
+Correctness scores: [(8, 0.7521685254027262), (4, 0.2527881040892193), (9, 0.19950433705080545), (5, 0.09417596034696407), (3, 0.0037174721189591076), (0, 0.0), (1, 0.0), (2, 0.0), (6, 0.0), (7, 0.0)]
+Processing cluster 1.0
+QIIs: [('imdb_keywords:ambulance', 0.12909997376016794), ('imdb_keywords:reverse-footage', 0.022303857255313565), ('movielens_genre:War', 0.02072946733140908), ('movielens_tags:religion', 0.018892679086853843), ('imdb_keywords:court', 0.009183941222776174), ('imdb_keywords:truck', 0.009183941222776174), ('movielens_genre:Comedy', -0.007609551298871687), ('imdb_keywords:rape', -0.006822356336919444), ('imdb_keywords:kissing-while-having-sex', -0.0036735764891104696), ('tvtropes:too dumb to live', 0.0026239832065074785), ('year', -0.0018367882445552348), ('imdb_keywords:chase', 0.001574389923904487), ('movielens_genre:Mystery', 0.0013119916032537393), ('movielens_genre:Fantasy', -0.0007871949619522435), ('imdb_keywords:newspaper', 0.0005247966413014956), ('imdb_keywords:curse', 0.0002623983206507478)]
+Correctness scores: [(8, 0.14731369150779897), (2, 0.060658578856152515), (7, 0.045060658578856154), (4, 0.034662045060658585), (1, 0.01906412478336222), (0, 0.0), (3, 0.0), (5, 0.0), (6, 0.0), (9, 0.0)]
+Processing cluster 2.0
+QIIs: [('movielens_genre:War', 0.12516399895040672), ('movielens_tags:religion', 0.024665442141170297), ('imdb_keywords:reverse-footage', 0.022303857255313565), ('imdb_keywords:kissing-while-having-sex', -0.014169509315140383), ('movielens_genre:Comedy', 0.01102072946733141), ('imdb_keywords:accident', 0.00839674626082393), ('imdb_keywords:truck', 0.006822356336919444), ('imdb_keywords:rape', 0.004985568092364209), ('movielens_genre:Mystery', -0.003935974809761217), ('imdb_keywords:chase', -0.0026239832065074785), ('imdb_keywords:basketball', -0.0026239832065074785), ('imdb_keywords:bathroom', 0.0018367882445552348), ('imdb_rating', 0.001574389923904487), ('tvtropes:too dumb to live', 0.0010495932826029913), ('year', 0.0007871949619522435), ('imdb_keywords:bicycle', 0.0007871949619522435), ('movielens_tags:based on a book', 0.0005247966413014956), ('movielens_tags:Bibliothek', -0.0002623983206507478), ('imdb_keywords:f-word', 0.0002623983206507478), ('movielens_tags:murder', -0.0002623983206507478)]
+Correctness scores: [(8, 0.148861646234676), (4, 0.11208406304728545), (2, 0.10157618213660244), (7, 0.03327495621716287), (0, 0.014010507880910681), (1, 0.007005253940455341), (5, 0.0017513134851138352), (3, 0.0), (6, 0.0), (9, 0.0)]
+Processing cluster 3.0
+QIIs: [('movielens_tags:religion', -0.11099448963526633), ('movielens_genre:Comedy', 0.030963001836788243), ('imdb_keywords:chase', 0.01443190763579113), ('imdb_keywords:ambulance', -0.012595119391235896), ('movielens_genre:War', -0.011283127787982157), ('imdb_keywords:reverse-footage', 0.00839674626082393), ('imdb_keywords:truck', 0.006822356336919444), ('imdb_keywords:kissing-while-having-sex', -0.006559958016268696), ('imdb_keywords:accident', 0.005510364733665705), ('imdb_keywords:court', -0.004460771451062713), ('imdb_keywords:severed-head', -0.004460771451062713), ('imdb_keywords:rape', 0.0028863815271582263), ('imdb_keywords:hope', 0.0005247966413014956), ('movielens_tags:Netflix Finland', 0.0005247966413014956), ('movielens_tags:based on a book', -0.0005247966413014956), ('year', 0.0002623983206507478)]
+Correctness scores: [(4, 0.1478743068391867), (2, 0.08687615526802218), (8, 0.05914972273567467), (5, 0.03142329020332717), (7, 0.02033271719038817), (6, 0.003696857670979667), (0, 0.0), (1, 0.0), (3, 0.0), (9, 0.0)]
+Processing cluster 4.0
+QIIs: [('imdb_keywords:kissing-while-having-sex', 0.08685384413539754), ('imdb_keywords:reverse-footage', 0.008921542902125426), ('movielens_tags:religion', 0.008921542902125426), ('imdb_keywords:ambulance', -0.007347152978220939), ('movielens_genre:Comedy', 0.006559958016268696), ('movielens_genre:War', -0.004460771451062713), ('tvtropes:too dumb to live', -0.003148779847808974), ('imdb_keywords:truck', 0.003148779847808974), ('tvtropes:oh crap', -0.0018367882445552348), ('imdb_keywords:hope', 0.0013119916032537393), ('year', 0.0010495932826029913), ('imdb_keywords:chase', 0.0010495932826029913), ('movielens_genre:Fantasy', -0.0007871949619522435), ('imdb_keywords:curse', 0.0007871949619522435), ('movielens_genre:Crime', 0.0005247966413014956), ('average_rating', 0.0005247966413014956), ('imdb_keywords:severed-head', 0.0005247966413014956), ('imdb_keywords:accident', 0.0005247966413014956), ('imdb_keywords:newspaper', -0.0002623983206507478), ('imdb_rating', 0.0002623983206507478), ('imdb_keywords:bicycle', 0.0002623983206507478), ('movielens_tags:murder', 0.0002623983206507478)]
+Correctness scores: [(4, 0.9178082191780823), (8, 0.09315068493150684), (1, 0.0410958904109589), (2, 0.038356164383561646), (9, 0.019178082191780823), (6, 0.013698630136986302), (5, 0.00821917808219178), (0, 0.0), (3, 0.0), (7, 0.0)]
+Processing cluster 5.0
+QIIs: [('movielens_genre:Comedy', 0.2419312516399895), ('movielens_genre:War', 0.04959328260299134), ('movielens_tags:religion', -0.04723169771713461), ('imdb_keywords:ambulance', 0.04460771451062713), ('imdb_keywords:severed-head', -0.028339018630280766), ('imdb_keywords:kissing-while-having-sex', 0.024927840461821043), ('imdb_keywords:court', 0.02282865389661506), ('tvtropes:too dumb to live', 0.015219102597743374), ('imdb_keywords:chase', -0.008921542902125426), ('tvtropes:oh crap', -0.0026239832065074785), ('year', -0.0013119916032537393), ('movielens_genre:Mystery', 0.0013119916032537393), ('movielens_tags:Bibliothek', 0.0010495932826029913), ('imdb_keywords:f-word', 0.0005247966413014956)]
+Correctness scores: [(4, 0.1161116111611161), (5, 0.09720972097209721), (1, 0.052205220522052204), (9, 0.009000900090009001), (0, 0.0018001800180017999), (2, 0.0), (3, 0.0), (6, 0.0), (7, 0.0), (8, 0.0)]
+Processing cluster 6.0
+QIIs: [('imdb_keywords:truck', 0.06297559695617948), ('movielens_genre:Comedy', 0.02545263710312254), ('imdb_keywords:reverse-footage', 0.02309105221726581), ('movielens_tags:religion', -0.012595119391235896), ('imdb_keywords:severed-head', -0.008659144581474678), ('movielens_genre:War', -0.004198373130411965), ('imdb_keywords:accident', -0.004198373130411965), ('imdb_keywords:chase', 0.003411178168459722), ('imdb_keywords:ambulance', -0.003148779847808974), ('tvtropes:too dumb to live', -0.0023615848858567303), ('imdb_keywords:bathroom', -0.0018367882445552348), ('year', -0.0013119916032537393), ('imdb_keywords:kissing-while-having-sex', -0.0013119916032537393), ('imdb_keywords:curse', -0.0013119916032537393), ('movielens_tags:Bibliothek', 0.0002623983206507478), ('average_rating', 0.0002623983206507478)]
+Correctness scores: [(2, 0.7596439169139466), (8, 0.26112759643916916), (5, 0.09792284866468842), (4, 0.053412462908011875), (1, 0.04154302670623145), (0, 0.020771513353115726), (3, 0.0), (6, 0.0), (7, 0.0), (9, 0.0)]
+Processing cluster 7.0
+QIIs: [('tvtropes:too dumb to live', 0.04618210443453162), ('imdb_keywords:reverse-footage', 0.012857517711886644), ('movielens_tags:religion', 0.008921542902125426), ('imdb_keywords:ambulance', 0.00839674626082393), ('imdb_keywords:chase', -0.007871949619522435), ('movielens_genre:Comedy', -0.0060351613749672), ('movielens_genre:War', 0.004985568092364209), ('year', -0.0023615848858567303), ('imdb_keywords:court', 0.0020991865652059826), ('imdb_keywords:truck', -0.0020991865652059826), ('imdb_keywords:accident', -0.0013119916032537393), ('movielens_genre:Crime', 0.0010495932826029913), ('imdb_keywords:severed-head', 0.0010495932826029913), ('imdb_keywords:kissing-while-having-sex', -0.0007871949619522435), ('tvtropes:oh crap', 0.0007871949619522435), ('movielens_tags:Bibliothek', 0.0005247966413014956), ('imdb_keywords:hope', 0.0005247966413014956), ('imdb_keywords:snake', 0.0002623983206507478), ('imdb_keywords:rape', 0.0002623983206507478), ('imdb_keywords:newspaper', -0.0002623983206507478), ('movielens_tags:funny', 0.0002623983206507478)]
+Correctness scores: [(1, 0.7822222222222222), (8, 0.21777777777777776), (4, 0.14666666666666664), (2, 0.057777777777777775), (5, 0.017777777777777774), (9, 0.017777777777777774), (6, 0.008888888888888887), (7, 0.004444444444444444), (0, 0.0), (3, 0.0)]
+Processing cluster 8.0
+QIIs: [('imdb_keywords:court', -0.02807662030963002), ('movielens_genre:Comedy', 0.011545526108632905), ('imdb_keywords:ambulance', -0.006559958016268696), ('movielens_tags:religion', -0.005510364733665705), ('movielens_genre:War', -0.0026239832065074785), ('imdb_keywords:rape', -0.0023615848858567303), ('year', 0.0013119916032537393), ('movielens_genre:Mystery', -0.0013119916032537393), ('imdb_keywords:kissing-while-having-sex', 0.0013119916032537393), ('imdb_keywords:severed-head', -0.0013119916032537393), ('imdb_keywords:truck', 0.0005247966413014956), ('imdb_keywords:reverse-footage', 0.0002623983206507478)]
+Correctness scores: [(7, 0.059602649006622516), (4, 0.033112582781456956), (5, 0.033112582781456956), (2, 0.013245033112582781), (8, 0.006622516556291391), (0, 0.0), (1, 0.0), (3, 0.0), (6, 0.0), (9, 0.0)]
+Processing cluster 9.0
+QIIs: [('imdb_keywords:reverse-footage', -0.18394122277617422), ('movielens_genre:Comedy', -0.1574389923904487), ('imdb_keywords:ambulance', -0.07871949619522435), ('movielens_genre:War', -0.06796116504854369), ('movielens_tags:religion', -0.05694043558121228), ('imdb_keywords:truck', -0.038834951456310676), ('imdb_keywords:kissing-while-having-sex', -0.03148779847808974), ('tvtropes:too dumb to live', -0.0241406454998688), ('imdb_keywords:accident', -0.017580687483600105), ('imdb_keywords:severed-head', -0.0026239832065074785), ('year', -0.0013119916032537393), ('movielens_genre:Crime', 0.0007871949619522435), ('average_rating', -0.0007871949619522435), ('imdb_keywords:rape', 0.0005247966413014956)]
+Correctness scores: [(8, 0.5388162951575711), (2, 0.16525749423520367), (4, 0.09223674096848578), (1, 0.07071483474250577), (5, 0.007686395080707149), (7, 0.0015372790161414297), (0, 0.0), (3, 0.0), (6, 0.0), (9, 0.0)]
+Processing cluster 10.0
+QIIs: [('imdb_keywords:rape', 0.01443190763579113), ('imdb_keywords:ambulance', 0.006559958016268696), ('movielens_genre:War', -0.005247966413014957), ('movielens_genre:Comedy', 0.0036735764891104696), ('imdb_keywords:reverse-footage', 0.0020991865652059826), ('movielens_tags:religion', 0.0020991865652059826), ('imdb_keywords:court', 0.001574389923904487), ('imdb_keywords:epic', 0.0007871949619522435), ('year', 0.0005247966413014956), ('movielens_tags:funny', 0.0005247966413014956), ('imdb_keywords:chase', 0.0002623983206507478), ('imdb_keywords:severed-head', 0.0002623983206507478), ('imdb_keywords:truck', 0.0002623983206507478)]
+Correctness scores: [(7, 0.6874999999999999), (8, 0.09999999999999999), (2, 0.012499999999999999), (4, 0.012499999999999999), (5, 0.012499999999999999), (0, 0.0), (1, 0.0), (3, 0.0), (6, 0.0), (9, 0.0)]
+Processing cluster 11.0
+QIIs: [('imdb_keywords:chase', 0.05956441878771976), ('imdb_keywords:reverse-footage', 0.04618210443453162), ('movielens_genre:Comedy', 0.022566255575964315), ('imdb_rating', 0.010233534505379166), ('tvtropes:oh crap', 0.007609551298871687), ('imdb_keywords:basketball', 0.005247966413014957), ('movielens_tags:religion', 0.004198373130411965), ('movielens_genre:Thriller', 0.003148779847808974), ('imdb_keywords:truck', -0.0013119916032537393), ('movielens_genre:War', 0.0010495932826029913), ('imdb_keywords:ambulance', 0.0010495932826029913), ('movielens_genre:Action', 0.0005247966413014956), ('imdb_keywords:bicycle', 0.0005247966413014956), ('year', 0.0002623983206507478)]
+Correctness scores: [(4, 0.5632754342431762), (8, 0.43672456575682383), (9, 0.07196029776674938), (2, 0.01240694789081886), (0, 0.0), (1, 0.0), (3, 0.0), (5, 0.0), (6, 0.0), (7, 0.0)]
+Processing cluster 12.0
+QIIs: [('imdb_rating', 0.05326685909210181), ('imdb_keywords:reverse-footage', 0.03726056153240619), ('movielens_genre:Comedy', 0.01679349252164786)]
+Correctness scores: [(8, 0.41159420289855075), (0, 0.0), (1, 0.0), (2, 0.0), (3, 0.0), (4, 0.0), (5, 0.0), (6, 0.0), (7, 0.0), (9, 0.0)]
+Processing cluster 13.0
+QIIs: [('tvtropes:oh crap', 0.04250852794542115), ('imdb_keywords:reverse-footage', 0.03542377328785096), ('movielens_genre:Comedy', 0.013119916032537392), ('imdb_rating', 0.004985568092364209), ('imdb_keywords:chase', 0.0026239832065074785), ('movielens_genre:Action', 0.0007871949619522435), ('movielens_tags:CLV', -0.0007871949619522435), ('imdb_keywords:depression', 0.0005247966413014956), ('movielens_genre:Fantasy', 0.0002623983206507478)]
+Correctness scores: [(9, 0.5454545454545454), (8, 0.45454545454545453), (4, 0.033670033670033676), (3, 0.006734006734006734), (0, 0.0), (1, 0.0), (2, 0.0), (5, 0.0), (6, 0.0), (7, 0.0)]
+Processing cluster 14.0
+QIIs: [('movielens_tags:religion', 0.05851482550511677), ('movielens_genre:Comedy', -0.03411178168459722), ('imdb_keywords:reverse-footage', 0.01443190763579113), ('imdb_keywords:chase', 0.0120703227499344), ('movielens_genre:War', 0.010233534505379166), ('imdb_keywords:ambulance', 0.009971136184728419), ('imdb_keywords:truck', -0.00839674626082393), ('imdb_keywords:severed-head', 0.004723169771713461), ('imdb_keywords:court', 0.003935974809761217), ('year', 0.0007871949619522435), ('imdb_keywords:epic', -0.0007871949619522435), ('imdb_keywords:snake', 0.0005247966413014956), ('movielens_tags:Netflix Finland', 0.0005247966413014956), ('tvtropes:oh crap', 0.0005247966413014956), ('movielens_tags:CLV', -0.0002623983206507478)]
+Correctness scores: [(8, 0.15580736543909346), (4, 0.13031161473087818), (2, 0.09065155807365438), (5, 0.050991501416430586), (9, 0.011331444759206798), (0, 0.0), (1, 0.0), (3, 0.0), (6, 0.0), (7, 0.0)]
+All highers corrs: [0.7521685254027262, 0.14731369150779897, 0.148861646234676, 0.1478743068391867, 0.9178082191780823, 0.1161116111611161, 0.7596439169139466, 0.7822222222222222, 0.059602649006622516, 0.5388162951575711, 0.6874999999999999, 0.5632754342431762, 0.41159420289855075, 0.5454545454545454, 0.15580736543909346]
+Their profiles: [8, 8, 8, 4, 4, 4, 2, 1, 7, 8, 7, 4, 8, 9, 8]
+6 profiles represented
+Average: 0.448936975444
+Results: {1: {'cluster': 7.0, 'corr': 0.7822222222222222}, 2: {'cluster': 6.0, 'corr': 0.7596439169139466}, 4: {'cluster': 4.0, 'corr': 0.9178082191780823}, 7: {'cluster': 10.0, 'corr': 0.6874999999999999}, 8: {'cluster': 0.0, 'corr': 0.7521685254027262}, 9: {'cluster': 13.0, 'corr': 0.5454545454545454}}
+Average corr: 0.740799571529
+Making per-cluster trees
+Processing cluster 0.0
+New clusters: defaultdict(<type 'int'>, {0.0: 3364, 1.0: 447})
+Building meta training set
+Training a meta tree
+DecisionTreeModel classifier of depth 8 with 63 nodes
+  If (average_rating <= 2.6061847988077496)
+   If (Is imdb_keywords:bathroom)
+    If (Isn't imdb_keywords:depression)
+     If (Isn't imdb_keywords:epic)
+      Predict: 0.0
+     Else (Is imdb_keywords:epic)
+      Predict: 1.0
+    Else (Is imdb_keywords:depression)
+     Predict: 1.0
+   Else (Isn't imdb_keywords:bathroom)
+    If (Is imdb_keywords:truck)
+     If (Isn't tvtropes:chekhovs skill)
+      If (Isn't imdb_keywords:crushed-to-death)
+       If (Isn't imdb_keywords:depression)
+        Predict: 0.0
+       Else (Is imdb_keywords:depression)
+        Predict: 1.0
+      Else (Is imdb_keywords:crushed-to-death)
+       Predict: 1.0
+     Else (Is tvtropes:chekhovs skill)
+      If (Is movielens_genre:Action)
+       Predict: 0.0
+      Else (Isn't movielens_genre:Action)
+       Predict: 1.0
+    Else (Isn't imdb_keywords:truck)
+     If (Is imdb_keywords:severed-head)
+      If (Isn't imdb_keywords:bodyguard)
+       If (Isn't imdb_keywords:africa)
+        If (Isn't imdb_keywords:scandal)
+         Predict: 0.0
+        Else (Is imdb_keywords:scandal)
+         Predict: 1.0
+       Else (Is imdb_keywords:africa)
+        Predict: 1.0
+      Else (Is imdb_keywords:bodyguard)
+       If (year <= 1995.0)
+        Predict: 1.0
+       Else (year > 1995.0)
+        Predict: 0.0
+     Else (Isn't imdb_keywords:severed-head)
+      If (Is imdb_keywords:chase)
+       If (Isn't imdb_keywords:kissing-while-having-sex)
+        Predict: 0.0
+       Else (Is imdb_keywords:kissing-while-having-sex)
+        Predict: 1.0
+      Else (Isn't imdb_keywords:chase)
+       If (Is imdb_keywords:demon)
+        If (Is movielens_genre:Crime)
+         Predict: 0.0
+        Else (Isn't movielens_genre:Crime)
+         Predict: 1.0
+       Else (Isn't imdb_keywords:demon)
+        Predict: 1.0
+  Else (average_rating > 2.6061847988077496)
+   If (Isn't imdb_keywords:kissing-while-having-sex)
+    If (average_rating <= 3.0158154005703914)
+     If (average_rating <= 2.999745352686529)
+      Predict: 0.0
+     Else (average_rating > 2.999745352686529)
+      If (Is imdb_keywords:racial-slur)
+       If (Is movielens_tags:Tumey's DVDs)
+        Predict: 0.0
+       Else (Isn't movielens_tags:Tumey's DVDs)
+        Predict: 1.0
+      Else (Isn't imdb_keywords:racial-slur)
+       If (Isn't movielens_tags:based on a book)
+        If (Isn't movielens_genre:Animation)
+         If (Isn't imdb_keywords:aunt-niece-relationship)
+          Predict: 0.0
+         Else (Is imdb_keywords:aunt-niece-relationship)
+          Predict: 1.0
+        Else (Is movielens_genre:Animation)
+         Predict: 1.0
+       Else (Is movielens_tags:based on a book)
+        If (Isn't imdb_keywords:politics)
+         Predict: 0.0
+        Else (Is imdb_keywords:politics)
+         Predict: 1.0
+    Else (average_rating > 3.0158154005703914)
+     Predict: 0.0
+   Else (Is imdb_keywords:kissing-while-having-sex)
+    If (average_rating <= 3.0158154005703914)
+     If (average_rating <= 2.999745352686529)
+      Predict: 0.0
+     Else (average_rating > 2.999745352686529)
+      If (Is imdb_keywords:brother-sister-relationship)
+       Predict: 0.0
+      Else (Isn't imdb_keywords:brother-sister-relationship)
+       If (Is imdb_keywords:famous-score)
+        Predict: 0.0
+       Else (Isn't imdb_keywords:famous-score)
+        Predict: 1.0
+    Else (average_rating > 3.0158154005703914)
+     Predict: 0.0
+
+Done, making predictions
+Accuracy of cluster 0.0 meta tree on training set: 1.0
+{'recall': 1.0, 'precision': 1.0}
+Accuracy of cluster 0.0 meta tree on test set: 0.985344827586
+{'recall': 0.927007299270073, 'precision': 0.9477611940298507}
+25 features used
+QIIs: [('imdb_keywords:demon', 0.16819732353712935), ('movielens_tags:based on a book', 0.05694043558121228), ('tvtropes:chekhovs skill', 0.04460771451062713), ('imdb_keywords:severed-head', 0.03804775649435844), ('movielens_genre:Animation', 0.03726056153240619), ('imdb_keywords:epic', 0.0120703227499344), ('imdb_keywords:racial-slur', 0.008134347940173182), ("movielens_tags:Tumey's DVDs", 0.003935974809761217), ('imdb_keywords:bathroom', 0.003411178168459722), ('imdb_keywords:scandal', 0.003411178168459722), ('imdb_keywords:crushed-to-death', 0.0028863815271582263), ('imdb_keywords:chase', 0.001574389923904487), ('imdb_keywords:famous-score', 0.0013119916032537393), ('average_rating', 0.0013119916032537393), ('imdb_keywords:kissing-while-having-sex', 0.0013119916032537393), ('year', 0.0010495932826029913), ('movielens_genre:Crime', 0.0007871949619522435), ('imdb_keywords:aunt-niece-relationship', 0.0007871949619522435), ('imdb_keywords:bodyguard', 0.0007871949619522435), ('imdb_keywords:truck', 0.0007871949619522435), ('movielens_genre:Action', 0.0005247966413014956), ('imdb_keywords:depression', 0.0005247966413014956), ('imdb_keywords:brother-sister-relationship', 0.0005247966413014956), ('imdb_keywords:africa', 0.0005247966413014956), ('imdb_keywords:politics', 0.0005247966413014956)]
+Correctness scores: [(5, 0.16899766899766902), (0, 0.015151515151515152), (4, 0.012820512820512822), (2, 0.0034965034965034965), (3, 0.002331002331002331), (1, 0.0), (6, 0.0), (7, 0.0), (8, 0.0), (9, 0.0)]
+Processing cluster 1.0
+New clusters: defaultdict(<type 'int'>, {0.0: 3451, 1.0: 360})
+Building meta training set
+Training a meta tree
+DecisionTreeModel classifier of depth 8 with 25 nodes
+  If (Isn't imdb_keywords:rape)
+   Predict: 0.0
+  Else (Is imdb_keywords:rape)
+   If (Is imdb_keywords:f-word)
+    If (Isn't imdb_keywords:rainstorm)
+     Predict: 0.0
+    Else (Is imdb_keywords:rainstorm)
+     Predict: 1.0
+   Else (Isn't imdb_keywords:f-word)
+    If (Is imdb_keywords:reverse-footage)
+     Predict: 0.0
+    Else (Isn't imdb_keywords:reverse-footage)
+     If (Is tvtropes:oh crap)
+      If (Isn't movielens_genre:Adventure)
+       Predict: 0.0
+      Else (Is movielens_genre:Adventure)
+       Predict: 1.0
+     Else (Isn't tvtropes:oh crap)
+      If (Is imdb_keywords:curse)
+       Predict: 0.0
+      Else (Isn't imdb_keywords:curse)
+       If (Is imdb_keywords:depression)
+        If (Isn't imdb_keywords:adoption)
+         Predict: 0.0
+        Else (Is imdb_keywords:adoption)
+         Predict: 1.0
+       Else (Isn't imdb_keywords:depression)
+        If (Is movielens_tags:murder)
+         If (Isn't imdb_keywords:severed-head)
+          Predict: 0.0
+         Else (Is imdb_keywords:severed-head)
+          Predict: 1.0
+        Else (Isn't movielens_tags:murder)
+         If (Is imdb_keywords:accident)
+          Predict: 0.0
+         Else (Isn't imdb_keywords:accident)
+          Predict: 1.0
+
+Done, making predictions
+Accuracy of cluster 1.0 meta tree on training set: 0.995535714286
+{'recall': 0.9961089494163424, 'precision': 0.9588014981273408}
+Accuracy of cluster 1.0 meta tree on test set: 0.991095280499
+{'recall': 0.9611650485436893, 'precision': 0.9428571428571428}
+12 features used
+QIIs: [('tvtropes:oh crap', 0.15402781422198897), ('imdb_keywords:reverse-footage', 0.02282865389661506), ('imdb_keywords:f-word', 0.016531094200997114), ('movielens_genre:Adventure', 0.011545526108632905), ('imdb_keywords:curse', 0.010233534505379166), ('imdb_keywords:rainstorm', 0.008659144581474678), ('imdb_keywords:adoption', 0.007609551298871687), ('imdb_keywords:accident', 0.006822356336919444), ('imdb_keywords:severed-head', 0.0018367882445552348), ('movielens_tags:murder', 0.001574389923904487), ('imdb_keywords:rape', 0.001574389923904487), ('imdb_keywords:depression', 0.0002623983206507478)]
+Correctness scores: [(9, 0.8709198813056379), (8, 0.129080118694362), (0, 0.09347181008902078), (1, 0.05786350148367953), (2, 0.03857566765578635), (5, 0.019287833827893175), (7, 0.008902077151335312), (3, 0.001483679525222552), (4, 0.0), (6, 0.0)]
+Processing cluster 2.0
+New clusters: defaultdict(<type 'int'>, {0.0: 3443, 1.0: 368})
+Building meta training set
+Training a meta tree
+DecisionTreeModel classifier of depth 8 with 23 nodes
+  If (Isn't tvtropes:oh crap)
+   Predict: 0.0
+  Else (Is tvtropes:oh crap)
+   If (Is imdb_keywords:f-word)
+    If (Isn't imdb_keywords:bathroom)
+     Predict: 0.0
+    Else (Is imdb_keywords:bathroom)
+     If (year <= 1994.0)
+      Predict: 0.0
+     Else (year > 1994.0)
+      Predict: 1.0
+   Else (Isn't imdb_keywords:f-word)
+    If (Is movielens_tags:murder)
+     Predict: 0.0
+    Else (Isn't movielens_tags:murder)
+     If (Is imdb_keywords:snake)
+      Predict: 0.0
+     Else (Isn't imdb_keywords:snake)
+      If (Is imdb_keywords:hope)
+       If (year <= 2013.0)
+        Predict: 0.0
+       Else (year > 2013.0)
+        Predict: 1.0
+      Else (Isn't imdb_keywords:hope)
+       If (Is imdb_keywords:curse)
+        Predict: 0.0
+       Else (Isn't imdb_keywords:curse)
+        If (Is imdb_keywords:depression)
+         Predict: 0.0
+        Else (Isn't imdb_keywords:depression)
+         If (Is imdb_keywords:accident)
+          Predict: 0.0
+         Else (Isn't imdb_keywords:accident)
+          Predict: 1.0
+
+Done, making predictions
+Accuracy of cluster 2.0 meta tree on training set: 1.0
+{'recall': 1.0, 'precision': 1.0}
+Accuracy of cluster 2.0 meta tree on test set: 1.0
+{'recall': 1.0, 'precision': 1.0}
+10 features used
+QIIs: [('imdb_keywords:f-word', 0.15009183941222776), ('tvtropes:oh crap', 0.024665442141170297), ('movielens_tags:murder', 0.013644712673838887), ('imdb_keywords:bathroom', 0.010495932826029914), ('imdb_keywords:curse', 0.00839674626082393), ('imdb_keywords:accident', 0.005510364733665705), ('imdb_keywords:snake', 0.005510364733665705), ('imdb_keywords:depression', 0.004723169771713461), ('imdb_keywords:hope', 0.0018367882445552348), ('year', 0.0005247966413014956)]
+Correctness scores: [(0, 0.918918918918919), (9, 0.17267267267267267), (5, 0.07807807807807808), (1, 0.04804804804804804), (2, 0.03153153153153153), (3, 0.027027027027027025), (6, 0.01051051051051051), (4, 0.0), (7, 0.0), (8, 0.0)]
+Processing cluster 3.0
+New clusters: defaultdict(<type 'int'>, {0.0: 3585, 1.0: 226})
+Building meta training set
+Training a meta tree
+DecisionTreeModel classifier of depth 7 with 41 nodes
+  If (Isn't imdb_keywords:f-word)
+   Predict: 0.0
+  Else (Is imdb_keywords:f-word)
+   If (Isn't imdb_keywords:chase)
+    If (Is imdb_keywords:rape)
+     If (Is imdb_keywords:bathroom)
+      If (Isn't imdb_keywords:beach)
+       Predict: 0.0
+      Else (Is imdb_keywords:beach)
+       Predict: 1.0
+     Else (Isn't imdb_keywords:bathroom)
+      If (Is imdb_keywords:warrior)
+       Predict: 0.0
+      Else (Isn't imdb_keywords:warrior)
+       Predict: 1.0
+    Else (Isn't imdb_keywords:rape)
+     If (Is tvtropes:oh crap)
+      If (Is movielens_tags:murder)
+       Predict: 0.0
+      Else (Isn't movielens_tags:murder)
+       If (Is imdb_keywords:bathroom)
+        Predict: 0.0
+       Else (Isn't imdb_keywords:bathroom)
+        Predict: 1.0
+     Else (Isn't tvtropes:oh crap)
+      If (Isn't imdb_keywords:depression)
+       If (Isn't imdb_keywords:reverse-footage)
+        Predict: 0.0
+       Else (Is imdb_keywords:reverse-footage)
+        Predict: 1.0
+      Else (Is imdb_keywords:depression)
+       If (Is imdb_keywords:bathroom)
+        Predict: 0.0
+       Else (Isn't imdb_keywords:bathroom)
+        If (Is movielens_tags:cinematography)
+         Predict: 0.0
+        Else (Isn't movielens_tags:cinematography)
+         Predict: 1.0
+   Else (Is imdb_keywords:chase)
+    If (Is imdb_keywords:bathroom)
+     Predict: 0.0
+    Else (Isn't imdb_keywords:bathroom)
+     If (Is imdb_keywords:kissing-while-having-sex)
+      If (average_rating <= 3.648748841519926)
+       Predict: 0.0
+      Else (average_rating > 3.648748841519926)
+       Predict: 1.0
+     Else (Isn't imdb_keywords:kissing-while-having-sex)
+      If (Is movielens_tags:murder)
+       If (Isn't imdb_keywords:ambulance)
+        Predict: 0.0
+       Else (Is imdb_keywords:ambulance)
+        Predict: 1.0
+      Else (Isn't movielens_tags:murder)
+       If (Is imdb_keywords:hope)
+        Predict: 0.0
+       Else (Isn't imdb_keywords:hope)
+        If (Is imdb_keywords:curse)
+         Predict: 0.0
+        Else (Isn't imdb_keywords:curse)
+         Predict: 1.0
+
+Done, making predictions
+Accuracy of cluster 3.0 meta tree on training set: 1.0
+{'recall': 1.0, 'precision': 1.0}
+Accuracy of cluster 3.0 meta tree on test set: 0.994485294118
+{'recall': 0.95, 'precision': 0.95}
+16 features used
+QIIs: [('imdb_keywords:beach', 0.1091577013907111), ('movielens_tags:murder', 0.03411178168459722), ('imdb_keywords:curse', 0.014694305956441878), ('average_rating', 0.01102072946733141), ('imdb_keywords:kissing-while-having-sex', 0.010758331146680662), ('imdb_keywords:f-word', 0.010233534505379166), ('imdb_keywords:chase', 0.004985568092364209), ('imdb_keywords:warrior', 0.004198373130411965), ('movielens_tags:cinematography', 0.004198373130411965), ('imdb_keywords:reverse-footage', 0.0036735764891104696), ('imdb_keywords:rape', 0.0018367882445552348), ('imdb_keywords:bathroom', 0.001574389923904487), ('imdb_keywords:ambulance', 0.0013119916032537393), ('tvtropes:oh crap', 0.0010495932826029913), ('imdb_keywords:hope', 0.0005247966413014956), ('imdb_keywords:depression', 0.0005247966413014956)]
+Correctness scores: [(5, 0.2380952380952381), (4, 0.10989010989010992), (1, 0.10256410256410256), (0, 0.08241758241758242), (8, 0.02564102564102564), (7, 0.01282051282051282), (9, 0.007326007326007326), (3, 0.003663003663003663), (6, 0.003663003663003663), (2, 0.0)]
+Processing cluster 4.0
+New clusters: defaultdict(<type 'int'>, {0.0: 3589, 1.0: 222})
+Building meta training set
+Training a meta tree
+DecisionTreeModel classifier of depth 4 with 9 nodes
+  If (Isn't movielens_tags:murder)
+   Predict: 0.0
+  Else (Is movielens_tags:murder)
+   If (Is imdb_keywords:severed-head)
+    Predict: 0.0
+   Else (Isn't imdb_keywords:severed-head)
+    If (Is imdb_keywords:accident)
+     Predict: 0.0
+    Else (Isn't imdb_keywords:accident)
+     If (Is movielens_genre:Children)
+      Predict: 0.0
+     Else (Isn't movielens_genre:Children)
+      Predict: 1.0
+
+Done, making predictions
+Accuracy of cluster 4.0 meta tree on training set: 1.0
+{'recall': 1.0, 'precision': 1.0}
+Accuracy of cluster 4.0 meta tree on test set: 0.998263888889
+{'recall': 1.0, 'precision': 0.972972972972973}
+4 features used
+QIIs: [('movielens_genre:Children', 0.11335607452112306), ('movielens_tags:murder', 0.013907110994489635), ('imdb_keywords:severed-head', 0.0036735764891104696), ('imdb_keywords:accident', 0.0007871949619522435)]
+Correctness scores: [(5, 0.13814432989690723), (2, 0.006185567010309279), (0, 0.0), (1, 0.0), (3, 0.0), (4, 0.0), (6, 0.0), (7, 0.0), (8, 0.0), (9, 0.0)]
+Processing cluster 5.0
+New clusters: defaultdict(<type 'int'>, {0.0: 3064, 1.0: 747})
+Building meta training set
+Training a meta tree
+DecisionTreeModel classifier of depth 8 with 49 nodes
+  If (Isn't imdb_keywords:chase)
+   Predict: 0.0
+  Else (Is imdb_keywords:chase)
+   If (average_rating <= 2.9588894821142553)
+    If (Is imdb_keywords:kissing-while-having-sex)
+     Predict: 0.0
+    Else (Isn't imdb_keywords:kissing-while-having-sex)
+     If (Is tvtropes:oh crap)
+      If (Isn't imdb_keywords:snake)
+       Predict: 0.0
+      Else (Is imdb_keywords:snake)
+       Predict: 1.0
+     Else (Isn't tvtropes:oh crap)
+      If (Is imdb_keywords:f-word)
+       If (Isn't imdb_keywords:bathroom)
+        Predict: 0.0
+       Else (Is imdb_keywords:bathroom)
+        Predict: 1.0
+      Else (Isn't imdb_keywords:f-word)
+       If (Is imdb_keywords:rape)
+        Predict: 0.0
+       Else (Isn't imdb_keywords:rape)
+        If (Is imdb_keywords:hope)
+         If (year <= 1999.0)
+          Predict: 0.0
+         Else (year > 1999.0)
+          Predict: 1.0
+        Else (Isn't imdb_keywords:hope)
+         If (Is imdb_keywords:accident)
+          Predict: 0.0
+         Else (Isn't imdb_keywords:accident)
+          Predict: 1.0
+   Else (average_rating > 2.9588894821142553)
+    If (average_rating <= 3.7375502843667636)
+     If (Is imdb_keywords:grandmother-grandson-relationship)
+      Predict: 1.0
+     Else (Isn't imdb_keywords:grandmother-grandson-relationship)
+      If (Is imdb_keywords:animal-in-title)
+       Predict: 1.0
+      Else (Isn't imdb_keywords:animal-in-title)
+       If (Is movielens_tags:history)
+        If (Isn't movielens_genre:Action)
+         Predict: 0.0
+        Else (Is movielens_genre:Action)
+         Predict: 1.0
+       Else (Isn't movielens_tags:history)
+        If (Is imdb_keywords:aunt-niece-relationship)
+         If (year <= 2007.0)
+          Predict: 0.0
+         Else (year > 2007.0)
+          Predict: 1.0
+        Else (Isn't imdb_keywords:aunt-niece-relationship)
+         If (Is imdb_keywords:foreign-language-adaptation)
+          Predict: 0.0
+         Else (Isn't imdb_keywords:foreign-language-adaptation)
+          Predict: 0.0
+    Else (average_rating > 3.7375502843667636)
+     If (Is imdb_keywords:f-word)
+      Predict: 0.0
+     Else (Isn't imdb_keywords:f-word)
+      If (Is tvtropes:oh crap)
+       Predict: 0.0
+      Else (Isn't tvtropes:oh crap)
+       If (Is imdb_keywords:rape)
+        Predict: 0.0
+       Else (Isn't imdb_keywords:rape)
+        If (Is movielens_tags:murder)
+         Predict: 0.0
+        Else (Isn't movielens_tags:murder)
+         If (Is imdb_keywords:depression)
+          Predict: 0.0
+         Else (Isn't imdb_keywords:depression)
+          Predict: 1.0
+
+Done, making predictions
+Accuracy of cluster 5.0 meta tree on training set: 0.985899390244
+{'recall': 0.9924953095684803, 'precision': 0.9412811387900356}
+Accuracy of cluster 5.0 meta tree on test set: 0.97051390059
+{'recall': 0.9579439252336449, 'precision': 0.8874458874458875}
+19 features used
+QIIs: [('movielens_tags:history', 0.23117292049330884), ('tvtropes:oh crap', 0.07609551298871688), ('imdb_keywords:bathroom', 0.04408291786932564), ('imdb_keywords:rape', 0.04329572290737339), ('imdb_keywords:grandmother-grandson-relationship', 0.04145893466281816), ('imdb_keywords:animal-in-title', 0.0181054841249016), ('movielens_tags:murder', 0.015481500918394122), ('imdb_keywords:aunt-niece-relationship', 0.009708737864077669), ('imdb_keywords:depression', 0.004460771451062713), ('imdb_keywords:hope', 0.004198373130411965), ('imdb_keywords:kissing-while-having-sex', 0.003935974809761217), ('average_rating', 0.003935974809761217), ('imdb_keywords:accident', 0.0013119916032537393), ('imdb_keywords:chase', 0.0007871949619522435), ('imdb_keywords:f-word', 0.0007871949619522435), ('year', 0.0005247966413014956), ('imdb_keywords:snake', 0.0005247966413014956), ('movielens_genre:Action', 0.0002623983206507478)]
+Correctness scores: [(9, 0.2493595217762596), (0, 0.1460290350128096), (7, 0.14090520922288644), (5, 0.05038428693424424), (4, 0.015371477369769427), (3, 0.014517506404782237), (6, 0.013663535439795047), (2, 0.004269854824935953), (1, 0.0), (8, 0.0)]
+Processing cluster 6.0
+New clusters: defaultdict(<type 'int'>, {0.0: 3598, 1.0: 213})
+Building meta training set
+Training a meta tree
+DecisionTreeModel classifier of depth 7 with 21 nodes
+  If (Isn't imdb_keywords:depression)
+   Predict: 0.0
+  Else (Is imdb_keywords:depression)
+   If (Is imdb_keywords:f-word)
+    If (Isn't imdb_keywords:bathroom)
+     Predict: 0.0
+    Else (Is imdb_keywords:bathroom)
+     If (year <= 2013.0)
+      Predict: 1.0
+     Else (year > 2013.0)
+      Predict: 0.0
+   Else (Isn't imdb_keywords:f-word)
+    If (Is imdb_keywords:doll)
+     Predict: 0.0
+    Else (Isn't imdb_keywords:doll)
+     If (Is imdb_keywords:hope)
+      If (Isn't imdb_keywords:betrayal)
+       Predict: 0.0
+      Else (Is imdb_keywords:betrayal)
+       Predict: 1.0
+     Else (Isn't imdb_keywords:hope)
+      If (Is imdb_keywords:accident)
+       Predict: 0.0
+      Else (Isn't imdb_keywords:accident)
+       If (Is movielens_tags:murder)
+        Predict: 0.0
+       Else (Isn't movielens_tags:murder)
+        If (Is imdb_keywords:curse)
+         Predict: 0.0
+        Else (Isn't imdb_keywords:curse)
+         Predict: 1.0
+
+Done, making predictions
+Accuracy of cluster 6.0 meta tree on training set: 1.0
+{'recall': 1.0, 'precision': 1.0}
+Accuracy of cluster 6.0 meta tree on test set: 0.999121265378
+{'recall': 1.0, 'precision': 0.9836065573770492}
+10 features used
+QIIs: [('imdb_keywords:betrayal', 0.09525059039622147), ('imdb_keywords:hope', 0.010758331146680662), ('imdb_keywords:f-word', 0.007084754657570191), ('imdb_keywords:depression', 0.005510364733665705), ('movielens_tags:murder', 0.004723169771713461), ('imdb_keywords:curse', 0.003935974809761217), ('imdb_keywords:bathroom', 0.0028863815271582263), ('imdb_keywords:accident', 0.0020991865652059826), ('imdb_keywords:doll', 0.0007871949619522435), ('year', 0.0002623983206507478)]
+Correctness scores: [(6, 0.10148514851485148), (0, 0.09405940594059406), (3, 0.0594059405940594), (5, 0.044554455445544545), (1, 0.03712871287128713), (2, 0.0198019801980198), (4, 0.0), (7, 0.0), (8, 0.0), (9, 0.0)]
+Processing cluster 7.0
+New clusters: defaultdict(<type 'int'>, {0.0: 3663, 1.0: 148})
+Building meta training set
+Training a meta tree
+DecisionTreeModel classifier of depth 4 with 9 nodes
+  If (Isn't imdb_keywords:accident)
+   Predict: 0.0
+  Else (Is imdb_keywords:accident)
+   If (Is tvtropes:ms fanservice)
+    Predict: 0.0
+   Else (Isn't tvtropes:ms fanservice)
+    If (Is imdb_keywords:pot-smoking)
+     If (year <= 2007.0)
+      Predict: 0.0
+     Else (year > 2007.0)
+      Predict: 1.0
+    Else (Isn't imdb_keywords:pot-smoking)
+     Predict: 1.0
+
+Done, making predictions
+Accuracy of cluster 7.0 meta tree on training set: 1.0
+{'recall': 1.0, 'precision': 1.0}
+Accuracy of cluster 7.0 meta tree on test set: 0.998222222222
+{'recall': 0.9444444444444444, 'precision': 1.0}
+4 features used
+QIIs: [('tvtropes:ms fanservice', 0.07215953817895565), ('imdb_keywords:pot-smoking', 0.0026239832065074785), ('imdb_keywords:accident', 0.0023615848858567303), ('year', 0.0002623983206507478)]
+Correctness scores: [(2, 0.031578947368421054), (0, 0.0), (1, 0.0), (3, 0.0), (4, 0.0), (5, 0.0), (6, 0.0), (7, 0.0), (8, 0.0), (9, 0.0)]
+Processing cluster 8.0
+New clusters: defaultdict(<type 'int'>, {0.0: 3700, 1.0: 111})
+Building meta training set
+Training a meta tree
+DecisionTreeModel classifier of depth 8 with 19 nodes
+  If (Isn't imdb_keywords:reverse-footage)
+   Predict: 0.0
+  Else (Is imdb_keywords:reverse-footage)
+   If (Is imdb_keywords:f-word)
+    Predict: 0.0
+   Else (Isn't imdb_keywords:f-word)
+    If (Is tvtropes:oh crap)
+     If (average_rating <= 3.0622624963460976)
+      Predict: 1.0
+     Else (average_rating > 3.0622624963460976)
+      Predict: 0.0
+    Else (Isn't tvtropes:oh crap)
+     If (Is imdb_keywords:curse)
+      Predict: 0.0
+     Else (Isn't imdb_keywords:curse)
+      If (Is imdb_keywords:accident)
+       Predict: 0.0
+      Else (Isn't imdb_keywords:accident)
+       If (Is imdb_keywords:hope)
+        Predict: 0.0
+       Else (Isn't imdb_keywords:hope)
+        If (Is imdb_keywords:depression)
+         Predict: 0.0
+        Else (Isn't imdb_keywords:depression)
+         If (Is movielens_tags:murder)
+          Predict: 0.0
+         Else (Isn't movielens_tags:murder)
+          Predict: 1.0
+
+Done, making predictions
+Accuracy of cluster 8.0 meta tree on training set: 0.999621212121
+{'recall': 1.0, 'precision': 0.9848484848484849}
+Accuracy of cluster 8.0 meta tree on test set: 0.99487617421
+{'recall': 0.9347826086956522, 'precision': 0.9347826086956522}
+9 features used
+QIIs: [('imdb_keywords:reverse-footage', 0.056415638939910785), ('average_rating', 0.009183941222776174), ('imdb_keywords:hope', 0.007084754657570191), ('imdb_keywords:f-word', 0.0036735764891104696), ('movielens_tags:murder', 0.003148779847808974), ('imdb_keywords:accident', 0.003148779847808974), ('tvtropes:oh crap', 0.0023615848858567303), ('imdb_keywords:depression', 0.0023615848858567303), ('imdb_keywords:curse', 0.0010495932826029913)]
+Correctness scores: [(8, 0.8599999999999999), (6, 0.10799999999999998), (0, 0.055999999999999994), (2, 0.047999999999999994), (5, 0.047999999999999994), (3, 0.03599999999999999), (9, 0.03599999999999999), (1, 0.015999999999999997), (4, 0.0), (7, 0.0)]
+Processing cluster 9.0
+New clusters: defaultdict(<type 'int'>, {0.0: 3651, 1.0: 160})
+Building meta training set
+Training a meta tree
+DecisionTreeModel classifier of depth 5 with 13 nodes
+  If (Isn't imdb_keywords:hope)
+   Predict: 0.0
+  Else (Is imdb_keywords:hope)
+   If (Is imdb_keywords:mission)
+    Predict: 0.0
+   Else (Isn't imdb_keywords:mission)
+    If (Is imdb_keywords:curse)
+     If (year <= 1985.0)
+      Predict: 1.0
+     Else (year > 1985.0)
+      Predict: 0.0
+    Else (Isn't imdb_keywords:curse)
+     If (Is movielens_tags:murder)
+      Predict: 0.0
+     Else (Isn't movielens_tags:murder)
+      If (Is imdb_keywords:accident)
+       Predict: 0.0
+      Else (Isn't imdb_keywords:accident)
+       Predict: 1.0
+
+Done, making predictions
+Accuracy of cluster 9.0 meta tree on training set: 1.0
+{'recall': 1.0, 'precision': 1.0}
+Accuracy of cluster 9.0 meta tree on test set: 0.999118942731
+{'recall': 0.9782608695652174, 'precision': 1.0}
+6 features used
+QIIs: [('imdb_keywords:mission', 0.08081868276043033), ('imdb_keywords:hope', 0.005247966413014957), ('movielens_tags:murder', 0.0036735764891104696), ('imdb_keywords:accident', 0.0028863815271582263), ('imdb_keywords:curse', 0.0020991865652059826), ('year', 0.0002623983206507478)]
+Correctness scores: [(6, 1.0), (5, 0.04268292682926829), (2, 0.03353658536585366), (1, 0.024390243902439022), (0, 0.0), (3, 0.0), (4, 0.0), (7, 0.0), (8, 0.0), (9, 0.0)]
+Processing cluster 10.0
+New clusters: defaultdict(<type 'int'>, {0.0: 3692, 1.0: 119})
+Building meta training set
+Training a meta tree
+DecisionTreeModel classifier of depth 3 with 7 nodes
+  If (Isn't imdb_keywords:curse)
+   Predict: 0.0
+  Else (Is imdb_keywords:curse)
+   If (Is imdb_keywords:accident)
+    Predict: 0.0
+   Else (Isn't imdb_keywords:accident)
+    If (Is imdb_keywords:blindness)
+     Predict: 0.0
+    Else (Isn't imdb_keywords:blindness)
+     Predict: 1.0
+
+Done, making predictions
+Accuracy of cluster 10.0 meta tree on training set: 1.0
+{'recall': 1.0, 'precision': 1.0}
+Accuracy of cluster 10.0 meta tree on test set: 0.998254799302
+{'recall': 0.9545454545454546, 'precision': 1.0}
+3 features used
+QIIs: [('imdb_keywords:accident', 0.06008921542902126), ('imdb_keywords:curse', 0.0023615848858567303), ('imdb_keywords:blindness', 0.001574389923904487)]
+Correctness scores: [(2, 0.9621848739495799), (1, 0.037815126050420166), (0, 0.0), (3, 0.0), (4, 0.0), (5, 0.0), (6, 0.0), (7, 0.0), (8, 0.0), (9, 0.0)]
+Processing cluster 11.0
+New clusters: defaultdict(<type 'int'>, {0.0: 3604, 1.0: 207})
+Building meta training set
+Training a meta tree
+DecisionTreeModel classifier of depth 6 with 23 nodes
+  If (Isn't imdb_keywords:bathroom)
+   Predict: 0.0
+  Else (Is imdb_keywords:bathroom)
+   If (average_rating <= 2.3236298292902067)
+    If (Is imdb_keywords:truck)
+     If (year <= 2007.0)
+      Predict: 0.0
+     Else (year > 2007.0)
+      Predict: 1.0
+    Else (Isn't imdb_keywords:truck)
+     If (Is imdb_keywords:severed-head)
+      Predict: 0.0
+     Else (Isn't imdb_keywords:severed-head)
+      If (Is movielens_genre:Film-Noir)
+       If (year <= 1948.0)
+        Predict: 1.0
+       Else (year > 1948.0)
+        Predict: 0.0
+      Else (Isn't movielens_genre:Film-Noir)
+       Predict: 1.0
+   Else (average_rating > 2.3236298292902067)
+    If (Isn't imdb_keywords:f-word)
+     Predict: 0.0
+    Else (Is imdb_keywords:f-word)
+     If (average_rating <= 3.0)
+      If (Is imdb_keywords:knife)
+       If (Isn't movielens_tags:BD-R)
+        Predict: 0.0
+       Else (Is movielens_tags:BD-R)
+        Predict: 1.0
+      Else (Isn't imdb_keywords:knife)
+       Predict: 1.0
+     Else (average_rating > 3.0)
+      Predict: 0.0
+
+Done, making predictions
+Accuracy of cluster 11.0 meta tree on training set: 1.0
+{'recall': 1.0, 'precision': 1.0}
+Accuracy of cluster 11.0 meta tree on test set: 0.993794326241
+{'recall': 0.9846153846153847, 'precision': 0.9142857142857143}
+9 features used
+QIIs: [('imdb_keywords:f-word', 0.060351613749672), ('movielens_tags:BD-R', 0.05694043558121228), ('average_rating', 0.009183941222776174), ('imdb_keywords:severed-head', 0.007609551298871687), ('movielens_genre:Film-Noir', 0.007347152978220939), ('imdb_keywords:knife', 0.0026239832065074785), ('year', 0.0020991865652059826), ('imdb_keywords:bathroom', 0.0007871949619522435), ('imdb_keywords:truck', 0.0002623983206507478)]
+Correctness scores: [(0, 0.5212527964205818), (5, 0.06487695749440717), (2, 0.0022371364653243847), (1, 0.0), (3, 0.0), (4, 0.0), (6, 0.0), (7, 0.0), (8, 0.0), (9, 0.0)]
+Processing cluster 12.0
+New clusters: defaultdict(<type 'int'>, {0.0: 3654, 1.0: 157})
+Building meta training set
+Training a meta tree
+DecisionTreeModel classifier of depth 2 with 5 nodes
+  If (Isn't imdb_keywords:truck)
+   Predict: 0.0
+  Else (Is imdb_keywords:truck)
+   If (average_rating <= 2.0)
+    Predict: 1.0
+   Else (average_rating > 2.0)
+    Predict: 0.0
+
+Done, making predictions
+Accuracy of cluster 12.0 meta tree on training set: 1.0
+{'recall': 1.0, 'precision': 1.0}
+Accuracy of cluster 12.0 meta tree on test set: 1.0
+{'recall': 1.0, 'precision': 1.0}
+2 features used
+QIIs: [('imdb_keywords:truck', 0.0543164523747048), ('average_rating', 0.04565730779323012)]
+Correctness scores: [(2, 0.5433070866141733), (0, 0.0), (1, 0.0), (3, 0.0), (4, 0.0), (5, 0.0), (6, 0.0), (7, 0.0), (8, 0.0), (9, 0.0)]
+Processing cluster 13.0
+New clusters: defaultdict(<type 'int'>, {0.0: 3664, 1.0: 147})
+Building meta training set
+Training a meta tree
+DecisionTreeModel classifier of depth 5 with 17 nodes
+  If (Isn't imdb_keywords:severed-head)
+   If (Isn't movielens_tags:DVD-RAM)
+    Predict: 0.0
+   Else (Is movielens_tags:DVD-RAM)
+    If (Isn't movielens_tags:fantasy)
+     Predict: 0.0
+    Else (Is movielens_tags:fantasy)
+     Predict: 1.0
+  Else (Is imdb_keywords:severed-head)
+   If (average_rating <= 2.0)
+    If (Is imdb_keywords:truck)
+     Predict: 0.0
+    Else (Isn't imdb_keywords:truck)
+     Predict: 1.0
+   Else (average_rating > 2.0)
+    If (Isn't movielens_tags:murder)
+     Predict: 0.0
+    Else (Is movielens_tags:murder)
+     If (average_rating <= 3.0054901960784313)
+      If (Is imdb_keywords:dancer)
+       Predict: 0.0
+      Else (Isn't imdb_keywords:dancer)
+       Predict: 1.0
+     Else (average_rating > 3.0054901960784313)
+      Predict: 0.0
+
+Done, making predictions
+Accuracy of cluster 13.0 meta tree on training set: 1.0
+{'recall': 1.0, 'precision': 1.0}
+Accuracy of cluster 13.0 meta tree on test set: 0.996557659208
+{'recall': 0.9607843137254902, 'precision': 0.9607843137254902}
+7 features used
+QIIs: [('movielens_tags:fantasy', 0.04749409603778536), ('movielens_tags:murder', 0.04408291786932564), ('imdb_keywords:severed-head', 0.006822356336919444), ('movielens_tags:DVD-RAM', 0.006297559695617948), ('imdb_keywords:dancer', 0.0010495932826029913), ('imdb_keywords:truck', 0.0010495932826029913), ('average_rating', 0.0005247966413014956)]
+Correctness scores: [(5, 0.5558739255014327), (2, 0.011461318051575931), (0, 0.0), (1, 0.0), (3, 0.0), (4, 0.0), (6, 0.0), (7, 0.0), (8, 0.0), (9, 0.0)]
+Processing cluster 14.0
+New clusters: defaultdict(<type 'int'>, {0.0: 3632, 1.0: 179})
+Building meta training set
+Training a meta tree
+DecisionTreeModel classifier of depth 8 with 25 nodes
+  If (Isn't imdb_keywords:f-word)
+   Predict: 0.0
+  Else (Is imdb_keywords:f-word)
+   If (Is imdb_keywords:chase)
+    If (Isn't imdb_keywords:kissing-while-having-sex)
+     Predict: 0.0
+    Else (Is imdb_keywords:kissing-while-having-sex)
+     If (Is movielens_genre:Fantasy)
+      Predict: 0.0
+     Else (Isn't movielens_genre:Fantasy)
+      If (Is imdb_keywords:telephone)
+       Predict: 0.0
+      Else (Isn't imdb_keywords:telephone)
+       Predict: 1.0
+   Else (Isn't imdb_keywords:chase)
+    If (Is imdb_keywords:bathroom)
+     Predict: 0.0
+    Else (Isn't imdb_keywords:bathroom)
+     If (Is imdb_keywords:rape)
+      If (Isn't movielens_genre:War)
+       Predict: 0.0
+      Else (Is movielens_genre:War)
+       Predict: 1.0
+     Else (Isn't imdb_keywords:rape)
+      If (Is imdb_keywords:depression)
+       Predict: 0.0
+      Else (Isn't imdb_keywords:depression)
+       If (Is tvtropes:oh crap)
+        Predict: 0.0
+       Else (Isn't tvtropes:oh crap)
+        If (Is imdb_keywords:reverse-footage)
+         Predict: 0.0
+        Else (Isn't imdb_keywords:reverse-footage)
+         If (Is imdb_keywords:hope)
+          Predict: 0.0
+         Else (Isn't imdb_keywords:hope)
+          Predict: 1.0
+
+Done, making predictions
+Accuracy of cluster 14.0 meta tree on training set: 0.997035939237
+{'recall': 0.992, 'precision': 0.9465648854961832}
+Accuracy of cluster 14.0 meta tree on test set: 0.995503597122
+{'recall': 0.9629629629629629, 'precision': 0.9454545454545454}
+12 features used
+QIIs: [('imdb_keywords:telephone', 0.07530831802676463), ('movielens_genre:Fantasy', 0.030700603516137497), ('imdb_keywords:depression', 0.0120703227499344), ('imdb_keywords:f-word', 0.011807924429283653), ('tvtropes:oh crap', 0.01102072946733141), ('imdb_keywords:kissing-while-having-sex', 0.007871949619522435), ('imdb_keywords:bathroom', 0.005510364733665705), ('imdb_keywords:rape', 0.003935974809761217), ('imdb_keywords:reverse-footage', 0.003411178168459722), ('imdb_keywords:chase', 0.001574389923904487), ('movielens_genre:War', 0.0007871949619522435), ('imdb_keywords:hope', 0.0007871949619522435)]
+Correctness scores: [(0, 0.16336633663366334), (3, 0.11386138613861385), (9, 0.10396039603960396), (4, 0.08910891089108909), (7, 0.03712871287128713), (8, 0.03217821782178218), (6, 0.007425742574257425), (1, 0.0), (2, 0.0), (5, 0.0)]
+All highers corrs: [0.16899766899766902, 0.8709198813056379, 0.918918918918919, 0.2380952380952381, 0.13814432989690723, 0.2493595217762596, 0.10148514851485148, 0.031578947368421054, 0.8599999999999999, 1.0, 0.9621848739495799, 0.5212527964205818, 0.5433070866141733, 0.5558739255014327, 0.16336633663366334]
+Their profiles: [5, 9, 0, 5, 5, 9, 6, 2, 8, 6, 2, 0, 2, 5, 0]
+6 profiles represented
+Average: 0.4882323116
+Results: {0: {'cluster': 2.0, 'corr': 0.918918918918919}, 2: {'cluster': 10.0, 'corr': 0.9621848739495799}, 5: {'cluster': 13.0, 'corr': 0.5558739255014327}, 6: {'cluster': 9.0, 'corr': 1.0}, 8: {'cluster': 8.0, 'corr': 0.8599999999999999}, 9: {'cluster': 1.0, 'corr': 0.8709198813056379}}
+Average corr: 0.861316266613
