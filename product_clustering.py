@@ -65,6 +65,7 @@ class ClassifierWrapper(object):
         self.model = model
         self.args = args
         self.sc = sc
+        self.n_classes = n_classes
 
     def train(self, data):
         if self.model == "decision_tree":
