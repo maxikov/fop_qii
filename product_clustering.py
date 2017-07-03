@@ -84,8 +84,9 @@ class ClassifierWrapper(object):
             X = np.array(data.map(lambda x: x.features).collect())
             Y = np.array(data.map(lambda x: x.label).collect())
             self.rank = X.shape[1]
-            layers = (self.n_classes, self.n_classes)
-            self._model = MLPClassifier(hidden_layer_sizes=layers)
+            layers = (self.rank*2, self.rank*2)
+            self._model = MLPClassifier(hidden_layer_sizes=layers,
+                    max_iter=2000, activation="logistic", solver="lbfgs")
             self._model.fit(X, Y)
         return self
 
