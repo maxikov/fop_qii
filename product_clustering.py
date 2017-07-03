@@ -30,6 +30,7 @@ import numpy as np
 
 #sklearn library
 import sklearn.cluster
+from sklearn.neural_network import MLPClassifier
 
 class FitPredictWrapper(object):
     def __init__(self, sc, model, *args, **kwargs):
@@ -58,6 +59,59 @@ class FitPredictWrapper(object):
             res.append(self.predictions[tuple(map(float, x))])
         res = self.sc.parallelize(res)
         return res
+
+class ClassifierWrapper(object):
+    def __init__(self, sc, model, args, n_classes, categorical_features={}):
+        self.model = model
+        self.args = args
+        self.sc = sc
+
+    def train(self, data):
+        if self.model == "decision_tree":
+            self._model = pyspark.\
+            mllib.\
+                tree.\
+                DecisionTree.\
+                trainClassifier(
+                    data,
+                    numClasses=self.n_classes,
+                    categoricalFeaturesInfo=self.categorical_features,
+                    impurity=self.args.impurity,
+                    maxDepth=self.args.max_depth)
+        elif self.model == "mlpc":
+            X = np.array(data.map(lambda x: x.features).collect())
+            Y = np.array(data.map(lambda x: x.label).collect())
+            self.rank = X.shape[1]
+            layers = (self.n_classes, self.n_classes)
+            self._model = MLPClassifier(hidden_layer_sized=layers)
+            self._model.fit(X, Y)
+        return self
+
+    def get_used_features(self):
+        if self.model == "decision_tree":
+            return tree_qii.get_used_features(self._model)
+        elif self.model == "mlpc":
+            return range(self.rank)
+
+    def predict(self, data):
+        if self.model == "decision_tree":
+            return self._model.predict(data)
+        elif self.model == "mlpc":
+            X = np.array(data.collect())
+            Y = self._model.predict(X)
+            res = sc.parallelize(list(Y))
+            return res
+
+    def toDebugString(self, feature_names=None):
+        if self.model == "decision_tree":
+            if feature_names is not None:
+                return common_utils.substitute_feature_names(
+                        self._model.toDebugString(),
+                        feature_names)
+            else:
+                return self._model.toGebugString()
+        elif self.model == "mlpc":
+            return str(self._model)
 
 def dist(x, y):
     xa = np.array(x)
@@ -141,6 +195,8 @@ def main():
             default=10, help="Number of movies to display in each cluster")
     parser.add_argument("--test-ratio", action="store", type=float,
             default=0.3, help="Percent of the data set to use as a test set")
+    parser.add_argument("--model", action="store", type=str,
+            default="decision_tree", choices=["decision_tree", "mlpc"])
     args = parser.parse_args()
     conf = SparkConf().setMaster("local[*]")
     sc = SparkContext(conf=conf)
@@ -184,7 +240,8 @@ def main():
                 kmeans_model.gaussians]
     elif args.cluster_model == "spectral":
         kmeans_model = FitPredictWrapper(sc,
-                sklearn.cluster.SpectralClustering, n_clusters=args.n_clusters)
+                sklearn.cluster.SpectralClustering, n_clusters=args.n_clusters,
+                assign_label="discretize")
         kmeans_model.train(data_set)
         centroids = kmeans_model.centroids
     elif args.cluster_model == "agglomerative":
@@ -245,16 +302,9 @@ def main():
             lambda ((mid, ftrs), cls):\
                 LabeledPoint(cls, ftrs))
     print "Training a latent tree"
-    latent_tree = pyspark.\
-                    mllib.\
-                    tree.\
-                    DecisionTree.\
-                    trainClassifier(
-                        latent_training_data,
-                        numClasses=args.n_clusters,
-                        categoricalFeaturesInfo={},
-                        impurity=args.impurity,
-                        maxDepth=args.max_depth)
+    latent_tree = ClassifierWrapper(sc, args.model, args, args.n_clusters,
+                 categorical_features={}).train(latent_training_data)
+
     print latent_tree.toDebugString()
     print "Done, making predictions"
     tree_predictions  = latent_tree.predict(training_features).map(float)
@@ -282,19 +332,9 @@ def main():
                     lambda ((mid, inds), cls):
                     LabeledPoint(cls, inds))
     print "Training a meta tree"
-    meta_tree = pyspark.\
-                    mllib.\
-                    tree.\
-                    DecisionTree.\
-                    trainClassifier(
-                        meta_training_data,
-                        numClasses=args.n_clusters,
-                        categoricalFeaturesInfo=results["categorical_features"],
-                        impurity=args.impurity,
-                        maxDepth=args.max_depth)
-    print common_utils.substitute_feature_names(
-            meta_tree.toDebugString(),
-            results["feature_names"])
+    meta_tree = ClassifierWrapper(sc, args.model, args, args.n_clusters,
+                 categorical_features=results["categorical_features"]).train(meta_training_data)
+    print meta_tree.toDebugString(results["feature_names"])
     print "Done, making predictions"
     tree_predictions  = meta_tree.predict(training_features).map(float)
     predobs = common_utils.safe_zip(tree_predictions, training_observations)
@@ -308,7 +348,7 @@ def main():
     print "Accuracy of meta tree on test set:", acc
 
     if args.user_profiles is None:
-        used_features = tree_qii.get_used_features(meta_tree)
+        used_features = meta_tree.get_used_features()
         print len(used_features), "features used"
         for (cluster, cls_var, text_sample) in cluster_data:
             print "Cluster {} (variance: {}):".format(cluster, cls_var)
@@ -322,7 +362,7 @@ def main():
             for s in text_sample:
                 print s
     else:
-        used_features = tree_qii.get_used_features(meta_tree)
+        used_features = meta_tree.get_used_features()
         print len(used_features), "features used"
         profiles, user_profiles = pickle.load(open(args.user_profiles,
                                                    "rb"))
@@ -384,19 +424,9 @@ def main():
                     lambda ((mid, inds), cls):
                     LabeledPoint(cls, inds))
             print "Training a meta tree"
-            meta_tree = pyspark.\
-                    mllib.\
-                    tree.\
-                    DecisionTree.\
-                    trainClassifier(
-                        meta_training_data,
-                        numClasses=2,
-                        categoricalFeaturesInfo=results["categorical_features"],
-                        impurity=args.impurity,
-                        maxDepth=args.max_depth)
-            print common_utils.substitute_feature_names(
-                meta_tree.toDebugString(),
-                results["feature_names"])
+            meta_tree = ClassifierWrapper(sc, args.model, args, 2,
+                 categorical_features=results["categorical_features"]).train(meta_training_data)
+            meta_tree.toDebugString(results["feature_names"])
             print "Done, making predictions"
             tree_predictions  = meta_tree.predict(training_features).map(float)
             predobs = common_utils.safe_zip(tree_predictions, training_observations)
@@ -418,7 +448,7 @@ def main():
                 test_observations.zipWithIndex().map(lambda (x,y):(y,x)),
                 None, no_threshold=False)
             print evaluations
-            used_features = tree_qii.get_used_features(meta_tree)
+            used_features = meta_tree.get_used_features()
             print len(used_features), "features used"
             if len(used_features) > 0:
                 features = meta_data_set.keys()
