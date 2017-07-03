@@ -101,7 +101,7 @@ class ClassifierWrapper(object):
         elif self.model == "mlpc":
             X = np.array(data.collect())
             Y = self._model.predict(X)
-            res = sc.parallelize(list(Y))
+            res = self.sc.parallelize(list(Y))
             return res
 
     def toDebugString(self, feature_names=None):

@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 algos="kmeans spectral agglomerative"
-models="decision_tree mlpc"
+models="mlpc decision_tree"
 log_dir="new_experiments/logs"
 
 for algo in $algos
