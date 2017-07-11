@@ -1,0 +1,71 @@
+Mon Jul 3 08:40:40 PDT 2017 spark-submit --driver-memory 10g product_clustering.py --persist-dir archived_states/product_regression_all_regression_tree_rank_12_depth_5.state --n-clusters 15 --cluster-model agglomerative --model decision_tree --movies-file datasets/ml-20m/movies.csv >> new_experiments/logs/product_clustering_real_data_agglomerative_decision_tree.txt
+Loading results dict
+Loading indicators
+Loading ALS model
+Loading movies
+Done, 27278 movies loaded
+Training agglomerative
+Done
+Centroids: [array([ 0.09674008,  0.15015995,  0.136636  , -0.0699529 ,  0.58060429,
+        0.16513603,  0.17326904,  0.41017603,  0.49617719,  0.47572087,
+       -1.11630817, -0.79913433]), array([ 0.02205901,  0.39888695,  0.57411284,  0.026144  ,  0.25337432,
+       -0.17318802,  0.13935205,  0.74871912,  0.69773028,  0.28894606,
+       -0.38339536, -0.93786208]), array([-0.20087594,  0.19915751, -0.33217105, -0.34835937, -0.26793841,
+       -0.12393774,  0.30464058,  0.8867624 ,  0.53514073,  0.61989229,
+       -0.69101714, -1.31598457]), array([-0.14186683,  0.4232122 ,  0.29674896, -0.29657986,  0.15947959,
+       -0.27648255,  0.4270223 ,  0.56187724,  1.30729899,  0.05851085,
+       -0.63498703, -0.94659952]), array([-0.28129764,  0.5570543 ,  0.08479526, -0.44385032,  0.41129968,
+       -0.22933604,  0.51773539,  1.06223879,  0.51954647,  0.58631849,
+       -0.68017101, -0.53119496]), array([ 0.24076348,  0.66035978,  0.28197986, -0.19740271,  0.03370087,
+       -0.54552769,  0.45843402,  0.98610088,  0.67730262,  0.14162717,
+       -0.73525293, -0.8507743 ]), array([-0.37618007,  0.16591791, -0.09623097, -0.00662579,  0.1490132 ,
+       -0.23269841, -0.59481431,  0.66850607,  0.76788116,  0.467288  ,
+       -0.96405161, -0.73243035]), array([ 0.16196265,  0.54369289,  0.28612493, -0.48936123, -0.44577192,
+       -0.64860616,  0.15698133,  0.80675536,  0.95990701,  0.53743974,
+       -0.96055594, -0.49038307]), array([ 0.23103386,  0.48708653,  0.21243593,  0.19558446,  0.393622  ,
+       -0.19890171,  0.39615993,  0.7120755 ,  0.56065029,  0.19117037,
+       -0.89786611, -0.96388649]), array([-0.09746444,  0.18457955, -0.14886309, -0.42887113,  0.31801777,
+       -0.71359766, -0.20629181,  0.9704069 ,  0.49374189, -0.1158731 ,
+       -0.8527618 , -0.99634565]), array([-0.13356727,  0.50887469,  0.71198152, -0.13760811,  0.17306679,
+        0.22775917, -0.07180798,  0.91015453,  0.26529133, -0.43950524,
+       -1.31940257, -0.63173499]), array([ 0.06692153, -0.40656325,  0.39574065,  0.25847826,  0.35696535,
+       -0.21738208, -0.0404241 ,  0.87495777,  0.64720927,  0.22421329,
+       -0.78989492, -0.81937383]), array([ 0.03949249,  0.87654946,  0.30632516, -0.07581782, -0.23230806,
+       -0.17636963,  0.23233483,  0.92799341,  0.89626801,  0.18695172,
+       -0.72511858, -0.7662428 ]), array([ 0.50168752,  0.68463326, -0.16462514, -0.76886393,  0.07660606,
+       -0.34579221, -0.09574021,  1.09870745,  0.90870026,  0.32414499,
+       -0.91569745, -0.22514471]), array([ 0.23391999,  0.65457478,  0.09530559, -0.18308699,  0.12549875,
+       -0.2744257 , -0.09661811,  0.55931933,  0.49083927, -0.00801886,
+       -0.94765173, -1.33610273])]
+Labeling clusters
+Clusters: defaultdict(<type 'int'>, {0.0: 726, 1.0: 559, 2.0: 168, 3.0: 395, 4.0: 313, 5.0: 804, 6.0: 347, 7.0: 298, 8.0: 588, 9.0: 181, 10.0: 90, 11.0: 166, 12.0: 415, 13.0: 163, 14.0: 226})
+Centroid mean: [ 0.0242219   0.40587843  0.17601976 -0.1977449   0.13901535 -0.25089003
+  0.11334886  0.81231672  0.68157898  0.23592178 -0.84094216 -0.82287963]
+Centroid variance: 0.803407934679
+Traceback (most recent call last):
+  File "/longterm/sophiak/fop_qii/product_clustering.py", line 485, in <module>
+    main()
+  File "/longterm/sophiak/fop_qii/product_clustering.py", line 285, in main
+    cls_var = falvar(cur_mvs, cls_mean)
+  File "/longterm/sophiak/fop_qii/product_clustering.py", line 140, in falvar
+    res = dists.reduce(lambda a, b: a+b)/float(dists.count())
+  File "/opt/spark-2.1.1-bin-hadoop2.7/python/lib/pyspark.zip/pyspark/rdd.py", line 1040, in count
+  File "/opt/spark-2.1.1-bin-hadoop2.7/python/lib/pyspark.zip/pyspark/rdd.py", line 1031, in sum
+  File "/opt/spark-2.1.1-bin-hadoop2.7/python/lib/pyspark.zip/pyspark/rdd.py", line 905, in fold
+  File "/opt/spark-2.1.1-bin-hadoop2.7/python/lib/pyspark.zip/pyspark/rdd.py", line 808, in collect
+  File "/opt/spark-2.1.1-bin-hadoop2.7/python/lib/pyspark.zip/pyspark/rdd.py", line 2440, in _jrdd
+  File "/opt/spark-2.1.1-bin-hadoop2.7/python/lib/pyspark.zip/pyspark/rdd.py", line 2373, in _wrap_function
+  File "/opt/spark-2.1.1-bin-hadoop2.7/python/lib/pyspark.zip/pyspark/rdd.py", line 2359, in _prepare_for_python_RDD
+  File "/opt/spark-2.1.1-bin-hadoop2.7/python/lib/pyspark.zip/pyspark/serializers.py", line 460, in dumps
+  File "/opt/spark-2.1.1-bin-hadoop2.7/python/lib/pyspark.zip/pyspark/cloudpickle.py", line 703, in dumps
+  File "/opt/spark-2.1.1-bin-hadoop2.7/python/lib/pyspark.zip/pyspark/cloudpickle.py", line 147, in dump
+  File "/usr/lib/python2.7/pickle.py", line 224, in dump
+    self.save(obj)
+  File "/usr/lib/python2.7/pickle.py", line 286, in save
+    f(self, obj) # Call unbound method with explicit self
+  File "/usr/lib/python2.7/pickle.py", line 568, in save_tuple
+    save(element)
+  File "/usr/lib/python2.7/pickle.py", line 306, in save
+    rv = reduce(self.proto)
+  File "/opt/spark-2.1.1-bin-hadoop2.7/python/lib/pyspark.zip/pyspark/context.py", line 239, in signal_handler
+KeyboardInterrupt
