@@ -71,6 +71,7 @@ class ClassifierWrapper(object):
         self.categorical_features = categorical_features
 
     def train(self, data):
+        self.rank = len(data.take(1)[0].features)
         if self.model == "decision_tree":
             self._model = pyspark.\
             mllib.\
