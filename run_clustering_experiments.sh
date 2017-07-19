@@ -3,10 +3,10 @@
 #algos="kmeans spectral agglomerative"
 algos="kmeans"
 #models="mlpc decision_tree"
-models="decision_tree"
+models="random_forest naive_bayes svm decision_tree"
 log_dir="new_experiments/logs"
-#n_or_max="--n-clusters 15"
-n_or_max="--max-clusters 30"
+n_or_max="--n-clusters 15"
+#n_or_max="--max-clusters 30"
 
 for algo in $algos
 do

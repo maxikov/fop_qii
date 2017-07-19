@@ -24,6 +24,8 @@ import pyspark.mllib.tree
 from pyspark.mllib.classification import LabeledPoint
 from pyspark.mllib.evaluation import MulticlassMetrics
 from pyspark.mllib.clustering import KMeans, GaussianMixture
+from pyspark.mllib.tree import RandomForest
+from pyspark.mllib.classification import NaiveBayes, SVMWithSGD
 
 #numpy library
 import numpy as np
@@ -80,6 +82,17 @@ class ClassifierWrapper(object):
                     categoricalFeaturesInfo=self.categorical_features,
                     impurity=self.args.impurity,
                     maxDepth=self.args.max_depth)
+        elif self.model == "random_forest":
+            self._model = RandomForest.trainClassifier(data,
+                    numClasses=self.n_classes,
+                    categoricalFeaturesInfo=self.categorical_features,
+                    impurity=self.args.impurity,
+                    maxDepth=self.args.max_depth,
+                    numTrees=32)
+        elif self.model == "naive_bayes":
+            self._model = NaiveBayes.train(data)
+        elif self.model == "svm":
+            self._model = SVMWithSGD.train(data)
         elif self.model == "mlpc":
             X = np.array(data.map(lambda x: x.features).collect())
             Y = np.array(data.map(lambda x: x.label).collect())
@@ -93,11 +106,12 @@ class ClassifierWrapper(object):
     def get_used_features(self):
         if self.model == "decision_tree":
             return tree_qii.get_used_features(self._model)
-        elif self.model == "mlpc":
+        elif self.model in ["mlpc", "random_forest", "naive_bayes", "svm"]:
             return range(self.rank)
 
     def predict(self, data):
-        if self.model == "decision_tree":
+        if self.model in ["decision_tree", "random_forest", "naive_bayes",
+        "svm"]:
             return self._model.predict(data)
         elif self.model == "mlpc":
             X = np.array(data.collect())
@@ -113,7 +127,7 @@ class ClassifierWrapper(object):
                         feature_names)
             else:
                 return self._model.toDebugString()
-        elif self.model == "mlpc":
+        elif self.model in ["mlpc", "random_forest", "naive_bayes", "svm"]:
             return str(self._model)
 
 def dist(x, y):
@@ -321,7 +335,8 @@ def main():
     parser.add_argument("--test-ratio", action="store", type=float,
             default=0.3, help="Percent of the data set to use as a test set")
     parser.add_argument("--model", action="store", type=str,
-            default="decision_tree", choices=["decision_tree", "mlpc"])
+            default="decision_tree", choices=["decision_tree", "mlpc",
+            "random_forest", "naive_bayes", "svm"])
     args = parser.parse_args()
     conf = SparkConf().setMaster("local[*]")
     sc = SparkContext(conf=conf)
