@@ -59,7 +59,7 @@ def make_documents(movies_dict, indicators, feature_names,
         categorical_features):
     res = indicators.map(lambda (mid, inds):
             (mid, [feature_names[fid] for (fid, fval) in enumerate(inds) if fid in
-                categorical_features and fval == 1]).collect()
+                categorical_features and fval == 1])).collect()
     mids, docs = zip(*res)
     return mids, docs
 
@@ -106,9 +106,10 @@ def main():
     dictionary = corpora.Dictionary(docs)
     doc_term_matrix = [dictionary.doc2bow(doc) for doc in docs]
     Lda = gensim.models.ldamodel.LdaModel
-    ldamodel = Lda(doc_term_matrix, num_topics=3, id2word = dictionary,
-         passes=50)
-    print(ldamodel.print_topics(num_topics=3, num_words=3)
+    ldamodel = Lda(doc_term_matrix, num_topics=15, id2word = dictionary,
+         passes=100)
+    for t in ldamodel.print_topics(num_topics=15, num_words=10):
+        print t
 
 if __name__ == "__main__":
     main()
