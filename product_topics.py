@@ -63,6 +63,30 @@ def make_documents(movies_dict, indicators, feature_names,
     mids, docs = zip(*res)
     return mids, docs
 
+def topicize_indicators(sc, movies_dict, indicators, feature_names,
+        categorical_features, num_topics=15,
+        num_words=10, passes=100, docs=None, mids=None):
+    if mids is None or docs is None:
+       mids, docs = make_documents(movies_dict, indicators,
+                                   feature_names,
+                                   categorical_features)
+    dictionary = corpora.Dictionary(docs)
+    doc_term_matrix = [dictionary.doc2bow(doc) for doc in docs]
+    Lda = gensim.models.ldamodel.LdaModel
+    ldamodel = Lda(doc_term_matrix, num_topics=num_topics, id2word = dictionary,
+         passes=passes)
+    feature_names = {t[0]:t[1] for t in
+            ldamodel.print_topics(num_topics=num_topics,
+        num_words=num_words)}
+    categorical_features = {}
+    topics = []
+    for bow in doc_term_matrix:
+        cur_topics_list = ldamodel.get_document_topics(bow)
+        ctd = collections.defaultdict(float, dict(cur_topics_list))
+        cur_topics = [ctd[tid] for tid in xrange(num_topics)]
+        topics.append(cur_topics)
+    indicators = sc.parallelize(zip(mids, topics))
+    return indicators, feature_names, categorical_features
 
 def main():
     parser = argparse.ArgumentParser()

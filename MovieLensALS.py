@@ -172,6 +172,8 @@ def args_init(logger):
     parser.add_argument("--csv", action="store_true", help=\
                         "Use csv format instead of dat")
 
+    parser.add_argument("--topic-modeling", action="store_true")
+
     args = parser.parse_args()
 
     logger.debug("rank: {}, lmbda: {}, num_iter: {}, num_partitions: {}"\
@@ -462,6 +464,28 @@ def main():
                     prefix="imdb_writer",
                     drop_threshold=args.drop_rare_features))
         },
+        {
+            "name": "topics",
+            "src_rdd": (lambda: ([(lambda: movies_rdd)] +\
+                [(
+                lambda: sc.parallelize(
+                    parsers_and_loaders.loadCSV(
+                        join(args.data_path, "tags" + extension),
+                        remove_first_line=remove_first_line
+                    )
+                ).cache()
+                )] if "tags" in args.metadata_sources else [] +\
+                [(
+                lambda: sc.parallelize(
+                    parsers_and_loaders.loadCSV(
+                        args.tvtropes_file,
+                        remove_first_line=True
+                    )
+                ).cache()
+                )] if args.tvtropes_file is not None else [])),
+            "loader": (lambda x: parsers_and_loaders.load_topics(x,
+                sep=sep, sc=sc))
+        }
     ]
 
 

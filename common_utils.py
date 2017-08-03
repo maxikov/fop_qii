@@ -187,7 +187,10 @@ def substitute_belong_predicate(line):
 
 def substitute_feature_names(string, feature_names):
     for fid, fname in feature_names.items():
-        fname = fname.decode("ascii", errors="ignore")
+        try:
+                fname = str(fname).decode("ascii", errors="ignore")
+        except Exception as e:
+            fname = "Unencoded feature: {}".format(e)
         string = string.replace("feature {} ".format(fid),
                                 "{} ".format(fname))
     string = "\n".join(substitute_belong_predicate(line) for line in\
