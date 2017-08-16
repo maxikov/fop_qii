@@ -1,0 +1,24 @@
+Loading results dict
+Loading indicators
+Loading ALS model
+Training K-means
+Done
+Labeling clusters
+Training a latent tree
+Done, making predictions
+Accuracy: 0.816694245266
+/opt/spark-2.1.1-bin-hadoop2.7/python/lib/pyspark.zip/pyspark/mllib/evaluation.py:237: UserWarning: Deprecated in 2.0.0. Use accuracy.
+/opt/spark-2.1.1-bin-hadoop2.7/python/lib/pyspark.zip/pyspark/mllib/evaluation.py:249: UserWarning: Deprecated in 2.0.0. Use accuracy.
+/opt/spark-2.1.1-bin-hadoop2.7/python/lib/pyspark.zip/pyspark/mllib/evaluation.py:262: UserWarning: Deprecated in 2.0.0. Use accuracy.
+Summary Stats
+Precision = 0.816694245266
+Recall = 0.816694245266
+F1 Score = 0.816694245266
+Building meta training set
+Training a meta tree
+Done, making predictions
+Accuracy: 0.640926640927
+Summary Stats
+Precision = 0.640926640927
+Recall = 0.640926640927
+F1 Score = 0.640926640927

@@ -1,0 +1,15 @@
+Fri Jul 7 05:32:52 PDT 2017 spark-submit --driver-memory 10g product_clustering.py --persist-dir archived_states/product_regression_all_regression_tree_rank_12_depth_5.state --n-clusters 15 --cluster-model spectral --model mlpc --movies-file datasets/ml-20m/movies.csv >> new_experiments/logs/product_clustering_real_data_spectral_mlpc.txt
+Loading results dict
+Loading indicators
+Loading ALS model
+Loading movies
+Done, 27278 movies loaded
+Training spectral
+Traceback (most recent call last):
+  File "/longterm/sophiak/fop_qii/product_clustering.py", line 486, in <module>
+    main()
+  File "/longterm/sophiak/fop_qii/product_clustering.py", line 247, in main
+    assign_label="discretize")
+  File "/longterm/sophiak/fop_qii/product_clustering.py", line 37, in __init__
+    self.model = model(*args, **kwargs)
+TypeError: __init__() got an unexpected keyword argument 'assign_label'

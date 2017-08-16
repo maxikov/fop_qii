@@ -74,7 +74,9 @@ def save_if_needed(persist_dir, fname, objects, store, logger):
 
 def compute_regression_qii(lr_model, input_features, target_variable,
                            logger, original_predictions=None, rank=None,
-                           features_to_test=None):
+                           features_to_test=None,
+                           classifier=False,
+                           class_of_interest=None):
     if logger is not None:
         logger.debug("Measuring model QII")
     if original_predictions is None:
@@ -99,13 +101,41 @@ def compute_regression_qii(lr_model, input_features, target_variable,
                                              None).values()
         new_predictions = lr_model.predict(perturbed_features)
         predobs = safe_zip(new_predictions, original_predictions)
-        cur_qii = mean_error(predobs, 1.0, abs)
-        signed_error = mean_error(predobs, 1.0, float)
-        if signed_error == 0:
-            sign = 1
+        if classifier:
+            if class_of_interest is None:
+                cur_qii = predobs.map(lambda (pred, obs):
+                    0.0 if pred==obs else 1.0).\
+                            reduce(lambda a,b:a+b)\
+                            /float(predobs.count())
+                signed_cur_qii = cur_qii
+            else:
+                map_f = functools.partial(lambda class_of_interest,\
+                        (pred, obs):\
+                        1.0 if (pred != class_of_interest and\
+                                obs == class_of_interest)\
+                        else (-1.0 if (pred == class_of_interest and\
+                                  obs != class_of_interest)\
+                              else 0.0),\
+                        class_of_interest)
+                errs = predobs.map(map_f)
+                abs_errs = errs.map(abs)
+                cur_qii = abs_errs.reduce(lambda a, b: a+b)\
+                        /float(abs_errs.count())
+                signed_error = errs.reduce(lambda a, b: a+b)\
+                        /float(errs.count())
+                if signed_error == 0:
+                    sign = 1
+                else:
+                    sign = signed_error/abs(signed_error)
+                signed_cur_qii = cur_qii * sign
         else:
-            sign = signed_error/abs(signed_error)
-        signed_cur_qii = cur_qii * sign
+            cur_qii = mean_error(predobs, 1.0, abs)
+            signed_error = mean_error(predobs, 1.0, float)
+            if signed_error == 0:
+                sign = 1
+            else:
+                sign = signed_error/abs(signed_error)
+            signed_cur_qii = cur_qii * sign
         if logger is not None:
             logger.debug("QII: {}, signed QII: {}".format(cur_qii, signed_cur_qii))
         res.append(signed_cur_qii)
@@ -157,7 +187,10 @@ def substitute_belong_predicate(line):
 
 def substitute_feature_names(string, feature_names):
     for fid, fname in feature_names.items():
-        fname = fname.decode("ascii", errors="ignore")
+        try:
+                fname = str(fname).decode("ascii", errors="ignore")
+        except Exception as e:
+            fname = "Unencoded feature: {}".format(e)
         string = string.replace("feature {} ".format(fid),
                                 "{} ".format(fname))
     string = "\n".join(substitute_belong_predicate(line) for line in\
@@ -301,7 +334,8 @@ def make_bins(bin_range, nbins):
 
 def evaluate_binary_classifier(predictions, observations, logger,
                                no_threshold=True):
-    logger.debug("Evaluating the model, no_threshold: {}".\
+    if logger is not None:
+        logger.debug("Evaluating the model, no_threshold: {}".\
             format(no_threshold))
     predobs = predictions\
             .join(observations)\
@@ -325,6 +359,13 @@ def evaluate_binary_classifier(predictions, observations, logger,
         rcount = float(relevants.count())
         tpcount = float(true_positives.count())
         apcount = float(all_positives.count())
+        if logger is None and False:
+            print "Relevants:", rcount
+            print "True positives:", tpcount
+            print "All positives:", apcount
+            print "Predictions sample:", predictions.take(4)
+            print "Observations sample:", observations.take(4)
+            print "Predobs sample:", predobs.take(4)
         if rcount != 0:
             recall = tpcount/rcount
         else:
@@ -334,7 +375,8 @@ def evaluate_binary_classifier(predictions, observations, logger,
         else:
             precision = 0
         res = {"recall": recall, "precision": precision}
-    logger.debug("{}".format(res))
+    if logger is not None:
+        logger.debug("{}".format(res))
     return res
 
 

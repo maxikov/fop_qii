@@ -1,0 +1,67 @@
+spark-submit --driver-memory 32g MovieLensALS.py --spark-executor-memory 32g --local-threads 32 --num-partitions 16 --checkpoint-dir /home/sophiak/fop_qii/archived_states/spark_dir --temp-dir /home/sophiak/fop_qii/archived_states/spark_dir --persist-dir /home/sophiak/fop_qii/archived_states/product_regression_all_regression_tree_rank_15_depth_5_topic_modeling_unstructured.state --csv --data-path datasets/ml-20m --movies-file datasets/ml-20m/ml-20m.imdb.set1.csv --tvtropes-file datasets/dbtropes/tropes.csv --rank 15 --lmbda 0.01 --num-iter 300 --predict-product-features --metadata-sources years genres average_rating imdb_keywords imdb_producer imdb_director tvtropes tags imdb_year imdb_rating imdb_cast imdb_cinematographer imdb_composer imdb_languages imdb_production_companies imdb_writer topics --drop-rare-features 100 --drop-rare-movies 25 --cross-validation 70 --regression-model regression_tree --nbins 14 --max-depth 5 --features-trim-percentile 0 --no-ht
+2017-08-01 21:51:12,560 - __main__ - DEBUG - rank: 15, lmbda: 0.01, num_iter: 300, num_partitions: 16
+2017-08-01 21:51:12,560 - __main__ - DEBUG - data_path: datasets/ml-20m, checkpoint_dir: /home/sophiak/fop_qii/archived_states/spark_dir
+2017-08-01 21:51:12,560 - __main__ - DEBUG - Temp dir: /home/sophiak/fop_qii/archived_states/spark_dir
+2017-08-01 21:51:12,560 - __main__ - DEBUG - local_threads: 32
+2017-08-01 21:51:12,560 - __main__ - DEBUG - spark_executor_memory: 32g
+2017-08-01 21:51:12,560 - __main__ - DEBUG - regression_model: regression_tree
+2017-08-01 21:51:12,560 - __main__ - DEBUG - nbins: 14
+2017-08-01 21:51:12,560 - __main__ - DEBUG - regression_users: False
+2017-08-01 21:51:12,560 - __main__ - DEBUG - predict_product_features: True
+2017-08-01 21:51:12,560 - __main__ - DEBUG - metadata_sources: ['years', 'genres', 'average_rating', 'imdb_keywords', 'imdb_producer', 'imdb_director', 'tvtropes', 'tags', 'imdb_year', 'imdb_rating', 'imdb_cast', 'imdb_cinematographer', 'imdb_composer', 'imdb_languages', 'imdb_production_companies', 'imdb_writer', 'topics']
+2017-08-01 21:51:12,560 - __main__ - DEBUG - movies_file: datasets/ml-20m/ml-20m.imdb.set1.csv
+2017-08-01 21:51:12,560 - __main__ - DEBUG - cross_validation: 70
+2017-08-01 21:51:12,560 - __main__ - DEBUG - tvtropes_file: datasets/dbtropes/tropes.csv
+2017-08-01 21:51:12,560 - __main__ - DEBUG - features_trim_percentile: 0
+2017-08-01 21:51:12,560 - __main__ - DEBUG - drop_missing_movies: False
+2017-08-01 21:51:12,560 - __main__ - DEBUG - drop_rare_features: 100
+2017-08-01 21:51:12,560 - __main__ - DEBUG - filter_data_set: 10
+2017-08-01 21:51:12,561 - __main__ - DEBUG - persist_dir: /home/sophiak/fop_qii/archived_states/product_regression_all_regression_tree_rank_15_depth_5_topic_modeling_unstructured.state, override_args: False
+2017-08-01 21:51:12,561 - __main__ - DEBUG - drop_rare_movies: 25
+2017-08-01 21:51:12,561 - __main__ - DEBUG - normalize: False
+2017-08-01 21:51:12,561 - __main__ - DEBUG - max_depth: 5
+2017-08-01 21:51:12,561 - __main__ - DEBUG - no_ht: True
+2017-08-01 21:51:12,561 - __main__ - DEBUG - csv: True
+2017-08-01 21:51:14,688 - __main__ - DEBUG - msep: ,
+2017-08-01 21:51:14,688 - __main__ - DEBUG - Loading ratings
+2017-08-01 21:51:23,685 - __main__ - DEBUG - Done in 8.996472 seconds
+2017-08-01 21:51:23,688 - __main__ - DEBUG - Loading movies
+2017-08-01 21:51:25,703 - __main__ - DEBUG - Done in 2.015332 seconds
+2017-08-01 21:51:25,703 - __main__ - DEBUG - 26804 movies loaded
+2017-08-01 21:51:41,238 - __main__ - DEBUG - 19912669 records in the training set
+2017-08-01 21:51:44,249 - __main__ - DEBUG - 26284 unique movies in the training set
+2017-08-01 21:51:44,249 - __main__ - DEBUG - Started internal_feature_predictor
+2017-08-01 21:51:44,250 - __main__ - DEBUG - Trying to load previous results
+2017-08-01 21:51:44,250 - __main__ - DEBUG - Loading /home/sophiak/fop_qii/archived_states/product_regression_all_regression_tree_rank_15_depth_5_topic_modeling_unstructured.state/results.pkl
+2017-08-01 21:51:44,273 - __main__ - DEBUG - 0 features already processed
+2017-08-01 21:51:44,273 - __main__ - DEBUG - Training the average rating model
+2017-08-01 21:51:49,831 - __main__ - DEBUG - Done in 5.558392 seconds
+2017-08-01 21:51:50,021 - __main__ - DEBUG - Loading /home/sophiak/fop_qii/archived_states/product_regression_all_regression_tree_rank_15_depth_5_topic_modeling_unstructured.state/als_model.pkl
+2017-08-01 21:51:53,724 - __main__ - DEBUG - Loading /home/sophiak/fop_qii/archived_states/product_regression_all_regression_tree_rank_15_depth_5_topic_modeling_unstructured.state/baseline_predictions.pkl
+2017-08-01 21:56:07,769 - __main__ - DEBUG - user_or_product_features: product
+2017-08-01 21:56:07,769 - __main__ - DEBUG - Loading /home/sophiak/fop_qii/archived_states/product_regression_all_regression_tree_rank_15_depth_5_topic_modeling_unstructured.state/indicators.pkl
+2017-08-01 22:00:24,243 - __main__ - DEBUG - Dropping movies with fewer than 25 non-zero features
+2017-08-01 22:00:27,977 - __main__ - DEBUG - 19098 movies left
+2017-08-01 22:00:32,922 - __main__ - DEBUG - 19551294 items left in the training set
+2017-08-01 22:00:32,924 - __main__ - DEBUG - Loading /home/sophiak/fop_qii/archived_states/product_regression_all_regression_tree_rank_15_depth_5_topic_modeling_unstructured.state/features_training_test.pkl
+2017-08-01 22:02:27,071 - __main__ - DEBUG - 13369 feature rows, 13369 indicator rows,  and 14086351 ratings in the training set, 5729 feature rows, 5729 indicators rows, and 5464943 ratings in the test set
+2017-08-01 22:02:27,071 - __main__ - DEBUG - Processing 0 out of 15
+2017-08-01 22:02:27,071 - __main__ - DEBUG - Feature 0 not in [], processing
+2017-08-01 22:02:27,412 - __main__ - DEBUG - predict_internal_feature(features.count()=13369, indicators.count()=13369, f=0, regression_model="regression_tree", len(categorical_features)=3507, max_bins=14, no_threshold=True, is_classifier=False, num_classes=None, max_depth=5)
+2017-08-01 22:02:27,412 - __main__ - DEBUG - Processing feature 0
+2017-08-01 22:02:27,412 - __main__ - DEBUG - Building data set
+2017-08-01 22:02:27,452 - __main__ - DEBUG - Done in 0.0402820110321 seconds
+2017-08-01 22:02:28,933 - __main__ - DEBUG - train_regression_model(data.count=13369, regression_model="regression_tree", len(categorical_features)=3507, max_bins=14, max_depth=5, num_trees=128, is_classifier=False, num_classes=None)
+2017-08-01 22:02:28,933 - __main__ - DEBUG - num_classes is None, setting to max_bins=14
+2017-08-01 22:02:28,933 - __main__ - DEBUG - Training regression_tree
+2017-08-01 22:02:32,812 - __main__ - DEBUG - Done in 3.87918806076 seconds
+Traceback (most recent call last):
+  File "/longterm/sophiak/fop_qii/MovieLensALS.py", line 599, in <module>
+    main()
+  File "/longterm/sophiak/fop_qii/MovieLensALS.py", line 543, in main
+    train_ratio=args.cross_validation)
+  File "/longterm/sophiak/fop_qii/internal_feature_predictor.py", line 1242, in internal_feature_predictor
+    model_debug_string, feature_names)
+  File "/longterm/sophiak/fop_qii/common_utils.py", line 190, in substitute_feature_names
+    fname = fname.decode("ascii", errors="ignore")
+UnicodeEncodeError: 'ascii' codec can't encode character u'\xe9' in position 267: ordinal not in range(128)

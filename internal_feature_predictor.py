@@ -30,6 +30,9 @@ import parsers_and_loaders
 import common_utils
 import TrimmedFeatureRecommender
 import HashTableRegression
+import CustomFeaturesRecommender
+import product_topics
+
 
 regression_models = ["regression_tree", "random_forest", "linear",
                      "naive_bayes", "logistic"]
@@ -39,7 +42,7 @@ metadata_sources = ["name", "genres", "tags", "imdb_keywords",
                     "imdb_year", "imdb_rating", "imdb_cast",
                     "imdb_cinematographer", "imdb_composer",
                     "imdb_languages", "imdb_production_companies",
-                    "imdb_writer"]
+                    "imdb_writer", "topics"]
 
 def discretize_single_feature(data, nbins, logger):
     """
@@ -613,10 +616,17 @@ def measure_associativity(input_features, target_features, f, logger):
 def load_or_train_ALS(training, rank, numIter, lmbda, args, sc, logger):
     if args.persist_dir is not None:
         fname = os.path.join(args.persist_dir, "als_model.pkl")
+        fname2 = os.path.join(args.persist_dir, "upr_model.pkl")
         if not os.path.exists(fname):
-            logger.debug("%s not found, bulding a new model", fname)
-            need_new_model = True
-            write_model = True
+            if os.path.exists(fname2):
+                need_new_model = False
+                write_model = False
+                logger.debug("Loading %s", fname2)
+                model = CustomFeaturesRecommender.load(sc, fname2)
+            else:
+                logger.debug("%s not found, bulding a new model", fname)
+                need_new_model = True
+                write_model = True
         else:
             need_new_model = False
             write_model = False
@@ -1085,6 +1095,11 @@ def internal_feature_predictor(sc, training, rank, numIter, lmbda,
             .format(training.count()))
         all_movies = list(all_movies)
 
+    if args.topic_modeling:
+        movies_dict = {m: str(m) for m in all_movies}
+        indicators, feature_names, categorical_features = product_topics.topicize_indicators(sc, movies_dict, indicators, feature_names,
+                categorical_features, num_topics=15, num_words=10, passes=100)
+        logger.debug("Indicators sample after topic modeling: {}".format(indicators.take(2)))
     if args.normalize:
         indicators = normalize_features(indicators, categorical_features,
                 feature_names, logger)
@@ -1361,12 +1376,14 @@ def internal_feature_predictor(sc, training, rank, numIter, lmbda,
                 "%f", randomized_mean_error_baseline)
             results["features"][f]["randomized_mean_error_baseline"] =\
                 randomized_mean_error_baseline
-
-            logger.debug("Substitution is %f times better than "+\
+            if replaced_mean_error_baseline != 0:
+                logger.debug("Substitution is %f times better than "+\
                          "randomization on the training set",
                          randomized_mean_error_baseline/\
                          replaced_mean_error_baseline)
-
+            else:
+                logger.debug("Substitution is inf times better than "+\
+                        "randomization on the training set")
             logger.debug("Evaluating randomized model")
             results["features"][f]["randomized_rec_eval"] =\
                     common_utils.evaluate_recommender(baseline_predictions_training,\
@@ -1396,12 +1413,14 @@ def internal_feature_predictor(sc, training, rank, numIter, lmbda,
                     "%f", randomized_mean_error_baseline_test)
                 results["features"][f]["randomized_mean_error_baseline_test"] =\
                     randomized_mean_error_baseline_test
-
-                logger.debug("Substitution is %f times better than "+\
+                if replaced_mean_error_baseline_test != 0:
+                    logger.debug("Substitution is %f times better than "+\
                              "randomization on the test set",
-                             randomized_mean_error_baseline/\
-                             replaced_mean_error_baseline)
-
+                             randomized_mean_error_baseline_test/\
+                             replaced_mean_error_baseline_test)
+                else:
+                    logger.debug("Substitution is inf times better "+\
+                            "than randomization on the test set")
                 logger.debug("Evaluating randomized model test")
                 results["features"][f]["randomized_rec_eval_test"] =\
                     common_utils.evaluate_recommender(baseline_predictions_test,\
@@ -1529,13 +1548,19 @@ def display_internal_feature_predictor(results, logger, no_ht=False):
                      r["regression_evaluation_ht_test"]["mrae"]]
         row += [results["mean_feature_values"][f],
                 r["replaced_mean_error_baseline"],
-                r["randomized_mean_error_baseline"],
-                float(r["randomized_mean_error_baseline"])/\
+                r["randomized_mean_error_baseline"]]
+        if r["replaced_mean_error_baseline"] != 0:
+            row += [float(r["randomized_mean_error_baseline"])/\
                 r["replaced_mean_error_baseline"]]
+        else:
+            row += ["inf"]
         if results["train_ratio"] > 0:
             row += [r["replaced_mean_error_baseline_test"],
-                    r["randomized_mean_error_baseline_test"],
-                    float(r["randomized_mean_error_baseline_test"])/\
+                    r["randomized_mean_error_baseline_test"]]
+            if r["replaced_mean_error_baseline_test"] != 0:
+                row += [float(r["randomized_mean_error_baseline_test"])/\
                             r["replaced_mean_error_baseline_test"]]
+            else:
+                row += ["inf"]
         table.add_row(row)
     logger.info("\n" + str(table))

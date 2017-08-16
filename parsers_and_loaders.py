@@ -5,6 +5,9 @@ import traceback
 from collections import defaultdict
 import functools
 
+#poject files
+from product_topics import topicize_indicators
+
 def loadCSV(fname, remove_first_line=True):
     """
     Probably won't work with very large data sets.
@@ -14,6 +17,26 @@ def loadCSV(fname, remove_first_line=True):
         if remove_first_line:
             res = res[1:]
         return res
+
+def parseUnstructured(line, sep="::"):
+    #Multi-character delimiters aren't supported,
+    #but this data set doesn't have %s anywhere.
+    #Dirty hack, need to fix later
+    if sep == "::":
+        line = line.replace(sep, "%")
+        sep = "%"
+    s = StringIO.StringIO(line)
+    r = csv.reader(s, delimiter=sep, quotechar='"')
+    fields = r.next()
+    mid = int(fields[0])
+    res = set()
+    for field in fields[1:]:
+        if "|" in field:
+            cur = set(field.split("|"))
+        else:
+            cur = set([field])
+        res = res.union(cur)
+    return mid, res
 
 def parseTag(line, sep="::"):
     """
@@ -447,3 +470,18 @@ def load_users(src_rdd, sep=",", prefix="user"):
     feature_names = {n: "{}:{}".format(prefix, u) for (n, u) in
             enumerate(["Gender","Age","Occupation","Zip-code"])}
     return (users, nof, cfi, feature_names)
+
+def load_topics(src_rdds, sep=",", sc=None):
+    docs = defaultdict(lambda: [])
+    for rdd in src_rdds:
+        rdd = rdd()
+        cur_data = rdd.map(lambda x: parseUnstructured(x, sep=sep)).collect()
+        for mid, data in cur_data:
+            docs[mid] += list(data)
+    mids, docs_l = zip(*((mid, list(doc)) for mid, doc in docs.items()))
+    indicators, feature_names, categorical_features = topicize_indicators(sc=sc,
+            movies_dict=None, indicators=None, feature_names=None,
+            categorical_features=None, num_topics=20,
+            num_words=15, passes=100, docs=docs_l, mids=mids)
+    return (indicators, 20, categorical_features, feature_names)
+

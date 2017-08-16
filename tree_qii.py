@@ -87,7 +87,8 @@ def get_feature_mapping(used_features):
     mapping = {n:f for (n, f) in enumerate(ufl)}
     return ufl, mapping
 
-def get_tree_qii(lr_model, features, used_features):
+def get_tree_qii(lr_model, features, used_features, classifier=False,
+        class_of_interest=None):
     ufl, mapping = get_feature_mapping(used_features)
     qiis_list = common_utils.compute_regression_qii(lr_model=lr_model,
                                                     input_features=features,
@@ -95,7 +96,9 @@ def get_tree_qii(lr_model, features, used_features):
                                                     logger=None,
                                                     original_predictions=None,
                                                     rank=None,
-                                                    features_to_test=used_features)
+                                                    features_to_test=used_features,
+                                                    classifier=classifier,
+                                                    class_of_interest=class_of_interest)
     qiis_dict = {mapping[f]:q for (f,q) in enumerate(qiis_list)}
     return qiis_dict
 

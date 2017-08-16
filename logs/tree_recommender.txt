@@ -1,0 +1,509 @@
+Loading results dict
+Loading indicators
+Done
+Loading ratings
+Done, 12195247 ratings loaded
+Filtering known movies
+12195247 ratings left
+Building data set
+Example rating: [(1, (0, 4.0))]
+Example user: [0]
+20000 users found, making it a new feature 1224
+Data set created, training the tree
+('train_regression_model(data.count=12195247, regression_model="regression_tree", len(categorical_features)=1221, max_bins=10, max_depth=10, num_trees=128, is_classifier=False, num_classes=None)',)
+('num_classes is None, setting to max_bins=10',)
+('Training regression_tree',)
+('Done in 1099.22221684 seconds',)
+Done
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.codec.CodecConfig: Compression: SNAPPY
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.codec.CodecConfig: Compression: SNAPPY
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.codec.CodecConfig: Compression: SNAPPY
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.codec.CodecConfig: Compression: SNAPPY
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.codec.CodecConfig: Compression: SNAPPY
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.codec.CodecConfig: Compression: SNAPPY
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.codec.CodecConfig: Compression: SNAPPY
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.codec.CodecConfig: Compression: SNAPPY
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Parquet block size to 134217728
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Parquet block size to 134217728
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Parquet block size to 134217728
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Parquet page size to 1048576
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Parquet page size to 1048576
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Parquet dictionary page size to 1048576
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Parquet dictionary page size to 1048576
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Dictionary is on
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Dictionary is on
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Validation is off
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Validation is off
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Parquet block size to 134217728
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Parquet block size to 134217728
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Parquet page size to 1048576
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Writer version is: PARQUET_1_0
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Parquet dictionary page size to 1048576
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Dictionary is on
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Validation is off
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Writer version is: PARQUET_1_0
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Parquet page size to 1048576
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Parquet dictionary page size to 1048576
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Dictionary is on
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Validation is off
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Writer version is: PARQUET_1_0
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Parquet block size to 134217728
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Parquet block size to 134217728
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Parquet page size to 1048576
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Parquet page size to 1048576
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Parquet dictionary page size to 1048576
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Parquet dictionary page size to 1048576
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Dictionary is on
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Dictionary is on
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Validation is off
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Validation is off
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Writer version is: PARQUET_1_0
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Writer version is: PARQUET_1_0
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Parquet block size to 134217728
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Parquet page size to 1048576
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Parquet page size to 1048576
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Parquet dictionary page size to 1048576
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Parquet dictionary page size to 1048576
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Dictionary is on
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Writer version is: PARQUET_1_0
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Validation is off
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Writer version is: PARQUET_1_0
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Dictionary is on
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Validation is off
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ParquetOutputFormat: Writer version is: PARQUET_1_0
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.InternalParquetRecordWriter: Flushing mem columnStore to file. allocated memory: 67,720
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.InternalParquetRecordWriter: Flushing mem columnStore to file. allocated memory: 67,736
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.InternalParquetRecordWriter: Flushing mem columnStore to file. allocated memory: 68,136
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.InternalParquetRecordWriter: Flushing mem columnStore to file. allocated memory: 67,812
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.InternalParquetRecordWriter: Flushing mem columnStore to file. allocated memory: 67,696
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.InternalParquetRecordWriter: Flushing mem columnStore to file. allocated memory: 67,780
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.InternalParquetRecordWriter: Flushing mem columnStore to file. allocated memory: 67,888
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.InternalParquetRecordWriter: Flushing mem columnStore to file. allocated memory: 67,912
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 37B for [treeId] INT32: 29 values, 2B raw, 4B comp, 1 pages, encodings: [PLAIN_DICTIONARY, BIT_PACKED], dic { 1 entries, 4B raw, 1B comp}
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 37B for [treeId] INT32: 29 values, 2B raw, 4B comp, 1 pages, encodings: [PLAIN_DICTIONARY, BIT_PACKED], dic { 1 entries, 4B raw, 1B comp}
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 37B for [treeId] INT32: 29 values, 2B raw, 4B comp, 1 pages, encodings: [PLAIN_DICTIONARY, BIT_PACKED], dic { 1 entries, 4B raw, 1B comp}
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 37B for [treeId] INT32: 29 values, 2B raw, 4B comp, 1 pages, encodings: [PLAIN_DICTIONARY, BIT_PACKED], dic { 1 entries, 4B raw, 1B comp}
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 37B for [treeId] INT32: 30 values, 2B raw, 4B comp, 1 pages, encodings: [PLAIN_DICTIONARY, BIT_PACKED], dic { 1 entries, 4B raw, 1B comp}
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 154B for [nodeId] INT32: 29 values, 116B raw, 119B comp, 1 pages, encodings: [BIT_PACKED, PLAIN]
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 67B for [predict, predict] DOUBLE: 29 values, 24B raw, 26B comp, 1 pages, encodings: [RLE, PLAIN_DICTIONARY, BIT_PACKED], dic { 16 entries, 128B raw, 16B comp}
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 51B for [predict, prob] DOUBLE: 29 values, 8B raw, 10B comp, 1 pages, encodings: [RLE, PLAIN_DICTIONARY, BIT_PACKED], dic { 1 entries, 8B raw, 1B comp}
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 61B for [impurity] DOUBLE: 29 values, 18B raw, 20B comp, 1 pages, encodings: [PLAIN_DICTIONARY, BIT_PACKED], dic { 14 entries, 112B raw, 14B comp}
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 33B for [isLeaf] BOOLEAN: 29 values, 4B raw, 6B comp, 1 pages, encodings: [BIT_PACKED, PLAIN]
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 52B for [split, feature] INT32: 29 values, 17B raw, 19B comp, 1 pages, encodings: [RLE, PLAIN_DICTIONARY, BIT_PACKED], dic { 8 entries, 32B raw, 8B comp}
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 56B for [split, threshold] DOUBLE: 29 values, 13B raw, 15B comp, 1 pages, encodings: [RLE, PLAIN_DICTIONARY, BIT_PACKED], dic { 2 entries, 16B raw, 2B comp}
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 48B for [split, featureType] INT32: 29 values, 13B raw, 15B comp, 1 pages, encodings: [RLE, PLAIN_DICTIONARY, BIT_PACKED], dic { 2 entries, 8B raw, 2B comp}
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 72B for [split, categories, list, element] DOUBLE: 30 values, 29B raw, 31B comp, 1 pages, encodings: [RLE, PLAIN_DICTIONARY], dic { 5 entries, 40B raw, 5B comp}
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 98B for [leftNodeId] INT32: 29 values, 61B raw, 64B comp, 1 pages, encodings: [RLE, BIT_PACKED, PLAIN]
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 98B for [rightNodeId] INT32: 29 values, 61B raw, 64B comp, 1 pages, encodings: [RLE, BIT_PACKED, PLAIN]
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 159B for [infoGain] DOUBLE: 29 values, 113B raw, 116B comp, 1 pages, encodings: [RLE, BIT_PACKED, PLAIN]
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 37B for [treeId] INT32: 29 values, 2B raw, 4B comp, 1 pages, encodings: [PLAIN_DICTIONARY, BIT_PACKED], dic { 1 entries, 4B raw, 1B comp}
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 37B for [treeId] INT32: 29 values, 2B raw, 4B comp, 1 pages, encodings: [PLAIN_DICTIONARY, BIT_PACKED], dic { 1 entries, 4B raw, 1B comp}
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 153B for [nodeId] INT32: 29 values, 116B raw, 118B comp, 1 pages, encodings: [BIT_PACKED, PLAIN]
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 37B for [treeId] INT32: 29 values, 2B raw, 4B comp, 1 pages, encodings: [PLAIN_DICTIONARY, BIT_PACKED], dic { 1 entries, 4B raw, 1B comp}
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 154B for [nodeId] INT32: 29 values, 116B raw, 119B comp, 1 pages, encodings: [BIT_PACKED, PLAIN]
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 71B for [predict, predict] DOUBLE: 29 values, 28B raw, 30B comp, 1 pages, encodings: [RLE, PLAIN_DICTIONARY, BIT_PACKED], dic { 24 entries, 192B raw, 24B comp}
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 154B for [nodeId] INT32: 29 values, 116B raw, 119B comp, 1 pages, encodings: [BIT_PACKED, PLAIN]
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 158B for [nodeId] INT32: 30 values, 120B raw, 123B comp, 1 pages, encodings: [BIT_PACKED, PLAIN]
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 51B for [predict, prob] DOUBLE: 29 values, 8B raw, 10B comp, 1 pages, encodings: [RLE, PLAIN_DICTIONARY, BIT_PACKED], dic { 1 entries, 8B raw, 1B comp}
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 71B for [predict, predict] DOUBLE: 29 values, 28B raw, 30B comp, 1 pages, encodings: [RLE, PLAIN_DICTIONARY, BIT_PACKED], dic { 19 entries, 152B raw, 19B comp}
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 153B for [nodeId] INT32: 29 values, 116B raw, 118B comp, 1 pages, encodings: [BIT_PACKED, PLAIN]
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 71B for [predict, predict] DOUBLE: 29 values, 28B raw, 30B comp, 1 pages, encodings: [RLE, PLAIN_DICTIONARY, BIT_PACKED], dic { 18 entries, 144B raw, 18B comp}
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 71B for [predict, predict] DOUBLE: 30 values, 28B raw, 30B comp, 1 pages, encodings: [RLE, PLAIN_DICTIONARY, BIT_PACKED], dic { 17 entries, 136B raw, 17B comp}
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 65B for [impurity] DOUBLE: 29 values, 22B raw, 24B comp, 1 pages, encodings: [PLAIN_DICTIONARY, BIT_PACKED], dic { 22 entries, 176B raw, 22B comp}
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 51B for [predict, prob] DOUBLE: 29 values, 8B raw, 10B comp, 1 pages, encodings: [RLE, PLAIN_DICTIONARY, BIT_PACKED], dic { 1 entries, 8B raw, 1B comp}
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 71B for [predict, predict] DOUBLE: 29 values, 28B raw, 30B comp, 1 pages, encodings: [RLE, PLAIN_DICTIONARY, BIT_PACKED], dic { 18 entries, 144B raw, 18B comp}
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 33B for [isLeaf] BOOLEAN: 29 values, 4B raw, 6B comp, 1 pages, encodings: [BIT_PACKED, PLAIN]
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 51B for [predict, prob] DOUBLE: 29 values, 8B raw, 10B comp, 1 pages, encodings: [RLE, PLAIN_DICTIONARY, BIT_PACKED], dic { 1 entries, 8B raw, 1B comp}
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 51B for [predict, prob] DOUBLE: 30 values, 8B raw, 10B comp, 1 pages, encodings: [RLE, PLAIN_DICTIONARY, BIT_PACKED], dic { 1 entries, 8B raw, 1B comp}
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 65B for [impurity] DOUBLE: 29 values, 22B raw, 24B comp, 1 pages, encodings: [PLAIN_DICTIONARY, BIT_PACKED], dic { 17 entries, 136B raw, 17B comp}
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 51B for [predict, prob] DOUBLE: 29 values, 8B raw, 10B comp, 1 pages, encodings: [RLE, PLAIN_DICTIONARY, BIT_PACKED], dic { 1 entries, 8B raw, 1B comp}
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 58B for [split, feature] INT32: 29 values, 23B raw, 25B comp, 1 pages, encodings: [RLE, PLAIN_DICTIONARY, BIT_PACKED], dic { 10 entries, 40B raw, 10B comp}
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 33B for [isLeaf] BOOLEAN: 29 values, 4B raw, 6B comp, 1 pages, encodings: [BIT_PACKED, PLAIN]
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 61B for [impurity] DOUBLE: 29 values, 18B raw, 20B comp, 1 pages, encodings: [PLAIN_DICTIONARY, BIT_PACKED], dic { 16 entries, 128B raw, 16B comp}
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 61B for [impurity] DOUBLE: 30 values, 18B raw, 20B comp, 1 pages, encodings: [PLAIN_DICTIONARY, BIT_PACKED], dic { 15 entries, 120B raw, 15B comp}
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 33B for [isLeaf] BOOLEAN: 30 values, 4B raw, 6B comp, 1 pages, encodings: [BIT_PACKED, PLAIN]
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 54B for [split, feature] INT32: 30 values, 19B raw, 21B comp, 1 pages, encodings: [RLE, PLAIN_DICTIONARY, BIT_PACKED], dic { 10 entries, 40B raw, 10B comp}
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 54B for [split, threshold] DOUBLE: 30 values, 11B raw, 13B comp, 1 pages, encodings: [RLE, PLAIN_DICTIONARY, BIT_PACKED], dic { 1 entries, 8B raw, 1B comp}
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 46B for [split, featureType] INT32: 30 values, 11B raw, 13B comp, 1 pages, encodings: [RLE, PLAIN_DICTIONARY, BIT_PACKED], dic { 1 entries, 4B raw, 1B comp}
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 70B for [split, categories, list, element] DOUBLE: 30 values, 27B raw, 29B comp, 1 pages, encodings: [RLE, PLAIN_DICTIONARY], dic { 6 entries, 48B raw, 6B comp}
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 103B for [leftNodeId] INT32: 30 values, 65B raw, 68B comp, 1 pages, encodings: [RLE, BIT_PACKED, PLAIN]
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 103B for [rightNodeId] INT32: 30 values, 65B raw, 68B comp, 1 pages, encodings: [RLE, BIT_PACKED, PLAIN]
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 167B for [infoGain] DOUBLE: 30 values, 121B raw, 124B comp, 1 pages, encodings: [RLE, BIT_PACKED, PLAIN]
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 153B for [nodeId] INT32: 29 values, 116B raw, 118B comp, 1 pages, encodings: [BIT_PACKED, PLAIN]
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 54B for [split, feature] INT32: 29 values, 19B raw, 21B comp, 1 pages, encodings: [RLE, PLAIN_DICTIONARY, BIT_PACKED], dic { 10 entries, 40B raw, 10B comp}
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 58B for [split, threshold] DOUBLE: 29 values, 15B raw, 17B comp, 1 pages, encodings: [RLE, PLAIN_DICTIONARY, BIT_PACKED], dic { 4 entries, 32B raw, 4B comp}
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 71B for [predict, predict] DOUBLE: 29 values, 28B raw, 30B comp, 1 pages, encodings: [RLE, PLAIN_DICTIONARY, BIT_PACKED], dic { 22 entries, 176B raw, 22B comp}
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 56B for [split, threshold] DOUBLE: 29 values, 13B raw, 15B comp, 1 pages, encodings: [RLE, PLAIN_DICTIONARY, BIT_PACKED], dic { 2 entries, 16B raw, 2B comp}
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 49B for [split, featureType] INT32: 29 values, 14B raw, 16B comp, 1 pages, encodings: [RLE, PLAIN_DICTIONARY, BIT_PACKED], dic { 2 entries, 8B raw, 2B comp}
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 93B for [split, categories, list, element] DOUBLE: 56 values, 51B raw, 52B comp, 1 pages, encodings: [RLE, PLAIN_DICTIONARY], dic { 7 entries, 56B raw, 7B comp}
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 48B for [split, featureType] INT32: 29 values, 13B raw, 15B comp, 1 pages, encodings: [RLE, PLAIN_DICTIONARY, BIT_PACKED], dic { 2 entries, 8B raw, 2B comp}
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 51B for [predict, prob] DOUBLE: 29 values, 8B raw, 10B comp, 1 pages, encodings: [RLE, PLAIN_DICTIONARY, BIT_PACKED], dic { 1 entries, 8B raw, 1B comp}
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 115B for [leftNodeId] INT32: 29 values, 77B raw, 80B comp, 1 pages, encodings: [RLE, BIT_PACKED, PLAIN]
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 113B for [rightNodeId] INT32: 29 values, 77B raw, 78B comp, 1 pages, encodings: [RLE, BIT_PACKED, PLAIN]
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 70B for [split, categories, list, element] DOUBLE: 29 values, 27B raw, 29B comp, 1 pages, encodings: [RLE, PLAIN_DICTIONARY], dic { 6 entries, 48B raw, 6B comp}
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 65B for [impurity] DOUBLE: 29 values, 22B raw, 24B comp, 1 pages, encodings: [PLAIN_DICTIONARY, BIT_PACKED], dic { 20 entries, 160B raw, 20B comp}
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 192B for [infoGain] DOUBLE: 29 values, 145B raw, 149B comp, 1 pages, encodings: [RLE, BIT_PACKED, PLAIN]
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 33B for [isLeaf] BOOLEAN: 29 values, 4B raw, 6B comp, 1 pages, encodings: [BIT_PACKED, PLAIN]
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 54B for [split, feature] INT32: 29 values, 19B raw, 21B comp, 1 pages, encodings: [RLE, PLAIN_DICTIONARY, BIT_PACKED], dic { 10 entries, 40B raw, 10B comp}
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 56B for [split, threshold] DOUBLE: 29 values, 13B raw, 15B comp, 1 pages, encodings: [RLE, PLAIN_DICTIONARY, BIT_PACKED], dic { 2 entries, 16B raw, 2B comp}
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 48B for [split, featureType] INT32: 29 values, 13B raw, 15B comp, 1 pages, encodings: [RLE, PLAIN_DICTIONARY, BIT_PACKED], dic { 2 entries, 8B raw, 2B comp}
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 84B for [split, categories, list, element] DOUBLE: 42 values, 42B raw, 43B comp, 1 pages, encodings: [RLE, PLAIN_DICTIONARY], dic { 7 entries, 56B raw, 7B comp}
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 107B for [leftNodeId] INT32: 29 values, 69B raw, 72B comp, 1 pages, encodings: [RLE, BIT_PACKED, PLAIN]
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 107B for [rightNodeId] INT32: 29 values, 69B raw, 72B comp, 1 pages, encodings: [RLE, BIT_PACKED, PLAIN]
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 176B for [infoGain] DOUBLE: 29 values, 129B raw, 133B comp, 1 pages, encodings: [RLE, BIT_PACKED, PLAIN]
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 61B for [impurity] DOUBLE: 29 values, 18B raw, 20B comp, 1 pages, encodings: [PLAIN_DICTIONARY, BIT_PACKED], dic { 16 entries, 128B raw, 16B comp}
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 154B for [nodeId] INT32: 29 values, 116B raw, 119B comp, 1 pages, encodings: [BIT_PACKED, PLAIN]
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 33B for [isLeaf] BOOLEAN: 29 values, 4B raw, 6B comp, 1 pages, encodings: [BIT_PACKED, PLAIN]
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 103B for [leftNodeId] INT32: 29 values, 65B raw, 68B comp, 1 pages, encodings: [RLE, BIT_PACKED, PLAIN]
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 33B for [isLeaf] BOOLEAN: 29 values, 4B raw, 6B comp, 1 pages, encodings: [BIT_PACKED, PLAIN]
+Jun 15, 2017 11:59:43 AM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 71B for [predict, predict] DOUBLE: 29 values, 28B raw, 30B comp, 1 pages, encodings: [RLE, PLAIN_DICTIONARY, BIT_PACKED], dic { 19 DecisionTreeModel regressor of depth 10 with 233 nodes
+  If (feature 1223 <= 3.199479900314227)
+   If (feature 1223 <= 2.0)
+    Predict: 2.0
+   Else (feature 1223 > 2.0)
+    If (feature 1224 in {0.0,5.0,1.0,6.0,2.0,3.0,8.0})
+     If (feature 1223 <= 2.991811668372569)
+      If (feature 412 in {0.0})
+       If (feature 65 in {0.0})
+        If (feature 815 in {0.0})
+         If (feature 348 in {0.0})
+          If (feature 538 in {0.0})
+           If (feature 324 in {0.0})
+            Predict: 2.015882917897118
+           Else (feature 324 not in {0.0})
+            Predict: 2.9148805878750768
+          Else (feature 538 not in {0.0})
+           If (feature 1224 in {0.0,5.0,1.0,2.0,3.0,8.0})
+            Predict: 2.0
+           Else (feature 1224 not in {0.0,5.0,1.0,2.0,3.0,8.0})
+            Predict: 3.750166979421774
+         Else (feature 348 not in {0.0})
+          If (feature 1224 in {0.0,5.0,6.0,2.0,8.0})
+           Predict: 2.0
+          Else (feature 1224 not in {0.0,5.0,6.0,2.0,8.0})
+           If (feature 365 in {1.0})
+            Predict: 3.0
+           Else (feature 365 not in {1.0})
+            Predict: 4.0
+        Else (feature 815 not in {0.0})
+         If (feature 1224 in {5.0,1.0,6.0,2.0,3.0})
+          If (feature 1224 in {2.0,3.0,5.0,6.0})
+           Predict: 2.0
+          Else (feature 1224 not in {2.0,3.0,5.0,6.0})
+           If (feature 175 in {0.0})
+            Predict: 2.0
+           Else (feature 175 not in {0.0})
+            Predict: 3.4997421351211964
+         Else (feature 1224 not in {5.0,1.0,6.0,2.0,3.0})
+          Predict: 4.0
+       Else (feature 65 not in {0.0})
+        If (feature 1224 in {0.0,1.0,6.0,2.0,3.0,8.0})
+         Predict: 2.0
+        Else (feature 1224 not in {0.0,1.0,6.0,2.0,3.0,8.0})
+         If (feature 868 in {1.0})
+          Predict: 3.0
+         Else (feature 868 not in {1.0})
+          Predict: 4.0
+      Else (feature 412 not in {0.0})
+       If (feature 1224 in {5.0,1.0,6.0,2.0,3.0,8.0})
+        If (feature 897 in {0.0})
+         If (feature 269 in {0.0})
+          Predict: 2.0
+         Else (feature 269 not in {0.0})
+          If (feature 1224 in {2.0,8.0})
+           Predict: 2.0
+          Else (feature 1224 not in {2.0,8.0})
+           Predict: 3.0
+        Else (feature 897 not in {0.0})
+         If (feature 1224 in {2.0,5.0,6.0,1.0})
+          If (feature 0 <= 2008.0)
+           Predict: 2.0
+          Else (feature 0 > 2008.0)
+           If (feature 1224 in {5.0,6.0})
+            Predict: 2.0
+           Else (feature 1224 not in {5.0,6.0})
+            Predict: 4.0
+         Else (feature 1224 not in {2.0,5.0,6.0,1.0})
+          Predict: 4.0
+       Else (feature 1224 not in {5.0,1.0,6.0,2.0,3.0,8.0})
+        If (feature 173 in {1.0})
+         Predict: 3.0
+        Else (feature 173 not in {1.0})
+         Predict: 4.0
+     Else (feature 1223 > 2.991811668372569)
+      If (feature 1224 in {5.0,0.0,2.0})
+       If (feature 587 in {0.0})
+        If (feature 103 in {0.0})
+         If (feature 412 in {0.0})
+          If (feature 65 in {0.0})
+           Predict: 2.0
+          Else (feature 65 not in {0.0})
+           If (feature 1224 in {0.0,2.0})
+            Predict: 2.0
+           Else (feature 1224 not in {0.0,2.0})
+            Predict: 3.421084874136779
+         Else (feature 412 not in {0.0})
+          If (feature 1224 in {2.0,5.0})
+           Predict: 2.0
+          Else (feature 1224 not in {2.0,5.0})
+           If (feature 173 in {1.0})
+            Predict: 3.0
+           Else (feature 173 not in {1.0})
+            Predict: 4.0
+        Else (feature 103 not in {0.0})
+         If (feature 1224 in {0.0,5.0})
+          Predict: 2.0
+         Else (feature 1224 not in {0.0,5.0})
+          If (feature 1011 in {1.0})
+           Predict: 3.0
+          Else (feature 1011 not in {1.0})
+           Predict: 4.0
+       Else (feature 587 not in {0.0})
+        If (feature 173 in {1.0})
+         Predict: 2.0
+        Else (feature 173 not in {1.0})
+         If (feature 186 in {1.0})
+          Predict: 3.0
+         Else (feature 186 not in {1.0})
+          Predict: 4.0
+      Else (feature 1224 not in {5.0,0.0,2.0})
+       If (feature 365 in {1.0})
+        If (feature 1224 in {3.0})
+         If (feature 348 in {0.0})
+          Predict: 2.0
+         Else (feature 348 not in {0.0})
+          Predict: 3.0
+        Else (feature 1224 not in {3.0})
+         If (feature 33 in {1.0})
+          If (feature 1224 in {8.0})
+           Predict: 2.0
+          Else (feature 1224 not in {8.0})
+           Predict: 4.0
+         Else (feature 33 not in {1.0})
+          Predict: 4.0
+       Else (feature 365 not in {1.0})
+        If (feature 1184 in {1.0})
+         If (feature 1224 in {1.0})
+          If (feature 163 in {0.0})
+           Predict: 2.0
+          Else (feature 163 not in {0.0})
+           Predict: 3.0
+         Else (feature 1224 not in {1.0})
+          If (feature 309 in {1.0})
+           If (feature 1224 in {6.0})
+            Predict: 2.499745417515275
+           Else (feature 1224 not in {6.0})
+            Predict: 4.0
+          Else (feature 309 not in {1.0})
+           Predict: 4.0
+        Else (feature 1184 not in {1.0})
+         If (feature 661 in {1.0})
+          If (feature 1224 in {6.0})
+           If (feature 0 <= 2011.0)
+            Predict: 2.0
+           Else (feature 0 > 2011.0)
+            Predict: 3.0
+          Else (feature 1224 not in {6.0})
+           Predict: 4.0
+         Else (feature 661 not in {1.0})
+          If (feature 270 in {1.0})
+           If (feature 1224 in {8.0})
+            Predict: 2.2223038246426756
+           Else (feature 1224 not in {8.0})
+            Predict: 4.0
+          Else (feature 270 not in {1.0})
+           Predict: 4.0
+    Else (feature 1224 not in {0.0,5.0,1.0,6.0,2.0,3.0,8.0})
+     If (feature 1018 in {1.0})
+      If (feature 1224 in {7.0})
+       If (feature 798 in {0.0})
+        Predict: 2.0
+       Else (feature 798 not in {0.0})
+        Predict: 3.0
+      Else (feature 1224 not in {7.0})
+       If (feature 587 in {1.0})
+        If (feature 14 in {0.0})
+         Predict: 2.0
+        Else (feature 14 not in {0.0})
+         Predict: 3.0
+       Else (feature 587 not in {1.0})
+        If (feature 903 in {1.0})
+         If (feature 1224 in {9.0})
+          Predict: 2.0
+         Else (feature 1224 not in {9.0})
+          Predict: 4.0
+        Else (feature 903 not in {1.0})
+         Predict: 4.0
+     Else (feature 1018 not in {1.0})
+      If (feature 903 in {1.0})
+       If (feature 1224 in {9.0})
+        If (feature 1165 in {0.0})
+         Predict: 2.0
+        Else (feature 1165 not in {0.0})
+         Predict: 3.0
+       Else (feature 1224 not in {9.0})
+        If (feature 587 in {1.0})
+         If (feature 19 in {1.0})
+          Predict: 2.0
+         Else (feature 19 not in {1.0})
+          Predict: 3.0
+        Else (feature 587 not in {1.0})
+         Predict: 4.0
+      Else (feature 903 not in {1.0})
+       If (feature 587 in {1.0})
+        If (feature 1224 in {4.0})
+         If (feature 259 in {0.0})
+          Predict: 2.0
+         Else (feature 259 not in {0.0})
+          Predict: 3.0
+        Else (feature 1224 not in {4.0})
+         Predict: 4.0
+       Else (feature 587 not in {1.0})
+        Predict: 4.0
+  Else (feature 1223 > 3.199479900314227)
+   If (feature 1223 <= 3.7911091451951786)
+    If (feature 1224 in {0.0,5.0,1.0,6.0,2.0})
+     If (feature 587 in {0.0})
+      If (feature 903 in {0.0})
+       If (feature 365 in {0.0})
+        If (feature 412 in {0.0})
+         If (feature 1224 in {0.0})
+          Predict: 2.0
+         Else (feature 1224 not in {0.0})
+          If (feature 173 in {0.0})
+           If (feature 65 in {0.0})
+            Predict: 2.620855738462046
+           Else (feature 65 not in {0.0})
+            Predict: 3.093980384054977
+          Else (feature 173 not in {0.0})
+           Predict: 4.0
+        Else (feature 412 not in {0.0})
+         If (feature 1224 in {1.0,5.0,2.0,6.0})
+          If (feature 103 in {0.0})
+           If (feature 65 in {0.0})
+            Predict: 2.1878533789761145
+           Else (feature 65 not in {0.0})
+            Predict: 2.9877913752913754
+          Else (feature 103 not in {0.0})
+           If (feature 1224 in {1.0,5.0})
+            Predict: 2.493598118630781
+           Else (feature 1224 not in {1.0,5.0})
+            Predict: 4.0
+         Else (feature 1224 not in {1.0,5.0,2.0,6.0})
+          If (feature 173 in {1.0})
+           Predict: 3.0
+          Else (feature 173 not in {1.0})
+           Predict: 4.0
+       Else (feature 365 not in {0.0})
+        If (feature 1072 in {1.0})
+         If (feature 1224 in {5.0,0.0})
+          If (feature 24 in {1.0})
+           Predict: 2.0
+          Else (feature 24 not in {1.0})
+           If (feature 1224 in {0.0})
+            Predict: 3.0023958717287136
+           Else (feature 1224 not in {0.0})
+            Predict: 4.0
+         Else (feature 1224 not in {5.0,0.0})
+          Predict: 4.0
+        Else (feature 1072 not in {1.0})
+         Predict: 4.0
+      Else (feature 903 not in {0.0})
+       If (feature 1090 in {1.0})
+        If (feature 0 <= 1990.0)
+         Predict: 2.0
+        Else (feature 0 > 1990.0)
+         Predict: 3.0
+       Else (feature 1090 not in {1.0})
+        If (feature 121 in {1.0})
+         If (feature 1224 in {5.0})
+          Predict: 2.0
+         Else (feature 1224 not in {5.0})
+          Predict: 4.0
+        Else (feature 121 not in {1.0})
+         Predict: 4.0
+     Else (feature 587 not in {0.0})
+      If (feature 1224 in {1.0,6.0})
+       If (feature 243 in {1.0})
+        Predict: 2.0
+       Else (feature 243 not in {1.0})
+        If (feature 2 in {1.0})
+         If (feature 1224 in {6.0})
+          Predict: 3.0
+         Else (feature 1224 not in {6.0})
+          Predict: 4.0
+        Else (feature 2 not in {1.0})
+         Predict: 4.0
+      Else (feature 1224 not in {1.0,6.0})
+       If (feature 405 in {1.0})
+        If (feature 0 <= 1995.0)
+         If (feature 1224 in {0.0})
+          Predict: 2.0
+         Else (feature 1224 not in {0.0})
+          Predict: 4.0
+        Else (feature 0 > 1995.0)
+         If (feature 1224 in {5.0})
+          Predict: 2.0
+         Else (feature 1224 not in {5.0})
+          Predict: 4.0
+       Else (feature 405 not in {1.0})
+        Predict: 4.0
+    Else (feature 1224 not in {0.0,5.0,1.0,6.0,2.0})
+     If (feature 903 in {1.0})
+      If (feature 1224 in {9.0})
+       If (feature 1165 in {0.0})
+        Predict: 2.0
+       Else (feature 1165 not in {0.0})
+        Predict: 3.0
+      Else (feature 1224 not in {9.0})
+       If (feature 53 in {1.0})
+        Predict: 3.0
+       Else (feature 53 not in {1.0})
+        Predict: 4.0
+     Else (feature 903 not in {1.0})
+      If (feature 365 in {1.0})
+       If (feature 1224 in {3.0})
+        If (feature 348 in {0.0})
+         Predict: 2.0
+        Else (feature 348 not in {0.0})
+         Predict: 3.0
+       Else (feature 1224 not in {3.0})
+        Predict: 4.0
+      Else (feature 365 not in {1.0})
+       If (feature 1018 in {1.0})
+        If (feature 1224 in {7.0})
+         If (feature 798 in {0.0})
+          Predict: 2.0
+         Else (feature 798 not in {0.0})
+          Predict: 3.0
+        Else (feature 1224 not in {7.0})
+         If (feature 37 in {1.0})
+          If (feature 1224 in {4.0})
+           Predict: 3.0
+          Else (feature 1224 not in {4.0})
+           Predict: 4.0
+         Else (feature 37 not in {1.0})
+          Predict: 4.0
+       Else (feature 1018 not in {1.0})
+        If (feature 587 in {1.0})
+         If (feature 1224 in {4.0})
+          If (feature 259 in {0.0})
+           Predict: 2.0
+          Else (feature 259 not in {0.0})
+           Predict: 3.0
+         Else (feature 1224 not in {4.0})
+          Predict: 4.0
+        Else (feature 587 not in {1.0})
+         If (feature 270 in {1.0})
+          If (feature 1224 in {8.0})
+           If (feature 815 in {0.0})
+            Predict: 2.0
+           Else (feature 815 not in {0.0})
+            Predict: 3.0
+          Else (feature 1224 not in {8.0})
+           Predict: 4.0
+         Else (feature 270 not in {1.0})
+          Predict: 4.0
+   Else (feature 1223 > 3.7911091451951786)
+    Predict: 4.0
+

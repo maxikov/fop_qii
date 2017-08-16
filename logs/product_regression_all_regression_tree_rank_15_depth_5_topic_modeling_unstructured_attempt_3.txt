@@ -1,0 +1,61 @@
+spark-submit --driver-memory 32g MovieLensALS.py --spark-executor-memory 32g --local-threads 32 --num-partitions 16 --checkpoint-dir /home/sophiak/fop_qii/archived_states/spark_dir --temp-dir /home/sophiak/fop_qii/archived_states/spark_dir --persist-dir /home/sophiak/fop_qii/archived_states/product_regression_all_regression_tree_rank_15_depth_5_topic_modeling_unstructured.state --csv --data-path datasets/ml-20m --movies-file datasets/ml-20m/ml-20m.imdb.set1.csv --tvtropes-file datasets/dbtropes/tropes.csv --rank 15 --lmbda 0.01 --num-iter 300 --predict-product-features --metadata-sources years genres average_rating imdb_keywords imdb_producer imdb_director tvtropes tags imdb_year imdb_rating imdb_cast imdb_cinematographer imdb_composer imdb_languages imdb_production_companies imdb_writer topics --drop-rare-features 100 --drop-rare-movies 25 --cross-validation 70 --regression-model regression_tree --nbins 14 --max-depth 5 --features-trim-percentile 0 --no-ht
+2017-08-02 02:19:48,849 - __main__ - DEBUG - rank: 15, lmbda: 0.01, num_iter: 300, num_partitions: 16
+2017-08-02 02:19:48,850 - __main__ - DEBUG - data_path: datasets/ml-20m, checkpoint_dir: /home/sophiak/fop_qii/archived_states/spark_dir
+2017-08-02 02:19:48,850 - __main__ - DEBUG - Temp dir: /home/sophiak/fop_qii/archived_states/spark_dir
+2017-08-02 02:19:48,850 - __main__ - DEBUG - local_threads: 32
+2017-08-02 02:19:48,850 - __main__ - DEBUG - spark_executor_memory: 32g
+2017-08-02 02:19:48,850 - __main__ - DEBUG - regression_model: regression_tree
+2017-08-02 02:19:48,850 - __main__ - DEBUG - nbins: 14
+2017-08-02 02:19:48,850 - __main__ - DEBUG - regression_users: False
+2017-08-02 02:19:48,850 - __main__ - DEBUG - predict_product_features: True
+2017-08-02 02:19:48,850 - __main__ - DEBUG - metadata_sources: ['years', 'genres', 'average_rating', 'imdb_keywords', 'imdb_producer', 'imdb_director', 'tvtropes', 'tags', 'imdb_year', 'imdb_rating', 'imdb_cast', 'imdb_cinematographer', 'imdb_composer', 'imdb_languages', 'imdb_production_companies', 'imdb_writer', 'topics']
+2017-08-02 02:19:48,850 - __main__ - DEBUG - movies_file: datasets/ml-20m/ml-20m.imdb.set1.csv
+2017-08-02 02:19:48,850 - __main__ - DEBUG - cross_validation: 70
+2017-08-02 02:19:48,850 - __main__ - DEBUG - tvtropes_file: datasets/dbtropes/tropes.csv
+2017-08-02 02:19:48,850 - __main__ - DEBUG - features_trim_percentile: 0
+2017-08-02 02:19:48,850 - __main__ - DEBUG - drop_missing_movies: False
+2017-08-02 02:19:48,850 - __main__ - DEBUG - drop_rare_features: 100
+2017-08-02 02:19:48,850 - __main__ - DEBUG - filter_data_set: 10
+2017-08-02 02:19:48,850 - __main__ - DEBUG - persist_dir: /home/sophiak/fop_qii/archived_states/product_regression_all_regression_tree_rank_15_depth_5_topic_modeling_unstructured.state, override_args: False
+2017-08-02 02:19:48,850 - __main__ - DEBUG - drop_rare_movies: 25
+2017-08-02 02:19:48,850 - __main__ - DEBUG - normalize: False
+2017-08-02 02:19:48,850 - __main__ - DEBUG - max_depth: 5
+2017-08-02 02:19:48,850 - __main__ - DEBUG - no_ht: True
+2017-08-02 02:19:48,851 - __main__ - DEBUG - csv: True
+2017-08-02 02:19:50,930 - __main__ - DEBUG - msep: ,
+2017-08-02 02:19:50,930 - __main__ - DEBUG - Loading ratings
+2017-08-02 02:19:59,392 - __main__ - DEBUG - Done in 8.461334 seconds
+2017-08-02 02:19:59,392 - __main__ - DEBUG - Loading movies
+2017-08-02 02:20:01,477 - __main__ - DEBUG - Done in 2.084159 seconds
+2017-08-02 02:20:01,477 - __main__ - DEBUG - 26804 movies loaded
+2017-08-02 02:20:17,259 - __main__ - DEBUG - 19912669 records in the training set
+2017-08-02 02:20:20,331 - __main__ - DEBUG - 26284 unique movies in the training set
+2017-08-02 02:20:20,331 - __main__ - DEBUG - Started internal_feature_predictor
+2017-08-02 02:20:20,331 - __main__ - DEBUG - Trying to load previous results
+2017-08-02 02:20:20,331 - __main__ - DEBUG - Loading /home/sophiak/fop_qii/archived_states/product_regression_all_regression_tree_rank_15_depth_5_topic_modeling_unstructured.state/results.pkl
+2017-08-02 02:20:20,383 - __main__ - DEBUG - 0 features already processed
+2017-08-02 02:20:20,383 - __main__ - DEBUG - Training the average rating model
+2017-08-02 02:20:26,264 - __main__ - DEBUG - Done in 5.880825 seconds
+2017-08-02 02:20:26,441 - __main__ - DEBUG - Loading /home/sophiak/fop_qii/archived_states/product_regression_all_regression_tree_rank_15_depth_5_topic_modeling_unstructured.state/als_model.pkl
+2017-08-02 02:20:29,754 - __main__ - DEBUG - Loading /home/sophiak/fop_qii/archived_states/product_regression_all_regression_tree_rank_15_depth_5_topic_modeling_unstructured.state/baseline_predictions.pkl
+2017-08-02 02:25:00,239 - __main__ - DEBUG - user_or_product_features: product
+2017-08-02 02:25:00,239 - __main__ - DEBUG - Loading /home/sophiak/fop_qii/archived_states/product_regression_all_regression_tree_rank_15_depth_5_topic_modeling_unstructured.state/indicators.pkl
+2017-08-02 02:29:10,375 - __main__ - DEBUG - Dropping movies with fewer than 25 non-zero features
+Traceback (most recent call last):
+  File "/longterm/sophiak/fop_qii/MovieLensALS.py", line 599, in <module>
+    main()
+  File "/longterm/sophiak/fop_qii/MovieLensALS.py", line 543, in main
+    train_ratio=args.cross_validation)
+  File "/longterm/sophiak/fop_qii/internal_feature_predictor.py", line 1088, in internal_feature_predictor
+    logger.debug("%d movies left", features.count())
+  File "/opt/spark-2.1.1-bin-hadoop2.7/python/lib/pyspark.zip/pyspark/rdd.py", line 1040, in count
+  File "/opt/spark-2.1.1-bin-hadoop2.7/python/lib/pyspark.zip/pyspark/rdd.py", line 1031, in sum
+  File "/opt/spark-2.1.1-bin-hadoop2.7/python/lib/pyspark.zip/pyspark/rdd.py", line 905, in fold
+  File "/opt/spark-2.1.1-bin-hadoop2.7/python/lib/pyspark.zip/pyspark/rdd.py", line 808, in collect
+  File "/opt/spark-2.1.1-bin-hadoop2.7/python/lib/py4j-0.10.4-src.zip/py4j/java_gateway.py", line 1131, in __call__
+  File "/opt/spark-2.1.1-bin-hadoop2.7/python/lib/py4j-0.10.4-src.zip/py4j/java_gateway.py", line 883, in send_command
+  File "/opt/spark-2.1.1-bin-hadoop2.7/python/lib/py4j-0.10.4-src.zip/py4j/java_gateway.py", line 1028, in send_command
+  File "/usr/lib/python2.7/socket.py", line 451, in readline
+    data = self._sock.recv(self._rbufsize)
+  File "/opt/spark-2.1.1-bin-hadoop2.7/python/lib/pyspark.zip/pyspark/context.py", line 239, in signal_handler
+KeyboardInterrupt
