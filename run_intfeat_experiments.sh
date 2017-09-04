@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
 
 #Spark parameters
-MEMORY="15g"
-STATE_TMP_DIR_ROOT="/home/maxikov"
+MEMORY="64g"
+STATE_TMP_DIR_ROOT="archived_states"
 LOG_DIR="logs"
-LOCAL_THREADS="8"
-NUM_PARTITIONS="7"
+LOCAL_THREADS="40"
+NUM_PARTITIONS="40"
 
 #Data source paths
 DATA_PATH="datasets/ml-20m"
@@ -34,6 +34,8 @@ OVERRIDE_ARGS=""
 
 NAME_SUFFIX=""
 
+FILTER_DATA_SET="10"
+
 function make_commands() {
 	LOG_STATE_NAME="product_regression_all_${REGRESSION_MODEL}_rank_${RANK}"
 	if [ "$REGRESSION_MODEL" == "regression_tree" ]
@@ -59,7 +61,7 @@ function make_commands() {
 	ARGS="${ARGS} --predict-product-features --metadata-sources $METADATA_SOURCES"
 	ARGS="${ARGS} --drop-rare-features $DROP_RARE_FEATURES --drop-rare-movies $DROP_RARE_MOVIES"
 	ARGS="${ARGS} --cross-validation $CROSS_VALIDATION --regression-model $REGRESSION_MODEL --nbins $NBINS --max-depth $MAX_DEPTH $NORMALIZE"
-	ARGS="${ARGS} --features-trim-percentile $FEATURE_TRIM_PERCENTILE ${NO_HT} ${OVERRIDE_ARGS}"
+	ARGS="${ARGS} --features-trim-percentile $FEATURE_TRIM_PERCENTILE ${NO_HT} ${OVERRIDE_ARGS} ${COLD_START} --filter-data-set ${FILTER_DATA_SET}"
 
 	WHOLE_COMMAND="$SPARK_SUBMIT MovieLensALS.py $ARGS"
 }
@@ -97,13 +99,14 @@ function run_and_save() {
 	run_until_succeeds
 	REFERENCE_MODEL="${PERSIST_DIR}/als_model.pkl"
 }
-DATA_PATH="new_experiments/synth_data_set"
-METADATA_SOURCES="${METADATA_SOURCES} imdb_year imdb_rating imdb_cast imdb_cinematographer imdb_composer imdb_languages imdb_production_companies imdb_writer"
-NAME_SUFFIX="larger_synth_noisy_profile_recommender"
-OVERRIDE_ARGS="--override-args"
+#METADATA_SOURCES="${METADATA_SOURCES} imdb_year imdb_rating imdb_cast imdb_cinematographer imdb_composer imdb_languages imdb_production_companies imdb_writer"
+NAME_SUFFIX="cold_start"
 
-RANK=10
+RANK=15
+NUM_ITER="300"
+DROP_RARE_FEATURES="250"
+DROP_RARE_MOVIES="25"
+COLD_START="--cold-start 50"
 make_commands
 mkdir -p $PERSIST_DIR
-cp ${DATA_PATH}/upr_model.pkl $PERSIST_DIR
 run_until_succeeds

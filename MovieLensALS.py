@@ -174,6 +174,9 @@ def args_init(logger):
 
     parser.add_argument("--topic-modeling", action="store_true")
 
+    parser.add_argument("--cold-start", action="store", type=int, default=0,
+            help="Use shadow model with N user-movie pairs. Don't do if 0.")
+
     args = parser.parse_args()
 
     logger.debug("rank: {}, lmbda: {}, num_iter: {}, num_partitions: {}"\
@@ -185,6 +188,7 @@ def args_init(logger):
     logger.debug("spark_executor_memory: {}"\
             .format(args.spark_executor_memory))
 
+    logger.debug("cold_start: {}".format(args.cold_start))
     logger.debug("regression_model: {}".format(args.regression_model))
 
     logger.debug("nbins: {}".format(args.nbins))

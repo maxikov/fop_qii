@@ -477,6 +477,22 @@ def predict_internal_feature(features, indicators, f, regression_model,
 
     return (lr_model, observations, predictions)
 
+#ONLY USE WITH SMALL INDICATOR SETS!
+def predict_product_features(sc, indicators, all_lr_models):
+    predictions = []
+    ind_keys = indicators.keys()
+    ind_vals = indicators.values()
+    for f in xrange(len(all_lr_models)):
+        lr_model = all_lr_models[f]
+        predictions.append(lr_model.predict(ind_vals)\
+                .map(float).collect())
+    predicted_features = zip(*predictions)
+    features = zip(ind_keys.collect(), predicted_features)
+    features_rdd = sc.parallelize(features)
+    return features_rdd
+
+
+
 
 def replace_feature_with_predicted(features, f, predictions, logger):
     logger.debug("Replacing original feature "+\
@@ -1042,6 +1058,20 @@ def internal_feature_predictor(sc, training, rank, numIter, lmbda,
         results["features"] = {}
     power = 1.0
 
+    if args.cold_start > 0:
+        logger.debug("Sampling {} movies for cold start".format(
+            args.cold_start))
+        cold_start_movies = set(random.sample(all_movies, args.cold_start))
+        cold_start_pairs = training.filter(lambda x: x[1] in
+                cold_start_movies)
+        training = training.filter(lambda x: x[1] not in
+                cold_start_movies)
+        logger.debug("Done, fetching corresponding users")
+        cold_start_users = set(cold_start_pairs.map(lambda x: x[0]).collect())
+        logger.debug("Done")
+
+
+
     if "average_rating" in args.metadata_sources:
         arc = AverageRatingRecommender.AverageRatingRecommender(logger)
         arc.train(training)
@@ -1078,6 +1108,13 @@ def internal_feature_predictor(sc, training, rank, numIter, lmbda,
     indicators, nof, categorical_features, feature_names, all_movies, training=\
         load_metadata_process_training(sc, args, metadata_sources, training,
         logger, all_movies)
+
+    if args.cold_start > 0:
+        logger.debug("Filtering cold start indicators")
+        cold_start_indicators = indicators.filter(lambda x: x[0] in
+                cold_start_movies)
+        indicators = indicators.filter(lambda x: x[0] not in cold_start_movies)
+        logger.debug("Done")
 
     if args.drop_rare_movies > 0:
         logger.debug("Dropping movies with fewer than %d non-zero "+\
@@ -1454,6 +1491,31 @@ def internal_feature_predictor(sc, training, rank, numIter, lmbda,
             ofile.close()
     if train_ratio <= 0:
         training_movies = all_movies
+
+    if args.cold_start > 0:
+       logger.debug("Cold start movies: {}".format(cold_start_movies))
+       logger.debug("Cold start users: {}".format(cold_start_users))
+       logger.debug("Sample of cold start set: {}".format(cold_start_pairs.take(10)))
+       logger.debug("Predicting features for cold start movies")
+       cold_start_features = predict_product_features(sc, cold_start_indicators,
+               all_lr_models)
+       logger.debug("Done, getting user features")
+       user_features = model.userFeatures().filter(lambda x: x[0] in
+               cold_start_users)
+       logger.debug("Done, making predictions")
+       cold_start_predictions = common_utils.manual_predict_all(\
+        cold_start_pairs.map(lambda x: (x[0], x[1])), user_features,
+        cold_start_features)
+       logger.debug("Sample of cold start predictions: {}".format(cold_start_predictions.take(10)))
+       cold_start_pairs = cold_start_pairs.map(lambda x: ((x[0], x[1]), x[2]))
+       cold_start_predictions = cold_start_predictions.map(lambda x: ((x[0], x[1]), x[2]))
+       reg_eval = common_utils.evaluate_regression(cold_start_predictions,
+                                                    cold_start_pairs,
+                                                    logger,
+                                                    args.nbins,
+                                                    bin_range=None,
+                     model_name = "Cold start regression")
+       results["cold_start_regression"] = reg_eval
 
     replaced_mean_error_baseline, replaced_rec_eval =\
                 compare_with_all_replaced_features(sc, features_original_training, other_features,\
