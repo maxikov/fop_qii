@@ -591,7 +591,7 @@ def compare_with_all_replaced_features(sc, features, other_features,
                         replaced_predictions, logger, args.nbins,
                         "All replaced features")
     logger.debug("Done in %f seconds", time.time() - start)
-    return replaced_mean_error_baseline, replaced_rec_eval
+    return replaced_mean_error_baseline, replaced_rec_eval, replaced_predictions
 
 def compare_with_all_randomized(sc, baseline_model, rank, perturbed_subset,
                                 baseline_predictions, logger, power,
@@ -1176,9 +1176,11 @@ def internal_feature_predictor(sc, training, rank, numIter, lmbda,
          filter_f = functools.partial(lambda training_movies, x: x[1] in
                  training_movies, training_movies)
          baseline_predictions_training = baseline_predictions.filter(filter_f)
+         training_training = training.filter(filter_f)
          filter_f = functools.partial(lambda test_movies, x: x[1] in
                  test_movies, test_movies)
          baseline_predictions_test = baseline_predictions.filter(filter_f)
+         training_test = training.filter(filter_f)
          logger.debug("{} feature rows, {} indicator rows,  and {} ratings in the training set".\
                  format(features_training.count(), indicators_training.count(), baseline_predictions_training.count()) +\
                  ", {} feature rows, {} indicators rows, and {} ratings in the test set".\
@@ -1193,6 +1195,8 @@ def internal_feature_predictor(sc, training, rank, numIter, lmbda,
          features_test = None
          baseline_predictions_training = baseline_predictions
          baseline_predictions_test = None
+         training_training = training
+         trainin_test = None
 
     for f in xrange(rank):
         logger.debug("Processing {} out of {}"\
@@ -1517,7 +1521,7 @@ def internal_feature_predictor(sc, training, rank, numIter, lmbda,
                      model_name = "Cold start regression")
        results["cold_start_regression"] = reg_eval
 
-    replaced_mean_error_baseline, replaced_rec_eval =\
+    replaced_mean_error_baseline, replaced_rec_eval, replaced_predictions =\
                 compare_with_all_replaced_features(sc, features_original_training, other_features,\
             user_or_product_features, all_predicted_features, rank,\
             baseline_predictions_training, logger, power, args)
@@ -1527,8 +1531,14 @@ def internal_feature_predictor(sc, training, rank, numIter, lmbda,
         sc, model, rank, training_movies, baseline_predictions_training,\
         logger, power, args)
 
+    results["all_replaced_rec_eval_ground_truth"] =\
+                    common_utils.evaluate_recommender(training_training,\
+                        replaced_predictions, logger, args.nbins,
+                        "All replaced training compared to ground truth")
+
+
     if train_ratio > 0:
-        replaced_mean_error_baseline, replaced_rec_eval =\
+        replaced_mean_error_baseline, replaced_rec_eval, replaced_predictions_test =\
             compare_with_all_replaced_features(sc, features_original_test, other_features,\
                 user_or_product_features, all_predicted_features_test, rank,\
                 baseline_predictions_test, logger, power, args)
@@ -1537,6 +1547,10 @@ def internal_feature_predictor(sc, training, rank, numIter, lmbda,
         results["all_random_rec_eval_test"] = compare_with_all_randomized(\
             sc, model, rank, test_movies, baseline_predictions_test,\
             logger, power, args)
+        results["all_replaced_rec_eval_ground_truth_test"] =\
+                    common_utils.evaluate_recommender(training_test,\
+                        replaced_test, logger, args.nbins,
+                        "All replaced test compared to ground truth")
     if args.persist_dir is not None:
         fname = os.path.join(args.persist_dir, "results.pkl")
         logger.debug("Writing %s", fname)
