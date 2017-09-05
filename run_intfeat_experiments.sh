@@ -100,13 +100,14 @@ function run_and_save() {
 	REFERENCE_MODEL="${PERSIST_DIR}/als_model.pkl"
 }
 #METADATA_SOURCES="${METADATA_SOURCES} imdb_year imdb_rating imdb_cast imdb_cinematographer imdb_composer imdb_languages imdb_production_companies imdb_writer"
-NAME_SUFFIX="cold_start"
+NAME_SUFFIX="cold_start_lmbda_0.1"
 
 RANK=15
 NUM_ITER="300"
 DROP_RARE_FEATURES="250"
 DROP_RARE_MOVIES="25"
 COLD_START="--cold-start 50"
+LMBDA=0.1
 make_commands
 mkdir -p $PERSIST_DIR
 run_until_succeeds
