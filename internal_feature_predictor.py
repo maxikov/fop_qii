@@ -1549,7 +1549,7 @@ def internal_feature_predictor(sc, training, rank, numIter, lmbda,
             logger, power, args)
         results["all_replaced_rec_eval_ground_truth_test"] =\
                     common_utils.evaluate_recommender(training_test,\
-                        replaced_test, logger, args.nbins,
+                        replaced_predictions_test, logger, args.nbins,
                         "All replaced test compared to ground truth")
     if args.persist_dir is not None:
         fname = os.path.join(args.persist_dir, "results.pkl")
