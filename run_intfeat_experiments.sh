@@ -35,6 +35,7 @@ OVERRIDE_ARGS=""
 NAME_SUFFIX=""
 
 FILTER_DATA_SET="10"
+ALS_CROSS_VALIDATION=""
 
 function make_commands() {
 	LOG_STATE_NAME="product_regression_all_${REGRESSION_MODEL}_rank_${RANK}"
@@ -61,7 +62,7 @@ function make_commands() {
 	ARGS="${ARGS} --predict-product-features --metadata-sources $METADATA_SOURCES"
 	ARGS="${ARGS} --drop-rare-features $DROP_RARE_FEATURES --drop-rare-movies $DROP_RARE_MOVIES"
 	ARGS="${ARGS} --cross-validation $CROSS_VALIDATION --regression-model $REGRESSION_MODEL --nbins $NBINS --max-depth $MAX_DEPTH $NORMALIZE"
-	ARGS="${ARGS} --features-trim-percentile $FEATURE_TRIM_PERCENTILE ${NO_HT} ${OVERRIDE_ARGS} ${COLD_START} --filter-data-set ${FILTER_DATA_SET}"
+	ARGS="${ARGS} --features-trim-percentile $FEATURE_TRIM_PERCENTILE ${NO_HT} ${OVERRIDE_ARGS} ${COLD_START} --filter-data-set ${FILTER_DATA_SET} ${ALS_CROSS_VALIDATION}"
 
 	WHOLE_COMMAND="$SPARK_SUBMIT MovieLensALS.py $ARGS"
 }
@@ -100,7 +101,7 @@ function run_and_save() {
 	REFERENCE_MODEL="${PERSIST_DIR}/als_model.pkl"
 }
 #METADATA_SOURCES="${METADATA_SOURCES} imdb_year imdb_rating imdb_cast imdb_cinematographer imdb_composer imdb_languages imdb_production_companies imdb_writer"
-NAME_SUFFIX="cold_start_lmbda_0.1"
+NAME_SUFFIX="cold_start_lmbda_0.1_als_cross_validation"
 
 RANK=15
 NUM_ITER="300"
@@ -108,6 +109,7 @@ DROP_RARE_FEATURES="250"
 DROP_RARE_MOVIES="25"
 COLD_START="--cold-start 50"
 LMBDA=0.1
+ALS_CROSS_VALIDATION="--als-cross-validation 1000"
 make_commands
 mkdir -p $PERSIST_DIR
 run_until_succeeds

@@ -177,6 +177,10 @@ def args_init(logger):
     parser.add_argument("--cold-start", action="store", type=int, default=0,
             help="Use shadow model with N user-movie pairs. Don't do if 0.")
 
+    parser.add_argument("--als-cross-validation", action="store", type=int,
+            default=0, help="Number of user-movie pairs to set aside for "+\
+                    "cross-validation of the ALS model. If 0, not performed")
+
     args = parser.parse_args()
 
     logger.debug("rank: {}, lmbda: {}, num_iter: {}, num_partitions: {}"\

@@ -1027,6 +1027,52 @@ def normalize_features(features, categorical_features, feature_names, logger):
         features = features.map(map_f)
     return features
 
+def als_training_split(training, npairs, logger):
+    logger.debug("Trying to get {} pairs for cross-validation"\
+            .format(npairs))
+
+    logger.debug("Counting nusers per each movie")
+    maskey = training.map(lambda x: (x[1], x[0]))
+    movies = maskey.countByKey()
+    logger.debug("{} movies found".format(len(movies)))
+    for key in movies.keys():
+        if movies[key] <= 1:
+            del movies[key]
+    logger.debug("{} movies with more than one user found"\
+            .format(len(movies)))
+
+    logger.debug("Counting nmovies per each user")
+    uaskey = training.map(lambda x: (x[0], x[1]))
+    users = uaskey.countByKey()
+    logger.debug("{} users found".format(len(users)))
+    for key in users.keys():
+        if users[key] <= 1:
+            del users[key]
+    logger.debug("{} users with more than one movie found"\
+            .format(len(users)))
+
+    umpairs = set()
+    while len(umpairs) < npairs:
+        u = random.choice(users.keys())
+        m = random.choice(movies.keys())
+        umpairs.add((u, m))
+        if users[u] == 2:
+            del users[u]
+        else:
+            users[u] -= 1
+        if movies[m] == 2:
+            del movies[m]
+        else:
+            movies[m] -= 1
+        if len(movies) < 2 or len(users) < 2:
+            break
+    logger.debug("{} pairs created".format(len(umpairs)))
+
+    training_test = training.filter(lambda x: (x[0], x[1]) in umpairs)
+    training_training = training.filter(lambda x: (x[0], x[1] not in umpairs))
+    return training_training, training_test
+
+
 def internal_feature_predictor(sc, training, rank, numIter, lmbda,
                                args, all_movies, metadata_sources,
                                user_or_product_features, eval_regression,
@@ -1082,7 +1128,21 @@ def internal_feature_predictor(sc, training, rank, numIter, lmbda,
              "src_rdd": functools.partial(lambda x: x, arc_ratings),
              "loader": parsers_and_loaders.load_average_ratings})
 
+    if args.als_cross_validation > 0:
+        training, training_als_test = als_training_split(training,
+                args.als_cross_validation,
+                logger)
+
     model = load_or_train_ALS(training, rank, numIter, lmbda, args, sc, logger)
+    if args.als_cross_validation > 0:
+        test_als_predictions = model.predictAll(training_als_test.map(lambda x:
+            (x[0], x[1]) ))
+        results["als_cross_validation_eval"] =\
+            common_utils.evaluate_recommender(training_als_test,\
+                        test_als_predictions, logger, args.nbins,
+                        "ALS cross validation")
+
+
     if compare_with_replaced_feature or compare_with_randomized_feature or\
             args.features_trim_percentile:
         baseline_predictions, results =\
