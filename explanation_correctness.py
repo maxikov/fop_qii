@@ -29,15 +29,17 @@ def explanation_correctness(qiis, user_profile):
     if top_two_qii == 0:
         top_two_qii = 1e-30
     qiis = collections.defaultdict(lambda: 0.0, qiis)
-    pos_qii = abs(qiis[user_profile["pos"]])
-    neg_qii = abs(qiis[user_profile["neg"]])
+    pos_qii = abs(qiis[user_profile["pos_name"]])
+    neg_qii = abs(qiis[user_profile["neg_name"]])
     corr = (pos_qii + neg_qii) / float(top_two_qii)
     return corr
 
 def one_rating_correctness(user, movie, user_features, all_trees, indicators,
                            user_profile, feature_names,
                            iterations=10, indicator_distributions=None,
-                           used_features=None, debug=False, model=None):
+                           used_features=None, debug=False, model=None,
+                           user_profile_semi_random=None,
+                           user_profile_random=None):
     if model is not None and debug:
         r = model.predict(user, movie)
         print "Original predicted rating:", r
@@ -50,26 +52,52 @@ def one_rating_correctness(user, movie, user_features, all_trees, indicators,
         print "Non-zero qiis:"
         for f, q in sort_dict(qiis, True):
             print "{} ({}): {}".format(feature_names[f], f, q)
+    qiis = {feature_names[f]: q for (f, q) in qiis.items()}
     corr = explanation_correctness(qiis, user_profile)
+    if user_profile_semi_random is not None\
+            and user_profile_random is not None:
+                corr_semi_random = explanation_correctness(qiis,
+                        user_profile_semi_random)
+                corr_random = explanation_correctness(qiis,
+                        user_profile_random)
+    else:
+        corr_semi_random = None
+        corr_random = None
     if debug:
         print "Correctness score:", corr
-    return corr
+        if user_profile_semi_random is not None\
+            and user_profile_random is not None:
+            print "Correctness semirandom score:", corr_semi_random
+            print "Correctness random score:", corr_random
+    return corr, corr_semi_random, corr_random
 
 def sample_correctness(user_product_pairs, user_features, all_trees,
                        indicators, users, profiles, feature_names, movies_dict, iterations=10,
                        indicator_distributions=None, used_features=None,
-                       debug=False, model=None):
+                       debug=False, model=None, profiles_semi_random=None,
+                       profiles_random=None):
     res = []
+    res_random = []
+    res_semi_random = []
     for (n, (u, m)) in enumerate(user_product_pairs):
         if debug:
             print "Processing user {}, movie {} ({})"\
                     .format(u, m, movies_dict[m])
             sys.stdout.flush()
-        corr = one_rating_correctness(u, m, user_features, all_trees,
+        if profiles_semi_random is not None and profiles_random is not None:
+            user_profile_semi_random = profiles_semi_random[users[u]]
+            user_profile_random = profiles_random[users[u]]
+        else:
+            user_profile_semi_random = None
+            user_profile_random = None
+        corr, corr_semi_random, corr_random = one_rating_correctness(u, m, user_features, all_trees,
                 indicators, profiles[users[u]], feature_names, iterations,
-                indicator_distributions, used_features, debug, model)
+                indicator_distributions, used_features, debug, model,
+                user_profile_semi_random, user_profile_random)
         res.append(corr)
-    return res
+        res_semi_random.append(corr_semi_random)
+        res_random.append(corr_random)
+    return res, res_semi_random, res_random
 
 
 def main():
@@ -84,6 +112,8 @@ def main():
             help="Number of user-movie pairs to evaluate correctness of")
     parser.add_argument("--movies-file", action="store", type=str, help=\
                         "File from which to load movie names")
+    parser.add_argument("--semi-random", action="store_true", help=\
+            "Load and process random and semi-random profiles as well")
     args = parser.parse_args()
     conf = SparkConf().setMaster("local[*]")
     sc = SparkContext(conf=conf)
@@ -159,20 +189,41 @@ def main():
     profiles, users = pickle.load(open(os.path.join(args.dataset_dir,
                                                     "profiles.pkl"),
                                        "rb"))
+    if args.semi_random:
+        print "Loading semi random profiles"
+        profiles_semi_random, _ = pickle.load(open(os.path.join(args.dataset_dir,
+                                                    "profiles_semi_random.pkl"),
+                                       "rb"))
+        print "Loading random profiles"
+        profiles_random, _ = pickle.load(open(os.path.join(args.dataset_dir,
+                                                    "profiles_random.pkl"),
+                                       "rb"))
+    else:
+        profiles_semi_random = None
+        profiles_random = None
     sys.stdout.flush()
     users_list = users.keys()
 
     user_product_pairs = [(random.choice(users_list), random.choice(products))
             for _ in xrange(args.sample_size)]
 
-    corr = sample_correctness(user_product_pairs, user_features, all_trees,
+    corr, corr_semi_random, corr_random = sample_correctness(user_product_pairs, user_features, all_trees,
                        indicators, users, profiles, results["feature_names"],
                        movies_dict, args.qii_iterations,
                        all_indicator_distributions, all_used_features,
-                       debug=True, model=model)
+                       debug=True, model=model,
+                       profiles_semi_random=profiles_semi_random,
+                       profiles_random=profiles_random)
 
     print "Correctness scores:", corr
     print "Average correctness:", sum(corr)/float(len(corr))
+    if args.semi_random:
+        print "Correctness semirandom scores:", corr_semi_random
+        print "Average semirandom correctness:",\
+            sum(corr_semi_random)/float(len(corr_semi_random))
+        print "Correctness random scores:", corr_random
+        print "Average random correctness:",\
+            sum(corr_random)/float(len(corr_random))
 
     sys.stdout.flush()
 if __name__ == "__main__":

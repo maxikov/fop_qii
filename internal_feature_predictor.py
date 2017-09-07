@@ -1027,6 +1027,14 @@ def normalize_features(features, categorical_features, feature_names, logger):
         features = features.map(map_f)
     return features
 
+def clean_umpairs(umpairs, movies, users):
+    umpairs = set(umpairs)
+    for pair in list(umpairs):
+        u, m = pair
+        if u not in users or m not in movies:
+            umpairs.remove(pair)
+    return umpairs
+
 def als_training_split(training, npairs, logger):
     logger.debug("Trying to get {} pairs for cross-validation"\
             .format(npairs))
@@ -1043,6 +1051,9 @@ def als_training_split(training, npairs, logger):
 
     logger.debug("Counting nmovies per each user")
     uaskey = training.map(lambda x: (x[0], x[1]))
+    actual_umpairs = set(uaskey.collect())
+    logger.debug("{} user-movie pairs in the data set"
+            .format(len(actual_umpairs)))
     users = uaskey.countByKey()
     logger.debug("{} users found".format(len(users)))
     for key in users.keys():
@@ -1051,17 +1062,24 @@ def als_training_split(training, npairs, logger):
     logger.debug("{} users with more than one movie found"\
             .format(len(users)))
 
+    actual_umpairs = clean_umpairs(actual_umpairs, movies, users)
+    logger.debug("{} user-movie pairs left after filtering"\
+            .format(len(actual_umpairs)))
+
     umpairs = set()
     while len(umpairs) < npairs:
-        u = random.choice(users.keys())
-        m = random.choice(movies.keys())
+        pair = random.choice(list(actual_umpairs))
+        u, m = pair
+        actual_umpairs.remove(pair)
         umpairs.add((u, m))
         if users[u] == 2:
             del users[u]
+            actual_umpairs = clean_umpairs(actual_umpairs, movies, users)
         else:
             users[u] -= 1
         if movies[m] == 2:
             del movies[m]
+            actual_umpairs = clean_umpairs(actual_umpairs, movies, users)
         else:
             movies[m] -= 1
         if len(movies) < 2 or len(users) < 2:

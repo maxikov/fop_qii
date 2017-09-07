@@ -14,28 +14,30 @@ TVTROPES_FILE="datasets/dbtropes/tropes.csv"
 CSV="--csv"
 
 #Recommender parameters
-RANK=3
-LMBDA=0.01
+RANK=20
+LMBDA=0.1
 NUM_ITER=300
 NON_NEGATIVE="" #Must be empty or --non-negative
 
 #Regression parameters
 METADATA_SOURCES="years genres average_rating imdb_keywords imdb_producer imdb_director tvtropes tags"
+METADATA_SOURCES="${METADATA_SOURCES} imdb_year imdb_rating imdb_cast imdb_cinematographer imdb_composer imdb_languages imdb_production_companies imdb_writer"
 CROSS_VALIDATION=70
 REGRESSION_MODEL="regression_tree"
 NBINS=32
 MAX_DEPTH=5
 DROP_RARE_FEATURES=250
-DROP_RARE_MOVIES=50
+DROP_RARE_MOVIES=25
 NORMALIZE="" #Must be empty or --normalize
 FEATURE_TRIM_PERCENTILE=0
 NO_HT="--no-ht"
 OVERRIDE_ARGS=""
+COLD_START="--cold-start 50"
 
 NAME_SUFFIX=""
 
 FILTER_DATA_SET="10"
-ALS_CROSS_VALIDATION=""
+ALS_CROSS_VALIDATION="--als-cross-validation 1000"
 
 function make_commands() {
 	LOG_STATE_NAME="product_regression_all_${REGRESSION_MODEL}_rank_${RANK}"
@@ -100,16 +102,12 @@ function run_and_save() {
 	run_until_succeeds
 	REFERENCE_MODEL="${PERSIST_DIR}/als_model.pkl"
 }
-#METADATA_SOURCES="${METADATA_SOURCES} imdb_year imdb_rating imdb_cast imdb_cinematographer imdb_composer imdb_languages imdb_production_companies imdb_writer"
 NAME_SUFFIX="cold_start_lmbda_0.1_als_cross_validation"
 
 RANK=15
 NUM_ITER="300"
 DROP_RARE_FEATURES="250"
 DROP_RARE_MOVIES="25"
-COLD_START="--cold-start 50"
-LMBDA=0.1
-ALS_CROSS_VALIDATION="--als-cross-validation 1000"
 make_commands
 mkdir -p $PERSIST_DIR
 run_until_succeeds

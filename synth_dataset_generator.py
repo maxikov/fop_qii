@@ -21,7 +21,9 @@ def generate_profiles(results, n_profiles):
     catfs = results["categorical_features"].keys()
     random.shuffle(catfs)
     profiles = {}
-    for i in xrange(0, len(catfs), 2):
+    profiles_semi_random = {}
+    profiles_random = {}
+    for i in xrange(0, len(catfs), 5):
         pos, neg = catfs[i], catfs[i+1]
         lp = len(profiles)
         profiles[lp] = {"profile_id": lp,
@@ -30,9 +32,26 @@ def generate_profiles(results, n_profiles):
                         "pos": pos,
                         "pos_name": results["feature_names"][pos],
                        }
+        if random.random > 0.5:
+            pos, neg = catfs[i], catfs[i+2]
+        else:
+            pos, neg = catfs[i+2], catfs[i+1]
+        profiles_semi_random[lp] = {"profile_id": lp,
+                        "neg": neg,
+                        "neg_name": results["feature_names"][neg],
+                        "pos": pos,
+                        "pos_name": results["feature_names"][pos],
+                       }
+        pos, neg = catfs[i+3], catfs[i+4]
+        profiles_random[lp] = {"profile_id": lp,
+                        "neg": neg,
+                        "neg_name": results["feature_names"][neg],
+                        "pos": pos,
+                        "pos_name": results["feature_names"][pos],
+                       }
         if len(profiles) >= n_profiles:
             break
-    return profiles
+    return profiles, profiles_semi_random, profiles_random
 
 def generate_profile_movies(profiles, indicators):
     res = {}
@@ -89,7 +108,6 @@ def generate_random_user_ratings(n_users, mu, sigma, indicators):
         random.shuffle(my_movies)
         my_movies = my_movies[:n_ratings]
         for movie in my_movies:
-
             ratings.append( (uid, movie, random.choice(dist), int(time.time())) )
     return ratings
 
@@ -120,6 +138,9 @@ def main():
                         "ratings randomly")
     parser.add_argument("--odir", action="store", type=str, help=\
                         "Directory to save the generated data set")
+    parser.add_argument("--semi-random", action="store_true", help=\
+            "For each data set, also generate random and semi-random user"+\
+            " profiles")
     args = parser.parse_args()
     conf = SparkConf().setMaster("local[*]")
     sc = SparkContext(conf=conf)
@@ -127,7 +148,7 @@ def main():
     print "Loading results dict"
     results = rating_explanation.load_results_dict(args.persist_dir)
     print len(results["categorical_features"]), "categorical features found"
-    profiles = generate_profiles(results, args.n_profiles)
+    profiles, profiles_semi_random, profiles_random = generate_profiles(results, args.n_profiles)
     print len(profiles), "profiles generated"
     users = generate_users(profiles, args.n_users)
     print len(users), "users generated"
@@ -165,6 +186,14 @@ def main():
     fname = os.path.join(odir, "profiles.pkl")
     ofile = open(fname, "wb")
     pickle.dump((profiles, users), ofile)
+    ofile.close()
+    fname = os.path.join(odir, "profiles_semi_random.pkl")
+    ofile = open(fname, "wb")
+    pickle.dump((profiles_semi_random, users), ofile)
+    ofile.close()
+    fname = os.path.join(odir, "profiles_random.pkl")
+    ofile = open(fname, "wb")
+    pickle.dump((profiles_random, users), ofile)
     ofile.close()
 
     ratings = [("userId","movieId","rating","timestamp")] + ratings
