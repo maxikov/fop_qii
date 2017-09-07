@@ -17,41 +17,62 @@ from pyspark import SparkConf, SparkContext
 #numpy library
 import numpy.random
 
-def generate_profiles(results, n_profiles):
-    catfs = results["categorical_features"].keys()
+def generate_profiles(results, n_profiles, semi_random=False,
+        specific_features=None):
+    if specific_features is not None:
+        catfs = [f for (f,n) in results["feature_names"].items() if n in
+                specific_features]
+        print "Features used:", catfs
+    else:
+        catfs = results["categorical_features"].keys()
     random.shuffle(catfs)
     profiles = {}
     profiles_semi_random = {}
     profiles_random = {}
-    for i in xrange(0, len(catfs), 5):
-        pos, neg = catfs[i], catfs[i+1]
-        lp = len(profiles)
-        profiles[lp] = {"profile_id": lp,
-                        "neg": neg,
-                        "neg_name": results["feature_names"][neg],
-                        "pos": pos,
-                        "pos_name": results["feature_names"][pos],
-                       }
-        if random.random > 0.5:
-            pos, neg = catfs[i], catfs[i+2]
-        else:
-            pos, neg = catfs[i+2], catfs[i+1]
-        profiles_semi_random[lp] = {"profile_id": lp,
-                        "neg": neg,
-                        "neg_name": results["feature_names"][neg],
-                        "pos": pos,
-                        "pos_name": results["feature_names"][pos],
-                       }
-        pos, neg = catfs[i+3], catfs[i+4]
-        profiles_random[lp] = {"profile_id": lp,
-                        "neg": neg,
-                        "neg_name": results["feature_names"][neg],
-                        "pos": pos,
-                        "pos_name": results["feature_names"][pos],
-                       }
-        if len(profiles) >= n_profiles:
-            break
-    return profiles, profiles_semi_random, profiles_random
+    if semi_random:
+        for i in xrange(0, len(catfs), 5):
+            pos, neg = catfs[i], catfs[i+1]
+            lp = len(profiles)
+            profiles[lp] = {"profile_id": lp,
+                            "neg": neg,
+                            "neg_name": results["feature_names"][neg],
+                            "pos": pos,
+                            "pos_name": results["feature_names"][pos],
+                           }
+            if random.random > 0.5:
+                pos, neg = catfs[i], catfs[i+2]
+            else:
+                pos, neg = catfs[i+2], catfs[i+1]
+            profiles_semi_random[lp] = {"profile_id": lp,
+                            "neg": neg,
+                            "neg_name": results["feature_names"][neg],
+                            "pos": pos,
+                            "pos_name": results["feature_names"][pos],
+                           }
+            pos, neg = catfs[i+3], catfs[i+4]
+            profiles_random[lp] = {"profile_id": lp,
+                            "neg": neg,
+                            "neg_name": results["feature_names"][neg],
+                            "pos": pos,
+                            "pos_name": results["feature_names"][pos],
+                           }
+            if len(profiles) >= n_profiles:
+                break
+        return profiles, profiles_semi_random, profiles_random
+    else:
+        for i in xrange(0, len(catfs), 2):
+            pos, neg = catfs[i], catfs[i+1]
+            lp = len(profiles)
+            profiles[lp] = {"profile_id": lp,
+                            "neg": neg,
+                            "neg_name": results["feature_names"][neg],
+                            "pos": pos,
+                            "pos_name": results["feature_names"][pos],
+                           }
+            if len(profiles) >= n_profiles:
+                break
+        return profiles, None, None
+
 
 def generate_profile_movies(profiles, indicators):
     res = {}
@@ -141,14 +162,20 @@ def main():
     parser.add_argument("--semi-random", action="store_true", help=\
             "For each data set, also generate random and semi-random user"+\
             " profiles")
+    parser.add_argument("--specific-features", type=str, nargs="*", help=\
+            "Use specific metadata features instead of all available")
     args = parser.parse_args()
     conf = SparkConf().setMaster("local[*]")
     sc = SparkContext(conf=conf)
 
+    if args.specific_features is not None:
+        print "Using specific features:", args.specific_features
     print "Loading results dict"
     results = rating_explanation.load_results_dict(args.persist_dir)
     print len(results["categorical_features"]), "categorical features found"
-    profiles, profiles_semi_random, profiles_random = generate_profiles(results, args.n_profiles)
+    profiles, profiles_semi_random, profiles_random =\
+        generate_profiles(results, args.n_profiles, args.semi_random,
+                args.specific_features)
     print len(profiles), "profiles generated"
     users = generate_users(profiles, args.n_users)
     print len(users), "users generated"
@@ -187,14 +214,15 @@ def main():
     ofile = open(fname, "wb")
     pickle.dump((profiles, users), ofile)
     ofile.close()
-    fname = os.path.join(odir, "profiles_semi_random.pkl")
-    ofile = open(fname, "wb")
-    pickle.dump((profiles_semi_random, users), ofile)
-    ofile.close()
-    fname = os.path.join(odir, "profiles_random.pkl")
-    ofile = open(fname, "wb")
-    pickle.dump((profiles_random, users), ofile)
-    ofile.close()
+    if args.semi_random:
+        fname = os.path.join(odir, "profiles_semi_random.pkl")
+        ofile = open(fname, "wb")
+        pickle.dump((profiles_semi_random, users), ofile)
+        ofile.close()
+        fname = os.path.join(odir, "profiles_random.pkl")
+        ofile = open(fname, "wb")
+        pickle.dump((profiles_random, users), ofile)
+        ofile.close()
 
     ratings = [("userId","movieId","rating","timestamp")] + ratings
     rating_strings = [",".join(map(str, x)) for x in ratings]

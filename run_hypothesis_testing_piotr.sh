@@ -97,8 +97,8 @@ function run_and_save() {
 }
 
 ALL_ROOT="/home/sophiak/fop_qii"
-mkdir -p "${ALL_ROOT}/hypothesis_testing"
-ALL_ROOT="${ALL_ROOT}/hypothesis_testing"
+mkdir -p "${ALL_ROOT}/hypothesis_testing_piotr"
+ALL_ROOT="${ALL_ROOT}/hypothesis_testing_piotr"
 mkdir -p "${ALL_ROOT}/logs"
 LOG_DIR="${ALL_ROOT}/logs"
 mkdir -p "${ALL_ROOT}/states"
@@ -115,12 +115,12 @@ CSV="--csv"
 ORIGINAL_STATE_DIR="archived_states/product_regression_all_regression_tree_rank_12_depth_5.state"
 
 #Recommender parameters
-RANK=15
+RANK=3
 LMBDA=0.07
 NUM_ITER=300
 NON_NEGATIVE="" #Must be empty or --non-negative
 
-N_SUBJECTS=20
+N_SUBJECTS=10
 
 CONTR_OR_EXPR=""
 RAND=""
@@ -130,7 +130,7 @@ do
 	NAME_SUFFIX="new_synth_subj_${SUBJ}"
 	DATA_PATH="${DATASET_ROOT}/${NAME_SUFFIX}"
 	echo `date` "Creating dataset in $DATA_PATH, writing to ${LOG_DIR}/synth_data_set_generation_${NAME_SUFFIX}.txt"
-	python synth_dataset_generator.py --persist-dir ${ORIGINAL_STATE_DIR} --n-profiles 10 --n-users 2000 --mu 5 --sigma 1  --odir ${DATA_PATH} --semi-random > ${LOG_DIR}/synth_data_set_generation_${NAME_SUFFIX}.txt
+	python synth_dataset_generator.py --specific-features "movielens_genre:Romance" "imdb_keywords:husband-wife-relationship" "movielens_genre:Drama" "imdb_keywords:independent-film" "imdb_keywords:murder" "movielens_genre:Comedy" --persist-dir ${ORIGINAL_STATE_DIR} --n-profiles 3 --n-users 2000 --mu 5 --sigma 1  --odir ${DATA_PATH} > ${LOG_DIR}/synth_data_set_generation_${NAME_SUFFIX}.txt
 	cp ${ORIGINAL_DATA_ROOT}/ml-20m/tags.csv ${DATA_PATH}/tags.csv
 	echo `date` "Done creating data set"
 
@@ -139,6 +139,6 @@ do
 	echo `date` "Done building a recommender"
 
 	echo `date` "Running correctness explanations, writing to ${LOG_DIR}/explanation_correctness_${NAME_SUFFIX}.txt"
-	python explanation_correctness.py --persist-dir $PERSIST_DIR --dataset-dir $DATA_PATH --qii-iterations 10 --sample-size 20 --movies-file $MOVIES_FILE --semi-random > "${LOG_DIR}/explanation_correctness_${NAME_SUFFIX}.txt"
+	python explanation_correctness.py --persist-dir $PERSIST_DIR --dataset-dir $DATA_PATH --qii-iterations 10 --sample-size 20 --movies-file $MOVIES_FILE > "${LOG_DIR}/explanation_correctness_${NAME_SUFFIX}.txt"
 	echo `date` "Done correctness explanation"
 done

@@ -53,6 +53,8 @@ def one_rating_correctness(user, movie, user_features, all_trees, indicators,
         for f, q in sort_dict(qiis, True):
             print "{} ({}): {}".format(feature_names[f], f, q)
     qiis = {feature_names[f]: q for (f, q) in qiis.items()}
+    if debug:
+        print "New qiis:", qiis
     corr = explanation_correctness(qiis, user_profile)
     if user_profile_semi_random is not None\
             and user_profile_random is not None:
