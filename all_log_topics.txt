@@ -1,0 +1,1 @@
+Wed Jul 26 03:48:09 PDT 2017 Running spark-submit --driver-memory 10g product_topics.py --persist-dir archived_states/product_regression_all_regression_tree_rank_12_depth_5.state --movies-file datasets/ml-20m/movies.csv >> new_experiments/logs/topic_modeling_real_data__.txt, writing to new_experiments/logs/topic_modeling_real_data__.txt

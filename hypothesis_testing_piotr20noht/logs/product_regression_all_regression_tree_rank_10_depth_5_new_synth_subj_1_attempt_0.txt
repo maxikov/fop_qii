@@ -1,0 +1,9 @@
+spark-submit --driver-memory 32g MovieLensALS.py --spark-executor-memory 32g --local-threads 32 --num-partitions 32 --checkpoint-dir /home/sophiak/fop_qii/hypothesis_testing_piotr20noht/states/spark_dir --temp-dir /home/sophiak/fop_qii/hypothesis_testing_piotr20noht/states/spark_dir --persist-dir /home/sophiak/fop_qii/hypothesis_testing_piotr20noht/states/product_regression_all_regression_tree_rank_10_depth_5_new_synth_subj_1.state --csv --data-path /home/sophiak/fop_qii/hypothesis_testing_piotr20noht/datasets/new_synth_subj_1 --movies-file datasets/ml-20m/ml-20m.imdb.set1.csv --tvtropes-file datasets/dbtropes/tropes.csv --rank 10 --lmbda 0.07 --num-iter 300 --predict-product-features --metadata-sources years genres average_rating imdb_keywords imdb_producer imdb_director tvtropes tags imdb_year imdb_rating imdb_cast imdb_cinematographer imdb_composer imdb_languages imdb_production_companies imdb_writer --drop-rare-features 250 --drop-rare-movies 25 --cross-validation 70 --regression-model regression_tree --nbins 32 --max-depth 5 --features-trim-percentile 0 --no-ht --cold-start 25 --filter-data-set 10 --als-cross-validation 100
+Traceback (most recent call last):
+  File "/longterm/sophiak/fop_qii/MovieLensALS.py", line 11, in <module>
+    from pyspark import SparkConf, SparkContext
+  File "/opt/spark-2.1.1-bin-hadoop2.7/python/lib/pyspark.zip/pyspark/__init__.py", line 44, in <module>
+  File "/opt/spark-2.1.1-bin-hadoop2.7/python/lib/pyspark.zip/pyspark/context.py", line 40, in <module>
+  File "/opt/spark-2.1.1-bin-hadoop2.7/python/lib/pyspark.zip/pyspark/rdd.py", line 47, in <module>
+  File "/opt/spark-2.1.1-bin-hadoop2.7/python/lib/pyspark.zip/pyspark/statcounter.py", line 20, in <module>
+KeyboardInterrupt

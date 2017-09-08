@@ -1,0 +1,43 @@
+Sun Jun 4 02:55:17 PDT 2017 Running QII measurements for archived_states/product_regression_all_regression_tree_rank_12_depth_5.state
+Sun Jun 4 02:55:24 PDT 2017 Measuring all-movie QII for user 7
+Sun Jun 4 03:20:36 PDT 2017 Measuing QII for user 7 movie 2713
+Sun Jun 4 03:50:37 PDT 2017 Measuing QII for user 7 movie 2720
+Sun Jun 4 04:23:34 PDT 2017 Measuing QII for user 7 movie 2734
+Sun Jun 4 04:55:43 PDT 2017 Measuring all-movie QII for user 14
+Sun Jun 4 05:22:18 PDT 2017 Measuing QII for user 14 movie 2713
+Sun Jun 4 05:51:00 PDT 2017 Measuing QII for user 14 movie 2720
+Sun Jun 4 06:18:23 PDT 2017 Measuing QII for user 14 movie 2734
+Sun Jun 4 06:47:29 PDT 2017 Measuring all-movie QII for user 21
+Sun Jun 4 07:11:54 PDT 2017 Measuing QII for user 21 movie 2713
+Sun Jun 4 07:40:36 PDT 2017 Measuing QII for user 21 movie 2720
+Sun Jun 4 08:08:53 PDT 2017 Measuing QII for user 21 movie 2734
+Sun Jun 4 08:35:10 PDT 2017 Running regression_tree rank 12 depth 5, writing to /home/maxikov/piotrs_experiments//logs/product_regression_all_regression_tree_rank_12_depth_5_level0.seed0_attempt_0.txt, saving to /home/maxikov/piotrs_experiments//states/product_regression_all_regression_tree_rank_12_depth_5_level0.seed0.state
+Sun Jun 4 08:42:45 PDT 2017 regression_tree rank 12 depth 5 done after 455 seconds
+Sun Jun 4 08:42:45 PDT 2017 Running QII measurements for /home/maxikov/piotrs_experiments//states/product_regression_all_regression_tree_rank_12_depth_5_level0.seed0.state
+Sun Jun 4 08:42:54 PDT 2017 Measuring all-movie QII for user 6
+Sun Jun 4 08:54:18 PDT 2017 Measuing QII for user 6 movie 2797
+Sun Jun 4 08:59:13 PDT 2017 Measuing QII for user 6 movie 2818
+Sun Jun 4 09:04:07 PDT 2017 Measuing QII for user 6 movie 2839
+Sun Jun 4 09:08:59 PDT 2017 Measuring all-movie QII for user 13
+Sun Jun 4 09:19:07 PDT 2017 Measuing QII for user 13 movie 2797
+Sun Jun 4 09:24:07 PDT 2017 Measuing QII for user 13 movie 2818
+Sun Jun 4 09:29:15 PDT 2017 Measuing QII for user 13 movie 2839
+Sun Jun 4 09:34:14 PDT 2017 Measuring all-movie QII for user 20
+Sun Jun 4 09:44:31 PDT 2017 Measuing QII for user 20 movie 2797
+Sun Jun 4 09:49:25 PDT 2017 Measuing QII for user 20 movie 2818
+Sun Jun 4 09:54:16 PDT 2017 Measuing QII for user 20 movie 2839
+Sun Jun 4 09:59:11 PDT 2017 Running regression_tree rank 12 depth 5, writing to /home/maxikov/piotrs_experiments//logs/product_regression_all_regression_tree_rank_12_depth_5_level1.latents6of20.seed0_attempt_0.txt, saving to /home/maxikov/piotrs_experiments//states/product_regression_all_regression_tree_rank_12_depth_5_level1.latents6of20.seed0.state
+Sun Jun 4 10:06:38 PDT 2017 regression_tree rank 12 depth 5 done after 447 seconds
+Sun Jun 4 10:06:38 PDT 2017 Running QII measurements for /home/maxikov/piotrs_experiments//states/product_regression_all_regression_tree_rank_12_depth_5_level1.latents6of20.seed0.state
+Sun Jun 4 10:06:45 PDT 2017 Measuring all-movie QII for user 6
+Sun Jun 4 10:20:47 PDT 2017 Measuing QII for user 6 movie 3021
+Sun Jun 4 10:27:03 PDT 2017 Measuing QII for user 6 movie 3056
+Sun Jun 4 10:33:15 PDT 2017 Measuing QII for user 6 movie 3063
+Sun Jun 4 10:39:30 PDT 2017 Measuring all-movie QII for user 13
+Sun Jun 4 10:52:39 PDT 2017 Measuing QII for user 13 movie 3021
+Sun Jun 4 10:58:50 PDT 2017 Measuing QII for user 13 movie 3056
+Sun Jun 4 11:05:03 PDT 2017 Measuing QII for user 13 movie 3063
+Sun Jun 4 11:11:13 PDT 2017 Measuring all-movie QII for user 20
+Sun Jun 4 11:24:02 PDT 2017 Measuing QII for user 20 movie 3021
+Sun Jun 4 11:30:12 PDT 2017 Measuing QII for user 20 movie 3056
+Sun Jun 4 11:36:29 PDT 2017 Measuing QII for user 20 movie 3063
