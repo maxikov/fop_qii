@@ -1,0 +1,150 @@
+spark-submit --driver-memory 32g MovieLensALS.py --spark-executor-memory 32g --local-threads 32 --num-partitions 32 --checkpoint-dir /home/sophiak/fop_qii/hypothesis_testing_piotr20noht/states/spark_dir --temp-dir /home/sophiak/fop_qii/hypothesis_testing_piotr20noht/states/spark_dir --persist-dir /home/sophiak/fop_qii/hypothesis_testing_piotr20noht/states/product_regression_all_regression_tree_rank_10_depth_5_new_synth_subj_15.state --csv --data-path /home/sophiak/fop_qii/hypothesis_testing_piotr20noht/datasets/new_synth_subj_15 --movies-file datasets/ml-20m/ml-20m.imdb.set1.csv --tvtropes-file datasets/dbtropes/tropes.csv --rank 10 --lmbda 0.07 --num-iter 300 --predict-product-features --metadata-sources years genres average_rating imdb_keywords imdb_producer imdb_director tvtropes tags imdb_year imdb_rating imdb_cast imdb_cinematographer imdb_composer imdb_languages imdb_production_companies imdb_writer --drop-rare-features 250 --drop-rare-movies 25 --cross-validation 70 --regression-model regression_tree --nbins 32 --max-depth 5 --features-trim-percentile 0 --no-ht --cold-start 25 --filter-data-set 10 --als-cross-validation 100
+2017-09-09 01:05:09,608 - __main__ - DEBUG - rank: 10, lmbda: 0.07, num_iter: 300, num_partitions: 32
+2017-09-09 01:05:09,608 - __main__ - DEBUG - data_path: /home/sophiak/fop_qii/hypothesis_testing_piotr20noht/datasets/new_synth_subj_15, checkpoint_dir: /home/sophiak/fop_qii/hypothesis_testing_piotr20noht/states/spark_dir
+2017-09-09 01:05:09,608 - __main__ - DEBUG - Temp dir: /home/sophiak/fop_qii/hypothesis_testing_piotr20noht/states/spark_dir
+2017-09-09 01:05:09,608 - __main__ - DEBUG - local_threads: 32
+2017-09-09 01:05:09,608 - __main__ - DEBUG - spark_executor_memory: 32g
+2017-09-09 01:05:09,608 - __main__ - DEBUG - cold_start: 25
+2017-09-09 01:05:09,608 - __main__ - DEBUG - regression_model: regression_tree
+2017-09-09 01:05:09,608 - __main__ - DEBUG - nbins: 32
+2017-09-09 01:05:09,608 - __main__ - DEBUG - regression_users: False
+2017-09-09 01:05:09,608 - __main__ - DEBUG - predict_product_features: True
+2017-09-09 01:05:09,609 - __main__ - DEBUG - metadata_sources: ['years', 'genres', 'average_rating', 'imdb_keywords', 'imdb_producer', 'imdb_director', 'tvtropes', 'tags', 'imdb_year', 'imdb_rating', 'imdb_cast', 'imdb_cinematographer', 'imdb_composer', 'imdb_languages', 'imdb_production_companies', 'imdb_writer']
+2017-09-09 01:05:09,609 - __main__ - DEBUG - movies_file: datasets/ml-20m/ml-20m.imdb.set1.csv
+2017-09-09 01:05:09,609 - __main__ - DEBUG - cross_validation: 70
+2017-09-09 01:05:09,609 - __main__ - DEBUG - tvtropes_file: datasets/dbtropes/tropes.csv
+2017-09-09 01:05:09,609 - __main__ - DEBUG - features_trim_percentile: 0
+2017-09-09 01:05:09,609 - __main__ - DEBUG - drop_missing_movies: False
+2017-09-09 01:05:09,609 - __main__ - DEBUG - drop_rare_features: 250
+2017-09-09 01:05:09,609 - __main__ - DEBUG - filter_data_set: 10
+2017-09-09 01:05:09,609 - __main__ - DEBUG - persist_dir: /home/sophiak/fop_qii/hypothesis_testing_piotr20noht/states/product_regression_all_regression_tree_rank_10_depth_5_new_synth_subj_15.state, override_args: False
+2017-09-09 01:05:09,609 - __main__ - DEBUG - drop_rare_movies: 25
+2017-09-09 01:05:09,609 - __main__ - DEBUG - normalize: False
+2017-09-09 01:05:09,609 - __main__ - DEBUG - max_depth: 5
+2017-09-09 01:05:09,609 - __main__ - DEBUG - no_ht: True
+2017-09-09 01:05:09,609 - __main__ - DEBUG - csv: True
+2017-09-09 01:05:11,602 - __main__ - DEBUG - msep: ,
+2017-09-09 01:05:11,602 - __main__ - DEBUG - Loading ratings
+2017-09-09 01:05:12,150 - __main__ - DEBUG - Done in 0.547967 seconds
+2017-09-09 01:05:12,151 - __main__ - DEBUG - Loading movies
+2017-09-09 01:05:14,632 - __main__ - DEBUG - Done in 2.480791 seconds
+2017-09-09 01:05:14,632 - __main__ - DEBUG - 26804 movies loaded
+2017-09-09 01:05:15,901 - __main__ - DEBUG - 490800 records in the training set
+2017-09-09 01:05:16,202 - __main__ - DEBUG - 5400 unique movies in the training set
+2017-09-09 01:05:16,202 - __main__ - DEBUG - Started internal_feature_predictor
+2017-09-09 01:05:16,202 - __main__ - DEBUG - Trying to load previous results
+2017-09-09 01:05:16,203 - __main__ - DEBUG - /home/sophiak/fop_qii/hypothesis_testing_piotr20noht/states/product_regression_all_regression_tree_rank_10_depth_5_new_synth_subj_15.state/results.pkl not found
+2017-09-09 01:05:16,203 - __main__ - DEBUG - Sampling 25 movies for cold start
+2017-09-09 01:05:16,204 - __main__ - DEBUG - Done, fetching corresponding users
+2017-09-09 01:05:16,394 - __main__ - DEBUG - Done
+2017-09-09 01:05:16,394 - __main__ - DEBUG - Training the average rating model
+2017-09-09 01:05:17,043 - __main__ - DEBUG - Done in 0.648129 seconds
+2017-09-09 01:05:17,072 - __main__ - DEBUG - Trying to get 100 pairs for cross-validation
+2017-09-09 01:05:17,072 - __main__ - DEBUG - Counting nusers per each movie
+2017-09-09 01:05:17,392 - __main__ - DEBUG - 5396 movies found
+2017-09-09 01:05:17,393 - __main__ - DEBUG - 5396 movies with more than one user found
+2017-09-09 01:05:17,393 - __main__ - DEBUG - Counting nmovies per each user
+2017-09-09 01:05:17,847 - __main__ - DEBUG - 490451 user-movie pairs in the data set
+2017-09-09 01:05:18,083 - __main__ - DEBUG - 2000 users found
+2017-09-09 01:05:18,083 - __main__ - DEBUG - 2000 users with more than one movie found
+2017-09-09 01:05:18,547 - __main__ - DEBUG - 490451 user-movie pairs left after filtering
+2017-09-09 01:05:21,092 - __main__ - DEBUG - 100 pairs created
+2017-09-09 01:05:21,164 - __main__ - DEBUG - Loading /home/sophiak/fop_qii/hypothesis_testing_piotr20noht/states/product_regression_all_regression_tree_rank_10_depth_5_new_synth_subj_15.state/als_model.pkl
+2017-09-09 01:05:25,358 - __main__ - DEBUG - ALS cross validation Evaluating the model
+2017-09-09 01:05:25,390 - __main__ - DEBUG - ALS cross validation Bin range: (0.0, 5.5)
+2017-09-09 01:05:28,525 - __main__ - DEBUG - Done in 3.167277 seconds
+2017-09-09 01:05:28,526 - __main__ - DEBUG - ALS cross validation Mean error: -0.0456847785606, mean absolute error: 0.134122442032
+2017-09-09 01:05:28,812 - __main__ - DEBUG - ALS cross validation RMSE: 0.164354198579, variance explained: 0.578761499614, mean absolute error: 0.134122442032, r2: 0.965768213673
+2017-09-09 01:05:28,813 - __main__ - DEBUG - ALS cross validation MRAE: 0.0454857691613
+2017-09-09 01:05:28,813 - __main__ - DEBUG - ALS cross validation Errors histogram: ([-5.5, -5.166666666666667, -4.833333333333333, -4.5, -4.166666666666667, -3.8333333333333335, -3.5, -3.166666666666667, -2.8333333333333335, -2.5, -2.166666666666667, -1.8333333333333335, -1.5, -1.166666666666667, -0.8333333333333339, -0.5, -0.16666666666666696, 0.16666666666666607, 0.5, 0.833333333333333, 1.166666666666666, 1.5, 1.833333333333333, 2.166666666666666, 2.5, 2.833333333333332, 3.166666666666666, 3.5, 3.833333333333332, 4.166666666666666, 4.5, 4.833333333333332, 5.166666666666666, 5.5], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 23, 68, 9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
+2017-09-09 01:05:28,813 - __main__ - DEBUG - ALS cross validation Absolute errors histogram: ([0.0, 0.16666666666666666, 0.3333333333333333, 0.5, 0.6666666666666666, 0.8333333333333333, 1.0, 1.1666666666666665, 1.3333333333333333, 1.5, 1.6666666666666665, 1.8333333333333333, 2.0, 2.1666666666666665, 2.333333333333333, 2.5, 2.6666666666666665, 2.833333333333333, 3.0, 3.1666666666666665, 3.333333333333333, 3.5, 3.6666666666666665, 3.833333333333333, 4.0, 4.166666666666666, 4.333333333333333, 4.5, 4.666666666666666, 4.833333333333333, 5.0, 5.166666666666666, 5.333333333333333, 5.5], [68, 28, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
+2017-09-09 01:05:28,813 - __main__ - DEBUG - ALS cross validation Squared errors histogram: ([0.0, 0.9166666666666666, 1.8333333333333333, 2.75, 3.6666666666666665, 4.583333333333333, 5.5, 6.416666666666666, 7.333333333333333, 8.25, 9.166666666666666, 10.083333333333332, 11.0, 11.916666666666666, 12.833333333333332, 13.75, 14.666666666666666, 15.583333333333332, 16.5, 17.416666666666664, 18.333333333333332, 19.25, 20.166666666666664, 21.083333333333332, 22.0, 22.916666666666664, 23.833333333333332, 24.75, 25.666666666666664, 26.583333333333332, 27.5, 28.416666666666664, 29.333333333333332, 30.25], [100, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]):
+2017-09-09 01:05:28,813 - __main__ - DEBUG - ALS cross validation Predictions histogram: ([0.0, 0.16666666666666666, 0.3333333333333333, 0.5, 0.6666666666666666, 0.8333333333333333, 1.0, 1.1666666666666665, 1.3333333333333333, 1.5, 1.6666666666666665, 1.8333333333333333, 2.0, 2.1666666666666665, 2.333333333333333, 2.5, 2.6666666666666665, 2.833333333333333, 3.0, 3.1666666666666665, 3.333333333333333, 3.5, 3.6666666666666665, 3.833333333333333, 4.0, 4.166666666666666, 4.333333333333333, 4.5, 4.666666666666666, 4.833333333333333, 5.0, 5.166666666666666, 5.333333333333333, 5.5], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 27, 9, 0, 0, 0, 18, 3, 0, 0, 4, 19, 15, 0, 0, 0, 0, 0, 0, 0, 0, 0])
+2017-09-09 01:05:28,813 - __main__ - DEBUG - ALS cross validation Observations histogram: ([0.0, 0.16666666666666666, 0.3333333333333333, 0.5, 0.6666666666666666, 0.8333333333333333, 1.0, 1.1666666666666665, 1.3333333333333333, 1.5, 1.6666666666666665, 1.8333333333333333, 2.0, 2.1666666666666665, 2.333333333333333, 2.5, 2.6666666666666665, 2.833333333333333, 3.0, 3.1666666666666665, 3.333333333333333, 3.5, 3.6666666666666665, 3.833333333333333, 4.0, 4.166666666666666, 4.333333333333333, 4.5, 4.666666666666666, 4.833333333333333, 5.0, 5.166666666666666, 5.333333333333333, 5.5], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 41, 0, 0, 0, 0, 0, 21, 0, 0, 0, 0, 0, 38, 0, 0, 0, 0, 0, 0, 0, 0])
+2017-09-09 01:05:28,814 - __main__ - DEBUG - /home/sophiak/fop_qii/hypothesis_testing_piotr20noht/states/product_regression_all_regression_tree_rank_10_depth_5_new_synth_subj_15.state/baseline_predictions.pkl not found, building new predictions
+2017-09-09 01:05:28,814 - __main__ - DEBUG - Computing model predictions
+Traceback (most recent call last):
+  File "/longterm/sophiak/fop_qii/MovieLensALS.py", line 607, in <module>
+    main()
+  File "/longterm/sophiak/fop_qii/MovieLensALS.py", line 551, in main
+    train_ratio=args.cross_validation)
+  File "/longterm/sophiak/fop_qii/internal_feature_predictor.py", line 1168, in internal_feature_predictor
+    logger, args, training)
+  File "/longterm/sophiak/fop_qii/internal_feature_predictor.py", line 757, in load_or_build_baseline_predictions
+    baseline_predictions = model.predictAll(training.map(lambda x:\
+  File "/opt/spark-2.1.1-bin-hadoop2.7/python/lib/pyspark.zip/pyspark/mllib/recommendation.py", line 145, in predictAll
+  File "/opt/spark-2.1.1-bin-hadoop2.7/python/lib/pyspark.zip/pyspark/rdd.py", line 1360, in first
+  File "/opt/spark-2.1.1-bin-hadoop2.7/python/lib/pyspark.zip/pyspark/rdd.py", line 1342, in take
+  File "/opt/spark-2.1.1-bin-hadoop2.7/python/lib/pyspark.zip/pyspark/context.py", line 968, in runJob
+  File "/opt/spark-2.1.1-bin-hadoop2.7/python/lib/py4j-0.10.4-src.zip/py4j/java_gateway.py", line 1133, in __call__
+  File "/opt/spark-2.1.1-bin-hadoop2.7/python/lib/pyspark.zip/pyspark/sql/utils.py", line 63, in deco
+  File "/opt/spark-2.1.1-bin-hadoop2.7/python/lib/py4j-0.10.4-src.zip/py4j/protocol.py", line 319, in get_return_value
+py4j.protocol.Py4JJavaError: An error occurred while calling z:org.apache.spark.api.python.PythonRDD.runJob.
+: org.apache.spark.SparkException: Job aborted due to stage failure: Task 0 in stage 133.0 failed 1 times, most recent failure: Lost task 0.0 in stage 133.0 (TID 1033, localhost, executor driver): java.lang.AssertionError: assertion failed
+	at scala.Predef$.assert(Predef.scala:156)
+	at org.apache.spark.storage.BlockInfo.checkInvariants(BlockInfoManager.scala:84)
+	at org.apache.spark.storage.BlockInfo.readerCount_$eq(BlockInfoManager.scala:66)
+	at org.apache.spark.storage.BlockInfoManager$$anonfun$releaseAllLocksForTask$2$$anonfun$apply$2.apply(BlockInfoManager.scala:362)
+	at org.apache.spark.storage.BlockInfoManager$$anonfun$releaseAllLocksForTask$2$$anonfun$apply$2.apply(BlockInfoManager.scala:361)
+	at scala.Option.foreach(Option.scala:257)
+	at org.apache.spark.storage.BlockInfoManager$$anonfun$releaseAllLocksForTask$2.apply(BlockInfoManager.scala:361)
+	at org.apache.spark.storage.BlockInfoManager$$anonfun$releaseAllLocksForTask$2.apply(BlockInfoManager.scala:356)
+	at scala.collection.Iterator$class.foreach(Iterator.scala:893)
+	at scala.collection.AbstractIterator.foreach(Iterator.scala:1336)
+	at org.apache.spark.storage.BlockInfoManager.releaseAllLocksForTask(BlockInfoManager.scala:356)
+	at org.apache.spark.storage.BlockManager.releaseAllLocksForTask(BlockManager.scala:676)
+	at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:329)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+
+Driver stacktrace:
+	at org.apache.spark.scheduler.DAGScheduler.org$apache$spark$scheduler$DAGScheduler$$failJobAndIndependentStages(DAGScheduler.scala:1435)
+	at org.apache.spark.scheduler.DAGScheduler$$anonfun$abortStage$1.apply(DAGScheduler.scala:1423)
+	at org.apache.spark.scheduler.DAGScheduler$$anonfun$abortStage$1.apply(DAGScheduler.scala:1422)
+	at scala.collection.mutable.ResizableArray$class.foreach(ResizableArray.scala:59)
+	at scala.collection.mutable.ArrayBuffer.foreach(ArrayBuffer.scala:48)
+	at org.apache.spark.scheduler.DAGScheduler.abortStage(DAGScheduler.scala:1422)
+	at org.apache.spark.scheduler.DAGScheduler$$anonfun$handleTaskSetFailed$1.apply(DAGScheduler.scala:802)
+	at org.apache.spark.scheduler.DAGScheduler$$anonfun$handleTaskSetFailed$1.apply(DAGScheduler.scala:802)
+	at scala.Option.foreach(Option.scala:257)
+	at org.apache.spark.scheduler.DAGScheduler.handleTaskSetFailed(DAGScheduler.scala:802)
+	at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.doOnReceive(DAGScheduler.scala:1650)
+	at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.onReceive(DAGScheduler.scala:1605)
+	at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.onReceive(DAGScheduler.scala:1594)
+	at org.apache.spark.util.EventLoop$$anon$1.run(EventLoop.scala:48)
+	at org.apache.spark.scheduler.DAGScheduler.runJob(DAGScheduler.scala:628)
+	at org.apache.spark.SparkContext.runJob(SparkContext.scala:1925)
+	at org.apache.spark.SparkContext.runJob(SparkContext.scala:1938)
+	at org.apache.spark.SparkContext.runJob(SparkContext.scala:1951)
+	at org.apache.spark.api.python.PythonRDD$.runJob(PythonRDD.scala:441)
+	at org.apache.spark.api.python.PythonRDD.runJob(PythonRDD.scala)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at py4j.reflection.MethodInvoker.invoke(MethodInvoker.java:244)
+	at py4j.reflection.ReflectionEngine.invoke(ReflectionEngine.java:357)
+	at py4j.Gateway.invoke(Gateway.java:280)
+	at py4j.commands.AbstractCommand.invokeMethod(AbstractCommand.java:132)
+	at py4j.commands.CallCommand.execute(CallCommand.java:79)
+	at py4j.GatewayConnection.run(GatewayConnection.java:214)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: java.lang.AssertionError: assertion failed
+	at scala.Predef$.assert(Predef.scala:156)
+	at org.apache.spark.storage.BlockInfo.checkInvariants(BlockInfoManager.scala:84)
+	at org.apache.spark.storage.BlockInfo.readerCount_$eq(BlockInfoManager.scala:66)
+	at org.apache.spark.storage.BlockInfoManager$$anonfun$releaseAllLocksForTask$2$$anonfun$apply$2.apply(BlockInfoManager.scala:362)
+	at org.apache.spark.storage.BlockInfoManager$$anonfun$releaseAllLocksForTask$2$$anonfun$apply$2.apply(BlockInfoManager.scala:361)
+	at scala.Option.foreach(Option.scala:257)
+	at org.apache.spark.storage.BlockInfoManager$$anonfun$releaseAllLocksForTask$2.apply(BlockInfoManager.scala:361)
+	at org.apache.spark.storage.BlockInfoManager$$anonfun$releaseAllLocksForTask$2.apply(BlockInfoManager.scala:356)
+	at scala.collection.Iterator$class.foreach(Iterator.scala:893)
+	at scala.collection.AbstractIterator.foreach(Iterator.scala:1336)
+	at org.apache.spark.storage.BlockInfoManager.releaseAllLocksForTask(BlockInfoManager.scala:356)
+	at org.apache.spark.storage.BlockManager.releaseAllLocksForTask(BlockManager.scala:676)
+	at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:329)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	... 1 more
+

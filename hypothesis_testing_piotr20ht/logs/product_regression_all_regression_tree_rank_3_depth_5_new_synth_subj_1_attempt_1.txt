@@ -1,0 +1,139 @@
+spark-submit --driver-memory 32g MovieLensALS.py --spark-executor-memory 32g --local-threads 32 --num-partitions 32 --checkpoint-dir /home/sophiak/fop_qii/hypothesis_testing_piotr20ht/states/spark_dir --temp-dir /home/sophiak/fop_qii/hypothesis_testing_piotr20ht/states/spark_dir --persist-dir /home/sophiak/fop_qii/hypothesis_testing_piotr20ht/states/product_regression_all_regression_tree_rank_3_depth_5_new_synth_subj_1.state --csv --data-path /home/sophiak/fop_qii/hypothesis_testing_piotr20ht/datasets/new_synth_subj_1 --movies-file datasets/ml-20m/ml-20m.imdb.set1.csv --tvtropes-file datasets/dbtropes/tropes.csv --rank 3 --lmbda 0.07 --num-iter 300 --predict-product-features --metadata-sources years genres average_rating imdb_keywords imdb_producer imdb_director tvtropes tags imdb_year imdb_rating imdb_cast imdb_cinematographer imdb_composer imdb_languages imdb_production_companies imdb_writer --drop-rare-features 250 --drop-rare-movies 25 --cross-validation 70 --regression-model regression_tree --nbins 32 --max-depth 5 --features-trim-percentile 0 --no-ht --cold-start 25 --filter-data-set 10 --als-cross-validation 100
+2017-09-08 14:17:23,828 - __main__ - DEBUG - rank: 3, lmbda: 0.07, num_iter: 300, num_partitions: 32
+2017-09-08 14:17:23,828 - __main__ - DEBUG - data_path: /home/sophiak/fop_qii/hypothesis_testing_piotr20ht/datasets/new_synth_subj_1, checkpoint_dir: /home/sophiak/fop_qii/hypothesis_testing_piotr20ht/states/spark_dir
+2017-09-08 14:17:23,828 - __main__ - DEBUG - Temp dir: /home/sophiak/fop_qii/hypothesis_testing_piotr20ht/states/spark_dir
+2017-09-08 14:17:23,828 - __main__ - DEBUG - local_threads: 32
+2017-09-08 14:17:23,828 - __main__ - DEBUG - spark_executor_memory: 32g
+2017-09-08 14:17:23,828 - __main__ - DEBUG - cold_start: 25
+2017-09-08 14:17:23,828 - __main__ - DEBUG - regression_model: regression_tree
+2017-09-08 14:17:23,829 - __main__ - DEBUG - nbins: 32
+2017-09-08 14:17:23,829 - __main__ - DEBUG - regression_users: False
+2017-09-08 14:17:23,829 - __main__ - DEBUG - predict_product_features: True
+2017-09-08 14:17:23,829 - __main__ - DEBUG - metadata_sources: ['years', 'genres', 'average_rating', 'imdb_keywords', 'imdb_producer', 'imdb_director', 'tvtropes', 'tags', 'imdb_year', 'imdb_rating', 'imdb_cast', 'imdb_cinematographer', 'imdb_composer', 'imdb_languages', 'imdb_production_companies', 'imdb_writer']
+2017-09-08 14:17:23,829 - __main__ - DEBUG - movies_file: datasets/ml-20m/ml-20m.imdb.set1.csv
+2017-09-08 14:17:23,829 - __main__ - DEBUG - cross_validation: 70
+2017-09-08 14:17:23,829 - __main__ - DEBUG - tvtropes_file: datasets/dbtropes/tropes.csv
+2017-09-08 14:17:23,829 - __main__ - DEBUG - features_trim_percentile: 0
+2017-09-08 14:17:23,829 - __main__ - DEBUG - drop_missing_movies: False
+2017-09-08 14:17:23,829 - __main__ - DEBUG - drop_rare_features: 250
+2017-09-08 14:17:23,829 - __main__ - DEBUG - filter_data_set: 10
+2017-09-08 14:17:23,829 - __main__ - DEBUG - persist_dir: /home/sophiak/fop_qii/hypothesis_testing_piotr20ht/states/product_regression_all_regression_tree_rank_3_depth_5_new_synth_subj_1.state, override_args: False
+2017-09-08 14:17:23,829 - __main__ - DEBUG - drop_rare_movies: 25
+2017-09-08 14:17:23,829 - __main__ - DEBUG - normalize: False
+2017-09-08 14:17:23,829 - __main__ - DEBUG - max_depth: 5
+2017-09-08 14:17:23,829 - __main__ - DEBUG - no_ht: True
+2017-09-08 14:17:23,829 - __main__ - DEBUG - csv: True
+2017-09-08 14:17:26,000 - __main__ - DEBUG - msep: ,
+2017-09-08 14:17:26,000 - __main__ - DEBUG - Loading ratings
+2017-09-08 14:17:26,488 - __main__ - DEBUG - Done in 0.487802 seconds
+2017-09-08 14:17:26,488 - __main__ - DEBUG - Loading movies
+2017-09-08 14:17:28,835 - __main__ - DEBUG - Done in 2.346747 seconds
+2017-09-08 14:17:28,835 - __main__ - DEBUG - 26804 movies loaded
+2017-09-08 14:17:30,070 - __main__ - DEBUG - 501635 records in the training set
+2017-09-08 14:17:30,384 - __main__ - DEBUG - 4972 unique movies in the training set
+2017-09-08 14:17:30,384 - __main__ - DEBUG - Started internal_feature_predictor
+2017-09-08 14:17:30,384 - __main__ - DEBUG - Trying to load previous results
+2017-09-08 14:17:30,384 - __main__ - DEBUG - /home/sophiak/fop_qii/hypothesis_testing_piotr20ht/states/product_regression_all_regression_tree_rank_3_depth_5_new_synth_subj_1.state/results.pkl not found
+2017-09-08 14:17:30,385 - __main__ - DEBUG - Sampling 25 movies for cold start
+2017-09-08 14:17:30,385 - __main__ - DEBUG - Done, fetching corresponding users
+2017-09-08 14:17:30,575 - __main__ - DEBUG - Done
+2017-09-08 14:17:30,575 - __main__ - DEBUG - Training the average rating model
+2017-09-08 14:17:31,191 - __main__ - DEBUG - Done in 0.616313 seconds
+2017-09-08 14:17:31,216 - __main__ - DEBUG - Trying to get 100 pairs for cross-validation
+2017-09-08 14:17:31,216 - __main__ - DEBUG - Counting nusers per each movie
+2017-09-08 14:17:31,524 - __main__ - DEBUG - 4968 movies found
+2017-09-08 14:17:31,526 - __main__ - DEBUG - 4968 movies with more than one user found
+2017-09-08 14:17:31,526 - __main__ - DEBUG - Counting nmovies per each user
+2017-09-08 14:17:31,921 - __main__ - DEBUG - 501232 user-movie pairs in the data set
+2017-09-08 14:17:32,142 - __main__ - DEBUG - 2000 users found
+2017-09-08 14:17:32,142 - __main__ - DEBUG - 2000 users with more than one movie found
+2017-09-08 14:17:32,443 - __main__ - DEBUG - 501232 user-movie pairs left after filtering
+2017-09-08 14:17:35,452 - __main__ - DEBUG - 100 pairs created
+2017-09-08 14:17:35,578 - __main__ - DEBUG - /home/sophiak/fop_qii/hypothesis_testing_piotr20ht/states/product_regression_all_regression_tree_rank_3_depth_5_new_synth_subj_1.state/als_model.pkl not found, bulding a new model
+2017-09-08 14:17:35,578 - __main__ - DEBUG - Training ALS recommender
+Traceback (most recent call last):
+  File "/longterm/sophiak/fop_qii/MovieLensALS.py", line 607, in <module>
+    main()
+  File "/longterm/sophiak/fop_qii/MovieLensALS.py", line 551, in main
+    train_ratio=args.cross_validation)
+  File "/longterm/sophiak/fop_qii/internal_feature_predictor.py", line 1154, in internal_feature_predictor
+    model = load_or_train_ALS(training, rank, numIter, lmbda, args, sc, logger)
+  File "/longterm/sophiak/fop_qii/internal_feature_predictor.py", line 658, in load_or_train_ALS
+    lambda_=lmbda, nonnegative=args.non_negative)
+  File "/opt/spark-2.1.1-bin-hadoop2.7/python/lib/pyspark.zip/pyspark/mllib/recommendation.py", line 272, in train
+  File "/opt/spark-2.1.1-bin-hadoop2.7/python/lib/pyspark.zip/pyspark/mllib/recommendation.py", line 229, in _prepare
+  File "/opt/spark-2.1.1-bin-hadoop2.7/python/lib/pyspark.zip/pyspark/rdd.py", line 1360, in first
+  File "/opt/spark-2.1.1-bin-hadoop2.7/python/lib/pyspark.zip/pyspark/rdd.py", line 1342, in take
+  File "/opt/spark-2.1.1-bin-hadoop2.7/python/lib/pyspark.zip/pyspark/context.py", line 968, in runJob
+  File "/opt/spark-2.1.1-bin-hadoop2.7/python/lib/py4j-0.10.4-src.zip/py4j/java_gateway.py", line 1133, in __call__
+  File "/opt/spark-2.1.1-bin-hadoop2.7/python/lib/pyspark.zip/pyspark/sql/utils.py", line 63, in deco
+  File "/opt/spark-2.1.1-bin-hadoop2.7/python/lib/py4j-0.10.4-src.zip/py4j/protocol.py", line 319, in get_return_value
+py4j.protocol.Py4JJavaError: An error occurred while calling z:org.apache.spark.api.python.PythonRDD.runJob.
+: org.apache.spark.SparkException: Job aborted due to stage failure: Task 0 in stage 17.0 failed 1 times, most recent failure: Lost task 0.0 in stage 17.0 (TID 320, localhost, executor driver): java.lang.AssertionError: assertion failed
+	at scala.Predef$.assert(Predef.scala:156)
+	at org.apache.spark.storage.BlockInfo.checkInvariants(BlockInfoManager.scala:84)
+	at org.apache.spark.storage.BlockInfo.readerCount_$eq(BlockInfoManager.scala:66)
+	at org.apache.spark.storage.BlockInfoManager$$anonfun$releaseAllLocksForTask$2$$anonfun$apply$2.apply(BlockInfoManager.scala:362)
+	at org.apache.spark.storage.BlockInfoManager$$anonfun$releaseAllLocksForTask$2$$anonfun$apply$2.apply(BlockInfoManager.scala:361)
+	at scala.Option.foreach(Option.scala:257)
+	at org.apache.spark.storage.BlockInfoManager$$anonfun$releaseAllLocksForTask$2.apply(BlockInfoManager.scala:361)
+	at org.apache.spark.storage.BlockInfoManager$$anonfun$releaseAllLocksForTask$2.apply(BlockInfoManager.scala:356)
+	at scala.collection.Iterator$class.foreach(Iterator.scala:893)
+	at scala.collection.AbstractIterator.foreach(Iterator.scala:1336)
+	at org.apache.spark.storage.BlockInfoManager.releaseAllLocksForTask(BlockInfoManager.scala:356)
+	at org.apache.spark.storage.BlockManager.releaseAllLocksForTask(BlockManager.scala:676)
+	at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:329)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+
+Driver stacktrace:
+	at org.apache.spark.scheduler.DAGScheduler.org$apache$spark$scheduler$DAGScheduler$$failJobAndIndependentStages(DAGScheduler.scala:1435)
+	at org.apache.spark.scheduler.DAGScheduler$$anonfun$abortStage$1.apply(DAGScheduler.scala:1423)
+	at org.apache.spark.scheduler.DAGScheduler$$anonfun$abortStage$1.apply(DAGScheduler.scala:1422)
+	at scala.collection.mutable.ResizableArray$class.foreach(ResizableArray.scala:59)
+	at scala.collection.mutable.ArrayBuffer.foreach(ArrayBuffer.scala:48)
+	at org.apache.spark.scheduler.DAGScheduler.abortStage(DAGScheduler.scala:1422)
+	at org.apache.spark.scheduler.DAGScheduler$$anonfun$handleTaskSetFailed$1.apply(DAGScheduler.scala:802)
+	at org.apache.spark.scheduler.DAGScheduler$$anonfun$handleTaskSetFailed$1.apply(DAGScheduler.scala:802)
+	at scala.Option.foreach(Option.scala:257)
+	at org.apache.spark.scheduler.DAGScheduler.handleTaskSetFailed(DAGScheduler.scala:802)
+	at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.doOnReceive(DAGScheduler.scala:1650)
+	at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.onReceive(DAGScheduler.scala:1605)
+	at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.onReceive(DAGScheduler.scala:1594)
+	at org.apache.spark.util.EventLoop$$anon$1.run(EventLoop.scala:48)
+	at org.apache.spark.scheduler.DAGScheduler.runJob(DAGScheduler.scala:628)
+	at org.apache.spark.SparkContext.runJob(SparkContext.scala:1925)
+	at org.apache.spark.SparkContext.runJob(SparkContext.scala:1938)
+	at org.apache.spark.SparkContext.runJob(SparkContext.scala:1951)
+	at org.apache.spark.api.python.PythonRDD$.runJob(PythonRDD.scala:441)
+	at org.apache.spark.api.python.PythonRDD.runJob(PythonRDD.scala)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at py4j.reflection.MethodInvoker.invoke(MethodInvoker.java:244)
+	at py4j.reflection.ReflectionEngine.invoke(ReflectionEngine.java:357)
+	at py4j.Gateway.invoke(Gateway.java:280)
+	at py4j.commands.AbstractCommand.invokeMethod(AbstractCommand.java:132)
+	at py4j.commands.CallCommand.execute(CallCommand.java:79)
+	at py4j.GatewayConnection.run(GatewayConnection.java:214)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: java.lang.AssertionError: assertion failed
+	at scala.Predef$.assert(Predef.scala:156)
+	at org.apache.spark.storage.BlockInfo.checkInvariants(BlockInfoManager.scala:84)
+	at org.apache.spark.storage.BlockInfo.readerCount_$eq(BlockInfoManager.scala:66)
+	at org.apache.spark.storage.BlockInfoManager$$anonfun$releaseAllLocksForTask$2$$anonfun$apply$2.apply(BlockInfoManager.scala:362)
+	at org.apache.spark.storage.BlockInfoManager$$anonfun$releaseAllLocksForTask$2$$anonfun$apply$2.apply(BlockInfoManager.scala:361)
+	at scala.Option.foreach(Option.scala:257)
+	at org.apache.spark.storage.BlockInfoManager$$anonfun$releaseAllLocksForTask$2.apply(BlockInfoManager.scala:361)
+	at org.apache.spark.storage.BlockInfoManager$$anonfun$releaseAllLocksForTask$2.apply(BlockInfoManager.scala:356)
+	at scala.collection.Iterator$class.foreach(Iterator.scala:893)
+	at scala.collection.AbstractIterator.foreach(Iterator.scala:1336)
+	at org.apache.spark.storage.BlockInfoManager.releaseAllLocksForTask(BlockInfoManager.scala:356)
+	at org.apache.spark.storage.BlockManager.releaseAllLocksForTask(BlockManager.scala:676)
+	at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:329)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	... 1 more
+

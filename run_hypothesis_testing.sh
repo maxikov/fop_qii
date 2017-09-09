@@ -97,8 +97,8 @@ function run_and_save() {
 }
 
 ALL_ROOT="/home/sophiak/fop_qii"
-mkdir -p "${ALL_ROOT}/hypothesis_testing"
-ALL_ROOT="${ALL_ROOT}/hypothesis_testing"
+mkdir -p "${ALL_ROOT}/hypothesis_testing60"
+ALL_ROOT="${ALL_ROOT}/hypothesis_testing60"
 mkdir -p "${ALL_ROOT}/logs"
 LOG_DIR="${ALL_ROOT}/logs"
 mkdir -p "${ALL_ROOT}/states"
@@ -120,7 +120,7 @@ LMBDA=0.07
 NUM_ITER=300
 NON_NEGATIVE="" #Must be empty or --non-negative
 
-N_SUBJECTS=20
+N_SUBJECTS=60
 
 CONTR_OR_EXPR=""
 RAND=""
