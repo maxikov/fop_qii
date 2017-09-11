@@ -1,6 +1,172 @@
-Thu Sep 7 22:38:33 PDT 2017 Creating dataset in /home/sophiak/fop_qii/hypothesis_testing_piotr20noht/datasets/new_synth_subj_1, writing to /home/sophiak/fop_qii/hypothesis_testing_piotr20noht/logs/synth_data_set_generation_new_synth_subj_1.txt
-Thu Sep 7 22:38:37 PDT 2017 Done creating data set
-Thu Sep 7 22:38:37 PDT 2017 Building a recommender and a shadow model
-Thu Sep 7 22:38:37 PDT 2017 Running regression_tree rank 10 depth 5, writing to /home/sophiak/fop_qii/hypothesis_testing_piotr20noht/logs/product_regression_all_regression_tree_rank_10_depth_5_new_synth_subj_1_attempt_0.txt, saving to /home/sophiak/fop_qii/hypothesis_testing_piotr20noht/states/product_regression_all_regression_tree_rank_10_depth_5_new_synth_subj_1.state
-Thu Sep 7 22:38:39 PDT 2017 Iteration 0 of regression_tree rank 10 depth 5 failed acter 2 seconds (2 total), trying again
-Thu Sep 7 22:38:39 PDT 2017 Running regression_tree rank 10 depth 5, writing to /home/sophiak/fop_qii/hypothesis_testing_piotr20noht/logs/product_regression_all_regression_tree_rank_10_depth_5_new_synth_subj_1_attempt_1.txt, saving to /home/sophiak/fop_qii/hypothesis_testing_piotr20noht/states/product_regression_all_regression_tree_rank_10_depth_5_new_synth_subj_1.state
+Fri Sep 8 14:15:06 PDT 2017 Creating dataset in /home/sophiak/fop_qii/hypothesis_testing_piotr20noht/datasets/new_synth_subj_1, writing to /home/sophiak/fop_qii/hypothesis_testing_piotr20noht/logs/synth_data_set_generation_new_synth_subj_1.txt
+Fri Sep 8 14:18:05 PDT 2017 Done creating data set
+Fri Sep 8 14:18:05 PDT 2017 Building a recommender and a shadow model
+Fri Sep 8 14:18:05 PDT 2017 Running regression_tree rank 10 depth 5, writing to /home/sophiak/fop_qii/hypothesis_testing_piotr20noht/logs/product_regression_all_regression_tree_rank_10_depth_5_new_synth_subj_1_attempt_0.txt, saving to /home/sophiak/fop_qii/hypothesis_testing_piotr20noht/states/product_regression_all_regression_tree_rank_10_depth_5_new_synth_subj_1.state
+Fri Sep 8 14:20:32 PDT 2017 Iteration 0 of regression_tree rank 10 depth 5 failed acter 147 seconds (147 total), trying again
+Fri Sep 8 14:20:32 PDT 2017 Running regression_tree rank 10 depth 5, writing to /home/sophiak/fop_qii/hypothesis_testing_piotr20noht/logs/product_regression_all_regression_tree_rank_10_depth_5_new_synth_subj_1_attempt_1.txt, saving to /home/sophiak/fop_qii/hypothesis_testing_piotr20noht/states/product_regression_all_regression_tree_rank_10_depth_5_new_synth_subj_1.state
+Fri Sep 8 14:33:13 PDT 2017 regression_tree rank 10 depth 5 done after 908 seconds
+Fri Sep 8 14:33:13 PDT 2017 Done building a recommender
+Fri Sep 8 14:33:13 PDT 2017 Running correctness explanations, writing to /home/sophiak/fop_qii/hypothesis_testing_piotr20noht/logs/explanation_correctness_new_synth_subj_1.txt
+Fri Sep 8 15:03:40 PDT 2017 Done correctness explanation
+Fri Sep 8 15:03:40 PDT 2017 Creating dataset in /home/sophiak/fop_qii/hypothesis_testing_piotr20noht/datasets/new_synth_subj_2, writing to /home/sophiak/fop_qii/hypothesis_testing_piotr20noht/logs/synth_data_set_generation_new_synth_subj_2.txt
+Fri Sep 8 15:07:10 PDT 2017 Done creating data set
+Fri Sep 8 15:07:10 PDT 2017 Building a recommender and a shadow model
+Fri Sep 8 15:07:10 PDT 2017 Running regression_tree rank 10 depth 5, writing to /home/sophiak/fop_qii/hypothesis_testing_piotr20noht/logs/product_regression_all_regression_tree_rank_10_depth_5_new_synth_subj_2_attempt_0.txt, saving to /home/sophiak/fop_qii/hypothesis_testing_piotr20noht/states/product_regression_all_regression_tree_rank_10_depth_5_new_synth_subj_2.state
+Fri Sep 8 15:20:22 PDT 2017 regression_tree rank 10 depth 5 done after 792 seconds
+Fri Sep 8 15:20:22 PDT 2017 Done building a recommender
+Fri Sep 8 15:20:22 PDT 2017 Running correctness explanations, writing to /home/sophiak/fop_qii/hypothesis_testing_piotr20noht/logs/explanation_correctness_new_synth_subj_2.txt
+Fri Sep 8 15:49:47 PDT 2017 Done correctness explanation
+Fri Sep 8 15:49:47 PDT 2017 Creating dataset in /home/sophiak/fop_qii/hypothesis_testing_piotr20noht/datasets/new_synth_subj_3, writing to /home/sophiak/fop_qii/hypothesis_testing_piotr20noht/logs/synth_data_set_generation_new_synth_subj_3.txt
+Fri Sep 8 15:53:20 PDT 2017 Done creating data set
+Fri Sep 8 15:53:20 PDT 2017 Building a recommender and a shadow model
+Fri Sep 8 15:53:20 PDT 2017 Running regression_tree rank 10 depth 5, writing to /home/sophiak/fop_qii/hypothesis_testing_piotr20noht/logs/product_regression_all_regression_tree_rank_10_depth_5_new_synth_subj_3_attempt_0.txt, saving to /home/sophiak/fop_qii/hypothesis_testing_piotr20noht/states/product_regression_all_regression_tree_rank_10_depth_5_new_synth_subj_3.state
+Fri Sep 8 16:06:42 PDT 2017 regression_tree rank 10 depth 5 done after 802 seconds
+Fri Sep 8 16:06:42 PDT 2017 Done building a recommender
+Fri Sep 8 16:06:42 PDT 2017 Running correctness explanations, writing to /home/sophiak/fop_qii/hypothesis_testing_piotr20noht/logs/explanation_correctness_new_synth_subj_3.txt
+Fri Sep 8 16:33:11 PDT 2017 Done correctness explanation
+Fri Sep 8 16:33:11 PDT 2017 Creating dataset in /home/sophiak/fop_qii/hypothesis_testing_piotr20noht/datasets/new_synth_subj_4, writing to /home/sophiak/fop_qii/hypothesis_testing_piotr20noht/logs/synth_data_set_generation_new_synth_subj_4.txt
+Fri Sep 8 16:36:43 PDT 2017 Done creating data set
+Fri Sep 8 16:36:43 PDT 2017 Building a recommender and a shadow model
+Fri Sep 8 16:36:43 PDT 2017 Running regression_tree rank 10 depth 5, writing to /home/sophiak/fop_qii/hypothesis_testing_piotr20noht/logs/product_regression_all_regression_tree_rank_10_depth_5_new_synth_subj_4_attempt_0.txt, saving to /home/sophiak/fop_qii/hypothesis_testing_piotr20noht/states/product_regression_all_regression_tree_rank_10_depth_5_new_synth_subj_4.state
+Fri Sep 8 16:50:21 PDT 2017 regression_tree rank 10 depth 5 done after 818 seconds
+Fri Sep 8 16:50:21 PDT 2017 Done building a recommender
+Fri Sep 8 16:50:21 PDT 2017 Running correctness explanations, writing to /home/sophiak/fop_qii/hypothesis_testing_piotr20noht/logs/explanation_correctness_new_synth_subj_4.txt
+Fri Sep 8 17:19:32 PDT 2017 Done correctness explanation
+Fri Sep 8 17:19:32 PDT 2017 Creating dataset in /home/sophiak/fop_qii/hypothesis_testing_piotr20noht/datasets/new_synth_subj_5, writing to /home/sophiak/fop_qii/hypothesis_testing_piotr20noht/logs/synth_data_set_generation_new_synth_subj_5.txt
+Fri Sep 8 17:22:46 PDT 2017 Done creating data set
+Fri Sep 8 17:22:46 PDT 2017 Building a recommender and a shadow model
+Fri Sep 8 17:22:46 PDT 2017 Running regression_tree rank 10 depth 5, writing to /home/sophiak/fop_qii/hypothesis_testing_piotr20noht/logs/product_regression_all_regression_tree_rank_10_depth_5_new_synth_subj_5_attempt_0.txt, saving to /home/sophiak/fop_qii/hypothesis_testing_piotr20noht/states/product_regression_all_regression_tree_rank_10_depth_5_new_synth_subj_5.state
+Fri Sep 8 17:37:31 PDT 2017 regression_tree rank 10 depth 5 done after 885 seconds
+Fri Sep 8 17:37:31 PDT 2017 Done building a recommender
+Fri Sep 8 17:37:31 PDT 2017 Running correctness explanations, writing to /home/sophiak/fop_qii/hypothesis_testing_piotr20noht/logs/explanation_correctness_new_synth_subj_5.txt
+Fri Sep 8 18:07:50 PDT 2017 Done correctness explanation
+Fri Sep 8 18:07:50 PDT 2017 Creating dataset in /home/sophiak/fop_qii/hypothesis_testing_piotr20noht/datasets/new_synth_subj_6, writing to /home/sophiak/fop_qii/hypothesis_testing_piotr20noht/logs/synth_data_set_generation_new_synth_subj_6.txt
+Fri Sep 8 18:11:15 PDT 2017 Done creating data set
+Fri Sep 8 18:11:15 PDT 2017 Building a recommender and a shadow model
+Fri Sep 8 18:11:15 PDT 2017 Running regression_tree rank 10 depth 5, writing to /home/sophiak/fop_qii/hypothesis_testing_piotr20noht/logs/product_regression_all_regression_tree_rank_10_depth_5_new_synth_subj_6_attempt_0.txt, saving to /home/sophiak/fop_qii/hypothesis_testing_piotr20noht/states/product_regression_all_regression_tree_rank_10_depth_5_new_synth_subj_6.state
+Fri Sep 8 18:28:18 PDT 2017 regression_tree rank 10 depth 5 done after 1023 seconds
+Fri Sep 8 18:28:18 PDT 2017 Done building a recommender
+Fri Sep 8 18:28:18 PDT 2017 Running correctness explanations, writing to /home/sophiak/fop_qii/hypothesis_testing_piotr20noht/logs/explanation_correctness_new_synth_subj_6.txt
+Fri Sep 8 18:55:44 PDT 2017 Done correctness explanation
+Fri Sep 8 18:55:44 PDT 2017 Creating dataset in /home/sophiak/fop_qii/hypothesis_testing_piotr20noht/datasets/new_synth_subj_7, writing to /home/sophiak/fop_qii/hypothesis_testing_piotr20noht/logs/synth_data_set_generation_new_synth_subj_7.txt
+Fri Sep 8 18:59:25 PDT 2017 Done creating data set
+Fri Sep 8 18:59:25 PDT 2017 Building a recommender and a shadow model
+Fri Sep 8 18:59:25 PDT 2017 Running regression_tree rank 10 depth 5, writing to /home/sophiak/fop_qii/hypothesis_testing_piotr20noht/logs/product_regression_all_regression_tree_rank_10_depth_5_new_synth_subj_7_attempt_0.txt, saving to /home/sophiak/fop_qii/hypothesis_testing_piotr20noht/states/product_regression_all_regression_tree_rank_10_depth_5_new_synth_subj_7.state
+Fri Sep 8 19:17:20 PDT 2017 regression_tree rank 10 depth 5 done after 1075 seconds
+Fri Sep 8 19:17:20 PDT 2017 Done building a recommender
+Fri Sep 8 19:17:20 PDT 2017 Running correctness explanations, writing to /home/sophiak/fop_qii/hypothesis_testing_piotr20noht/logs/explanation_correctness_new_synth_subj_7.txt
+Fri Sep 8 19:47:48 PDT 2017 Done correctness explanation
+Fri Sep 8 19:47:48 PDT 2017 Creating dataset in /home/sophiak/fop_qii/hypothesis_testing_piotr20noht/datasets/new_synth_subj_8, writing to /home/sophiak/fop_qii/hypothesis_testing_piotr20noht/logs/synth_data_set_generation_new_synth_subj_8.txt
+Fri Sep 8 19:51:17 PDT 2017 Done creating data set
+Fri Sep 8 19:51:17 PDT 2017 Building a recommender and a shadow model
+Fri Sep 8 19:51:17 PDT 2017 Running regression_tree rank 10 depth 5, writing to /home/sophiak/fop_qii/hypothesis_testing_piotr20noht/logs/product_regression_all_regression_tree_rank_10_depth_5_new_synth_subj_8_attempt_0.txt, saving to /home/sophiak/fop_qii/hypothesis_testing_piotr20noht/states/product_regression_all_regression_tree_rank_10_depth_5_new_synth_subj_8.state
+Fri Sep 8 20:04:16 PDT 2017 regression_tree rank 10 depth 5 done after 779 seconds
+Fri Sep 8 20:04:16 PDT 2017 Done building a recommender
+Fri Sep 8 20:04:16 PDT 2017 Running correctness explanations, writing to /home/sophiak/fop_qii/hypothesis_testing_piotr20noht/logs/explanation_correctness_new_synth_subj_8.txt
+Fri Sep 8 20:31:39 PDT 2017 Done correctness explanation
+Fri Sep 8 20:31:39 PDT 2017 Creating dataset in /home/sophiak/fop_qii/hypothesis_testing_piotr20noht/datasets/new_synth_subj_9, writing to /home/sophiak/fop_qii/hypothesis_testing_piotr20noht/logs/synth_data_set_generation_new_synth_subj_9.txt
+Fri Sep 8 20:35:16 PDT 2017 Done creating data set
+Fri Sep 8 20:35:16 PDT 2017 Building a recommender and a shadow model
+Fri Sep 8 20:35:16 PDT 2017 Running regression_tree rank 10 depth 5, writing to /home/sophiak/fop_qii/hypothesis_testing_piotr20noht/logs/product_regression_all_regression_tree_rank_10_depth_5_new_synth_subj_9_attempt_0.txt, saving to /home/sophiak/fop_qii/hypothesis_testing_piotr20noht/states/product_regression_all_regression_tree_rank_10_depth_5_new_synth_subj_9.state
+Fri Sep 8 20:48:03 PDT 2017 regression_tree rank 10 depth 5 done after 767 seconds
+Fri Sep 8 20:48:03 PDT 2017 Done building a recommender
+Fri Sep 8 20:48:03 PDT 2017 Running correctness explanations, writing to /home/sophiak/fop_qii/hypothesis_testing_piotr20noht/logs/explanation_correctness_new_synth_subj_9.txt
+Fri Sep 8 21:13:25 PDT 2017 Done correctness explanation
+Fri Sep 8 21:13:25 PDT 2017 Creating dataset in /home/sophiak/fop_qii/hypothesis_testing_piotr20noht/datasets/new_synth_subj_10, writing to /home/sophiak/fop_qii/hypothesis_testing_piotr20noht/logs/synth_data_set_generation_new_synth_subj_10.txt
+Fri Sep 8 21:16:53 PDT 2017 Done creating data set
+Fri Sep 8 21:16:53 PDT 2017 Building a recommender and a shadow model
+Fri Sep 8 21:16:53 PDT 2017 Running regression_tree rank 10 depth 5, writing to /home/sophiak/fop_qii/hypothesis_testing_piotr20noht/logs/product_regression_all_regression_tree_rank_10_depth_5_new_synth_subj_10_attempt_0.txt, saving to /home/sophiak/fop_qii/hypothesis_testing_piotr20noht/states/product_regression_all_regression_tree_rank_10_depth_5_new_synth_subj_10.state
+Fri Sep 8 21:30:19 PDT 2017 regression_tree rank 10 depth 5 done after 806 seconds
+Fri Sep 8 21:30:19 PDT 2017 Done building a recommender
+Fri Sep 8 21:30:19 PDT 2017 Running correctness explanations, writing to /home/sophiak/fop_qii/hypothesis_testing_piotr20noht/logs/explanation_correctness_new_synth_subj_10.txt
+Fri Sep 8 22:03:08 PDT 2017 Done correctness explanation
+Fri Sep 8 22:03:08 PDT 2017 Creating dataset in /home/sophiak/fop_qii/hypothesis_testing_piotr20noht/datasets/new_synth_subj_11, writing to /home/sophiak/fop_qii/hypothesis_testing_piotr20noht/logs/synth_data_set_generation_new_synth_subj_11.txt
+Fri Sep 8 22:06:28 PDT 2017 Done creating data set
+Fri Sep 8 22:06:28 PDT 2017 Building a recommender and a shadow model
+Fri Sep 8 22:06:28 PDT 2017 Running regression_tree rank 10 depth 5, writing to /home/sophiak/fop_qii/hypothesis_testing_piotr20noht/logs/product_regression_all_regression_tree_rank_10_depth_5_new_synth_subj_11_attempt_0.txt, saving to /home/sophiak/fop_qii/hypothesis_testing_piotr20noht/states/product_regression_all_regression_tree_rank_10_depth_5_new_synth_subj_11.state
+Fri Sep 8 22:18:18 PDT 2017 regression_tree rank 10 depth 5 done after 710 seconds
+Fri Sep 8 22:18:18 PDT 2017 Done building a recommender
+Fri Sep 8 22:18:18 PDT 2017 Running correctness explanations, writing to /home/sophiak/fop_qii/hypothesis_testing_piotr20noht/logs/explanation_correctness_new_synth_subj_11.txt
+Fri Sep 8 22:49:10 PDT 2017 Done correctness explanation
+Fri Sep 8 22:49:10 PDT 2017 Creating dataset in /home/sophiak/fop_qii/hypothesis_testing_piotr20noht/datasets/new_synth_subj_12, writing to /home/sophiak/fop_qii/hypothesis_testing_piotr20noht/logs/synth_data_set_generation_new_synth_subj_12.txt
+Fri Sep 8 22:52:17 PDT 2017 Done creating data set
+Fri Sep 8 22:52:17 PDT 2017 Building a recommender and a shadow model
+Fri Sep 8 22:52:17 PDT 2017 Running regression_tree rank 10 depth 5, writing to /home/sophiak/fop_qii/hypothesis_testing_piotr20noht/logs/product_regression_all_regression_tree_rank_10_depth_5_new_synth_subj_12_attempt_0.txt, saving to /home/sophiak/fop_qii/hypothesis_testing_piotr20noht/states/product_regression_all_regression_tree_rank_10_depth_5_new_synth_subj_12.state
+Fri Sep 8 23:04:42 PDT 2017 Iteration 0 of regression_tree rank 10 depth 5 failed acter 745 seconds (745 total), trying again
+Fri Sep 8 23:04:42 PDT 2017 Running regression_tree rank 10 depth 5, writing to /home/sophiak/fop_qii/hypothesis_testing_piotr20noht/logs/product_regression_all_regression_tree_rank_10_depth_5_new_synth_subj_12_attempt_1.txt, saving to /home/sophiak/fop_qii/hypothesis_testing_piotr20noht/states/product_regression_all_regression_tree_rank_10_depth_5_new_synth_subj_12.state
+Fri Sep 8 23:07:49 PDT 2017 regression_tree rank 10 depth 5 done after 932 seconds
+Fri Sep 8 23:07:49 PDT 2017 Done building a recommender
+Fri Sep 8 23:07:49 PDT 2017 Running correctness explanations, writing to /home/sophiak/fop_qii/hypothesis_testing_piotr20noht/logs/explanation_correctness_new_synth_subj_12.txt
+Fri Sep 8 23:34:23 PDT 2017 Done correctness explanation
+Fri Sep 8 23:34:23 PDT 2017 Creating dataset in /home/sophiak/fop_qii/hypothesis_testing_piotr20noht/datasets/new_synth_subj_13, writing to /home/sophiak/fop_qii/hypothesis_testing_piotr20noht/logs/synth_data_set_generation_new_synth_subj_13.txt
+Fri Sep 8 23:37:44 PDT 2017 Done creating data set
+Fri Sep 8 23:37:44 PDT 2017 Building a recommender and a shadow model
+Fri Sep 8 23:37:44 PDT 2017 Running regression_tree rank 10 depth 5, writing to /home/sophiak/fop_qii/hypothesis_testing_piotr20noht/logs/product_regression_all_regression_tree_rank_10_depth_5_new_synth_subj_13_attempt_0.txt, saving to /home/sophiak/fop_qii/hypothesis_testing_piotr20noht/states/product_regression_all_regression_tree_rank_10_depth_5_new_synth_subj_13.state
+Fri Sep 8 23:40:00 PDT 2017 Iteration 0 of regression_tree rank 10 depth 5 failed acter 136 seconds (136 total), trying again
+Fri Sep 8 23:40:00 PDT 2017 Running regression_tree rank 10 depth 5, writing to /home/sophiak/fop_qii/hypothesis_testing_piotr20noht/logs/product_regression_all_regression_tree_rank_10_depth_5_new_synth_subj_13_attempt_1.txt, saving to /home/sophiak/fop_qii/hypothesis_testing_piotr20noht/states/product_regression_all_regression_tree_rank_10_depth_5_new_synth_subj_13.state
+Fri Sep 8 23:51:25 PDT 2017 regression_tree rank 10 depth 5 done after 821 seconds
+Fri Sep 8 23:51:25 PDT 2017 Done building a recommender
+Fri Sep 8 23:51:25 PDT 2017 Running correctness explanations, writing to /home/sophiak/fop_qii/hypothesis_testing_piotr20noht/logs/explanation_correctness_new_synth_subj_13.txt
+Sat Sep 9 00:17:56 PDT 2017 Done correctness explanation
+Sat Sep 9 00:17:56 PDT 2017 Creating dataset in /home/sophiak/fop_qii/hypothesis_testing_piotr20noht/datasets/new_synth_subj_14, writing to /home/sophiak/fop_qii/hypothesis_testing_piotr20noht/logs/synth_data_set_generation_new_synth_subj_14.txt
+Sat Sep 9 00:21:16 PDT 2017 Done creating data set
+Sat Sep 9 00:21:16 PDT 2017 Building a recommender and a shadow model
+Sat Sep 9 00:21:16 PDT 2017 Running regression_tree rank 10 depth 5, writing to /home/sophiak/fop_qii/hypothesis_testing_piotr20noht/logs/product_regression_all_regression_tree_rank_10_depth_5_new_synth_subj_14_attempt_0.txt, saving to /home/sophiak/fop_qii/hypothesis_testing_piotr20noht/states/product_regression_all_regression_tree_rank_10_depth_5_new_synth_subj_14.state
+Sat Sep 9 00:34:01 PDT 2017 regression_tree rank 10 depth 5 done after 765 seconds
+Sat Sep 9 00:34:01 PDT 2017 Done building a recommender
+Sat Sep 9 00:34:01 PDT 2017 Running correctness explanations, writing to /home/sophiak/fop_qii/hypothesis_testing_piotr20noht/logs/explanation_correctness_new_synth_subj_14.txt
+Sat Sep 9 00:59:55 PDT 2017 Done correctness explanation
+Sat Sep 9 00:59:55 PDT 2017 Creating dataset in /home/sophiak/fop_qii/hypothesis_testing_piotr20noht/datasets/new_synth_subj_15, writing to /home/sophiak/fop_qii/hypothesis_testing_piotr20noht/logs/synth_data_set_generation_new_synth_subj_15.txt
+Sat Sep 9 01:02:57 PDT 2017 Done creating data set
+Sat Sep 9 01:02:57 PDT 2017 Building a recommender and a shadow model
+Sat Sep 9 01:02:57 PDT 2017 Running regression_tree rank 10 depth 5, writing to /home/sophiak/fop_qii/hypothesis_testing_piotr20noht/logs/product_regression_all_regression_tree_rank_10_depth_5_new_synth_subj_15_attempt_0.txt, saving to /home/sophiak/fop_qii/hypothesis_testing_piotr20noht/states/product_regression_all_regression_tree_rank_10_depth_5_new_synth_subj_15.state
+Sat Sep 9 01:05:07 PDT 2017 Iteration 0 of regression_tree rank 10 depth 5 failed acter 130 seconds (130 total), trying again
+Sat Sep 9 01:05:07 PDT 2017 Running regression_tree rank 10 depth 5, writing to /home/sophiak/fop_qii/hypothesis_testing_piotr20noht/logs/product_regression_all_regression_tree_rank_10_depth_5_new_synth_subj_15_attempt_1.txt, saving to /home/sophiak/fop_qii/hypothesis_testing_piotr20noht/states/product_regression_all_regression_tree_rank_10_depth_5_new_synth_subj_15.state
+Sat Sep 9 01:05:29 PDT 2017 Iteration 1 of regression_tree rank 10 depth 5 failed acter 22 seconds (152 total), trying again
+Sat Sep 9 01:05:29 PDT 2017 Running regression_tree rank 10 depth 5, writing to /home/sophiak/fop_qii/hypothesis_testing_piotr20noht/logs/product_regression_all_regression_tree_rank_10_depth_5_new_synth_subj_15_attempt_2.txt, saving to /home/sophiak/fop_qii/hypothesis_testing_piotr20noht/states/product_regression_all_regression_tree_rank_10_depth_5_new_synth_subj_15.state
+Sat Sep 9 01:17:39 PDT 2017 regression_tree rank 10 depth 5 done after 882 seconds
+Sat Sep 9 01:17:39 PDT 2017 Done building a recommender
+Sat Sep 9 01:17:39 PDT 2017 Running correctness explanations, writing to /home/sophiak/fop_qii/hypothesis_testing_piotr20noht/logs/explanation_correctness_new_synth_subj_15.txt
+Sat Sep 9 01:44:40 PDT 2017 Done correctness explanation
+Sat Sep 9 01:44:40 PDT 2017 Creating dataset in /home/sophiak/fop_qii/hypothesis_testing_piotr20noht/datasets/new_synth_subj_16, writing to /home/sophiak/fop_qii/hypothesis_testing_piotr20noht/logs/synth_data_set_generation_new_synth_subj_16.txt
+Sat Sep 9 01:47:58 PDT 2017 Done creating data set
+Sat Sep 9 01:47:58 PDT 2017 Building a recommender and a shadow model
+Sat Sep 9 01:47:58 PDT 2017 Running regression_tree rank 10 depth 5, writing to /home/sophiak/fop_qii/hypothesis_testing_piotr20noht/logs/product_regression_all_regression_tree_rank_10_depth_5_new_synth_subj_16_attempt_0.txt, saving to /home/sophiak/fop_qii/hypothesis_testing_piotr20noht/states/product_regression_all_regression_tree_rank_10_depth_5_new_synth_subj_16.state
+Sat Sep 9 02:01:23 PDT 2017 regression_tree rank 10 depth 5 done after 805 seconds
+Sat Sep 9 02:01:23 PDT 2017 Done building a recommender
+Sat Sep 9 02:01:23 PDT 2017 Running correctness explanations, writing to /home/sophiak/fop_qii/hypothesis_testing_piotr20noht/logs/explanation_correctness_new_synth_subj_16.txt
+Sat Sep 9 02:25:49 PDT 2017 Done correctness explanation
+Sat Sep 9 02:25:49 PDT 2017 Creating dataset in /home/sophiak/fop_qii/hypothesis_testing_piotr20noht/datasets/new_synth_subj_17, writing to /home/sophiak/fop_qii/hypothesis_testing_piotr20noht/logs/synth_data_set_generation_new_synth_subj_17.txt
+Sat Sep 9 02:28:59 PDT 2017 Done creating data set
+Sat Sep 9 02:28:59 PDT 2017 Building a recommender and a shadow model
+Sat Sep 9 02:28:59 PDT 2017 Running regression_tree rank 10 depth 5, writing to /home/sophiak/fop_qii/hypothesis_testing_piotr20noht/logs/product_regression_all_regression_tree_rank_10_depth_5_new_synth_subj_17_attempt_0.txt, saving to /home/sophiak/fop_qii/hypothesis_testing_piotr20noht/states/product_regression_all_regression_tree_rank_10_depth_5_new_synth_subj_17.state
+Sat Sep 9 02:29:14 PDT 2017 Iteration 0 of regression_tree rank 10 depth 5 failed acter 15 seconds (15 total), trying again
+Sat Sep 9 02:29:14 PDT 2017 Running regression_tree rank 10 depth 5, writing to /home/sophiak/fop_qii/hypothesis_testing_piotr20noht/logs/product_regression_all_regression_tree_rank_10_depth_5_new_synth_subj_17_attempt_1.txt, saving to /home/sophiak/fop_qii/hypothesis_testing_piotr20noht/states/product_regression_all_regression_tree_rank_10_depth_5_new_synth_subj_17.state
+Sat Sep 9 02:39:51 PDT 2017 regression_tree rank 10 depth 5 done after 652 seconds
+Sat Sep 9 02:39:51 PDT 2017 Done building a recommender
+Sat Sep 9 02:39:51 PDT 2017 Running correctness explanations, writing to /home/sophiak/fop_qii/hypothesis_testing_piotr20noht/logs/explanation_correctness_new_synth_subj_17.txt
+Sat Sep 9 02:58:48 PDT 2017 Done correctness explanation
+Sat Sep 9 02:58:48 PDT 2017 Creating dataset in /home/sophiak/fop_qii/hypothesis_testing_piotr20noht/datasets/new_synth_subj_18, writing to /home/sophiak/fop_qii/hypothesis_testing_piotr20noht/logs/synth_data_set_generation_new_synth_subj_18.txt
+Sat Sep 9 03:01:50 PDT 2017 Done creating data set
+Sat Sep 9 03:01:50 PDT 2017 Building a recommender and a shadow model
+Sat Sep 9 03:01:50 PDT 2017 Running regression_tree rank 10 depth 5, writing to /home/sophiak/fop_qii/hypothesis_testing_piotr20noht/logs/product_regression_all_regression_tree_rank_10_depth_5_new_synth_subj_18_attempt_0.txt, saving to /home/sophiak/fop_qii/hypothesis_testing_piotr20noht/states/product_regression_all_regression_tree_rank_10_depth_5_new_synth_subj_18.state
+Sat Sep 9 03:11:48 PDT 2017 regression_tree rank 10 depth 5 done after 598 seconds
+Sat Sep 9 03:11:48 PDT 2017 Done building a recommender
+Sat Sep 9 03:11:48 PDT 2017 Running correctness explanations, writing to /home/sophiak/fop_qii/hypothesis_testing_piotr20noht/logs/explanation_correctness_new_synth_subj_18.txt
+Sat Sep 9 03:36:59 PDT 2017 Done correctness explanation
+Sat Sep 9 03:36:59 PDT 2017 Creating dataset in /home/sophiak/fop_qii/hypothesis_testing_piotr20noht/datasets/new_synth_subj_19, writing to /home/sophiak/fop_qii/hypothesis_testing_piotr20noht/logs/synth_data_set_generation_new_synth_subj_19.txt
+Sat Sep 9 03:40:08 PDT 2017 Done creating data set
+Sat Sep 9 03:40:08 PDT 2017 Building a recommender and a shadow model
+Sat Sep 9 03:40:08 PDT 2017 Running regression_tree rank 10 depth 5, writing to /home/sophiak/fop_qii/hypothesis_testing_piotr20noht/logs/product_regression_all_regression_tree_rank_10_depth_5_new_synth_subj_19_attempt_0.txt, saving to /home/sophiak/fop_qii/hypothesis_testing_piotr20noht/states/product_regression_all_regression_tree_rank_10_depth_5_new_synth_subj_19.state
+Sat Sep 9 03:50:42 PDT 2017 regression_tree rank 10 depth 5 done after 634 seconds
+Sat Sep 9 03:50:42 PDT 2017 Done building a recommender
+Sat Sep 9 03:50:42 PDT 2017 Running correctness explanations, writing to /home/sophiak/fop_qii/hypothesis_testing_piotr20noht/logs/explanation_correctness_new_synth_subj_19.txt
+Sat Sep 9 04:13:21 PDT 2017 Done correctness explanation
+Sat Sep 9 04:13:21 PDT 2017 Creating dataset in /home/sophiak/fop_qii/hypothesis_testing_piotr20noht/datasets/new_synth_subj_20, writing to /home/sophiak/fop_qii/hypothesis_testing_piotr20noht/logs/synth_data_set_generation_new_synth_subj_20.txt
+Sat Sep 9 04:16:29 PDT 2017 Done creating data set
+Sat Sep 9 04:16:29 PDT 2017 Building a recommender and a shadow model
+Sat Sep 9 04:16:29 PDT 2017 Running regression_tree rank 10 depth 5, writing to /home/sophiak/fop_qii/hypothesis_testing_piotr20noht/logs/product_regression_all_regression_tree_rank_10_depth_5_new_synth_subj_20_attempt_0.txt, saving to /home/sophiak/fop_qii/hypothesis_testing_piotr20noht/states/product_regression_all_regression_tree_rank_10_depth_5_new_synth_subj_20.state
+Sat Sep 9 04:26:37 PDT 2017 regression_tree rank 10 depth 5 done after 608 seconds
+Sat Sep 9 04:26:37 PDT 2017 Done building a recommender
+Sat Sep 9 04:26:37 PDT 2017 Running correctness explanations, writing to /home/sophiak/fop_qii/hypothesis_testing_piotr20noht/logs/explanation_correctness_new_synth_subj_20.txt
+Sat Sep 9 04:53:33 PDT 2017 Done correctness explanation

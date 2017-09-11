@@ -22,7 +22,13 @@ def generate_profiles(results, n_profiles, semi_random=False,
     if specific_features is not None:
         catfs = [f for (f,n) in results["feature_names"].items() if n in
                 specific_features]
+        print "Features requested:", sorted(specific_features)
+        print "Features used:", sorted([results["feature_names"][x] for x in
+            catfs])
         print "Features used:", catfs
+        notfound = set(specific_features) - set(results["feature_names"].values())
+        if len(notfound) > 0:
+            print "Features", notfound, "not found"
     else:
         catfs = results["categorical_features"].keys()
     random.shuffle(catfs)

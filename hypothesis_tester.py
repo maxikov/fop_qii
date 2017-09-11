@@ -28,7 +28,7 @@ def get_shadow_faith(fname):
 def get_group_values(data_root, control_or_experimental, rec_or_shadow):
     path_suffix = os.path.join("hypothesis_testing",
                                 control_or_experimental, "logs")
-    fname_mask = "explanation_correctness_new_synth_{}_subj_{}.txt"\
+    fname_mask = "*explanation_correctness_new_synth_{}_subj_{}.txt"\
                  .format(control_or_experimental, "{}")
     all_files = glob.glob(os.path.join(data_root, path_suffix,
                           fname_mask.format("*")))
@@ -51,6 +51,25 @@ def get_average_correctness(fname):
                 corr = float(line.split(": ")[1])
                 break
     return corr
+
+def get_average_correctness(fname):
+    with open(fname, "r") as f:
+        for line in f:
+            if "Average correctness: " in line:
+                corr = float(line.split(": ")[1])
+                break
+    return corr
+
+def get_average_sr_correctness(fname):
+    with open(fname, "r") as f:
+        for line in f:
+            if "Average correctness: " in line:
+                corr = float(line.split(": ")[1])
+            elif "Average semirandom correctness: " in line:
+                corr_semirandom = float(line.split(": ")[1])
+            elif "Average random correctness: " in line:
+                corr_random = float(line.split(": ")[1])
+    return corr, corr_semirandom, corr_random
 
 def get_all_corrs(fname):
     res = []
@@ -86,6 +105,26 @@ def get_group_correctnesses(data_root, control_or_experimental):
                 print Back.RED + "no values found"
         res.append(corr)
     return res
+
+def get_group_correctnesses_semi_random(data_root):
+    path_suffix = os.path.join("logs")
+    fname_mask = "*explanation_correctness_new_synth_subj_{}.txt"
+    all_files = glob.glob(os.path.join(data_root, path_suffix,
+                          fname_mask.format("*")))
+    print "{} subjects found".format(len(all_files))
+    res = []
+    res_sr = []
+    res_r = []
+    for fname in all_files:
+        try:
+            corr, corr_sr, corr_r = get_average_sr_correctness(fname)
+        except Exception as e:
+            print e
+            continue
+        res.append(corr)
+        res_sr.append(corr_sr)
+        res_r.append(corr_r)
+    return res, res_sr, res_r
 
 def effect_size(control, experimental):
     #Effect size for unequal variance
@@ -153,11 +192,23 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--data-root", action="store", type=str, help=\
                         "Path from which to load all data points")
+    parser.add_argument("--semi-random", action="store_true")
     args = parser.parse_args()
 
-    explanation_correctness_test(args.data_root)
-    rec_err_test(args.data_root)
-    shadow_faith_test(args.data_root)
+    if args.semi_random:
+        corr, corr_sr, corr_r =\
+           get_group_correctnesses_semi_random(args.data_root)
+        print corr, corr_sr, corr_r
+        print "Random vs semi-random:"
+        hypothesis_test(corr_r, corr_sr)
+        print "Semi-random vs true:"
+        hypothesis_test(corr_sr, corr)
+        print "Random vs true:"
+        hypothesis_test(corr_r, corr)
+    else:
+        explanation_correctness_test(args.data_root)
+        rec_err_test(args.data_root)
+        shadow_faith_test(args.data_root)
 
 if __name__ == "__main__":
     main()
