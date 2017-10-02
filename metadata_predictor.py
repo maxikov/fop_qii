@@ -57,7 +57,7 @@ def metadata_predictor(sc, training, rank, numIter, lmbda,
              "src_rdd": functools.partial(lambda x: x, arc_ratings),
              "loader": parsers_and_loaders.load_average_ratings})
 
-    model = load_or_train_ALS(training, rank, numIter, lmbda, args, sc, logger)
+    model = internal_feature_predictor.load_or_train_ALS(training, rank, numIter, lmbda, args, sc, logger)
 
     features = model.productFeatures()
     other_features = model.userFeatures()
@@ -69,7 +69,7 @@ def metadata_predictor(sc, training, rank, numIter, lmbda,
 
 
     indicators, nof, categorical_features, feature_names, all_movies, training=\
-        load_metadata_process_training(sc, args, metadata_sources, training,
+        internal_feature_predictor.load_metadata_process_training(sc, args, metadata_sources, training,
         logger, all_movies)
 
 
@@ -90,14 +90,14 @@ def metadata_predictor(sc, training, rank, numIter, lmbda,
         all_movies = list(all_movies)
 
     if args.normalize:
-        indicators = normalize_features(indicators, categorical_features,
+        indicators = internal_feature_predictor.normalize_features(indicators, categorical_features,
                 feature_names, logger)
 
     results["feature_names"] = feature_names
     results["categorical_features"] = categorical_features
 
 
-    results = compute_or_load_mean_feature_values(args, features, results, logger)
+    results = internal_feature_predictor.compute_or_load_mean_feature_values(args, features, results, logger)
 
     results["train_ratio"] = train_ratio
 
