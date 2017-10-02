@@ -180,7 +180,6 @@ def args_init(logger):
     parser.add_argument("--als-cross-validation", action="store", type=int,
             default=0, help="Number of user-movie pairs to set aside for "+\
                     "cross-validation of the ALS model. If 0, not performed")
-    parser.add_argument("--predict-metadata", action="store_true")
     args = parser.parse_args()
 
     logger.debug("rank: {}, lmbda: {}, num_iter: {}, num_partitions: {}"\
