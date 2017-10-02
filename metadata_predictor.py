@@ -22,6 +22,7 @@ import parsers_and_loaders
 def metadata_predictor(sc, training, rank, numIter, lmbda,
                        args, all_movies, metadata_sources,
                        logger, train_ratio = 0):
+    user_or_product_features = "product"
     logger.debug("Started metadata_predictor")
     if args.persist_dir is not None:
         logger.debug("Trying to load previous results")
