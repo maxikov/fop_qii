@@ -85,7 +85,6 @@ def metadata_predictor(sc, training, rank, numIter, lmbda,
         filter_f = functools.partial(lambda all_movies, x: x[1] in all_movies,
                 all_movies)
         training = training.filter(filter_f)
-        baseline_predictions = baseline_predictions.filter(filter_f)
         logger.debug("{} items left in the training set"\
             .format(training.count()))
         all_movies = list(all_movies)
