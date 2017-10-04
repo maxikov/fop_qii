@@ -116,7 +116,7 @@ def metadata_predictor(sc, training, rank, numIter, lmbda,
          (training_movies, test_movies, features_test, features_training,
              features_original_test, features_original_training,
              indicators_training, indicators_test) =\
-                  split_or_load_training_test_sets(train_ratio, all_movies, features,
+                  internal_feature_predictor.split_or_load_training_test_sets(train_ratio, all_movies, features,
                                      indicators, features_original, n_movies,
                                      args, logger, sc)
          filter_f = functools.partial(lambda training_movies, x: x[1] in
