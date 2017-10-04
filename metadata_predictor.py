@@ -11,6 +11,7 @@ from prettytable import PrettyTable
 
 #pyspark library
 from pyspark.mllib.recommendation import ALS, MatrixFactorizationModel
+import pyspark
 
 #project files
 import internal_feature_predictor
