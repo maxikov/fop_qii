@@ -125,10 +125,7 @@ def metadata_predictor(sc, training, rank, numIter, lmbda,
          filter_f = functools.partial(lambda test_movies, x: x[1] in
                  test_movies, test_movies)
          training_test = training.filter(filter_f)
-         logger.debug("{} feature rows, {} indicator rows,  and {} ratings in the training set".\
-                 format(features_training.count(), indicators_training.count(), baseline_predictions_training.count()) +\
-                 ", {} feature rows, {} indicators rows, and {} ratings in the test set".\
-                 format(features_test.count(), indicators_test.count(), baseline_predictions_test.count()))
+
     else:
          features_training = features
          indicators_training = indicators
