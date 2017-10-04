@@ -112,6 +112,35 @@ def metadata_predictor(sc, training, rank, numIter, lmbda,
                       "naive_bayes": pyspark.mllib.classification.NaiveBayesModel}
 
     n_movies = len(all_movies)
+    if train_ratio > 0:
+         (training_movies, test_movies, features_test, features_training,
+             features_original_test, features_original_training,
+             indicators_training, indicators_test) =\
+                  split_or_load_training_test_sets(train_ratio, all_movies, features,
+                                     indicators, features_original, n_movies,
+                                     args, logger, sc)
+         filter_f = functools.partial(lambda training_movies, x: x[1] in
+                 training_movies, training_movies)
+         training_training = training.filter(filter_f)
+         filter_f = functools.partial(lambda test_movies, x: x[1] in
+                 test_movies, test_movies)
+         training_test = training.filter(filter_f)
+         logger.debug("{} feature rows, {} indicator rows,  and {} ratings in the training set".\
+                 format(features_training.count(), indicators_training.count(), baseline_predictions_training.count()) +\
+                 ", {} feature rows, {} indicators rows, and {} ratings in the test set".\
+                 format(features_test.count(), indicators_test.count(), baseline_predictions_test.count()))
+    else:
+         features_training = features
+         indicators_training = indicators
+         features_original_training = features_original
+         training_movies = all_movies
+         test_movies = None
+         indicators_test = None
+         features_test = None
+         baseline_predictions_training = baseline_predictions
+         baseline_predictions_test = None
+         training_training = training
+         trainin_test = None
 
 
 
