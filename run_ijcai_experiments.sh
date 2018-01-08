@@ -155,3 +155,8 @@ do
 	python explanation_correctness.py --semi-random --persist-dir $PERSIST_DIR --dataset-dir $DATA_PATH --qii-iterations 10 --sample-size 20 --movies-file $MOVIES_FILE > "${LOG_DIR}/explanation_correctness_${NAME_SUFFIX}.txt"
 	echo `date` "Done correctness explanation"
 done
+
+
+done
+done 
+done
