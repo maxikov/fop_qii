@@ -102,13 +102,15 @@ do
 for REGRESSION_MODEL in "regression_tree" "linear"
 do
 
+for FEATURES in "any_features" "specific_features"
+do
 
 NORMALIZE="" #Must be empty or --normalize
         if [ "$REGRESSION_MODEL" == "linear" ]
         then
                 NORMALIZE="--normalize"
         fi
-cur_suffix="RANK_${RANK}_LMBDA_${LMBDA}_${REGRESSION_MODEL}"
+cur_suffix="RANK_${RANK}_LMBDA_${LMBDA}_${REGRESSION_MODEL}_${FEATURES}"
 NBINS=32
 MAX_DEPTH=5
 ALL_ROOT="/home/sophiak/fop_qii"
@@ -143,7 +145,13 @@ do
 	NAME_SUFFIX="new_synth_subj_${SUBJ}"
 	DATA_PATH="${DATASET_ROOT}/${NAME_SUFFIX}"
 	echo `date` "Creating dataset in $DATA_PATH, writing to ${LOG_DIR}/synth_data_set_generation_${NAME_SUFFIX}.txt"
-	python synth_dataset_generator.py --semi-random --specific-features "imdb_keywords:nightclub" "imdb_keywords:teenager"    "imdb_keywords:sister-sister-relationship" "imdb_keywords:nurse"    "imdb_keywords:hotel" "imdb_keywords:f-rated" "imdb_keywords:1960s"    "imdb_keywords:bare-butt" "imdb_keywords:friendship"    "imdb_keywords:horse" "movielens_genre:Action" "imdb_keywords:gun"    "imdb_keywords:slow-motion-scene" "imdb_keywords:murder"    "imdb_keywords:hallucination" "imdb_keywords:theft"    "imdb_keywords:unfaithfulness" "imdb_keywords:book"    "imdb_keywords:boyfriend-girlfriend-relationship"    "imdb_keywords:escape" "movielens_genre:War" "imdb_keywords:newspaper"    "imdb_keywords:camera" "imdb_keywords:falling-from-height"    "imdb_keywords:montage" "imdb_keywords:neo-noir"    "imdb_keywords:female-nudity" "imdb_keywords:detective"    "movielens_genre:Children" "imdb_keywords:cult-film" "imdb_keywords:cleavage"    "imdb_keywords:sequel" "imdb_keywords:high-school" "imdb_keywords:bar"    "imdb_keywords:chase" "imdb_keywords:action-hero"    "imdb_keywords:drink" "imdb_keywords:marriage-proposal"    "imdb_keywords:number-in-title" "imdb_keywords:love"  --persist-dir ${ORIGINAL_STATE_DIR} --n-profiles 8 --n-users 2000 --mu 5 --sigma 1  --odir ${DATA_PATH} > ${LOG_DIR}/synth_data_set_generation_${NAME_SUFFIX}.txt
+        if [ "$FEATURES" == "specific_features" ]
+        then
+	python synth_dataset_generator.py --semi-random --specific-features "imdb_keywords:nightclub" "imdb_keywords:teenager"    "imdb_keywords:sister-sister-relationship" "imdb_keywords:nurse"    "imdb_keywords:hotel" "imdb_keywords:f-rated" "imdb_keywords:1960s"    "imdb_keywords:bare-butt" "imdb_keywords:friendship"    "imdb_keywords:horse" "movielens_genre:Action" "imdb_keywords:gun"    "imdb_keywords:slow-motion-scene" "imdb_keywords:murder"    "imdb_keywords:hallucination" "imdb_keywords:theft"    "imdb_keywords:unfaithfulness" "imdb_keywords:book"    "imdb_keywords:boyfriend-girlfriend-relationship"    "imdb_keywords:escape" "movielens_genre:War" "imdb_keywords:newspaper"    "imdb_keywords:camera" "imdb_keywords:falling-from-height"    "imdb_keywords:montage" "imdb_keywords:neo-noir"    "imdb_keywords:female-nudity" "imdb_keywords:detective"    "movielens_genre:Children" "imdb_keywords:cult-film" "imdb_keywords:cleavage"    "imdb_keywords:sequel" "imdb_keywords:high-school" "imdb_keywords:bar"    "imdb_keywords:chase" "imdb_keywords:action-hero"    "imdb_keywords:drink" "imdb_keywords:marriage-proposal"    "imdb_keywords:number-in-title" "imdb_keywords:love"  --persist-dir ${ORIGINAL_STATE_DIR} --n-profiles ${RANK} --n-users 5000 --mu 5 --sigma 1  --odir ${DATA_PATH} > ${LOG_DIR}/synth_data_set_generation_${NAME_SUFFIX}.txt
+	else
+	python synth_dataset_generator.py --semi-random   --persist-dir ${ORIGINAL_STATE_DIR} --n-profiles ${RANK} --n-users 5000 --mu 5 --sigma 1  --odir ${DATA_PATH} > ${LOG_DIR}/synth_data_set_generation_${NAME_SUFFIX}.txt
+
+	fi
 	cp ${ORIGINAL_DATA_ROOT}/ml-20m/tags.csv ${DATA_PATH}/tags.csv
 	echo `date` "Done creating data set"
 
@@ -159,4 +167,5 @@ done
 
 done
 done 
+done
 done
