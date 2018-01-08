@@ -96,7 +96,7 @@ def metadata_predictor(sc, training, rank, numIter, lmbda,
 
     results["feature_names"] = feature_names
     results["categorical_features"] = categorical_features
-
+    results["nof"] = nof
 
     results = internal_feature_predictor.compute_or_load_mean_feature_values(args, features, results, logger)
 
@@ -146,8 +146,12 @@ def metadata_predictor(sc, training, rank, numIter, lmbda,
 
     all_lr_models = {}
     for f in xrange(nof):
-        logger.debug("Processing {} ({} out of {})"\
-                .format(feature_names[f], f, nof))
+        try:
+            logger.debug("Processing {} ({} out of {})"\
+                    .format(feature_names[f], f, nof))
+        except Exception:
+            logger.debug("Processing ({} out of {})"\
+                    .format(f, nof))
         if "features" not in results:
             logger.debug("Features dict not found, adding")
             results["features"] = {}
