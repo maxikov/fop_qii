@@ -12,6 +12,7 @@ import rating_qii
 import tree_qii
 import shadow_model_qii
 import parsers_and_loaders
+import internal_feature_predictor
 
 #pyspark libraryb
 from pyspark import SparkConf, SparkContext
@@ -171,9 +172,34 @@ def main():
         tree_qii.load_features_indicators(os.path.join(args.persist_dir,
                                               "features_training_test.pkl"), sc, 7)
 
+    (model, predictions, observations) = internal_feature_predictor.predict_internal_feature(product_features, indicators_training, 0, "regression_tree",
+                             categorical_features={}, max_bins=32, logger=None,
+                             no_threshold=False, is_classifier=False,
+                             num_classes=None, max_depth=None)
+    
+    reg_eval = common_utils.evaluate_regression(predictions,
+                                                        observations,
+                                                        None,
+                                                        32,
+                                                        bin_range=None,
+                     model_name = "Training feature 0 without other latents")
 
-   indicators_training = indicators_training.join(product_features)\
-           .map(lambda (x, (y, z)): (x, y+z))
+
+    indicators_training = indicators_training.join(product_features)\
+           .map(lambda (x, (y, z[1:])): (x, y+z))
+
+    (model, predictions, observations) = internal_feature_predictor.predict_internal_feature(product_features, indicators_training, 0, "regression_tree",
+                             categorical_features={}, max_bins=32, logger=None,
+                             no_threshold=False, is_classifier=False,
+                             num_classes=None, max_depth=None)
+    
+    reg_eval = common_utils.evaluate_regression(predictions,
+                                                        observations,
+                                                        None,
+                                                        32,
+                                                        bin_range=None,
+                     model_name = "Training feature 0 with other latents")
+    print reg_eval
 
 
     sys.stdout.flush()
