@@ -116,8 +116,8 @@ DROP_RARE_MOVIES="25"
 
 REGRESSION_MODEL="linear"
 NORMALIZE="--normalize"
-for LMBDA in "0.1" "0.05" "0.01" do
-for RANK in 12 20 50 do
+for LMBDA in "0.1" "0.05" "0.01"; do
+for RANK in 12 20 50; do
 
 
 NAME_SUFFIX="ijcai_linear_lmbda_${LMBDA}_rank_${RANK}"
@@ -133,10 +133,10 @@ done
 
 REGRESSION_MODEL="regression_tree"
 NORMALIZE=""
-for LMBDA in "0.1" "0.05" "0.01" do
-for RANK in 12 20 50 do
-for MAX_DEPTH in 3 5 8 do
-for NBINS in 8 32 128 do
+for LMBDA in "0.1" "0.05" "0.01"; do
+for RANK in 12 20 50; do
+for MAX_DEPTH in 3 5 8; do
+for NBINS in 8 32 128; do
 
 
 NAME_SUFFIX="ijcai_tree_lmbda_${LMBDA}_rank_${RANK}_maxdepth_${MAX_DEPTH}_nbins_${NBINS}"
