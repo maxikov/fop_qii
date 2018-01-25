@@ -5,7 +5,7 @@ import pickle
 import random
 import collections
 import sys
-
+import logging
 #project files
 import rating_explanation
 import rating_qii
