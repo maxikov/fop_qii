@@ -127,25 +127,6 @@ def main():
         print "Shadow model is inf times better than random on the test set"
     sys.stdout.flush()
 
-    if args.movies_file is not None:
-        if ".csv" in args.movies_file:
-            msep = ","
-            movies_remove_first_line = True
-        else:
-            msep = "::"
-            movies_remove_first_line = False
-        print "Loading movies"
-        movies_rdd = sc.parallelize(
-            parsers_and_loaders.loadCSV(
-                args.movies_file,
-                remove_first_line=movies_remove_first_line
-            )
-            ).cache()
-        movies_dict = dict(movies_rdd.map(lambda x: parsers_and_loaders.parseMovie(x,\
-            sep=msep)).collect())
-    else:
-        movies = product_features.keys().collect()
-        movies_dict = {x: str(x) for x in movies}
 
     print "Loading ALS model"
     model = rating_qii.load_als_model(sc, os.path.join(args.persist_dir,
@@ -186,7 +167,7 @@ def main():
 
 
     indicators_training = indicators_training.join(product_features)\
-           .map(lambda (x, (y, z[1:])): (x, y+z))
+            .map(lambda (x, (y, z)): (x, y+z[1:]))
 
     (model, predictions, observations) = internal_feature_predictor.predict_internal_feature(product_features, indicators_training, 0, "regression_tree",
                              categorical_features={}, max_bins=32, logger=None,
