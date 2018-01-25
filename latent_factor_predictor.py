@@ -17,6 +17,22 @@ import internal_feature_predictor
 #pyspark libraryb
 from pyspark import SparkConf, SparkContext
 
+
+def logger_init():
+    """
+    Initializes logger object for logging.
+    """
+
+    logger = logging.getLogger(__name__)
+    logger.setLevel(logging.DEBUG)
+    ch = logging.StreamHandler(sys.stdout)
+    ch.setLevel(logging.DEBUG)
+    formatter = logging.Formatter('%(asctime)s - %(name)s '+\
+        '- %(levelname)s - %(message)s')
+    ch.setFormatter(formatter)
+    logger.addHandler(ch)
+    return logger
+
 def sort_dict(src, non_zero=False):
     lst = sorted(src.items(), key=lambda x: -abs(x[1]))
     if non_zero:
@@ -104,6 +120,7 @@ def sample_correctness(user_product_pairs, user_features, all_trees,
 
 
 def main():
+    logger = logger_init()
     parser = argparse.ArgumentParser()
     parser.add_argument("--persist-dir", action="store", type=str, help=\
                         "Path from which to loaad models and features to analyze")
@@ -160,7 +177,7 @@ def main():
     
     reg_eval = common_utils.evaluate_regression(predictions,
                                                         observations,
-                                                        None,
+                                                        logger,
                                                         32,
                                                         bin_range=None,
                      model_name = "Training feature 0 without other latents")
