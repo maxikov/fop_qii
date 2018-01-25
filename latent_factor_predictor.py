@@ -171,7 +171,8 @@ def main():
                                               "features_training_test.pkl"), sc, 7)
 
     (model, predictions, observations) = internal_feature_predictor.predict_internal_feature(product_features, indicators_training, 0, "regression_tree",
-                             categorical_features={}, max_bins=32, logger=None,
+                             categorical_features={}, max_bins=32,
+                             logger=logger,
                              no_threshold=False, is_classifier=False,
                              num_classes=None, max_depth=None)
     
@@ -187,13 +188,14 @@ def main():
             .map(lambda (x, (y, z)): (x, y+z[1:]))
 
     (model, predictions, observations) = internal_feature_predictor.predict_internal_feature(product_features, indicators_training, 0, "regression_tree",
-                             categorical_features={}, max_bins=32, logger=None,
+                             categorical_features={}, max_bins=32,
+                             logger=logger,
                              no_threshold=False, is_classifier=False,
                              num_classes=None, max_depth=None)
     
     reg_eval = common_utils.evaluate_regression(predictions,
                                                         observations,
-                                                        None,
+                                                        logger,
                                                         32,
                                                         bin_range=None,
                      model_name = "Training feature 0 with other latents")
