@@ -93,7 +93,7 @@ function run_and_save() {
 }
 
 
-for RANK in 3 12 20 50
+for RANK in 20 50
 do
 
 for LMBDA in "0.01" "0.07" "0.1"

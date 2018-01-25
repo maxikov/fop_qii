@@ -32,7 +32,7 @@ NORMALIZE="" #Must be empty or --normalize
 FEATURE_TRIM_PERCENTILE=0
 NO_HT="--no-ht"
 OVERRIDE_ARGS=""
-COLD_START="--cold-start 50"
+COLD_START=""
 
 NAME_SUFFIX=""
 
@@ -102,12 +102,50 @@ function run_and_save() {
 	run_until_succeeds
 	REFERENCE_MODEL="${PERSIST_DIR}/als_model.pkl"
 }
-NAME_SUFFIX="cold_start_lmbda_0.1_als_cross_validation"
 
-RANK=15
+LMBDA=0.1
+NORMALIZE=
+NAME_SUFFIX="ijcai_lmbda_0.1_regression_tree_depth_5_nbins_32_rank_12"
+REGRESSION_MODEL="regression_tree"
+NBINS=32
+MAX_DEPTH=5
+RANK=12
 NUM_ITER="300"
 DROP_RARE_FEATURES="250"
 DROP_RARE_MOVIES="25"
+
+REGRESSION_MODEL="linear"
+NORMALIZE="--normalize"
+for LMBDA in "0.1" "0.05" "0.01" do
+for RANK in 12 20 50 do
+
+
+NAME_SUFFIX="ijcai_linear_lmbda_${LMBDA}_rank_${RANK}"
 make_commands
 mkdir -p $PERSIST_DIR
 run_until_succeeds
+
+done
+done
+
+
+
+
+REGRESSION_MODEL="regression_tree"
+NORMALIZE=""
+for LMBDA in "0.1" "0.05" "0.01" do
+for RANK in 12 20 50 do
+for MAX_DEPTH in 3 5 8 do
+for NBINS in 8 32 128 do
+
+
+NAME_SUFFIX="ijcai_tree_lmbda_${LMBDA}_rank_${RANK}_maxdepth_${MAX_DEPTH}_nbins_${NBINS}"
+make_commands
+mkdir -p $PERSIST_DIR
+run_until_succeeds
+
+done
+done
+done
+done
+
