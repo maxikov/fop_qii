@@ -13,6 +13,7 @@ import tree_qii
 import shadow_model_qii
 import parsers_and_loaders
 import internal_feature_predictor
+import common_utils
 
 #pyspark libraryb
 from pyspark import SparkConf, SparkContext
@@ -185,7 +186,7 @@ def main():
 
 
     indicators_training = indicators_training.join(product_features)\
-            .map(lambda (x, (y, z)): (x, y+z[1:]))
+            .map(lambda (x, (y, z)): (x, list(y)+list(z)[1:]))
 
     (model, predictions, observations) = internal_feature_predictor.predict_internal_feature(product_features, indicators_training, 0, "regression_tree",
                              categorical_features={}, max_bins=32,
