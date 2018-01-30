@@ -1,0 +1,159 @@
+spark-submit --driver-memory 64g MovieLensALS.py --spark-executor-memory 64g --local-threads 40 --num-partitions 40 --checkpoint-dir archived_states/spark_dir --temp-dir archived_states/spark_dir --persist-dir archived_states/product_regression_all_regression_tree_rank_20_depth_8_ijcai_tree_lmbda_0.1_rank_20_maxdepth_8_nbins_32.state --csv --data-path datasets/ml-20m --movies-file datasets/ml-20m/ml-20m.imdb.set1.csv --tvtropes-file datasets/dbtropes/tropes.csv --rank 20 --lmbda 0.1 --num-iter 300 --predict-product-features --metadata-sources years genres average_rating imdb_keywords imdb_producer imdb_director tvtropes tags imdb_year imdb_rating imdb_cast imdb_cinematographer imdb_composer imdb_languages imdb_production_companies imdb_writer --drop-rare-features 250 --drop-rare-movies 25 --cross-validation 70 --regression-model regression_tree --nbins 32 --max-depth 8 --features-trim-percentile 0 --no-ht --filter-data-set 10 --als-cross-validation 1000
+2018-01-30 10:10:46,069 - __main__ - DEBUG - rank: 20, lmbda: 0.1, num_iter: 300, num_partitions: 40
+2018-01-30 10:10:46,070 - __main__ - DEBUG - data_path: datasets/ml-20m, checkpoint_dir: archived_states/spark_dir
+2018-01-30 10:10:46,070 - __main__ - DEBUG - Temp dir: archived_states/spark_dir
+2018-01-30 10:10:46,070 - __main__ - DEBUG - local_threads: 40
+2018-01-30 10:10:46,070 - __main__ - DEBUG - spark_executor_memory: 64g
+2018-01-30 10:10:46,070 - __main__ - DEBUG - cold_start: 0
+2018-01-30 10:10:46,070 - __main__ - DEBUG - regression_model: regression_tree
+2018-01-30 10:10:46,070 - __main__ - DEBUG - nbins: 32
+2018-01-30 10:10:46,070 - __main__ - DEBUG - regression_users: False
+2018-01-30 10:10:46,070 - __main__ - DEBUG - predict_product_features: True
+2018-01-30 10:10:46,070 - __main__ - DEBUG - metadata_sources: ['years', 'genres', 'average_rating', 'imdb_keywords', 'imdb_producer', 'imdb_director', 'tvtropes', 'tags', 'imdb_year', 'imdb_rating', 'imdb_cast', 'imdb_cinematographer', 'imdb_composer', 'imdb_languages', 'imdb_production_companies', 'imdb_writer']
+2018-01-30 10:10:46,070 - __main__ - DEBUG - movies_file: datasets/ml-20m/ml-20m.imdb.set1.csv
+2018-01-30 10:10:46,070 - __main__ - DEBUG - cross_validation: 70
+2018-01-30 10:10:46,070 - __main__ - DEBUG - tvtropes_file: datasets/dbtropes/tropes.csv
+2018-01-30 10:10:46,070 - __main__ - DEBUG - features_trim_percentile: 0
+2018-01-30 10:10:46,070 - __main__ - DEBUG - drop_missing_movies: False
+2018-01-30 10:10:46,070 - __main__ - DEBUG - drop_rare_features: 250
+2018-01-30 10:10:46,070 - __main__ - DEBUG - filter_data_set: 10
+2018-01-30 10:10:46,070 - __main__ - DEBUG - persist_dir: archived_states/product_regression_all_regression_tree_rank_20_depth_8_ijcai_tree_lmbda_0.1_rank_20_maxdepth_8_nbins_32.state, override_args: False
+2018-01-30 10:10:46,070 - __main__ - DEBUG - drop_rare_movies: 25
+2018-01-30 10:10:46,070 - __main__ - DEBUG - normalize: False
+2018-01-30 10:10:46,070 - __main__ - DEBUG - max_depth: 8
+2018-01-30 10:10:46,070 - __main__ - DEBUG - no_ht: True
+2018-01-30 10:10:46,071 - __main__ - DEBUG - csv: True
+2018-01-30 10:10:46,071 - __main__ - DEBUG - archived_states/product_regression_all_regression_tree_rank_20_depth_8_ijcai_tree_lmbda_0.1_rank_20_maxdepth_8_nbins_32.state/args.pkl not found, loading new
+2018-01-30 10:10:46,071 - __main__ - DEBUG - Storing in archived_states/product_regression_all_regression_tree_rank_20_depth_8_ijcai_tree_lmbda_0.1_rank_20_maxdepth_8_nbins_32.state/args.pkl
+2018-01-30 10:10:47,906 - __main__ - DEBUG - msep: ,
+2018-01-30 10:10:47,906 - __main__ - DEBUG - Loading ratings
+2018-01-30 10:10:55,826 - __main__ - DEBUG - Done in 7.919150 seconds
+2018-01-30 10:10:55,826 - __main__ - DEBUG - Loading movies
+2018-01-30 10:10:58,195 - __main__ - DEBUG - Done in 2.369305 seconds
+2018-01-30 10:10:58,196 - __main__ - DEBUG - 26804 movies loaded
+2018-01-30 10:11:16,331 - __main__ - DEBUG - 19912669 records in the training set
+2018-01-30 10:11:19,563 - __main__ - DEBUG - 26284 unique movies in the training set
+2018-01-30 10:11:19,563 - __main__ - DEBUG - Started internal_feature_predictor
+2018-01-30 10:11:19,563 - __main__ - DEBUG - Trying to load previous results
+2018-01-30 10:11:19,564 - __main__ - DEBUG - archived_states/product_regression_all_regression_tree_rank_20_depth_8_ijcai_tree_lmbda_0.1_rank_20_maxdepth_8_nbins_32.state/results.pkl not found
+2018-01-30 10:11:19,564 - __main__ - DEBUG - Training the average rating model
+2018-01-30 10:11:24,933 - __main__ - DEBUG - Done in 5.369525 seconds
+2018-01-30 10:11:25,079 - __main__ - DEBUG - Trying to get 1000 pairs for cross-validation
+2018-01-30 10:11:25,080 - __main__ - DEBUG - Counting nusers per each movie
+2018-01-30 10:11:27,236 - __main__ - DEBUG - 26284 movies found
+2018-01-30 10:11:27,239 - __main__ - DEBUG - 22408 movies with more than one user found
+2018-01-30 10:11:27,239 - __main__ - DEBUG - Counting nmovies per each user
+2018-01-30 10:11:40,284 - __main__ - DEBUG - 19912669 user-movie pairs in the data set
+2018-01-30 10:12:14,112 - __main__ - DEBUG - 138493 users found
+2018-01-30 10:12:14,123 - __main__ - DEBUG - 138493 users with more than one movie found
+2018-01-30 10:12:27,494 - __main__ - DEBUG - 19908793 user-movie pairs left after filtering
+2018-01-30 10:37:59,462 - __main__ - DEBUG - 1000 pairs created
+2018-01-30 10:38:04,249 - __main__ - DEBUG - archived_states/product_regression_all_regression_tree_rank_20_depth_8_ijcai_tree_lmbda_0.1_rank_20_maxdepth_8_nbins_32.state/als_model.pkl not found, bulding a new model
+2018-01-30 10:38:04,249 - __main__ - DEBUG - Training ALS recommender
+2018-01-30 10:52:31,854 - __main__ - DEBUG - Done in 867.604816 seconds
+2018-01-30 10:52:31,854 - __main__ - DEBUG - Saving model to archived_states/product_regression_all_regression_tree_rank_20_depth_8_ijcai_tree_lmbda_0.1_rank_20_maxdepth_8_nbins_32.state/als_model.pkl
+2018-01-30 10:52:37,559 - __main__ - DEBUG - ALS cross validation Evaluating the model
+2018-01-30 10:52:37,584 - __main__ - DEBUG - ALS cross validation Bin range: (0.0, 5.5)
+2018-01-30 10:52:43,707 - __main__ - DEBUG - Done in 6.147891 seconds
+2018-01-30 10:52:43,708 - __main__ - DEBUG - ALS cross validation Mean error: -0.118893932189, mean absolute error: 0.571076022179
+2018-01-30 10:52:44,052 - __main__ - DEBUG - ALS cross validation RMSE: 0.740266966248, variance explained: 0.413165436678, mean absolute error: 0.571076022179, r2: 0.460526344543
+2018-01-30 10:52:44,052 - __main__ - DEBUG - ALS cross validation MRAE: 0.224358195438
+2018-01-30 10:52:44,053 - __main__ - DEBUG - ALS cross validation Errors histogram: ([-5.5, -5.166666666666667, -4.833333333333333, -4.5, -4.166666666666667, -3.8333333333333335, -3.5, -3.166666666666667, -2.8333333333333335, -2.5, -2.166666666666667, -1.8333333333333335, -1.5, -1.166666666666667, -0.8333333333333339, -0.5, -0.16666666666666696, 0.16666666666666607, 0.5, 0.833333333333333, 1.166666666666666, 1.5, 1.833333333333333, 2.166666666666666, 2.5, 2.833333333333332, 3.166666666666666, 3.5, 3.833333333333332, 4.166666666666666, 4.5, 4.833333333333332, 5.166666666666666, 5.5], [0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 6, 16, 38, 76, 163, 213, 177, 156, 67, 31, 18, 19, 14, 3, 1, 1, 0, 0, 0, 0, 0, 0, 0])
+2018-01-30 10:52:44,053 - __main__ - DEBUG - ALS cross validation Absolute errors histogram: ([0.0, 0.16666666666666666, 0.3333333333333333, 0.5, 0.6666666666666666, 0.8333333333333333, 1.0, 1.1666666666666665, 1.3333333333333333, 1.5, 1.6666666666666665, 1.8333333333333333, 2.0, 2.1666666666666665, 2.333333333333333, 2.5, 2.6666666666666665, 2.833333333333333, 3.0, 3.1666666666666665, 3.333333333333333, 3.5, 3.6666666666666665, 3.833333333333333, 4.0, 4.166666666666666, 4.333333333333333, 4.5, 4.666666666666666, 4.833333333333333, 5.0, 5.166666666666666, 5.333333333333333, 5.5], [177, 207, 162, 134, 96, 61, 46, 34, 22, 22, 13, 15, 5, 4, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
+2018-01-30 10:52:44,053 - __main__ - DEBUG - ALS cross validation Squared errors histogram: ([0.0, 0.9166666666666666, 1.8333333333333333, 2.75, 3.6666666666666665, 4.583333333333333, 5.5, 6.416666666666666, 7.333333333333333, 8.25, 9.166666666666666, 10.083333333333332, 11.0, 11.916666666666666, 12.833333333333332, 13.75, 14.666666666666666, 15.583333333333332, 16.5, 17.416666666666664, 18.333333333333332, 19.25, 20.166666666666664, 21.083333333333332, 22.0, 22.916666666666664, 23.833333333333332, 24.75, 25.666666666666664, 26.583333333333332, 27.5, 28.416666666666664, 29.333333333333332, 30.25], [827, 95, 39, 19, 14, 4, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]):
+2018-01-30 10:52:44,053 - __main__ - DEBUG - ALS cross validation Predictions histogram: ([0.0, 0.16666666666666666, 0.3333333333333333, 0.5, 0.6666666666666666, 0.8333333333333333, 1.0, 1.1666666666666665, 1.3333333333333333, 1.5, 1.6666666666666665, 1.8333333333333333, 2.0, 2.1666666666666665, 2.333333333333333, 2.5, 2.6666666666666665, 2.833333333333333, 3.0, 3.1666666666666665, 3.333333333333333, 3.5, 3.6666666666666665, 3.833333333333333, 4.0, 4.166666666666666, 4.333333333333333, 4.5, 4.666666666666666, 4.833333333333333, 5.0, 5.166666666666666, 5.333333333333333, 5.5], [0, 0, 0, 0, 0, 0, 0, 2, 2, 5, 9, 2, 11, 26, 21, 43, 53, 63, 66, 87, 134, 102, 108, 78, 66, 58, 34, 18, 11, 1, 0, 0, 0])
+2018-01-30 10:52:44,053 - __main__ - DEBUG - ALS cross validation Observations histogram: ([0.0, 0.16666666666666666, 0.3333333333333333, 0.5, 0.6666666666666666, 0.8333333333333333, 1.0, 1.1666666666666665, 1.3333333333333333, 1.5, 1.6666666666666665, 1.8333333333333333, 2.0, 2.1666666666666665, 2.333333333333333, 2.5, 2.6666666666666665, 2.833333333333333, 3.0, 3.1666666666666665, 3.333333333333333, 3.5, 3.6666666666666665, 3.833333333333333, 4.0, 4.166666666666666, 4.333333333333333, 4.5, 4.666666666666666, 4.833333333333333, 5.0, 5.166666666666666, 5.333333333333333, 5.5], [0, 0, 0, 7, 0, 0, 36, 0, 0, 12, 0, 0, 64, 0, 0, 32, 0, 0, 223, 0, 0, 117, 0, 0, 296, 0, 0, 82, 0, 0, 131, 0, 0])
+2018-01-30 10:52:44,054 - __main__ - DEBUG - archived_states/product_regression_all_regression_tree_rank_20_depth_8_ijcai_tree_lmbda_0.1_rank_20_maxdepth_8_nbins_32.state/baseline_predictions.pkl not found, building new predictions
+2018-01-30 10:52:44,054 - __main__ - DEBUG - Computing model predictions
+2018-01-30 10:52:48,724 - __main__ - DEBUG - Done in 4.669768 seconds
+2018-01-30 10:52:48,724 - __main__ - DEBUG - Computing mean error
+2018-01-30 10:54:23,766 - __main__ - DEBUG - Done in 95.041901 seconds
+2018-01-30 10:54:23,767 - __main__ - DEBUG - Mean error: 0.60165187655, RMSE: 0.773475008581
+2018-01-30 10:54:23,804 - __main__ - DEBUG - Original recommender Evaluating the model
+2018-01-30 10:54:23,836 - __main__ - DEBUG - Original recommender Bin range: (0.0, 5.5)
+2018-01-30 10:57:46,869 - __main__ - DEBUG - Done in 203.064932 seconds
+2018-01-30 10:57:46,870 - __main__ - DEBUG - Original recommender Mean error: -0.0980038163591, mean absolute error: 0.60165187655
+2018-01-30 10:58:14,803 - __main__ - DEBUG - Original recommender RMSE: 0.773475008581, variance explained: 0.413347772409, mean absolute error: 0.60165187655, r2: 0.459127334137
+2018-01-30 10:58:14,803 - __main__ - DEBUG - Original recommender MRAE: 0.24698894387
+2018-01-30 10:58:14,803 - __main__ - DEBUG - Original recommender Errors histogram: ([-5.5, -5.166666666666667, -4.833333333333333, -4.5, -4.166666666666667, -3.8333333333333335, -3.5, -3.166666666666667, -2.8333333333333335, -2.5, -2.166666666666667, -1.8333333333333335, -1.5, -1.166666666666667, -0.8333333333333339, -0.5, -0.16666666666666696, 0.16666666666666607, 0.5, 0.833333333333333, 1.166666666666666, 1.5, 1.833333333333333, 2.166666666666666, 2.5, 2.833333333333332, 3.166666666666666, 3.5, 3.833333333333332, 4.166666666666666, 4.5, 4.833333333333332, 5.166666666666666, 5.5], [0, 0, 0, 4, 22, 133, 464, 1664, 5891, 22720, 86796, 297409, 835967, 1793885, 2973601, 3834442, 3652211, 2634675, 1627081, 931808, 532989, 316654, 182830, 100404, 51024, 21464, 6706, 1582, 220, 21, 2, 0, 0])
+2018-01-30 10:58:14,803 - __main__ - DEBUG - Original recommender Absolute errors histogram: ([0.0, 0.16666666666666666, 0.3333333333333333, 0.5, 0.6666666666666666, 0.8333333333333333, 1.0, 1.1666666666666665, 1.3333333333333333, 1.5, 1.6666666666666665, 1.8333333333333333, 2.0, 2.1666666666666665, 2.333333333333333, 2.5, 2.6666666666666665, 2.833333333333333, 3.0, 3.1666666666666665, 3.333333333333333, 3.5, 3.6666666666666665, 3.833333333333333, 4.0, 4.166666666666666, 4.333333333333333, 4.5, 4.666666666666666, 4.833333333333333, 5.0, 5.166666666666666, 5.333333333333333, 5.5], [3652211, 3428403, 3040714, 2553750, 2046932, 1571453, 1154240, 813390, 555566, 370354, 243709, 161654, 107972, 72812, 50312, 34233, 22682, 14457, 8671, 4727, 2443, 1195, 520, 192, 50, 19, 6, 2, 0, 0, 0, 0, 0])
+2018-01-30 10:58:14,803 - __main__ - DEBUG - Original recommender Squared errors histogram: ([0.0, 0.9166666666666666, 1.8333333333333333, 2.75, 3.6666666666666665, 4.583333333333333, 5.5, 6.416666666666666, 7.333333333333333, 8.25, 9.166666666666666, 10.083333333333332, 11.0, 11.916666666666666, 12.833333333333332, 13.75, 14.666666666666666, 15.583333333333332, 16.5, 17.416666666666664, 18.333333333333332, 19.25, 20.166666666666664, 21.083333333333332, 22.0, 22.916666666666664, 23.833333333333332, 24.75, 25.666666666666664, 26.583333333333332, 27.5, 28.416666666666664, 29.333333333333332, 30.25], [15934390, 2408095, 829537, 346051, 168318, 90951, 54127, 32782, 20211, 12122, 7260, 4016, 2291, 1248, 647, 349, 166, 60, 22, 15, 4, 5, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]):
+2018-01-30 10:58:14,803 - __main__ - DEBUG - Original recommender Predictions histogram: ([0.0, 0.16666666666666666, 0.3333333333333333, 0.5, 0.6666666666666666, 0.8333333333333333, 1.0, 1.1666666666666665, 1.3333333333333333, 1.5, 1.6666666666666665, 1.8333333333333333, 2.0, 2.1666666666666665, 2.333333333333333, 2.5, 2.6666666666666665, 2.833333333333333, 3.0, 3.1666666666666665, 3.333333333333333, 3.5, 3.6666666666666665, 3.833333333333333, 4.0, 4.166666666666666, 4.333333333333333, 4.5, 4.666666666666666, 4.833333333333333, 5.0, 5.166666666666666, 5.333333333333333, 5.5], [195, 484, 1824, 3539, 6618, 12683, 20931, 33633, 52082, 79812, 117866, 175235, 252769, 363824, 516990, 713186, 956239, 1245094, 1557115, 1860117, 2106881, 2226121, 2159065, 1886030, 1462983, 999655, 598877, 307598, 133282, 46669, 12458, 2386, 309])
+2018-01-30 10:58:14,804 - __main__ - DEBUG - Original recommender Observations histogram: ([0.0, 0.16666666666666666, 0.3333333333333333, 0.5, 0.6666666666666666, 0.8333333333333333, 1.0, 1.1666666666666665, 1.3333333333333333, 1.5, 1.6666666666666665, 1.8333333333333333, 2.0, 2.1666666666666665, 2.333333333333333, 2.5, 2.6666666666666665, 2.833333333333333, 3.0, 3.1666666666666665, 3.333333333333333, 3.5, 3.6666666666666665, 3.833333333333333, 4.0, 4.166666666666666, 4.333333333333333, 4.5, 4.666666666666666, 4.833333333333333, 5.0, 5.166666666666666, 5.333333333333333, 5.5], [0, 0, 0, 237647, 0, 0, 677127, 0, 0, 278250, 0, 0, 1424879, 0, 0, 880397, 0, 0, 4273372, 0, 0, 2192341, 0, 0, 5536793, 0, 0, 1528880, 0, 0, 2882983, 0, 0])
+2018-01-30 10:58:14,804 - __main__ - DEBUG - Writing archived_states/product_regression_all_regression_tree_rank_20_depth_8_ijcai_tree_lmbda_0.1_rank_20_maxdepth_8_nbins_32.state/baseline_predictions.pkl
+2018-01-30 11:04:25,282 - __main__ - DEBUG - Writing archived_states/product_regression_all_regression_tree_rank_20_depth_8_ijcai_tree_lmbda_0.1_rank_20_maxdepth_8_nbins_32.state/results.pkl
+2018-01-30 11:04:27,076 - __main__ - DEBUG - user_or_product_features: product
+2018-01-30 11:04:27,076 - __main__ - DEBUG - archived_states/product_regression_all_regression_tree_rank_20_depth_8_ijcai_tree_lmbda_0.1_rank_20_maxdepth_8_nbins_32.state/indicators.pkl not found, building new features
+2018-01-30 11:04:27,076 - __main__ - DEBUG - Loading years
+2018-01-30 11:04:28,153 - __main__ - DEBUG - Done in 1.07632899284 seconds
+2018-01-30 11:04:28,153 - __main__ - DEBUG - 26804 records of 1 features loaded
+2018-01-30 11:04:28,400 - __main__ - DEBUG - No missing IDs
+2018-01-30 11:04:28,400 - __main__ - DEBUG - Loading genres
+2018-01-30 11:04:28,933 - __main__ - DEBUG - Done in 0.533473968506 seconds
+2018-01-30 11:04:28,934 - __main__ - DEBUG - 26804 records of 18 features loaded
+2018-01-30 11:04:29,177 - __main__ - DEBUG - No missing IDs
+2018-01-30 11:04:29,201 - __main__ - DEBUG - Loading tags
+2018-01-30 11:04:31,129 - __main__ - DEBUG - Done in 1.92793703079 seconds
+2018-01-30 11:04:31,129 - __main__ - DEBUG - 19545 records of 72 features loaded
+2018-01-30 11:04:31,318 - __main__ - DEBUG - 7555 IDs are missing. Adding empty records for them
+2018-01-30 11:04:31,406 - __main__ - DEBUG - Done in 0.0880069732666 seconds
+2018-01-30 11:04:31,431 - __main__ - DEBUG - Loading imdb_keywords
+2018-01-30 11:04:34,072 - __main__ - DEBUG - Done in 2.64135694504 seconds
+2018-01-30 11:04:34,072 - __main__ - DEBUG - 26804 records of 994 features loaded
+2018-01-30 11:04:34,844 - __main__ - DEBUG - No missing IDs
+2018-01-30 11:04:34,885 - __main__ - DEBUG - Loading imdb_director
+2018-01-30 11:04:35,562 - __main__ - DEBUG - Done in 0.676465988159 seconds
+2018-01-30 11:04:35,562 - __main__ - DEBUG - 26804 records of 1 features loaded
+2018-01-30 11:04:35,860 - __main__ - DEBUG - No missing IDs
+2018-01-30 11:04:35,885 - __main__ - DEBUG - Loading imdb_producer
+2018-01-30 11:04:36,659 - __main__ - DEBUG - Done in 0.774168014526 seconds
+2018-01-30 11:04:36,659 - __main__ - DEBUG - 26804 records of 1 features loaded
+2018-01-30 11:04:36,963 - __main__ - DEBUG - No missing IDs
+2018-01-30 11:04:36,995 - __main__ - DEBUG - Loading tvtropes
+2018-01-30 11:04:37,742 - __main__ - DEBUG - Done in 0.747092008591 seconds
+2018-01-30 11:04:37,742 - __main__ - DEBUG - 6084 records of 110 features loaded
+2018-01-30 11:04:37,913 - __main__ - DEBUG - 20795 IDs are missing. Adding empty records for them
+2018-01-30 11:04:38,210 - __main__ - DEBUG - Done in 0.296370983124 seconds
+2018-01-30 11:04:38,238 - __main__ - DEBUG - Loading imdb_year
+2018-01-30 11:04:38,519 - __main__ - DEBUG - Done in 0.281421899796 seconds
+2018-01-30 11:04:38,520 - __main__ - DEBUG - 26804 records of 1 features loaded
+2018-01-30 11:04:38,813 - __main__ - DEBUG - No missing IDs
+2018-01-30 11:04:38,847 - __main__ - DEBUG - Loading imdb_rating
+2018-01-30 11:04:39,131 - __main__ - DEBUG - Done in 0.283747911453 seconds
+2018-01-30 11:04:39,132 - __main__ - DEBUG - 26804 records of 1 features loaded
+2018-01-30 11:04:39,413 - __main__ - DEBUG - No missing IDs
+2018-01-30 11:04:39,439 - __main__ - DEBUG - Loading imdb_cast
+2018-01-30 11:04:41,157 - __main__ - DEBUG - Done in 1.71793794632 seconds
+2018-01-30 11:04:41,157 - __main__ - DEBUG - 26804 records of 3 features loaded
+2018-01-30 11:04:41,488 - __main__ - DEBUG - No missing IDs
+2018-01-30 11:04:41,519 - __main__ - DEBUG - Loading imdb_cinematographer
+2018-01-30 11:04:42,245 - __main__ - DEBUG - Done in 0.726287126541 seconds
+2018-01-30 11:04:42,245 - __main__ - DEBUG - 26804 records of 1 features loaded
+2018-01-30 11:04:42,561 - __main__ - DEBUG - No missing IDs
+2018-01-30 11:04:42,587 - __main__ - DEBUG - Loading imdb_composer
+2018-01-30 11:04:43,296 - __main__ - DEBUG - Done in 0.70885181427 seconds
+2018-01-30 11:04:43,296 - __main__ - DEBUG - 26804 records of 1 features loaded
+2018-01-30 11:04:43,611 - __main__ - DEBUG - No missing IDs
+2018-01-30 11:04:43,636 - __main__ - DEBUG - Loading imdb_languages
+2018-01-30 11:04:44,283 - __main__ - DEBUG - Done in 0.647145986557 seconds
+2018-01-30 11:04:44,283 - __main__ - DEBUG - 26804 records of 12 features loaded
+2018-01-30 11:04:44,591 - __main__ - DEBUG - No missing IDs
+2018-01-30 11:04:44,616 - __main__ - DEBUG - Loading imdb_production_companies
+2018-01-30 11:04:46,426 - __main__ - DEBUG - Done in 1.81029009819 seconds
+2018-01-30 11:04:46,426 - __main__ - DEBUG - 26804 records of 9 features loaded
+2018-01-30 11:04:46,735 - __main__ - DEBUG - No missing IDs
+2018-01-30 11:04:46,760 - __main__ - DEBUG - Loading imdb_writer
+2018-01-30 11:04:47,505 - __main__ - DEBUG - Done in 0.744854927063 seconds
+2018-01-30 11:04:47,505 - __main__ - DEBUG - 26804 records of 1 features loaded
+2018-01-30 11:04:47,739 - __main__ - DEBUG - No missing IDs
+2018-01-30 11:04:47,772 - __main__ - DEBUG - Loading average_rating
+2018-01-30 11:04:48,110 - __main__ - DEBUG - Done in 0.337491035461 seconds
+2018-01-30 11:04:48,110 - __main__ - DEBUG - 26284 records of 1 features loaded
+2018-01-30 11:04:48,274 - __main__ - DEBUG - 520 IDs are missing. Adding empty records for them
+2018-01-30 11:04:48,291 - __main__ - DEBUG - Done in 0.0170421600342 seconds
+2018-01-30 11:04:48,312 - __main__ - DEBUG - 1227 features loaded
+2018-01-30 11:04:48,313 - __main__ - DEBUG - Dropping features with less than 250 non-zero values
+2018-01-30 11:05:10,348 - __main__ - DEBUG - Dropping 3 features
+2018-01-30 11:05:10,357 - __main__ - DEBUG - 1224 features remaining
+2018-01-30 11:05:10,358 - __main__ - DEBUG - Done in 22.044958 seconds
+2018-01-30 11:05:10,358 - __main__ - DEBUG - Writing archived_states/product_regression_all_regression_tree_rank_20_depth_8_ijcai_tree_lmbda_0.1_rank_20_maxdepth_8_nbins_32.state/indicators.pkl

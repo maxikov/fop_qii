@@ -116,8 +116,8 @@ DROP_RARE_MOVIES="25"
 
 REGRESSION_MODEL="linear"
 NORMALIZE="--normalize"
-for LMBDA in "0.1" "0.05" "0.01"; do
-for RANK in 12 20 50; do
+for LMBDA in "0.01"; do
+for RANK in 50; do
 
 
 NAME_SUFFIX="ijcai_linear_lmbda_${LMBDA}_rank_${RANK}"
