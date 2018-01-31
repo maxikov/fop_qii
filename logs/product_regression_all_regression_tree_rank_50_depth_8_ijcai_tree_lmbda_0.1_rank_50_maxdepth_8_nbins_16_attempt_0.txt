@@ -1,0 +1,49 @@
+spark-submit --driver-memory 64g MovieLensALS.py --spark-executor-memory 64g --local-threads 40 --num-partitions 40 --checkpoint-dir archived_states/spark_dir --temp-dir archived_states/spark_dir --persist-dir archived_states/product_regression_all_regression_tree_rank_50_depth_8_ijcai_tree_lmbda_0.1_rank_50_maxdepth_8_nbins_16.state --csv --data-path datasets/ml-20m --movies-file datasets/ml-20m/ml-20m.imdb.set1.csv --tvtropes-file datasets/dbtropes/tropes.csv --rank 50 --lmbda 0.1 --num-iter 300 --predict-product-features --metadata-sources years genres average_rating imdb_keywords imdb_producer imdb_director tvtropes tags imdb_year imdb_rating imdb_cast imdb_cinematographer imdb_composer imdb_languages imdb_production_companies imdb_writer --drop-rare-features 250 --drop-rare-movies 25 --cross-validation 70 --regression-model regression_tree --nbins 16 --max-depth 8 --features-trim-percentile 0 --no-ht --filter-data-set 10 --als-cross-validation 1000
+2018-01-31 11:28:01,468 - __main__ - DEBUG - rank: 50, lmbda: 0.1, num_iter: 300, num_partitions: 40
+2018-01-31 11:28:01,468 - __main__ - DEBUG - data_path: datasets/ml-20m, checkpoint_dir: archived_states/spark_dir
+2018-01-31 11:28:01,468 - __main__ - DEBUG - Temp dir: archived_states/spark_dir
+2018-01-31 11:28:01,468 - __main__ - DEBUG - local_threads: 40
+2018-01-31 11:28:01,468 - __main__ - DEBUG - spark_executor_memory: 64g
+2018-01-31 11:28:01,468 - __main__ - DEBUG - cold_start: 0
+2018-01-31 11:28:01,468 - __main__ - DEBUG - regression_model: regression_tree
+2018-01-31 11:28:01,468 - __main__ - DEBUG - nbins: 16
+2018-01-31 11:28:01,468 - __main__ - DEBUG - regression_users: False
+2018-01-31 11:28:01,468 - __main__ - DEBUG - predict_product_features: True
+2018-01-31 11:28:01,468 - __main__ - DEBUG - metadata_sources: ['years', 'genres', 'average_rating', 'imdb_keywords', 'imdb_producer', 'imdb_director', 'tvtropes', 'tags', 'imdb_year', 'imdb_rating', 'imdb_cast', 'imdb_cinematographer', 'imdb_composer', 'imdb_languages', 'imdb_production_companies', 'imdb_writer']
+2018-01-31 11:28:01,468 - __main__ - DEBUG - movies_file: datasets/ml-20m/ml-20m.imdb.set1.csv
+2018-01-31 11:28:01,468 - __main__ - DEBUG - cross_validation: 70
+2018-01-31 11:28:01,468 - __main__ - DEBUG - tvtropes_file: datasets/dbtropes/tropes.csv
+2018-01-31 11:28:01,468 - __main__ - DEBUG - features_trim_percentile: 0
+2018-01-31 11:28:01,468 - __main__ - DEBUG - drop_missing_movies: False
+2018-01-31 11:28:01,468 - __main__ - DEBUG - drop_rare_features: 250
+2018-01-31 11:28:01,468 - __main__ - DEBUG - filter_data_set: 10
+2018-01-31 11:28:01,468 - __main__ - DEBUG - persist_dir: archived_states/product_regression_all_regression_tree_rank_50_depth_8_ijcai_tree_lmbda_0.1_rank_50_maxdepth_8_nbins_16.state, override_args: False
+2018-01-31 11:28:01,468 - __main__ - DEBUG - drop_rare_movies: 25
+2018-01-31 11:28:01,468 - __main__ - DEBUG - normalize: False
+2018-01-31 11:28:01,469 - __main__ - DEBUG - max_depth: 8
+2018-01-31 11:28:01,469 - __main__ - DEBUG - no_ht: True
+2018-01-31 11:28:01,469 - __main__ - DEBUG - csv: True
+2018-01-31 11:28:01,469 - __main__ - DEBUG - archived_states/product_regression_all_regression_tree_rank_50_depth_8_ijcai_tree_lmbda_0.1_rank_50_maxdepth_8_nbins_16.state/args.pkl not found, loading new
+2018-01-31 11:28:01,469 - __main__ - DEBUG - Storing in archived_states/product_regression_all_regression_tree_rank_50_depth_8_ijcai_tree_lmbda_0.1_rank_50_maxdepth_8_nbins_16.state/args.pkl
+2018-01-31 11:28:03,272 - __main__ - DEBUG - msep: ,
+2018-01-31 11:28:03,272 - __main__ - DEBUG - Loading ratings
+2018-01-31 11:28:11,458 - __main__ - DEBUG - Done in 8.185134 seconds
+2018-01-31 11:28:11,458 - __main__ - DEBUG - Loading movies
+2018-01-31 11:28:13,809 - __main__ - DEBUG - Done in 2.350909 seconds
+2018-01-31 11:28:13,809 - __main__ - DEBUG - 26804 movies loaded
+2018-01-31 11:28:30,006 - __main__ - DEBUG - 19912669 records in the training set
+2018-01-31 11:28:33,252 - __main__ - DEBUG - 26284 unique movies in the training set
+2018-01-31 11:28:33,252 - __main__ - DEBUG - Started internal_feature_predictor
+2018-01-31 11:28:33,252 - __main__ - DEBUG - Trying to load previous results
+2018-01-31 11:28:33,252 - __main__ - DEBUG - archived_states/product_regression_all_regression_tree_rank_50_depth_8_ijcai_tree_lmbda_0.1_rank_50_maxdepth_8_nbins_16.state/results.pkl not found
+2018-01-31 11:28:33,252 - __main__ - DEBUG - Training the average rating model
+2018-01-31 11:28:38,425 - __main__ - DEBUG - Done in 5.173045 seconds
+2018-01-31 11:28:38,567 - __main__ - DEBUG - Trying to get 1000 pairs for cross-validation
+2018-01-31 11:28:38,567 - __main__ - DEBUG - Counting nusers per each movie
+2018-01-31 11:28:40,622 - __main__ - DEBUG - 26284 movies found
+2018-01-31 11:28:40,625 - __main__ - DEBUG - 22408 movies with more than one user found
+2018-01-31 11:28:40,625 - __main__ - DEBUG - Counting nmovies per each user
+2018-01-31 11:28:53,519 - __main__ - DEBUG - 19912669 user-movie pairs in the data set
+2018-01-31 11:29:27,783 - __main__ - DEBUG - 138493 users found
+2018-01-31 11:29:27,794 - __main__ - DEBUG - 138493 users with more than one movie found
+2018-01-31 11:29:41,367 - __main__ - DEBUG - 19908793 user-movie pairs left after filtering
